@@ -1,0 +1,38 @@
+---
+title: Why the inverse must also be continuous
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Why the inverse must also be continuous" part="Part I — Starting Out" chapter="2. Metric Topology · Homeomorphisms">
+
+You might be surprised that the definition demands $f^{-1}$ be continuous on top of $f$ being a continuous bijection. Why isn't continuity in one direction enough?
+
+The cleanest way to see it is by comparison with group isomorphisms. There, once you have a bijective homomorphism $\phi \colon G \to H$, a short calculation shows $\phi^{-1}$ automatically respects the group operation — so the inverse is "free". For continuous bijections this freebie does **not** hold: there are genuinely continuous bijections whose set-theoretic inverse fails to be continuous.
+
+<Callout kind="example" title="Homeomorphism ≠ continuous bijection">
+Two warning examples:
+
+- **A line wrapping onto a circle.** There is a continuous bijection $[0, 1) \to S^1$ sending $t$ to the point on the unit circle at angle $2\pi t$. As $t$ approaches $1$ from below, its image approaches the image of $0$ — so the inverse map would have to send those nearby circle points to wildly distant values of $t$ (near $1$ vs. near $0$). The inverse is **not** continuous, so this is not a homeomorphism.
+- **A discrete space the size of $\RR$.** Let $M$ be a <Term k="discreteMetric">discrete metric space</Term> with $|M| = |\RR|$. Pick any bijection $f \colon M \to \RR$. From the previous section, *every* map out of a discrete space is continuous, so $f$ is a continuous bijection. But the inverse $\RR \to M$ is certainly not continuous: in $\RR$ points can sit arbitrarily close together, while in $M$ distinct points are forced to be exactly $1$ apart.
+</Callout>
+
+So the two-sided continuity in the definition of a homeomorphism is doing real work — without it, "$f$ is a continuous bijection" would lump together spaces that have genuinely different topological behaviour.
+
+<MCQ
+  client:load
+  id="top-homeo-mcq-not-a-homeomorphism"
+  prompt="Which of the following is NOT a homeomorphism?"
+  options={[
+    { id: "a", label: "The identity map M -> M on any metric space M." },
+    { id: "b", label: "A continuous bijection [0, 1) -> S^1 wrapping the interval onto the unit circle." },
+    { id: "c", label: "The map x -> 10x viewed as a bijection R -> R." },
+    { id: "d", label: "The composition of two homeomorphisms M -> N -> L." },
+  ]}
+  correct="b"
+  explanation="Option (b) is the canonical counterexample: it is a continuous bijection, but its inverse is not continuous (points on the circle near the image of 0 split into preimages near 0 and near 1, so the inverse 'tears' the circle open). Options (a), (c), (d) are all genuine homeomorphisms: the identity is trivially a homeomorphism on any space; x -> 10x is a continuous bijection R -> R with continuous inverse t -> t/10; and the composition of two homeomorphisms is again a homeomorphism (continuous bijection with continuous inverse, both following from the composition lemma for continuous maps)."
+/>
+
+</SlideLayout>

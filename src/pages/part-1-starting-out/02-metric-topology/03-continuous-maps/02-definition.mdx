@@ -1,0 +1,40 @@
+---
+title: The definition of a continuous map
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The definition of a continuous map" part="Part I — Starting Out" chapter="2. Metric Topology · Continuous maps">
+
+All we have to do is replace the absolute values from the calculus definition with the more general distance functions. This gives us a definition of continuity for *any* function between metric spaces.
+
+<Callout kind="definition" title="Continuous map">
+Let $M = (M, d_M)$ and $N = (N, d_N)$ be metric spaces. A function $f \colon M \to N$ is **<Term k="continuous">continuous</Term>** at a point $p \in M$ if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that
+$$
+d_M(x, p) < \delta \;\implies\; d_N(f(x), f(p)) < \varepsilon.
+$$
+
+The function $f$ is **continuous** (without qualification) if it is continuous at every point $p \in M$.
+</Callout>
+
+Notice the asymmetry: $d_M$ measures distance between *inputs* (which live in $M$), and $d_N$ measures distance between *outputs* (which live in $N$). This is reminiscent of how the definition of a group isomorphism uses one operation on the source and a different one on the target — each side gets the structure native to its own space.
+
+The generalisation is useful because it tells us immediately how to carry continuity arguments from $\RR$ over to more general spaces like <Term k="CC">$\CC$</Term> or any of the metric spaces we have already met.
+
+<MCQ
+  client:load
+  id="top-cont-mcq-which-metric"
+  prompt="In the epsilon-delta definition, the condition d(x, p) < delta uses which metric?"
+  options={[
+    { id: "a", label: "d_M, the metric on the source space M." },
+    { id: "b", label: "d_N, the metric on the target space N." },
+    { id: "c", label: "Either — they're interchangeable here." },
+    { id: "d", label: "Neither — this condition doesn't reference a metric." },
+  ]}
+  correct="a"
+  explanation="The points x and p both live in M (they're inputs to f), so the distance between them must be measured by M's metric, d_M. The output side — d(f(x), f(p)) < epsilon — uses d_N because f(x) and f(p) live in N. The two metrics are NOT interchangeable in general: in the definition the symbol d_M is bound to the source and d_N to the target."
+/>
+
+</SlideLayout>

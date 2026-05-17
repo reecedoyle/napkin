@@ -1,0 +1,47 @@
+---
+title: Closed sets are complements of open sets
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Closed sets are complements of open sets" part="Part I — Starting Out" chapter="2. Metric Topology · Closed sets">
+
+The reason for the opposing terms "open" and "closed" is the following theorem. It says that the two notions are *dual* — knowing the open sets determines the closed sets, and vice versa.
+
+<Callout kind="theorem" title="Closed sets are complements of open sets">
+Let $M$ be a <Term k="metricSpace">metric space</Term> and $S \subseteq M$ any subset. The following are equivalent:
+
+- The set $S$ is <Term k="closedSet">closed</Term> in $M$.
+- The complement $M \setminus S$ is <Term k="openSet">open</Term> in $M$.
+</Callout>
+
+This is what justifies the names. "Open" sets are the ones with no boundary points included; "closed" sets are exactly their complements — the ones that *do* include their boundary. The two notions package the same information from opposite sides.
+
+In particular, this gives a second, equivalent definition of "closed": $S$ is closed in $M$ iff $M \setminus S$ is open in $M$. You may pick whichever side is more convenient in any given proof.
+
+The proof is short but illuminating, and is famously the kind of exercise everyone should do once.
+
+<ProofReveal
+  client:load
+  id="top-closed-proof-complement-open"
+  prompt="(GREAT EXERCISE.) Prove the theorem: S is closed in M iff M \ S is open in M. Try drawing a picture — e.g. take M = R^2 and S = the closed unit disk — to see what each direction is really saying."
+  solution="Let U = M \ S. We prove both implications.
+
+(⇒) Suppose S is closed; show U is open. Take any p ∈ U. We must produce an r > 0 with M_r(p) ⊆ U.
+
+Suppose for contradiction that no such r exists. Then for every n ≥ 1, the neighborhood M_{1/n}(p) is *not* contained in U, so it meets S — pick some x_n ∈ S with d(x_n, p) < 1/n.
+
+The sequence (x_n) lies in S and satisfies d(x_n, p) → 0, so x_n → p in M. Since S is closed, p ∈ S. But p ∈ U = M \ S, contradiction. So some r works, and U is open.
+
+(⇐) Suppose U is open; show S is closed. Let (x_n) be a sequence in S with x_n → p in M. We must show p ∈ S.
+
+Suppose for contradiction p ∉ S, i.e. p ∈ U. By openness of U at p, there is some r > 0 with M_r(p) ⊆ U. By convergence x_n → p, eventually d(x_n, p) < r, so eventually x_n ∈ M_r(p) ⊆ U = M \ S. But this contradicts x_n ∈ S. Hence p ∈ S, and S is closed.
+
+Picture: with M = R^2 and S the closed unit disk, U = M \ S is the open exterior {(x,y) : x² + y² > 1}. The (⇒) direction observes that around any exterior point you can fit a disk that stays in the exterior, because if you couldn't you'd find a sequence in S converging to a non-S point — impossible. The (⇐) direction observes that a sequence in S can't run away to the exterior, because the exterior is open around any limit it might reach."
+/>
+
+With this theorem in hand, every fact about open sets translates to one about closed sets by taking complements. For instance, the dual of "finite intersection, arbitrary union" for open sets becomes "**arbitrary intersection, finite union**" for closed sets — try writing that one out as a corollary using De Morgan's laws.
+
+</SlideLayout>

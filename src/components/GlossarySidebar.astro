@@ -1,0 +1,179 @@
+---
+/**
+ * Sidebar pinned to the right edge of the viewport, listing only the
+ * glossary entries actually used on the current slide.
+ *
+ * Each entry gets `id="g-<key>"` so a `<Term>` link can scroll/highlight it.
+ */
+import katex from 'katex';
+import { glossary } from '../lib/glossary';
+import { napkinKatexMacros } from '../lib/katex-macros';
+
+interface Props {
+  keys?: string[];
+}
+
+const { keys = [] } = Astro.props;
+const allEntries = Object.entries(glossary);
+// Keep entries in glossary.ts declaration order, but only the ones used here.
+const entries = keys.length > 0
+  ? allEntries.filter(([k]) => keys.includes(k))
+  : [];
+
+function renderInlineKatex(src: string): string {
+  try {
+    return katex.renderToString(src, {
+      macros: { ...napkinKatexMacros },
+      throwOnError: false,
+      displayMode: false,
+      strict: 'ignore',
+    });
+  } catch {
+    return src;
+  }
+}
+---
+<aside class="napkin-glossary-sidebar" aria-label="Glossary for this slide">
+  <div class="napkin-glossary-sidebar-header">
+    <h2 class="napkin-glossary-sidebar-title">On this slide</h2>
+    {entries.length === 0 && (
+      <p class="napkin-glossary-sidebar-empty">No marked notation on this slide.</p>
+    )}
+  </div>
+
+  {entries.length > 0 && (
+    <dl class="napkin-glossary-list">
+      {entries.map(([key, entry]) => (
+        <div id={`g-${key}`} class="napkin-glossary-item">
+          <dt class="napkin-glossary-dt">
+            <span class="napkin-glossary-name">{entry.term}</span>
+            {entry.symbol && (
+              <span class="napkin-glossary-symbol" set:html={renderInlineKatex(entry.symbol)} />
+            )}
+          </dt>
+          <dd class="napkin-glossary-dd">{entry.definition}</dd>
+        </div>
+      ))}
+    </dl>
+  )}
+
+  <div class="napkin-glossary-sidebar-footer">
+    <a href="/glossary" class="napkin-glossary-full-link">
+      View full glossary →
+    </a>
+  </div>
+</aside>
+
+<style is:global>
+  .napkin-glossary-sidebar {
+    position: fixed;
+    top: 4.5rem;
+    right: 1rem;
+    width: 280px;
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+    padding: 1rem 1rem 1rem 1.25rem;
+    border-left: 1px solid rgb(231 229 228);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color: rgb(68 64 60);
+    background: rgb(250 250 249);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-sidebar {
+      color: rgb(214 211 209);
+      background: rgb(12 10 9);
+      border-left-color: rgb(41 37 36);
+    }
+  }
+  /* Hide on viewports too narrow to fit sidebar + 760px main column + gap. */
+  @media (max-width: 1139px) {
+    .napkin-glossary-sidebar { display: none; }
+  }
+
+  .napkin-glossary-sidebar-header {
+    margin-bottom: 0.75rem;
+  }
+  .napkin-glossary-sidebar-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(120 113 108);
+    margin: 0 0 0.4rem 0;
+    font-weight: 600;
+  }
+  .napkin-glossary-sidebar-empty {
+    font-size: 0.8rem;
+    color: rgb(120 113 108);
+    margin: 0;
+  }
+  .napkin-glossary-list {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .napkin-glossary-item {
+    scroll-margin-top: 1rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 200ms;
+  }
+  .napkin-glossary-item:target {
+    background: rgb(254 252 232);
+    box-shadow: -2px 0 0 rgb(217 119 6);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-item:target {
+      background: rgb(41 37 36);
+      box-shadow: -2px 0 0 rgb(245 158 11);
+    }
+  }
+  .napkin-glossary-dt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0 0 0.15rem 0;
+    font-size: 0.85rem;
+  }
+  .napkin-glossary-name {
+    font-weight: 600;
+    color: rgb(28 25 23);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-name { color: rgb(245 245 244); }
+  }
+  .napkin-glossary-symbol {
+    color: rgb(120 113 108);
+    font-size: 0.95em;
+  }
+  .napkin-glossary-symbol .katex { font-size: 0.95em; }
+  .napkin-glossary-dd {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  .napkin-glossary-sidebar-footer {
+    border-top: 1px solid rgb(231 229 228);
+    padding-top: 0.75rem;
+    font-size: 0.8rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-sidebar-footer { border-top-color: rgb(41 37 36); }
+  }
+  .napkin-glossary-full-link {
+    color: rgb(68 64 60);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgb(168 162 158);
+  }
+  .napkin-glossary-full-link:hover {
+    color: rgb(28 25 23);
+    text-decoration-color: rgb(120 113 108);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-full-link { color: rgb(214 211 209); }
+    .napkin-glossary-full-link:hover { color: rgb(245 245 244); }
+  }
+</style>

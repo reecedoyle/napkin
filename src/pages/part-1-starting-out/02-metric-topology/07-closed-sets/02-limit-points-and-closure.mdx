@@ -1,0 +1,53 @@
+---
+title: Limit points and the closure
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Limit points and the closure" part="Part I — Starting Out" chapter="2. Metric Topology · Closed sets">
+
+Here is another way to phrase the definition of closed. We collect together every point that some sequence in $S$ can reach, and ask whether $S$ has caught them all.
+
+<Callout kind="definition" title="Limit points and closure">
+Let $S \subseteq M$. The set of <Term k="limitPoint">limit points</Term> of $S$ is
+$$
+\lim S \mathrel{:=} \bigl\{ p \in M : \exists\, (x_n) \subseteq S \text{ with } x_n \to p \bigr\}.
+$$
+The set $\lim S$ is also called the <Term k="closure">closure</Term> of $S$ in $M$, denoted $\overline{S}$.
+</Callout>
+
+Note that $S \subseteq \overline{S}$ always: every point $p \in S$ is the limit of the constant sequence $p, p, p, \dots$. So $\overline{S}$ is what you get from $S$ by "filling in" any limits the sequences in $S$ might still escape to.
+
+The original definition is now a single equation:
+
+$$
+S \text{ is closed} \iff S = \overline{S}.
+$$
+
+Indeed, the inclusion $S \subseteq \overline{S}$ is automatic; what closedness adds is the reverse inclusion $\overline{S} \subseteq S$, which says exactly that every limit of a convergent sequence in $S$ already lies in $S$.
+
+It turns out the closure of *any* set is automatically closed — even if the set you started with wasn't.
+
+<ProofReveal
+  client:load
+  id="top-closed-proof-closure-is-closed"
+  prompt="Prove that lim S is closed in M, even if S itself is not closed. (Draw a picture: imagine S as an open disk in the plane; what is lim S?)"
+  solution="We must show: if (p_n) is a sequence in lim S with p_n → p in M, then p ∈ lim S — i.e. there is a sequence in S converging to p.
+
+Since each p_n is a limit point of S, for each n we may pick a sequence in S converging to p_n. In particular, for each n we can choose a single point x_n ∈ S with d(x_n, p_n) < 1/n. (Just truncate the witnessing sequence far enough out.)
+
+I claim x_n → p. By the triangle inequality,
+  d(x_n, p) ≤ d(x_n, p_n) + d(p_n, p) < 1/n + d(p_n, p).
+
+The first term tends to 0 by choice of x_n; the second term tends to 0 because p_n → p. So d(x_n, p) → 0, i.e. x_n → p.
+
+Since (x_n) is a sequence in S with limit p, we have p ∈ lim S. Therefore lim S is closed.
+
+Picture: if S is the open unit disk, lim S is the closed unit disk — and adding the boundary circle is precisely the operation that makes the set closed. Taking the closure of the closure does nothing new."
+/>
+
+So $\overline{S}$ is closed, contains $S$, and is — as you can check by combining the previous two facts — the **smallest** closed set containing $S$.
+
+</SlideLayout>

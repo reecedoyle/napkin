@@ -1,0 +1,75 @@
+---
+title: Groups of order 8
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="Groups of order 8" part="Part I — Starting Out" chapter="1. Groups · Small orders">
+
+Order $8$ is the first place the menagerie really opens up. There are **five** groups of order $8$ up to isomorphism — three abelian, two non-abelian.
+
+<Callout kind="example" title="The five groups of order 8">
+- $\Zc 8$, the cyclic group on eight elements.
+- $\Zc 4 \times \Zc 2$.
+- $\Zc 2 \times \Zc 2 \times \Zc 2$.
+- $D_8$, the dihedral group of order $8$ (symmetries of a square). Non-abelian.
+- $Q_8$, the *quaternion group*. Non-abelian.
+</Callout>
+
+The first three are all abelian and pairwise non-isomorphic — they are distinguished, again, by the orders of their elements. ($\Zc 8$ has an element of order $8$; $\Zc 4 \times \Zc 2$ has elements of order $4$ but none of order $8$; in $\Zc 2 \times \Zc 2 \times \Zc 2$ everything non-trivial has order $2$.)
+
+The last entry deserves its own callout.
+
+<Callout kind="example" title="Quaternion group">
+The **quaternion group** $Q_8$ consists of the eight elements
+
+$$
+\pm 1, \quad \pm i, \quad \pm j, \quad \pm k
+$$
+
+subject to the multiplication relations
+
+$$
+i^2 = j^2 = k^2 = ijk = -1.
+$$
+
+These few rules determine the entire multiplication table. For instance, multiplying $ijk = -1$ on the right by $k\inv = -k$ gives $ij = k$, and similar manipulations recover $jk = i$, $ki = j$, together with $ji = -k$, $kj = -i$, $ik = -j$. So $Q_8$ is non-abelian.
+</Callout>
+
+Even though $|Q_8| = |D_8| = 8$ and both are non-abelian, $Q_8$ and $D_8$ are *not* isomorphic. In $D_8$ there are several elements of order $2$ (every reflection is its own inverse), while in $Q_8$ the only element of order $2$ is $-1$.
+
+<NumericInput
+  client:load
+  id="grp-small-num-count-order-8"
+  prompt="How many groups of order 8 are there, up to isomorphism?"
+  expected="5"
+  placeholder="a number"
+  explanation="Three abelian — Z/8Z, Z/4Z × Z/2Z, Z/2Z × Z/2Z × Z/2Z — and two non-abelian — D_8 and Q_8. Five total."
+/>
+
+<NumericInput
+  client:load
+  id="grp-small-num-q8-size"
+  prompt="What is the order of the quaternion group Q_8?"
+  expected="8"
+  placeholder="a number"
+  explanation="The eight elements are ±1, ±i, ±j, ±k. (The subscript 8 in Q_8 records the order of the group.)"
+/>
+
+<MCQ
+  client:load
+  id="grp-small-mcq-q8-vs-d8"
+  prompt="Q_8 and D_8 both have order 8 and are both non-abelian. What's a clean way to tell them apart?"
+  options={[
+    { id: "a", label: "Count elements of order 2: Q_8 has just one (-1), while D_8 has several (every reflection)." },
+    { id: "b", label: "D_8 is abelian; Q_8 is not." },
+    { id: "c", label: "They have different orders." },
+    { id: "d", label: "You can't — any two non-abelian groups of order 8 are isomorphic." },
+  ]}
+  correct="a"
+  explanation="Both are non-abelian (b is false) and both have order 8 (c is false). Option (d) is wrong precisely because Q_8 and D_8 are non-isomorphic. The cleanest invariant: count elements of each order. In Q_8 the only element of order 2 is -1 (and i^2 = j^2 = k^2 = -1, so i, j, k all have order 4). In D_8 the n = 4 reflections each have order 2, plus the rotation by 180°, giving 5 elements of order 2."
+/>
+
+</SlideLayout>

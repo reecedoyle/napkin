@@ -1,0 +1,37 @@
+---
+title: Two problems exploiting orders
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Two problems exploiting orders" part="Part I — Starting Out" chapter="1. Groups · Problems">
+
+Two problems that look unrelated but share the same trick: build the right group, look at element orders (or $g^{|G|} = 1$), and the answer falls out. The first is a sharp bound; the second is a Fibonacci divisibility identity that becomes one line after picking the right group.
+
+<Problem
+  client:load
+  id="grp-prob-d2018-in-sn"
+  prompt="Find the smallest integer n such that the symmetric group S_n has a subgroup isomorphic to the dihedral group D_2018 of order 2018."
+  hint="Note 1009 is prime. For the lower bound on n, use element orders. For the upper bound, think of D_2018 acting on a 1009-gon."
+  solution="The answer is n = 1009. (Note 2018 = 2 · 1009 and 1009 is prime.)
+
+Lower bound. D_2018 contains a rotation of order 1009 (a prime). A permutation in S_n has order equal to the lcm of its cycle lengths, so for S_n to contain an element of order 1009 it must contain a cycle of length 1009 — which requires n ≥ 1009.
+
+Upper bound. Realise D_2018 as the symmetry group of a regular 1009-gon and label the vertices 1, 2, ..., 1009. Each symmetry permutes those labels, giving an injection D_2018 ↪ S_1009. This image is a subgroup of S_1009 isomorphic to D_2018. So n = 1009 suffices, and combined with the lower bound this is the minimum."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="grp-prob-fibonacci"
+  prompt="Let p be a prime, and let F_1 = F_2 = 1, F_{n+2} = F_{n+1} + F_n be the Fibonacci sequence. Show that F_{2p(p^2 - 1)} is divisible by p."
+  hint="Look at the group of 2 × 2 matrices mod p with determinant ±1."
+  solution="Let G be the group of 2 × 2 matrices over the field Z/pZ with determinant ±1. This is a finite group — counting argument: GL_2(Z/pZ) has (p^2 - 1)(p^2 - p) elements, and G is the kernel of det^2 (or one can compute |G| directly), and one finds |G| = 2p(p^2 - 1).
+
+Now consider the matrix g = [[1, 1], [1, 0]] (mod p). It has det g = -1, so g ∈ G. By induction, g^n = [[F_{n+1}, F_n], [F_n, F_{n-1}]] (mod p) — the standard Fibonacci-as-matrix-power identity.
+
+By Lagrange's theorem (or, in this case, the abelian-style proof from Problem 2 generalised), g^{|G|} is the identity matrix, where |G| = 2p(p^2 - 1). Reading off the top-right entry of g^{|G|} = I gives F_{2p(p^2 - 1)} ≡ 0 (mod p), as required."
+  difficulty="standard"
+/>
+
+</SlideLayout>

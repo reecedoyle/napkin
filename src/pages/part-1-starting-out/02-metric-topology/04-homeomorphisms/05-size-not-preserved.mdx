@@ -1,0 +1,35 @@
+---
+title: Homeomorphisms don't preserve size
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Homeomorphisms don't preserve size" part="Part I — Starting Out" chapter="2. Metric Topology · Homeomorphisms">
+
+Distances are not a topological invariant. The most dramatic illustration: the open interval $(-1, 1)$, which is "bounded", is homeomorphic to the entire real line <Term k="RR">$\RR$</Term>, which is "unbounded".
+
+<Callout kind="example" title="(-1, 1) is homeomorphic to R">
+The map
+$$
+f \colon (-1, 1) \to \RR, \qquad x \mapsto \tan\!\left(\frac{\pi x}{2}\right)
+$$
+is a homeomorphism, with inverse
+$$
+f^{-1} \colon \RR \to (-1, 1), \qquad t \mapsto \frac{2}{\pi}\,\arctan(t).
+$$
+</Callout>
+
+So $(-1, 1)$ and $\RR$, despite looking very different — one fits between two stakes and the other runs off to infinity in both directions — have the same topological structure. Boundedness, total length, "size" in any size-y sense: these are properties of the metric, not of the topology.
+
+<ProofReveal
+  client:load
+  id="top-homeo-proof-tan-bijection"
+  prompt="Sketch why x -> tan(pi x / 2) is a homeomorphism from (-1, 1) to R."
+  solution="There are three things to check: bijection, f continuous, f^{-1} continuous. (1) Bijection: on the open interval (-pi/2, pi/2), the standard tangent function tan: (-pi/2, pi/2) -> R is a bijection — it is strictly increasing (its derivative sec^2 is positive) and surjective (tan -> -infinity as input -> -pi/2 and tan -> +infinity as input -> pi/2, so by the intermediate value theorem it hits every real value exactly once). Composing with the bijective scaling x -> pi x / 2 from (-1, 1) onto (-pi/2, pi/2) shows that f(x) = tan(pi x / 2) is a bijection (-1, 1) -> R. (2) f is continuous: x -> pi x / 2 is continuous (linear), and tan is continuous on (-pi/2, pi/2), so the composition is continuous by the composition-of-continuous-maps lemma from the previous section. (3) f^{-1} is continuous: arctan: R -> (-pi/2, pi/2) is continuous, and t -> 2t / pi is continuous, so f^{-1}(t) = (2/pi) arctan(t) is continuous, again by composition. All three boxes ticked, so f is a homeomorphism."
+/>
+
+Once you have this, you can run the trick in other dimensions: any open ball in $\RR^n$ is homeomorphic to all of $\RR^n$. Trying to distinguish "the inside of a ball" from "all of Euclidean space" is, topologically, hopeless. To capture finite-versus-infinite you need a stronger notion — *compactness* — which we will meet later.
+
+</SlideLayout>

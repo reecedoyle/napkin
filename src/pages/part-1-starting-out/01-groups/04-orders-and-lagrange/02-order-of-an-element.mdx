@@ -1,0 +1,57 @@
+---
+title: The order of an element
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="The order of an element" part="Part I — Starting Out" chapter="1. Groups · Orders and Lagrange">
+
+The second notion of order attaches to a single element, not the whole group.
+
+<Callout kind="definition" title="Order of an element">
+The **order of an element** $g \in G$ is the smallest positive integer $n$ such that
+
+$$
+g^n = 1_G,
+$$
+
+or $\infty$ if no such $n$ exists. We denote this by $\ord g$.
+</Callout>
+
+<Callout kind="example" title="Some orders of elements">
+- In $\QQ^\times$, the element $-1$ has order $2$: $(-1)^2 = 1$, and no smaller positive power works.
+- In $\ZZ$ (written additively, so "powers" mean repeated addition), the element $1$ has *infinite* order: $\underbrace{1 + 1 + \cdots + 1}_{n} = n \neq 0$ for any positive $n$.
+- If you remember olympiad number theory, $\ord g$ in $\Zm p$ is exactly the *order of the residue $g$ mod $p$*. A **primitive root** mod $p$ is precisely an element $g \in \Zm p$ with $\ord g = p - 1$.
+</Callout>
+
+Let's compute one concretely. Recall $\Zc{6} = \{0, 1, 2, 3, 4, 5\}$ under addition mod $6$. The "powers" of an element $\bar{a} \in \Zc{6}$ are the multiples $\bar{a}, 2\bar{a}, 3\bar{a}, \dots$, and we're asking for the smallest $n \geq 1$ with $n \bar{a} \equiv 0 \pmod 6$.
+
+<NumericInput
+  client:load
+  id="grp-ord-num-2-in-z6"
+  prompt="What is the order of the element 2 (the residue of 2) in Z/6Z?"
+  expected="3"
+  placeholder="a number"
+  explanation="We want the smallest n >= 1 with 2n ≡ 0 (mod 6). The multiples are 2, 4, 6 ≡ 0, so n = 3. (Equivalently, the order of a in Z/mZ is m / gcd(a, m), and here 6 / gcd(2,6) = 6/2 = 3.)"
+/>
+
+<NumericInput
+  client:load
+  id="grp-ord-num-3-in-z6"
+  prompt="What is the order of the element 3 (the residue of 3) in Z/6Z?"
+  expected="2"
+  placeholder="a number"
+  explanation="We need the smallest n >= 1 with 3n ≡ 0 (mod 6). The multiples are 3, 6 ≡ 0, so n = 2."
+/>
+
+<NumericInput
+  client:load
+  id="grp-ord-num-1-in-z6"
+  prompt="What is the order of the element 1 (the residue of 1) in Z/6Z?"
+  expected="6"
+  placeholder="a number"
+  explanation="We need the smallest n >= 1 with n ≡ 0 (mod 6); that's n = 6. The element 1 generates the whole cyclic group Z/6Z, so its order matches the size of the group."
+/>
+
+</SlideLayout>

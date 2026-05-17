@@ -1,0 +1,31 @@
+---
+title: From calculus to metric spaces
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="From calculus to metric spaces" part="Part I — Starting Out" chapter="2. Metric Topology · Continuous maps">
+
+In calculus you almost certainly met — or at least heard of — the $\varepsilon$–$\delta$ definition of a continuous function. It looked something like this:
+
+<Callout kind="remark" title="From calculus">
+A function $f \colon \RR \to \RR$ is **<Term k="continuous">continuous</Term>** at a point $p \in \RR$ if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that
+$$
+|x - p| < \delta \;\implies\; |f(x) - f(p)| < \varepsilon.
+$$
+</Callout>
+
+Read this slowly. The two absolute values play *different* roles: the first measures distance between inputs (in the domain), and the second measures distance between outputs (in the codomain). On $\RR$, both happen to be computed by the same formula $|x - y|$, but conceptually they are separate.
+
+That observation is the key to generalising. We have already developed a notion of distance in an arbitrary <Term k="metricSpace">metric space</Term> — so any time we see "$|x - y|$" in a calculus definition, we should ask whether it can be replaced by a metric. Try the guess yourself.
+
+<ProofReveal
+  client:load
+  id="top-cont-proof-guess-definition"
+  prompt="Guess: how should we define a continuous function f : M -> N between metric spaces (M, d_M) and (N, d_N), at a point p in M?"
+  solution="The only thing to do is replace each absolute value by the appropriate metric — the input distance uses M's metric, and the output distance uses N's metric. So: f is continuous at p in M if for every epsilon > 0 there exists a delta > 0 such that d_M(x, p) < delta implies d_N(f(x), f(p)) < epsilon. f is continuous (full stop) if it is continuous at every p in M. The crucial point is that the two distance functions live in different spaces — d_M operates on inputs, d_N on outputs — so there is no ambiguity about which metric appears where."
+/>
+
+</SlideLayout>

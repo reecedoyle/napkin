@@ -1,0 +1,77 @@
+---
+title: Which of these are groups?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="Which of these are groups?" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+<Callout kind="exercise" title="Which of these are groups?">
+For each of the following, decide whether it is a group.
+
+1. Rational numbers with odd denominators (in simplest form), where the operation is addition. (This includes integers, written as $n/1$, and $0 = 0/1$.)
+2. The set of rational numbers with denominator at most $2$, where the operation is addition.
+3. The set of rational numbers with denominator at most $2$, where the operation is multiplication.
+4. The set of nonnegative integers, where the operation is addition.
+</Callout>
+
+<MCQ
+  client:load
+  id="grp-def-mcq-odd-denoms"
+  prompt="(a) Rationals with odd denominators (in simplest form), under addition: is this a group?"
+  options={[
+    { id: "yes", label: "Yes — it is a group." },
+    { id: "no",  label: "No — at least one axiom fails." },
+  ]}
+  correct="yes"
+  explanation="Yes. The sum of two fractions a/b + c/d in simplest form has denominator dividing bd, which is odd whenever b and d are odd, so the set is closed under +. The identity 0 = 0/1 is in the set, and the inverse of a/b (odd b) is -a/b (still odd b). Addition is associative and commutative."
+/>
+
+<MCQ
+  client:load
+  id="grp-def-mcq-denom-at-most-2-add"
+  prompt="(b) Rationals with denominator at most 2, under addition: is this a group?"
+  options={[
+    { id: "yes", label: "Yes — it is a group." },
+    { id: "no",  label: "No — at least one axiom fails." },
+  ]}
+  correct="yes"
+  explanation="Yes. The set is the integers together with halves of odd integers (or equivalently, all multiples of 1/2). Sums stay in the set: a/2 + b/2 = (a+b)/2, and an integer plus a half-integer is a half-integer. The identity 0 is in, and additive inverses (negation) keep you inside the set. As a group it is just (1/2)Z, isomorphic to the integers."
+/>
+
+<MCQ
+  client:load
+  id="grp-def-mcq-denom-at-most-2-mult"
+  prompt="(c) Rationals with denominator at most 2 (in simplest form), under multiplication: is this a group?"
+  options={[
+    { id: "yes", label: "Yes — it is a group." },
+    { id: "no",  label: "No — at least one axiom fails." },
+  ]}
+  correct="no"
+  explanation="No. The element 0 has no multiplicative inverse, so already inverses fail. Even ignoring 0, the inverse of 2 = 2/1 would be 1/2 (OK — still denominator at most 2), but the inverse of 3 = 3/1 would be 1/3, whose denominator is 3 — not in the set. Closure of inverses fails."
+/>
+
+<MCQ
+  client:load
+  id="grp-def-mcq-nonneg-add"
+  prompt="(d) Nonnegative integers under addition: is this a group?"
+  options={[
+    { id: "yes", label: "Yes — it is a group." },
+    { id: "no",  label: "No — inverses fail." },
+  ]}
+  correct="no"
+  explanation="No. 0 is the identity and addition is associative, but positive integers have no inverse inside the nonnegative integers (the inverse of 1 would be -1, which is negative)."
+/>
+
+<NumericInput
+  client:load
+  id="grp-def-num-d10-order"
+  prompt="The dihedral group D_{2n} has how many elements when n = 5? (Just the count, as a number.)"
+  expected="10"
+  placeholder="a number"
+  explanation="By definition D_{2n} has 2n elements: n rotations 1, r, r^2, ..., r^{n-1} together with n reflections s, sr, ..., sr^{n-1}. With n = 5 that's 10 — hence the notation D_{10}."
+/>
+
+</SlideLayout>

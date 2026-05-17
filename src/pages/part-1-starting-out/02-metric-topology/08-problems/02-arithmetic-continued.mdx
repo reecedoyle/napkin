@@ -1,0 +1,39 @@
+---
+title: Continuity of arithmetic, continued
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Continuity of arithmetic, continued" part="Part I — Starting Out" chapter="2. Metric Topology · Problems">
+
+We've already seen that addition and multiplication, viewed as maps $\RR \times \RR \to \RR$, are continuous. The natural follow-up is subtraction and division. Both fall out without any new work — *if* you're willing to compose with the two single-variable building blocks $x \mapsto -x$ and $x \mapsto 1/x$.
+
+<Callout kind="remark" title="Why this is short">
+The metric-space machinery from earlier in the chapter does almost all of the work. The only genuinely new ingredient is the continuity of $x \mapsto 1/x$ on $\RR_{>0}$, which we sketch with a sequential-continuity argument at the end of the solution.
+</Callout>
+
+<Problem
+  client:load
+  id="top-prob-arithmetic"
+  prompt="Show that subtraction is a continuous map - : R × R → R, and that division is a continuous map ÷ : R × R_{>0} → R."
+  hint="You can do this with bare hands (epsilon–delta on the explicit formula). You can also reuse continuity of addition and multiplication via composition."
+  solution="Both follow from composing already-known continuous maps.
+
+Subtraction. The single-variable map x ↦ -x is continuous (it's an isometry — distances are preserved). So is the identity. Hence (a, b) ↦ (a, -b) is continuous R × R → R × R (each coordinate is a continuous function of (a, b), and continuity into a product is continuity in each coordinate). Now compose with addition:
+(a, b) → (a, -b) → a + (-b) = a - b.
+Subtraction is the composition of two continuous maps, so it's continuous.
+
+Division. Assume for the moment that x ↦ 1/x is continuous on R_{>0} (proof below). By the same argument as above, (a, b) ↦ (a, 1/b) is continuous R × R_{>0} → R × R_{>0}. Composing with multiplication:
+(a, b) → (a, 1/b) → a · (1/b) = a / b.
+Division is the composition of two continuous maps, so it's continuous on R × R_{>0}.
+
+Continuity of x ↦ 1/x on R_{>0}. Use sequential continuity: suppose x_n → x in R_{>0} (so x > 0 and eventually x_n > 0). Compute
+|1/x - 1/x_n| = |x_n - x| / |x · x_n|.
+For n large enough, |x_n| > x/2, so |x · x_n| > x^2 / 2, and hence
+|1/x - 1/x_n| < (2 / x^2) · |x_n - x| → 0
+as n → ∞. So 1/x_n → 1/x, proving x ↦ 1/x is sequentially continuous, hence continuous."
+  difficulty="standard"
+/>
+
+</SlideLayout>

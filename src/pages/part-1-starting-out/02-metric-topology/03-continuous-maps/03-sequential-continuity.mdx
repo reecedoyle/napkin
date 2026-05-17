@@ -1,0 +1,38 @@
+---
+title: Sequential continuity
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Sequential continuity" part="Part I — Starting Out" chapter="2. Metric Topology · Continuous maps">
+
+The $\varepsilon$–$\delta$ definition is correct, but cumbersome — it makes heavy use of the real numbers (those $\varepsilon$'s and $\delta$'s) even when the spaces $M$ and $N$ have nothing to do with $\RR$. Happily, there is an equivalent characterisation purely in terms of <Term k="convergence">convergence</Term> of sequences, which is often much easier to apply.
+
+<Callout kind="theorem" title="Sequential continuity">
+A function $f \colon M \to N$ of metric spaces is continuous at a point $p \in M$ if and only if the following holds:
+
+For every sequence $x_1, x_2, \dots$ in $M$ with $x_n \to p$, the sequence $f(x_1), f(x_2), \dots$ in $N$ satisfies $f(x_n) \to f(p)$.
+</Callout>
+
+In words: $f$ is continuous at $p$ iff $f$ preserves convergence to $p$.
+
+**Proof.** There are two directions. The forward direction — assuming $\varepsilon$–$\delta$ continuity and deducing the sequential statement — is a short unpacking of definitions, and is left as an exercise.
+
+<ProofReveal
+  client:load
+  id="top-cont-proof-eps-delta-implies-seq"
+  prompt="Exercise: show that epsilon-delta continuity at p implies sequential continuity at p. (I.e. if x_n -> p in M, show f(x_n) -> f(p) in N.)"
+  solution="Assume f is epsilon-delta continuous at p, and let (x_n) be any sequence in M converging to p. We want to show f(x_n) -> f(p) in N, i.e. for every epsilon > 0 there exists N such that d_N(f(x_n), f(p)) < epsilon for every n >= N. Fix epsilon > 0. By epsilon-delta continuity of f at p, there exists delta > 0 such that d_M(x, p) < delta implies d_N(f(x), f(p)) < epsilon. Since x_n -> p in M, applied to *this* delta we get some integer N with d_M(x_n, p) < delta for all n >= N. For each such n, the implication gives d_N(f(x_n), f(p)) < epsilon. That is exactly the required N for the convergence of f(x_n) to f(p). Done."
+/>
+
+For the converse, we prove the contrapositive: if $f$ is **not** $\varepsilon$–$\delta$ continuous at $p$, then it fails to preserve convergence to $p$.
+
+Suppose $f$ is not continuous at $p$. Negating the definition, there is some "bad" $\varepsilon > 0$ — fix it — for which no $\delta > 0$ works. In particular, for each $\delta = 1/n$ (with $n = 1, 2, 3, \dots$) there is some point $x_n \in M$ with
+$$
+d_M(x_n, p) < \tfrac{1}{n}, \quad \text{yet} \quad d_N(f(x_n), f(p)) \ge \varepsilon.
+$$
+The first inequality says $x_n \to p$ in $M$ (the distances shrink below any prescribed bound). The second says $f(x_n)$ stays at least $\varepsilon$ away from $f(p)$ — for every $n$ — so $f(x_n) \not\to f(p)$. This is exactly a failure of the sequential condition. $\blacksquare$
+
+</SlideLayout>

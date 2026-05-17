@@ -1,0 +1,43 @@
+---
+title: All three are equivalent
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="All three are equivalent" part="Part I — Starting Out" chapter="2. Metric Topology · Product metric">
+
+The three candidates give different numerical distances — but, remarkably, they all produce the *same* topological space. The key is a clean chain of inequalities relating them.
+
+<Callout kind="exercise" title="A chain of inequalities">
+For any two points $p_1, p_2$ in $M \times N$, verify
+$$
+d_{\text{max}}(p_1, p_2)
+\ \le\ d_{\text{Euclid}}(p_1, p_2)
+\ \le\ d_{\text{taxicab}}(p_1, p_2)
+\ \le\ 2\,d_{\text{max}}(p_1, p_2).
+$$
+Use this to show that the identity map between $M \times N$ equipped with any two of these metrics is a <Term k="homeomorphism">homeomorphism</Term>.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="top-prod-proof-chain-of-inequalities"
+  prompt="Prove the chain d_max <= d_Euclid <= d_taxicab <= 2 d_max, and deduce that the identity map is a homeomorphism between any two of the three metrics."
+  solution="Write a = d_M(x_1, x_2) >= 0 and b = d_N(y_1, y_2) >= 0, so the three candidates become max{a, b}, sqrt(a^2 + b^2), and a + b respectively.
+
+(1) max{a, b} <= sqrt(a^2 + b^2). WLOG a >= b, so max{a, b} = a = sqrt(a^2) <= sqrt(a^2 + b^2).
+
+(2) sqrt(a^2 + b^2) <= a + b. Both sides are non-negative, so squaring is fine: a^2 + b^2 <= a^2 + 2ab + b^2 = (a + b)^2, which holds because 2ab >= 0.
+
+(3) a + b <= 2 max{a, b}. Again WLOG a >= b, so a + b <= a + a = 2a = 2 max{a, b}.
+
+Now the topological consequence. Consider the identity map id: (M x N, d_1) -> (M x N, d_2) for any two of our three metrics d_1, d_2. From the chain we have, for some positive constant C (we can take C = 2 throughout):
+  d_2(p_1, p_2) <= C * d_1(p_1, p_2)  and  d_1(p_1, p_2) <= C * d_2(p_1, p_2).
+The first inequality gives continuity of id (use delta = epsilon / C in the epsilon-delta definition); the second gives continuity of its inverse (which is again the identity, viewed in the other direction). So id is a continuous bijection with continuous inverse, i.e. a homeomorphism. Since this argument works for any pair of the three metrics, all three give homeomorphic spaces."
+/>
+
+In short: the three metrics differ as *distance functions*, but they generate the same notion of "close" — so the same convergent sequences, the same continuous maps, the same topology.
+
+</SlideLayout>

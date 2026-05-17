@@ -1,0 +1,43 @@
+---
+title: The definition of a metric space
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The definition of a metric space" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+<Callout kind="definition" title="Metric space">
+A <Term k="metricSpace">**metric space**</Term> is a pair $(M, d)$ consisting of a set of points $M$ together with a <Term k="metric">**metric**</Term> $d \colon M \times M \to \RR_{\ge 0}$. The distance function must obey:
+
+- **Symmetry.** For any $x, y \in M$,
+$$
+d(x, y) = d(y, x).
+$$
+- <Term k="positiveDef">**Positive-definiteness.**</Term> $d(x, y) \ge 0$, with equality if and only if $x = y$.
+- The <Term k="triangleIneq">**triangle inequality**</Term>: for all $x, y, z \in M$,
+$$
+d(x, z) + d(z, y) \ge d(x, y).
+$$
+</Callout>
+
+<Callout kind="remark" title="Notation">
+Just like with groups, we will usually abbreviate $(M, d)$ as just $M$, leaving the metric implicit.
+</Callout>
+
+<MCQ
+  client:load
+  id="top-def-mcq-axioms"
+  prompt="Which of the following is NOT one of the metric-space axioms?"
+  options={[
+    { id: "a", label: "Symmetry: d(x, y) = d(y, x)." },
+    { id: "b", label: "Positive-definiteness: d(x, y) >= 0, with equality iff x = y." },
+    { id: "c", label: "The triangle inequality: d(x, z) + d(z, y) >= d(x, y)." },
+    { id: "d", label: "Commutativity: d(x, y) = d(y, x) z for some z." },
+  ]}
+  correct="d"
+  explanation="The three axioms are symmetry, positive-definiteness, and the triangle inequality. The fourth option is a nonsense statement: there is no 'commutativity' axiom for metrics (the symmetry axiom IS what plays that role). The three real axioms are exactly what you need."
+/>
+
+</SlideLayout>

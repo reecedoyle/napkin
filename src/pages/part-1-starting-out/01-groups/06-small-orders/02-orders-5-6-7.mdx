@@ -1,0 +1,59 @@
+---
+title: Groups of order 5, 6, and 7
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Groups of order 5, 6, and 7" part="Part I — Starting Out" chapter="1. Groups · Small orders">
+
+The cyclic groups continue to dominate, but order $6$ finally breaks the pattern: it is the smallest order that admits a **non-abelian** group.
+
+<Callout kind="example" title="Orders 5 and 7">
+- The only group of order $5$ is $\Zc 5$.
+- The only group of order $7$ is $\Zc 7$.
+</Callout>
+
+Both $5$ and $7$ are prime, and *every group of prime order is cyclic* — a fact you'll prove cleanly with Lagrange's theorem. So there is no room for surprises at orders $5$ or $7$.
+
+<Callout kind="example" title="Order 6">
+The two groups of order $6$ are:
+- $\Zc 6$, the cyclic group on six elements.
+- $S_3$, the symmetric group on three letters. **This is the first non-abelian group.**
+</Callout>
+
+A few notes on this list.
+
+- *Where is $\Zc 2 \times \Zc 3$?* It's already there: by the **Chinese remainder theorem**, $\Zc 2 \times \Zc 3 \cong \Zc 6$. Whenever you take a product of cyclic groups whose orders are coprime, you get a single cyclic group of the combined order.
+
+- *Where is $D_6$?* Also already there: $D_6 \cong S_3$. A regular triangle has $3$ rotations and $3$ reflections — $6$ symmetries total — and labelling its vertices $1, 2, 3$ identifies each symmetry with a permutation of $\{1, 2, 3\}$.
+
+<MCQ
+  client:load
+  id="grp-small-mcq-z6-crt"
+  prompt="Why is Z/2Z × Z/3Z the same group as Z/6Z?"
+  options={[
+    { id: "a", label: "It isn't — they merely have the same order." },
+    { id: "b", label: "Both are cyclic of order 6, and any two cyclic groups of the same order are isomorphic. The element (1, 1) generates Z/2Z × Z/3Z, which has order lcm(2, 3) = 6." },
+    { id: "c", label: "They share the same number of elements of every order, so they must be isomorphic." },
+    { id: "d", label: "Because every group of order 6 is cyclic." },
+  ]}
+  correct="b"
+  explanation="In Z/2Z × Z/3Z the element (1, 1) has order lcm(2, 3) = 6, so it generates the whole group. Any cyclic group of order 6 is isomorphic to Z/6Z (send the generator to 1 mod 6). This is the smallest case of the Chinese remainder theorem: Z/mZ × Z/nZ ≅ Z/(mn)Z whenever gcd(m, n) = 1. Option (d) is false — S_3 is a non-cyclic group of order 6."
+/>
+
+<MCQ
+  client:load
+  id="grp-small-mcq-prime-order"
+  prompt="A friend tells you they've found a group G of order 7. Without seeing the multiplication table, what can you immediately conclude?"
+  options={[
+    { id: "a", label: "G must be isomorphic to Z/7Z." },
+    { id: "b", label: "G might be Z/7Z or might be non-abelian — you'd have to check." },
+    { id: "c", label: "G must be a subgroup of S_7." },
+    { id: "d", label: "Nothing — order alone doesn't determine the group." },
+  ]}
+  correct="a"
+  explanation="There is exactly one group of order 7 up to isomorphism, namely Z/7Z, because 7 is prime. (Pick any non-identity element x; by Lagrange, ord(x) divides 7, so ord(x) = 7, so x generates G, so G is cyclic of order 7.) Option (c) is true of every finite group by Cayley's theorem, but it doesn't pin G down. Option (d) is wrong — at prime orders, the order does determine the group."
+/>
+
+</SlideLayout>

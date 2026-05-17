@@ -1,0 +1,39 @@
+---
+title: Convergence is componentwise
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Convergence is componentwise" part="Part I — Starting Out" chapter="2. Metric Topology · Product metric">
+
+The product metric plays well with <Term k="convergence">convergence</Term>: a sequence of pairs converges precisely when each coordinate sequence converges.
+
+<Callout kind="proposition" title="Componentwise convergence">
+A sequence $\bigl( (x_n, y_n) \bigr)$ in $M \times N$ converges to $(x, y)$ if and only if $x_n \to x$ in $M$ and $y_n \to y$ in $N$.
+</Callout>
+
+**Proof.** Using the $d_{\text{max}}$ form of the product metric,
+$$
+d_{\text{max}}\bigl( (x, y),\ (x_n, y_n) \bigr) = \max\bigl\{ d_M(x, x_n),\ d_N(y, y_n) \bigr\}.
+$$
+The left-hand side tends to $0$ as $n \to \infty$ if and only if **both** of $d_M(x, x_n)$ and $d_N(y, y_n)$ tend to $0$ — which is exactly the statement that $x_n \to x$ in $M$ and $y_n \to y$ in $N$. $\blacksquare$
+
+The proof is one line because the max of two non-negative quantities shrinks to $0$ iff each of them does. Choosing $d_{\text{max}}$ as our representative of the product metric makes this transparent; the same is true for $d_{\text{Euclid}}$ or $d_{\text{taxicab}}$ (they are sandwiched between $d_{\text{max}}$ and $2\,d_{\text{max}}$, so shrink to $0$ at the same time), but the bookkeeping is uglier.
+
+<MCQ
+  client:load
+  id="top-prod-mcq-componentwise-convergence"
+  prompt="A sequence (x_n, y_n) in M x N converges to (x, y) in the product metric if and only if which of the following holds?"
+  options={[
+    { id: "a", label: "x_n -> x in M, or y_n -> y in N (at least one)." },
+    { id: "b", label: "x_n -> x in M, and y_n -> y in N (both)." },
+    { id: "c", label: "The sum d_M(x_n, x) + d_N(y_n, y) is bounded." },
+    { id: "d", label: "Some subsequence (x_{n_k}, y_{n_k}) converges to (x, y)." },
+  ]}
+  correct="b"
+  explanation="By the proposition, convergence in the product metric is exactly componentwise convergence — *both* x_n -> x and y_n -> y. (a) is too weak: if y_n bounces around without converging, neither coordinate of (x_n, y_n) reaches a limit. (c) only says the distance stays bounded, not that it shrinks to 0. (d) says a subsequence converges, but the full sequence might oscillate. Only (b) is equivalent to convergence in M x N."
+/>
+
+</SlideLayout>

@@ -1,0 +1,41 @@
+---
+title: The definition of an isomorphism
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The definition of an isomorphism" part="Part I — Starting Out" chapter="1. Groups · Isomorphisms">
+
+Let's promote the previous example to a general definition.
+
+<Callout kind="definition" title="Isomorphism">
+Let $G = (G, \star)$ and $H = (H, \ast)$ be groups. A bijection $\phi \colon G \to H$ is called an **isomorphism** if
+
+$$
+\phi(g_1 \star g_2) = \phi(g_1) \ast \phi(g_2) \qquad \text{for all } g_1, g_2 \in G.
+$$
+
+If there exists an isomorphism from $G$ to $H$, we say $G$ and $H$ are **<Term k="isomorphic">isomorphic</Term>** and write $G \cong H$.
+</Callout>
+
+<Callout kind="remark" title="Two operations, one equation">
+The two sides of the equation use *different* operations: the left-hand side $\phi(g_1 \star g_2)$ uses the operation $\star$ of $G$, while the right-hand side $\phi(g_1) \ast \phi(g_2)$ uses the operation $\ast$ of $H$. The whole point is that $\phi$ translates the structure of $G$ into the structure of $H$.
+</Callout>
+
+<MCQ
+  client:load
+  id="grp-iso-mcq-respects-operation"
+  prompt="A bijection φ: G → H 'respects the group operation' precisely when which equation holds for all g₁, g₂ ∈ G?"
+  options={[
+    { id: "a", label: "φ(g₁ ⋆ g₂) = φ(g₁) ∗ φ(g₂), where ⋆ is G's operation and ∗ is H's." },
+    { id: "b", label: "φ(g₁ ⋆ g₂) = φ(g₁) ⋆ φ(g₂), using G's operation on both sides." },
+    { id: "c", label: "φ(g₁) ∗ φ(g₂) = φ(g₂) ∗ φ(g₁), so the image is abelian." },
+    { id: "d", label: "φ(g₁ ⋆ g₂) = g₁ ⋆ g₂, i.e. φ acts as the identity." },
+  ]}
+  correct="a"
+  explanation="The defining equation uses G's operation on the left and H's operation on the right — that is exactly what it means for φ to translate one group's structure into another's. Option (b) doesn't even type-check, since φ(g₁) ⋆ φ(g₂) tries to combine elements of H with G's operation. Option (c) is unrelated (commutativity of H), and (d) would force G = H pointwise."
+/>
+
+</SlideLayout>

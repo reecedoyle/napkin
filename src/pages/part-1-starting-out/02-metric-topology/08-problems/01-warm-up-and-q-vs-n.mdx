@@ -1,0 +1,48 @@
+---
+title: Warm-up — continuity of d, and Q vs N
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Warm-up — continuity of d, and Q vs N" part="Part I — Starting Out" chapter="2. Metric Topology · Problems">
+
+Time to put the chapter to use. Over the next few slides we'll work through six problems, ranging from a quick check that the metric itself is continuous, through to a daggered problem about strictly increasing functions and a discursive problem about the much-debated phrase "is $1/x$ continuous?".
+
+<Callout kind="remark" title="How to use these slides">
+Each problem starts hidden. Click **Show hint** for a nudge (when one is available), or **Show solution** to reveal a worked answer. Once you reveal a solution, the slide remembers — so reload-resume works the way you'd expect.
+</Callout>
+
+<Problem
+  client:load
+  id="top-prob-d-continuous"
+  prompt="Let M = (M, d) be a metric space. Show that the distance function d : M × M → R is itself a continuous function, where M × M is equipped with the product metric."
+  solution="Fix a point (p, q) in M × M and let epsilon > 0. We want to find delta > 0 such that whenever (x, y) is within delta of (p, q) in the product metric, we have |d(x, y) - d(p, q)| < epsilon.
+
+Use the triangle inequality twice:
+d(x, y) ≤ d(x, p) + d(p, q) + d(q, y),
+d(p, q) ≤ d(p, x) + d(x, y) + d(y, q).
+Rearranging both gives
+|d(x, y) - d(p, q)| ≤ d(x, p) + d(y, q).
+
+Now pick delta = epsilon / 2. If (x, y) is within delta of (p, q) in the product metric, then both d(x, p) < delta and d(y, q) < delta (since the product metric dominates each coordinate distance — e.g. the sup-metric is exactly max, and the L^2-style product metric satisfies d(x, p) ≤ d_prod((x, y), (p, q))). Hence
+|d(x, y) - d(p, q)| ≤ d(x, p) + d(y, q) < 2 delta = epsilon.
+
+So d is continuous at (p, q), and since (p, q) was arbitrary, d is continuous on M × M."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="top-prob-q-vs-n"
+  prompt="Consider Q and N as metric spaces, each with the obvious metric d(x, y) = |x - y|. Are these spaces homeomorphic?"
+  hint="No. There isn't even a continuous injective map Q → N."
+  solution="No — and in fact there is no continuous injective map Q → N at all.
+
+Metric approach. Suppose f : Q → N is continuous and injective, and pick any x in Q with f(x) = n. Take epsilon = 1/2. By continuity there is delta > 0 such that every rational within delta of x maps within epsilon = 1/2 of n in N — but the only point of N within 1/2 of n is n itself. So f sends a whole open ball of rationals around x to the single value n, contradicting injectivity (the open ball contains infinitely many rationals).
+
+Open-set approach. In N every singleton {n} is open: the open ball of radius 1/2 around n is just {n}. In Q no singleton is open: every open ball B(x, delta) contains infinitely many rationals besides x. If Q and N were homeomorphic via h : Q → N, then h^{-1}({n}) would be an open singleton in Q — impossible. (A later chapter on topology reframes this directly in terms of open sets: the open-set structures of Q and N are different, so the spaces aren't homeomorphic.)"
+  difficulty="standard"
+/>
+
+</SlideLayout>

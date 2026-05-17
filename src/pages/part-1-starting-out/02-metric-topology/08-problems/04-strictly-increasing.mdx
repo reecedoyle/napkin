@@ -1,0 +1,35 @@
+---
+title: Strictly increasing implies continuous somewhere
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Strictly increasing implies continuous somewhere (harder)" part="Part I — Starting Out" chapter="2. Metric Topology · Problems">
+
+A strictly increasing function $f \colon \RR \to \RR$ has *plenty* of structure — its discontinuities can only be jump-style, and at each jump the function skips over an open interval on the $y$-axis. The problem on this slide asks you to convert that geometric fact into an impossibility: if the function were discontinuous *everywhere*, you'd need uncountably many disjoint $y$-axis intervals, whose lengths would have to sum to something finite, which can't happen.
+
+<Callout kind="remark" title="The key combinatorial fact">
+An uncountable family of positive real numbers cannot have finite total "sum". The proof: bucket the family by $\tfrac{1}{k} \le x < \tfrac{1}{k - 1}$ for $k = 2, 3, \dots$. If the total were finite, each bucket would be finite, so the whole family would be a countable union of finite sets — countable. Contrapositive: an uncountable family has infinite sum (in any reasonable interpretation).
+</Callout>
+
+<Problem
+  client:load
+  id="top-prob-strictly-increasing"
+  prompt="Prove that a function f : R → R which is strictly increasing must be continuous at some point."
+  hint="Project the 'gap' that each discontinuity creates onto the y-axis. Then use the fact that uncountably many positive reals cannot have finite total sum."
+  solution="Assume for contradiction that f is discontinuous at every point. By rescaling we may assume f(0) = 0 and f(1) = 1, and restrict attention to f : [0, 1] → [0, 1].
+
+For each x ∈ [0, 1], since f is discontinuous at x, there is some epsilon_x > 0 such that no delta makes the continuity condition work. Because f is strictly increasing, the only way this can happen is if f misses every y-value in either the open interval (f(x) - epsilon_x, f(x)) or the open interval (f(x), f(x) + epsilon_x) — or both. (If f hit values arbitrarily close to f(x) from both sides, monotonicity would force continuity at x.) Pick one such missed interval I_x for each x; its length is at least epsilon_x.
+
+Different x give disjoint intervals I_x. Indeed, if x_1 < x_2 then f(x_1) < f(x_2) by strict monotonicity, and any value that f misses near f(x_1) lies on one side of f(x_1), while any value that f misses near f(x_2) lies on a side of f(x_2) — and the y-axis values between the two missed regions are separated by the values f takes in the (non-empty) interval (x_1, x_2).
+
+So x ↦ I_x is an injection from [0, 1] (uncountable) into a family of disjoint open intervals in [0, 1], whose lengths epsilon_x are positive. The total length of all these disjoint intervals is at most the length of [0, 1], which is 1 — yet we have uncountably many positive lengths epsilon_x. Contradiction:
+
+The buckets argument. Partition the epsilon_x's by 1/k ≤ epsilon_x < 1/(k-1) for k = 2, 3, .... If the total were finite (at most 1), each bucket would be finite (at most k members, since each contributes at least 1/k to the sum). So the whole family would be a countable union of finite sets — countable. But we have uncountably many of them. Contradiction.
+
+So f must be continuous at some point of [0, 1]."
+  difficulty="daggered"
+/>
+
+</SlideLayout>

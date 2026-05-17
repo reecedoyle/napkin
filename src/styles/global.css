@@ -1,0 +1,34 @@
+/* @import must come BEFORE @tailwind directives — the CSS spec requires
+ * @import to precede all other statements (except @charset / empty @layer).
+ * If KaTeX's CSS isn't loaded first, the .katex-mathml block doesn't get
+ * its visually-hidden positioning and you see math rendered twice. */
+@import "katex/dist/katex.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-stone-50 text-stone-900 antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-stone-950 text-stone-100;
+  }
+}
+
+/* Slightly smaller KaTeX so display math doesn't overpower body text. */
+.katex { font-size: 1.05em; }
+.katex-display { @apply my-6; }
+
+/* Slide layout: main column stays centered; sidebar is fixed to the right
+ * edge of the viewport (rules in GlossarySidebar.astro). */

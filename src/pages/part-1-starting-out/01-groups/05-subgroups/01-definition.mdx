@@ -1,0 +1,21 @@
+---
+title: Defining a subgroup
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="Defining a subgroup" part="Part I — Starting Out" chapter="1. Groups · Subgroups">
+
+Earlier we saw that $\GL_n(\RR)$, the $n \times n$ matrices with nonzero determinant, formed a group under matrix multiplication. But we also saw that a subset of $\GL_n(\RR)$, namely $\SL_n(\RR)$, also formed a group under the same operation. For that reason we say that $\SL_n(\RR)$ is a *subgroup* of $\GL_n(\RR)$.
+
+The definition generalises in exactly the way you would expect.
+
+<Callout kind="definition" title="Subgroup">
+Let $G = (G, \star)$ be a group. A **subgroup** of $G$ is exactly what you would expect it to be: a group $H = (H, \star)$ where $H$ is a subset of $G$. It is a **proper subgroup** if $H \neq G$.
+</Callout>
+
+<Callout kind="remark">
+To specify a group $G$, we needed to tell you both what the set $G$ was and what the operation $\star$ was. But to specify a subgroup $H$ of a given group $G$, we only need to tell you who its elements are: the operation of $H$ is just inherited from the operation of $G$.
+</Callout>
+
+</SlideLayout>

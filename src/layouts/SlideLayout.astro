@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+import { getSlideNeighbors } from '../lib/slide-nav';
+import GlossarySidebar from '../components/GlossarySidebar.astro';
+import TocSidebar from '../components/TocSidebar.astro';
+
+interface Props {
+  title: string;
+  part?: string;
+  chapter?: string;
+}
+
+const { title, part, chapter } = Astro.props;
+const { prev, next, index, total } = getSlideNeighbors(Astro.url.pathname);
+const showNav = prev !== undefined || next !== undefined;
+const isSlide = total > 0 && index !== undefined;
+
+// Render the slot to HTML so we can both inject it as the page body AND
+// scan for `data-term-key` attributes emitted by <Term>. The sidebar then
+// shows only the glossary entries actually used on this slide.
+const slotHtml = Astro.slots.has('default')
+  ? await Astro.slots.render('default')
+  : '';
+const termKeys = isSlide
+  ? [...new Set(
+      [...slotHtml.matchAll(/data-term-key="([^"]+)"/g)].map((m) => m[1]),
+    )]
+  : [];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Napkin</title>
+  </head>
+  <body>
+    <header class="border-b border-stone-200 dark:border-stone-800">
+      <div class="mx-auto max-w-[760px] px-6 py-4 text-sm text-stone-600 dark:text-stone-400 flex items-center justify-between">
+        <a href="/" class="hover:underline">Napkin</a>
+        {part && (
+          <span>
+            {part}{chapter && <> · <span>{chapter}</span></>}
+          </span>
+        )}
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-[760px] px-6 py-12">
+      <h1 class="text-3xl font-semibold mb-8 font-serif">{title}</h1>
+      <article class="prose prose-stone dark:prose-invert prose-headings:font-serif max-w-none" set:html={slotHtml} />
+
+      {showNav && (
+        <nav
+          class="not-prose mt-16 pt-6 border-t border-stone-200 dark:border-stone-800 flex items-stretch gap-4 text-sm"
+          aria-label="Slide navigation"
+        >
+          <div class="flex-1">
+            {prev && (
+              <a
+                href={prev.url}
+                rel="prev"
+                class="block rounded-md border border-stone-200 dark:border-stone-800 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-900 transition"
+              >
+                <div class="text-xs text-stone-500 mb-1">← Previous</div>
+                <div class="text-stone-800 dark:text-stone-200">{prev.title}</div>
+              </a>
+            )}
+          </div>
+
+          {index !== undefined && (
+            <div class="flex items-center text-stone-500 text-xs px-2 self-center">
+              {index + 1} / {total}
+            </div>
+          )}
+
+          <div class="flex-1 text-right">
+            {next && (
+              <a
+                href={next.url}
+                rel="next"
+                class="block rounded-md border border-stone-200 dark:border-stone-800 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-900 transition"
+              >
+                <div class="text-xs text-stone-500 mb-1">Next →</div>
+                <div class="text-stone-800 dark:text-stone-200">{next.title}</div>
+              </a>
+            )}
+          </div>
+        </nav>
+      )}
+    </main>
+
+    {isSlide && <TocSidebar />}
+    {isSlide && <GlossarySidebar keys={termKeys} />}
+
+    {isSlide && (
+      <script
+        is:inline
+        define:vars={{ prevUrl: prev?.url ?? null, nextUrl: next?.url ?? null }}
+      >
+        document.addEventListener('keydown', (e) => {
+          // Ignore if a modifier key is held (e.g. Cmd+Left for browser back).
+          if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+          // Ignore when typing in form fields or contenteditable regions —
+          // arrow keys move the cursor there.
+          const t = e.target;
+          if (t instanceof HTMLElement) {
+            if (t.matches('input, textarea, select, [contenteditable=""], [contenteditable="true"]')) return;
+          }
+          if (e.key === 'ArrowLeft' && prevUrl) {
+            e.preventDefault();
+            window.location.href = prevUrl;
+          } else if (e.key === 'ArrowRight' && nextUrl) {
+            e.preventDefault();
+            window.location.href = nextUrl;
+          }
+        });
+      </script>
+    )}
+  </body>
+</html>

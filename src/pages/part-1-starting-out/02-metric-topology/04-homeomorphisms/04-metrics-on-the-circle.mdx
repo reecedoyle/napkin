@@ -1,0 +1,24 @@
+---
+title: Chord vs arc on the circle
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Chord vs arc on the circle" part="Part I — Starting Out" chapter="2. Metric Topology · Homeomorphisms">
+
+It might have seemed strange earlier that we put the inherited <Term k="euclideanMetric">Euclidean metric</Term> on the unit circle <Term k="unitSphere">$S^1$</Term> — the distance between two points on the circle was defined as the length of the **chord** joining them. Wouldn't it be more natural to use the length of the shorter **arc** instead?
+
+<Callout kind="example" title="Metrics on the unit circle">
+Write $S^1_{\mathrm{chord}}$ and $S^1_{\mathrm{arc}}$ for the unit circle equipped with the chord metric and the arc metric respectively. The identity map of the underlying set,
+$$
+\mathrm{id} \colon S^1_{\mathrm{chord}} \to S^1_{\mathrm{arc}},
+$$
+is a continuous bijection — and so is its inverse. So the two metric spaces are homeomorphic.
+</Callout>
+
+In other words, the choice between chord and arc *changes the numbers* the metric returns, but not which sequences converge, not which maps are continuous, not which spaces this space is "the same as". From a topological point of view, it really doesn't matter which you pick. The same is true for $S^{n-1}$ for every $n$.
+
+This is the first hint of an important theme: a metric is a strictly richer piece of data than the topological information it determines. Two different metrics can give the same topology — and homeomorphism is exactly the notion that detects when two metrics record the same "shape" data.
+
+</SlideLayout>

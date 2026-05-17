@@ -1,0 +1,23 @@
+---
+title: A note on additive notation
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="A note on additive notation" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+One last bookkeeping point. You don't need to worry about it for a few chapters, but it's worth flagging now.
+
+<Callout kind="remark" title="Sometimes the identity is denoted 0 instead of 1">
+In most of the examples we've seen so far, the operation $\star$ behaves like multiplication of some sort, which is why $1 = 1_G$ is the natural notation for the identity.
+
+But there are groups like $\ZZ = (\ZZ, +)$ where $\star$ is thought of as addition, in which case $0 = 0_G$ is more natural for the identity. We will eventually start doing this when we get to rings and linear algebra.
+</Callout>
+
+<Callout kind="remark" title="Rule of thumb">
+Whenever an operation is denoted $+$, the operation is almost certainly commutative. Multiplicative-style notation (juxtaposition $ab$) is used freely for non-abelian groups too.
+</Callout>
+
+That's it for the basic theory. We have the definition, plenty of examples, and the foundational properties — uniqueness, the inverse-of-a-product rule, and the bijection lemma with its cancellation-law corollary. That's enough machinery to move on.
+
+</SlideLayout>

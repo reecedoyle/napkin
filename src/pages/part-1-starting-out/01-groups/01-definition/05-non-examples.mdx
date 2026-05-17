@@ -1,0 +1,32 @@
+---
+title: Non-examples of groups
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Non-examples of groups" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+It's just as instructive to see what *isn't* a group.
+
+<Callout kind="example" title="Non-examples">
+- The pair <Term k="QQ">$(\QQ, \cdot)$</Term> is **not** a group. While there is an identity element, the element $0 \in \QQ$ does not have an inverse.
+- The pair $(\ZZ, \cdot)$ is also **not** a group. (Why?)
+- Let <Term k="Mat">$\Mat_{2 \times 2}(\RR)$</Term> be the set of $2 \times 2$ matrices with entries in the <Term k="RR">real numbers $\RR$</Term>. Then $(\Mat_{2 \times 2}(\RR), \cdot)$ (where $\cdot$ is matrix multiplication) is **not** a group. Indeed, even though we have an identity matrix
+$$
+\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix},
+$$
+we still run into the same issue: the zero matrix does not have a multiplicative inverse.
+
+(Even if we delete the zero matrix from the set, the resulting structure is still not a group: those of you who know some linear algebra might recall that any matrix with determinant zero cannot have an inverse.)
+</Callout>
+
+<ProofReveal
+  client:load
+  id="grp-def-proof-z-mult"
+  prompt="Why is (Z, multiplication) not a group? Identify which axiom fails."
+  solution="The integers under multiplication have an identity (the number 1) and multiplication is associative, so the only axiom that could fail is inverses. And it does fail: most integers have no multiplicative inverse inside Z. For example, 2 has no inverse, since 1/2 is not an integer. (In fact only 1 and -1 have inverses in Z.)"
+/>
+
+</SlideLayout>

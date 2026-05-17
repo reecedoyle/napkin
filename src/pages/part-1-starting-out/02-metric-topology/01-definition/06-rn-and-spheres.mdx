@@ -1,0 +1,35 @@
+---
+title: Euclidean n-space, balls, and spheres
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Euclidean n-space, balls, and spheres" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+The Euclidean construction extends to any dimension. Let $n$ be a positive integer.
+
+<Callout kind="example" title="Metric spaces of R^n">
+
+- <Term k="RRn">$\RR^n$</Term> is the metric space of points in $n$-dimensional Euclidean space, with the Euclidean metric
+$$
+d\bigl( (a_1, \dots, a_n), (b_1, \dots, b_n) \bigr) = \sqrt{(a_1 - b_1)^2 + \dots + (a_n - b_n)^2}.
+$$
+This is *$n$-dimensional Euclidean space*.
+
+- The open <Term k="openBall">**unit ball** $B^n$</Term> is the subset of $\RR^n$ consisting of points $(x_1, \dots, x_n)$ with
+$$
+x_1^2 + \dots + x_n^2 < 1.
+$$
+
+- The <Term k="unitSphere">**unit sphere** $S^{n-1}$</Term> is the subset of $\RR^n$ where $x_1^2 + \dots + x_n^2 = 1$, with the inherited metric. The superscript $n-1$ records the *intrinsic* dimension of the sphere — even though it lives in $n$-dimensional space, the sphere itself is $(n-1)$-dimensional.
+
+</Callout>
+
+For example, $S^1 \subseteq \RR^2$ is the unit circle. The distance between two points of $S^1$, in the inherited Euclidean metric, is the length of the straight-line *chord* joining them — not the arc length! You can also think of $S^{n-1}$ as the boundary of the unit ball $B^n$.
+
+<Callout kind="remark" title="Notation">
+From now on we follow Napkin's convention: writing "$\RR^n$" silently means the Euclidean metric, and writing a subset $S \subseteq \RR^n$ silently means $S$ with the inherited metric.
+</Callout>
+
+</SlideLayout>

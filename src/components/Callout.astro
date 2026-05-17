@@ -1,0 +1,81 @@
+---
+type Kind =
+  | 'definition'
+  | 'theorem'
+  | 'proposition'
+  | 'lemma'
+  | 'corollary'
+  | 'example'
+  | 'remark'
+  | 'question'
+  | 'exercise';
+
+interface Props {
+  kind: Kind;
+  title?: string;
+}
+
+const { kind, title } = Astro.props;
+
+const styles: Record<Kind, { ring: string; label: string; accent: string }> = {
+  definition: {
+    ring: 'ring-blue-300 dark:ring-blue-800',
+    label: 'Definition',
+    accent: 'text-blue-700 dark:text-blue-400',
+  },
+  theorem: {
+    ring: 'ring-emerald-300 dark:ring-emerald-800',
+    label: 'Theorem',
+    accent: 'text-emerald-700 dark:text-emerald-400',
+  },
+  proposition: {
+    ring: 'ring-emerald-300 dark:ring-emerald-800',
+    label: 'Proposition',
+    accent: 'text-emerald-700 dark:text-emerald-400',
+  },
+  lemma: {
+    ring: 'ring-emerald-300 dark:ring-emerald-800',
+    label: 'Lemma',
+    accent: 'text-emerald-700 dark:text-emerald-400',
+  },
+  corollary: {
+    ring: 'ring-emerald-300 dark:ring-emerald-800',
+    label: 'Corollary',
+    accent: 'text-emerald-700 dark:text-emerald-400',
+  },
+  example: {
+    ring: 'ring-amber-300 dark:ring-amber-800',
+    label: 'Example',
+    accent: 'text-amber-700 dark:text-amber-400',
+  },
+  remark: {
+    ring: 'ring-stone-300 dark:ring-stone-700',
+    label: 'Remark',
+    accent: 'text-stone-600 dark:text-stone-400',
+  },
+  question: {
+    ring: 'ring-violet-300 dark:ring-violet-800',
+    label: 'Question',
+    accent: 'text-violet-700 dark:text-violet-400',
+  },
+  exercise: {
+    ring: 'ring-violet-300 dark:ring-violet-800',
+    label: 'Exercise',
+    accent: 'text-violet-700 dark:text-violet-400',
+  },
+};
+
+const s = styles[kind];
+---
+<aside
+  class={`not-prose my-6 rounded-lg ring-1 ${s.ring} bg-white dark:bg-stone-900 p-5`}
+  role="note"
+  aria-label={`${s.label}${title ? `: ${title}` : ''}`}
+>
+  <div class={`text-sm uppercase tracking-wider ${s.accent} mb-2`}>
+    {s.label}{title && (<><span class="text-stone-400 dark:text-stone-600"> · </span><span class="normal-case tracking-normal text-stone-700 dark:text-stone-300">{title}</span></>)}
+  </div>
+  <div class="prose prose-stone dark:prose-invert max-w-none">
+    <slot />
+  </div>
+</aside>

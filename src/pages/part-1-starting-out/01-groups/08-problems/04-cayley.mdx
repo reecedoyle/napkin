@@ -1,0 +1,33 @@
+---
+title: Cayley's theorem
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Cayley's theorem" part="Part I — Starting Out" chapter="1. Groups · Problems">
+
+Now the headline result of the chapter, stated as a problem so you can work through it yourself. The slogan is: **every finite group is a permutation group**. More precisely, every finite group $G$ embeds into $S_{|G|}$. There's a parallel statement for matrices.
+
+<Callout kind="remark" title="Why this is striking">
+A priori, a finite group could be a wild abstract object satisfying only the four axioms. Cayley's theorem says: no — every such object is, up to isomorphism, a concrete subgroup of a symmetric group. Symmetric groups are universal containers for finite groups.
+</Callout>
+
+<Problem
+  client:load
+  id="grp-prob-cayley"
+  prompt="Let G be a finite group. Show that there exists a positive integer n such that:
+(a) (Cayley's theorem) G is isomorphic to some subgroup of the symmetric group S_n.
+(b) (Representation theory) G is isomorphic to some subgroup of the general linear group GL_n(R) — the group of invertible n × n real matrices."
+  hint="Take n = |G|. For (a), each g in G should act as a permutation of G. For (b), turn each permutation into a permutation matrix."
+  solution="Let n = |G| and label the elements of G as g_1, g_2, ..., g_n.
+
+(a) Cayley's theorem. For each g ∈ G, define the map π_g : G → G by π_g(x) = gx. This is a bijection of G (it has inverse π_{g^{-1}}), so it gives a permutation of the n-element set G — i.e. an element of S_n once we identify G with {1, 2, ..., n}.
+
+The assignment g ↦ π_g is a homomorphism G → S_n: π_{gh}(x) = (gh)x = g(hx) = π_g(π_h(x)), so π_{gh} = π_g ∘ π_h. It's injective: if π_g is the identity permutation then in particular π_g(1) = g·1 = g equals 1, so g = 1. An injective homomorphism is an isomorphism onto its image, so G is isomorphic to the subgroup π(G) ⊆ S_n.
+
+(b) From permutations to matrices. Compose the embedding from (a) with the standard embedding S_n ↪ GL_n(R) that sends a permutation σ to its permutation matrix P_σ — the n × n matrix with a 1 in row σ(i), column i, and 0 elsewhere. This is a homomorphism (composition of permutations corresponds to matrix multiplication of permutation matrices) and is injective (different permutations give different matrices). So G ↪ S_n ↪ GL_n(R) embeds G into GL_n(R)."
+  difficulty="daggered"
+/>
+
+</SlideLayout>

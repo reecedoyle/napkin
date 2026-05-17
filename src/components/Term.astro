@@ -1,0 +1,42 @@
+---
+/**
+ * Marks a notation term in slide prose. Renders as a quiet anchor with a
+ * small footnote-style dagger superscript (†) appended after the term;
+ * clicking jumps to the matching entry in the GlossarySidebar.
+ *
+ * No JS, no hover tooltip — the sidebar is always visible alongside the
+ * slide on wide screens.
+ */
+interface Props {
+  k: string;
+}
+
+const { k } = Astro.props;
+---
+<a class="napkin-term" href={`#g-${k}`} data-term-key={k}>
+  <slot /><span class="napkin-term-marker" aria-hidden="true">†</span>
+</a>
+
+<style is:global>
+  .napkin-term {
+    color: inherit;
+    text-decoration: none;
+  }
+  .napkin-term-marker {
+    display: inline-block;
+    margin-left: 1px;
+    font-size: 0.65em;
+    line-height: 0;
+    vertical-align: super;
+    color: rgb(180 83 9);
+    font-weight: 600;
+    transition: color 120ms;
+  }
+  .napkin-term:hover .napkin-term-marker {
+    color: rgb(120 53 15);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-term-marker { color: rgb(245 158 11); }
+    .napkin-term:hover .napkin-term-marker { color: rgb(252 211 77); }
+  }
+</style>

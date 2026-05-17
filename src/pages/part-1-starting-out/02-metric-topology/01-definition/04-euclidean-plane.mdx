@@ -1,0 +1,24 @@
+---
+title: The Euclidean plane
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The Euclidean plane" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+Moving up a dimension: the plane, with straight-line distance.
+
+<Callout kind="example" title="Metric spaces of R^2">
+
+- We make <Term k="RRn">$\RR^2$</Term> a metric space by imposing the <Term k="euclideanMetric">**Euclidean distance**</Term>
+$$
+d\bigl( (x_1, y_1), (x_2, y_2) \bigr) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}.
+$$
+- Just like for the real line, any subset of $\RR^2$ becomes a metric space by inheriting this distance. The unit disk, the unit circle, and the unit square $[0,1]^2$ are special cases.
+
+</Callout>
+
+The Euclidean metric on $\RR^2$ is our running prototype for the whole chapter. When you read "metric space", picture this first.
+
+</SlideLayout>

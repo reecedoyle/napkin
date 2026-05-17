@@ -1,0 +1,21 @@
+---
+title: Associative, but not commutative
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="Associative, but not commutative" part="Part I — Starting Out" chapter="1. Groups · Why these axioms?">
+
+Two of our three axioms get singled out by this balancing act in opposite ways.
+
+<Callout kind="remark" title="Why associative is in">
+Associativity is required because most of the operations we actually run into — addition of integers, multiplication of matrices, composition of functions — are associative. It also has a structural payoff: associativity is what forces the inverse of an element to be *unique*. Drop associativity and the theory of groups stops being recognisable.
+</Callout>
+
+<Callout kind="remark" title="Why commutative is out">
+Commutativity, on the other hand, is *not* required, even though many natural examples (the integers under addition, $\Zc n$, $\QQ^\times$) happen to satisfy it. The reason is simple: there are too many important groups that fail to commute — the symmetric groups $S_n$ for $n \geq 3$, the dihedral groups, $\GL_n(\RR)$, the quaternion group $Q_8$, and so on.
+
+We don't want to legislate those away. So commutativity isn't an axiom — but because it's still useful to track, we give the commutative case its own name: a group whose operation commutes is called **abelian**.
+</Callout>
+
+</SlideLayout>

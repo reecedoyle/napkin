@@ -1,0 +1,22 @@
+---
+title: The product metric
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The product metric" part="Part I — Starting Out" chapter="2. Metric Topology · Product metric">
+
+Since the three candidates from the previous slide are interchangeable up to homeomorphism, we don't need to commit to any one of them. We simply speak of *the* product metric on $M \times N$, with the understanding that any of the three choices works.
+
+<Callout kind="definition" title="Product metric">
+Let $M$ and $N$ be <Term k="metricSpace">metric spaces</Term>. The <Term k="productMetric">**product metric**</Term> on $M \times N$ is any one of $d_{\text{max}}$, $d_{\text{Euclid}}$, $d_{\text{taxicab}}$ from the previous slide. Whenever we use a topological property of $M \times N$ — convergence, continuity, openness — the choice does not matter.
+</Callout>
+
+<Callout kind="example" title="R x R = R^2">
+Taking $M = N = \RR$, the product metric on $\RR \times \RR$ is the Euclidean plane $\RR^2$ — provided we pick $d_{\text{Euclid}}$, which recovers the usual $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$. Picking $d_{\text{max}}$ or $d_{\text{taxicab}}$ instead would change the *numerical* distances, but produce a homeomorphic space — the same plane, topologically.
+</Callout>
+
+This is a common pattern in topology: rather than fix one preferred metric, we identify a whole family of metrics that produce the same topology and use whichever is most convenient for the calculation in front of us. For the next two slides — convergence and continuity in $M \times N$ — the $d_{\text{max}}$ formulation will be the most convenient by far.
+
+</SlideLayout>

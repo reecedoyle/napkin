@@ -1,0 +1,24 @@
+---
+title: Notation for groups
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Notation for groups" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+Now that we know what a group is, let's see what we can deduce just from the axioms. First, a couple of notational shortcuts that make life easier.
+
+<Callout kind="remark" title="Dropping the star">
+From now on, we'll often refer to a group $(G, \star)$ by just $G$. We'll also abbreviate $a \star b$ to just $ab$. Because $\star$ is associative, we'll omit unnecessary parentheses: $(ab)c = a(bc) = abc$.
+</Callout>
+
+<Callout kind="remark" title="Powers of an element">
+For any $g \in G$ and <Term k="NN">$n \in \NN$</Term> we abbreviate
+$$ g^n = \underbrace{g \star \dots \star g}_{n \text{ times}}. $$
+We call this a <Term k="power">power $g^n$</Term>. We let $g^{-1}$ denote the inverse of $g$ (matching the $\inv$ notation we used earlier), and we set $g^{-n} = (g^{-1})^n$.
+</Callout>
+
+These are *just notation* — nothing about the group has changed. But the resulting expressions look a lot more like ordinary arithmetic, which is exactly the point.
+
+</SlideLayout>

@@ -1,0 +1,25 @@
+---
+title: Order divides any exponent that gives the identity
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Order divides any exponent that gives the identity" part="Part I — Starting Out" chapter="1. Groups · Orders and Lagrange">
+
+You might already know from olympiad number theory that if $x^n \equiv 1 \pmod p$, then the order of $x$ mod $p$ must divide $n$. The same is true in *any* group, for exactly the same reason.
+
+<Callout kind="proposition" title="Order divides any power giving the identity">
+Let $G$ be a group and $g \in G$ with finite order $\ord g = d$. If $g^n = 1_G$ for some positive integer $n$, then $d \mid n$. (The symbol $\mid$ between two integers means "divides": $a \mid b$ reads "$a$ divides $b$", i.e. $b$ is an integer multiple of $a$. So $d \mid n$ says $d$ divides $n$.)
+</Callout>
+
+<ProofReveal
+  client:load
+  id="grp-ord-proof-divides"
+  prompt="Prove the proposition: if g has order d and g^n = 1, then d divides n."
+  solution="By the division algorithm, write n = qd + r with 0 <= r < d. Then g^n = g^(qd + r) = (g^d)^q · g^r = 1^q · g^r = g^r, using g^d = 1 (since d = ord g). So the assumption g^n = 1 gives g^r = 1. But 0 <= r < d, and d is by definition the smallest positive integer killing g — so r can't be a positive integer less than d. The only option is r = 0, i.e. d divides n."
+/>
+
+The takeaway: once you know one exponent that kills $g$, the *order* of $g$ has to divide it. So orders behave like the "minimal polynomial" of an element under exponentiation.
+
+</SlideLayout>

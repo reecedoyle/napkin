@@ -1,0 +1,70 @@
+---
+import SlideLayout from '../layouts/SlideLayout.astro';
+import { glossary } from '../lib/glossary';
+
+const entries = Object.entries(glossary).map(([key, entry]) => ({ key, ...entry }));
+---
+<SlideLayout title="Glossary">
+  <p>
+    Every notation used in the slides is listed here. Hovering a marked term
+    in any slide shows its definition; clicking jumps to the corresponding
+    entry below.
+  </p>
+
+  <dl class="napkin-glossary not-prose">
+    {entries.map((e) => (
+      <div id={e.key} class="napkin-glossary-entry">
+        <dt>
+          <span class="napkin-glossary-term">{e.term}</span>
+          {e.symbol && (
+            <span class="napkin-glossary-symbol">
+              <span set:html={`<span class="katex-source">${e.symbol}</span>`} />
+            </span>
+          )}
+        </dt>
+        <dd>{e.definition}</dd>
+      </div>
+    ))}
+  </dl>
+</SlideLayout>
+
+<style>
+  .napkin-glossary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .napkin-glossary-entry {
+    border-left: 3px solid rgb(231 229 228);
+    padding-left: 1rem;
+    scroll-margin-top: 5rem;
+  }
+  .napkin-glossary-entry:target {
+    border-left-color: rgb(180 83 9);
+    background: rgb(254 252 232 / 0.5);
+  }
+  .napkin-glossary-entry dt {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .napkin-glossary-symbol {
+    margin-left: 0.75rem;
+    font-family: ui-monospace, monospace;
+    color: rgb(120 113 108);
+    font-size: 0.85em;
+  }
+  .napkin-glossary-entry dd {
+    margin: 0;
+    color: rgb(68 64 60);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-entry { border-left-color: rgb(41 37 36); }
+    .napkin-glossary-entry:target {
+      border-left-color: rgb(245 158 11);
+      background: rgb(41 37 36 / 0.5);
+    }
+    .napkin-glossary-entry dd { color: rgb(214 211 209); }
+  }
+</style>

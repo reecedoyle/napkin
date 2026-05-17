@@ -1,0 +1,102 @@
+---
+title: The dihedral group
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Figure from '../../../../components/Figure.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The dihedral group" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+<Callout kind="example" title="Dihedral group">
+The **<Term k="Dn">dihedral group of order $2n$</Term>**, denoted $D_{2n}$, is the group of symmetries of a regular $n$-gon $A_1 A_2 \dots A_n$, which includes rotations and reflections. It consists of the $2n$ elements
+$$
+\{ 1,\, r,\, r^2,\, \dots,\, r^{n-1},\, s,\, sr,\, sr^2,\, \dots,\, sr^{n-1} \}.
+$$
+The element $r$ corresponds to rotating the $n$-gon by $\frac{2\pi}{n}$, while $s$ corresponds to reflecting it across the line $OA_1$ (here $O$ is the centre of the polygon). So $rs$ means "reflect then rotate" (like with function composition, we read from right to left).
+
+In particular, $r^n = s^2 = 1$. You can also see that $r^k s = s r^{-k}$.
+</Callout>
+
+Here is a picture of five elements of $D_{10}$ (the symmetry group of a regular pentagon). Each diagram shows where the labelled vertices $1, 2, 3, 4, 5$ end up, with the central label naming the symmetry.
+
+<Figure
+  alt="Five labelled regular pentagons showing the elements 1, r, s, sr, rs of the dihedral group D10"
+  caption="Five elements of the dihedral group D₁₀: the identity, a rotation r, a reflection s, and the composites sr and rs."
+>
+  <svg viewBox="-50 -55 500 110" width="700" height="160" aria-hidden="true">
+    {/* Five pentagons centered at x=0, 100, 200, 300, 400 */}
+    {/* Pentagon vertex offsets (radius 35): */}
+    {/*   v0 = ( 35.00,   0.00)  // dir(0) */}
+    {/*   v1 = ( 10.81, -33.29)  // dir(72) */}
+    {/*   v2 = (-28.32, -20.57)  // dir(144) */}
+    {/*   v3 = (-28.32,  20.57)  // dir(216) */}
+    {/*   v4 = ( 10.81,  33.29)  // dir(288) */}
+
+    {/* Pentagon 1: identity (labels 1,2,3,4,5; center 1) */}
+    <g transform="translate(0,0)">
+      <polygon points="35.00,0.00 10.81,-33.29 -28.32,-20.57 -28.32,20.57 10.81,33.29"
+               fill="none" stroke="currentColor" stroke-width="1.2" />
+      <text x="42" y="4" font-size="10" fill="currentColor" text-anchor="start">1</text>
+      <text x="13" y="-37" font-size="10" fill="currentColor" text-anchor="middle">2</text>
+      <text x="-32" y="-22" font-size="10" fill="currentColor" text-anchor="end">3</text>
+      <text x="-32" y="26" font-size="10" fill="currentColor" text-anchor="end">4</text>
+      <text x="13" y="44" font-size="10" fill="currentColor" text-anchor="middle">5</text>
+      <text x="0" y="4" font-size="11" fill="currentColor" text-anchor="middle" font-style="italic">1</text>
+    </g>
+
+    {/* Pentagon 2: r (labels 5,1,2,3,4; center r) */}
+    <g transform="translate(100,0)">
+      <polygon points="35.00,0.00 10.81,-33.29 -28.32,-20.57 -28.32,20.57 10.81,33.29"
+               fill="none" stroke="currentColor" stroke-width="1.2" />
+      <text x="42" y="4" font-size="10" fill="currentColor" text-anchor="start">5</text>
+      <text x="13" y="-37" font-size="10" fill="currentColor" text-anchor="middle">1</text>
+      <text x="-32" y="-22" font-size="10" fill="currentColor" text-anchor="end">2</text>
+      <text x="-32" y="26" font-size="10" fill="currentColor" text-anchor="end">3</text>
+      <text x="13" y="44" font-size="10" fill="currentColor" text-anchor="middle">4</text>
+      <text x="0" y="4" font-size="11" fill="currentColor" text-anchor="middle" font-style="italic">r</text>
+    </g>
+
+    {/* Pentagon 3: s (labels 1,5,4,3,2; center s) */}
+    <g transform="translate(200,0)">
+      <polygon points="35.00,0.00 10.81,-33.29 -28.32,-20.57 -28.32,20.57 10.81,33.29"
+               fill="none" stroke="currentColor" stroke-width="1.2" />
+      <text x="42" y="4" font-size="10" fill="currentColor" text-anchor="start">1</text>
+      <text x="13" y="-37" font-size="10" fill="currentColor" text-anchor="middle">5</text>
+      <text x="-32" y="-22" font-size="10" fill="currentColor" text-anchor="end">4</text>
+      <text x="-32" y="26" font-size="10" fill="currentColor" text-anchor="end">3</text>
+      <text x="13" y="44" font-size="10" fill="currentColor" text-anchor="middle">2</text>
+      <text x="0" y="4" font-size="11" fill="currentColor" text-anchor="middle" font-style="italic">s</text>
+    </g>
+
+    {/* Pentagon 4: sr (labels 5,4,3,2,1; center sr) */}
+    <g transform="translate(300,0)">
+      <polygon points="35.00,0.00 10.81,-33.29 -28.32,-20.57 -28.32,20.57 10.81,33.29"
+               fill="none" stroke="currentColor" stroke-width="1.2" />
+      <text x="42" y="4" font-size="10" fill="currentColor" text-anchor="start">5</text>
+      <text x="13" y="-37" font-size="10" fill="currentColor" text-anchor="middle">4</text>
+      <text x="-32" y="-22" font-size="10" fill="currentColor" text-anchor="end">3</text>
+      <text x="-32" y="26" font-size="10" fill="currentColor" text-anchor="end">2</text>
+      <text x="13" y="44" font-size="10" fill="currentColor" text-anchor="middle">1</text>
+      <text x="0" y="4" font-size="11" fill="currentColor" text-anchor="middle" font-style="italic">sr</text>
+    </g>
+
+    {/* Pentagon 5: rs (labels 2,1,5,4,3; center rs) */}
+    <g transform="translate(400,0)">
+      <polygon points="35.00,0.00 10.81,-33.29 -28.32,-20.57 -28.32,20.57 10.81,33.29"
+               fill="none" stroke="currentColor" stroke-width="1.2" />
+      <text x="42" y="4" font-size="10" fill="currentColor" text-anchor="start">2</text>
+      <text x="13" y="-37" font-size="10" fill="currentColor" text-anchor="middle">1</text>
+      <text x="-32" y="-22" font-size="10" fill="currentColor" text-anchor="end">5</text>
+      <text x="-32" y="26" font-size="10" fill="currentColor" text-anchor="end">4</text>
+      <text x="13" y="44" font-size="10" fill="currentColor" text-anchor="middle">3</text>
+      <text x="0" y="4" font-size="11" fill="currentColor" text-anchor="middle" font-style="italic">rs</text>
+    </g>
+  </svg>
+</Figure>
+
+<Callout kind="remark" title="Trivia">
+The dihedral group $D_{12}$ is the author's favourite example of a non-abelian group, and the first group to try for any exam question of the form "find an example…".
+</Callout>
+
+</SlideLayout>

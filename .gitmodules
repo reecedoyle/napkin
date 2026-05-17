@@ -1,0 +1,3 @@
+[submodule "vendor/napkin"]
+	path = vendor/napkin
+	url = https://github.com/vEnhance/napkin.git

@@ -1,0 +1,36 @@
+---
+/**
+ * Wraps inline SVG with a caption + accessible alt text.
+ * Pass the <svg> as children. Keep stroke="currentColor" and fill="currentColor"
+ * (or "none") inside the SVG so it inherits the slide's text colour and
+ * works in both light and dark mode.
+ */
+interface Props {
+  caption?: string;
+  /** Used as the figure's accessible label. Required if no caption is provided. */
+  alt: string;
+}
+
+const { caption, alt } = Astro.props;
+---
+<figure
+  class="not-prose my-8 flex flex-col items-center"
+  role="figure"
+  aria-label={alt}
+>
+  <div class="napkin-figure-svg text-stone-900 dark:text-stone-100">
+    <slot />
+  </div>
+  {caption && (
+    <figcaption class="mt-3 text-sm text-stone-600 dark:text-stone-400 text-center max-w-prose">
+      {caption}
+    </figcaption>
+  )}
+</figure>
+
+<style is:global>
+  .napkin-figure-svg svg {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

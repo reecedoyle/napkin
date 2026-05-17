@@ -1,0 +1,36 @@
+---
+title: The cancellation law
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="The cancellation law" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+The injectivity half of the bijection lemma has a name you should know.
+
+<Callout kind="proposition" title="Cancellation law">
+In any group $G$, if $gx = gy$ then $x = y$. (And similarly, if $xg = yg$ then $x = y$.)
+</Callout>
+
+This is exactly the statement that $x \mapsto gx$ is injective: equal outputs force equal inputs. The name *cancellation* comes from the fact that you can "cancel" the $g$ from both sides — much like cancelling a common factor in ordinary arithmetic, except that here the justification is that $g$ has an inverse.
+
+<MCQ
+  client:load
+  id="grp-prop-mcq-cancellation"
+  prompt="In a group G, the cancellation law lets you conclude what?"
+  options={[
+    { id: "a", label: "If gx = gy then x = y." },
+    { id: "b", label: "If x = y then gx = gy." },
+    { id: "c", label: "If gx = yg then x = y." },
+    { id: "d", label: "gx = xg for all g, x ∈ G." },
+  ]}
+  correct="a"
+  explanation="The cancellation law says: equal products with the same left factor force the right factors to agree. (Option (b) is just 'apply the same operation to both sides' — true but trivial, and not what the law is for.) Option (c) is wrong because in a non-abelian group gx and yg are products with g on different sides — you can't simply cancel. Option (d) is commutativity, which most groups don't satisfy."
+/>
+
+<Callout kind="remark" title="Why the name?">
+In ordinary arithmetic, $3x = 3y$ implies $x = y$ because we can divide by $3$. In a group, we don't have division — but we have *inverses*, which serve the same purpose. Multiplying both sides of $gx = gy$ by $g^{-1}$ on the left cancels the $g$.
+</Callout>
+
+</SlideLayout>

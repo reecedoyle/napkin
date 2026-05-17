@@ -1,0 +1,28 @@
+---
+title: Closed sets
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Closed sets" part="Part I — Starting Out" chapter="2. Metric Topology · Closed sets">
+
+It would be criminal to talk about open sets without their counterpart. The word "closed" comes from the following sequence-flavoured definition — a set is closed when it contains all the points its sequences can possibly *reach*.
+
+<Callout kind="definition" title="Closed set">
+Let $M$ be a <Term k="metricSpace">metric space</Term>. A subset $S \subseteq M$ is <Term k="closedSet">closed</Term> in $M$ if the following property holds: whenever $x_1, x_2, \dots$ is a sequence of points in $S$ that converges to some $x \in M$, we have
+$$
+x \in S.
+$$
+In words: $S$ is closed under taking limits of <Term k="convergence">convergent sequences</Term> that live in $S$.
+</Callout>
+
+The prototypical example to keep in mind is the **closed unit disk** $\{(x, y) \in \RR^2 : x^2 + y^2 \le 1\}$. Any sequence of points inside the closed disk that converges in $\RR^2$ must converge to a point of the disk too — the boundary circle is included, so limits can't escape.
+
+<Callout kind="remark" title="Notation">
+"Closed" is defined *relative to* a parent metric space $M$ — exactly like "open". When the parent space is clear from context we abbreviate "closed in $M$" to just "closed". When the ambient space matters, we say it explicitly.
+</Callout>
+
+A common pitfall: "closed" does **not** mean "not open". The two notions are genuinely different conditions, and we will see in a few slides that a set can be neither, or even both. The relationship between them is more subtle — and more interesting — than the names suggest.
+
+</SlideLayout>

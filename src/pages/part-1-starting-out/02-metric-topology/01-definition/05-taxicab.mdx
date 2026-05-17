@@ -1,0 +1,32 @@
+---
+title: The taxicab metric
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import NumericInput from '../../../../components/NumericInput';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The taxicab metric" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+The Euclidean metric isn't the only sensible distance on $\RR^2$. Here is a second, very different one.
+
+<Callout kind="example" title="Taxicab on R^2">
+The <Term k="taxicabMetric">**taxicab distance**</Term> on $\RR^2$ is
+$$
+d\bigl( (x_1, y_1), (x_2, y_2) \bigr) = |x_1 - x_2| + |y_1 - y_2|.
+$$
+It is the path length you would travel between two points on a city grid, where you can only walk along the axis-aligned streets.
+</Callout>
+
+Two points can be 5 apart in the Euclidean metric but 7 apart in the taxicab metric — the same set of points carries two genuinely different geometries. (For most of this chapter we will default back to the more natural Euclidean metric.)
+
+<NumericInput
+  client:load
+  id="top-def-num-taxicab"
+  prompt="In the taxicab metric on R^2, what is d((0,0), (3,4))?"
+  expected="7"
+  placeholder="a number"
+  explanation="Taxicab distance is |3 - 0| + |4 - 0| = 3 + 4 = 7. (Note that the Euclidean distance between the same two points is sqrt(9 + 16) = 5 — the same pair of points sits 'farther apart' under the taxicab metric.)"
+/>
+
+</SlideLayout>

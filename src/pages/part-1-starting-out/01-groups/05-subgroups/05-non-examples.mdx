@@ -1,0 +1,36 @@
+---
+title: Non-examples of subgroups
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Non-examples of subgroups" part="Part I — Starting Out" chapter="1. Groups · Subgroups">
+
+Just like with groups, looking at *non*-examples sharpens the definition. Each of the following is a subset of $\ZZ = (\ZZ, +)$ that fails exactly one subgroup requirement.
+
+<Callout kind="example" title="Non-examples of subgroups of Z">
+- The set $\{0, 1, 2, \dots\}$ of non-negative integers is **not** a subgroup of $\ZZ$, because it does not contain inverses (the additive inverse of $1$ is $-1$, which is missing).
+- The set of cubes
+$$
+\{ n^3 \mid n \in \ZZ \} = \{ \dots, -8, -1, 0, 1, 8, \dots \}
+$$
+is **not** a subgroup, because it is not closed under addition: $1 + 8 = 9$, and $9$ is not a cube.
+- The empty set $\varnothing$ is **not** a subgroup of $\ZZ$, because it lacks an identity element.
+</Callout>
+
+<MCQ
+  client:load
+  id="grp-sub-mcq-not-a-subgroup"
+  prompt="Which of the following is NOT a subgroup of (Z, +)?"
+  options={[
+    { id: "a", label: "The even integers 2Z." },
+    { id: "b", label: "The set {0}." },
+    { id: "c", label: "The set of perfect squares {0, 1, 4, 9, 16, ...} together with their negatives." },
+    { id: "d", label: "All of Z itself." },
+  ]}
+  correct="c"
+  explanation="Option (a) 2Z is closed under addition (sum of evens is even), contains 0, and contains inverses (negative of an even is even) — it's a subgroup. Option (b) {0} is the trivial subgroup. Option (d) Z is a subgroup of itself. Option (c) fails: the squares and their negatives are not closed under addition — e.g. 1 + 4 = 5 is not a square or the negative of one. Same flavour as the cubes non-example above."
+/>
+
+</SlideLayout>

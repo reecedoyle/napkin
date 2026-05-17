@@ -1,0 +1,27 @@
+---
+title: Examples of subgroups
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="Examples of subgroups" part="Part I — Starting Out" chapter="1. Groups · Subgroups">
+
+Subgroups are everywhere once you start looking. Here are three to keep in mind.
+
+<Callout kind="example" title="Examples of subgroups">
+- $2\ZZ$ (the even integers) is a subgroup of $\ZZ$. In fact, the doubling map $n \mapsto 2n$ shows it is *isomorphic* to $\ZZ$ itself!
+- Consider again $S_n$, the symmetric group on $n$ elements. Let $T$ be the set of permutations $\tau \colon \{1, \dots, n\} \to \{1, \dots, n\}$ for which $\tau(n) = n$. Then $T$ is a subgroup of $S_n$; in fact, it is isomorphic to $S_{n-1}$ (the permutations of the first $n - 1$ symbols).
+- Consider the product group $G \times H$ and the elements
+$$
+\left\{ (g, 1_H) \mid g \in G \right\}.
+$$
+This is a subgroup of $G \times H$ (why?). In fact, it is isomorphic to $G$ via the isomorphism $(g, 1_H) \mapsto g$.
+</Callout>
+
+There are also two subgroups every group automatically has.
+
+<Callout kind="example" title="Stupid examples of subgroups">
+For any group $G$, the trivial group $\{1_G\}$ and the entire group $G$ are subgroups of $G$.
+</Callout>
+
+</SlideLayout>

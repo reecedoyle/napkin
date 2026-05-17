@@ -1,0 +1,50 @@
+---
+title: Addition and multiplication are continuous
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Addition and multiplication are continuous" part="Part I — Starting Out" chapter="2. Metric Topology · Product metric">
+
+Here's the payoff. With componentwise convergence in hand, we can verify continuity of the basic arithmetic operations almost mechanically.
+
+<Callout kind="proposition" title="Addition and multiplication are continuous">
+The addition and multiplication maps
+$$
++,\ \times \colon \RR \times \RR \to \RR
+$$
+are <Term k="continuous">continuous</Term>, where $\RR \times \RR$ carries the product metric.
+</Callout>
+
+**Proof.** We use sequential continuity throughout: let $(x_n, y_n) \to (x, y)$ in $\RR \times \RR$. By the previous slide this is the same as $x_n \to x$ and $y_n \to y$ in $\RR$ separately.
+
+For multiplication, expand $x_n y_n$ around the limit:
+$$
+\begin{align*}
+x_n y_n &= \bigl( x + (x_n - x) \bigr) \bigl( y + (y_n - y) \bigr) \\
+&= xy + y(x_n - x) + x(y_n - y) + (x_n - x)(y_n - y),
+\end{align*}
+$$
+and so by the triangle inequality
+$$
+\bigl| x_n y_n - xy \bigr|
+\ \le\ |y|\,|x_n - x| + |x|\,|y_n - y| + |x_n - x|\,|y_n - y|.
+$$
+Each of the three terms on the right tends to $0$ as $n \to \infty$: the first because $|x_n - x| \to 0$ and $|y|$ is a fixed constant, the second symmetrically, and the third because *both* factors tend to $0$. Hence $x_n y_n \to xy$, which is exactly $\times(x_n, y_n) \to \times(x, y)$. By sequential continuity, $\times$ is continuous.
+
+For addition the calculation is shorter:
+$$
+\bigl| (x_n + y_n) - (x + y) \bigr| \ \le\ |x_n - x| + |y_n - y|,
+$$
+and both terms tend to $0$ as $n \to \infty$. So $x_n + y_n \to x + y$, and $+$ is continuous by the same reasoning. $\blacksquare$
+
+Subtraction and division are essentially the same argument, and are covered as a problem at the end of the chapter.
+
+**Upshot.** Combine this with the fact that the composition of continuous maps is continuous (from §3): *most naturally occurring real-valued functions are automatically continuous*. For example, the function
+$$
+f(x) = \frac{3x}{x^2 + 1}
+$$
+is a continuous map $\RR \to \RR$, because it is built from $x$, the constants $1$ and $3$, and the operations $+$, $\times$, $\div$ — and each of those is continuous. No $\varepsilon$–$\delta$ argument required at any stage.
+
+</SlideLayout>

@@ -1,0 +1,38 @@
+---
+title: Inverses and symmetry
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Inverses and symmetry" part="Part I — Starting Out" chapter="1. Groups · Why these axioms?">
+
+The third axiom — that every element has an inverse — is what gives a group its *symmetry*. Without it, some elements end up "bigger" than others.
+
+<Callout kind="remark" title="Why insist on inverses?">
+Consider the natural numbers under addition: $(\NN, +)$. There is an identity element $0$, and the operation is associative, but this is **not** a group. The issue is that you can't subtract: there's no element $x \in \NN$ with $3 + x = 0$.
+
+This asymmetry — some elements are "larger" than others, and the operation only ever moves you in one direction — is exactly what the inverse axiom rules out. With inverses, you can always undo any operation, and that gives the structure its uniformity.
+
+(You also need the identity for this to even make sense: it's hard to say what an inverse *is* without something to invert *to*.)
+</Callout>
+
+<Callout kind="remark" title="A forward link: Cayley's theorem">
+Later in this book, **Cayley's theorem** will make this rigorous. It says that every group $G$ is isomorphic to a subgroup of some symmetric group — in other words, every group can be realised as a group of permutations of some set. Groups, in this sense, *are* symmetries: the abstract axioms we wrote down turn out to capture exactly the structure of "things that act invertibly on a set".
+</Callout>
+
+<MCQ
+  client:load
+  id="grp-rat-mcq-not-a-group"
+  prompt="Which of the following pairs (set, operation) fails to be a group, and which axiom does it fail?"
+  options={[
+    { id: "a", label: "(Z, +) — fails associativity." },
+    { id: "b", label: "(N, +) where N = {0, 1, 2, ...} — fails the inverse axiom (no additive inverse for 1)." },
+    { id: "c", label: "(Q, ×) — fails associativity." },
+    { id: "d", label: "(Z, +) — fails the identity axiom." },
+  ]}
+  correct="b"
+  explanation="(N, +) has an identity (namely 0) and the operation is associative, but most elements have no inverse: there is no natural number x with 1 + x = 0. So it fails the inverse axiom — exactly the asymmetry described above. (Z, +) is a group (abelian, in fact), so options (a) and (d) are wrong. (Q, ×) is associative; it fails to be a group, but because 0 has no multiplicative inverse — not because of associativity — so option (c) is wrong too."
+/>
+
+</SlideLayout>

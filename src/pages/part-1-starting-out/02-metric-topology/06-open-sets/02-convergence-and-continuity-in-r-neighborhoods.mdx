@@ -1,0 +1,34 @@
+---
+title: Convergence and continuity in r-neighborhood terms
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Convergence and continuity in r-neighborhood terms" part="Part I — Starting Out" chapter="2. Metric Topology · Open sets">
+
+With the $r$-neighborhood notation we can restate the two main concepts from earlier in this chapter *without* mentioning distances explicitly.
+
+<Callout kind="remark" title="Convergence, rephrased">
+A sequence $(x_n)$ in $M$ converges to $x$ if and only if for every <Term k="rNeighborhood">$r$-neighborhood</Term> $M_r(x)$ of $x$, all but finitely many terms $x_n$ lie inside $M_r(x)$.
+</Callout>
+
+This is just the $\varepsilon$-definition with $\varepsilon = r$ — the statement $d(x_n, x) < r$ is *exactly* the statement $x_n \in M_r(x)$. The substitution is purely cosmetic, but the new wording is suggestive: convergence is about a sequence *eventually entering* every prescribed neighborhood of its limit.
+
+Now try the same translation for <Term k="continuous">continuity</Term>.
+
+<ProofReveal
+  client:load
+  id="top-open-proof-continuity-via-neighborhoods"
+  prompt="In terms of r-neighborhoods, what does it mean for a function f : M -> N to be continuous at a point p in M?"
+  solution="Unpacking the epsilon-delta definition with epsilon and delta playing the role of radii: f is continuous at p if and only if for every epsilon-neighborhood N_eps(f(p)) of f(p) in N, there exists a delta-neighborhood M_delta(p) of p in M such that f maps M_delta(p) into N_eps(f(p)) — i.e. f(M_delta(p)) is a subset of N_eps(f(p)).
+
+Equivalently (and this is the form that will be useful in a moment): for every epsilon-neighborhood V = N_eps(f(p)) of f(p), the pre-image f^{-1}(V) contains some delta-neighborhood of p.
+
+In words: the pre-image of every neighborhood of f(p) contains some neighborhood of p."
+/>
+
+The punchline of the rephrased continuity is the last sentence: **the pre-image of every neighborhood of $f(p)$ contains some neighborhood of $p$**. This is the seed of the definition we are about to give — a set with the property that "around every point there is a neighborhood inside the set" is called *open*.
+
+</SlideLayout>

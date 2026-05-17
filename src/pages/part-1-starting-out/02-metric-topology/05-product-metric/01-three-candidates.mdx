@@ -1,0 +1,34 @@
+---
+title: Three candidates for a product metric
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import NumericInput from '../../../../components/NumericInput';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Three candidates for a product metric" part="Part I — Starting Out" chapter="2. Metric Topology · Product metric">
+
+Given two <Term k="metricSpace">metric spaces</Term> $M = (M, d_M)$ and $N = (N, d_N)$, can we make their Cartesian product $M \times N$ into a metric space? The prototype is $\RR \times \RR$, which we already know carries the <Term k="euclideanMetric">Euclidean metric</Term> as $\RR^2$ — so the question is really how to do this in general, and which formula to pick.
+
+For points $p_1 = (x_1, y_1)$ and $p_2 = (x_2, y_2)$ in $M \times N$, here are three natural candidates:
+
+$$
+\begin{align*}
+d_{\text{max}}(p_1, p_2) &\defeq \max\bigl\{ d_M(x_1, x_2),\ d_N(y_1, y_2) \bigr\} \\
+d_{\text{Euclid}}(p_1, p_2) &\defeq \sqrt{d_M(x_1, x_2)^2 + d_N(y_1, y_2)^2} \\
+d_{\text{taxicab}}(p_1, p_2) &\defeq d_M(x_1, x_2) + d_N(y_1, y_2).
+\end{align*}
+$$
+
+All three obey the metric axioms. When $M = N = \RR$, the middle one is the familiar Euclidean distance on the plane; the bottom is the <Term k="taxicabMetric">taxicab metric</Term>; and the top is the "max"-distance — the larger of the two coordinate gaps.
+
+<NumericInput
+  client:load
+  id="top-prod-num-dmax"
+  prompt="On R^2 with the max metric d_max, what is d_max((0, 0), (3, 4))?"
+  expected="4"
+  placeholder="a number"
+  explanation="d_max((0,0), (3,4)) = max{|3 - 0|, |4 - 0|} = max{3, 4} = 4. For comparison, the Euclidean distance is sqrt(9 + 16) = 5 and the taxicab distance is 3 + 4 = 7 — the three candidates really do give different numbers, but as we will see on the next slide they yield the *same* topology."
+/>
+
+</SlideLayout>

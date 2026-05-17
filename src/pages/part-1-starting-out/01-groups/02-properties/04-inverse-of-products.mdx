@@ -1,0 +1,32 @@
+---
+title: The inverse of a product
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="The inverse of a product" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+Now a slightly more useful fact. To invert a product, you invert each factor — but the order *flips*.
+
+<Callout kind="proposition" title="Inverse of a product">
+Let $G$ be a group, and let $a, b \in G$. Then
+$$ (ab)^{-1} = b^{-1} a^{-1}. $$
+</Callout>
+
+The flipped order is what you'd expect if you think of $a$ and $b$ as operations: to undo "do $a$, then do $b$", you must first undo $b$, then undo $a$. Putting on socks then shoes is reversed by removing shoes then socks.
+
+<ProofReveal
+  client:load
+  id="grp-prop-proof-inverse-of-product"
+  prompt="Prove that (ab)^{-1} = b^{-1} a^{-1} in any group G."
+  solution="By the uniqueness of inverses (previous slide), it's enough to check that b^{-1} a^{-1} multiplied by ab gives the identity, on both sides.
+
+Right multiplication: (ab)(b^{-1} a^{-1}) = a (b b^{-1}) a^{-1} = a · 1_G · a^{-1} = a a^{-1} = 1_G. (We used associativity to regroup, then b b^{-1} = 1_G, then the identity axiom, then a a^{-1} = 1_G.)
+
+Left multiplication: similarly, (b^{-1} a^{-1})(ab) = b^{-1} (a^{-1} a) b = b^{-1} · 1_G · b = b^{-1} b = 1_G.
+
+Since b^{-1} a^{-1} satisfies both inverse equations for ab, and inverses are unique, we conclude (ab)^{-1} = b^{-1} a^{-1}."
+/>
+
+</SlideLayout>

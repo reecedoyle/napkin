@@ -1,0 +1,52 @@
+---
+title: Proof of the open-set condition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Proof of the open-set condition" part="Part I — Starting Out" chapter="2. Metric Topology · Open sets">
+
+There are two directions to prove. The easy direction — open-set condition implies $\varepsilon$–$\delta$ <Term k="continuous">continuity</Term> — is left to you.
+
+<ProofReveal
+  client:load
+  id="top-open-proof-easy-direction"
+  prompt="Suppose f : M -> N has the property that f^{-1}(V) is open in M for every open set V in N. Show that f is epsilon-delta continuous at every point p in M."
+  solution="Fix p ∈ M and epsilon > 0. We want to find delta > 0 such that d_M(x, p) < delta implies d_N(f(x), f(p)) < epsilon.
+
+The epsilon-neighborhood V := N_eps(f(p)) is an r-neighborhood, and r-neighborhoods are open (we proved this in the examples slide). By the hypothesis, U := f^{-1}(V) is open in M.
+
+Now p ∈ U: indeed, f(p) ∈ V because d_N(f(p), f(p)) = 0 < epsilon. By openness of U at p, there is some delta > 0 such that M_delta(p) ⊆ U.
+
+This delta works: for x with d_M(x, p) < delta we have x ∈ M_delta(p) ⊆ U = f^{-1}(V), so f(x) ∈ V = N_eps(f(p)), which says d_N(f(x), f(p)) < epsilon. Done."
+/>
+
+Now the other direction, which we prove in full.
+
+**Proof (continuity ⇒ pre-image of open is open).** Assume $f$ is continuous (in the $\varepsilon$–$\delta$ sense). Let $V \subseteq N$ be any open set, and put $U \mathrel{:=} f^{-1}(V)$. We will show $U$ is open in $M$.
+
+Pick any $x \in U$, and set $y \mathrel{:=} f(x)$, which lies in $V$ by definition of $U$. We need to exhibit a positive radius $\delta$ such that $M_\delta(x) \subseteq U$ — see the figure on the previous slide.
+
+Two steps:
+
+1. **$V$ is open in $N$, so $y$ has an $\varepsilon$-neighborhood inside $V$.** By definition of openness applied at the point $y \in V$, there exists $\varepsilon > 0$ with
+$$
+N_\varepsilon(y) \subseteq V.
+$$
+
+2. **$f$ is continuous at $x$, so it pulls that $\varepsilon$-neighborhood back to a $\delta$-neighborhood.** By $\varepsilon$–$\delta$ continuity of $f$ at $x$, for this particular $\varepsilon$ there exists $\delta > 0$ such that $d_M(x', x) < \delta$ implies $d_N(f(x'), y) < \varepsilon$. Translated into <Term k="rNeighborhood">$r$-neighborhood</Term> language:
+$$
+f\bigl( M_\delta(x) \bigr) \subseteq N_\varepsilon(y).
+$$
+
+Chain the two inclusions. For any $x' \in M_\delta(x)$ we have $f(x') \in N_\varepsilon(y) \subseteq V$, so $x' \in f^{-1}(V) = U$. That is, $M_\delta(x) \subseteq U$. Since $x \in U$ was arbitrary, $U$ is open in $M$. $\blacksquare$
+
+The proof is essentially a restatement of $\varepsilon$–$\delta$ continuity in set-theoretic dress: the role of $\varepsilon$ is played by openness of $V$, and the role of $\delta$ is played by openness of $U = f^{-1}(V)$.
+
+<Callout kind="remark" title="Why this is a big deal">
+The open-set condition makes no reference to the metric in its statement — it only mentions which sets are *open*. This means: any time two metrics on the same underlying set declare the same family of subsets to be open, they declare exactly the same functions to be continuous. In particular our three product metrics from §5 — $d_{\text{max}}$, $d_{\text{Euclid}}$, $d_{\text{taxicab}}$ — really do give "the same" notion of continuity. More generally, this is what lets us *forget* the metric and remember only the collection of open sets: a structure known as a **topological space**, the proper home of these ideas.
+</Callout>
+
+</SlideLayout>

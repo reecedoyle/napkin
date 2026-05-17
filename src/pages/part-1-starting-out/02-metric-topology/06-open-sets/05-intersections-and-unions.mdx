@@ -1,0 +1,53 @@
+---
+title: Intersections and unions of open sets
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Intersections and unions of open sets" part="Part I — Starting Out" chapter="2. Metric Topology · Open sets">
+
+Open sets behave well under set operations — but only *finitely* well under intersection.
+
+<Callout kind="proposition" title="Intersections and unions of open sets">
+Let $M$ be a metric space.
+
+(a) The intersection of **finitely** many <Term k="openSet">open sets</Term> in $M$ is open.
+
+(b) The union of an **arbitrary** collection of open sets in $M$ — even an infinite one — is open.
+</Callout>
+
+The asymmetry between (a) and (b) — finite for intersection, arbitrary for union — is one of the most important facts in point-set topology. Convince yourself before peeking.
+
+<ProofReveal
+  client:load
+  id="top-open-proof-intersections-unions"
+  prompt="Prove both parts of the proposition: (a) finite intersection of open sets is open, and (b) arbitrary union of open sets is open."
+  solution="(b) Union is easy. Let { U_i } be any family of open sets and let U = ⋃ U_i. Pick any p ∈ U. Then p ∈ U_j for some particular index j. Since U_j is open, there is some r > 0 with M_r(p) ⊆ U_j. But U_j ⊆ U, so M_r(p) ⊆ U. The single radius r works for p. No issue with infinitely many sets — we only needed *one* of them.
+
+(a) Finite intersection. Let U_1, ..., U_n be open and let U = U_1 ∩ ⋯ ∩ U_n. Pick p ∈ U, so p lies in every U_i. For each i, openness of U_i gives some r_i > 0 with M_{r_i}(p) ⊆ U_i. Set r = min(r_1, ..., r_n). This minimum is positive because we are taking the min of *finitely* many positive numbers. Then M_r(p) ⊆ M_{r_i}(p) ⊆ U_i for every i, so M_r(p) ⊆ U. Done.
+
+Why finiteness matters: for an infinite family { U_i } the corresponding radii r_i could shrink to 0, and the infimum inf r_i could be 0 — leaving no positive r that works. The next slide shows this can really happen."
+/>
+
+The proof shows *exactly* where finiteness is used: the minimum of finitely many positive numbers is positive, but the infimum of *infinitely* many positive numbers can be $0$. Here is the canonical example.
+
+<ProofReveal
+  client:load
+  id="top-open-proof-infinite-intersection"
+  prompt="Exhibit an infinite collection of open sets in R whose intersection is the single point {0}. This shows that infinite intersections of open sets need not be open."
+  solution="Take U_n = (-1/n, 1/n) for n = 1, 2, 3, .... Each U_n is an open interval, hence open in R.
+
+I claim the intersection ⋂_{n ≥ 1} U_n is exactly {0}.
+
+(⊇) 0 ∈ U_n for every n, since -1/n < 0 < 1/n.
+
+(⊆) Conversely, suppose x ∈ ⋂_{n ≥ 1} U_n. Then |x| < 1/n for every n ≥ 1. The only real number with |x| < 1/n for all n is x = 0 (this is the Archimedean property: for any positive x there would be some n with 1/n < x, contradicting |x| < 1/n).
+
+So ⋂_{n ≥ 1} U_n = {0}. But {0} is *not* open in R — any neighborhood (-r, r) of 0 contains non-zero numbers and so is not a subset of {0}. We have written a non-open set as an intersection of open sets, so the 'arbitrary intersection' version of part (a) is false."
+/>
+
+The fix for (a) — under what conditions arbitrary intersections of open sets stay open — leads to the dual notion of a *closed* set, which is the subject of the next section. For now: **finite** intersection, **arbitrary** union. Memorise the asymmetry.
+
+</SlideLayout>

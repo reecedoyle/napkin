@@ -1,0 +1,40 @@
+---
+title: Neither open nor closed (and both)
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Neither open nor closed (and both)" part="Part I — Starting Out" chapter="2. Metric Topology · Closed sets">
+
+A word of warning about this terminology, since the names are deceptive.
+
+<Callout kind="remark" title="Closed is NOT the same as not-open">
+**Most subsets of a metric space are neither open nor closed.** "Closed" is not the logical negation of "open" — they are two different conditions, and a generic set will fail both.
+</Callout>
+
+The cleanest illustration is the half-open interval:
+
+<Callout kind="example" title="A set that is neither open nor closed">
+The half-open interval $[0, 1)$ is neither <Term k="openSet">open</Term> nor <Term k="closedSet">closed</Term> in $\RR$.
+
+- It is **not open**: any $r$-neighborhood $(-r, r)$ of the endpoint $0$ contains negative numbers, so no neighborhood of $0$ fits inside $[0, 1)$.
+- It is **not closed**: the sequence $1 - \tfrac{1}{n}$ lies entirely in $[0, 1)$ but converges to $1 \notin [0, 1)$.
+
+Both defects show up at different endpoints, and each on its own would already disqualify the set.
+</Callout>
+
+At the other extreme, it is also possible for a set to be **both** open and closed. The empty set $\varnothing$ and the whole space $M$ are always both — they satisfy the open and closed conditions vacuously and tautologically. Whether there are *other* such sets is a surprisingly deep question; it is connected to the topological notion of *connectedness*, which we'll meet in a later chapter on topology.
+
+So the four possible (open?, closed?) combinations all really occur:
+
+| Subset of $\RR$ | Open? | Closed? |
+| :-- | :--: | :--: |
+| $(0, 1)$ | yes | no |
+| $[0, 1]$ | no | yes |
+| $[0, 1)$ | no | no |
+| $\varnothing$, $\RR$ | yes | yes |
+
+Once you internalise this you'll stop expecting these adjectives to be opposites, and you'll be ready for the theorem on the next slide — which explains where the *names* "open" and "closed" come from in the first place.
+
+</SlideLayout>

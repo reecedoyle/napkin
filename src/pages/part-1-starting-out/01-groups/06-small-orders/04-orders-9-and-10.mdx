@@ -1,0 +1,58 @@
+---
+title: Groups of order 9 and 10
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Groups of order 9 and 10" part="Part I — Starting Out" chapter="1. Groups · Small orders">
+
+We close out the survey with orders $9$ and $10$.
+
+<Callout kind="example" title="Order 9">
+There are exactly two groups of order $9$:
+- $\Zc 9$, the cyclic group on nine elements.
+- $\Zc 3 \times \Zc 3$.
+</Callout>
+
+The pattern at order $9 = 3^2$ mirrors the pattern at order $4 = 2^2$: a cyclic group, plus a "square of the prime field" group. As at order $4$, the two are distinguished by element orders — $\Zc 9$ has an element of order $9$, while in $\Zc 3 \times \Zc 3$ every non-identity element has order $3$.
+
+<Callout kind="example" title="Order 10">
+There are exactly two groups of order $10$:
+- $\Zc{10}$, which by the Chinese remainder theorem is the same as $\Zc 5 \times \Zc 2$.
+- $D_{10}$, the dihedral group of order $10$ (symmetries of a regular pentagon). Non-abelian.
+</Callout>
+
+The Chinese remainder isomorphism $\Zc{10} \cong \Zc 5 \times \Zc 2$ deserves a moment. The element $(1, 1) \in \Zc 5 \times \Zc 2$ has order $\lcm(5, 2) = 10$, so it generates the whole group — and any cyclic group of order $10$ is $\Zc{10}$.
+
+<MCQ
+  client:load
+  id="grp-small-mcq-z10-crt"
+  prompt="Which pair of groups consists of two ways of writing the SAME group?"
+  options={[
+    { id: "a", label: "Z/10Z and Z/5Z × Z/2Z" },
+    { id: "b", label: "Z/10Z and D_{10}" },
+    { id: "c", label: "Z/4Z and Z/2Z × Z/2Z" },
+    { id: "d", label: "Z/9Z and Z/3Z × Z/3Z" },
+  ]}
+  correct="a"
+  explanation="By the Chinese remainder theorem, Z/mZ × Z/nZ ≅ Z/(mn)Z whenever gcd(m, n) = 1, so Z/5Z × Z/2Z ≅ Z/10Z. (b) is false — D_{10} is non-abelian, Z/10Z is abelian. (c) and (d) are the cyclic-vs-product pairs at orders 4 and 9; in those pairs gcd(2, 2) = 2 and gcd(3, 3) = 3 are not 1, so CRT does not apply, and indeed those pairs are genuinely non-isomorphic."
+/>
+
+<MCQ
+  client:load
+  id="grp-small-mcq-order-9"
+  prompt="Which of the following is TRUE about groups of order 9?"
+  options={[
+    { id: "a", label: "Every group of order 9 is cyclic." },
+    { id: "b", label: "There is a unique group of order 9, namely Z/9Z." },
+    { id: "c", label: "There are two groups of order 9: Z/9Z and Z/3Z × Z/3Z. Both are abelian." },
+    { id: "d", label: "There are two groups of order 9, one of which is non-abelian." },
+  ]}
+  correct="c"
+  explanation="There are exactly two groups of order 9: the cyclic Z/9Z, and the elementary abelian Z/3Z × Z/3Z. Both are abelian — in fact every group of order p^2 (for p prime) is abelian, a clean Sylow-theoretic fact. So (a), (b), (d) are all wrong."
+/>
+
+That wraps up the small-order census. By order $12$ things start to get genuinely complicated (there are five groups of order $12$, including $A_4$), but the patterns you've seen here — primes give cyclic, prime squares give two abelian options, $2 \times \text{prime}$ gives cyclic plus dihedral — keep recurring, and you'll meet the tools (Lagrange, Sylow, classification of finite abelian groups) to predict them in later chapters.
+
+</SlideLayout>

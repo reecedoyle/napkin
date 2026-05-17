@@ -1,0 +1,58 @@
+---
+title: r-neighborhoods
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Figure from '../../../../components/Figure.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="r-neighborhoods" part="Part I — Starting Out" chapter="2. Metric Topology · Open sets">
+
+<Term k="continuous">Continuity</Term> is really about what happens *locally*: how a function behaves "close to a point $p$". To make "close" precise we have already been using the metric — and from the metric we get a natural notion of a small ball of radius $r$ around any point.
+
+<Callout kind="definition" title="r-neighborhood">
+Let $(M, d)$ be a <Term k="metricSpace">metric space</Term>. For each real number $r > 0$ and point $p \in M$, define
+$$
+M_r(p) \mathrel{:=} \{ x \in M : d(x, p) < r \}.
+$$
+The set $M_r(p)$ is called the <Term k="rNeighborhood">$r$-neighborhood</Term> of $p$. (It is also called the *open ball of radius $r$ centred at $p$*.)
+</Callout>
+
+The strict inequality $d(x, p) < r$ is essential — the boundary points at distance *exactly* $r$ are excluded.
+
+<Figure
+  alt="A blob labelled M containing a point p, with a dashed circle of radius r drawn around p; a line segment from p outward is labelled r and the dashed disk is labelled M_r(p)."
+  caption="The r-neighborhood M_r(p): all points of M within distance r of p."
+>
+  <svg viewBox="0 0 240 200" width="420" height="350" aria-hidden="true">
+    {/* The blob "M": an irregular closed curve. */}
+    <path
+      d="M 40 90 C 30 50, 80 30, 130 35 C 180 38, 215 70, 210 110 C 205 150, 165 180, 110 178 C 60 175, 35 145, 40 90 Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1"
+    />
+    {/* Label "M" in upper-left corner of the blob */}
+    <text x="56" y="62" font-size="13" fill="currentColor" font-style="italic" text-anchor="middle">M</text>
+
+    {/* The point p (interior, slightly right of centre) */}
+    <circle cx="135" cy="115" r="2.4" fill="currentColor" />
+    <text x="135" y="130" font-size="11" fill="currentColor" font-style="italic" text-anchor="middle">p</text>
+
+    {/* The dashed r-neighborhood circle around p, radius 38 */}
+    <circle cx="135" cy="115" r="38" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 3" />
+
+    {/* Radius line from p outward at angle 130° (asy dir(130)): cos130 ≈ -0.643, sin130 ≈ 0.766.
+        In SVG y-axis is flipped, so endpoint = (135 + 38*(-0.643), 115 - 38*(0.766)) = (110.6, 85.9) */}
+    <line x1="135" y1="115" x2="110.6" y2="85.9" stroke="currentColor" stroke-width="0.8" />
+    {/* Label "r" at the midpoint, offset upward-right */}
+    <text x="126" y="96" font-size="11" fill="currentColor" font-style="italic" text-anchor="middle">r</text>
+
+    {/* Label "M_r(p)" pointing into the dashed circle, lower-right */}
+    <text x="172" y="148" font-size="11" fill="currentColor" font-style="italic" text-anchor="start">M<tspan font-size="8" dy="3">r</tspan><tspan dy="-3">(p)</tspan></text>
+  </svg>
+</Figure>
+
+In $\RR$ with the usual metric, $\RR_r(p)$ is exactly the open interval $(p - r, p + r)$. In $\RR^2$ with the Euclidean metric, $(\RR^2)_r(p)$ is the open disk of radius $r$ centred at $p$. The notation generalises both.
+
+</SlideLayout>

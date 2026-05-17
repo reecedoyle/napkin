@@ -1,0 +1,25 @@
+---
+title: First examples of isomorphisms
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="First examples of isomorphisms" part="Part I — Starting Out" chapter="1. Groups · Isomorphisms">
+
+A few quick isomorphisms to build intuition.
+
+<Callout kind="example" title="Examples of isomorphisms">
+Let $G$ and $H$ be groups.
+
+- **(a)** $\ZZ \cong 10\ZZ$, via $x \mapsto 10x$, as on the previous slide.
+- **(b)** Swapping coordinates gives an isomorphism
+$$
+G \times H \cong H \times G, \qquad (g, h) \mapsto (h, g).
+$$
+- **(c)** The identity map $\id \colon G \to G$ is always an isomorphism, so $G \cong G$.
+- **(d)** Negation gives a *different* self-isomorphism of $\ZZ$: the map $x \mapsto -x$ is a bijection $\ZZ \to \ZZ$ that respects addition, since $-(x + y) = (-x) + (-y)$.
+</Callout>
+
+Examples (c) and (d) together show something interesting: a group can be isomorphic to itself by more than one map. The identity is the obvious choice, but it's rarely the only one.
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: Products and the trivial group
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Products and the trivial group" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+We can also build new groups from old ones.
+
+<Callout kind="example" title="Products of groups">
+Let $(G, \star)$ and $(H, \ast)$ be groups. We can define a **product group** $(G \times H, \cdot)$ as follows. The elements of the group are ordered pairs $(g, h) \in G \times H$. The operation is
+$$
+(g_1, h_1) \cdot (g_2, h_2) = (g_1 \star g_2,\, h_1 \ast h_2) \in G \times H.
+$$
+</Callout>
+
+<ProofReveal
+  client:load
+  id="grp-def-proof-product-id-inv"
+  prompt="What are the identity element and the inverses of the product group G × H?"
+  solution="The identity is the pair (1_G, 1_H), since (1_G, 1_H) · (g, h) = (1_G ⋆ g, 1_H ∗ h) = (g, h), and similarly on the right. The inverse of (g, h) is (g^{-1}, h^{-1}), where g^{-1} is the inverse of g in G and h^{-1} is the inverse of h in H. You can check: (g, h) · (g^{-1}, h^{-1}) = (g ⋆ g^{-1}, h ∗ h^{-1}) = (1_G, 1_H). Each component is just the corresponding group's structure, applied independently."
+/>
+
+<Callout kind="example" title="Trivial group">
+The **<Term k="trivial">trivial group</Term>**, often denoted $0$ or $1$, is the group with only an identity element. We will use the notation $\{1\}$.
+</Callout>
+
+</SlideLayout>

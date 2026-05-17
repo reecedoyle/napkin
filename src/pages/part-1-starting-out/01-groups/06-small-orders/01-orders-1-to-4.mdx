@@ -1,0 +1,50 @@
+---
+title: Groups of order 1 to 4
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Groups of order 1 to 4" part="Part I — Starting Out" chapter="1. Groups · Small orders">
+
+Just for fun, here is a list of all groups of order at most ten — *up to isomorphism*, of course. Two groups that look different but obey the same multiplication table count as the same entry. We start at the bottom and work our way up.
+
+<Callout kind="example" title="Orders 1, 2, 3">
+- The only group of order $1$ is the **trivial group** $\{1\}$.
+- The only group of order $2$ is $\Zc 2$.
+- The only group of order $3$ is $\Zc 3$.
+</Callout>
+
+For each of these orders the answer is forced. With one element there is nothing to choose. With two or three elements the multiplication table is essentially filled in by the cancellation laws, and you end up with the cyclic group every time. (You'll prove the prime-order case in general later — every group of prime order is cyclic.)
+
+Order $4$ is the first place where genuine **choice** appears.
+
+<Callout kind="example" title="Order 4">
+There are exactly two groups of order $4$:
+- $\Zc 4$, the cyclic group on four elements.
+- $\Zc 2 \times \Zc 2$, called the **Klein four-group**.
+</Callout>
+
+These really are different. In $\Zc 4$ there is an element of order $4$ (the generator $\ol 1$). In $\Zc 2 \times \Zc 2$ every non-identity element has order $2$:
+
+$$
+(a, b) + (a, b) = (2a, 2b) = (0, 0).
+$$
+
+So no isomorphism can match them up — element orders are an isomorphism invariant.
+
+<MCQ
+  client:load
+  id="grp-small-mcq-klein-vs-z4"
+  prompt="What's the cleanest way to tell Z/4Z apart from Z/2Z × Z/2Z?"
+  options={[
+    { id: "a", label: "Z/4Z is abelian and Z/2Z × Z/2Z is not." },
+    { id: "b", label: "Z/4Z has an element of order 4; in Z/2Z × Z/2Z every non-identity element has order 2." },
+    { id: "c", label: "They have different orders, so they obviously can't be isomorphic." },
+    { id: "d", label: "Z/4Z has more elements than Z/2Z × Z/2Z." },
+  ]}
+  correct="b"
+  explanation="Both groups have order 4 and both are abelian, so options (a), (c), (d) are all false. The clean invariant is the maximum element order: Z/4Z contains a generator of order 4, while every non-identity element of Z/2Z × Z/2Z squares to the identity. Element orders are preserved by isomorphism, so this difference rules out an iso."
+/>
+
+</SlideLayout>

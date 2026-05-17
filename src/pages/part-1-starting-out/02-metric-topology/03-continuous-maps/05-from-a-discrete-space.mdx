@@ -1,0 +1,21 @@
+---
+title: Maps from a discrete space
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Maps from a discrete space" part="Part I — Starting Out" chapter="2. Metric Topology · Continuous maps">
+
+We saw in the previous section that convergence in a <Term k="discreteMetric">discrete metric space</Term> collapses to "eventually constant". That should make you suspect something similarly extreme happens for continuous maps *out of* a discrete space. Try to work it out before revealing.
+
+<ProofReveal
+  client:load
+  id="top-cont-proof-discrete-domain"
+  prompt="Let M be any metric space and D a discrete space (with the discrete metric: distinct points are at distance 1). When is a map f : D -> M continuous?"
+  solution="Claim: every function f : D -> M is continuous, no matter what M or f is. Why (via sequential continuity): the only convergent sequences in D are the eventually-constant ones — from some index N onwards, x_n equals some fixed point q in D. Applying f gives f(x_n) = f(q) for all n >= N, so the image sequence is also eventually constant at f(q). An eventually-constant sequence trivially converges to its constant value, so f(x_n) -> f(q) = f(limit of x_n) in M. Hence f preserves convergence at every point, so f is continuous. Direct epsilon-delta version: fix p in D and epsilon > 0; take delta = 1/2 (or any positive number less than 1). Then d_D(x, p) < 1/2 forces x = p (since distinct points in D sit at distance 1), so f(x) = f(p) and d_M(f(x), f(p)) = 0 < epsilon. Either way, continuity is automatic — the discreteness of the domain makes the implication vacuous."
+/>
+
+The moral: continuity is a constraint that becomes vacuous when the domain has no "small wiggles" to constrain. In a discrete space there is no way to approach a point other than to *be* the point — so every function trivially respects the (non-)approach.
+
+</SlideLayout>

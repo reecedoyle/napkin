@@ -1,0 +1,25 @@
+---
+title: A function continuous at exactly one point
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="A function continuous at exactly one point" part="Part I — Starting Out" chapter="2. Metric Topology · Problems">
+
+Most intuition for continuity comes from functions that are continuous *everywhere* or discontinuous on some recognisable set (jumps, removable singularities, and so on). It's worth pausing to see that continuity at a *single* point is a perfectly meaningful, achievable condition — and that the rationals/irrationals partition of $\RR$ gives a clean example.
+
+<Problem
+  client:load
+  id="top-prob-continuous-at-zero-only"
+  prompt="Exhibit a function f : R → R such that f is continuous at x ∈ R if and only if x = 0."
+  hint="Try ± x with a good choice of sign depending on whether x is rational or irrational."
+  solution="Take f(x) = x for x ∈ Q, and f(x) = -x for x irrational.
+
+Continuity at 0. We have f(0) = 0, and |f(x)| = |x| for every x, so |f(x) - f(0)| = |x| < epsilon whenever |x - 0| < epsilon. So f is continuous at 0 (with delta = epsilon).
+
+Discontinuity everywhere else. Let p ≠ 0; we'll show f is not continuous at p. Suppose first p ∈ Q, so f(p) = p. Every neighbourhood of p contains both rationals and irrationals (Q and its complement are both dense in R). Pick a sequence x_n → p with each x_n irrational; then f(x_n) = -x_n → -p. So f(x_n) → -p, but f(p) = p, and p ≠ -p since p ≠ 0. So f is not sequentially continuous at p. The case p irrational is symmetric: pick rationals x_n → p, then f(x_n) = x_n → p, but f(p) = -p ≠ p."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,21 @@
+---
+title: Example — additive integers
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Example — additive integers" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+<Callout kind="example" title="Additive integers">
+The pair $(\ZZ, +)$ is a group: $\ZZ = \{\dots, -2, -1, 0, 1, 2, \dots\}$ is the set, and the associative operation is *addition*. Note that
+
+- The element <Term k="in">$0 \in \ZZ$</Term> is an *identity*: $a + 0 = 0 + a = a$ for any $a$.
+- Every element $a \in \ZZ$ has an additive *inverse*: $a + (-a) = (-a) + a = 0$.
+
+We call this group $\ZZ$.
+</Callout>
+
+Two features stand out: a special **identity** element that does nothing, and an **inverse** for every element that undoes it. These two ideas are the heart of the group axioms.
+
+</SlideLayout>

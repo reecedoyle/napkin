@@ -1,0 +1,52 @@
+---
+title: Coming soon — Metric Topology
+---
+import SlideLayout from '../../../layouts/SlideLayout.astro';
+import Figure from '../../../components/Figure.astro';
+import NumericInput from '../../../components/NumericInput';
+import ProofReveal from '../../../components/ProofReveal';
+
+<SlideLayout title="Coming soon — Metric Topology" part="Part I — Starting Out" chapter="2. Metric Topology">
+
+This chapter will be authored from `vendor/napkin/tex/topology/metric-top.tex`.
+Below are smoke tests for `NumericInput` and `ProofReveal`.
+
+The standard metric on the real numbers $\mathbb{R}$ is
+
+$$
+d(x, y) = |x - y|.
+$$
+
+So $d(3, -2) = |3 - (-2)| = 5$.
+
+<Figure
+  alt="An r-neighborhood: a point p with a dashed circle of radius r around it"
+  caption="An r-neighborhood of p — points within distance r."
+>
+  <svg viewBox="-50 -50 100 100" width="200" height="200" aria-hidden="true">
+    <circle cx="0" cy="0" r="35" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
+    <circle cx="0" cy="0" r="2.5" fill="currentColor" />
+    <text x="6" y="4" font-size="9" fill="currentColor">p</text>
+    <line x1="0" y1="0" x2="24.75" y2="-24.75" stroke="currentColor" stroke-width="0.8" />
+    <text x="10" y="-15" font-size="9" fill="currentColor">r</text>
+  </svg>
+</Figure>
+
+
+<NumericInput
+  client:load
+  id="smoke-numeric"
+  prompt="In the standard metric on the reals, what is d(3, -2)?"
+  expected="5"
+  placeholder="a number"
+  explanation="The standard metric is d(x,y) = |x - y|, so d(3,-2) = |3 - (-2)| = 5."
+/>
+
+<ProofReveal
+  client:load
+  id="smoke-proof"
+  prompt="Show that d(x,y) = 0 iff x = y in any metric space."
+  solution="By definition of a metric, d(x,y) ≥ 0 with equality iff x = y — this is one of the metric axioms, so there is nothing to prove beyond invoking the axiom. The point is to remember that this *is* an axiom, not a derived property."
+/>
+
+</SlideLayout>

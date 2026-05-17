@@ -1,0 +1,21 @@
+---
+title: Convergence in a discrete space
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Convergence in a discrete space" part="Part I — Starting Out" chapter="2. Metric topology · Convergence">
+
+The previous example showed how the choice of parent space can *prevent* a perfectly innocent-looking sequence from converging. Let's now go to the opposite extreme: the <Term k="discreteMetric">discrete metric</Term>, where every two distinct points sit at distance exactly $1$. In such a rigid space, what does it even mean for a sequence to "get arbitrarily close" to a limit?
+
+<ProofReveal
+  client:load
+  id="top-conv-proof-discrete"
+  prompt="In a discrete metric space, which sequences (x_n) converge? Try to give a clean characterisation before revealing."
+  solution="Claim: a sequence (x_n) converges in a discrete metric space if and only if it is eventually constant — that is, there exist some point x and some index N with x_n = x for every n >= N. Why: take any epsilon with 0 < epsilon < 1, say epsilon = 1/2. In the discrete metric, d(x_n, x) < 1/2 forces d(x_n, x) = 0, since the only values d can take are 0 and 1. Hence d(x_n, x) < 1/2 means x_n = x. The convergence condition therefore demands that, from some N onwards, every x_n equals x exactly. Conversely, if x_n = x for all n >= N then d(x_n, x) = 0 < epsilon for every epsilon > 0, so the sequence converges to x. So the convergent sequences in a discrete space are precisely the eventually-constant ones — convergence collapses to equality."
+/>
+
+The moral: the same epsilon–$N$ definition behaves wildly differently in different metric spaces. In $\RR$ it captures the familiar notion of "getting arbitrarily close"; in a discrete space it degenerates to "actually equal from some point on". Convergence is sensitive to the metric, not just to the underlying set.
+
+</SlideLayout>

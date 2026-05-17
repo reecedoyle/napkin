@@ -1,0 +1,64 @@
+---
+title: A picture of convergence
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Figure from '../../../../components/Figure.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="A picture of convergence" part="Part I — Starting Out" chapter="2. Metric topology · Convergence">
+
+It helps to draw a picture. Below are nine points $x_1, x_2, \dots, x_9$ of a sequence converging to $x$. The dashed circle is an <Term k="rNeighborhood">$r$-neighborhood</Term> of $x$ — the set of points within distance $r$. As $n$ grows, the terms eventually enter (and stay inside) the circle, no matter how small $r$ is. That is exactly the definition: for every $\varepsilon > 0$, all but finitely many terms lie inside the $\varepsilon$-neighborhood of $x$.
+
+<Figure
+  alt="Nine labelled points x1 through x9 clustering progressively closer to a central point x, with a dashed circle of radius r around x"
+  caption="A convergent sequence: the points x_n eventually enter and remain inside every dashed neighborhood of the limit x."
+>
+  <svg viewBox="0 0 360 120" width="640" height="220" aria-hidden="true">
+    {/* Dashed r-neighborhood around the limit x (origin at SVG (300, 60), radius 45 = 1.5 asy units * 30 px) */}
+    <circle cx="300" cy="60" r="45" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 3" />
+
+    {/* The limit point x */}
+    <circle cx="300" cy="60" r="2.5" fill="currentColor" />
+    <text x="306" y="72" font-size="10" fill="currentColor" font-style="italic" text-anchor="start">x</text>
+
+    {/* x_1 at asy (-9, 0.1) */}
+    <circle cx="30" cy="57" r="1.8" fill="currentColor" />
+    <text x="30" y="50" font-size="9" fill="currentColor" text-anchor="middle">x₁</text>
+
+    {/* x_2 at asy (-6, 0.8) */}
+    <circle cx="120" cy="36" r="1.8" fill="currentColor" />
+    <text x="120" y="29" font-size="9" fill="currentColor" text-anchor="middle">x₂</text>
+
+    {/* x_3 at asy (-5, -0.3) */}
+    <circle cx="150" cy="69" r="1.8" fill="currentColor" />
+    <text x="150" y="62" font-size="9" fill="currentColor" text-anchor="middle">x₃</text>
+
+    {/* x_4 at asy (-2, 0.8) */}
+    <circle cx="240" cy="36" r="1.8" fill="currentColor" />
+    <text x="240" y="29" font-size="9" fill="currentColor" text-anchor="middle">x₄</text>
+
+    {/* x_5 at asy (-1.7, -0.7) */}
+    <circle cx="249" cy="81" r="1.8" fill="currentColor" />
+    <text x="249" y="93" font-size="9" fill="currentColor" text-anchor="middle">x₅</text>
+
+    {/* x_6 at asy (-0.6, -0.3) */}
+    <circle cx="282" cy="69" r="1.6" fill="currentColor" />
+    <text x="276" y="80" font-size="9" fill="currentColor" text-anchor="middle">x₆</text>
+
+    {/* x_7 at asy (-0.4, 0.3) */}
+    <circle cx="288" cy="51" r="1.6" fill="currentColor" />
+    <text x="285" y="44" font-size="9" fill="currentColor" text-anchor="middle">x₇</text>
+
+    {/* x_8 at asy (-0.25, -0.24) */}
+    <circle cx="292.5" cy="67.2" r="1.5" fill="currentColor" />
+    <text x="289" y="78" font-size="9" fill="currentColor" text-anchor="middle">x₈</text>
+
+    {/* x_9 at asy (-0.12, 0.1) */}
+    <circle cx="296.4" cy="57" r="1.5" fill="currentColor" />
+    <text x="293" y="51" font-size="9" fill="currentColor" text-anchor="middle">x₉</text>
+  </svg>
+</Figure>
+
+Once $n$ is large enough — past some threshold $N$ that depends on $r$ — every $x_n$ sits inside the dashed circle. Shrink $r$, and you just have to wait a bit longer; the existence of *some* such $N$ for *every* $r$ is what makes the sequence converge.
+
+</SlideLayout>

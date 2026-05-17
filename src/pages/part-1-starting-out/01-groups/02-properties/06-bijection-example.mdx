@@ -1,0 +1,29 @@
+---
+title: Example — multiplication by 3 mod 7
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Example — multiplication by 3 mod 7" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+Let's see the bijection lemma in action with a concrete group.
+
+<Callout kind="example" title="Multiplication by 3 in (Z/7Z)^×">
+Let $G = \Zm{7}$, the nonzero residues mod $7$ under multiplication, and pick $g = 3$. The lemma says that $x \mapsto 3x$ is a bijection. Computing it, working <Term k="pmod">modulo $7$ ($\pmod 7$)</Term>:
+$$
+\begin{aligned}
+1 &\overset{\times 3}{\longmapsto} 3 \pmod 7 \\
+2 &\overset{\times 3}{\longmapsto} 6 \pmod 7 \\
+3 &\overset{\times 3}{\longmapsto} 2 \pmod 7 \\
+4 &\overset{\times 3}{\longmapsto} 5 \pmod 7 \\
+5 &\overset{\times 3}{\longmapsto} 1 \pmod 7 \\
+6 &\overset{\times 3}{\longmapsto} 4 \pmod 7
+\end{aligned}
+$$
+The outputs are $\{3, 6, 2, 5, 1, 4\}$ — exactly the inputs in a different order. Multiplication by $3$ permutes the six elements of $\Zm{7}$.
+</Callout>
+
+This is the kind of pattern that makes the bijection lemma so useful: in any finite group, multiplying every element by a fixed $g$ shuffles the group, hitting each element exactly once.
+
+</SlideLayout>

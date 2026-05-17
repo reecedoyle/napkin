@@ -1,0 +1,44 @@
+---
+title: Discrete spaces and graphs
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import NumericInput from '../../../../components/NumericInput';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Discrete spaces and graphs" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+Here is a slightly more pathological example — a metric you can place on *any* set, no geometry required.
+
+<Callout kind="example" title="Discrete space">
+Let $S$ be any set of points (finite or infinite). The <Term k="discreteMetric">**discrete metric**</Term> on $S$ is
+$$
+d(x, y) = \begin{cases} 1 & \text{if } x \ne y, \\ 0 & \text{if } x = y. \end{cases}
+$$
+If $|S| = 4$, you can picture the discrete space as the vertices of a regular tetrahedron sitting in $\RR^3$ — all four points are equidistant. For larger $S$ the picture is harder to draw.
+</Callout>
+
+<NumericInput
+  client:load
+  id="top-def-num-discrete"
+  prompt="On the discrete metric, what is d(p, q) for p =/= q?"
+  expected="1"
+  placeholder="a number"
+  explanation="By definition, d(x, y) = 1 whenever x and y are different points, and 0 only when x = y. So d(p, q) = 1 for any pair of distinct points."
+/>
+
+Graphs give a related family of examples.
+
+<Callout kind="example" title="Graphs are metric spaces">
+Any connected simple graph $G$ becomes a metric space: declare the distance between two vertices to be the **graph distance** — the number of edges in a shortest path between them. (The discrete metric is the special case where $G$ is the complete graph on $S$, since then every pair of distinct vertices is one edge apart.)
+</Callout>
+
+<ProofReveal
+  client:load
+  id="top-def-proof-discrete-axioms"
+  prompt="Check the three metric axioms for (i) the discrete space and (ii) a connected simple graph with the graph-distance metric."
+  solution="Discrete space. Symmetry: d(x, y) and d(y, x) are both 0 when x = y and both 1 otherwise, so they always agree. Positive-definiteness: d takes values in {0, 1}, so d(x, y) >= 0; and d(x, y) = 0 means we are in the x = y case, while d(x, x) = 0 by definition — so equality holds iff x = y. Triangle inequality: d(x, z) + d(z, y) >= d(x, y). The right side is at most 1; if d(x, y) = 0 the inequality is trivial; if d(x, y) = 1 then x =/= y, so z cannot equal both x and y, hence at least one of d(x, z), d(z, y) equals 1 and the sum is >= 1. Connected graph. Symmetry: a shortest path from x to y, reversed, is a shortest path from y to x of the same length. Positive-definiteness: the path length is a non-negative integer; it equals 0 iff x and y are the same vertex (any walk of length 0 stays put). Triangle inequality: concatenate a shortest x-to-z path with a shortest z-to-y path to get an x-to-y walk of length d(x, z) + d(z, y); the shortest x-to-y path is no longer than this, so d(x, y) <= d(x, z) + d(z, y)."
+/>
+
+</SlideLayout>

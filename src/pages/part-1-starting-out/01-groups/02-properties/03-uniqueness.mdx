@@ -1,0 +1,47 @@
+---
+title: Uniqueness of identity and inverses
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Uniqueness of identity and inverses" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+The axioms only say that *an* identity exists, and that *an* inverse exists for each element. They don't immediately say these are unique. As it turns out, they are.
+
+<Callout kind="proposition" title="Uniqueness of identity and inverses">
+Let $G$ be a group.
+
+1. The identity of $G$ is unique.
+2. The inverse of any element $g \in G$ is unique.
+3. For any $g \in G$, $(g^{-1})^{-1} = g$.
+</Callout>
+
+This is mostly formal manipulation; you needn't feel bad skipping it on a first read.
+
+**Proof.**
+
+*(a)* If $1$ and $1'$ are both identities, then
+$$ 1 = 1 \star 1' = 1', $$
+since $1'$ acts as identity on the left of the first equation and $1$ acts as identity on the right of the second.
+
+*(b)* Suppose $h$ and $h'$ are both inverses of $g$. Then $g \star h = 1_G$, so
+$$ h' = h' \star 1_G = h' \star (g \star h) = (h' \star g) \star h = 1_G \star h = h. $$
+
+*(c)* The element $g$ satisfies $g^{-1} \star g = g \star g^{-1} = 1_G$, which is exactly the equation that says $g$ is the inverse of $g^{-1}$. By uniqueness, $(g^{-1})^{-1} = g$.
+
+<MCQ
+  client:load
+  id="grp-prop-mcq-uniqueness-axiom"
+  prompt="Which step in the proof that the identity is unique uses the identity axiom in an essential way?"
+  options={[
+    { id: "a", label: "Writing 1 = 1 ⋆ 1' uses that 1' is an identity (acts trivially on the left)." },
+    { id: "b", label: "Writing 1 ⋆ 1' = 1' uses that 1 is an identity (acts trivially on the left)." },
+    { id: "c", label: "Both (a) and (b) — each equality relies on one of the two being an identity." },
+    { id: "d", label: "Neither — the proof only uses associativity." },
+  ]}
+  correct="c"
+  explanation="Each equality uses the identity axiom for one of the two candidate identities. The first equality 1 = 1 ⋆ 1' holds because 1' is an identity (so multiplying by it on the right does nothing). The second equality 1 ⋆ 1' = 1' holds because 1 is an identity. So both elements are forced to coincide. Associativity does not enter."
+/>
+
+</SlideLayout>

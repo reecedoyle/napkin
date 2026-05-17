@@ -1,0 +1,32 @@
+---
+title: When two groups are "the same"
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="When two groups are 'the same'" part="Part I — Starting Out" chapter="1. Groups · Isomorphisms">
+
+Before the formal definition, let's see why we even need one. Consider the two groups
+
+- $\ZZ = (\{\dots, -2, -1, 0, 1, 2, \dots\}, +)$,
+- $10\ZZ = (\{\dots, -20, -10, 0, 10, 20, \dots\}, +)$.
+
+These groups are "different" — but only superficially so. You might even say they only differ in the *names* of the elements.
+
+What does that mean formally? Consider the map
+
+$$
+\phi \colon \ZZ \to 10\ZZ \qquad \text{given by} \qquad x \mapsto 10x.
+$$
+
+Two things are true about $\phi$:
+
+- It is a **bijection** of the underlying sets — every element of $10\ZZ$ has a unique preimage in $\ZZ$.
+- It **respects the group operation**: for all $x, y \in \ZZ$,
+$$
+\phi(x + y) = 10(x + y) = 10x + 10y = \phi(x) + \phi(y).
+$$
+
+So $\phi$ is just a way of re-labelling elements without changing the group structure. That's the precise sense in which $(\ZZ, +)$ and $(10\ZZ, +)$ are "the same thing".
+
+</SlideLayout>

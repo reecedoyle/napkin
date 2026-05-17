@@ -1,0 +1,34 @@
+---
+title: Left multiplication is a bijection
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Left multiplication is a bijection" part="Part I — Starting Out" chapter="1. Groups · Properties">
+
+Here is a fundamental lemma about groups. It highlights why having an inverse is so valuable: every element acts on the group by an invertible permutation.
+
+<Callout kind="lemma" title="Left multiplication is a bijection">
+Let $G$ be a group, and pick $g \in G$. Then the map
+$$ G \to G, \qquad x \mapsto gx $$
+is a bijection.
+</Callout>
+
+The notation just says: a <Term k="to">function $G \to G$</Term> from $G$ to itself, defined by <Term k="mapsto">$x \mapsto gx$</Term>.
+
+<ProofReveal
+  client:load
+  id="grp-prop-proof-left-mult-bijection"
+  prompt="Show directly that x ↦ gx is both injective and surjective on G."
+  solution="Let f: G → G be the map f(x) = gx.
+
+Injective: suppose f(x) = f(y), i.e. gx = gy. Multiply both sides on the left by g^{-1}: g^{-1}(gx) = g^{-1}(gy). By associativity this is (g^{-1} g) x = (g^{-1} g) y, i.e. 1_G · x = 1_G · y, i.e. x = y. So f is injective.
+
+Surjective: given any target y ∈ G, set x = g^{-1} y. Then f(x) = g · (g^{-1} y) = (g g^{-1}) y = 1_G · y = y. So every y has a preimage, and f is surjective.
+
+Hence f is a bijection. (Note we used both the existence of g^{-1} and associativity.)"
+/>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: A metric on a space of functions
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="A metric on a space of functions" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+Points of a metric space don't have to be points of $\RR^n$ — they can be much more exotic objects.
+
+<Callout kind="example" title="Function space">
+Let $M$ be the set of continuous functions $f \colon [0, 1] \to \RR$. Define the distance between two such functions by
+$$
+d(f, g) = \int_0^1 |f - g| \, dx.
+$$
+This is the "area between the graphs" of $f$ and $g$.
+</Callout>
+
+Two functions are *close* in this metric when their graphs almost overlap on $[0,1]$. It admittedly takes some work to check the positive-definiteness axiom — that $d(f, g) = 0$ really forces $f = g$ (and not just $f = g$ "almost everywhere") — but the cleanest way to handle that uses continuity of $f$ and $g$. We won't worry about it for now.
+
+The point of this example: a "point" of a metric space can be a whole *function*. The same machinery we will develop for $\RR^n$ — convergence, continuity, open sets — will then apply to function spaces, and that is the start of a huge body of mathematics.
+
+</SlideLayout>

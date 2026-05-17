@@ -1,0 +1,25 @@
+---
+title: Metric spaces on the real line
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Metric spaces on the real line" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+The most familiar example: the real line, with the usual notion of distance.
+
+<Callout kind="example" title="Metric spaces of R">
+
+- The real line <Term k="RR">$\RR$</Term> is a metric space under the metric
+$$
+d(x, y) = |x - y|.
+$$
+- The closed interval $[0, 1]$ is also a metric space, with the same distance function.
+- In fact, *any* subset $S \subseteq \RR$ inherits a metric this way — just restrict $d$ to pairs of points in $S$.
+
+</Callout>
+
+This *inheritance* trick (a subset of a metric space is again a metric space) is one we will use over and over. Whenever you fish out a subset, you get a metric space "for free".
+
+</SlideLayout>

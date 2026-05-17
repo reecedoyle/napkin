@@ -1,0 +1,42 @@
+---
+title: Convergence depends on the parent space
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Convergence depends on the parent space" part="Part I — Starting Out" chapter="2. Metric topology · Convergence">
+
+The remark on the previous slide warned that the limit has to live inside the parent space. Here is the canonical illustration: the same sequence of points can converge in one space and fail to converge in another, depending on whether the limit is "there to receive it".
+
+<Callout kind="example" title="Decimal approximations to √2">
+Consider the sequence
+$$
+x_1 = 1, \quad x_2 = 1.4, \quad x_3 = 1.41, \quad x_4 = 1.414, \quad \dots
+$$
+of successive decimal truncations of $\sqrt{2}$.
+
+- **(a)** Viewed as a sequence in <Term k="RR">$\RR$</Term>, it converges — its limit is $\sqrt{2} \in \RR$.
+- **(b)** However, every $x_i$ is rational, so we could just as well view the sequence as living in <Term k="QQ">$\QQ$</Term>. As a sequence in $\QQ$, it does **NOT** converge!
+</Callout>
+
+The reason for (b) is precisely the parenthetical caveat from the previous slide. In $\QQ$, with the metric inherited from $\RR$, the "natural" target $\sqrt{2}$ is simply not a point of the space. And one can check that no other rational $q$ works either: pick $q \ne \sqrt{2}$, and once $\varepsilon$ is smaller than $|q - \sqrt{2}|$, the tail of the sequence leaves the $\varepsilon$-ball around $q$ forever. The sequence has nowhere in $\QQ$ to converge to.
+
+<MCQ
+  client:load
+  id="top-conv-mcq-rationals"
+  prompt="Why does the sequence 1, 1.4, 1.41, 1.414, ... fail to converge in Q?"
+  options={[
+    { id: "a", label: "Because the terms x_i themselves aren't rational numbers." },
+    { id: "b", label: "Because sqrt(2) isn't actually a real number." },
+    { id: "c", label: "Because sqrt(2) is not in Q, so no point of Q can serve as the limit." },
+    { id: "d", label: "Because the sequence is unbounded." },
+  ]}
+  correct="c"
+  explanation="Each term IS rational (terminating decimals are rational), and the sequence is bounded above by 2, so (a) and (d) are false. Sqrt(2) is certainly a real number — (b) is wrong. The real obstruction is (c): convergence requires the limit to be a point of the parent space, and sqrt(2) is irrational. No rational q can serve as the limit either, because the sequence eventually leaves every small ball around any q =/= sqrt(2)."
+/>
+
+This shows that convergence is genuinely a property of the *pair* (sequence, parent space), not of the sequence alone. Metric spaces that have "enough" limits — every sequence whose terms get arbitrarily close to each other actually converges — are called **complete**; we will meet them properly later.
+
+</SlideLayout>

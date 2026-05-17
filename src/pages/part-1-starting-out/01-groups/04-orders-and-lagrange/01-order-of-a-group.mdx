@@ -1,0 +1,42 @@
+---
+title: The order of a group
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import NumericInput from '../../../../components/NumericInput';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The order of a group" part="Part I — Starting Out" chapter="1. Groups · Orders and Lagrange">
+
+As is typical in math, we use the word *order* for way too many things. In groups there are **two** distinct notions of order. The first is the size of the whole group.
+
+<Callout kind="definition" title="Order of a group">
+The **<Term k="groupOrder">order of a group</Term>** $G$ is the number of elements of $G$, denoted $\left|G\right|$. The order need not be finite, as in $\ZZ$. We say $G$ is a **finite group** to mean exactly that $\left|G\right|$ is finite.
+</Callout>
+
+<Callout kind="example" title="Orders of some familiar groups">
+- For a prime $p$, $\left|\Zm{p}\right| = p - 1$. The nonzero residues mod $p$ are $1, 2, \dots, p-1$, and that's $p-1$ of them.
+- The symmetric group $S_n$ has order $n!$ (one element per permutation of $n$ symbols).
+- The dihedral group $D_{2n}$ acting on a regular $n$-gon has order $2n$ — that's $n$ rotations together with $n$ reflections.
+- $\ZZ$ is infinite, so $\left|\ZZ\right| = \infty$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="grp-ord-num-z-mod-7-star"
+  prompt="What is the order of (Z/7Z)^x, the multiplicative group of nonzero residues mod 7?"
+  expected="6"
+  placeholder="a number"
+  explanation="The group consists of the nonzero residues 1, 2, 3, 4, 5, 6 mod 7, so it has p - 1 = 7 - 1 = 6 elements. In general |Z/pZ^x| = p - 1 for any prime p."
+/>
+
+<NumericInput
+  client:load
+  id="grp-ord-num-s3"
+  prompt="What is the order of the symmetric group S_3?"
+  expected="6"
+  placeholder="a number"
+  explanation="By definition |S_n| = n!, since an element of S_n is a permutation of n symbols. With n = 3 that's 3! = 6."
+/>
+
+</SlideLayout>

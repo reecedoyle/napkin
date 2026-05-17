@@ -1,0 +1,33 @@
+---
+title: An olympiad invariant from D₆
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="An olympiad invariant from D₆" part="Part I — Starting Out" chapter="1. Groups · Problems">
+
+To finish the chapter, an IMO Shortlist problem with a beautiful one-paragraph solution: encode the configuration as an element of $D_6$, watch it stay invariant under the allowed move, and read off the impossibility.
+
+<Callout kind="remark" title="The invariant trick">
+This is a classic application of group theory to combinatorics. The hard part is *spotting* the right group; once you do, the proof writes itself. The idea generalises: many olympiad invariants are secretly homomorphisms into a small finite group.
+</Callout>
+
+<Problem
+  client:load
+  id="grp-prob-imo-markers"
+  prompt="(IMO Shortlist 2005, problem C5.) There are n markers in a row, each with a white side and a black side, all starting white-side up. In each step you pick a marker — not one of the two outermost — that is currently white-side up, remove it, and flip the closest remaining marker to its left and the closest remaining marker to its right. Prove that if n ≡ 1 (mod 3), it is impossible to reach a state with only two markers remaining. (The converse — if n is not 1 mod 3, you can — is also true, but is not asked here.)"
+  hint="Draw inspiration from D_6, the dihedral group of order 6. Encode a row of markers as a product of group elements and find an invariant."
+  solution="Sketch (this is the key idea; see the source for the full bookkeeping). Encode each row of markers as a word over {w, b}, reading left to right. We interpret these words as elements of D_6 (the dihedral group of order 6) by sending w and b to two well-chosen reflections in D_6 — and concatenation of marker-strings becomes multiplication in D_6.
+
+The legal move replaces three consecutive markers by two:
+  www → bb,   bww → wb,   wwb → bw,   bwb → ww.
+Choose the encoding of w and b in D_6 so that for each of these four substitutions the left-hand product equals the right-hand product in D_6. (This is what the source sketches with 'Interpret these as elements of D_6'.) Then the value of the entire word in D_6 is preserved by every legal move — it is an invariant.
+
+Track also the length of the word modulo 3: each move decreases it by 1, so length mod 3 changes from n mod 3 to (n − k) mod 3 after k moves, and the parity-mod-3 of (length − k) is fixed.
+
+Now suppose n ≡ 1 (mod 3) and we tried to reach a state of length 2. We'd need n − k = 2, i.e. k = n − 2 ≡ −1 ≡ 2 (mod 3) moves. Combine the D_6-invariant value of the configuration (computed from the initial all-white word w...w) with the four possible final length-2 words; one checks none of them match. Hence n ≡ 1 (mod 3) makes the two-marker target unreachable."
+  difficulty="standard"
+/>
+
+</SlideLayout>

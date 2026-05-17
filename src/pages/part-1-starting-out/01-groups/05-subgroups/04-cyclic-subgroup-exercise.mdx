@@ -1,0 +1,34 @@
+---
+title: Cyclic subgroups, finite and infinite
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Cyclic subgroups, finite and infinite" part="Part I — Starting Out" chapter="1. Groups · Subgroups">
+
+The subgroup $\langle x \rangle$ has two flavours, depending on whether $\ord x$ is finite or infinite. The next exercise asks you to spell out exactly what $\langle x \rangle$ looks like in each case.
+
+<ProofReveal
+  client:load
+  id="grp-sub-proof-cyclic-shape"
+  prompt="If ord(x) = 2015, what is the subgroup <x> equal to? What if ord(x) = infinity?"
+  solution="Case 1: ord(x) = 2015.
+
+By definition, ord(x) = 2015 means 2015 is the smallest positive integer with x^2015 = 1, and the powers 1, x, x^2, ..., x^2014 are all distinct. Higher and lower powers reduce to one of these: any integer k can be written as k = 2015q + r with 0 <= r < 2015, and then x^k = (x^2015)^q · x^r = x^r. So
+
+  <x> = {1, x, x^2, x^3, ..., x^2014}
+
+— exactly 2015 elements. This is a cyclic group of order 2015.
+
+Case 2: ord(x) = infinity.
+
+By the contrapositive of 'finite groups have finite order', no positive power of x equals the identity. So if x^a = x^b for integers a, b, then x^(a-b) = 1 forces a - b = 0, i.e. a = b. The powers ..., x^-2, x^-1, 1, x, x^2, ... are therefore all distinct, and
+
+  <x> = { x^k : k in Z }
+
+is an infinite set in bijection with Z (via x^k <-> k). In fact this bijection is a group isomorphism, so <x> is isomorphic to (Z, +)."
+/>
+
+The same dichotomy will keep coming back: a single element generates either a cyclic group of order $\ord x$ (finite case) or a copy of $\ZZ$ (infinite case). There is nothing in between.
+
+</SlideLayout>

@@ -1,0 +1,43 @@
+---
+title: Primitive roots in general
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Primitive roots in general" part="Part I — Starting Out" chapter="1. Groups · Isomorphisms">
+
+The previous example was no accident. There's a number-theoretic fact lurking behind it.
+
+<Callout kind="theorem" title="Primitive roots exist">
+For any prime $p$, there exists an element $g \in \Zm{p}$, called a **primitive root** modulo $p$, such that
+
+$$
+1, \, g, \, g^2, \, \dots, \, g^{p-2}
+$$
+
+are all distinct modulo $p$ — that is, $g$ generates the entire group $\Zm{p}$.
+</Callout>
+
+The case $p = 7$, $g = 3$ from the previous slide is exactly this theorem at work. Granting the existence of primitive roots, the same argument as before generalises:
+
+$$
+\Zcc{p-1} \cong \Zm{p} \qquad \text{for every prime } p.
+$$
+
+<ProofReveal
+  client:load
+  id="grp-iso-proof-primitive-roots"
+  prompt="Assuming the existence of a primitive root g modulo p, establish the isomorphism Z/(p-1)Z ≅ (Z/pZ)^×."
+  solution="Define φ: Z/(p-1)Z → (Z/pZ)^× by φ(a mod (p-1)) = g^a mod p, where g is a primitive root modulo p.
+
+Well-defined: if a ≡ a' (mod p-1), then a - a' = k(p-1) for some integer k, so g^a / g^{a'} = g^{k(p-1)} = (g^{p-1})^k ≡ 1^k = 1 (mod p) by Fermat's little theorem (or directly from g having order p-1). Hence g^a ≡ g^{a'} (mod p), so φ is unambiguously defined on residue classes.
+
+Bijection: by the defining property of a primitive root, the values g^0, g^1, ..., g^{p-2} are all distinct in (Z/pZ)^×. Since both sides have exactly p-1 elements and φ is injective on the representatives 0, 1, ..., p-2, it is a bijection.
+
+Respects operation: the operation on the left is addition, on the right is multiplication. We need φ(a + b) = φ(a) · φ(b), i.e. g^{a+b} ≡ g^a · g^b (mod p). This is just the usual law of exponents.
+
+Therefore φ is an isomorphism, and Z/(p-1)Z ≅ (Z/pZ)^×."
+/>
+
+</SlideLayout>

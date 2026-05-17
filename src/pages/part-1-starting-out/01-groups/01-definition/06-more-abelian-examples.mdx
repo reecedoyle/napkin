@@ -1,0 +1,52 @@
+---
+title: More abelian examples
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="More abelian examples" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+Let's continue collecting examples. Here are more **abelian** groups.
+
+<Callout kind="example" title="Complex unit circle">
+Let <Term k="S1">$S^1$</Term> denote the set of <Term k="CC">complex numbers $\CC$</Term> $z$ with absolute value one; that is
+$$
+S^1 \defeq \{ z \in \CC \mid |z| = 1 \}.
+$$
+Then $(S^1, \times)$ is a group because
+
+- The complex number $1 \in S^1$ serves as the identity, and
+- Each $z \in S^1$ has an inverse $\frac{1}{z}$ which is also in $S^1$, since $|z\inv| = |z|\inv = 1$.
+
+There is one thing we ought to check: that $z_1 \times z_2$ is actually still in $S^1$. But this follows from $|z_1 z_2| = |z_1| |z_2| = 1$.
+</Callout>
+
+<Callout kind="example" title="Addition mod n">
+Let $n > 1$ be an integer, and consider the residues (remainders) modulo $n$. These form a group under addition, called the **cyclic group of order $n$**, denoted $\Zc{n}$, with elements <Term k="bar">$\ol{0}, \ol{1}, \dots$</Term>. The identity is $\ol{0}$.
+</Callout>
+
+<Callout kind="example" title="Multiplication mod p">
+Let $p$ be a prime. Consider the *nonzero residues modulo $p$*, denoted <Term k="Zm">$\Zm{p}$</Term>: the set $\{\ol{1}, \ol{2}, \dots, \ol{p-1}\}$ under multiplication mod $p$. Then $(\Zm{p}, \times)$ is a group.
+</Callout>
+
+<MCQ
+  client:load
+  id="grp-def-mcq-prime"
+  prompt="Why do we need p to be prime in the multiplicative group mod p?"
+  options={[
+    { id: "a", label: "So that the identity element 1 exists." },
+    { id: "b", label: "So that every nonzero residue has a multiplicative inverse mod p." },
+    { id: "c", label: "So that multiplication is associative." },
+    { id: "d", label: "So that multiplication is commutative." },
+  ]}
+  correct="b"
+  explanation="If p is composite, say p = ab with 1 < a, b < p, then a has no multiplicative inverse mod p (since a times anything would also be divisible by gcd(a,p) > 1). Primality guarantees gcd(k, p) = 1 for all nonzero residues k, which is exactly what makes inverses exist. (1 is always there, multiplication is always associative and commutative — those are not the issue.)"
+/>
+
+<Callout kind="remark" title="Notation digression">
+The notation $\Zc{n}$ and $\Zm{p}$ may seem strange, but it will make sense once we talk about rings and ideals. Set aside your worry for now.
+</Callout>
+
+</SlideLayout>

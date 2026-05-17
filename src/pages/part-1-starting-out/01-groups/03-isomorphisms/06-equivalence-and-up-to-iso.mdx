@@ -1,0 +1,36 @@
+---
+title: Isomorphism is an equivalence relation
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Isomorphism is an equivalence relation" part="Part I — Starting Out" chapter="1. Groups · Isomorphisms">
+
+It's a quick check that $\cong$ is an equivalence relation on groups.
+
+<Callout kind="proposition" title="≅ is an equivalence relation">
+For groups $G$, $H$, $K$:
+
+- *(Reflexive)* $G \cong G$ via the identity map.
+- *(Symmetric)* If $\phi \colon G \to H$ is an isomorphism, then $\phi^{-1} \colon H \to G$ is also an isomorphism, so $G \cong H$ implies $H \cong G$.
+- *(Transitive)* If $\phi \colon G \to H$ and $\psi \colon H \to K$ are isomorphisms, then $\psi \circ \phi \colon G \to K$ is an isomorphism, so $G \cong H$ and $H \cong K$ imply $G \cong K$.
+</Callout>
+
+Because we only really care about the *structure* of a group, we usually treat two isomorphic groups as the same object. So phrases like "find all groups of order $n$" really mean "find all groups of order $n$ **up to isomorphism**".
+
+<MCQ
+  client:load
+  id="grp-iso-mcq-up-to-iso"
+  prompt="What does the phrase 'classify all groups of order 4 up to isomorphism' mean?"
+  options={[
+    { id: "a", label: "List every group of order 4 separately, even if some are isomorphic to each other." },
+    { id: "b", label: "List one representative from each isomorphism class of groups of order 4." },
+    { id: "c", label: "List only the abelian groups of order 4." },
+    { id: "d", label: "Find all bijections between groups of order 4." },
+  ]}
+  correct="b"
+  explanation="'Up to isomorphism' means we treat isomorphic groups as the same object and only count each isomorphism class once. So the goal is one representative per class, not every group on every possible set of 4 labels (option a), and not a restriction to abelian (option c) or a list of bijections (option d)."
+/>
+
+</SlideLayout>

@@ -1,0 +1,58 @@
+---
+title: Examples and non-examples
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Examples and non-examples" part="Part I — Starting Out" chapter="2. Metric Topology · Open sets">
+
+The definition is short, so let us collect a stock of (non-)examples to get a feel for it.
+
+<Callout kind="example" title="Examples of open sets">
+- Any <Term k="rNeighborhood">$r$-neighborhood</Term> of a point is open. (Given $q \in M_r(p)$, take a slightly smaller radius $r - d(q, p) > 0$; by the triangle inequality this $r$-neighborhood of $q$ still sits inside $M_r(p)$.)
+- Open intervals of $\RR$ are open in $\RR$ — hence the name! This is the prototype to keep in mind.
+- The <Term k="openBall">open unit ball</Term> $B^n$ is open in $\RR^n$ for the same reason.
+- In particular the open interval $(0, 1)$ is open in $\RR$. However, if we embed it as $(0, 1) \times \{0\}$ inside $\RR^2$, it is *no longer* open — no disk around any of its points fits inside, because a disk extends in the $y$-direction.
+- The empty set $\varnothing$ and the whole space $M$ are open in $M$. (For $\varnothing$ there is nothing to check; for $M$ any $r$-neighborhood is a subset of $M$.)
+</Callout>
+
+<Callout kind="example" title="Non-examples of open sets">
+- The closed interval $[0, 1]$ is **not** open in $\RR$. There is no $\varepsilon$-neighborhood of the endpoint $0$ contained in $[0, 1]$ — any such neighborhood $(-\varepsilon, \varepsilon)$ includes negative numbers.
+- The unit circle $S^1 = \{(x, y) : x^2 + y^2 = 1\}$ is **not** open in $\RR^2$. Any disk around a point on the circle sticks out into the interior and the exterior of the circle.
+</Callout>
+
+<MCQ
+  client:load
+  id="top-open-mcq-not-open-in-R"
+  prompt="Which of the following subsets of R is NOT open in R (with the usual metric)?"
+  options={[
+    { id: "a", label: "The open interval (0, 1)." },
+    { id: "b", label: "The closed interval [0, 1]." },
+    { id: "c", label: "The empty set, ∅." },
+    { id: "d", label: "The whole real line, R." },
+  ]}
+  correct="b"
+  explanation="(a) is the prototype open interval — open by definition. (c) and (d) are open in every metric space (vacuously, and because every r-neighborhood lies in M, respectively). (b) is the odd one out: at the endpoint 0, every r-neighborhood (-r, r) contains negative numbers and therefore is *not* a subset of [0, 1]. So [0, 1] is not open."
+/>
+
+Discrete spaces give a striking example. Recall that the <Term k="discreteMetric">discrete metric</Term> on a set $S$ sets $d(x, x) = 0$ and $d(x, y) = 1$ for $x \neq y$ — so the $\tfrac{1}{2}$-neighborhood of any point $p$ is just $\{p\}$ itself.
+
+<MCQ
+  client:load
+  id="top-open-mcq-discrete-open-sets"
+  prompt="Let M be a metric space with the discrete metric. Which subsets of M are open?"
+  options={[
+    { id: "a", label: "Only the r-neighborhoods (the open balls)." },
+    { id: "b", label: "Every subset of M." },
+    { id: "c", label: "Only the finite subsets of M." },
+    { id: "d", label: "Only the empty set and M itself." },
+  ]}
+  correct="b"
+  explanation="In the discrete metric, the (1/2)-neighborhood of any point p is just {p}. So for any subset U and any p in U, we have M_{1/2}(p) = {p} ⊆ U — every subset is open. (a) is too narrow (the union of two singletons is not an r-neighborhood, but is still open). (c) fails because, e.g., the whole infinite space M is also open. (d) is the indiscrete topology, not this one."
+/>
+
+The discrete metric makes *every* set open. At the other extreme, the **indiscrete** "topology" (which doesn't come from any metric on more than one point) makes only $\varnothing$ and $M$ open. Real metric spaces sit somewhere in between — and the structure of which sets are open is precisely what we mean by the *topology* of $M$.
+
+</SlideLayout>

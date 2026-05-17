@@ -1,0 +1,58 @@
+---
+title: Is 1/x continuous? An Internet debate
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Is 1/x continuous? An Internet debate" part="Part I — Starting Out" chapter="2. Metric Topology · Problems">
+
+A discursive problem to close the chapter. A few years back, an innocent-looking question on the Internet — "is $1/x$ a continuous function?" — generated a remarkable amount of online controversy. The interesting thing isn't the answer; it's *why* the question divides people. The whole disagreement comes from one thing: the question is ill-formed, and different readers patch it up differently before answering.
+
+<Callout kind="remark" title="The general lesson">
+A function is *not* a formula. A function is a triple: a domain, a codomain, and a rule. Most Internet "math debates" dissolve as soon as you make people commit to the domain. "Continuous" is an adjective for functions; if you haven't specified the domain, you don't yet have a function, and the question doesn't have an answer.
+</Callout>
+
+<Callout kind="remark" title="Source links">
+For the original sources of the debate, see the Twitter post (in Spanish) at  
+[https://twitter.com/davidcpvm/status/1481024944830046209](https://twitter.com/davidcpvm/status/1481024944830046209)  
+and the accompanying Reddit thread at  
+[https://www.reddit.com/r/math/comments/s82vf8](https://www.reddit.com/r/math/comments/s82vf8).  
+The 'type-error' phrasing in the solution is from Qiaochu Yuan's post:  
+[https://qchu.wordpress.com/2013/05/28/the-type-system-of-mathematics/](https://qchu.wordpress.com/2013/05/28/the-type-system-of-mathematics/).
+</Callout>
+
+<Problem
+  client:load
+  id="top-prob-one-over-x"
+  prompt="Someone on the Internet posted the question 'is 1/x a continuous function?', leading to great controversy on Twitter. How should you respond?"
+  hint="First answer the prior question: 'is 1/x a function?'."
+  solution={`Like most Internet 'debates' about math, the disagreement comes from sloppy definitions. The original (ill-formed) question is:
+
+(1) Is 1/x a continuous function?
+
+To make it well-formed, you should first ask:
+
+(2) Is 1/x a function?
+
+This question is also ill-formed, because the specification of a function includes its domain. One reasonable guess at what the asker meant is to take the domain to be R \\ {0} (the nonzero reals), giving:
+
+(2') Does 1/x define a function from R \\ {0} to R?
+
+The answer here is a firm YES.
+
+On the other hand, 1/x does NOT make sense as a function on all of R. Specifying a function requires an output for every input — and at least if you want a real-valued function, there's no way to assign an output to the input 0.
+
+Now, returning to (1), we can ask the well-formed version:
+
+(1') Does 1/x describe a continuous function from R \\ {0} to R?
+
+Again a firm YES.
+
+You could also ask 'does 1/x describe a continuous function R → R?'. But this is misleading: it's like asking 'is sqrt(2) an even integer?'. The question doesn't make sense to begin with, because sqrt(2) isn't an integer, and 'even' is an adjective used for integers — so trying to apply 'even' to sqrt(2) is a type-error. Similarly, 'continuous' is an adjective used for functions; it doesn't make sense to ask whether it applies to something that isn't a function.
+
+(See the links in the callout above for the original Twitter post and Reddit thread.)`}
+  difficulty="standard"
+/>
+
+</SlideLayout>

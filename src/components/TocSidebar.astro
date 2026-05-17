@@ -1,0 +1,230 @@
+---
+/**
+ * Section TOC pinned to the left edge of the viewport.
+ *
+ * Each slide link is rendered with `data-slide-url` and (where applicable)
+ * `data-exercise-ids`. A small client-side script reads localStorage and
+ * marks slides as `complete` once all their exercises have an outcome. The
+ * count under each section and at the top reflects exercises, not slides.
+ */
+import {
+  getSlidesForChapter,
+  getChapterFromUrl,
+  chapterTitles,
+  sectionTitles as allSectionTitles,
+} from '../lib/slide-nav';
+
+const currentChapter = getChapterFromUrl(Astro.url.pathname);
+const slides = currentChapter ? getSlidesForChapter(currentChapter) : [];
+const chapterTitle = currentChapter ? chapterTitles[currentChapter] ?? '' : '';
+const sectionTitles = currentChapter ? allSectionTitles[currentChapter] ?? {} : {};
+
+const sectionMap = new Map<string, typeof slides[number][]>();
+for (const s of slides) {
+  if (!sectionMap.has(s.section)) sectionMap.set(s.section, []);
+  sectionMap.get(s.section)!.push(s);
+}
+
+const totalExercises = slides.reduce((n, s) => n + s.exerciseIds.length, 0);
+const sectionExerciseTotal: Record<string, number> = {};
+for (const [dir, ss] of sectionMap) {
+  sectionExerciseTotal[dir] = ss.reduce((n, s) => n + s.exerciseIds.length, 0);
+}
+---
+<aside class="napkin-toc-sidebar" aria-label="Chapter table of contents">
+  <div class="napkin-toc-sidebar-inner">
+    <h2 class="napkin-toc-sidebar-title">{chapterTitle}</h2>
+    <p class="napkin-toc-sidebar-progress">
+      <span data-toc-progress>0</span> / {totalExercises} exercises completed
+    </p>
+
+    {[...sectionMap.entries()].map(([dir, sectionSlides]) => (
+      <details open class="napkin-toc-section" data-section={dir}>
+        <summary class="napkin-toc-section-summary">
+          <span class="napkin-toc-section-title">{sectionTitles[dir] ?? dir}</span>
+          <span class="napkin-toc-section-count">
+            <span data-section-count={dir}>0</span>/{sectionExerciseTotal[dir]}
+          </span>
+        </summary>
+        <ul class="napkin-toc-list">
+          {sectionSlides.map((s) => (
+            <li>
+              <a
+                href={s.url}
+                data-slide-url={s.url}
+                data-exercise-ids={s.exerciseIds.join(',')}
+                class="napkin-toc-link"
+              >
+                {s.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))}
+  </div>
+</aside>
+
+<script is:inline>
+  // Mark current slide + completed slides on every page load. A slide is
+  // "complete" when every exercise it contains has a stored outcome.
+  (function () {
+    const path = window.location.pathname.replace(/\/$/, '');
+
+    function exerciseDone(slideUrl, exId) {
+      const key = 'napkin:exercise:' + slideUrl + '#' + exId;
+      return localStorage.getItem(key) !== null;
+    }
+
+    const allLinks = document.querySelectorAll('[data-slide-url]');
+    let totalDone = 0;
+    const sectionDone = {};
+
+    allLinks.forEach((el) => {
+      const url = el.getAttribute('data-slide-url') || '';
+      const ids = (el.getAttribute('data-exercise-ids') || '')
+        .split(',')
+        .filter(Boolean);
+      const sectionMatch = url.match(/\/part-1-starting-out\/[^/]+\/([^/]+)\//);
+      const section = sectionMatch ? sectionMatch[1] : '';
+
+      const doneOnSlide = ids.filter((id) => exerciseDone(url, id)).length;
+      totalDone += doneOnSlide;
+      sectionDone[section] = (sectionDone[section] || 0) + doneOnSlide;
+
+      if (ids.length > 0 && doneOnSlide === ids.length) {
+        el.classList.add('complete');
+      }
+      if (url === path) el.classList.add('current');
+    });
+
+    const progress = document.querySelector('[data-toc-progress]');
+    if (progress) progress.textContent = String(totalDone);
+    document.querySelectorAll('[data-section-count]').forEach((el) => {
+      const section = el.getAttribute('data-section-count') || '';
+      el.textContent = String(sectionDone[section] || 0);
+    });
+  })();
+</script>
+
+<style is:global>
+  .napkin-toc-sidebar {
+    position: fixed;
+    top: 4.5rem;
+    left: 1rem;
+    width: 240px;
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+    padding: 1rem;
+    border-right: 1px solid rgb(231 229 228);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color: rgb(68 64 60);
+    background: rgb(250 250 249);
+    font-size: 0.85rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-toc-sidebar {
+      color: rgb(214 211 209);
+      background: rgb(12 10 9);
+      border-right-color: rgb(41 37 36);
+    }
+  }
+  /* Hide the TOC when there isn't room for both sidebars + main column. */
+  @media (max-width: 1319px) {
+    .napkin-toc-sidebar { display: none; }
+  }
+
+  .napkin-toc-sidebar-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(120 113 108);
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+  }
+  .napkin-toc-sidebar-progress {
+    font-size: 0.7rem;
+    color: rgb(120 113 108);
+    margin: 0 0 1rem 0;
+  }
+  .napkin-toc-section { margin-bottom: 0.5rem; }
+  .napkin-toc-section-summary {
+    cursor: pointer;
+    padding: 0.25rem 0;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .napkin-toc-section-summary::-webkit-details-marker { display: none; }
+  .napkin-toc-section-title {
+    font-weight: 600;
+    color: rgb(41 37 36);
+    font-size: 0.8rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-toc-section-title { color: rgb(231 229 228); }
+  }
+  .napkin-toc-section-count {
+    font-size: 0.7rem;
+    color: rgb(168 162 158);
+    font-variant-numeric: tabular-nums;
+  }
+  .napkin-toc-list {
+    list-style: none;
+    padding: 0.25rem 0 0.25rem 0.5rem;
+    margin: 0;
+    border-left: 1px solid rgb(231 229 228);
+    margin-left: 0.25rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-toc-list { border-left-color: rgb(41 37 36); }
+  }
+  .napkin-toc-list li { padding: 0.15rem 0; }
+  .napkin-toc-link {
+    display: block;
+    color: rgb(87 83 78);
+    text-decoration: none;
+    line-height: 1.35;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    border-left: 2px solid transparent;
+    margin-left: -0.4rem;
+  }
+  .napkin-toc-link:hover {
+    color: rgb(28 25 23);
+    background: rgb(245 245 244);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-toc-link { color: rgb(168 162 158); }
+    .napkin-toc-link:hover {
+      color: rgb(245 245 244);
+      background: rgb(28 25 23);
+    }
+  }
+  .napkin-toc-link.complete { color: rgb(28 25 23); }
+  .napkin-toc-link.complete::before {
+    content: "✓";
+    color: rgb(22 163 74);
+    margin-right: 0.4rem;
+    font-size: 0.85em;
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-toc-link.complete { color: rgb(231 229 228); }
+    .napkin-toc-link.complete::before { color: rgb(74 222 128); }
+  }
+  .napkin-toc-link.current {
+    color: rgb(28 25 23);
+    background: rgb(254 243 199);
+    font-weight: 600;
+    border-left-color: rgb(217 119 6);
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-toc-link.current {
+      color: rgb(245 245 244);
+      background: rgb(41 37 36);
+      border-left-color: rgb(245 158 11);
+    }
+  }
+</style>

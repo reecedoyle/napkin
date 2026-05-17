@@ -1,0 +1,25 @@
+---
+title: Elements of a finite group have finite order
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Elements of a finite group have finite order" part="Part I — Starting Out" chapter="1. Groups · Orders and Lagrange">
+
+In an *infinite* group, elements can have infinite order — think of $1 \in \ZZ$. But in a *finite* group, you simply can't run forever: the powers $1_G, g, g^2, \dots$ have to repeat, and from the first repeat we extract a finite order.
+
+<Callout kind="proposition" title="Finite groups have finite element orders">
+Let $G$ be a finite group. Then every element $g \in G$ has finite order.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="grp-ord-proof-pigeonhole"
+  prompt="Prove that if G is finite, every g in G has finite order. (Hint: pigeonhole on the powers of g.)"
+  solution="Consider the infinite sequence 1_G, g, g^2, g^3, .... Since G has only finitely many elements, by pigeonhole two of them must be equal: there exist i < j with g^i = g^j. Multiply both sides by (g^i)^(-1) = g^(-i) to get 1_G = g^(j - i). Setting n = j - i > 0, we have a positive integer with g^n = 1_G. So the set of positive integers killing g is non-empty, and its minimum — which exists by well-ordering — is a finite value of ord g."
+/>
+
+This is a classic olympiad-style pigeonhole argument: a *finite* set forces *infinite* sequences inside it to repeat. Combined with the previous slide's divisibility fact, we now know that for any $g$ in a finite group there is a smallest positive $n$ with $g^n = 1_G$, and *every* exponent that kills $g$ is a multiple of that $n$.
+
+</SlideLayout>

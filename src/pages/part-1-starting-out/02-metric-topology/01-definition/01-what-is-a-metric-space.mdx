@@ -1,0 +1,25 @@
+---
+title: What is a metric space?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="What is a metric space?" part="Part I — Starting Out" chapter="2. Metric topology · Definition and examples">
+
+Metric topology is the morally correct way to motivate point-set topology — and to generalize ordinary calculus. The starting object is very concrete: a set of points equipped with a notion of *distance* between them.
+
+A <Term k="metricSpace">metric space $(M, d)$</Term> packages two pieces of data:
+
+- a set of points $M$, and
+- a <Term k="metric">distance function $d$</Term> that takes two points and returns a non-negative real number.
+
+The distance function has to behave the way distance ought to behave — symmetric, never negative, zero only between a point and itself, and never longer to go direct than to detour.
+
+<Callout kind="remark" title="Prototypical example">
+Keep in mind the Euclidean plane <Term k="RRn">$\RR^2$</Term>: points are pairs $(x, y)$, and $d$ is straight-line distance. Everything in this section is built around generalisations and variations of this picture.
+</Callout>
+
+Throughout this chapter, draw lots of pictures. Metric spaces are very visual objects.
+
+</SlideLayout>

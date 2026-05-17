@@ -1,0 +1,44 @@
+---
+title: Examples and non-examples
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Examples and non-examples" part="Part I — Starting Out" chapter="2. Metric Topology · Closed sets">
+
+Let's stock up on (non-)examples to anchor the definition.
+
+<Callout kind="example" title="Examples of closed sets">
+- The empty set $\varnothing$ is closed in $M$ for vacuous reasons: there are no sequences whose terms lie in $\varnothing$, so there is nothing to check.
+- The whole space $M$ is closed in $M$ for tautological reasons: any limit $x \in M$ is automatically in $M$.
+- The closed interval $[0, 1]$ is <Term k="closedSet">closed</Term> in $\RR$ — hence the name! This is the prototype to keep in mind. Any sequence in $[0,1]$ that converges in $\RR$ must have its limit in $[0,1]$, by the usual order properties of the reals.
+- In fact, $[0, 1]$ (viewed as $[0,1] \times \{0\} \subseteq \RR^2$) is even closed in $\RR^2$.
+</Callout>
+
+The first non-example is the classic one — the open interval misses its endpoints.
+
+<Callout kind="example" title="Non-example: open intervals">
+Let $S = (0, 1)$ denote the open interval. Then $S$ is **not** closed in $\RR$, because the sequence
+$$
+\tfrac{1}{2}, \; \tfrac{1}{4}, \; \tfrac{1}{8}, \; \dots
+$$
+lies entirely in $S$ but converges to $0 \in \RR$, and $0 \notin (0, 1)$. A sequence in $S$ escaped to a point outside $S$.
+</Callout>
+
+<MCQ
+  client:load
+  id="top-closed-mcq-closed-but-not-open"
+  prompt="Which of these subsets of R (with the usual metric) is closed in R but NOT open in R?"
+  options={[
+    { id: "a", label: "The open interval (0, 1)." },
+    { id: "b", label: "The closed interval [0, 1]." },
+    { id: "c", label: "The half-open interval [0, 1)." },
+    { id: "d", label: "The empty set, ∅." },
+  ]}
+  correct="b"
+  explanation="(a) (0, 1) is open but not closed — the sequence 1/2, 1/4, 1/8, ... escapes to 0. (c) [0, 1) is neither open (because of 0) nor closed (because of the sequence 1 − 1/n → 1). (d) ∅ is *both* open and closed in R. Only (b) [0, 1] is closed but not open: closed because any convergent sequence in [0, 1] has its limit in [0, 1], not open because there is no r-neighborhood of 0 inside [0, 1]."
+/>
+
+</SlideLayout>

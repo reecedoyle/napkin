@@ -1,0 +1,31 @@
+---
+title: Non-abelian examples
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Non-abelian examples" part="Part I — Starting Out" chapter="1. Groups · Definition and examples">
+
+Now for some **non-abelian** examples. These are the ones where the order of the operation actually matters.
+
+<Callout kind="example" title="General linear group">
+Let $n$ be a positive integer. Then <Term k="GLn">$\GL_n(\RR)$</Term> is defined as the set of $n \times n$ real matrices which have *nonzero determinant*. With this condition, every matrix does indeed have an inverse, so $(\GL_n(\RR), \times)$ is a group, called the **general linear group**.
+
+(The fact that $\GL_n(\RR)$ is closed under $\times$ follows from the linear algebra fact that $\det(AB) = \det A \det B$, proved in later chapters.)
+</Callout>
+
+<Callout kind="example" title="Special linear group">
+Following the example above, let <Term k="SLn">$\SL_n(\RR)$</Term> denote the set of $n \times n$ matrices whose determinant is actually $1$. Again, for linear algebra reasons, $(\SL_n(\RR), \times)$ is also a group, called the **special linear group**.
+</Callout>
+
+<Callout kind="example" title="Symmetric groups">
+Let <Term k="Sn">$S_n$</Term> be the set of permutations of $\{1, \dots, n\}$. By viewing these permutations as functions from $\{1, \dots, n\}$ to itself, we can consider *compositions* of permutations. Then the pair $(S_n, \circ)$ (here $\circ$ is function composition) is also a group, because
+
+- there is an identity permutation, and
+- each permutation has an inverse.
+
+The group $S_n$ is called the **symmetric group** on $n$ elements.
+</Callout>
+
+</SlideLayout>
