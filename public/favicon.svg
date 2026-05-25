@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+    <rect width="64" height="64" fill="#1c1917"/>
+    <rect x="0" y="62" width="64" height="2" fill="#d97706"/>
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central"
+          font-family="Georgia, 'Times New Roman', serif" font-weight="700"
+          font-size="47" fill="#fafaf9">N</text>
+  </svg>

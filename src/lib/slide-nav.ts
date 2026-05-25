@@ -49,13 +49,18 @@ function extractExerciseIds(raw: string): string[] {
   return [...ids];
 }
 
+// BASE_URL is "/" by default, "/napkin/" when PUBLIC_BASE_PATH is set for
+// the production build. Strip the leading "/" from the page path so the
+// concatenation works in both cases without producing a double slash.
+const BASE_URL = import.meta.env.BASE_URL;
+
 const slides: SlideEntry[] = Object.entries(slideRaw)
   .map(([path, raw]) => {
     const m = path.match(SLIDE_RE);
     if (!m) return null;
     const [, chapter, section] = m;
     return {
-      url: path.replace('/src/pages', '').replace(/\.mdx$/, ''),
+      url: BASE_URL + path.replace('/src/pages/', '').replace(/\.mdx$/, ''),
       title: titleFromPath(path),
       chapter,
       section,

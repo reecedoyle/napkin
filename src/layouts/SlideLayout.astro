@@ -33,11 +33,20 @@ const termKeys = isSlide
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · Napkin</title>
+
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}manifest.webmanifest`} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+    <meta name="theme-color" content="#1c1917" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Napkin" />
+    <script is:inline src={`${import.meta.env.BASE_URL}registerSW.js`}></script>
   </head>
   <body>
     <header class="border-b border-stone-200 dark:border-stone-800">
       <div class="mx-auto max-w-[760px] px-6 py-4 text-sm text-stone-600 dark:text-stone-400 flex items-center justify-between">
-        <a href="/" class="hover:underline">Napkin</a>
+        <a href={import.meta.env.BASE_URL} class="hover:underline">Napkin</a>
         {part && (
           <span>
             {part}{chapter && <> · <span>{chapter}</span></>}

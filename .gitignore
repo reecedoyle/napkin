@@ -9,6 +9,7 @@ dist/
 .output/
 .vercel/
 .netlify/
+dev-dist/
 
 # environment
 .env
