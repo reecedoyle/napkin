@@ -2,35 +2,46 @@
 import SlideLayout from '../layouts/SlideLayout.astro';
 import {
   getAllSlides,
+  partTitles,
   chapterTitles,
   sectionTitles,
 } from '../lib/slide-nav';
 
 const slides = getAllSlides();
 
-// Group slides → chapter → section
+// Group: part → chapter → section. Preserve URL-sorted order throughout.
 type SectionGroup = { dir: string; firstSlideUrl: string; slideCount: number };
-type ChapterGroup = { dir: string; firstSlideUrl: string; sections: SectionGroup[] };
+type ChapterGroup = {
+  dir: string;
+  firstSlideUrl: string;
+  sections: SectionGroup[];
+};
+type PartGroup = { dir: string; chapters: ChapterGroup[] };
 
-const chapterMap = new Map<string, Map<string, typeof slides[number][]>>();
+const partMap = new Map<string, Map<string, Map<string, typeof slides[number][]>>>();
 for (const s of slides) {
-  if (!chapterMap.has(s.chapter)) chapterMap.set(s.chapter, new Map());
-  const inChap = chapterMap.get(s.chapter)!;
-  if (!inChap.has(s.section)) inChap.set(s.section, []);
-  inChap.get(s.section)!.push(s);
+  if (!partMap.has(s.part)) partMap.set(s.part, new Map());
+  const chapMap = partMap.get(s.part)!;
+  if (!chapMap.has(s.chapter)) chapMap.set(s.chapter, new Map());
+  const sectMap = chapMap.get(s.chapter)!;
+  if (!sectMap.has(s.section)) sectMap.set(s.section, []);
+  sectMap.get(s.section)!.push(s);
 }
 
-const chapters: ChapterGroup[] = [...chapterMap.entries()].map(([chapDir, sectMap]) => {
-  const sections: SectionGroup[] = [...sectMap.entries()].map(([sectDir, ss]) => ({
-    dir: sectDir,
-    firstSlideUrl: ss[0].url,
-    slideCount: ss.length,
-  }));
-  return {
-    dir: chapDir,
-    firstSlideUrl: sections[0]?.firstSlideUrl ?? '#',
-    sections,
-  };
+const parts: PartGroup[] = [...partMap.entries()].map(([partDir, chapMap]) => {
+  const chapters: ChapterGroup[] = [...chapMap.entries()].map(([chapDir, sectMap]) => {
+    const sections: SectionGroup[] = [...sectMap.entries()].map(([sectDir, ss]) => ({
+      dir: sectDir,
+      firstSlideUrl: ss[0].url,
+      slideCount: ss.length,
+    }));
+    return {
+      dir: chapDir,
+      firstSlideUrl: sections[0]?.firstSlideUrl ?? '#',
+      sections,
+    };
+  });
+  return { dir: partDir, chapters };
 });
 ---
 <SlideLayout title="An Infinitely Large Napkin">
@@ -39,26 +50,30 @@ const chapters: ChapterGroup[] = [...chapterMap.entries()].map(([chapDir, sectMa
     slide-style modules, inline exercises, and progress tracking.
   </p>
 
-  <h2>Pilot — Part I: Starting Out</h2>
-  <ul>
-    {chapters.map((c) => (
-      <li>
-        <a href={c.firstSlideUrl}>
-          {chapterTitles[c.dir] ?? c.dir}
-        </a>
-        <ul>
-          {c.sections.map((s) => (
-            <li>
-              <a href={s.firstSlideUrl}>
-                {sectionTitles[c.dir]?.[s.dir] ?? s.dir}
-              </a>
-              <span class="text-stone-500"> · {s.slideCount} slide{s.slideCount === 1 ? '' : 's'}</span>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ))}
-  </ul>
+  {parts.map((p) => (
+    <section>
+      <h2>{partTitles[p.dir] ?? p.dir}</h2>
+      <ul>
+        {p.chapters.map((c) => (
+          <li>
+            <a href={c.firstSlideUrl}>
+              {chapterTitles[`${p.dir}/${c.dir}`] ?? c.dir}
+            </a>
+            <ul>
+              {c.sections.map((s) => (
+                <li>
+                  <a href={s.firstSlideUrl}>
+                    {sectionTitles[`${p.dir}/${c.dir}/${s.dir}`] ?? s.dir}
+                  </a>
+                  <span class="text-stone-500"> · {s.slideCount} slide{s.slideCount === 1 ? '' : 's'}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
 
   <p>
     <a href={`${import.meta.env.BASE_URL}glossary`} class="text-stone-600 dark:text-stone-400 underline">

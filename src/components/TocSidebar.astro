@@ -9,15 +9,17 @@
  */
 import {
   getSlidesForChapter,
-  getChapterFromUrl,
+  getPartAndChapterFromUrl,
   chapterTitles,
-  sectionTitles as allSectionTitles,
+  sectionTitles,
 } from '../lib/slide-nav';
 
-const currentChapter = getChapterFromUrl(Astro.url.pathname);
-const slides = currentChapter ? getSlidesForChapter(currentChapter) : [];
-const chapterTitle = currentChapter ? chapterTitles[currentChapter] ?? '' : '';
-const sectionTitles = currentChapter ? allSectionTitles[currentChapter] ?? {} : {};
+const cur = getPartAndChapterFromUrl(Astro.url.pathname);
+const slides = cur ? getSlidesForChapter(cur.part, cur.chapter) : [];
+const chapterKey = cur ? `${cur.part}/${cur.chapter}` : '';
+const chapterTitle = chapterTitles[chapterKey] ?? '';
+const sectionTitleFor = (dir: string) =>
+  sectionTitles[`${chapterKey}/${dir}`] ?? dir;
 
 const sectionMap = new Map<string, typeof slides[number][]>();
 for (const s of slides) {
@@ -41,7 +43,7 @@ for (const [dir, ss] of sectionMap) {
     {[...sectionMap.entries()].map(([dir, sectionSlides]) => (
       <details open class="napkin-toc-section" data-section={dir}>
         <summary class="napkin-toc-section-summary">
-          <span class="napkin-toc-section-title">{sectionTitles[dir] ?? dir}</span>
+          <span class="napkin-toc-section-title">{sectionTitleFor(dir)}</span>
           <span class="napkin-toc-section-count">
             <span data-section-count={dir}>0</span>/{sectionExerciseTotal[dir]}
           </span>
@@ -85,7 +87,7 @@ for (const [dir, ss] of sectionMap) {
       const ids = (el.getAttribute('data-exercise-ids') || '')
         .split(',')
         .filter(Boolean);
-      const sectionMatch = url.match(/\/part-1-starting-out\/[^/]+\/([^/]+)\//);
+      const sectionMatch = url.match(/\/part-[^/]+\/[^/]+\/([^/]+)\//);
       const section = sectionMatch ? sectionMatch[1] : '';
 
       const doneOnSlide = ids.filter((id) => exerciseDone(url, id)).length;

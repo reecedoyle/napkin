@@ -1,5 +1,5 @@
 /**
- * Build-time slide ordering for the Part-I chapters.
+ * Build-time slide ordering for the portal.
  *
  * Path-only globbing isn't enough now that the TOC tracks exercise
  * completion — we also need the *raw MDX text* to extract exercise IDs. We
@@ -14,6 +14,8 @@
 export interface SlideEntry {
   url: string;
   title: string;
+  /** Part directory, e.g. "part-1-starting-out". */
+  part: string;
   /** Chapter directory name, e.g. "01-groups". */
   chapter: string;
   /** Section directory name, e.g. "01-definition". */
@@ -31,15 +33,21 @@ function titleFromPath(path: string): string {
   return slug.charAt(0).toUpperCase() + slug.slice(1);
 }
 
-const SLIDE_RE = /\/part-1-starting-out\/([^/]+)\/([^/]+)\/([^/]+)\.mdx$/;
+// /src/pages/<part-dir>/<chapter-dir>/<section-dir>/<NN-slug>.mdx
+const SLIDE_RE = /\/(part-[^/]+)\/([^/]+)\/([^/]+)\/([^/]+)\.mdx$/;
 
 // Match `id="..."` on exercise component tags only. Robust against stray
 // `id` attributes elsewhere (SVG groups, anchors, etc.) — only IDs on MCQ /
 // NumericInput / ProofReveal / Problem count as exercises.
 const EX_RE = /<(?:MCQ|NumericInput|ProofReveal|Problem)[\s\S]*?\bid="([^"]+)"/g;
 
+// BASE_URL is "/" by default, "/napkin/" when PUBLIC_BASE_PATH is set for
+// the production build. Strip the leading "/" from the page path so the
+// concatenation works in both cases without producing a double slash.
+const BASE_URL = import.meta.env.BASE_URL;
+
 const slideRaw: Record<string, string> = import.meta.glob(
-  '/src/pages/part-1-starting-out/*/*/*.mdx',
+  '/src/pages/part-*/*/*/*.mdx',
   { eager: true, query: '?raw', import: 'default' },
 );
 
@@ -49,19 +57,15 @@ function extractExerciseIds(raw: string): string[] {
   return [...ids];
 }
 
-// BASE_URL is "/" by default, "/napkin/" when PUBLIC_BASE_PATH is set for
-// the production build. Strip the leading "/" from the page path so the
-// concatenation works in both cases without producing a double slash.
-const BASE_URL = import.meta.env.BASE_URL;
-
 const slides: SlideEntry[] = Object.entries(slideRaw)
   .map(([path, raw]) => {
     const m = path.match(SLIDE_RE);
     if (!m) return null;
-    const [, chapter, section] = m;
+    const [, part, chapter, section] = m;
     return {
       url: BASE_URL + path.replace('/src/pages/', '').replace(/\.mdx$/, ''),
       title: titleFromPath(path),
+      part,
       chapter,
       section,
       exerciseIds: extractExerciseIds(raw),
@@ -71,33 +75,42 @@ const slides: SlideEntry[] = Object.entries(slideRaw)
   .sort((a, b) => a.url.localeCompare(b.url));
 
 // ────────────── Metadata ──────────────
+//
+// Titles are keyed by directory path under src/pages/ so two different
+// parts can have a "01-something" chapter without collision.
 
-export const chapterTitles: Record<string, string> = {
-  '01-groups': 'Chapter 1 — Groups',
-  '02-metric-topology': 'Chapter 2 — Metric Topology',
+export const partTitles: Record<string, string> = {
+  'part-1-starting-out': 'Part I — Starting Out',
+  'part-2-basic-abstract-algebra': 'Part II — Basic Abstract Algebra',
 };
 
-export const sectionTitles: Record<string, Record<string, string>> = {
-  '01-groups': {
-    '01-definition': '§1 — Definition and examples',
-    '02-properties': '§2 — Properties of groups',
-    '03-isomorphisms': '§3 — Isomorphisms',
-    '04-orders-and-lagrange': '§4 — Orders & Lagrange',
-    '05-subgroups': '§5 — Subgroups',
-    '06-small-orders': '§6 — Groups of small orders',
-    '07-axiom-rationale': '§7 — Why these axioms?',
-    '08-problems': '§8 — Problems',
-  },
-  '02-metric-topology': {
-    '01-definition': '§1 — Definition and examples',
-    '02-convergence': '§2 — Convergence',
-    '03-continuous-maps': '§3 — Continuous maps',
-    '04-homeomorphisms': '§4 — Homeomorphisms',
-    '05-product-metric': '§5 — Product metric',
-    '06-open-sets': '§6 — Open sets',
-    '07-closed-sets': '§7 — Closed sets',
-    '08-problems': '§8 — Problems',
-  },
+export const chapterTitles: Record<string, string> = {
+  'part-1-starting-out/01-groups': 'Chapter 1 — Groups',
+  'part-1-starting-out/02-metric-topology': 'Chapter 2 — Metric Topology',
+  'part-2-basic-abstract-algebra/01-quotient-groups': 'Chapter 3 — Homomorphisms and quotient groups',
+  'part-2-basic-abstract-algebra/02-rings': 'Chapter 4 — Rings and ideals',
+  'part-2-basic-abstract-algebra/03-ring-flavors': 'Chapter 5 — Flavors of rings',
+};
+
+export const sectionTitles: Record<string, string> = {
+  // Part I — Groups
+  'part-1-starting-out/01-groups/01-definition': '§1 — Definition and examples',
+  'part-1-starting-out/01-groups/02-properties': '§2 — Properties of groups',
+  'part-1-starting-out/01-groups/03-isomorphisms': '§3 — Isomorphisms',
+  'part-1-starting-out/01-groups/04-orders-and-lagrange': '§4 — Orders & Lagrange',
+  'part-1-starting-out/01-groups/05-subgroups': '§5 — Subgroups',
+  'part-1-starting-out/01-groups/06-small-orders': '§6 — Groups of small orders',
+  'part-1-starting-out/01-groups/07-axiom-rationale': '§7 — Why these axioms?',
+  'part-1-starting-out/01-groups/08-problems': '§8 — Problems',
+  // Part I — Metric Topology
+  'part-1-starting-out/02-metric-topology/01-definition': '§1 — Definition and examples',
+  'part-1-starting-out/02-metric-topology/02-convergence': '§2 — Convergence',
+  'part-1-starting-out/02-metric-topology/03-continuous-maps': '§3 — Continuous maps',
+  'part-1-starting-out/02-metric-topology/04-homeomorphisms': '§4 — Homeomorphisms',
+  'part-1-starting-out/02-metric-topology/05-product-metric': '§5 — Product metric',
+  'part-1-starting-out/02-metric-topology/06-open-sets': '§6 — Open sets',
+  'part-1-starting-out/02-metric-topology/07-closed-sets': '§7 — Closed sets',
+  'part-1-starting-out/02-metric-topology/08-problems': '§8 — Problems',
 };
 
 // ────────────── Public helpers ──────────────
@@ -106,13 +119,15 @@ export function getAllSlides(): readonly SlideEntry[] {
   return slides;
 }
 
-export function getSlidesForChapter(chapter: string): SlideEntry[] {
-  return slides.filter((s) => s.chapter === chapter);
+export function getSlidesForChapter(part: string, chapter: string): SlideEntry[] {
+  return slides.filter((s) => s.part === part && s.chapter === chapter);
 }
 
-export function getChapterFromUrl(url: string): string | undefined {
-  const m = url.match(/\/part-1-starting-out\/([^/]+)\//);
-  return m?.[1];
+export function getPartAndChapterFromUrl(
+  url: string,
+): { part: string; chapter: string } | undefined {
+  const m = url.match(/\/(part-[^/]+)\/([^/]+)\//);
+  return m ? { part: m[1], chapter: m[2] } : undefined;
 }
 
 export function getSlideNeighbors(currentUrl: string): {
