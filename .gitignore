@@ -32,7 +32,9 @@ yarn-error.log*
 pnpm-debug.log*
 
 # generated figures (rebuilt from vendor/napkin/asy)
-figures/
+# Anchored to repo root so it doesn't shadow public/figures/, which holds
+# hand-vendored raster assets used by slides.
+/figures/
 
 # test artifacts
 playwright-report/
