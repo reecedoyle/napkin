@@ -33,7 +33,7 @@ for (const [dir, ss] of sectionMap) {
   sectionExerciseTotal[dir] = ss.reduce((n, s) => n + s.exerciseIds.length, 0);
 }
 ---
-<aside class="napkin-toc-sidebar" aria-label="Chapter table of contents">
+<aside id="napkin-drawer-toc" class="napkin-toc-sidebar" aria-label="Chapter table of contents" data-drawer="toc" data-open="false">
   <div class="napkin-toc-sidebar-inner">
     <h2 class="napkin-toc-sidebar-title">{chapterTitle}</h2>
     <p class="napkin-toc-sidebar-progress">
@@ -131,9 +131,26 @@ for (const [dir, ss] of sectionMap) {
       border-right-color: rgb(41 37 36);
     }
   }
-  /* Hide the TOC when there isn't room for both sidebars + main column. */
+  /* Below the desktop-3-column threshold, become an off-canvas drawer that
+     slides in from the left when toggled from the header. */
   @media (max-width: 1319px) {
-    .napkin-toc-sidebar { display: none; }
+    .napkin-toc-sidebar {
+      top: 0;
+      left: 0;
+      width: min(80vw, 320px);
+      max-width: 320px;
+      height: 100vh;
+      max-height: 100vh;
+      padding: 1.25rem 1rem 2rem 1rem;
+      border-right: 1px solid rgb(231 229 228);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.18);
+      transform: translateX(-100%);
+      transition: transform 180ms ease;
+      z-index: 50;
+    }
+    .napkin-toc-sidebar[data-open="true"] {
+      transform: translateX(0);
+    }
   }
 
   .napkin-toc-sidebar-title {

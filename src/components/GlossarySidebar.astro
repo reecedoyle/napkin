@@ -33,7 +33,7 @@ function renderInlineKatex(src: string): string {
   }
 }
 ---
-<aside class="napkin-glossary-sidebar" aria-label="Glossary for this slide">
+<aside id="napkin-drawer-glossary" class="napkin-glossary-sidebar" aria-label="Glossary for this slide" data-drawer="glossary" data-open="false">
   <div class="napkin-glossary-sidebar-header">
     <h2 class="napkin-glossary-sidebar-title">On this slide</h2>
     {entries.length === 0 && (
@@ -85,9 +85,26 @@ function renderInlineKatex(src: string): string {
       border-left-color: rgb(41 37 36);
     }
   }
-  /* Hide on viewports too narrow to fit sidebar + 760px main column + gap. */
+  /* Below the desktop threshold, become an off-canvas drawer that slides in
+     from the right when toggled from the header or via a Term tap. */
   @media (max-width: 1139px) {
-    .napkin-glossary-sidebar { display: none; }
+    .napkin-glossary-sidebar {
+      top: 0;
+      right: 0;
+      width: min(85vw, 360px);
+      max-width: 360px;
+      height: 100vh;
+      max-height: 100vh;
+      padding: 1.25rem 1.25rem 2rem 1.25rem;
+      border-left: 1px solid rgb(231 229 228);
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.18);
+      transform: translateX(100%);
+      transition: transform 180ms ease;
+      z-index: 50;
+    }
+    .napkin-glossary-sidebar[data-open="true"] {
+      transform: translateX(0);
+    }
   }
 
   .napkin-glossary-sidebar-header {
