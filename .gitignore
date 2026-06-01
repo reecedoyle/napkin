@@ -25,8 +25,12 @@ Thumbs.db
 !.vscode/settings.json
 !.vscode/extensions.json
 
-# Claude Code session artifacts (sub-agent worktrees live under .claude/)
-.claude/
+# Claude Code session artifacts.
+# Worktrees and per-user local settings are session-scoped; the
+# project-shared settings.json is checked in so sub-agents pick up the
+# same permission allowlist everyone else uses.
+.claude/worktrees/
+.claude/settings.local.json
 .claire/
 
 # logs
