@@ -25,6 +25,10 @@ Thumbs.db
 !.vscode/settings.json
 !.vscode/extensions.json
 
+# Claude Code session artifacts (sub-agent worktrees live under .claude/)
+.claude/
+.claire/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
