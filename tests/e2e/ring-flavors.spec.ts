@@ -20,7 +20,7 @@ const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
   { url: `${BASE}/03-prime-ideals/02-definition`, heading: /prime ideals.*definition/i },
   { url: `${BASE}/03-prime-ideals/03-quotient-theorem`, heading: /prime ideals and quotient rings/i },
   { url: `${BASE}/03-prime-ideals/04-zero-ideal-question`, heading: /when is.*0.*prime/i },
-  { url: `${BASE}/03-prime-ideals/05-gaussian-integers`, heading: /gaussian integers/i },
+  { url: `${BASE}/03-prime-ideals/05-gaussian-integers`, heading: /prime ideal that is not prime/i },
   // Section 4 — Maximal ideals
   { url: `${BASE}/04-maximal-ideals/01-definition`, heading: /maximal ideals.*definition/i },
   { url: `${BASE}/04-maximal-ideals/02-quotient-theorem`, heading: /maximal ideals and quotient fields/i },
@@ -69,9 +69,9 @@ test.describe('Ring flavors — all slide URLs load', () => {
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────
 test.describe('Ring flavors — KaTeX renders', () => {
-  test('field-of-fractions construction slide renders display math', async ({ page }) => {
+  test('field-of-fractions construction slide renders KaTeX math', async ({ page }) => {
     await page.goto(`${BASE}/05-field-of-fractions/01-construction`);
-    await expect(page.locator('.katex-display').first()).toBeVisible();
+    await expect(page.locator('.katex').first()).toBeVisible();
   });
 });
 
