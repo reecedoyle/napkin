@@ -159,10 +159,10 @@ test.describe('Rings and ideals — Problem flow (ℝ[x]/(x²+1) is ℂ)', () =>
 
     const article = page.getByRole('article');
     // "isomorphism" only appears inside the solution text, not the prompt/hint
-    await expect(article.getByText(/isomorphism is given by/i)).toBeHidden();
+    await expect(article.getByText(/isomorphism sends x/i)).toBeHidden();
 
     await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/isomorphism is given by/i)).toBeVisible();
+    await expect(article.getByText(/isomorphism sends x/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();

@@ -111,6 +111,33 @@ export const sectionTitles: Record<string, string> = {
   'part-1-starting-out/02-metric-topology/06-open-sets': '§6 — Open sets',
   'part-1-starting-out/02-metric-topology/07-closed-sets': '§7 — Closed sets',
   'part-1-starting-out/02-metric-topology/08-problems': '§8 — Problems',
+  // Part II — Quotient Groups
+  'part-2-basic-abstract-algebra/01-quotient-groups/01-generators-and-presentations': '§1 — Generators and presentations',
+  'part-2-basic-abstract-algebra/01-quotient-groups/02-homomorphisms': '§2 — Homomorphisms',
+  'part-2-basic-abstract-algebra/01-quotient-groups/03-cosets-and-modding-out': '§3 — Cosets and modding out',
+  'part-2-basic-abstract-algebra/01-quotient-groups/04-lagrange-proof': '§4 — Proof of Lagrange (optional)',
+  'part-2-basic-abstract-algebra/01-quotient-groups/05-eliminating-the-homomorphism': '§5 — Eliminating the homomorphism',
+  'part-2-basic-abstract-algebra/01-quotient-groups/06-first-isomorphism-theorem': '§6 — First isomorphism theorem',
+  'part-2-basic-abstract-algebra/01-quotient-groups/07-problems': '§7 — Problems',
+  // Part II — Rings
+  'part-2-basic-abstract-algebra/02-rings/01-motivation': '§1 — Rings vs groups',
+  'part-2-basic-abstract-algebra/02-rings/02-definition': '§2 — Definition and examples',
+  'part-2-basic-abstract-algebra/02-rings/03-fields': '§3 — Fields (a first look)',
+  'part-2-basic-abstract-algebra/02-rings/04-homomorphisms': '§4 — Homomorphisms',
+  'part-2-basic-abstract-algebra/02-rings/05-ideals': '§5 — Ideals',
+  'part-2-basic-abstract-algebra/02-rings/06-generating-ideals': '§6 — Generating ideals',
+  'part-2-basic-abstract-algebra/02-rings/07-pids': '§7 — Principal ideal domains',
+  'part-2-basic-abstract-algebra/02-rings/08-noetherian': '§8 — Noetherian rings',
+  'part-2-basic-abstract-algebra/02-rings/09-problems': '§9 — Problems',
+  // Part II — Flavors of rings
+  'part-2-basic-abstract-algebra/03-ring-flavors/01-fields': '§1 — Fields',
+  'part-2-basic-abstract-algebra/03-ring-flavors/02-integral-domains': '§2 — Integral domains',
+  'part-2-basic-abstract-algebra/03-ring-flavors/03-prime-ideals': '§3 — Prime ideals',
+  'part-2-basic-abstract-algebra/03-ring-flavors/04-maximal-ideals': '§4 — Maximal ideals',
+  'part-2-basic-abstract-algebra/03-ring-flavors/05-field-of-fractions': '§5 — Field of fractions',
+  'part-2-basic-abstract-algebra/03-ring-flavors/06-ufds': '§6 — Unique factorization domains',
+  'part-2-basic-abstract-algebra/03-ring-flavors/07-euclidean-domains': '§7 — Euclidean domains',
+  'part-2-basic-abstract-algebra/03-ring-flavors/08-problems': '§8 — Problems',
 };
 
 // ────────────── Public helpers ──────────────
