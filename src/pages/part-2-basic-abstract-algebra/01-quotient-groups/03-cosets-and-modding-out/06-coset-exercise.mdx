@@ -1,0 +1,34 @@
+---
+title: Working with cosets
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="Working with cosets" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+Let's make this concrete. Consider $G = \mathbb{Z}$ and $N = 5\mathbb{Z}$ (the multiples of 5).
+
+The cosets of $N$ in $G$ are:
+$$
+0+5\mathbb{Z},\quad 1+5\mathbb{Z},\quad 2+5\mathbb{Z},\quad 3+5\mathbb{Z},\quad 4+5\mathbb{Z}.
+$$
+
+The quotient $\mathbb{Z}/5\mathbb{Z} = \mathbb{Z}/5\mathbb{Z}$ has exactly 5 elements.
+
+<Callout kind="example" title="Coset arithmetic">
+$(2 + 5\mathbb{Z}) + (4 + 5\mathbb{Z}) = (2+4) + 5\mathbb{Z} = 6 + 5\mathbb{Z} = 1 + 5\mathbb{Z}$.
+
+This is just addition mod 5: $2 + 4 \equiv 1 \pmod{5}$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="quot-cos-num-cosets"
+  prompt="How many distinct left cosets does 3ℤ have in ℤ? (That is, how many elements does ℤ/3ℤ have?)"
+  expected="3"
+  placeholder="a number"
+  explanation="ℤ/3ℤ has exactly 3 cosets: 0+3ℤ, 1+3ℤ, and 2+3ℤ. Every integer falls into exactly one of these — its residue mod 3."
+/>
+
+</SlideLayout>

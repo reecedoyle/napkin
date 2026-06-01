@@ -1,0 +1,26 @@
+---
+title: The conjugation condition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The conjugation condition" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Eliminating the homomorphism">
+
+<Callout kind="theorem" title="Algebraic characterisation of normal subgroups">
+Let $H$ be a subgroup of $G$. The following are equivalent:
+1. $H \trianglelefteq G$ (i.e., $H$ is the kernel of some homomorphism).
+2. For every $g \in G$ and $h \in H$, the <Term k="conjugate">**conjugate**</Term> $ghg^{-1} \in H$.
+</Callout>
+
+We already proved $(1) \Rightarrow (2)$. For $(2) \Rightarrow (1)$: assume the conjugation condition. We **build** a homomorphism with kernel $H$ — namely the quotient map $g \mapsto gH$ from $G$ to the coset space $G/H$.
+
+The conjugation condition is exactly what makes coset multiplication well-defined. Suppose $g_1' = g_1 h_1$ and $g_2' = g_2 h_2$. We need $g_1' g_2' \sim_H g_1 g_2$:
+
+$$
+g_1 h_1 g_2 h_2 = g_1 g_2 (g_2^{-1} h_1 g_2) h_2.
+$$
+
+Since $g_2^{-1} h_1 g_2 \in H$ (conjugation condition!), the right side is $g_1 g_2$ times an element of $H$. So $g_1' g_2' \in g_1 g_2 H$. 
+
+</SlideLayout>

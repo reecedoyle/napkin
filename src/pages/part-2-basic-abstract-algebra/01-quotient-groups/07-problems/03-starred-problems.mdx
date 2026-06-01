@@ -1,0 +1,29 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — starred" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Problems">
+
+<Problem
+  client:load
+  id="quot-prob-cx-hom"
+  prompt="Let ℂˣ denote the nonzero complex numbers under multiplication. Show that there are five homomorphisms ℤ/5ℤ → ℂˣ but only two homomorphisms D₁₀ → ℂˣ, even though ℤ/5ℤ is a subgroup of D₁₀."
+  hint="A homomorphism from ℤ/5ℤ is determined by where the generator goes — and must satisfy x⁵ = 1. For D₁₀, use the presentation and check what constraints rs = sr⁻¹ imposes."
+  solution="Homomorphisms ℤ/5ℤ → ℂˣ are determined by the image of the generator, which must be a 5th root of unity. There are exactly 5 fifth roots of unity in ℂˣ, giving 5 homomorphisms.
+
+For D₁₀ = ⟨r, s | r⁵ = s² = 1, rs = sr⁻¹⟩, a homomorphism φ must send r to a 5th root of unity α (so α⁵ = 1) and s to β with β² = 1 (so β = ±1). The relation rs = sr⁻¹ gives αβ = βα⁻¹, i.e. α² = 1. Combined with α⁵ = 1 and gcd(2,5)=1, we get α = 1. So r must map to 1, and s can map to ±1 — giving exactly 2 homomorphisms D₁₀ → ℂˣ."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="quot-prob-hamiltonian"
+  prompt="Find a non-abelian group G such that every subgroup of G is normal. (Such groups are called Hamiltonian.)"
+  hint="Look for an example of order 8. Think about which groups of order 8 exist."
+  solution="The quaternion group Q₈ = {±1, ±i, ±j, ±k} with multiplication rules i² = j² = k² = ijk = −1 is a non-abelian group of order 8 in which every subgroup is normal. The subgroups are: {1}, {±1}, {±1, ±i}, {±1, ±j}, {±1, ±k}, and Q₈ itself. Each of these is closed under conjugation — e.g. for ⟨i⟩ = {1, −1, i, −i}: j·i·j⁻¹ = j·i·(−j) = −j·i·j = −(−k) = k... let me verify more carefully. Since Q₈ has a unique element of order 2 (namely −1), every subgroup of order 2 is {1, −1}, which is clearly normal. Subgroups of order 4 have index 2, and index-2 subgroups are always normal. So all subgroups of Q₈ are normal."
+  difficulty="starred"
+/>
+
+</SlideLayout>

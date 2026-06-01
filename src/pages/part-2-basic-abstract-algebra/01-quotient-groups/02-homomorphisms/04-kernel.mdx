@@ -1,0 +1,30 @@
+---
+title: The kernel
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The kernel" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Homomorphisms">
+
+The most important invariant of a homomorphism is its **kernel**: the set of elements that get collapsed to the identity.
+
+<Callout kind="definition" title="Kernel">
+The <Term k="kernel">**kernel**</Term> of a homomorphism $\phi \colon G \to H$ is
+
+$$
+\ker \phi \;\coloneqq\; \{ g \in G : \phi(g) = 1_H \}.
+$$
+
+It is always a subgroup of $G$ (check: $1_G \in \ker\phi$; closed under products and inverses).
+</Callout>
+
+<Callout kind="proposition" title="Kernel determines injectivity">
+The homomorphism $\phi$ is **injective** if and only if $\ker\phi = \{1_G\}$.
+</Callout>
+
+**Why:** If $\phi(g_1) = \phi(g_2)$, then $\phi(g_1 g_2^{-1}) = 1_H$, so $g_1 g_2^{-1} \in \ker\phi$. If the kernel is trivial, this forces $g_1 = g_2$.
+
+This is the group analogue of a familiar linear algebra fact: a linear map is injective iff its null space is $\{0\}$.
+
+</SlideLayout>

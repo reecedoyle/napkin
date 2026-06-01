@@ -1,0 +1,27 @@
+---
+title: Computing kernels
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Computing kernels" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Homomorphisms">
+
+Let's compute the kernel for each of our running examples.
+
+<Callout kind="example" title="Kernels of our favourite homomorphisms">
+- **Identity / isomorphism** $G \to H$: kernel is $\{1_G\}$ — injective by definition.
+- **Trivial** $G \to H$ (everything $\mapsto 1_H$): kernel is all of $G$.
+- **Mod 100** $\mathbb{Z} \to \mathbb{Z}/100\mathbb{Z}$: kernel is $100\mathbb{Z} = \{\dots, -200, -100, 0, 100, 200, \dots\}$.
+- **Scaling** $\mathbb{Z} \to \mathbb{Z}$, $x \mapsto 10x$: kernel is $\{0\}$ — injective.
+- **Embedding** $S_n \to S_{n+1}$: kernel is $\{1\}$ — injective.
+- **Dihedral** $\phi: D_{12} \to D_6$: one can compute $\ker\phi = \{1, r_{12}^3\} \cong \mathbb{Z}/2\mathbb{Z}$.
+</Callout>
+
+For the homomorphism $\mathbb{Z} \to G$ by $n \mapsto g^n$, the kernel is $\{n \in \mathbb{Z} : g^n = 1_G\}$ — exactly $\langle \mathrm{ord}(g) \rangle$ if $g$ has finite order, or $\{0\}$ if $g$ has infinite order.
+
+<Callout kind="remark" title="The kernel is the obstruction to injectivity">
+The kernel measures how much the map "collapses". A trivial kernel means no collapse — the map embeds $G$ into $H$. A large kernel means many elements get identified.
+</Callout>
+
+</SlideLayout>

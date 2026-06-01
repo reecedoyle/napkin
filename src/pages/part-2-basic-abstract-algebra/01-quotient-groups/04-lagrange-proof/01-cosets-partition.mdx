@@ -1,0 +1,24 @@
+---
+title: Cosets partition the group
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Cosets partition the group" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · (Optional) Proof of Lagrange's theorem">
+
+We can now prove Lagrange's theorem in full generality using cosets — even when $H$ is not normal.
+
+The key observation: the left cosets of $H$ in $G$ form a **partition** of $G$. That is, every element of $G$ belongs to exactly one coset.
+
+<Callout kind="proposition" title="Cosets partition G">
+For any subgroup $H \leq G$:
+- Every $g \in G$ is in exactly one coset of $H$ (namely $gH$).
+- Two cosets $g_1 H$ and $g_2 H$ are either identical or disjoint.
+</Callout>
+
+**Proof:** $g \in gH$ always (since $1 \in H$). If $g \in g_1 H \cap g_2 H$, then $g = g_1 h_1 = g_2 h_2$, so $g_2^{-1} g_1 = h_2 h_1^{-1} \in H$, giving $g_1 H = g_2 H$.
+
+Moreover, every coset has exactly $|H|$ elements (from the bijection $H \to gH$ by $h \mapsto gh$).
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Fibers of a homomorphism
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Fibers of a homomorphism" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+Continuing the mod-100 example, let $N = 100\mathbb{Z}$. Look at the sets of integers that all map to the same residue:
+
+$$
+\begin{aligned}
+N   &= \{ \dots, -200, -100, 0, 100, 200, \dots \} \\
+1+N &= \{ \dots, -199, -99, 1, 101, 201, \dots \} \\
+2+N &= \{ \dots, -198, -98, 2, 102, 202, \dots \} \\
+    &\;\vdots \\
+99+N &= \{ \dots, -101, -1, 99, 199, 299, \dots \}
+\end{aligned}
+$$
+
+Every element in one row maps to the **same** residue under $\phi$; elements in different rows map to **different** residues.
+
+<Callout kind="remark" title="Key idea">
+We can think of $\mathbb{Z}/100\mathbb{Z}$ as the group whose **elements are these 100 sets** (the "fibers" of $\phi$), rather than the numbers $0, 1, \dots, 99$. The group operation on fibers mirrors addition of residues.
+</Callout>
+
+This partitioning into fibers is the heart of the quotient construction. The fibers are exactly the **cosets** of $N$, which we define next.
+
+</SlideLayout>

@@ -1,0 +1,33 @@
+---
+title: An explicit quotient computation
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="An explicit quotient computation" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Eliminating the homomorphism">
+
+Let's see the quotient construction in a non-integer example.
+
+<Callout kind="example" title="D₈ mod a normal subgroup">
+Let $\phi: D_8 \to \mathbb{Z}/4\mathbb{Z}$ be defined by $r \mapsto \overline{2}$, $s \mapsto \overline{2}$.
+
+Computing images of all 8 elements of $D_8 = \{1, r, r^2, r^3, s, sr, sr^2, sr^3\}$:
+
+$$
+\phi(1) = \phi(r^2) = \phi(sr) = \phi(sr^3) = \overline{0}
+$$
+$$
+\phi(r) = \phi(r^3) = \phi(s) = \phi(sr^2) = \overline{2}.
+$$
+
+So $N = \ker\phi = \{1, r^2, sr, sr^3\}$. The two cosets of $N$ are $N$ and $rN = \{r, r^3, s, sr^2\}$.
+
+Thus $|D_8/N| = 2$, so $D_8/N \cong \mathbb{Z}/2\mathbb{Z}$.
+</Callout>
+
+<Callout kind="example" title="Product group quotient">
+In $G \times H$, the subgroup $G' = \{(g, 1_H) : g \in G\} \cong G$ is normal (easy check). The quotient satisfies $(G \times H)/G' \cong H$: every coset $\{(g, h) : g \in G\}$ is characterised by its $H$-coordinate.
+</Callout>
+
+</SlideLayout>

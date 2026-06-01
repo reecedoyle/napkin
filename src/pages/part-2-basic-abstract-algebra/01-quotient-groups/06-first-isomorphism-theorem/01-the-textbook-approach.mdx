@@ -1,0 +1,24 @@
+---
+title: The textbook approach (and why it obscures)
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The textbook approach (and why it obscures)" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · (Digression) The first isomorphism theorem">
+
+Most textbooks take a different route:
+
+1. **Define** normal using $gng^{-1} \in N$ directly (without motivating where this came from).
+2. **Define** $G/N$ via coset multiplication — which looks mysterious.
+3. **State** the first isomorphism theorem as a result.
+
+This approach makes normal subgroups look like they "come out of thin air". The connection to homomorphisms and kernels — which is the entire motivation — gets buried.
+
+<Callout kind="remark" title="Napkin's take">
+The approach in these slides goes the other direction: start with a surjective homomorphism $\phi: G \twoheadrightarrow Q$, observe the kernel $N$, define the quotient to recover $Q$, and then extract the algebraic condition on $N$ after the fact. This makes every step *motivated*.
+</Callout>
+
+The theorem that connects the two approaches is the **first isomorphism theorem**.
+
+</SlideLayout>

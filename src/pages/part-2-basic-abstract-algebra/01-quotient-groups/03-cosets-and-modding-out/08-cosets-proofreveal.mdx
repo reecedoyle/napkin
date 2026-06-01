@@ -1,0 +1,25 @@
+---
+title: Proving x ∼ y iff xy⁻¹ ∈ N
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Proving x ∼ y iff xy⁻¹ ∈ N" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+Let $\phi: G \to H$ be a homomorphism with kernel $N$. We claimed that $\phi(x) = \phi(y)$ if and only if $xy^{-1} \in N$.
+
+<ProofReveal
+  client:load
+  id="quot-cos-proof-equiv"
+  prompt="Prove: for a homomorphism φ: G → H with kernel N, φ(x) = φ(y) if and only if xy⁻¹ ∈ N."
+  solution="(⇒) Suppose φ(x) = φ(y). Then φ(xy⁻¹) = φ(x)φ(y⁻¹) = φ(x)φ(y)⁻¹ = φ(y)φ(y)⁻¹ = 1_H. So xy⁻¹ ∈ ker φ = N.
+
+(⇐) Suppose xy⁻¹ ∈ N, so φ(xy⁻¹) = 1_H. Then φ(x)φ(y)⁻¹ = 1_H, which gives φ(x) = φ(y)."
+/>
+
+<Callout kind="remark" title="What this means geometrically">
+Two elements $x$ and $y$ lie in the same coset of $N$ exactly when they "differ by an element of $N$", i.e., $x = yn$ for some $n \in N$. All elements of a coset are equivalent from the point of view of the homomorphism $\phi$.
+</Callout>
+
+</SlideLayout>

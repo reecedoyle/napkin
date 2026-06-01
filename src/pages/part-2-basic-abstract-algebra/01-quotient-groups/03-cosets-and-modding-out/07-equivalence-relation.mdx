@@ -1,0 +1,36 @@
+---
+title: Cosets as equivalence classes
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Cosets as equivalence classes" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+There is an equivalence-relation perspective on cosets worth spelling out.
+
+Given a surjective homomorphism $\phi: G \twoheadrightarrow Q$ with kernel $N$, define the relation $\sim_N$ on $G$ by:
+
+$$
+x \sim_N y \quad\Longleftrightarrow\quad \phi(x) = \phi(y).
+$$
+
+This is an equivalence relation (reflexive, symmetric, transitive). Its equivalence classes are exactly the fibers of $\phi$, and one can show:
+
+<Callout kind="proposition" title="Cosets = equivalence classes">
+$x \sim_N y$ if and only if $x = yn$ for some $n \in N$ — equivalently, $xy^{-1} \in N$. The equivalence class of $g$ under $\sim_N$ is the coset
+
+$$
+gN = \{ gn : n \in N \}.
+$$
+</Callout>
+
+So the quotient group $G/N$ can equivalently be defined as the set of equivalence classes of $\sim_N$, with the group operation
+
+$$
+[g_1] \cdot [g_2] = [g_1 g_2].
+$$
+
+The normal condition is what makes this operation well-defined — independent of the choice of representatives $g_1, g_2$.
+
+</SlideLayout>

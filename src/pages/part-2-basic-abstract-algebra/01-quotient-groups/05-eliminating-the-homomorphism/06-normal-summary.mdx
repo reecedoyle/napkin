@@ -1,0 +1,30 @@
+---
+title: Summary — normal subgroups
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Summary — normal subgroups" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Eliminating the homomorphism">
+
+We now have a clean, $\phi$-free characterisation of normality.
+
+<Callout kind="theorem" title="Equivalent conditions for N ⊴ G">
+Let $N$ be a subgroup of $G$. The following are equivalent:
+1. $N$ is the kernel of some homomorphism $G \to H$.
+2. For all $g \in G$ and $n \in N$: $gng^{-1} \in N$.
+3. The coset multiplication $(g_1 N)(g_2 N) = (g_1 g_2)N$ is well-defined, making $G/N$ a group.
+4. The canonical map $\pi: G \to G/N$, $g \mapsto gN$, is a surjective homomorphism with kernel $N$.
+</Callout>
+
+Conditions (2)–(4) require no external $\phi$ at all. They are the **intrinsic** definition most textbooks use.
+
+<ProofReveal
+  client:load
+  id="quot-elim-proof-abelian-normal"
+  prompt="Prove: if G is abelian, then every subgroup of G is normal."
+  solution="Let N ≤ G and pick any g ∈ G, n ∈ N. Since G is abelian, gng⁻¹ = gg⁻¹n = n ∈ N. So the conjugation condition holds, and N ⊴ G."
+/>
+
+</SlideLayout>

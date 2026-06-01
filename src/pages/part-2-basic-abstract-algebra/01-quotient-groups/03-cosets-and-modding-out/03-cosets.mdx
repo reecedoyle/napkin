@@ -1,0 +1,30 @@
+---
+title: Left cosets
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Left cosets" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+The fibers in the previous slide all have the form $g + N$ (for additive $\mathbb{Z}$). In a general group, they take the form $gN$.
+
+<Callout kind="definition" title="Left coset">
+Let $H$ be any subgroup of $G$ and $g \in G$. The <Term k="leftCoset">**left coset**</Term> of $H$ at $g$ is
+
+$$
+gH \;\coloneqq\; \{ gh : h \in H \}.
+$$
+</Callout>
+
+<Callout kind="remark" title="Cosets are sets, not elements">
+Two different elements $g_1 \neq g_2$ can give the **same** coset: $g_1 H = g_2 H$ whenever $g_1^{-1} g_2 \in H$. In the mod-100 example, $3 + N = 103 + N = -97 + N$.
+
+If I say "let $gH$ be a coset" without specifying $g$, you cannot recover $g$ from the coset alone. The notation $gH$ refers to a **set**, and that set has many equally valid representatives.
+</Callout>
+
+<Callout kind="proposition" title="All cosets have equal size">
+Given two cosets $g_1 H$ and $g_2 H$, the map $x \mapsto g_2 g_1^{-1} x$ is a bijection between them. So every coset of $H$ has exactly $|H|$ elements.
+</Callout>
+
+</SlideLayout>
