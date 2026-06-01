@@ -1,0 +1,36 @@
+---
+title: Consequences of Lagrange's theorem
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Consequences of Lagrange's theorem" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · (Optional) Proof of Lagrange's theorem">
+
+Lagrange's theorem has immediate structural consequences.
+
+<Callout kind="corollary" title="Groups of prime order are cyclic">
+If $|G| = p$ is prime, then $G$ has no subgroups other than $\{1\}$ and $G$ itself. In particular, $G \cong \mathbb{Z}/p\mathbb{Z}$ (cyclic of order $p$).
+</Callout>
+
+**Proof:** Any subgroup $H \leq G$ has $|H| \mid p$, so $|H| = 1$ or $|H| = p$. These give $H = \{1\}$ or $H = G$.
+
+<Callout kind="remark" title="Converse is false">
+Lagrange's converse fails: a group of order $12$ does not necessarily have a subgroup of order $6$ (though it does for abelian groups). The alternating group $A_4$ (order 12) has no subgroup of order 6.
+</Callout>
+
+<MCQ
+  client:load
+  id="quot-lag-mcq-order"
+  prompt="A group G has order 35. Which of the following must be true?"
+  options={[
+    { id: "a", label: "G has a subgroup of order 7." },
+    { id: "b", label: "G ≅ ℤ/35ℤ." },
+    { id: "c", label: "G is non-abelian." },
+    { id: "d", label: "G has an element of order 35." },
+  ]}
+  correct="a"
+  explanation="By Lagrange, any subgroup order must divide 35 = 5 × 7. A more careful argument (Cauchy's theorem) guarantees subgroups of order 5 and 7. So (a) must hold. (b) is not forced — there might be a non-cyclic group of order 35 (though it happens there isn't, but that's harder). (c) is false: ℤ/35ℤ is abelian. (d) is a separate statement."
+/>
+
+</SlideLayout>

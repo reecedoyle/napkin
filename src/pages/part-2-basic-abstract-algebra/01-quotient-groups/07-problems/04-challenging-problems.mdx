@@ -1,0 +1,37 @@
+---
+title: Problems — challenging
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — challenging" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Problems">
+
+<Problem
+  client:load
+  id="quot-prob-primes-presentation"
+  prompt="[PRIMES 2018] Let G be the group with presentation G = ⟨a, b, c | ab = c²a⁴, bc = ca⁶, ac = ca⁸, c²⁰¹⁸ = b²⁰¹⁹⟩. Determine the order of G."
+  hint="Try to show G is the dihedral group of order 18. There is not much group theory content here — mostly algebraic manipulation with the relations."
+  solution="|G| = 18.
+
+Key steps:
+1. By induction from ac = ca⁸, get aⁿc = ca^{8n} for all n ≥ 1.
+2. Use associativity (ab)c = a(bc): substituting ab = c²a⁴ and bc = ca⁶ gives c²a⁴·c = c²·a^{32}, so a^{14} = c·a^4·c = c²a^{32}.
+   Hence c² = a^{−18}.
+3. From ab = c²a⁴ and c² = a^{−18}: b = a^{−18}a^{−1}a⁴ = a^{−15}.
+4. From c^{2018} = b^{2019} = a^{−15·2019}: combined with c^2 = a^{−18} gives a^{1009·18} = a^{2019·15}, leading to a^{12123} = 1.
+5. From bc = ca⁶: a^{−15}c = ca⁶, so a^{−15}c² = c·a⁶c = c²·a^{48}, giving a^{−33} = a^{30}, so a^{63} = 1.
+6. Since gcd(12123, 63) = 9, we get a⁹ = 1, and then c² = a^{−18} = 1.
+7. The presentation simplifies to ⟨a, c | a⁹ = c² = 1, ac = ca^{−1}⟩ = D_{18}, the dihedral group of order 18."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="quot-prob-homophony"
+  prompt="The homophony group of English has 26 generators (the letters a through z) and one relation for each pair of English words that sound the same. For example 'knight = night' gives k = 1. Prove that the homophony group is trivial."
+  hint="Get a list of English homophones. Show every generator equals 1 using homophone relations."
+  solution="Using homophones: 'bye = by' gives e = 1; 'lead = led' gives a = 1; 'maid = made' gives i = 1 (since ma'd = mad with a=1); 'buy = by' gives u = 1; 'sow = so' gives w = 1; 'lye = lie' gives y = 1; 'hour = our' gives h = 1; 'knight = night' gives k = 1; 'damn = dam' gives n = 1; 'psalter = salter' gives p = 1; 'plumb = plum' gives b = 1; 'bass = base' gives s = 1; 'butt = but' gives t = 1; 'tolled = told' gives l = 1; 'barred = bard' gives r = 1; 'dammed = damned' gives m = 1; 'chased = chaste' gives d = 1; 'sign = sine' gives g = 1; 'daze = days' gives z = 1; 'cite = sight' gives c = 1; 'jeans = genes' gives j = 1; 'queue = cue' gives q = 1; 'tax = tacks' gives x = 1; 'phase = faze' gives f = 1; 'chivvy = chivy' gives v = 1. All 26 generators are trivial, so the group is trivial."
+  difficulty="starred"
+/>
+
+</SlideLayout>

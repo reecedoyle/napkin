@@ -1,0 +1,28 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — standard" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Problems">
+
+<Problem
+  client:load
+  id="quot-prob-g-squared-hom"
+  prompt="Determine all groups G for which the map φ: G → G defined by φ(g) = g² is a homomorphism."
+  hint="Write out the homomorphism condition: φ(ab) = φ(a)φ(b), i.e. (ab)² = a²b². Expand both sides."
+  solution="The map g ↦ g² is a homomorphism iff (ab)² = a²b² for all a, b ∈ G. Expanding: abab = aabb. Cancelling a on the left and b on the right: ba = ab. So g ↦ g² is a homomorphism exactly when G is abelian."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="quot-prob-d10-normal"
+  prompt="Consider the dihedral group G = D₁₀ = ⟨r, s | r⁵ = s² = 1, rs = sr⁻¹⟩. (a) Is H = ⟨r⟩ a normal subgroup of G? If so, compute G/H up to isomorphism. (b) Is H = ⟨s⟩ a normal subgroup of G? If so, compute G/H."
+  hint="For (a), check conjugation by r and by s. For (b), try conjugating s by r."
+  solution="(a) Yes, ⟨r⟩ is normal: one can check directly that for any element rsᵃ of D₁₀, conjugation sends rⁿ to r⁻ⁿ ∈ ⟨r⟩. The quotient G/⟨r⟩ has order |D₁₀|/|⟨r⟩| = 10/5 = 2, so G/⟨r⟩ ≅ ℤ/2ℤ.
+(b) No, ⟨s⟩ is not normal: compute rsr⁻¹ = r(sr⁻¹) = r(rs) = r²s, which is not in ⟨s⟩ = {1, s}. So ⟨s⟩ cannot be a kernel."
+  difficulty="standard"
+/>
+
+</SlideLayout>

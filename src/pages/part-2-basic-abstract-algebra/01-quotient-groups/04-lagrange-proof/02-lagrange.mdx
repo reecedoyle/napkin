@@ -1,0 +1,32 @@
+---
+title: Lagrange's theorem
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Lagrange's theorem" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · (Optional) Proof of Lagrange's theorem">
+
+<Callout kind="theorem" title="Lagrange's theorem">
+Let $G$ be a finite group and $H$ any subgroup of $G$. Then $|H|$ divides $|G|$.
+</Callout>
+
+**Proof:** The cosets of $H$ partition $G$ into equally-sized pieces, each of size $|H|$. If there are $n$ cosets, then:
+
+$$
+|G| = n \cdot |H|.
+$$
+
+Hence $|H|$ divides $|G|$. $\square$
+
+The number $n = |G|/|H|$ is called the <Term k="indexSubgroup">**index**</Term> of $H$ in $G$, written $[G:H]$.
+
+<Callout kind="corollary" title="Order of an element divides |G|">
+For any $g \in G$, the subgroup $\langle g \rangle$ has order $\mathrm{ord}(g)$. Lagrange gives $\mathrm{ord}(g) \mid |G|$, so $g^{|G|} = 1$ for all $g \in G$.
+</Callout>
+
+<Callout kind="remark" title="Quotient order formula">
+When $N \trianglelefteq G$, the quotient group satisfies $|G/N| = |G|/|N|$ — the number of cosets is the index $[G:N]$.
+</Callout>
+
+</SlideLayout>

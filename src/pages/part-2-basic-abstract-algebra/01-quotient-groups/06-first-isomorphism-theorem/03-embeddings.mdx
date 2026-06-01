@@ -1,0 +1,29 @@
+---
+title: Injective homomorphisms as embeddings
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Injective homomorphisms as embeddings" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · (Digression) The first isomorphism theorem">
+
+The first isomorphism theorem has a particularly clean reading when $\phi$ is **injective**:
+
+If $\ker\phi = \{1_G\}$, then $G/\ker\phi = G/\{1_G\} \cong G$, and the theorem gives $G \cong \phi(G)$.
+
+<Callout kind="definition" title="Embedding">
+An <Term k="embedding">**injective homomorphism**</Term> $\phi: G \hookrightarrow H$ is called an **embedding** of $G$ into $H$. Its image $\phi(G)$ is an isomorphic copy of $G$ sitting inside $H$.
+</Callout>
+
+This pattern — injective structure-preserving map $\Rightarrow$ image is a copy of the source — recurs throughout mathematics:
+
+- **Groups:** injective homomorphism $G \hookrightarrow H$ embeds $G$ in $H$.
+- **Rings:** injective ring homomorphism $R \hookrightarrow S$ embeds $R$ in $S$.
+- **Vector spaces:** injective linear map $V \hookrightarrow W$ embeds $V$ as a subspace of $W$.
+- **Metric spaces:** isometric embedding embeds a metric space in another.
+
+<Callout kind="remark" title="Cayley's theorem">
+Every group $G$ embeds in some symmetric group: $G \hookrightarrow S_{|G|}$. This follows from the action of $G$ on itself by left multiplication, which gives an injective homomorphism. So in a precise sense, all groups are "hidden inside" symmetric groups.
+</Callout>
+
+</SlideLayout>

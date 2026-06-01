@@ -1,0 +1,30 @@
+---
+title: Homomorphism check
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Homomorphism check" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Homomorphisms">
+
+Let's check understanding with a concrete question. Recall the homomorphism condition: $\phi(g_1 g_2) = \phi(g_1)\phi(g_2)$.
+
+<MCQ
+  client:load
+  id="quot-hom-mcq-kernel"
+  prompt="Let φ: ℤ → ℤ/6ℤ be the reduction-mod-6 homomorphism, sending n ↦ n̄. What is ker φ?"
+  options={[
+    { id: "a", label: "{0, 6}" },
+    { id: "b", label: "6ℤ = {…, −12, −6, 0, 6, 12, …}" },
+    { id: "c", label: "{0}" },
+    { id: "d", label: "ℤ itself" },
+  ]}
+  correct="b"
+  explanation="ker φ = {n ∈ ℤ : n ≡ 0 (mod 6)} = 6ℤ, the set of all multiples of 6. This is infinite — not just {0, 6}. The trivial group {0} would be the kernel of an injective map, but reduction mod 6 is not injective (e.g. φ(0) = φ(6))."
+/>
+
+<Callout kind="remark" title="The kernel is always a subgroup">
+A quick sanity check: $6\mathbb{Z}$ is indeed a subgroup of $\mathbb{Z}$. It contains $0$, is closed under addition, and is closed under negation. Every kernel is a subgroup — this follows directly from the homomorphism property.
+</Callout>
+
+</SlideLayout>

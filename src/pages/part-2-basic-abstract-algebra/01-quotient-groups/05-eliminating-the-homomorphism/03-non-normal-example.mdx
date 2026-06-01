@@ -1,0 +1,31 @@
+---
+title: A non-normal subgroup
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="A non-normal subgroup" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Eliminating the homomorphism">
+
+Not every subgroup is normal. Here is the go-to counterexample.
+
+<Callout kind="example" title="Non-normal subgroup of D₁₂">
+Let $D_{12} = \langle r, s \mid r^6 = s^2 = 1,\; rs = sr^{-1} \rangle$. Consider the subgroup $H = \{1, s\}$ of order 2.
+
+Compute:
+$$
+r s r^{-1} = r(sr^{-1}) = r(rs) = r^2 s \notin H.
+$$
+
+The conjugate of $s$ by $r$ is $r^2 s$, which is not in $H$. So $H$ fails the conjugation condition: $H$ is **not normal** in $D_{12}$, and cannot be the kernel of any homomorphism.
+</Callout>
+
+<Callout kind="remark" title="Abelian groups make everything normal">
+If $G$ is abelian, then $ghg^{-1} = h$ for all $g, h$ — so conjugation changes nothing, and every subgroup is automatically normal. Non-abelian groups are where the distinction matters.
+</Callout>
+
+<Callout kind="remark" title="Food for thought">
+A group presentation with $n$ generators can always be expressed as a quotient $F_n / N$, where $N$ is a normal subgroup of the free group $F_n$ encoding the relations.
+</Callout>
+
+</SlideLayout>

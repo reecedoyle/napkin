@@ -1,0 +1,26 @@
+---
+title: The first isomorphism theorem
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The first isomorphism theorem" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · (Digression) The first isomorphism theorem">
+
+<Callout kind="theorem" title="First isomorphism theorem">
+Let $\phi \colon G \to H$ be a group homomorphism. Then
+
+$$
+G / \ker\phi \;\cong\; \phi(G).
+$$
+
+That is, the quotient of $G$ by the kernel of $\phi$ is isomorphic to the image of $\phi$.
+</Callout>
+
+The isomorphism is given by the well-defined map $\widetilde\phi: G/\ker\phi \to \phi(G)$ defined by $\widetilde\phi(g\ker\phi) = \phi(g)$. This map is surjective by definition of $\phi(G)$, and injective because $\widetilde\phi(g\ker\phi) = 1_H \iff g \in \ker\phi \iff g\ker\phi = 1_{G/\ker\phi}$.
+
+<Callout kind="remark" title="Reformulation">
+Every surjective homomorphism $\phi: G \twoheadrightarrow Q$ is "the same" as the canonical quotient map $G \twoheadrightarrow G/\ker\phi$, followed by an isomorphism $G/\ker\phi \xrightarrow{\sim} Q$.
+</Callout>
+
+</SlideLayout>

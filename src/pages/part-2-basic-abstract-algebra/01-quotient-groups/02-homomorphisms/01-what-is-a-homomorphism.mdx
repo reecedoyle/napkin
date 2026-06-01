@@ -1,0 +1,28 @@
+---
+title: What is a homomorphism?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="What is a homomorphism?" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Homomorphisms">
+
+We know when two groups are "the same" — when there's an isomorphism between them. But what is the group analogue of a *continuous map* between metric spaces? We simply drop the "bijection" requirement.
+
+<Callout kind="definition" title="Group homomorphism">
+Let $G$ and $H$ be groups. A <Term k="homomorphism">**group homomorphism**</Term> is a map $\phi \colon G \to H$ such that for all $g_1, g_2 \in G$:
+
+$$
+\phi(g_1 \cdot g_2) = \phi(g_1) \cdot \phi(g_2).
+$$
+
+That is, $\phi$ **respects the group operation** — multiply then map, or map then multiply: same result.
+</Callout>
+
+Note the spelling: **homo**morphism (same structure) vs. **homeo**morphism (from topology). Both are "structure-preserving maps", but for different structures.
+
+<Callout kind="remark" title="Isomorphisms are bijective homomorphisms">
+An isomorphism $G \cong H$ is exactly a bijective homomorphism. More precisely, $G \cong H$ if and only if there exist homomorphisms $\phi: G \to H$ and $\psi: H \to G$ with $\phi \circ \psi = \mathrm{id}_H$ and $\psi \circ \phi = \mathrm{id}_G$.
+</Callout>
+
+</SlideLayout>

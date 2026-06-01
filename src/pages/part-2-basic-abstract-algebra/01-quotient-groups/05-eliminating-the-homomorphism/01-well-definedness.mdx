@@ -1,0 +1,30 @@
+---
+title: Well-definedness of coset multiplication
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Well-definedness of coset multiplication" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Eliminating the homomorphism">
+
+We defined $(g_1 N)(g_2 N) = (g_1 g_2)N$. The trouble: cosets don't have unique representatives. If $g_1 N = g_1' N$ and $g_2 N = g_2' N$, we need $(g_1 g_2)N = (g_1' g_2')N$.
+
+With a homomorphism $\phi$ in the background, this is automatic: $\phi(g_i) = \phi(g_i')$ implies $\phi(g_1 g_2) = \phi(g_1)\phi(g_2) = \phi(g_1')\phi(g_2') = \phi(g_1' g_2')$.
+
+But what property of $N$ alone ensures this?
+
+<Callout kind="remark" title="The critical question">
+Where do we **actually use** the fact that $N$ is normal (i.e., a kernel)? The coset definition $(g_1 N)(g_2 N) = (g_1 g_2)N$ mentions no $\phi$ at all. The normality of $N$ is the hidden guarantee that multiplication is well-defined.
+</Callout>
+
+Suppose $\phi: G \to K$ has kernel $H$. There is an obvious property $H$ inherits:
+
+$$
+h \in H,\; g \in G \;\Longrightarrow\; ghg^{-1} \in H.
+$$
+
+**Proof:** $\phi(ghg^{-1}) = \phi(g)\phi(h)\phi(g)^{-1} = \phi(g) \cdot 1_K \cdot \phi(g)^{-1} = 1_K$.
+
+This property — <Term k="conjugate">**closure under conjugation**</Term> — turns out to be both necessary and sufficient for $N$ to be a kernel.
+
+</SlideLayout>

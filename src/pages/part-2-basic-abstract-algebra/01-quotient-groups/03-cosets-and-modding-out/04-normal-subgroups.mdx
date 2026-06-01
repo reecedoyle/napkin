@@ -1,0 +1,26 @@
+---
+title: Normal subgroups
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Normal subgroups" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+Not every subgroup can be a kernel. The subgroups that *can* are exactly the **normal** ones.
+
+<Callout kind="definition" title="Normal subgroup">
+A subgroup $N$ of $G$ is called <Term k="normalSubgroup">**normal**</Term>, written <Term k="normalIn">$N \trianglelefteq G$</Term>, if $N$ is the kernel of some homomorphism $\phi: G \to H$.
+</Callout>
+
+<Callout kind="definition" title="Quotient group">
+Let $N \trianglelefteq G$. The <Term k="quotientGroup">**quotient group**</Term> $G/N$ (read "$G$ mod $N$") is defined as follows:
+- **Elements** of $G/N$ are the left cosets of $N$ in $G$.
+- **Group operation:** $(g_1 N) \cdot (g_2 N) \coloneqq (g_1 g_2)N$.
+</Callout>
+
+The multiplication is well-defined (doesn't depend on which representative $g_i$ we pick from each coset) precisely because $N$ is normal — we will see why in the next section.
+
+Now you know why integers mod $n$ are written $\mathbb{Z}/n\mathbb{Z}$: it's the quotient group of $\mathbb{Z}$ by the normal subgroup $n\mathbb{Z}$!
+
+</SlideLayout>

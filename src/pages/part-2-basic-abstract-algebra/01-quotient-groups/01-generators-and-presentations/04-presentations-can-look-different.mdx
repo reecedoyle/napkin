@@ -1,0 +1,43 @@
+---
+title: Presentations can look very different
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Presentations can look very different" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Generators and group presentations">
+
+A group can have many presentations. The dihedral group $D_{2n}$ can be presented in at least two ways:
+
+$$
+D_{2n} = \langle r, s \mid r^n = s^2 = 1,\; rs = sr^{-1} \rangle
+$$
+
+$$
+D_{2n} = \langle x, y \mid x^2 = y^2 = 1,\; (xy)^n = 1 \rangle.
+$$
+
+(To see they define the same group: set $x = s$ and $y = rs$ in the second.)
+
+<Callout kind="remark" title="Presentations are hard to work with">
+Determining whether two elements in a presentation are equal is, in general, **undecidable** — there is no algorithm that always terminates with an answer. Even determining whether a presented group is finite is undecidable. Presentations are compact to write but hard to reason about mechanically.
+</Callout>
+
+Specifying a homomorphism from a presented group is easy though: just say where each generator goes, and **check the relations hold** at the target.
+
+<MCQ
+  client:load
+  id="quot-gen-mcq-presentation"
+  prompt="Which of the following is a valid presentation for ℤ/3ℤ?"
+  options={[
+    { id: "a", label: "⟨x | x² = 1⟩" },
+    { id: "b", label: "⟨x | x³ = 1⟩" },
+    { id: "c", label: "⟨x, y | x² = y² = 1⟩" },
+    { id: "d", label: "⟨x | x = 1⟩" },
+  ]}
+  correct="b"
+  explanation="ℤ/3ℤ is the cyclic group of order 3 — one generator x satisfying x³ = 1 (and no smaller positive power equals 1). Option (a) gives order 2; (c) gives the Klein four group (order 4); (d) gives the trivial group."
+/>
+
+</SlideLayout>

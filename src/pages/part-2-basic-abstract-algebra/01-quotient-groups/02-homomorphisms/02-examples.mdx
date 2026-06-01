@@ -1,0 +1,31 @@
+---
+title: Examples of homomorphisms
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Examples of homomorphisms" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Homomorphisms">
+
+<Callout kind="example" title="A catalogue of homomorphisms">
+Let $G$ and $H$ be groups.
+
+- **Identity / isomorphism:** any isomorphism $G \to H$ is a homomorphism; so is $\mathrm{id}_G: G \to G$.
+- **Trivial homomorphism:** $G \to H$ by $g \mapsto 1_H$ — sends everything to the identity.
+- **Mod 100:** $\mathbb{Z} \to \mathbb{Z}/100\mathbb{Z}$ by $n \mapsto \overline{n}$ — each integer to its residue mod 100.
+- **Scaling:** $\mathbb{Z} \to \mathbb{Z}$ by $x \mapsto 10x$ — injective but not surjective.
+- **Embedding:** $S_n \to S_{n+1}$ treating every permutation on $\{1,\dots,n\}$ as one that fixes $n+1$.
+- **Dihedral reduction:** $\phi: D_{12} \to D_6$ by $s_{12} \mapsto s_6$, $r_{12} \mapsto r_6$.
+</Callout>
+
+The dihedral and generator examples illustrate a key point:
+
+<Callout kind="proposition" title="Homomorphisms from presented groups">
+To specify a homomorphism $\phi: G \to H$ when $G = \langle x_1, \dots, x_k \mid \text{relations} \rangle$, it suffices to:
+1. Say where each generator $x_i$ goes.
+2. Check every relation still holds in $H$ at those images.
+</Callout>
+
+For instance, specifying a homomorphism $\mathbb{Z} \to G$ is the same as specifying the image of $1 \in \mathbb{Z}$, since $\phi(n) = \phi(1)^n$ is forced.
+
+</SlideLayout>

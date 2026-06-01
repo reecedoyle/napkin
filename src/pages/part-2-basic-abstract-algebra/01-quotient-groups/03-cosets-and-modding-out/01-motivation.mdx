@@ -1,0 +1,26 @@
+---
+title: Why quotient groups?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Why quotient groups?" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Cosets and modding out">
+
+Suppose $\phi: G \twoheadrightarrow Q$ is a **surjective** homomorphism. If it is also injective, then $G \cong Q$. But what if the kernel $N = \ker\phi$ is bigger than $\{1_G\}$?
+
+The mod-100 map $\phi: \mathbb{Z} \to \mathbb{Z}/100\mathbb{Z}$ is the prototype. Its kernel is $N = 100\mathbb{Z}$. Notice that $\phi$ is **indifferent** to adding multiples of 100:
+
+$$
+\phi(15) = \phi(2000 + 15) = \phi(-300 + 15) = \phi(700 + 15) = \dots
+$$
+
+The map collapses all integers differing by a multiple of 100 to the same element of $\mathbb{Z}/100\mathbb{Z}$.
+
+<Callout kind="remark" title="The moral">
+$\mathbb{Z}/100\mathbb{Z}$ is what we get when we "mod out" $\mathbb{Z}$ by $100\mathbb{Z}$. For a general surjective homomorphism $\phi: G \twoheadrightarrow Q$ with kernel $N$, the group $Q$ should be thought of as "$G$ modulo $N$".
+</Callout>
+
+Our goal: define the **quotient group** $G/N$ purely in terms of $G$ and $N$, without referencing $Q$ or $\phi$ — and then show $G/N \cong Q$.
+
+</SlideLayout>

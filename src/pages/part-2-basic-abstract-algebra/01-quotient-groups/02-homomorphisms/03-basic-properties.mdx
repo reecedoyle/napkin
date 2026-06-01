@@ -1,0 +1,26 @@
+---
+title: Basic properties of homomorphisms
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Basic properties of homomorphisms" part="Part II — Basic Abstract Algebra" chapter="3. Quotient groups · Homomorphisms">
+
+A homomorphism must send identities to identities and inverses to inverses.
+
+<Callout kind="proposition" title="Homomorphisms preserve identity and inverses">
+Let $\phi \colon G \to H$ be a homomorphism. Then:
+- $\phi(1_G) = 1_H$
+- $\phi(g^{-1}) = \phi(g)^{-1}$ for all $g \in G$
+</Callout>
+
+**Proof sketch:** $\phi(1_G) = \phi(1_G \cdot 1_G) = \phi(1_G) \cdot \phi(1_G)$. Cancel $\phi(1_G)$ to get $1_H = \phi(1_G)$. For inverses: $\phi(g) \cdot \phi(g^{-1}) = \phi(gg^{-1}) = \phi(1_G) = 1_H$, so $\phi(g^{-1})$ is the inverse of $\phi(g)$.
+
+<Callout kind="proposition" title="Image is a subgroup">
+For any homomorphism $\phi: G \to H$, the <Term k="image">**image**</Term> $\phi(G) = \{ \phi(g) : g \in G \}$ is a subgroup of $H$.
+</Callout>
+
+This means a homomorphism $G \to H$ does not have to be surjective onto all of $H$ — only onto some subgroup of $H$. We will be especially interested in the case where $\phi$ **is** surjective.
+
+</SlideLayout>
