@@ -10,8 +10,8 @@
 import {
   getSlidesForChapter,
   getPartAndChapterFromUrl,
+  getSectionTitle,
   chapterTitles,
-  sectionTitles,
 } from '../lib/slide-nav';
 
 const cur = getPartAndChapterFromUrl(Astro.url.pathname);
@@ -19,7 +19,7 @@ const slides = cur ? getSlidesForChapter(cur.part, cur.chapter) : [];
 const chapterKey = cur ? `${cur.part}/${cur.chapter}` : '';
 const chapterTitle = chapterTitles[chapterKey] ?? '';
 const sectionTitleFor = (dir: string) =>
-  sectionTitles[`${chapterKey}/${dir}`] ?? dir;
+  cur ? getSectionTitle(cur.part, cur.chapter, dir) : dir;
 
 const sectionMap = new Map<string, typeof slides[number][]>();
 for (const s of slides) {

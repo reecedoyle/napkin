@@ -1,8 +1,10 @@
 ---
 import SlideLayout from '../layouts/SlideLayout.astro';
-import { glossary } from '../lib/glossary';
+import { glossary, type GlossaryEntry } from '../lib/glossary';
 
-const entries = Object.entries(glossary).map(([key, entry]) => ({ key, ...entry }));
+const entries = (Object.entries(glossary) as [string, GlossaryEntry][]).map(
+  ([key, entry]) => ({ key, ...entry }),
+);
 ---
 <SlideLayout title="Glossary">
   <p>

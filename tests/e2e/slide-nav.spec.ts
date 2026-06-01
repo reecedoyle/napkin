@@ -88,7 +88,7 @@ test.describe('keyboard navigation', () => {
     await expect(page).toHaveURL(url);
   });
 
-  test('Cmd/Ctrl+ArrowRight does NOT navigate (reserved for browser shortcuts)', async ({ page, browserName }) => {
+  test('Cmd/Ctrl+ArrowRight does NOT navigate (reserved for browser shortcuts)', async ({ page }) => {
     await page.goto('/part-1-starting-out/01-groups/01-definition/04-formal-definition');
     const url = page.url();
     // Use Control on all platforms — Playwright maps Meta to Cmd only on macOS.

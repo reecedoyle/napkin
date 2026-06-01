@@ -2,9 +2,9 @@
 import SlideLayout from '../layouts/SlideLayout.astro';
 import {
   getAllSlides,
+  getSectionTitle,
   partTitles,
   chapterTitles,
-  sectionTitles,
 } from '../lib/slide-nav';
 
 const slides = getAllSlides();
@@ -63,7 +63,7 @@ const parts: PartGroup[] = [...partMap.entries()].map(([partDir, chapMap]) => {
               {c.sections.map((s) => (
                 <li>
                   <a href={s.firstSlideUrl}>
-                    {sectionTitles[`${p.dir}/${c.dir}/${s.dir}`] ?? s.dir}
+                    {getSectionTitle(p.dir, c.dir, s.dir)}
                   </a>
                   <span class="text-stone-500"> · {s.slideCount} slide{s.slideCount === 1 ? '' : 's'}</span>
                 </li>

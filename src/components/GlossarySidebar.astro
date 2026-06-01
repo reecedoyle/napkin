@@ -6,7 +6,7 @@
  * Each entry gets `id="g-<key>"` so a `<Term>` link can scroll/highlight it.
  */
 import katex from 'katex';
-import { glossary } from '../lib/glossary';
+import { glossary, type GlossaryEntry } from '../lib/glossary';
 import { napkinKatexMacros } from '../lib/katex-macros';
 
 interface Props {
@@ -14,7 +14,10 @@ interface Props {
 }
 
 const { keys = [] } = Astro.props;
-const allEntries = Object.entries(glossary);
+// `as const satisfies ...` narrows each entry to a literal type, which
+// makes the union value lose any optional field. Widen back to the
+// declared interface for the consumer.
+const allEntries = Object.entries(glossary) as [string, GlossaryEntry][];
 // Keep entries in glossary.ts declaration order, but only the ones used here.
 const entries = keys.length > 0
   ? allEntries.filter(([k]) => keys.includes(k))

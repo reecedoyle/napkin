@@ -1,19 +1,38 @@
 ---
 import '../styles/global.css';
-import { getSlideNeighbors } from '../lib/slide-nav';
+import {
+  getSlideNeighbors,
+  getSlideUrlParts,
+  getSectionTitle,
+  partTitles,
+  chapterTitles,
+} from '../lib/slide-nav';
 import GlossarySidebar from '../components/GlossarySidebar.astro';
 import TocSidebar from '../components/TocSidebar.astro';
 
 interface Props {
   title: string;
-  part?: string;
-  chapter?: string;
 }
 
-const { title, part, chapter } = Astro.props;
+const { title } = Astro.props;
 const { prev, next, index, total } = getSlideNeighbors(Astro.url.pathname);
 const showNav = prev !== undefined || next !== undefined;
 const isSlide = total > 0 && index !== undefined;
+
+// Header breadcrumbs are auto-derived from the slide URL so each MDX
+// doesn't repeat them. Strip the "Chapter N — " and "§N — " prefixes
+// from the title-map values for terser display in the header — the
+// numbers are implicit from the chosen path.
+const urlParts = getSlideUrlParts(Astro.url.pathname);
+const partLabel = urlParts.part ? partTitles[urlParts.part] : undefined;
+const chapterKey = urlParts.part && urlParts.chapter ? `${urlParts.part}/${urlParts.chapter}` : '';
+const chapterLabel = chapterTitles[chapterKey]?.replace(/^Chapter \d+ — /, '');
+const sectionLabel = urlParts.part && urlParts.chapter && urlParts.section
+  ? getSectionTitle(urlParts.part, urlParts.chapter, urlParts.section).replace(/^§\d+ — /, '')
+  : undefined;
+const headerCrumbs = [partLabel, chapterLabel, sectionLabel].filter(
+  (s): s is string => Boolean(s),
+);
 
 // Render the slot to HTML so we can both inject it as the page body AND
 // scan for `data-term-key` attributes emitted by <Term>. The sidebar then
@@ -71,10 +90,10 @@ const termKeys = isSlide
           <span>Napkin</span>
         </a>
 
-        {part && (
+        {headerCrumbs.length > 0 && (
           <span class="text-stone-500 truncate flex-1 min-w-0">
-            <span class="hidden sm:inline">· {part}</span>{chapter && <span class="hidden md:inline"> · {chapter}</span>}
-            <span class="sm:hidden">· {chapter ?? part}</span>
+            <span class="hidden md:inline">· {headerCrumbs.join(' · ')}</span>
+            <span class="md:hidden">· {headerCrumbs[headerCrumbs.length - 1]}</span>
           </span>
         )}
 

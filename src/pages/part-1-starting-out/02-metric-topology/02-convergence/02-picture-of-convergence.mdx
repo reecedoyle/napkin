@@ -1,11 +1,11 @@
 ---
 title: A picture of convergence
 ---
-import SlideLayout from '../../../../layouts/SlideLayout.astro';
-import Figure from '../../../../components/Figure.astro';
-import Term from '../../../../components/Term.astro';
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Figure from '@/components/Figure.astro';
+import Term from '@/components/Term.astro';
 
-<SlideLayout title="A picture of convergence" part="Part I — Starting Out" chapter="2. Metric topology · Convergence">
+<SlideLayout title="A picture of convergence">
 
 It helps to draw a picture. Below are nine points $x_1, x_2, \dots, x_9$ of a sequence converging to $x$. The dashed circle is an <Term k="rNeighborhood">$r$-neighborhood</Term> of $x$ — the set of points within distance $r$. As $n$ grows, the terms eventually enter (and stay inside) the circle, no matter how small $r$ is. That is exactly the definition: for every $\varepsilon > 0$, all but finitely many terms lie inside the $\varepsilon$-neighborhood of $x$.
 

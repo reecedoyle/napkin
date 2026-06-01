@@ -142,6 +142,24 @@ export const sectionTitles: Record<string, string> = {
 
 // ────────────── Public helpers ──────────────
 
+/**
+ * Section title with fall-back inference from the dir name.
+ *
+ * Authoring sub-agents pick dir names like "04-homeomorphisms"; we want
+ * "§4 — Homeomorphisms" automatically. Only sections with non-obvious
+ * titles (acronyms, book-specific phrasing) need a manual override in
+ * `sectionTitles` above.
+ */
+export function getSectionTitle(part: string, chapter: string, section: string): string {
+  const key = `${part}/${chapter}/${section}`;
+  if (sectionTitles[key]) return sectionTitles[key];
+  const m = section.match(/^(\d+)-(.+)$/);
+  if (!m) return section;
+  const [, num, slug] = m;
+  const pretty = slug.replace(/-/g, ' ');
+  return `§${parseInt(num, 10)} — ${pretty.charAt(0).toUpperCase() + pretty.slice(1)}`;
+}
+
 export function getAllSlides(): readonly SlideEntry[] {
   return slides;
 }
@@ -155,6 +173,26 @@ export function getPartAndChapterFromUrl(
 ): { part: string; chapter: string } | undefined {
   const m = url.match(/\/(part-[^/]+)\/([^/]+)\//);
   return m ? { part: m[1], chapter: m[2] } : undefined;
+}
+
+/**
+ * Parse a slide URL into its part / chapter / section components.
+ * Used by SlideLayout to auto-derive header breadcrumbs so each slide
+ * doesn't have to repeat them as props.
+ *
+ * Returns undefined for non-slide URLs (home, glossary).
+ */
+export function getSlideUrlParts(pathname: string): {
+  part?: string;
+  chapter?: string;
+  section?: string;
+} {
+  const stripped = pathname.replace(/\/$/, '');
+  // /part-X/chapter[/section]/slide — slide is always the trailing segment.
+  // Section is captured only if the path has 4 levels under the root.
+  const m = stripped.match(/\/(part-[^/]+)\/([^/]+)(?:\/([^/]+))?\/[^/]+$/);
+  if (!m) return {};
+  return { part: m[1], chapter: m[2], section: m[3] };
 }
 
 export function getSlideNeighbors(currentUrl: string): {
