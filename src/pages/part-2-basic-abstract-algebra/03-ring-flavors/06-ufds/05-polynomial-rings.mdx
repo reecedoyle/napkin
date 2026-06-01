@@ -1,0 +1,27 @@
+---
+title: Polynomial rings over UFDs
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Polynomial rings over UFDs" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Unique factorization domains">
+
+One of the most useful closure properties of UFDs is their behaviour under polynomial extension.
+
+<Callout kind="theorem" title="UFDs are closed under polynomial rings">
+If $R$ is a UFD, then the polynomial ring $R[x]$ is also a UFD.
+</Callout>
+
+By induction, $R[x, y] = (R[x])[y]$ is also a UFD, and so on. So:
+- $\mathbb{Z}[x]$ is a UFD (since $\mathbb{Z}$ is).
+- $\mathbb{Z}[x, y]$, $\mathbb{Z}[x, y, z]$, … are all UFDs.
+- $\mathbb{Q}[x, y]$ is a UFD (since $\mathbb{Q}$ is a field, hence a UFD).
+
+<Callout kind="remark">
+$\mathbb{Z}[x]$ is a UFD but **not** a PID — the ideal $(2, x)$ requires two generators. This shows the inclusion UFDs ⊇ PIDs is strict.
+</Callout>
+
+The theorem that every PID is a UFD, combined with this closure result, gives us a rich supply of UFDs in practice. Most "natural" rings encountered in number theory and algebra are UFDs (or close to it).
+
+</SlideLayout>

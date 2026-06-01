@@ -1,0 +1,23 @@
+---
+title: Maximal ideals — definition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Maximal ideals — definition" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Maximal ideals">
+
+A prime ideal says something about products. A maximal ideal says something about containment: you can't squeeze anything between $I$ and $R$.
+
+<Callout kind="definition" title="Maximal ideal">
+A proper ideal $I$ of a ring $R$ is <Term k="maximalIdeal">**maximal**</Term> if it is not contained in any other proper ideal. Equivalently, $I$ is maximal if there is no proper ideal $J$ with $I \subsetneq J \subsetneq R$.
+</Callout>
+
+<Callout kind="example" title="Examples in ℤ and ℤ[x]">
+- $(7) \subseteq \mathbb{Z}$ is maximal: if $J \supseteq (7)$ and $J \ni n \notin (7)$, then $\gcd(7, n) = 1$ (since $7$ is prime), so $J$ contains $1$, hence $J = \mathbb{Z}$.
+- $(x) \subseteq \mathbb{Z}[x]$ is **not** maximal — it's properly contained in $(x, 5)$.
+- $(x, 5) \subseteq \mathbb{Z}[x]$ is maximal (best checked via the quotient theorem below).
+- $(x) \subseteq \mathbb{C}[x]$ **is** maximal — also easiest to check via the quotient theorem.
+</Callout>
+
+</SlideLayout>

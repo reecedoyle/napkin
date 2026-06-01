@@ -1,0 +1,25 @@
+---
+title: The Gaussian integers are Euclidean
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The Gaussian integers are Euclidean" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Euclidean domains">
+
+The Gaussian integers $\mathbb{Z}[i] = \{a + bi \mid a, b \in \mathbb{Z}\}$ form a Euclidean domain with norm $N(a + bi) = a^2 + b^2$.
+
+<Callout kind="example" title="Division in ℤ[i]">
+Given $\alpha, \beta \in \mathbb{Z}[i]$ with $\beta \neq 0$, form the complex number $\alpha/\beta \in \mathbb{C}$. Round each coordinate to the nearest integer to get $q \in \mathbb{Z}[i]$, and set $r = \alpha - q\beta$.
+
+The key estimate: rounding a complex number to the nearest Gaussian integer moves it by at most $\frac{\sqrt{2}}{2} < 1$. So
+$$N(r) = N(\alpha/\beta - q) \cdot N(\beta) \leq \frac{1}{2} N(\beta) < N(\beta).$$
+</Callout>
+
+The same trick works for the **Eisenstein integers** $\mathbb{Z}[\omega]$ where $\omega = \frac{-1 + \sqrt{3}i}{2}$ (a primitive cube root of unity): the Eisenstein lattice is dense enough that rounding works similarly.
+
+<Callout kind="remark">
+The ring $\mathbb{Z}[\frac{1+\sqrt{-19}}{2}]$ is a PID but **not** Euclidean — no Euclidean norm exists. So the inclusion Euclidean $\subsetneq$ PID is strict.
+</Callout>
+
+</SlideLayout>

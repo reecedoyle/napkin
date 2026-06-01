@@ -1,0 +1,38 @@
+---
+title: The non-example — ℤ[√−5]
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="The non-example — ℤ[√−5]" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Unique factorization domains">
+
+Let's look more carefully at why $\mathbb{Z}[\sqrt{-5}]$ fails to be a UFD.
+
+The two factorisations of $6$ are:
+$$6 = 2 \cdot 3 = (1 - \sqrt{-5})(1 + \sqrt{-5})$$
+
+To check these are genuinely different, we'd need to show each factor is irreducible (cannot be written as a product of two non-units). This can be done using the norm $N(a + b\sqrt{-5}) = a^2 + 5b^2$:
+- $N(2) = 4$. If $2 = \alpha \beta$ then $N(\alpha)N(\beta) = 4$, so one must have norm $1$ (i.e. be $\pm 1$, a unit). So $2$ is irreducible.
+- $N(1 + \sqrt{-5}) = 1 + 5 = 6$. If $(1 + \sqrt{-5}) = \alpha\beta$ then $N(\alpha)N(\beta) = 6$. The only norms achievable in $\mathbb{Z}[\sqrt{-5}]$ are $a^2 + 5b^2$; no element has norm $2$ or $3$. So again one factor must have norm $1$ — irreducible.
+
+<Callout kind="remark">
+The failure to be a UFD is reflected in the ideal structure: the ideal $(2, 1 + \sqrt{-5})$ is **not** principal in $\mathbb{Z}[\sqrt{-5}]$. So this ring is not a PID either — consistent with the theorem that PIDs are UFDs.
+</Callout>
+
+<MCQ
+  client:load
+  id="flv-ufd-mcq-non-example"
+  prompt="The ring ℤ[√-5] fails to be a UFD because:"
+  options={[
+    { id: "a", label: "It has zero divisors." },
+    { id: "b", label: "It has two distinct irreducible factorisations of 6." },
+    { id: "c", label: "It is not commutative." },
+    { id: "d", label: "It has no irreducible elements at all." },
+  ]}
+  correct="b"
+  explanation="6 = 2·3 = (1-√-5)(1+√-5), with each factor irreducible — so factorisation is not unique. ℤ[√-5] has no zero divisors (it is an integral domain), is commutative, and has many irreducible elements."
+/>
+
+</SlideLayout>

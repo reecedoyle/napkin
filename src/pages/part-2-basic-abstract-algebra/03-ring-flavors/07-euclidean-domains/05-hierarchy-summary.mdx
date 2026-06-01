@@ -1,0 +1,38 @@
+---
+title: The hierarchy — summary
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="The hierarchy — summary" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Euclidean domains">
+
+We now have the full hierarchy:
+
+$$\text{Fields} \subsetneq \text{Euclidean domains} \subsetneq \text{PIDs} \subsetneq \text{UFDs} \subsetneq \text{Integral domains}$$
+
+Concrete witnesses that each inclusion is strict:
+
+| Ring | Euclidean? | PID? | UFD? | Integral domain? |
+|---|---|---|---|---|
+| $\mathbb{Q}$ | Yes (it's a field) | Yes | Yes | Yes |
+| $\mathbb{Z}[i]$ | Yes | Yes | Yes | Yes |
+| $\mathbb{Z}\!\left[\tfrac{1+\sqrt{-19}}{2}\right]$ | **No** | Yes | Yes | Yes |
+| $\mathbb{Z}[x]$ | No | **No** ($(2,x)$ not principal) | Yes | Yes |
+| $\mathbb{Z}[\sqrt{-5}]$ | No | No | **No** (6 has two factorisations) | Yes |
+
+<MCQ
+  client:load
+  id="flv-euc-mcq-hierarchy"
+  prompt="Which of the following is true about the relationship between PIDs and UFDs?"
+  options={[
+    { id: "a", label: "Every UFD is a PID." },
+    { id: "b", label: "Every PID is a UFD, but not every UFD is a PID." },
+    { id: "c", label: "Every PID is a UFD, and every UFD is a PID." },
+    { id: "d", label: "PIDs and UFDs are unrelated concepts." },
+  ]}
+  correct="b"
+  explanation="Every PID is a UFD (theorem). But the converse fails: ℤ[x] is a UFD but not a PID (the ideal (2,x) requires two generators). So PID ⊊ UFD."
+/>
+
+</SlideLayout>

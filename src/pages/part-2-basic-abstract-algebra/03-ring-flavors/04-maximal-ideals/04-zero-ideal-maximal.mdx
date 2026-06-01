@@ -1,0 +1,36 @@
+---
+title: When is (0) maximal?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="When is (0) maximal?" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Maximal ideals">
+
+As with prime ideals, we can ask: when is $(0)$ maximal?
+
+If $(0)$ is maximal, then $R/(0) \cong R$ is a field. Conversely, if $R$ is a field then $(0)$ is the only maximal ideal — it is already maximal. So:
+
+<Callout kind="proposition">
+The zero ideal $(0)$ is maximal in $R$ if and only if $R$ is a field.
+</Callout>
+
+Together with the earlier result about prime ideals, we get a neat summary:
+- $(0)$ is prime $\iff$ $R$ is an integral domain.
+- $(0)$ is maximal $\iff$ $R$ is a field.
+
+<MCQ
+  client:load
+  id="flv-max-mcq-zero-maximal"
+  prompt="In which ring is (0) a maximal ideal?"
+  options={[
+    { id: "a", label: "ℤ" },
+    { id: "b", label: "ℤ[x]" },
+    { id: "c", label: "ℚ" },
+    { id: "d", label: "ℤ/6ℤ" },
+  ]}
+  correct="c"
+  explanation="ℚ is a field, so (0) is its only proper ideal — making (0) maximal. ℤ is an integral domain but not a field (so (0) is prime but not maximal). ℤ[x] is an integral domain but not a field. ℤ/6ℤ isn't even an integral domain."
+/>
+
+</SlideLayout>

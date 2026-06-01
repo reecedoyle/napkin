@@ -1,0 +1,32 @@
+---
+title: Rational functions
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="Rational functions" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Field of fractions">
+
+The field of fractions of a polynomial ring is particularly useful in algebra and analysis.
+
+<Callout kind="definition" title="Field of rational functions">
+Let $k$ be a field. We define the **field of rational functions**:
+$$k(x) = \operatorname{Frac}(k[x])$$
+Elements of $k(x)$ are ratios $f(x)/g(x)$ where $f, g \in k[x]$ and $g \neq 0$, identified up to common polynomial factors.
+</Callout>
+
+For example, $\mathbb{Q}(x)$ contains expressions like $\dfrac{x^2 + 1}{x - 3}$ and $\dfrac{1}{x^2 + x + 1}$. The "variables" here are formal — we're not plugging in numbers.
+
+This is analogous to how $\mathbb{Q}$ "contains" $\mathbb{Z}$ by embedding $n \mapsto n/1$; similarly $k[x] \hookrightarrow k(x)$ by $f \mapsto f/1$.
+
+<NumericInput
+  client:load
+  id="flv-frac-num-dim-q-sqrt2"
+  prompt="The field ℚ(√2) = Frac(ℤ[√2]) consists of all elements a + b√2 with a, b ∈ ℚ. As a vector space over ℚ, what is its dimension?"
+  expected="2"
+  placeholder="a number"
+  explanation="ℚ(√2) = {a + b√2 : a, b ∈ ℚ}. The set {1, √2} forms a basis over ℚ (they are linearly independent over ℚ since √2 is irrational), so the dimension is 2."
+/>
+
+</SlideLayout>

@@ -1,0 +1,37 @@
+---
+title: Zero divisors
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Zero divisors" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Integral domains">
+
+In a field we can divide — if $ab = 0$ and $b \neq 0$, multiply through by $b^{-1}$ to get $a = 0$. So fields have the **zero product property**: a product is zero only when at least one factor is zero.
+
+Many rings we care about — <Term k="ZZ">$\mathbb{Z}$</Term>, $\mathbb{Z}[x]$, $\mathbb{R}[x]$ — share this property even though they aren't fields.
+
+But not all rings do. In $\mathbb{Z}/15\mathbb{Z}$:
+$$3 \cdot 5 \equiv 0 \pmod{15}$$
+even though neither $3$ nor $5$ is zero.
+
+<Callout kind="definition" title="Zero divisor">
+In a ring $R$, a nonzero element $a$ is a <Term k="zeroDivisor">**zero divisor**</Term> if there exists a nonzero $b \in R$ with $ab = 0$.
+</Callout>
+
+<MCQ
+  client:load
+  id="flv-id-mcq-zero-divisors"
+  prompt="Which of these rings contains a zero divisor?"
+  options={[
+    { id: "a", label: "ℤ (integers)" },
+    { id: "b", label: "ℤ/8ℤ" },
+    { id: "c", label: "ℚ (rationals)" },
+    { id: "d", label: "ℝ[x] (polynomials over the reals)" },
+  ]}
+  correct="b"
+  explanation="In ℤ/8ℤ, we have 2 · 4 = 8 ≡ 0 (mod 8), yet both 2 and 4 are nonzero — so 2 (and 4) are zero divisors. The rings ℤ, ℚ, and ℝ[x] all satisfy the zero product property and contain no zero divisors."
+/>
+
+</SlideLayout>

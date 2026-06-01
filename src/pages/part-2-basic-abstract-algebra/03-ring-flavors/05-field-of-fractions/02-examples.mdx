@@ -1,0 +1,25 @@
+---
+title: Examples of fraction fields
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Examples of fraction fields" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Field of fractions">
+
+<Callout kind="example" title="The canonical examples">
+- **By definition**, $\operatorname{Frac}(\mathbb{Z}) = \mathbb{Q}$. The rationals are literally the field of fractions of the integers.
+- $\operatorname{Frac}(\mathbb{R}[x]) = \mathbb{R}(x)$, the **field of rational functions** over $\mathbb{R}$:
+$$\mathbb{R}(x) = \left\{ \frac{f(x)}{g(x)} \,\middle|\, f, g \in \mathbb{R}[x],\ g \neq 0 \right\}$$
+A typical element looks like $\dfrac{2x}{x^2 - 3}$.
+</Callout>
+
+<Callout kind="example" title="Gaussian rationals">
+The Gaussian integers $\mathbb{Z}[i] = \{a + bi \mid a, b \in \mathbb{Z}\}$ form an integral domain. Their fraction field is:
+$$\mathbb{Q}(i) = \operatorname{Frac}(\mathbb{Z}[i]) = \left\{ a + bi \mid a, b \in \mathbb{Q} \right\}$$
+We can simplify: $\dfrac{1}{c + di} = \dfrac{c - di}{c^2 + d^2}$, so every element of $\mathbb{Q}(i)$ has the form $a + bi$ with rational $a, b$.
+</Callout>
+
+The notation <Term k="kOfX">$k(x) = \operatorname{Frac}(k[x])$</Term> is standard for any field $k$ — read "$k$ of $x$", the field of rational functions with coefficients in $k$.
+
+</SlideLayout>

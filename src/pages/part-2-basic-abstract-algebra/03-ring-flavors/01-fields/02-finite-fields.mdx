@@ -1,0 +1,37 @@
+---
+title: Finite fields
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Finite fields" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Fields">
+
+Fields don't have to be infinite. The classic finite example is <Term k="Zc">$\mathbb{Z}/p\mathbb{Z}$</Term> for a prime $p$ — clock arithmetic mod $p$.
+
+<Callout kind="example" title="𝔽_p — the field with p elements">
+For a prime $p$, the ring $\mathbb{Z}/p\mathbb{Z}$ is a field. Every nonzero element $\bar a$ has a multiplicative inverse: since $\gcd(a, p) = 1$, Bézout's lemma gives integers $u, v$ with $au + pv = 1$, so $\bar a \cdot \bar u = \bar 1$ in $\mathbb{Z}/p\mathbb{Z}$.
+
+We write <Term k="finiteField">$\mathbb{F}_p$</Term> for this field.
+</Callout>
+
+<Callout kind="remark">
+When $n$ is composite, $\mathbb{Z}/n\mathbb{Z}$ is **not** a field. For example, in $\mathbb{Z}/6\mathbb{Z}$, the element $\bar 2$ has no inverse: $2 \cdot 1 = 2$, $2 \cdot 2 = 4$, $2 \cdot 3 = 0$, $2 \cdot 4 = 2$, $2 \cdot 5 = 4$ — none equal $1$.
+</Callout>
+
+<MCQ
+  client:load
+  id="flv-fields-mcq-f5-inverse"
+  prompt="In 𝔽_5 (integers mod 5), what is the multiplicative inverse of 3?"
+  options={[
+    { id: "a", label: "2" },
+    { id: "b", label: "3" },
+    { id: "c", label: "4" },
+    { id: "d", label: "5" },
+  ]}
+  correct="a"
+  explanation="3 · 2 = 6 ≡ 1 (mod 5), so 2 is the inverse of 3 in 𝔽_5. Alternatively: 3 · 2 = 6 = 5 + 1, and 5 ≡ 0, so 6 ≡ 1."
+/>
+
+</SlideLayout>

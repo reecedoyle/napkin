@@ -1,0 +1,35 @@
+---
+title: What is a field?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="What is a field?" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Fields">
+
+A **ring** already gives us addition and multiplication. A **field** asks for one more thing: every nonzero element must be invertible under multiplication — you can always divide.
+
+<Callout kind="definition" title="Field">
+A **field** is a nontrivial ring <Term k="field">$K$</Term> in which every nonzero element is a unit (has a multiplicative inverse).
+</Callout>
+
+Concretely: $K$ is a field exactly when for every $a \in K$ with $a \neq 0$, there exists $b \in K$ with $ab = 1$.
+
+The prototype is <Term k="QQ">$\mathbb{Q}$</Term>. Every nonzero rational has a reciprocal. Compare with <Term k="ZZ">$\mathbb{Z}$</Term>: the integer $2$ has no multiplicative inverse inside $\mathbb{Z}$, so $\mathbb{Z}$ is a ring but not a field.
+
+<MCQ
+  client:load
+  id="flv-fields-mcq-which-is-field"
+  prompt="Which of the following is NOT a field?"
+  options={[
+    { id: "a", label: "ℚ (rationals under + and ·)" },
+    { id: "b", label: "ℝ (reals under + and ·)" },
+    { id: "c", label: "ℤ (integers under + and ·)" },
+    { id: "d", label: "ℂ (complex numbers under + and ·)" },
+  ]}
+  correct="c"
+  explanation="ℤ is a ring but not a field: the integer 2 has no multiplicative inverse in ℤ (1/2 is not an integer). All of ℚ, ℝ, ℂ are fields — every nonzero element has a reciprocal."
+/>
+
+</SlideLayout>

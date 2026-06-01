@@ -57,4 +57,13 @@ export const napkinKatexMacros: Record<string, string> = {
 
   // Matrix space — Napkin writes \Mat (e.g. \Mat_{2 \times 2}(\RR)).
   '\\Mat': '\\mathrm{Mat}',
+
+  // Field of fractions — Napkin writes \Frac(R).
+  '\\Frac': '\\operatorname{Frac}',
+
+  // Norm on a Euclidean domain — Napkin writes \Norm.
+  '\\Norm': '\\operatorname{N}',
+
+  // Preimage notation — Napkin writes \phi\pre(I).
+  '\\pre': '^{-1}',
 };

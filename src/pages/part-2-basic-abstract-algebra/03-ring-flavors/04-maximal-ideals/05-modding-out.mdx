@@ -1,0 +1,21 @@
+---
+title: Using quotients to check maximality
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Using quotients to check maximality" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Maximal ideals">
+
+The quotient theorems turn maximality checks into field checks — which is usually much easier.
+
+<Callout kind="example" title="Modding out in ℤ[x]">
+- **$(x, 5) \subseteq \mathbb{Z}[x]$ is maximal.** Modding out by $x$ kills the polynomial variable, giving $\mathbb{Z}$. Then modding out by $5$ gives $\mathbb{F}_5$. So $\mathbb{Z}[x]/(x, 5) \cong \mathbb{F}_5$, a field.
+- **$(x) \subseteq \mathbb{Z}[x]$ is prime but not maximal.** $\mathbb{Z}[x]/(x) \cong \mathbb{Z}$, which is an integral domain (so prime) but not a field (so not maximal).
+</Callout>
+
+This pattern generalises: to test whether a generated ideal is maximal or prime, compute what the quotient ring looks like and ask whether it's a field or just an integral domain.
+
+The technique of "mod out and identify the quotient" is one of the most frequently used methods in ring theory. Keep it in your toolkit.
+
+</SlideLayout>

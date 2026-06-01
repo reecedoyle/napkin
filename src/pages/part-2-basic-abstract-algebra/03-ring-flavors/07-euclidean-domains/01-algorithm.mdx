@@ -1,0 +1,24 @@
+---
+title: The Euclidean algorithm revisited
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The Euclidean algorithm revisited" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Euclidean domains">
+
+In $\mathbb{Z}$, computing $\gcd(a, b)$ is easy: divide $a$ by $b$, replace $a$ by the remainder, repeat. The algorithm terminates because the remainder is strictly smaller in absolute value. What makes this work?
+
+Two ingredients:
+1. **An integer-valued size measure** (absolute value) — so the algorithm terminates.
+2. **Division with remainder**: for any $a, b \neq 0$, there exists $q$ with $|a - qb| < |b|$ — we can always reduce.
+
+<Callout kind="example" title="Why it's efficient">
+If $a$ and $b$ are on the order of $10^{100}$, the Euclidean algorithm terminates in at most about $500$ steps — the size roughly halves each time (Fibonacci numbers give the worst case).
+</Callout>
+
+The question: on which rings can we run the same algorithm?
+
+Answer: on any ring that has a similar integer-valued "size" function satisfying the two conditions. These are called **Euclidean domains**.
+
+</SlideLayout>

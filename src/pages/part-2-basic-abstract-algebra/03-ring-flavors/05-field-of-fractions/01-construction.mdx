@@ -1,0 +1,23 @@
+---
+title: Field of fractions — construction
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Field of fractions — construction" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Field of fractions">
+
+Given any integral domain $R$, we can build a field by "formally adding inverses". This is exactly how $\mathbb{Q}$ is built from $\mathbb{Z}$: take formal fractions $a/b$, declare two fractions equal when they cross-multiply the same way, and define the usual arithmetic.
+
+<Callout kind="definition" title="Field of fractions">
+Given an integral domain $R$, its **field of fractions** (or **fraction field**) <Term k="fracR">$\operatorname{Frac}(R)$</Term> consists of formal fractions $a/b$ with $a, b \in R$ and $b \neq 0$, where we declare:
+$$\frac{a}{b} \sim \frac{c}{d} \iff ad = bc$$
+with addition and multiplication:
+$$\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}, \qquad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}.$$
+</Callout>
+
+The fact that $R$ is an integral domain ensures the equivalence relation is well-behaved (the denominator products $bd$ are nonzero) and the arithmetic is consistent.
+
+Everything you know about $\mathbb{Q}$ carries over by analogy — you can verify this is a field if you like, but the intuition is already solid.
+
+</SlideLayout>
