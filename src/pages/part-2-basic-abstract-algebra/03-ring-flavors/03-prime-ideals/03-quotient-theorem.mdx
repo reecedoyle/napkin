@@ -1,0 +1,39 @@
+---
+title: Prime ideals and quotient rings
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Prime ideals and quotient rings" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Prime ideals">
+
+There's a clean characterisation of prime ideals in terms of quotient rings — and it's essentially just definition chasing.
+
+<Callout kind="theorem" title="Prime ideal ⟺ quotient is an integral domain">
+An ideal $I \subsetneq R$ is prime if and only if the quotient ring <Term k="quotientRing">$R/I$</Term> is an integral domain.
+</Callout>
+
+**Why this works:** The condition "$xy \in I \Rightarrow x \in I$ or $y \in I$" translates directly to "$\bar x \bar y = \bar 0 \Rightarrow \bar x = \bar 0$ or $\bar y = \bar 0$" in $R/I$ — which is exactly saying $R/I$ has no zero divisors.
+
+This gives us a fast way to check primality:
+
+- $\mathbb{Z}/(7) \cong \mathbb{Z}/7\mathbb{Z} = \mathbb{F}_7$, a field (hence integral domain), so $(7)$ is prime. ✓
+- $\mathbb{Z}[x]/(x) \cong \mathbb{Z}$, an integral domain, so $(x)$ is prime. ✓
+- $\mathbb{Z}[x]/(3, x) \cong \mathbb{F}_3$, a field, so $(3, x)$ is prime. ✓
+
+<MCQ
+  client:load
+  id="flv-prime-mcq-quotient-domain"
+  prompt="Is the ideal (6) ⊆ ℤ a prime ideal?"
+  options={[
+    { id: "a", label: "Yes — 6 generates a prime ideal." },
+    { id: "b", label: "No — ℤ/(6) ≅ ℤ/6ℤ has zero divisors." },
+    { id: "c", label: "No — (6) is not even a proper ideal." },
+    { id: "d", label: "Yes — every principal ideal in ℤ is prime." },
+  ]}
+  correct="b"
+  explanation="ℤ/(6) ≅ ℤ/6ℤ is not an integral domain: 2 · 3 ≡ 0 (mod 6) yet 2 and 3 are nonzero. So (6) is not prime. In general, (n) ⊆ ℤ is prime exactly when n is prime."
+/>
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Problems — fields and homomorphisms
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — fields and homomorphisms" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Problems">
+
+Three problems to consolidate the chapter. The first checks that a concrete ring is a field; the second is a general result about homomorphisms from fields. Use the quotient theorem and the ideal structure freely.
+
+<Problem
+  client:load
+  id="flv-prob-q-sqrt2-field"
+  prompt="Consider the ring ℚ[√2] = {a + b√2 : a, b ∈ ℚ} under the usual addition and multiplication of real numbers. Is it a field?"
+  hint="Yes. Find an explicit inverse for any nonzero a + b√2."
+  solution="Yes. For any nonzero a + b√2 ∈ ℚ[√2], its inverse is (a - b√2)/(a² - 2b²). We need a² - 2b² ≠ 0: if a² = 2b² then (a/b)² = 2 (for b ≠ 0), but √2 is irrational, so no rational a/b satisfies this. And b = 0 with a ≠ 0 gives a² ≠ 0. So the inverse is well-defined and lies in ℚ[√2] (both numerator and denominator are in ℚ). Hence every nonzero element is a unit, so ℚ[√2] is a field."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="flv-prob-field-hom-injective"
+  prompt="Let K be a field and R a nontrivial ring. Prove that any ring homomorphism ψ: K → R is injective."
+  hint="The kernel of ψ is an ideal of K. What are the ideals of a field?"
+  solution="The kernel ker(ψ) = {a ∈ K : ψ(a) = 0} is an ideal of K. A field has only two ideals: (0) and K itself. Since ψ(1_K) = 1_R ≠ 0 (as R is nontrivial), we have 1_K ∉ ker(ψ), so ker(ψ) ≠ K. Hence ker(ψ) = (0), which means ψ is injective."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Every PID is a UFD
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Every PID is a UFD" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Unique factorization domains">
+
+The following theorem places PIDs and UFDs in a clean hierarchy.
+
+<Callout kind="theorem">
+Let $R$ be a PID. Then $R$ is a UFD.
+</Callout>
+
+We won't prove this in full here, but the key ideas are:
+
+1. **Existence of factorisation:** In a PID, every ascending chain of ideals eventually stabilises (the "Noetherian" property), which forces every element to eventually factor into irreducibles.
+2. **Uniqueness:** In a PID, irreducible elements are the same as prime elements (meaning $p \mid ab \Rightarrow p \mid a$ or $p \mid b$). Uniqueness of factorisation follows from primality.
+
+<Callout kind="remark" title="The hierarchy">
+$$\text{Fields} \subsetneq \text{Euclidean domains} \subsetneq \text{PIDs} \subsetneq \text{UFDs} \subsetneq \text{Integral domains} \subsetneq \text{Rings}$$
+Each inclusion is strict — there are PIDs that are not Euclidean, UFDs that are not PIDs, etc.
+</Callout>
+
+The failure of $\mathbb{Z}[\sqrt{-5}]$ to be a UFD reflects the fact that it's also not a PID: the ideal $(2, 1 + \sqrt{-5})$ is not principal.
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: The landscape — ring flavors
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+
+<SlideLayout title="The landscape — ring flavors" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Fields">
+
+Before diving in, here is the full table of correspondences this chapter builds toward. Each row pairs a "niceness" property of a ring with the corresponding property of its ideals.
+
+| Ring noun | Ideal adjective | Connection |
+|---|---|---|
+| Field | maximal | $R/I$ is a field $\iff$ $I$ is maximal |
+| Integral domain | prime | $R/I$ is an integral domain $\iff$ $I$ is prime |
+| PID | principal | $R$ is a PID $\iff$ $R$ is an integral domain and every $I$ is principal |
+| Noetherian ring | finitely generated | $R$ is Noetherian $\iff$ every $I$ is finitely generated |
+
+<Callout kind="remark">
+Think of this table as the chapter's **road map**. We'll fill in each row over the next several sections, with fields and integral domains first, then principal ideal domains and unique factorization.
+</Callout>
+
+Each ring noun on the left is stronger than the one below it: every field is an integral domain, and every integral domain with all ideals principal is a PID.
+
+</SlideLayout>

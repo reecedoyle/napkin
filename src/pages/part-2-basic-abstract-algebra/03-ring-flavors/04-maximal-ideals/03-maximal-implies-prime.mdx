@@ -1,0 +1,24 @@
+---
+title: Maximal implies prime
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Maximal implies prime" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Maximal ideals">
+
+The two notions are related by a clean implication:
+
+<Callout kind="corollary" title="Every maximal ideal is prime">
+If $I$ is a maximal ideal of a ring $R$, then $I$ is prime.
+</Callout>
+
+**Proof:** $I$ maximal $\Rightarrow$ $R/I$ is a field $\Rightarrow$ $R/I$ is an integral domain $\Rightarrow$ $I$ is prime.
+
+The converse fails: $(x) \subseteq \mathbb{Z}[x]$ is prime (quotient is $\mathbb{Z}$, an integral domain) but not maximal (quotient is $\mathbb{Z}$, not a field).
+
+<Callout kind="remark" title="When does prime = maximal?">
+In $\mathbb{Z}$, every nonzero prime ideal is also maximal — the nonzero prime ideals are exactly $(p)$ for prime $p$, and $\mathbb{Z}/(p) = \mathbb{F}_p$ is a field. This special property (every nonzero prime ideal is maximal) characterises **Dedekind domains**, where unique factorisation of ideals holds. More on that later.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — starred" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Problems">
+
+Two starred problems: one about prime ideals under ring homomorphisms, one about finite integral domains.
+
+<Problem
+  client:load
+  id="flv-prob-prime-preimage"
+  prompt="Suppose φ: R → S is a ring homomorphism, and I ⊆ S is a prime ideal. Prove that φ⁻¹(I) = {r ∈ R : φ(r) ∈ I} is also a prime ideal of R."
+  hint="This is just a definition chase. If ab ∈ φ⁻¹(I), then φ(a)φ(b) = φ(ab) ∈ I. Use that I is prime."
+  solution="First, φ⁻¹(I) is an ideal: if a ∈ φ⁻¹(I) and r ∈ R, then φ(ra) = φ(r)φ(a) ∈ I since φ(a) ∈ I and I is an ideal. And it's proper: since φ(1_R) = 1_S ∉ I (as I is a proper ideal), 1_R ∉ φ⁻¹(I).
+
+Now primality: suppose ab ∈ φ⁻¹(I), meaning φ(ab) = φ(a)φ(b) ∈ I. Since I is prime, either φ(a) ∈ I or φ(b) ∈ I, i.e. either a ∈ φ⁻¹(I) or b ∈ φ⁻¹(I). So φ⁻¹(I) is prime."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="flv-prob-finite-domain-field"
+  prompt="Let R be an integral domain with finitely many elements. Prove that R is a field."
+  hint="Fermat's little theorem style argument: look at powers of a nonzero element. Cancellation holds in integral domains."
+  solution="Let x ∈ R with x ≠ 0. Consider the sequence x, x², x³, ... Since R is finite, by pigeonhole two of them coincide: x^m = x^n with m < n. Then x^m(x^(n-m) - 1) = 0. Since x ≠ 0 and R is an integral domain, repeatedly using 'no zero divisors' gives x^(n-m) - 1 = 0, so x^(n-m) = 1. Thus x^(n-m-1) is a multiplicative inverse for x. Since x was an arbitrary nonzero element, every nonzero element is a unit — so R is a field."
+  difficulty="starred"
+/>
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: Irreducible elements
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Irreducible elements" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Unique factorization domains">
+
+In $\mathbb{Z}$, we factor into primes. In a general integral domain, "prime" is a property of ideals. The element-level analogue is **irreducible**.
+
+<Callout kind="definition" title="Irreducible element">
+A nonzero non-unit element $a$ of an integral domain $R$ is <Term k="irreducible">**irreducible**</Term> if whenever $a = bc$ in $R$, either $b$ or $c$ is a unit.
+</Callout>
+
+Unpacking: $a$ is irreducible if you cannot factor it into two non-unit pieces. The units (elements with multiplicative inverses) are considered "trivial" factors — like $\pm 1$ in $\mathbb{Z}$.
+
+<Callout kind="example" title="Irreducibles in ℤ">
+In $\mathbb{Z}$, the units are $\pm 1$. So $p$ is irreducible iff whenever $p = bc$ with $b, c \in \mathbb{Z}$, one of $b, c$ is $\pm 1$. The irreducibles are exactly $\pm 2, \pm 3, \pm 5, \pm 7, \ldots$ — the primes and their negatives.
+</Callout>
+
+<Callout kind="remark">
+In $\mathbb{Z}$, "irreducible" and "prime" (as elements, meaning $p \mid xy \Rightarrow p \mid x$ or $p \mid y$) coincide. In general rings they can differ — and the failure of this coincidence is exactly what breaks unique factorisation.
+</Callout>
+
+</SlideLayout>

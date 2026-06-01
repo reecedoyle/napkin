@@ -1,0 +1,27 @@
+---
+title: Cancellation in integral domains
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Cancellation in integral domains" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Integral domains">
+
+One useful consequence of "no zero divisors" is that we can cancel a nonzero common factor.
+
+<Callout kind="proposition" title="Cancellation law">
+Let $R$ be an integral domain, and suppose $ac = bc$ with $c \neq 0$. Then $a = b$.
+</Callout>
+
+There is no $c^{-1}$ to multiply by — we have to use the definition directly.
+
+<ProofReveal
+  client:load
+  id="flv-id-proof-cancellation"
+  prompt="Prove the cancellation law: if ac = bc in an integral domain and c ≠ 0, then a = b."
+  solution="Rearrange: ac = bc means ac - bc = 0, i.e. (a - b)c = 0. Since R is an integral domain and c ≠ 0, the product (a - b)c = 0 forces a - b = 0, so a = b."
+/>
+
+Notice the proof is a single line once you write $(a - b)c = 0$ — the whole power of "integral domain" is used exactly here.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: A prime ideal that is not prime as an element — ℤ[i]
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="A prime ideal that is not prime as an element — ℤ[i]" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Prime ideals">
+
+The element-versus-ideal distinction matters. In $\mathbb{Z}[i]$ (the Gaussian integers), the element $5$ is a perfectly good prime in $\mathbb{Z}$, but in $\mathbb{Z}[i]$ it splits:
+
+$$5 = (2 + i)(2 - i)$$
+
+so $5$ is *not* irreducible in $\mathbb{Z}[i]$.
+
+Consequently, the ideal $(5) \subseteq \mathbb{Z}[i]$ is **not** prime:
+
+$$3 + i \text{ and } 3 - i \text{ multiply to } (3+i)(3-i) = 10 \in (5)$$
+
+yet neither $3 + i$ nor $3 - i$ lies in $(5)$.
+
+<Callout kind="remark">
+This illustrates why the passage from integers to general rings requires working with ideals rather than elements. The ideal-theoretic approach recovers unique factorisation in rings like $\mathbb{Z}[i]$ — but via ideals, not element factorisation.
+</Callout>
+
+We will revisit Gaussian integers properly in the algebraic number theory chapters. For now, they serve as a warning: even familiar-seeming rings can behave differently.
+
+</SlideLayout>

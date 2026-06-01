@@ -1,0 +1,25 @@
+---
+title: Euclidean domains — definition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Euclidean domains — definition" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Euclidean domains">
+
+<Callout kind="definition" title="Euclidean norm and Euclidean domain">
+An integral domain $R$ is a <Term k="euclideanDomain">**Euclidean domain**</Term> if there exists a function <Term k="euclideanNorm">$N \colon R \setminus \{0\} \to \mathbb{Z}_{\geq 0}$</Term> (called the **Euclidean norm**) such that:
+
+1. For any $a, b \in R$ with $b \neq 0$, there exist $q, r \in R$ with
+$$a = qb + r \quad \text{and} \quad (r = 0 \text{ or } N(r) < N(b)).$$
+</Callout>
+
+The norm gives us "division with remainder" — and crucially, the remainder is strictly smaller. This guarantees the algorithm terminates.
+
+<Callout kind="example" title="Standard Euclidean domains">
+- **$\mathbb{Z}$:** norm $= |a|$. Division algorithm gives remainder with $|r| < |b|$.
+- **$k[x]$ for any field $k$:** norm $= \deg(f)$. Polynomial long division gives remainder with $\deg(r) < \deg(g)$.
+- **$\mathbb{Z}[i]$ (Gaussian integers):** norm $= a^2 + b^2$ for $a + bi$. Division is possible because the Gaussian integer lattice is dense enough — rounding to the nearest lattice point moves us by at most $\frac{\sqrt{2}}{2} < 1$.
+</Callout>
+
+</SlideLayout>

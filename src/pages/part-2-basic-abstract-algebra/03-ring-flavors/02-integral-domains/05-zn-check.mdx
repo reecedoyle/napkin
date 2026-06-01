@@ -1,0 +1,30 @@
+---
+title: Which ℤ/nℤ are integral domains?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="Which ℤ/nℤ are integral domains?" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Integral domains">
+
+We claimed that <Term k="Zc">$\mathbb{Z}/n\mathbb{Z}$</Term> is an integral domain (equivalently, a field) exactly when $n$ is prime. Let's think through why.
+
+<Callout kind="proposition">
+$\mathbb{Z}/n\mathbb{Z}$ is an integral domain if and only if $n$ is prime.
+</Callout>
+
+**If $n$ is prime:** every nonzero $\bar a$ satisfies $\gcd(a, n) = 1$, so Bézout gives an inverse. Hence it's a field, hence an integral domain.
+
+**If $n$ is composite:** write $n = ab$ with $1 < a, b < n$. Then $\bar a \neq 0$ and $\bar b \neq 0$ in $\mathbb{Z}/n\mathbb{Z}$, but $\bar a \cdot \bar b = \overline{ab} = \bar n = \bar 0$. So $\bar a$ is a zero divisor.
+
+<NumericInput
+  client:load
+  id="flv-id-num-z15-zero-div"
+  prompt="In ℤ/15ℤ, what is the smallest positive zero divisor? (The smallest positive integer that is nonzero mod 15 but whose product with some other nonzero element is 0 mod 15.)"
+  expected="3"
+  placeholder="a number"
+  explanation="3 · 5 = 15 ≡ 0 (mod 15), and both 3 and 5 are nonzero mod 15. No smaller positive nonzero element works: 1 and 2 are units in ℤ/15ℤ relative to... well, 1 · anything = that thing, and gcd(2,15)=1 so 2 is not a zero divisor. gcd(3,15)=3 > 1, so 3 is our answer."
+/>
+
+</SlideLayout>

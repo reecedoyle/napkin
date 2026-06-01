@@ -1,0 +1,24 @@
+---
+title: Prime ideals — motivation
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Prime ideals — motivation" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Prime ideals">
+
+In $\mathbb{Z}$, a prime $p$ is characterised by the implication: if $p \mid xy$ then $p \mid x$ or $p \mid y$. That's what makes primes the "atomic" building blocks of multiplication.
+
+We want a version of this for general rings — but most rings aren't as clean as $\mathbb{Z}$. For instance:
+
+$$6 = 2 \cdot 3 = (1 - \sqrt{-5})(1 + \sqrt{-5}) \quad \text{in } \mathbb{Z}[\sqrt{-5}]$$
+
+Unique factorisation of *elements* fails here. But it turns out that factorisation of *ideals* behaves much better. The right analogue of "prime" is a property of ideals, not elements.
+
+<Callout kind="remark">
+The shift from elements to ideals is one of the central moves of algebraic number theory. This section captures what "prime ideal" means; we'll see later why it's the right notion.
+</Callout>
+
+The model: in $\mathbb{Z}$, the ideal $(p)$ for a prime $p$ has the property that if $xy \in (p)$ (i.e. $p \mid xy$) then $x \in (p)$ or $y \in (p)$. We port this over.
+
+</SlideLayout>

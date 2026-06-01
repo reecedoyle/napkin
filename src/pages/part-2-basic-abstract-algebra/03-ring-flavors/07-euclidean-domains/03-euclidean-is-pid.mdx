@@ -1,0 +1,28 @@
+---
+title: Every Euclidean domain is a PID
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Every Euclidean domain is a PID" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Euclidean domains">
+
+<Callout kind="proposition">
+Every Euclidean domain is a PID.
+</Callout>
+
+The idea: given any ideal $I$, take the element with **smallest norm** in $I$. Then every other element of $I$ is divisible by it — because if anything remained after dividing, that remainder would be in $I$ but have smaller norm, contradicting minimality.
+
+<ProofReveal
+  client:load
+  id="flv-euc-proof-pid"
+  prompt="Prove that every Euclidean domain is a PID: show every ideal I is principal."
+  solution="Let I be any ideal of a Euclidean domain R. If I = (0) it is principal. Otherwise, let a ∈ I be a nonzero element of smallest norm N(a) — this exists because ℤ≥0 is well-ordered.
+
+We claim I = (a). Clearly (a) ⊆ I. For the other direction, take any b ∈ I. By the Euclidean property, write b = qa + r where r = 0 or N(r) < N(a). Since b ∈ I and qa ∈ I (ideals absorb multiplication), we have r = b - qa ∈ I. But N(a) was minimal among nonzero elements of I, so r cannot be nonzero. Hence r = 0 and b = qa ∈ (a). So I ⊆ (a), giving I = (a)."
+/>
+
+This is why the Euclidean algorithm implicitly computes gcds: the element of smallest norm in $(a, b)$ is exactly $\gcd(a, b)$.
+
+</SlideLayout>

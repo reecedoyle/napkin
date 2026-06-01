@@ -1,0 +1,28 @@
+---
+title: Prime ideals — definition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Prime ideals — definition" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Prime ideals">
+
+<Callout kind="definition" title="Prime ideal">
+A *proper* ideal <Term k="primeIdeal">$I \subsetneq R$</Term> is a **prime ideal** if whenever $xy \in I$, either $x \in I$ or $y \in I$.
+</Callout>
+
+The "proper" condition ($I \neq R$) mirrors the convention that $1$ is not a prime number.
+
+<Callout kind="example" title="Examples and non-examples in ℤ and ℤ[x]">
+- $(7) \subseteq \mathbb{Z}$ is prime: $7 \mid xy$ implies $7 \mid x$ or $7 \mid y$.
+- $(8) \subseteq \mathbb{Z}$ is **not** prime: $2 \cdot 4 = 8 \in (8)$ but $2 \notin (8)$ and $4 \notin (8)$.
+- $(x) \subseteq \mathbb{Z}[x]$ is prime: $xy \in (x)$ means $x$ divides $xy$ as a polynomial, which forces $x \mid x$ or $x \mid y$ (i.e. $y$ has $x$ as a factor).
+- $(x^2) \subseteq \mathbb{Z}[x]$ is **not** prime: $x \cdot x = x^2 \in (x^2)$ but $x \notin (x^2)$.
+- $(3, x) \subseteq \mathbb{Z}[x]$ is prime (easiest to check via the quotient theorem on the next slide).
+</Callout>
+
+<Callout kind="remark" title="Ideals eliminate sign issues">
+In $\mathbb{Z}$, is $-3$ prime? With ideals the annoyance disappears: $(-3) = (3)$ as ideals. More generally, ideals let us ignore multiplication by units.
+</Callout>
+
+</SlideLayout>

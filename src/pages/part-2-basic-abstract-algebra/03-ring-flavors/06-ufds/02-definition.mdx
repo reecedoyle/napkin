@@ -1,0 +1,26 @@
+---
+title: Unique factorization domains
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Unique factorization domains" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Unique factorization domains">
+
+<Callout kind="definition" title="Unique factorization domain (UFD)">
+An integral domain $R$ is a <Term k="ufd">**unique factorization domain**</Term> if every nonzero non-unit of $R$ can be written as a product of irreducible elements, in a way that is unique up to multiplication by units and reordering.
+</Callout>
+
+The "unique up to units" clause handles the fact that $6 = 2 \cdot 3 = (-2)(-3)$ in $\mathbb{Z}$ — we consider these the same factorisation.
+
+<Callout kind="example" title="Examples and non-examples">
+- **Fields:** Every nonzero element is a unit, so there's nothing to factor — UFD vacuously.
+- **$\mathbb{Z}$:** UFD by the fundamental theorem of arithmetic.
+- **$\mathbb{Q}[x]$, $\mathbb{Z}[x]$:** Both are UFDs. In general, if $R$ is a UFD then so is $R[x]$.
+- **$\mathbb{Z}[i]$:** A UFD (the Gaussian integers — proved later in algebraic number theory).
+- **$\mathbb{Z}[\sqrt{-5}]$:** The classic non-example:
+$$6 = 2 \cdot 3 = (1 - \sqrt{-5})(1 + \sqrt{-5})$$
+Each of $2, 3, 1 \pm \sqrt{-5}$ is irreducible in $\mathbb{Z}[\sqrt{-5}]$, yet we have two distinct factorisations. So $\mathbb{Z}[\sqrt{-5}]$ is **not** a UFD.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,33 @@
+---
+title: When is (0) a prime ideal?
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="When is (0) a prime ideal?" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Prime ideals">
+
+The quotient theorem lets us answer a small puzzle: what is special about a ring where the zero ideal is prime?
+
+If $(0)$ is prime, then $R/(0) \cong R$ is an integral domain. Conversely, if $R$ is an integral domain, $(0)$ is prime. So:
+
+<Callout kind="proposition">
+The zero ideal $(0)$ is prime in $R$ if and only if $R$ is an integral domain.
+</Callout>
+
+<MCQ
+  client:load
+  id="flv-prime-mcq-zero-ideal"
+  prompt="In which of these rings is the zero ideal (0) a prime ideal?"
+  options={[
+    { id: "a", label: "ℤ/6ℤ" },
+    { id: "b", label: "ℤ (the integers)" },
+    { id: "c", label: "The trivial ring {0}" },
+    { id: "d", label: "ℤ/4ℤ" },
+  ]}
+  correct="b"
+  explanation="ℤ is an integral domain, so (0) is prime in ℤ. ℤ/6ℤ has zero divisors (2·3=0), so (0) is not prime there. The trivial ring {0} is not considered an integral domain (by convention). ℤ/4ℤ has 2·2=0, so (0) is not prime."
+/>
+
+</SlideLayout>

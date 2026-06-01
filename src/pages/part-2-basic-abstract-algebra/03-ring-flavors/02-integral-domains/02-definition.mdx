@@ -1,0 +1,26 @@
+---
+title: Integral domains — definition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Integral domains — definition" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Integral domains">
+
+<Callout kind="definition" title="Integral domain">
+A nontrivial ring with no zero divisors is called an <Term k="integralDomain">**integral domain**</Term>.
+</Callout>
+
+Equivalently: $R$ is an integral domain if $R \neq 0$ and whenever $ab = 0$ in $R$, then $a = 0$ or $b = 0$.
+
+Every field is an integral domain: if $ab = 0$ and $b \neq 0$, multiply by $b^{-1}$ to get $a = 0$. But integral domains need not be fields — $\mathbb{Z}$ has no zero divisors yet $2$ has no inverse.
+
+<Callout kind="example" title="Examples of integral domains">
+- $\mathbb{Z}$ is an integral domain (but not a field).
+- $\mathbb{R}[x]$: if $P(x)Q(x) = 0$ then one of $P$, $Q$ is the zero polynomial. (Integral domain, not a field.)
+- $\mathbb{Z}[x]$: same argument. In fact $R[x]$ is an integral domain whenever $R$ is.
+- $\mathbb{Z}/n\mathbb{Z}$ is an integral domain (equivalently, a field) exactly when $n$ is prime.
+- The trivial ring $\{0\}$ is **not** considered an integral domain.
+</Callout>
+
+</SlideLayout>

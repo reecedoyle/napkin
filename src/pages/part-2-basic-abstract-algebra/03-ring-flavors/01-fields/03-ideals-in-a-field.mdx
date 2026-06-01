@@ -1,0 +1,26 @@
+---
+title: Ideals in a field
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Ideals in a field" part="Part II — Basic Abstract Algebra" chapter="5. Flavors of rings · Fields">
+
+Fields are, in a sense, as simple as rings can get — every ideal is trivial.
+
+<Callout kind="proposition" title="A field has only two ideals">
+Let $K$ be a field. The only ideals of $K$ are $(0)$ and $K$ itself.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="flv-fields-proof-only-two-ideals"
+  prompt="Prove that the only ideals of a field K are (0) and K itself."
+  solution="Let I be any ideal of K. If I = (0), we're done. Otherwise, I contains some nonzero element a. Since K is a field, a has an inverse a⁻¹ ∈ K. Because I is an ideal, it is closed under multiplication by any ring element, so 1 = a · a⁻¹ ∈ I. But if 1 ∈ I, then for any r ∈ K, r = r · 1 ∈ I. Hence I = K."
+/>
+
+This is the structural reason fields are so special: there is no non-trivial quotient ring $K/I$ to form. The ideal $(0)$ is already maximal — and we'll make that precise in the section on maximal ideals.
+
+</SlideLayout>
