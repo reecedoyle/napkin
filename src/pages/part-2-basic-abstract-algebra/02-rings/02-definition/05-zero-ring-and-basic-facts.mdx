@@ -1,0 +1,37 @@
+---
+title: The zero ring and basic ring facts
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="The zero ring and basic ring facts" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Definition and examples">
+
+<Callout kind="definition" title="Zero ring">
+The **zero ring** is the ring with a single element, where <Term k="zeroR">$0_R$</Term> $=$ <Term k="oneR">$1_R$</Term>. A ring is **nontrivial** if $0_R \neq 1_R$.
+</Callout>
+
+<Callout kind="remark" title="A characterisation of nontriviality">
+A ring is nontrivial if and only if $0_R \neq 1_R$. In the zero ring, the single element is forced to serve as both identities. But in any nontrivial ring, the two identities must be distinct — adding the identity to itself gives the identity, which forces $0 + 0 = 0 \neq 1$.
+</Callout>
+
+Two key facts that hold in every ring, following from the axioms alone:
+
+$$r \cdot 0_R = 0_R \quad \text{and} \quad r \cdot (-1_R) = -r.$$
+
+<MCQ
+  client:load
+  id="rng-def-mcq-zero-ring"
+  prompt="In which of the following is the zero ring an example?"
+  options={[
+    { id: "a", label: "A field" },
+    { id: "b", label: "A nontrivial ring" },
+    { id: "c", label: "A ring (but not a field)" },
+    { id: "d", label: "None of the above — the zero ring is not a ring" },
+  ]}
+  correct="c"
+  explanation="The zero ring satisfies all the ring axioms (trivially), so it is a ring. However, fields must be nontrivial, and the zero ring has 0_R = 1_R, so it fails nontriviality. The zero ring is a ring but not a field."
+/>
+
+</SlideLayout>

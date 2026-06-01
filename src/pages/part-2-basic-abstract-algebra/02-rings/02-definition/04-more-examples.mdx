@@ -1,0 +1,25 @@
+---
+title: More ring examples — Gaussian integers and products
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="More ring examples — Gaussian integers and products" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Definition and examples">
+
+<Callout kind="example" title="Gaussian integers ℤ[i]">
+The **Gaussian integers** are complex numbers with integer real and imaginary parts:
+
+$$\mathbb{Z}[i] = \{\, a + bi \mid a, b \in \mathbb{Z} \,\}.$$
+
+This is a ring under ordinary complex addition and multiplication. The notation <Term k="gaussianIntegers">$\mathbb{Z}[i]$</Term> uses the adjoinment convention: we "adjoin $i = \sqrt{-1}$" to <Term k="ZZ">$\mathbb{Z}$</Term>, subject to $i^2 = -1$. Formally, $\mathbb{Z}[i] \cong \mathbb{Z}[x]/(x^2+1)$.
+</Callout>
+
+<Callout kind="example" title="Product ring R × S">
+Given rings $R$ and $S$, the **product ring** <Term k="productRing">$R \times S$</Term> has elements $(r, s)$ with operations done component-wise:
+$$(r_1, s_1) + (r_2, s_2) = (r_1 + r_2,\, s_1 + s_2), \quad (r_1, s_1) \cdot (r_2, s_2) = (r_1 r_2,\, s_1 s_2).$$
+
+The identity is $(1_R, 1_S)$. The Chinese Remainder Theorem gives an isomorphism $\mathbb{Z}/15\mathbb{Z} \cong \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z}$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: Hilbert basis theorem
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Hilbert basis theorem" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Noetherian rings">
+
+$\mathbb{Z}[x]$ is not a PID, but is it Noetherian? The answer is a resounding yes.
+
+<Callout kind="theorem" title="Hilbert basis theorem">
+If $R$ is a <Term k="noetherian">Noetherian</Term> ring, then $R[x]$ is also Noetherian.
+
+By induction, $R[x_1, x_2, \dots, x_n]$ is Noetherian for any finite $n$.
+</Callout>
+
+Since $\mathbb{Z}$ is Noetherian (it is a PID), the theorem gives: $\mathbb{Z}[x]$, $\mathbb{Z}[x,y]$, $\mathbb{Z}[x_1,\dots,x_n]$ are all Noetherian, even though only the first is a PID.
+
+The proof is an olympiad-flavoured argument: given any ideal $I \subseteq R[x]$, construct a finite generating set by a careful leading-coefficient chase. It appears as a problem at the end of this chapter.
+
+<Callout kind="remark" title="Why Noetherian matters">
+Noetherian rings are the natural setting for algebraic geometry: rings of polynomial functions on varieties. The Noetherian condition guarantees that geometric objects can be described by finitely many equations — a fundamental finiteness property. Most rings encountered in practice are Noetherian.
+</Callout>
+
+</SlideLayout>

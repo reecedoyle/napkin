@@ -1,0 +1,29 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — starred" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Problems">
+
+Two starred problems — deeper results that require more thought.
+
+<Problem
+  client:load
+  id="rng-prob-ideals-bijection"
+  prompt="Let R be a ring and I an ideal. Find an inclusion-preserving bijection between: (1) the ideals of R/I, and (2) the ideals of R which contain I."
+  hint="Every ideal of R/I has the form J/I for some ideal J of R with I ⊆ J. The map J ↦ J/I is the bijection you want."
+  solution="Define the map: given an ideal J of R with I ⊆ J, map J to the ideal J/I = {j + I : j ∈ J} of R/I. This is well-defined and is an ideal of R/I. The inverse map: given an ideal K of R/I, let J = {r ∈ R : r + I ∈ K} = π⁻¹(K) where π: R → R/I is the quotient map. Then J is an ideal of R containing I, and K = J/I. These maps are mutual inverses, and both preserve inclusion."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="rng-prob-hom-from-ZZ"
+  prompt="Let R be any ring. (a) Prove there is exactly one ring homomorphism ℤ → R. (b) Prove that the number of ring homomorphisms ℤ[x] → R equals the number of elements of R."
+  hint="For (a): any homomorphism must send 1 ↦ 1_R, and this determines everything by additivity. For (b): a homomorphism is uniquely determined by the choice of ψ(x) ∈ R."
+  solution="(a) Any ring homomorphism φ: ℤ → R must satisfy φ(1) = 1_R (by definition). Then φ(n) = n · 1_R for n ≥ 0 (by additivity) and φ(-n) = -φ(n) for n > 0. So φ is completely determined: φ(n) = n · 1_R for all n ∈ ℤ. One verifies this formula gives a valid ring homomorphism. (b) A ring homomorphism ψ: ℤ[x] → R is determined by φ|_ℤ (which is the unique map from (a)) and the choice of ψ(x) = r ∈ R. Given any r ∈ R, the map p(x) ↦ p(r) (evaluate at r) is a valid ring homomorphism. So ring homomorphisms ℤ[x] → R biject with elements of R."
+  difficulty="starred"
+/>
+
+</SlideLayout>

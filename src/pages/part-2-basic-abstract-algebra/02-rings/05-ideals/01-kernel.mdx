@@ -1,0 +1,25 @@
+---
+title: The kernel of a ring homomorphism
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The kernel of a ring homomorphism" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Ideals">
+
+Just as with groups, ring homomorphisms have kernels — and the kernels characterise the "normal sub-objects".
+
+<Callout kind="definition" title="Kernel">
+The **kernel** of a ring homomorphism $\phi \colon R \to S$ is
+
+$$\ker \phi = \{\, r \in R \mid \phi(r) = 0_S \,\}.$$
+</Callout>
+
+Two obvious properties of any kernel:
+
+1. **Closed under addition.** If $\phi(x) = \phi(y) = 0$, then $\phi(x + y) = 0$.
+2. **Absorbs all multiplication.** If $\phi(x) = 0$ and $r \in R$ is arbitrary, then $\phi(rx) = \phi(r)\phi(x) = 0$. So $rx \in \ker \phi$ even though $r$ may not be.
+
+These two properties define an **ideal** — the ring-theoretic analogue of a normal subgroup.
+
+</SlideLayout>

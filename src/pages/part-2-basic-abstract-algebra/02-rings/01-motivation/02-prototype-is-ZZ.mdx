@@ -1,0 +1,20 @@
+---
+title: The prototype ring is ℤ
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The prototype ring is ℤ" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Motivation">
+
+<Term k="ZZ">$\mathbb{Z}$</Term> is the ring to keep in mind at all times. Everything we do is a generalisation of familiar integer arithmetic.
+
+<Callout kind="example" title="Why ℤ is the model">
+- "Irreducible polynomial in <Term k="QQ">$\mathbb{Q}$</Term><Term k="polyRing">$[x]$</Term>" works exactly like "prime in $\mathbb{Z}$".
+- "Factoring polynomials mod $p$" mirrors "unique factorisation in $\mathbb{Z}$".
+- Even Fermat's Last Theorem ($x^n + y^n = z^n$) requires stepping outside $\mathbb{Z}$ into rings like $\mathbb{Z}[\zeta_p]$.
+</Callout>
+
+A secondary source of examples is algebraic geometry: rings of polynomial functions on geometric spaces. That connection will be developed in a later part of the book.
+
+</SlideLayout>

@@ -1,0 +1,38 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — standard" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Problems">
+
+Three standard problems on quotient rings and ring homomorphisms.
+
+<Problem
+  client:load
+  id="rng-prob-Rx-mod-x2plus1"
+  prompt="The ring ℝ[x]/(x²+1) is one you have seen before. What is its name?"
+  hint="Think about what x represents in ℝ[x]/(x²+1): it satisfies x² + 1 = 0, i.e. x² = −1."
+  solution="ℝ[x]/(x²+1) ≅ ℂ. The isomorphism sends x ↦ i. The kernel of the evaluation map ℝ[x] → ℂ, p(x) ↦ p(i), is exactly the set of polynomials divisible by x²+1, which is the ideal (x²+1). So ℝ[x]/(x²+1) ≅ ℂ."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="rng-prob-Cx-mod-x2minusx"
+  prompt="Show that ℂ[x]/(x²-x) ≅ ℂ × ℂ."
+  hint="Consider the map ℂ[x] → ℂ × ℂ by p ↦ (p(0), p(1)). Show it is surjective and find its kernel."
+  solution="The map φ: ℂ[x] → ℂ × ℂ by φ(p) = (p(0), p(1)) is a surjective ring homomorphism (given any (a,b) ∈ ℂ × ℂ, the polynomial p(x) = a + (b-a)x satisfies p(0)=a, p(1)=b). Its kernel consists of polynomials p with p(0) = p(1) = 0, i.e. divisible by both x and x-1. Since gcd(x, x-1) = 1 in ℂ[x] (a PID), the kernel is (x(x-1)) = (x²-x). By the first isomorphism theorem, ℂ[x]/(x²-x) ≅ ℂ × ℂ."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="rng-prob-ideal-intersection"
+  prompt="In the ring ℤ, let I = (2016) and J = (30). Show that I ∩ J is an ideal of ℤ and compute its elements."
+  hint="The intersection of ideals is always an ideal. The ideal I ∩ J in ℤ is of the form (n) — what is n in terms of 2016 and 30?"
+  solution="I ∩ J is the set of integers divisible by both 2016 and 30, i.e. divisible by lcm(2016, 30). We have 2016 = 2⁵·3²·7 and 30 = 2·3·5, so lcm(2016, 30) = 2⁵·3²·5·7 = 10080. Hence I ∩ J = (10080) = 10080ℤ. It is an ideal because: if x, y ∈ I ∩ J then x+y is divisible by both 2016 and 30; and if x ∈ I ∩ J and r ∈ ℤ then rx is also divisible by both."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: Problems — USA Team Selection Test 2016
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — USA Team Selection Test 2016" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Problems">
+
+A competition problem connecting ring isomorphisms to a non-standard multiplication.
+
+<Problem
+  client:load
+  id="rng-prob-usa-tst-2016"
+  prompt="Let 𝔽_p denote ℤ/pℤ for a fixed prime p. Define Ψ: 𝔽_p[x] → 𝔽_p[x] by Ψ(∑ aᵢxⁱ) = ∑ aᵢx^(pⁱ). Let S = image of Ψ. (a) Show that S is a ring with addition given by polynomial addition and multiplication given by function composition. (b) Prove that Ψ: 𝔽_p[x] → S is a ring isomorphism."
+  hint="For (a), verify the ring axioms for composition on S. For (b), show Ψ is additive, respects multiplication (composition), sends 1 to 1, and is bijective."
+  solution="(a) S is closed under + (sum of elements of image Ψ is in image Ψ since Ψ(f+g) = Ψ(f)+Ψ(g)). For multiplication by composition: if f, g ∈ S then f∘g ∈ S because S consists of polynomials of the form ∑aᵢx^(pⁱ), and composing two such polynomials gives another. The ring axioms for (S, +, ∘) follow from general properties of function composition. (b) Ψ is additive: Ψ(f+g) = Ψ(f)+Ψ(g) directly from the definition. Ψ respects multiplication: Ψ(fg) = Ψ(f) ∘ Ψ(g). To see this, note Ψ(∑ aᵢxⁱ) ∘ Ψ(∑ bⱼxʲ) = ∑ aᵢ (∑ bⱼx^(pʲ))^(pⁱ) = ∑ aᵢ ∑ bⱼ^(pⁱ) x^(pⁱ⁺ʲ); using the Frobenius endomorphism (bʲ^p = bʲ in 𝔽_p), this equals Ψ(fg). Ψ sends x to x^p, so 1 ↦ 1. Ψ is injective (as a map on coefficients it's the identity). Hence Ψ is an isomorphism."
+  difficulty="starred"
+/>
+
+</SlideLayout>

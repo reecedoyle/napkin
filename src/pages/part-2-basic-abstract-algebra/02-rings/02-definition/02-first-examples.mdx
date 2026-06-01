@@ -1,0 +1,25 @@
+---
+title: First examples of rings
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="First examples of rings" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Definition and examples">
+
+<Callout kind="example" title="Standard rings">
+- <Term k="ZZ">$\mathbb{Z}$</Term>, <Term k="QQ">$\mathbb{Q}$</Term>, <Term k="RR">$\mathbb{R}$</Term>, <Term k="CC">$\mathbb{C}$</Term> are all rings under the usual $+$ and $\times$.
+- <Term k="Zc">$\mathbb{Z}/n\mathbb{Z}$</Term> — the integers mod $n$ — is a ring for every $n \geq 1$.
+</Callout>
+
+<Callout kind="definition" title="Zero ring and nontriviality">
+The **zero ring** is the ring with a single element (where $0_R = 1_R$). A ring is **nontrivial** when $0_R \neq 1_R$.
+</Callout>
+
+A basic but useful fact: for any element $r$ in any ring $R$,
+
+$$r \cdot 0_R = 0_R \quad \text{and} \quad r \cdot (-1_R) = -r.$$
+
+These follow directly from the distributive law — no extra axioms needed.
+
+</SlideLayout>

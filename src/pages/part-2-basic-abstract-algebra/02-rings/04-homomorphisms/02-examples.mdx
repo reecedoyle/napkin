@@ -1,0 +1,25 @@
+---
+title: Ring homomorphism examples
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Ring homomorphism examples" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Homomorphisms">
+
+<Callout kind="example" title="Homomorphisms">
+- The identity map $R \to R$ is always a homomorphism.
+- The reduction map $\mathbb{Z} \to \mathbb{Z}/5\mathbb{Z}$, $n \mapsto n \bmod 5$, is a homomorphism.
+- Evaluation at zero: $\mathbb{R}[x] \to \mathbb{R}$ by $p(x) \mapsto p(0)$ — takes the constant term.
+- For any ring $R$, the unique map $R \to 0$ to the zero ring is a homomorphism.
+</Callout>
+
+<Callout kind="example" title="Non-examples — the identity condition bites">
+- $\mathbb{Z} \to \mathbb{Z}$, $x \mapsto 2x$: fails both (2) and (3) — sends $1$ to $2$.
+- If $S$ is nontrivial, the zero map $R \to S$, $x \mapsto 0$, fails (3): $\phi(1_R) = 0 \neq 1_S$.
+- There is **no** ring homomorphism $\mathbb{Z}/2016\mathbb{Z} \to \mathbb{Z}$ at all.
+
+Contrast with groups: there is always a trivial group homomorphism $G \to H$ (send everything to $1_H$). For rings, no such escape exists.
+</Callout>
+
+</SlideLayout>
