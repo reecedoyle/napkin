@@ -1,0 +1,25 @@
+---
+title: Ideals — definition
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Ideals — definition" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Ideals">
+
+<Callout kind="definition" title="Ideal">
+A nonempty subset <Term k="ideal">$I \subseteq R$</Term> is an **ideal** if:
+
+1. $I$ is closed under addition: $x, y \in I \Rightarrow x + y \in I$.
+2. $I$ absorbs multiplication from $R$: $x \in I, r \in R \Rightarrow rx \in I$.
+
+The ideal is **proper** if $I \neq R$.
+</Callout>
+
+The key subtlety in condition 2: $r$ ranges over **all** of $R$, not just elements of $I$. This is strictly stronger than $I$ being closed under its own multiplication.
+
+<Callout kind="example" title="Prototypical ideal: 5ℤ ⊆ ℤ">
+$I = 5\mathbb{Z} = \{\ldots, -10, -5, 0, 5, 10, \ldots\}$ is an ideal of $\mathbb{Z}$. It is the kernel of the "reduce mod 5" homomorphism $\mathbb{Z} \to \mathbb{Z}/5\mathbb{Z}$. It clearly closes under addition, and $15 \in I$, $999 \in \mathbb{Z}$ gives $15 \cdot 999 = 14985 \in I$ — absorbed.
+</Callout>
+
+</SlideLayout>

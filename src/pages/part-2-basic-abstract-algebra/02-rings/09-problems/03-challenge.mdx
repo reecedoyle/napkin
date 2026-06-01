@@ -1,0 +1,29 @@
+---
+title: Problems — challenge
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Problem from '../../../../components/Problem';
+
+<SlideLayout title="Problems — challenge" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Problems">
+
+Two challenge problems: the Hilbert basis theorem (an olympiad-flavoured proof) and Akizuki's theorem (a deceptively hard result).
+
+<Problem
+  client:load
+  id="rng-prob-hilbert-basis"
+  prompt="Prove the Hilbert basis theorem: if R is a Noetherian ring, then R[x] is also Noetherian."
+  hint="Given an ideal I ⊆ R[x], let L_n be the set of leading coefficients of degree-n polynomials in I (together with 0). Show L_n is an ideal of R and L_n ⊆ L_{n+1}. Use the Noetherian hypothesis to terminate the chain and extract a finite generating set."
+  solution="Let I be any ideal of R[x]. For each n ≥ 0, define L_n = {a ∈ R : a = 0, or a is the leading coefficient of some degree-n polynomial in I}. Each L_n is an ideal of R, and L_n ⊆ L_{n+1} (multiply by x). Since R is Noetherian, the chain L_0 ⊆ L_1 ⊆ ··· stabilises: L_N = L_{N+1} = ··· for some N. Each L_n is finitely generated (as an ideal of R); choose generating sets. For each generator a of each L_n (n ≤ N), pick a polynomial f_{n,a} ∈ I of degree n with leading coefficient a. Claim: these finitely many polynomials generate I. The proof is by induction on degree: given any p ∈ I of degree d, subtract appropriate multiples of the f_{d,a} to reduce its degree, continuing until we reach degree 0."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="rng-prob-akizuki"
+  prompt="(Akizuki's theorem) A ring R is Artinian if it satisfies the descending chain condition (DCC): there is no infinite strictly descending chain of ideals I₁ ⊋ I₂ ⊋ I₃ ⊋ ···. Prove that every Artinian ring is Noetherian."
+  hint="This is harder than it looks. Show first that every prime ideal of an Artinian ring is maximal. Then show R has only finitely many maximal ideals. Use the Chinese Remainder Theorem structure and the DCC to show every ideal is finitely generated."
+  solution="The proof is non-trivial. Key steps: (1) Every prime ideal p of an Artinian ring R is maximal — for R/p is an Artinian integral domain, and one shows any Artinian domain is a field (any nonzero a gives a descending chain (a) ⊇ (a²) ⊇ ··· which must stabilise, forcing a to be a unit). (2) The Jacobson radical J = ∩(maximal ideals) satisfies J^n = 0 for some n (by DCC). (3) Each J^k/J^{k+1} is a finite-dimensional module over R/J (an Artinian semisimple ring). (4) Putting these together, every ideal of R can be controlled by finite data, giving the ACC."
+  difficulty="daggered"
+/>
+
+</SlideLayout>

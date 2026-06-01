@@ -1,0 +1,28 @@
+---
+title: The first isomorphism theorem for rings
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="The first isomorphism theorem for rings" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Homomorphisms">
+
+The first isomorphism theorem from group theory has an exact ring analogue.
+
+<Callout kind="theorem" title="First isomorphism theorem for rings">
+Let $\phi \colon R \to S$ be a ring homomorphism. Then:
+
+1. $\ker \phi$ is an ideal of $R$.
+2. $\operatorname{im} \phi$ is a subring of $S$.
+3. There is a ring isomorphism $R / \ker \phi \xrightarrow{\sim} \operatorname{im} \phi$, given by $r + \ker \phi \mapsto \phi(r)$.
+</Callout>
+
+<Callout kind="example" title="Applying the theorem">
+The evaluation map $\phi \colon \mathbb{R}[x] \to \mathbb{C}$, $p(x) \mapsto p(i)$, is a ring homomorphism.
+
+- $\ker \phi = \{p \in \mathbb{R}[x] : p(i) = 0\}$ = the ideal of polynomials divisible by $(x^2 + 1)$, i.e.\ <Term k="ideal">$(x^2 + 1)$</Term>.
+- $\operatorname{im} \phi = \mathbb{C}$ (since every $a + bi$ equals $a + bx$ evaluated at $i$).
+- So $\mathbb{R}[x]/(x^2+1) \cong \mathbb{C}$.
+</Callout>
+
+</SlideLayout>

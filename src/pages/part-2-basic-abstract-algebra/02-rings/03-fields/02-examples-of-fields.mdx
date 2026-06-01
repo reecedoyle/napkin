@@ -1,0 +1,28 @@
+---
+title: Examples of fields
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import NumericInput from '../../../../components/NumericInput';
+
+<SlideLayout title="Examples of fields" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Fields">
+
+<Callout kind="example" title="The standard fields">
+- <Term k="QQ">$\mathbb{Q}$</Term>, <Term k="RR">$\mathbb{R}$</Term>, <Term k="CC">$\mathbb{C}$</Term> are fields — every nonzero element has a reciprocal.
+- For a prime $p$, the ring $\mathbb{Z}/p\mathbb{Z}$ is a field, denoted <Term k="finiteField">$\mathbb{F}_p$</Term>. Primality is essential: if $p$ is not prime, there are zero divisors.
+- The zero ring is **not** a field (we require nontriviality).
+</Callout>
+
+Why does primality make $\mathbb{Z}/p\mathbb{Z}$ a field? In $\mathbb{Z}/p\mathbb{Z}$, every nonzero residue $\bar{a}$ satisfies $\gcd(a, p) = 1$, so Bézout's theorem gives $ax + py = 1$ for some $x, y \in \mathbb{Z}$, meaning $\bar{a} \cdot \bar{x} = \bar{1}$.
+
+<NumericInput
+  client:load
+  id="rng-fields-num-fp-units"
+  prompt="How many units does the ring ℤ/7ℤ have?"
+  expected="6"
+  placeholder="a number"
+  explanation="ℤ/7ℤ = 𝔽_7 is a field since 7 is prime. Every nonzero element is a unit, so there are 7 − 1 = 6 units."
+/>
+
+</SlideLayout>

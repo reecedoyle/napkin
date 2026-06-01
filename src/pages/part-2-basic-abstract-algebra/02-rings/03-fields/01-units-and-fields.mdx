@@ -1,0 +1,28 @@
+---
+title: Units and fields — a first look
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Units and fields — a first look" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Fields">
+
+<Callout kind="definition" title="Unit">
+A **unit** of a ring $R$ is an element <Term k="unit">$u \in R$</Term> that is multiplicatively invertible: there exists $x \in R$ with $ux = 1_R$.
+</Callout>
+
+<Callout kind="example" title="Units in familiar rings">
+- In <Term k="ZZ">$\mathbb{Z}$</Term>: only $\pm 1$ are units — the only integers that "divide $1$".
+- In <Term k="QQ">$\mathbb{Q}$</Term>: every nonzero element is a unit ($\tfrac{3}{5}$ has inverse $\tfrac{5}{3}$).
+- In $\mathbb{Z}[i]$: the units are $\pm 1$ and $\pm i$ (the four elements with norm $1$).
+</Callout>
+
+<Callout kind="definition" title="Field">
+A nontrivial commutative ring <Term k="field">$K$</Term> is a **field** when every nonzero element is a unit.
+</Callout>
+
+Colloquially: a field is a structure where you can add, subtract, multiply, and **divide**.
+
+Fields are introduced here because they provide clean examples throughout this chapter. Chapter 5 develops field theory in depth.
+
+</SlideLayout>

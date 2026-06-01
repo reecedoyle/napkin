@@ -1,0 +1,27 @@
+---
+title: Rings vs groups — the big picture
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Rings vs groups — the big picture" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Motivation">
+
+A **group** has one binary operation. A **ring** has two — addition and multiplication — and the two interact via the distributive law. That single upgrade opens up enormous new territory.
+
+<Callout kind="remark" title="The core analogy">
+The group/ring theory runs in parallel. Here is the dictionary:
+
+| | Group | Ring |
+|---|---|---|
+| Symbol | $G$ | <Term k="ring">$R$</Term> |
+| Operations | $\cdot$ | $+$ and $\times$ |
+| Commutativity | only if abelian | for us, always |
+| Homomorphism | $G \to H$ | $R \to S$ |
+| Kernel | normal subgroup | <Term k="ideal">ideal</Term> |
+| Quotient | $G/H$ | $R/I$ |
+</Callout>
+
+Keep this table in mind throughout the chapter. Every concept we develop for rings has an exact group-theory counterpart.
+
+</SlideLayout>

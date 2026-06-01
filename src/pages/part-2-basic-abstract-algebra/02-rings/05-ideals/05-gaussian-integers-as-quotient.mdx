@@ -1,0 +1,26 @@
+---
+title: Gaussian integers as a quotient ring
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Gaussian integers as a quotient ring" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Ideals">
+
+The adjoinment notation $\mathbb{Z}[i]$ is slightly informal. Here is the precise formulation.
+
+<Callout kind="example" title="ℤ[i] as a quotient ring">
+The <Term k="gaussianIntegers">Gaussian integers</Term> $\mathbb{Z}[i]$ can be written formally as the quotient ring
+
+$$\mathbb{Z}[x] / (x^2 + 1).$$
+
+The isomorphism sends $x \mapsto i$. In the quotient, $x^2 + 1 \equiv 0$, which forces $x^2 \equiv -1$, which is exactly the relation defining $i^2 = -1$.
+
+A polynomial $a_n x^n + \cdots + a_0 \in \mathbb{Z}[x]$ reduces modulo $(x^2 + 1)$ to a linear polynomial $a + bx$, corresponding to the Gaussian integer $a + bi$.
+</Callout>
+
+Similarly, $\mathbb{Z}[\sqrt[3]{2}] = \{a + b\sqrt[3]{2} + c\sqrt[3]{4} : a,b,c \in \mathbb{Z}\}$ can be written as $\mathbb{Z}[x]/(x^3 - 2)$, the quotient where we impose $x^3 = 2$.
+
+This pattern — "adjoin an element $\alpha$ satisfying the relation $f(\alpha) = 0$" — is exactly the quotient $R[x]/(f)$.
+
+</SlideLayout>

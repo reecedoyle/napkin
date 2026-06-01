@@ -1,0 +1,22 @@
+---
+title: Rings with infinitely generated ideals
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Rings with infinitely generated ideals" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Noetherian rings">
+
+We relaxed "every ideal is principal (one generator)" to "every ideal is finitely generated". Can we always achieve even that?
+
+<Callout kind="example" title="A ring where finite generation fails">
+The ring $R = \mathbb{Z}[x_1, x_2, x_3, \ldots]$ with **infinitely many** free variables contains the ideal
+
+$$I = (x_1, x_2, x_3, \ldots)$$
+
+of polynomials with zero constant term. No finite set generates $I$: any finite set $\{f_1, \dots, f_k\}$ only involves finitely many variables, so $x_{k+1} \notin (f_1, \dots, f_k)$.
+</Callout>
+
+Notice also the infinite ascending chain $$(x_1) \subsetneq (x_1, x_2) \subsetneq (x_1, x_2, x_3) \subsetneq \cdots$$ — each step strictly larger, no bound in sight.
+
+</SlideLayout>

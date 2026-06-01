@@ -1,0 +1,23 @@
+---
+title: Quotients by generated ideals
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Quotients by generated ideals" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Generating ideals">
+
+When $I = (x_1, \dots, x_n)$, the quotient $R/I$ is the ring obtained by **declaring each $x_i$ to be zero**. This is a very concrete way to compute with quotient rings.
+
+<Callout kind="example" title="Modding out by generated ideals">
+- $\mathbb{Z}/(5) = \mathbb{Z}/5\mathbb{Z}$: set $5 = 0$ in $\mathbb{Z}$. The usual modular arithmetic.
+- $\mathbb{Z}[x]/(x)$: set $x = 0$, so every polynomial reduces to its constant term. $\mathbb{Z}[x]/(x) \cong \mathbb{Z}$.
+- $\mathbb{Z}[x]/(x - 3)$: set $x = 3$, so $p(x) \mapsto p(3)$. Also $\cong \mathbb{Z}$, but via evaluation at $3$.
+- $\mathbb{Z}[x]/(x - 3, 5)$: set $x = 3$ and $5 = 0$, so $p(x) \mapsto p(3) \bmod 5$. Gives $\mathbb{Z}/5\mathbb{Z}$.
+</Callout>
+
+<Callout kind="remark" title="Mod notation for ideals">
+For an ideal $I \subseteq R$, write $x \equiv y \pmod{I}$ to mean $x - y \in I$. All the usual modular arithmetic identities carry over verbatim.
+</Callout>
+
+</SlideLayout>

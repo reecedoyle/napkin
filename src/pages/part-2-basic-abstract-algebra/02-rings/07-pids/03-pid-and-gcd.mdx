@@ -1,0 +1,24 @@
+---
+title: PIDs and GCDs
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="PIDs and GCDs" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Principal ideal domains">
+
+In a <Term k="pid">PID</Term>, there is always a meaningful notion of "greatest common divisor".
+
+<Callout kind="proposition" title="GCDs in a PID">
+In a PID $R$, for any $a, b \in R$, the ideal $(a) + (b)$ is principal — say $(a) + (b) = (d)$. This element $d$ is a **greatest common divisor** of $a$ and $b$: $d$ divides both $a$ and $b$, and any common divisor of $a$ and $b$ divides $d$.
+</Callout>
+
+This is Bézout's identity at the ring-theoretic level: in a PID, $d = \gcd(a, b)$ satisfies $d = ra + sb$ for some $r, s \in R$.
+
+<Callout kind="example" title="GCD in k[x]">
+In $\mathbb{Q}[x]$ (a PID), the ideal $(x^2 - 1) + (x - 1) = (x - 1)$, since $x - 1$ divides $x^2 - 1 = (x-1)(x+1)$. So $\gcd(x^2 - 1, x - 1) = x - 1$ in $\mathbb{Q}[x]$.
+</Callout>
+
+For rings that are not PIDs — like $\mathbb{Z}[x]$ — this ideal-GCD approach breaks down: $(x, 2)$ is not principal, so there is no single "gcd" of $x$ and $2$ in $\mathbb{Z}[x]$.
+
+</SlideLayout>

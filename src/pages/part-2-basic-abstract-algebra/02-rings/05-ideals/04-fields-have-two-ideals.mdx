@@ -1,0 +1,26 @@
+---
+title: Ideals in a field
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import ProofReveal from '../../../../components/ProofReveal';
+
+<SlideLayout title="Ideals in a field" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Ideals">
+
+<Callout kind="proposition" title="Fields have exactly two ideals">
+If $K$ is a <Term k="field">field</Term>, then $K$ has exactly two ideals: $(0)$ and $K$ itself.
+</Callout>
+
+The key lemma: once an ideal contains a unit, it must contain $1_R$, and therefore contains all of $R$.
+
+<ProofReveal
+  client:load
+  id="rng-ideals-proof-field-ideals"
+  prompt="Prove that the only ideals of a field K are (0) and K."
+  solution="Let I be an ideal of K. If I = (0) we are done. Otherwise I contains some nonzero element u. Since K is a field, u is a unit — there exists u⁻¹ ∈ K with uu⁻¹ = 1_K. Since I absorbs multiplication from K, we get 1_K = u⁻¹ · u ∈ I. Now for any r ∈ K, r = r · 1_K ∈ I, so I = K."
+/>
+
+This explains why quotient rings of fields are uninteresting: the only proper ideal is $(0)$, giving $K/(0) \cong K$. Interesting quotient rings come from rings with a richer ideal structure.
+
+</SlideLayout>

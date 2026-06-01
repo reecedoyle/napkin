@@ -1,0 +1,30 @@
+---
+title: Quotient rings
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+
+<SlideLayout title="Quotient rings" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Ideals">
+
+Every ideal is the kernel of some homomorphism — and we construct that homomorphism explicitly via cosets.
+
+<Callout kind="theorem" title="Ideals are exactly kernels">
+Let $R$ be a ring and $I \subsetneq R$. Then $I$ is an ideal if and only if it is the kernel of some ring homomorphism.
+</Callout>
+
+The construction: form equivalence classes $r + I$ under the relation $r_1 \sim r_2 \iff r_1 - r_2 \in I$ (think "mod $I$"). Addition of cosets is well-defined (inherited from the group structure). Multiplication is well-defined precisely because $I$ absorbs multiplication from all of $R$.
+
+<Callout kind="definition" title="Quotient ring">
+Given an ideal $I \subseteq R$, the **quotient ring** <Term k="quotientRingCh4">$R/I$</Term> is
+
+$$R/I = \{\, r + I \mid r \in R \,\}$$
+
+with operations $(r_1 + I) + (r_2 + I) = (r_1 + r_2) + I$ and $(r_1 + I)(r_2 + I) = r_1 r_2 + I$.
+</Callout>
+
+<Callout kind="remark" title="Better intuition">
+Don't picture $R/I$ as a set of cosets. Think of it as **$R$ with elements of $I$ declared to be zero** — modular arithmetic generalised. Modding out by $5\mathbb{Z}$ sets every multiple of $5$ to zero, giving the usual $\mathbb{Z}/5\mathbb{Z}$.
+</Callout>
+
+</SlideLayout>

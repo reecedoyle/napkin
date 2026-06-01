@@ -1,0 +1,39 @@
+---
+title: Definition of a ring
+---
+import SlideLayout from '../../../../layouts/SlideLayout.astro';
+import Callout from '../../../../components/Callout.astro';
+import Term from '../../../../components/Term.astro';
+import MCQ from '../../../../components/MCQ';
+
+<SlideLayout title="Definition of a ring" part="Part II — Basic Abstract Algebra" chapter="4. Rings and ideals · Definition and examples">
+
+<Callout kind="definition" title="Ring">
+A **ring** is a triple <Term k="ring">$(R, +, \times)$</Term> such that:
+
+1. $(R, +)$ is an abelian group, with identity <Term k="zeroR">$0_R$</Term>.
+2. $\times$ is an associative binary operation on $R$ with identity <Term k="oneR">$1_R$</Term>.
+3. Multiplication distributes over addition: $a(b+c) = ab + ac$.
+
+The ring is **commutative** if $\times$ is commutative. In this chapter, all rings are commutative.
+</Callout>
+
+<Callout kind="remark" title="Convention: rings have 1">
+Some authors allow rings without a multiplicative identity. We do not — "ring" always means "ring with $1$".
+</Callout>
+
+<MCQ
+  client:load
+  id="rng-def-mcq-axioms"
+  prompt="Which of the following is NOT part of the ring definition?"
+  options={[
+    { id: "a", label: "(R, +) is an abelian group" },
+    { id: "b", label: "Multiplication distributes over addition" },
+    { id: "c", label: "Every nonzero element has a multiplicative inverse" },
+    { id: "d", label: "Multiplication has an identity element 1_R" },
+  ]}
+  correct="c"
+  explanation="Having multiplicative inverses for all nonzero elements is the definition of a field, which is a special kind of ring. A general ring does not require this — for instance ℤ is a ring but 2 has no multiplicative inverse in ℤ."
+/>
+
+</SlideLayout>
