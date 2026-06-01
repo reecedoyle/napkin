@@ -103,19 +103,19 @@ const NAME_RE = /^\d{2}-[A-Za-z0-9-]+(\.mdx)?$/;
 const problemComponents = [];
 const termKeysUsed = new Set();
 
-for (const file of mdxFiles) {
+// Files directly under the chapter dir (e.g. 01-hello.mdx) are smoke
+// slides for the existing chapters; slide-nav.ts deliberately ignores
+// them, so verify-chapter ignores them too.
+const realSlides = mdxFiles.filter((p) => relative(chapterDir, p).split('/').length === 2);
+
+for (const file of realSlides) {
   const rel = relative(ROOT, file);
   const src = readSafe(file);
-  const dirParts = relative(chapterDir, file).split('/');
+  const [section, slide] = relative(chapterDir, file).split('/');
 
   // ── path-shape checks ──────────────────────────────────────────────
-  if (dirParts.length !== 2) {
-    err(`${rel}: slide must be nested as <section-dir>/<slide>.mdx (got ${dirParts.length} levels)`);
-  } else {
-    const [section, slide] = dirParts;
-    if (!NAME_RE.test(section)) err(`${rel}: section dir "${section}" must match NN-kebab-slug`);
-    if (!NAME_RE.test(slide)) err(`${rel}: slide name "${slide}" must match NN-kebab-slug.mdx`);
-  }
+  if (!NAME_RE.test(section)) err(`${rel}: section dir "${section}" must match NN-kebab-slug`);
+  if (!NAME_RE.test(slide)) err(`${rel}: slide name "${slide}" must match NN-kebab-slug.mdx`);
 
   // ── legacy patterns ────────────────────────────────────────────────
   if (/from '\.\.\//.test(src)) {
@@ -191,7 +191,7 @@ function print() {
     console.error(`\nverify-chapter: FAIL (${errors.length} error${errors.length === 1 ? '' : 's'})`);
   } else {
     console.log(
-      `verify-chapter: OK  (${mdxFiles.length} slide${mdxFiles.length === 1 ? '' : 's'}, ` +
+      `verify-chapter: OK  (${realSlides.length} slide${realSlides.length === 1 ? '' : 's'}, ` +
       `${termKeysUsed.size} glossary key${termKeysUsed.size === 1 ? '' : 's'}, ` +
       `${problemComponents.length} <Problem> component${problemComponents.length === 1 ? '' : 's'})`,
     );
