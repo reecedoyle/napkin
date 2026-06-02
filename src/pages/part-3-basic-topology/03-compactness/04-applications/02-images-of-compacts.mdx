@@ -1,0 +1,20 @@
+---
+title: Images of compact spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Images of compact spaces">
+
+<Callout kind="theorem" title="Continuous images of compact spaces are compact">
+Let $f \colon X \to Y$ be a continuous function where $X$ is <Term k="compact">compact</Term>. Then the image $f(X) \subseteq Y$ is compact.
+</Callout>
+
+**Proof using open covers:** Take any open cover $\{V_\alpha\}$ of <Term k="fIm">$f(X)$</Term> in $Y$. By continuity, each $f^{-1}(V_\alpha)$ is open in $X$. These preimages cover $X$: every $x \in X$ has $f(x) \in V_\alpha$ for some $\alpha$, so $x \in f^{-1}(V_\alpha)$. By compactness of $X$, finitely many $f^{-1}(V_{\alpha_i})$ cover $X$. The corresponding $V_{\alpha_i}$ then cover $f(X)$.
+
+**Alternative proof via sequences:** If $(y_n)$ is a sequence in $f(X)$, write $y_n = f(x_n)$. By compactness of $X$, some subsequence $x_{i_k} \to x$. By continuity, $f(x_{i_k}) \to f(x) \in f(X)$.
+
+This theorem is the topological machine behind the extreme value theorem.
+
+</SlideLayout>

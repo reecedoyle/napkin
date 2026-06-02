@@ -1,0 +1,26 @@
+---
+title: Tychonoff's theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Tychonoff's theorem">
+
+<Callout kind="theorem" title="Tychonoff's theorem (metric version)">
+If $X$ and $Y$ are compact metric spaces, then so is the <Term k="productSpace">product space $X \times Y$</Term>.
+</Callout>
+
+The proof has a subtle point: you cannot simply say "take a convergent subsequence in $X$ and one in $Y$" because the two might be for entirely different subsequences.
+
+<ProofReveal
+  client:load
+  id="cpt-crit-proof-tychonoff"
+  prompt="Prove that if X and Y are compact metric spaces then X × Y is compact. Given a sequence pᵢ = (xᵢ, yᵢ) in X × Y, produce a convergent subsequence."
+  solution="First apply compactness of X: the sequence (xᵢ) has a convergent subsequence, say xᵢ₁, xᵢ₄, xᵢ₉, … → x in X. Now look at the *corresponding* y-terms: yᵢ₁, yᵢ₄, yᵢ₉, …. Apply compactness of Y to this sequence: it has a further convergent subsequence, say yᵢ₁, yᵢ₁₆, yᵢ₈₁, … → y in Y. The same index selection applies to the x-terms, and a subsequence of a convergent sequence still converges to the same limit. So pᵢ₁, pᵢ₁₆, pᵢ₈₁, … → (x, y) in X × Y. The key is that we applied compactness of Y to the *already-filtered* sequence from step one."
+/>
+
+By applying Tychonoff repeatedly, any finite product of compact spaces is compact.
+
+</SlideLayout>

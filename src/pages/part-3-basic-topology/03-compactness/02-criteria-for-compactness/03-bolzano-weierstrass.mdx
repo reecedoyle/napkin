@@ -1,0 +1,37 @@
+---
+title: Bolzano-Weierstraß in ℝⁿ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Bolzano-Weierstraß in ℝⁿ">
+
+<Callout kind="theorem" title="Bolzano-Weierstraß">
+A subset $S \subseteq \mathbb{R}^n$ is <Term k="compact">compact</Term> if and only if it is **closed and bounded**.
+</Callout>
+
+**Why closed and bounded $\Rightarrow$ compact:** Since $S$ is bounded, it fits inside a box $[a_1, b_1] \times \cdots \times [a_n, b_n]$. Each interval $[a_i, b_i]$ is compact; by Tychonoff their product is compact. Since $S$ is a closed subset of this compact box, $S$ is compact.
+
+**Warning:** This only works in $\mathbb{R}^n$! In other metric spaces, closed and bounded can fail to imply compact.
+
+<Callout kind="example" title="Closed and bounded but not compact">
+Take any infinite set $S = \{s_1, s_2, \dots\}$ with the <Term k="discreteMetric">discrete metric</Term>. Then $S$ is closed and bounded (all points are distance 1 apart), but the sequence $s_1, s_2, \dots$ has no convergent subsequence — it is not compact.
+</Callout>
+
+<MCQ
+  client:load
+  id="cpt-crit-mcq-bw"
+  prompt="Which of the following subsets of ℝ² is compact?"
+  options={[
+    { id: "a", label: "The open disk {(x,y) : x² + y² < 1}" },
+    { id: "b", label: "The closed disk {(x,y) : x² + y² ≤ 1}" },
+    { id: "c", label: "The upper half-plane {(x,y) : y ≥ 0}" },
+    { id: "d", label: "The entire plane ℝ²" },
+  ]}
+  correct="b"
+  explanation="The closed disk is closed (boundary included) and bounded (all points within distance 1 of the origin), so by Bolzano-Weierstraß it is compact. The open disk is bounded but not closed. The upper half-plane and ℝ² are closed but unbounded."
+/>
+
+</SlideLayout>

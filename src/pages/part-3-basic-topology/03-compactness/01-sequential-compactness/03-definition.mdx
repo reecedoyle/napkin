@@ -1,0 +1,21 @@
+---
+title: Sequential compactness — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sequential compactness — definition">
+
+<Callout kind="definition" title="Sequentially compact metric space">
+A metric space $M$ is <Term k="sequentiallyCompact">**sequentially compact**</Term> if every sequence in $M$ has a subsequence that converges to a point in $M$.
+</Callout>
+
+Both halves of the definition matter:
+
+- **Has a convergent subsequence** — you don't need the whole sequence to converge, just some infinite sub-list.
+- **Converges to a point in $M$** — the limit must actually be in the space. A sequence that "tries to converge" to a missing boundary point doesn't count.
+
+The prototype is <Term k="compact">$[0,1]$</Term>: no matter how you scatter infinitely many points in $[0,1]$, some of them cluster together. The next slide examines the failures.
+
+</SlideLayout>

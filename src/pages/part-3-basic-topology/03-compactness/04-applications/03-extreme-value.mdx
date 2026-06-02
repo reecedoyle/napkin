@@ -1,0 +1,24 @@
+---
+title: Extreme and intermediate value theorems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Extreme and intermediate value theorems">
+
+<Callout kind="corollary" title="Extreme value theorem">
+Let $X$ be <Term k="compact">compact</Term> and $f \colon X \to \mathbb{R}$ continuous. Then $f$ achieves a maximum value: there exists $p \in X$ with $f(p) \ge f(q)$ for all $q \in X$.
+</Callout>
+
+<Callout kind="corollary" title="Intermediate value theorem">
+Let $f \colon [0,1] \to \mathbb{R}$ be continuous. Then the image of $f$ is a closed interval $[a,b]$ for some $a \le b$.
+</Callout>
+
+**Why:** The image $f(X)$ is compact in $\mathbb{R}$, hence closed and bounded. A closed bounded subset of $\mathbb{R}$ is a finite union of closed intervals — and for connected $[0,1]$ just one interval $[a,b]$. Being bounded guarantees the maximum exists.
+
+<Callout kind="example" title="Compactness is essential">
+Without compactness these fail. The function $(0,1) \to \mathbb{R}$ by $x \mapsto \frac{1}{x}$ is continuous but unbounded: it blows up near $0$. The domain $(0,1)$ is not compact, and the image is $(1, \infty)$ — not a closed interval and not achieving a maximum.
+</Callout>
+
+</SlideLayout>

@@ -698,6 +698,73 @@ export const glossary = {
     definition: 'A map T: M → M on a metric space such that d(T(p), T(q)) ≤ r·d(p,q) for some fixed r < 1 and all p, q. By the Banach fixed point theorem, every contraction on a complete metric space has a unique fixed point.',
     example: 'T(x) = x/2 on ℝ is a contraction with r = 1/2; its unique fixed point is 0.',
   },
+
+  // ────────────── Chapter 8 — Compactness ──────────────
+  subsequence: {
+    term: 'Subsequence',
+    definition: 'A subsequence of a sequence x₁, x₂, … is an infinite sequence xᵢ₁, xᵢ₂, … formed by keeping terms at strictly increasing index positions i₁ < i₂ < ···. It keeps infinitely many terms in their original order.',
+    example: '1, 3, 5, 7, … is a subsequence of 1, 2, 3, 4, …',
+  },
+  sequentiallyCompact: {
+    term: 'Sequentially compact',
+    definition: 'A metric space M is sequentially compact if every sequence in M has a subsequence that converges to a point of M. The prototype is the closed interval [0,1].',
+    example: '[0,1] is sequentially compact. ℝ is not (the sequence 1,2,3,… has no convergent subsequence). (0,1) is not (the sequence 1/2, 1/3, 1/4, … converges to 0 ∉ (0,1)).',
+  },
+  openCover: {
+    term: 'Open cover',
+    definition: 'A collection of open sets {Uα} in a topological space X such that every point of X belongs to at least one Uα. Formally, X = ⋃ Uα.',
+    example: 'The collection of all open intervals (a − 1, a + 1) for a ∈ [0,1] is an open cover of [0,1].',
+  },
+  finiteSubcover: {
+    term: 'Finite subcover',
+    definition: 'A finite subcollection of an open cover that still covers the space. If {Uα} covers X, a finite subcover is a finite set {Uα₁, …, Uαₙ} ⊆ {Uα} with X = Uα₁ ∪ ··· ∪ Uαₙ.',
+  },
+  compact: {
+    term: 'Compact space',
+    definition: 'A Hausdorff topological space in which every open cover has a finite subcover. For metric spaces this is equivalent to sequential compactness. The prototype: [0,1] ⊆ ℝ.',
+    example: '[0,1] and S² are compact. ℝ and (0,1) are not.',
+  },
+  quasicompact: {
+    term: 'Quasicompact',
+    definition: 'A topological space in which every open cover has a finite subcover, without requiring the Hausdorff property. Every compact space is quasicompact. The distinction matters in algebraic geometry.',
+  },
+  totallyBounded: {
+    term: 'Totally bounded',
+    definition: 'A metric space M is totally bounded if for every ε > 0, M can be covered by finitely many open balls of radius ε. Every compact metric space is totally bounded.',
+    example: '(0,1) ⊆ ℝ is totally bounded (cover by intervals of length ε). ℝ is not.',
+  },
+  uniformlyContinuous: {
+    term: 'Uniformly continuous',
+    definition: 'A function f: M → N between metric spaces is uniformly continuous if for every ε > 0 there exists δ > 0 (depending only on ε, not on the point) such that d(x,y) < δ implies d(f(x),f(y)) < ε.',
+    example: 'x ↦ 2x on ℝ is uniformly continuous (δ = ε/2 works everywhere). x ↦ x² on ℝ is not (large x magnifies small changes).',
+  },
+  lebesgueNumber: {
+    term: 'Lebesgue number',
+    definition: 'Given a compact metric space M and an open cover {Uα}, the Lebesgue number δ > 0 is a number such that every ball of radius δ in M is contained in some single Uα. Its existence is guaranteed by the Lebesgue number lemma.',
+  },
+  hausdorff: {
+    term: 'Hausdorff space',
+    definition: 'A topological space in which any two distinct points can be separated by disjoint open sets. All metric spaces are Hausdorff. The Hausdorff condition is part of the definition of compact (as opposed to quasicompact) in this text.',
+    example: 'Every metric space is Hausdorff. The cofinite topology on an infinite set is not Hausdorff.',
+  },
+  cofiniteTopology: {
+    term: 'Cofinite topology',
+    definition: 'A topology on a set X where the open sets are the empty set together with all subsets whose complement is finite. It is quasicompact but not Hausdorff when X is infinite.',
+  },
+  hawaiianEarring: {
+    term: 'Hawaiian earring',
+    definition: 'The compact subset of ℝ² consisting of circles of radius 1/n centered at (1/n, 0) for n = 1, 2, 3, …, all mutually tangent at the origin. A classical example of a compact but intricate topological space.',
+  },
+  productSpace: {
+    term: 'Product space X × Y',
+    symbol: 'X \\times Y',
+    definition: 'The Cartesian product of two topological spaces X and Y, equipped with the product topology. A sequence (xₙ, yₙ) in X × Y converges if and only if both coordinate sequences converge separately.',
+  },
+  fIm: {
+    term: 'Image of a function',
+    symbol: 'f(X)',
+    definition: 'The set of all output values of f: X → Y, written f(X) or f[X]. In Napkin notation this is sometimes written f^im(X). A continuous image of a compact space is compact.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

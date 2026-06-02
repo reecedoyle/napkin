@@ -1,0 +1,23 @@
+---
+title: What is compactness?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is compactness?">
+
+Compactness is one of the most important properties a topological space can have. Informally it captures the idea of being "closed and bounded" — but in a way that works for any topological space, not just subsets of <Term k="RR">$\mathbb{R}^n$</Term>.
+
+<Callout kind="remark" title="Two roads to compactness">
+For metric spaces there are two equivalent ways to define compactness:
+
+1. **Sequential compactness** — every sequence has a convergent subsequence. Natural and hands-on.
+2. **Open-cover compactness** — every open cover has a finite subcover. More abstract, but works for general topological spaces.
+
+We start with the sequential version, then connect to the open-cover version.
+</Callout>
+
+Sequences in metric spaces behave well (they detect convergence, closure, continuity). The sequential definition takes advantage of this. For general topological spaces sequences become unreliable, so the open-cover definition is the one that travels.
+
+</SlideLayout>

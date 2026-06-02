@@ -1,0 +1,26 @@
+---
+title: Uniform continuity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Uniform continuity">
+
+Ordinary continuity says: for each point and each $\varepsilon$, find a $\delta$ that works near that point. The $\delta$ can depend on where you are. **Uniform** continuity says the same $\delta$ must work everywhere at once.
+
+<Callout kind="definition" title="Uniformly continuous">
+A function $f \colon M \to N$ of metric spaces is <Term k="uniformlyContinuous">**uniformly continuous**</Term> if for every $\varepsilon > 0$ there exists $\delta > 0$ (depending only on $\varepsilon$) such that
+$$d_M(x,y) < \delta \implies d_N(f(x), f(y)) < \varepsilon.$$
+</Callout>
+
+**Examples:**
+- $x \mapsto 2x$ on $\mathbb{R}$: take $\delta = \varepsilon/2$. Works everywhere — uniformly continuous.
+- $x \mapsto x^2$ on $\mathbb{R}$: near $x = 1000$, a change of $\delta = 0.01$ causes a change of about $20$ in the output. Not uniformly continuous on all of $\mathbb{R}$.
+- $x \mapsto x^2$ on $[0,1]$: the derivative is bounded by $2$, so $\delta = \varepsilon/2$ works. **Uniformly continuous** on the compact domain.
+
+<Callout kind="proposition" title="Continuous on compact ⟹ uniformly continuous">
+If $M$ is compact and $f \colon M \to N$ is continuous, then $f$ is uniformly continuous.
+</Callout>
+
+</SlideLayout>

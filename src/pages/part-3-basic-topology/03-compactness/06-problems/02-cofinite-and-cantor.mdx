@@ -1,0 +1,28 @@
+---
+title: Problems — cofinite topology and Cantor intersection
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Problems — cofinite topology and Cantor intersection">
+
+<Problem
+  client:load
+  id="cpt-prob-cofinite-quasicompact"
+  prompt="Let X be an infinite set with the cofinite topology: the open sets are ∅ and all sets whose complement is finite. Show that X is quasicompact but not Hausdorff."
+  hint="For quasicompactness: any open cover must include a set U whose complement is finite, leaving only finitely many uncovered points. For non-Hausdorff: any two nonempty open sets intersect."
+  solution="Quasicompact: Take any open cover {Uα} of X. Pick any nonempty Uα₀. Its complement is finite, say {p₁, …, pₙ}. Each pᵢ is covered by some Uαᵢ. Then {Uα₀, Uα₁, …, Uαₙ} is a finite subcover. Not Hausdorff: given distinct points x, y ∈ X, any open set containing x has finite complement, so it intersects any open set containing y (both have cofinite complement, and X is infinite, so their intersection is nonempty). No disjoint open neighborhoods exist."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="cpt-prob-cantor-intersection"
+  prompt="Let X be a compact topological space and K₀ ⊇ K₁ ⊇ K₂ ⊇ ··· an infinite chain of nested nonempty closed subsets. Show that ∩ₙ Kₙ ≠ ∅."
+  hint="Suppose the intersection is empty and derive a contradiction by considering the open sets Uₙ = X \ Kₙ."
+  solution="Suppose ∩ₙ Kₙ = ∅. Let Uₙ = X \\ Kₙ; these are open since the Kₙ are closed. Since ∩ Kₙ = ∅, every x ∈ X lies outside some Kₙ, i.e. x ∈ Uₙ. So {Uₙ} is an open cover of X. By compactness, finitely many suffice: X = Uₙ₁ ∪ ··· ∪ Uₙₘ. Taking N = max(n₁, …, nₘ), we get X = Uₙ₁ ∪ ··· ∪ Uₙₘ ⊆ Uₙ (since the Uₙ are increasing — Kₙ decreasing means Uₙ increasing). But then Kₙ = X \\ Uₙ = ∅, contradicting Kₙ ≠ ∅."
+  difficulty="standard"
+/>
+
+</SlideLayout>

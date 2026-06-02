@@ -1,0 +1,24 @@
+---
+title: Compact implies totally bounded
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Compact implies totally bounded">
+
+The power of compactness is this: even a "blithely stupid" open cover — one set per point — can be reduced to a finite collection. That reduction buys us finite control over infinite spaces.
+
+<Callout kind="definition" title="Totally bounded">
+A metric space $M$ is <Term k="totallyBounded">**totally bounded**</Term> if for every $\varepsilon > 0$, $M$ can be covered by finitely many open balls of radius $\varepsilon$.
+</Callout>
+
+<Callout kind="proposition" title="Compact ⟹ totally bounded">
+Every compact metric space $M$ is totally bounded.
+</Callout>
+
+**Proof using covers:** For each $p \in M$, take the $\varepsilon$-neighborhood $U_p$ of $p$. The collection $\{U_p\}_{p \in M}$ covers $M$ for the obvious reason: $p \in U_p$. By compactness, finitely many $U_p$'s cover $M$. Those finitely many $\varepsilon$-balls witness total boundedness.
+
+This proof pattern — "take a neighborhood per point, extract finite subcover" — is the canonical compactness argument. We'll use it again for images of compact maps and for the Lebesgue number lemma.
+
+</SlideLayout>

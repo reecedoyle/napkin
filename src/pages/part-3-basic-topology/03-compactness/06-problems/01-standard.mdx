@@ -1,0 +1,27 @@
+---
+title: Problems — homeomorphisms and discrete spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — homeomorphisms and discrete spaces">
+
+<Problem
+  client:load
+  id="cpt-prob-closed-open-not-homeo"
+  prompt="Show that the closed interval [0,1] and the open interval (0,1) are not homeomorphic."
+  hint="[0,1] is compact."
+  solution="Compactness is preserved under homeomorphism: if f: X → Y is a homeomorphism and X is compact, then Y is compact (since f(X) = Y is a continuous image of a compact space). But [0,1] is compact and (0,1) is not compact (the sequence 1/2, 1/3, 1/4, … has no subsequence converging to a point in (0,1)). So no homeomorphism between them can exist."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="cpt-prob-discrete-compact"
+  prompt="Let X be a topological space with the discrete topology. Under what conditions is X compact?"
+  hint="If and only if X is finite."
+  solution="If X is finite, every open cover is finite (there are only finitely many points to cover), so any cover is already a finite subcover — X is compact. Conversely, if X is infinite, consider the cover by all singletons {x} for x ∈ X. Each {x} is open in the discrete topology. This cover has no finite subcover (any finite subcollection misses all but finitely many points). So X is not compact."
+  difficulty="standard"
+/>
+
+</SlideLayout>

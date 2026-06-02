@@ -1,0 +1,27 @@
+---
+title: Problems — Tychonoff and Bolzano-Weierstraß
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Tychonoff and Bolzano-Weierstraß">
+
+<Problem
+  client:load
+  id="cpt-prob-tychonoff"
+  prompt="Let X and Y be compact metric spaces. Show that X × Y is compact."
+  hint="Given a sequence pᵢ = (xᵢ, yᵢ), first use compactness of X to extract a subsequence where the x-coordinates converge. Then use compactness of Y on the resulting filtered y-sequence."
+  solution="Given a sequence pᵢ = (xᵢ, yᵢ) in X × Y: by compactness of X, the sequence (xᵢ) has a convergent subsequence, say xᵢ₁, xᵢ₄, xᵢ₉, xᵢ₁₆, … → x. Now consider the corresponding y-terms yᵢ₁, yᵢ₄, yᵢ₉, yᵢ₁₆, …. By compactness of Y this has a further convergent subsequence, say yᵢ₁, yᵢ₁₆, yᵢ₈₁, … → y. The same index selection applies to the x-terms: a subsequence of a convergent sequence converges to the same limit. So the subsequence pᵢ₁, pᵢ₁₆, pᵢ₈₁, … converges to (x, y) in X × Y. A common mistake is extracting convergent subsequences for x and y independently — those could correspond to entirely different index sets. The correct argument applies compactness of Y only to the already-filtered sequence."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="cpt-prob-bzw"
+  prompt="Prove that a metric space M is sequentially compact if and only if it is complete and totally bounded."
+  hint="Mimic the bisection proof for [0,1]. Total boundedness provides the pigeonhole: cover M by finitely many ε-balls, so infinitely many sequence terms land in one ball."
+  solution="(⇒) If M is sequentially compact, it is complete: any Cauchy sequence has a convergent subsequence, and a Cauchy sequence with a convergent subsequence converges itself. It is totally bounded: given ε > 0, if M cannot be covered by finitely many ε-balls, pick x₁, then x₂ with d(x₂,x₁) ≥ ε, then x₃ with d(x₃,xᵢ) ≥ ε for i = 1,2, etc. This sequence has no convergent subsequence, contradicting sequential compactness. (⇐) Given a sequence (xₙ) in M: since M is totally bounded, cover by finitely many (1/2)-balls. Infinitely many xₙ lie in one ball; keep only those terms. Cover that ball's portion of M by finitely many (1/4)-balls, pick the one with infinitely many terms, and keep those. Continue: at step k we have an infinite subsequence confined to a set of diameter at most 1/2^(k-1). The resulting diagonal subsequence is Cauchy, hence converges by completeness."
+  difficulty="daggered"
+/>
+
+</SlideLayout>

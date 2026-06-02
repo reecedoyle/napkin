@@ -1,0 +1,30 @@
+---
+title: Uniform continuity proof
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Uniform continuity proof">
+
+<Callout kind="proposition" title="Continuous on compact ⟹ uniformly continuous">
+If $M$ is <Term k="compact">compact</Term> and $f \colon M \to N$ is continuous, then $f$ is <Term k="uniformlyContinuous">uniformly continuous</Term>.
+</Callout>
+
+**Proof by contradiction (using sequences):** Fix $\varepsilon > 0$, and suppose uniform continuity fails. Then for every $\delta = 1/k$ there exist points $x_k, y_k \in M$ with $d(x_k, y_k) < 1/k$ but $d(f(x_k), f(y_k)) \ge \varepsilon$.
+
+By compactness of $M$, extract a convergent subsequence $x_{i_k} \to p$. Since $d(x_{i_k}, y_{i_k}) < 1/i_k \to 0$, we also have $y_{i_k} \to p$.
+
+By sequential continuity of $f$ at $p$, both $f(x_{i_k})$ and $f(y_{i_k})$ converge to $f(p)$. But we assumed $d(f(x_{i_k}), f(y_{i_k})) \ge \varepsilon > 0$ for all $k$ — a contradiction.
+
+<NumericInput
+  client:load
+  id="cpt-app-num-uniform-delta"
+  prompt="The function f(x) = 3x is uniformly continuous on ℝ. If ε = 0.6, what is the largest δ that works in the definition? (Enter a decimal.)"
+  expected="0.2"
+  placeholder="a number"
+  explanation="Uniform continuity of f(x) = 3x requires |f(x) - f(y)| = 3|x - y| < ε whenever |x - y| < δ. So we need 3δ ≤ ε, giving δ = ε/3 = 0.6/3 = 0.2."
+/>
+
+</SlideLayout>

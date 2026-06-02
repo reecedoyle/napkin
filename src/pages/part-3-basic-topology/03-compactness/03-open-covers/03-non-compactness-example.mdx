@@ -1,0 +1,23 @@
+---
+title: Non-compactness via open covers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Non-compactness via open covers">
+
+<Callout kind="example" title="[0,1) is not compact">
+The space $X = [0,1)$ is not compact. Consider the open sets
+$$U_m = \left[0,\, 1 - \tfrac{1}{m+1}\right) \quad \text{for } m = 1, 2, 3, \dots$$
+
+These cover $X$: every $x \in [0,1)$ satisfies $x < 1$, so $x < 1 - \frac{1}{m+1}$ for large enough $m$, hence $x \in U_m$.
+
+But no **finite** collection of the $U_m$'s covers $X$. If we take $U_1, U_2, \dots, U_N$, the largest is $U_N = [0, 1 - \frac{1}{N+1})$, which does not contain the point $1 - \frac{1}{2(N+1)}$.
+</Callout>
+
+Intuitively: the cover "sneaks up on 1 from below", and the missing boundary point at 1 means no finite collection suffices.
+
+We can also see failure via sequences: the sequence $x_n = 1 - \frac{1}{n}$ is Cauchy in $[0,1)$ but its limit $1$ is not in the space. This witnesses that $[0,1)$ is not even complete — and completeness is necessary for compactness.
+
+</SlideLayout>
