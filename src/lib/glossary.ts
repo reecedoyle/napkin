@@ -1074,11 +1074,6 @@ export const glossary = {
     symbol: '\\ell^2',
     definition: 'The space of infinite real (or complex) sequences (a₁, a₂, …) with Σ|aᵢ|² < ∞, equipped with the inner product ⟨a,b⟩ = Σaᵢb̄ᵢ. It is an infinite-dimensional Hilbert space with orthonormal basis {eₖ} (standard unit sequences).',
   },
-  hilbertSpace: {
-    term: 'Hilbert space',
-    definition: 'An inner product space whose associated metric space (with distance d(v,w) = ‖v−w‖) is complete — every Cauchy sequence converges. Hilbert spaces allow well-defined infinite orthogonal sums Σcᵢeᵢ whenever Σ|cᵢ|² < ∞.',
-    example: 'Every finite-dimensional inner product space is a Hilbert space. The sequence space ℓ² (sequences with Σaᵢ² < ∞) is an infinite-dimensional Hilbert space.',
-  },
   orthogonal: {
     term: 'Orthogonal vectors',
     symbol: '\\langle v, w \\rangle = 0',
@@ -1153,23 +1148,6 @@ export const glossary = {
     definition: 'The transpose of a matrix M is formed by reflecting its entries over the main diagonal: the (i,j) entry of Mᵀ is the (j,i) entry of M. For a linear map T, the matrix of T∨ in the dual bases is the transpose of the matrix of T.',
     example: 'If M = [[1,3,5],[2,4,6]], then Mᵀ = [[1,2],[3,4],[5,6]].',
   },
-  innerProductSpace: {
-    term: 'Inner product space',
-    symbol: '(V, \\langle -, - \\rangle)',
-    definition: 'A vector space V equipped with an inner product ⟨u,v⟩: a positive-definite sesquilinear form. Over ℝ this is a real inner product (symmetric bilinear form); over ℂ it is Hermitian sesquilinear.',
-    example: 'ℝⁿ with ⟨u,v⟩ = u₁v₁ + ··· + uₙvₙ is the standard real inner product space.',
-  },
-  orthonormalBasis: {
-    term: 'Orthonormal basis',
-    symbol: 'e_1, \\dots, e_n',
-    definition: 'A basis e₁, …, eₙ of an inner product space in which ⟨eᵢ, eⱼ⟩ = 1 if i = j and 0 otherwise. Every finite-dimensional inner product space has an orthonormal basis (by Gram–Schmidt).',
-    example: 'The standard basis of ℝⁿ is orthonormal for the dot product.',
-  },
-  sesquilinear: {
-    term: 'Sesquilinear form',
-    definition: 'A map ⟨-,-⟩: V × V → ℂ that is linear in the first argument and conjugate-linear in the second: ⟨u, cv⟩ = c̄⟨u,v⟩. The complex inner product is sesquilinear. "Sesqui" means one-and-a-half: half linear on each side.',
-    example: 'On ℂ², ⟨(a,b),(c,d)⟩ = ac̄ + bd̄ is sesquilinear.',
-  },
   adjointMap: {
     term: 'Adjoint',
     symbol: 'T^\\dagger',
@@ -1196,12 +1174,6 @@ export const glossary = {
   },
 
   // ────────────── Chapter 11 — Dual space and trace ──────────────
-  directSum: {
-    term: 'Direct sum',
-    symbol: 'V \\oplus W',
-    definition: 'The direct sum of vector spaces V and W: pairs (v, w) with componentwise addition and scalar multiplication. Satisfies dim(V ⊕ W) = dim V + dim W.',
-    example: 'ℝ² ⊕ ℝ³ ≅ ℝ⁵.',
-  },
   tensorProduct: {
     term: 'Tensor product',
     symbol: 'V \\otimes_k W',
@@ -1213,18 +1185,6 @@ export const glossary = {
     symbol: 'v \\otimes w',
     definition: 'An element of V ⊗ W of the form v ⊗ w for a single v ∈ V and w ∈ W. General elements of V ⊗ W are sums of pure tensors; not every element is itself a pure tensor.',
     example: 'In ℝ[x] ⊗ ℝ[y] = ℝ[x,y], the monomial x²y is the pure tensor x² ⊗ y, but xy + 1 is not a pure tensor.',
-  },
-  dualSpace: {
-    term: 'Dual space',
-    symbol: 'V^\\vee',
-    definition: 'For a k-vector space V, the dual space V∨ is the set of all linear maps from V to k, with pointwise addition and scalar multiplication. If dim V = n then dim V∨ = n.',
-    example: 'The dual of ℝ³ is the space of row vectors [a, b, c], where each row vector acts on column vectors by matrix multiplication.',
-  },
-  dualBasis: {
-    term: 'Dual basis',
-    symbol: 'e_i^\\vee',
-    definition: 'If e₁, …, eₙ is a basis of V, the dual basis element eᵢ∨: V → k is the linear map defined by eᵢ∨(eⱼ) = 1 if i = j and 0 otherwise. It extracts the i-th coordinate of a vector. The collection e₁∨, …, eₙ∨ is a basis of V∨.',
-    example: 'In ℝ³ with the standard basis, e₁∨ is the map (x,y,z) ↦ x (extract the first coordinate).',
   },
   homSpace: {
     term: 'Hom space',
