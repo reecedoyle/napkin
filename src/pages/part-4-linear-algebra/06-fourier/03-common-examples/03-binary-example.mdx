@@ -1,0 +1,33 @@
+---
+title: Binary Fourier — worked example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Binary Fourier — worked example">
+
+Let $n = 2$. The four characters are $1, x_1, x_2, x_1 x_2$.
+
+<Callout kind="example" title="Fourier decomposition of an indicator function">
+Let $f$ be the function that equals $1$ at $(1,1)$ and $0$ elsewhere. We can write
+
+$$f(x_1, x_2) = \frac{x_1+1}{2} \cdot \frac{x_2+1}{2} = \frac{1}{4}(1 + x_1 + x_2 + x_1 x_2).$$
+
+So the Fourier coefficients are $\wh{f}(S) = \frac{1}{4}$ for each of the four subsets $S \subseteq \{1,2\}$.
+</Callout>
+
+The empty-set frequency has a special interpretation:
+
+$$\wh{f}(\varnothing) = \langle f, \chi_\varnothing \rangle = \frac{1}{|Z|} \sum_{x \in Z} f(x)$$
+
+which is just the **average value** of $f$ over all inputs.
+
+<NumericInput
+  client:load
+  id="four-ex-binary-num-avg"
+  prompt="For the indicator f above (equals 1 only at (1,1), 0 elsewhere), what is f̂(∅)? Enter as a fraction like 1/4."
+  expected={0.25}
+/>
+
+</SlideLayout>

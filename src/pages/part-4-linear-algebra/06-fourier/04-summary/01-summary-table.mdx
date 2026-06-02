@@ -1,0 +1,24 @@
+---
+title: Summary table — flavors of Fourier analysis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Summary table — flavors of Fourier analysis">
+
+All three examples fit the same template: pick a domain $Z$, give it an inner product, find an orthonormal basis of characters. Here is the map:
+
+| Type | Physical variable | Frequency variable | Characters |
+|---|---|---|---|
+| Binary | $\{\pm1\}^n$ | Subsets $S \subseteq \{1,\dots,n\}$ | $\prod_{s\in S} x_s$ |
+| Finite group | $Z$ | $\xi \in Z$ (with choice of $\cdot$) | $e(\xi \cdot x)$ |
+| Fourier series | $[-\pi,\pi]$ | $n \in \ZZ$ | $\exp(inx)$ |
+| Discrete | $\Zc{n}$ | $\xi \in \Zc{n}$ | $e(\xi x / n)$ |
+
+The discrete row ($Z = \Zc{n}$) is a special case of the finite-group row.
+
+<Callout kind="remark" title="Binary analysis is a special case of finite groups">
+The group $\{\pm1\}^n$ under pointwise multiplication is isomorphic to $(\ZZ/2\ZZ)^n$. With the right dot product, the characters $e_\xi$ coincide with the monomials $\chi_S$. Binary Fourier analysis is subsumed by finite-group Fourier analysis.
+</Callout>
+
+</SlideLayout>

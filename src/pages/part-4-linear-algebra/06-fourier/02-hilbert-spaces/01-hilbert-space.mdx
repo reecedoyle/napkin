@@ -1,0 +1,20 @@
+---
+title: Hilbert spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hilbert spaces">
+
+A <Term k="hilbertSpace">Hilbert space</Term> is an inner product space that is *complete* — Cauchy sequences converge. Every finite-dimensional inner product space over $\CC$ is automatically a Hilbert space. The classical example $L^2([-\pi, \pi])$ is infinite-dimensional but still Hilbert.
+
+<Callout kind="remark" title="Why completeness?">
+Completeness is needed to guarantee that infinite sums (Fourier series) actually converge to something inside the space. For finite domains — like $\{\pm1\}^n$ or $\ZZ/n\ZZ$ — this is trivially true. For $L^2([-\pi, \pi])$ it is a genuine theorem.
+</Callout>
+
+The good news: **you can safely treat infinite-dimensional Hilbert spaces like finite-dimensional ones** for the purposes of this chapter. The algebraic formulas (Parseval, Plancherel, inversion) all look the same; only the convergence bookkeeping changes, and the text explicitly invites you to close your eyes about that.
+
+Throughout, $\langle -, - \rangle$ denotes the inner product and $\lVert f \rVert^2 = \langle f, f \rangle$.
+
+</SlideLayout>

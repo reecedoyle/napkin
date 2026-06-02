@@ -1,0 +1,26 @@
+---
+title: Arrow's theorem — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Arrow's theorem — statement">
+
+We impose one symmetry assumption: $\mathbb{E} f = \mathbb{E} g = \mathbb{E} h = 0$, where $\mathbb{E} f$ is the average of $f$ over all $2^n$ inputs. This rules out constant functions that ignore voter preferences entirely.
+
+<Callout kind="theorem" title="Arrow's Impossibility Theorem (Fourier version)">
+Suppose $(f, g, h)$ always avoids paradoxical outcomes, and $\mathbb{E} f = \mathbb{E} g = \mathbb{E} h = 0$. Then $(f,g,h)$ is a **dictatorship** or **anti-dictatorship**: there exists a voter $k$ such that
+
+$$f(x_\bullet) = \pm x_k, \quad g(y_\bullet) = \pm y_k, \quad h(z_\bullet) = \pm z_k$$
+
+where all three signs coincide.
+</Callout>
+
+In other words: the only paradox-free symmetric voting mechanisms are those where a single voter's preferences determine the global outcome (possibly with everyone's preferences flipped). Any other rule *will* sometimes produce a Condorcet cycle.
+
+<Callout kind="remark">
+The classical Arrow theorem also assumes $f(+1,\dots,+1) = +1$ (unanimity), which rules out anti-dictatorship. Our version is slightly more general.
+</Callout>
+
+</SlideLayout>

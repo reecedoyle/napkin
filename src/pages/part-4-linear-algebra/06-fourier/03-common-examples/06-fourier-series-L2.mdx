@@ -1,0 +1,28 @@
+---
+title: Fourier series on L²([−π, π])
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fourier series on L²([−π, π])">
+
+The most famous example. The domain $Z$ is now a continuous interval, so the function space is infinite-dimensional.
+
+<Callout kind="definition" title="L²([−π, π])">
+The space <Term k="lTwo">$L^2([-\pi,\pi])$</Term> consists of functions $f \colon [-\pi,\pi] \to \CC$ for which $\int_{-\pi}^\pi |f(x)|^2\, dx$ is finite, with inner product
+
+$$\langle f, g \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x)\,\overline{g(x)}\, dx.$$
+</Callout>
+
+<Callout kind="theorem" title="The classical Fourier basis">
+For each $n \in \ZZ$ define $e_n(x) = \exp(inx)$. The functions $(e_n)_{n \in \ZZ}$ form an orthonormal basis of $L^2([-\pi,\pi])$.
+</Callout>
+
+The frequencies are now all integers $n \in \ZZ$, so this is an **infinite** orthonormal basis. The expansion is
+
+$$f(x) = \sum_{n \in \ZZ} \wh{f}(n)\, \exp(inx) \quad \text{almost everywhere}$$
+
+and we call $\wh{f} \colon \ZZ \to \CC$ the **Fourier series** of $f$. The word "series" (as opposed to "transform") reflects that the index set $\ZZ$ is discrete and infinite.
+
+</SlideLayout>

@@ -1,0 +1,36 @@
+---
+title: Multilinear polynomials as a basis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Multilinear polynomials as a basis">
+
+The characters for binary Fourier analysis are indexed by subsets $S \subseteq \{1, \dots, n\}$.
+
+<Callout kind="definition" title="Multilinear monomials χ_S">
+For each subset $S \subseteq \{1, \dots, n\}$, define
+
+$$\chi_S(x_1, \dots, x_n) = \prod_{s \in S} x_s.$$
+
+By convention $\chi_\varnothing \equiv 1$ (the empty product).
+</Callout>
+
+There are exactly $2^n$ subsets of $\{1, \dots, n\}$, matching the dimension of $\CC^Z$.
+
+<ProofReveal
+  client:load
+  id="four-ex-binary-orthonormal"
+  prompt="Show the χ_S are orthonormal: ⟨χ_S, χ_T⟩ = 1 if S = T and 0 otherwise."
+  solution="We compute ⟨χ_S, χ_T⟩ = (1/2ⁿ)∑ₓ χ_S(x)χ_T(x). Since x_i ∈ {±1} we have x_i² = 1, so χ_S(x)χ_T(x) = χ_{S△T}(x) (the symmetric difference). If S = T then S△T = ∅ and χ∅ ≡ 1, giving average 1. If S ≠ T there exists some i ∈ S△T. Averaging over x_i ∈ {±1} (with all other coordinates fixed) gives average 0, since x_i contributes ±1 with equal probability."
+/>
+
+The Fourier expansion in binary analysis is therefore:
+
+$$f(x_1, \dots, x_n) = \sum_{S \subseteq \{1,\dots,n\}} \wh{f}(S)\, \chi_S(x_1, \dots, x_n).$$
+
+The frequencies are <Term k="subsetFreq">subsets $S$</Term>, not numbers!
+
+</SlideLayout>

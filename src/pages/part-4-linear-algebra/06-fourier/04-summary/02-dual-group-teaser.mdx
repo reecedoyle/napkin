@@ -1,0 +1,25 @@
+---
+title: Pontryagin duality — a teaser
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pontryagin duality — a teaser">
+
+Every example above can be rephrased: functions from a domain $G$ expand in terms of characters indexed by a *dual domain* $\wh G$.
+
+| Name | Domain $G$ | Dual $\wh G$ | Characters |
+|---|---|---|---|
+| Binary | $\{\pm1\}^n$ | $S \subseteq \{1,\dots,n\}$ | $\prod_{s\in S} x_s$ |
+| Finite group | $Z$ | $\wh Z \cong Z$ | $e(\xi \cdot x)$ |
+| Fourier series | $\TT \cong [-\pi,\pi]$ | $\ZZ$ | $\exp(inx)$ |
+| Discrete | $\ZZ/n\ZZ$ | $\ZZ/n\ZZ$ | $e(\xi x/n)$ |
+
+The pattern: the **dual group** $\wh G$ is the set of group homomorphisms $G \to \TT$. For a finite abelian group $\wh G \cong G$. For $\TT$, the dual is $\ZZ$.
+
+<Callout kind="remark" title="Pontryagin duality">
+In general, for a locally compact abelian group $G$ with an appropriate notion of integration, every function $f \colon G \to \CC$ expands in terms of characters $\wh G \to \TT$. This is <Term k="pontryaginDuality">Pontryagin duality</Term>. It unifies all the examples above and more.
+</Callout>
+
+</SlideLayout>

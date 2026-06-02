@@ -1,0 +1,30 @@
+---
+title: Fourier analysis on finite abelian groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fourier analysis on finite abelian groups">
+
+Now let $Z$ be any <Term k="finiteAbelianGroup">finite abelian group</Term>. Functions $Z \to \CC$ form a $|Z|$-dimensional space with the same averaging inner product:
+
+$$\langle f, g \rangle = \frac{1}{|Z|} \sum_{x \in Z} f(x)\,\overline{g(x)}.$$
+
+To define characters we need a way to "multiply" a frequency $\xi$ by a physical point $x$ and land in $\TT$.
+
+<Callout kind="definition" title="Symmetric non-degenerate bilinear form · : Z × Z → 𝕋">
+A map $\cdot \colon Z \times Z \to \TT$ that is:
+
+- **Bilinear:** $\xi \cdot (x_1 + x_2) = \xi \cdot x_1 + \xi \cdot x_2$ (and similarly in $\xi$),
+- **Symmetric:** $\xi \cdot x = x \cdot \xi$,
+- **Non-degenerate:** for any $\xi \neq 0$, there exists $x$ with $\xi \cdot x \neq 0$.
+</Callout>
+
+<Callout kind="example" title="The form on ℤ/nℤ">
+If $Z = \Zc{n}$, take $\xi \cdot x = \frac{\xi x}{n} \in \TT$. This is bilinear (multiplication distributes), symmetric, and non-degenerate (for $\xi \neq 0$, take $x = 1$).
+</Callout>
+
+The choice of $\cdot$ will not matter for our main results — but we need *some* such form to define the characters.
+
+</SlideLayout>

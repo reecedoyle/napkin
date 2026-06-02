@@ -1,0 +1,28 @@
+---
+title: Basel problem — setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basel problem — setup">
+
+One elegant application of Parseval: computing $\sum_{n \ge 1} \frac{1}{n^2}$.
+
+<Callout kind="theorem" title="Basel problem">
+$$\sum_{n \ge 1} \frac{1}{n^2} = \frac{\pi^2}{6}.$$
+</Callout>
+
+The strategy: find a function $f \in L^2([-\pi,\pi])$ whose Fourier coefficients involve $\frac{1}{n}$, then apply Parseval to get $\sum_n |\wh{f}(n)|^2$ in closed form.
+
+**The function:** $f(x) = x$ on $[-\pi, \pi]$. This is square-integrable (it's bounded), so $f \in L^2([-\pi,\pi])$.
+
+By Parseval:
+
+$$\sum_{n \in \ZZ} |\wh{f}(n)|^2 = \langle f, f \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} x^2\, dx.$$
+
+A direct calculus computation gives:
+
+$$\frac{1}{2\pi} \int_{-\pi}^{\pi} x^2\, dx = \frac{\pi^2}{3}.$$
+
+</SlideLayout>

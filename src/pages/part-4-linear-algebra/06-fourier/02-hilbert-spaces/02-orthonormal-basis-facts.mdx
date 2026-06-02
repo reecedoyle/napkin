@@ -1,0 +1,30 @@
+---
+title: Facts about orthonormal bases
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Facts about orthonormal bases">
+
+These three identities are the engine behind every named result in Fourier analysis (Parseval, Plancherel, inversion). They are pure linear-algebra facts — no analysis needed when the space is finite-dimensional.
+
+<Callout kind="proposition" title="Facts about orthonormal bases">
+Let $V$ be a complex <Term k="hilbertSpace">Hilbert space</Term> with orthonormal basis $(e_\xi)_\xi$. Write $x = \sum_\xi a_\xi e_\xi$ and $y = \sum_\xi b_\xi e_\xi$. Then:
+
+$$\langle x, x \rangle = \sum_\xi |a_\xi|^2$$
+
+$$a_\xi = \langle x, e_\xi \rangle$$
+
+$$\langle x, y \rangle = \sum_\xi a_\xi \overline{b_\xi}$$
+</Callout>
+
+<ProofReveal
+  client:load
+  id="four-hilbert-proof-onb-facts"
+  prompt="Prove all three identities."
+  solution="The second identity is the standard expansion formula: since ⟨eξ, eξ'⟩ = δξξ', we get ⟨x, eξ⟩ = ⟨∑ξ' aξ' eξ', eξ⟩ = ∑ξ' aξ' ⟨eξ', eξ⟩ = aξ. The first identity follows: ⟨x, x⟩ = ⟨∑ξ aξ eξ, ∑ξ' aξ' eξ'⟩ = ∑ξ,ξ' aξ āξ' ⟨eξ, eξ'⟩ = ∑ξ |aξ|². The third is the same bilinearity argument applied to ⟨x, y⟩ = ⟨∑ξ aξ eξ, ∑ξ' bξ' eξ'⟩ = ∑ξ aξ b̄ξ."
+/>
+
+</SlideLayout>

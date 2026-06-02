@@ -1,0 +1,29 @@
+---
+title: Problems — Basel and Arrow lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Basel and Arrow lemma">
+
+Two problems for this chapter. The first extends the Basel computation; the second is the key lemma behind the Arrow proof.
+
+<Problem
+  client:load
+  id="four-prob-sum-n4"
+  prompt="(For calculus fans.) Prove that ∑_{n≥1} 1/n⁴ = π⁴/90."
+  hint="Use Parseval again, but this time on f(x) = x². Compute ‖f‖² = (1/2π)∫_{−π}^{π} x⁴ dx and the Fourier coefficients f̂(n) for f(x) = x²."
+  solution="Take f(x) = x². Then ‖f‖² = (1/2π)∫x⁴ dx = π⁴/5. For the Fourier coefficients: f̂(0) = (1/2π)∫x² dx = π²/3. For n ≠ 0, integration by parts twice gives f̂(n) = 2(−1)ⁿ/n². By Parseval: |f̂(0)|² + 2∑_{n≥1}|f̂(n)|² = π⁴/5, i.e., π⁴/9 + 2∑_{n≥1} 4/n⁴ = π⁴/5. Solving: 8∑ 1/n⁴ = π⁴/5 − π⁴/9 = 4π⁴/45, so ∑ 1/n⁴ = π⁴/90."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="four-prob-arrow-lemma"
+  prompt="Let f, g, h: {±1}ⁿ → {±1} be any three functions. For each voter i, randomly choose (xᵢ, yᵢ, zᵢ) ∈ {±1}³ uniformly from the 6 consistent (not-all-equal) triples. Prove that the probability that f(x•) = g(y•) = h(z•) equals (1/4) + (1/4)∑_S (−1/3)^|S| (f̂(S)ĝ(S) + ĝ(S)ĥ(S) + ĥ(S)f̂(S))."
+  hint="Define D(a,b,c) = ab + bc + ca. Compute D for each of the 8 values in {±1}³ (noting D = 3 when all equal, D = −1 otherwise). Express Pr[paradox] using D, then expand f, g, h in the Fourier basis and compute the expected value by independence."
+  solution="Define D(a,b,c) = ab + bc + ca. Checking: D = 3 when (a,b,c) are all equal; D = −1 otherwise. So Pr[f(x•)=g(y•)=h(z•)] = E[(1 + D(f(x•), g(y•), h(z•)))/4]. Expanding f = ∑_S f̂(S)χ_S and similarly g, h, we get E[D] = ∑_{S,T} (f̂(S)ĝ(T) + ĝ(S)ĥ(T) + ĥ(S)f̂(T)) E[χ_S(x•)χ_T(y•)]. By independence of voters, E[χ_S(x•)χ_T(y•)] = 0 if S ≠ T. When S = T, E[χ_S(x•)χ_S(y•)] = E[∏_{s∈S} xₛyₛ]. Since (xₛ, yₛ, zₛ) is uniform over 6 consistent triples, xₛyₛ = 1 with prob 1/3 and −1 with prob 2/3 (verifiable by enumeration), giving E[xₛyₛ] = −1/3. By independence across coordinates, E[∏_{s∈S} xₛyₛ] = (−1/3)^|S|. Substituting back gives the formula."
+  difficulty="standard"
+/>
+
+</SlideLayout>

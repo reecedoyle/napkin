@@ -863,6 +863,80 @@ export const glossary = {
     definition: 'The size of any basis of a free R-module. Analogous to dimension for vector spaces. The rank-dimension analogy breaks for non-free modules.',
     example: 'ℤ² has rank 2 as a ℤ-module. ℤ[√5] has rank 2 as a ℤ-module.',
   },
+
+  // ────────────── Chapter 14 — Bonus: Fourier analysis ──────────────
+  hilbertSpace: {
+    term: 'Hilbert space',
+    definition: 'A complete inner product space over ℝ or ℂ. "Complete" means every Cauchy sequence converges to a point in the space. Every finite-dimensional inner product space is automatically a Hilbert space. The space L²([−π, π]) is an infinite-dimensional example.',
+    example: 'ℂⁿ with the standard dot product; L²([−π, π]) with ⟨f,g⟩ = (1/2π)∫f(x)ḡ(x)dx.',
+  },
+  innerProduct: {
+    term: 'Inner product',
+    symbol: '\\langle f, g \\rangle',
+    definition: 'A sesquilinear, conjugate-symmetric, positive-definite form on a complex vector space. For function spaces it is usually an average or integral of f(x)·ḡ(x). It generalises the dot product to infinite-dimensional settings.',
+    example: 'On L²([−π, π]): ⟨f, g⟩ = (1/2π)∫f(x)ḡ(x)dx.',
+  },
+  fourierCoeff: {
+    term: 'Fourier coefficient',
+    symbol: '\\widehat{f}(\\xi)',
+    definition: 'The coordinate of a function f in the character basis. Given an orthonormal basis (eξ) of a function space, f̂(ξ) = ⟨f, eξ⟩. The map ξ ↦ f̂(ξ) is the Fourier transform of f.',
+    example: 'For f(x) = x on [−π, π], the Fourier coefficients are f̂(0) = 0 and f̂(n) = (−1)ⁿ i/n for n ≠ 0.',
+  },
+  circleGroup: {
+    term: 'Circle group 𝕋',
+    symbol: '\\mathbb{T}',
+    definition: 'The additive group ℝ/ℤ of real numbers modulo 1, canonically identified with the unit circle in ℂ via the map e(θ) = exp(2πiθ). It is the natural frequency domain for continuous periodic Fourier analysis.',
+  },
+  character: {
+    term: 'Character (Fourier)',
+    definition: 'A function eξ in the orthonormal basis of a function space used for Fourier analysis. Characters are chosen to be "symmetric" — typically complex exponentials or roots of unity. The index ξ is the frequency.',
+    example: 'For functions on ℤ/nℤ, the characters are eξ(x) = exp(2πiξx/n).',
+  },
+  physicalVariable: {
+    term: 'Physical variable',
+    definition: 'The input variable x ∈ Z of the function f: Z → ℂ being analysed. Distinguished from the frequency variable ξ, which indexes the characters. The name comes from physics, where x might be time or position.',
+  },
+  binaryFunction: {
+    term: 'Boolean / binary function',
+    definition: 'A function f: {±1}ⁿ → {±1} (or more generally {±1}ⁿ → ℂ). Binary Fourier analysis decomposes such functions into multilinear monomials χ_S = ∏_{s∈S} xₛ. These are the characters for the group ({±1}ⁿ, ·).',
+    example: 'Majority(x₁, x₂, x₃) = sign(x₁ + x₂ + x₃) is a Boolean function on {±1}³.',
+  },
+  subsetFreq: {
+    term: 'Subset frequency (binary Fourier)',
+    definition: 'In binary Fourier analysis on {±1}ⁿ, the frequencies are subsets S ⊆ {1, …, n}. The character χ_S is the monomial ∏_{s∈S} xₛ. The Fourier coefficient f̂(S) = ⟨f, χ_S⟩ captures the "influence" of the coordinates in S on f.',
+  },
+  finiteAbelianGroup: {
+    term: 'Finite abelian group',
+    definition: 'A group that is both finite (finitely many elements) and abelian (commutative). By the fundamental theorem, every finite abelian group is isomorphic to a direct sum of cyclic groups ℤ/n₁ℤ ⊕ ··· ⊕ ℤ/nₖℤ.',
+    example: 'ℤ/6ℤ, ℤ/2ℤ ⊕ ℤ/2ℤ, {±1}ⁿ (under pointwise multiplication).',
+  },
+  rootsOfUnityFilter: {
+    term: 'Roots of unity filter',
+    definition: 'An olympiad technique that extracts every k-th term of a sum by averaging with k-th roots of unity. It is exactly Fourier analysis on ℤ/kℤ: if ω = exp(2πi/k), then (1/k)∑_{j=0}^{k-1} ωʲⁿ = 1 if k | n, else 0.',
+    example: 'To sum C(1000, 0) + C(1000, 3) + ··· + C(1000, 999), apply the roots of unity filter with k = 3.',
+  },
+  lTwo: {
+    term: 'L²([−π, π])',
+    symbol: 'L^2([-\\pi,\\pi])',
+    definition: 'The Hilbert space of square-integrable complex-valued functions on [−π, π], with inner product ⟨f,g⟩ = (1/2π)∫f(x)ḡ(x)dx. It is infinite-dimensional and has an orthonormal basis of complex exponentials eₙ(x) = exp(inx) for n ∈ ℤ.',
+  },
+  pontryaginDuality: {
+    term: 'Pontryagin duality',
+    definition: 'A duality for locally compact abelian groups G: every such group has a dual group Ĝ (the group of continuous homomorphisms G → 𝕋), and (Ĝ)̂ ≅ G. Fourier analysis on G expands functions in terms of characters indexed by Ĝ. For finite abelian groups Ĝ ≅ G; for 𝕋, Ĝ = ℤ.',
+  },
+  parsevalThm: {
+    term: "Parseval's theorem",
+    definition: "States that the sum (or integral) of |f̂(ξ)|² over all frequencies ξ equals the average of |f(x)|² over the domain. In other words, the Fourier transform preserves the L² norm: ‖f̂‖² = ‖f‖². A consequence of writing f in an orthonormal basis.",
+    example: 'For f: Z → ℂ on a finite group: ∑ξ |f̂(ξ)|² = (1/|Z|)∑ₓ |f(x)|².',
+  },
+  plancherelThm: {
+    term: "Plancherel's theorem",
+    definition: 'Generalises Parseval: the Fourier transform is a unitary (inner-product-preserving) isometry between the function space and the frequency space. Concretely, ⟨f, g⟩ = ∑ξ f̂(ξ)ĝ(ξ)̄. Parseval is the special case f = g.',
+  },
+  votingMechanism: {
+    term: 'Voting mechanism',
+    definition: 'In the Fourier proof of Arrow\'s theorem, a triple of functions (f, g, h): {±1}ⁿ → {±1} that aggregate voters\' pairwise preferences into a global preference. f(x•) gives A-vs-B, g(y•) gives B-vs-C, h(z•) gives C-vs-A.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
