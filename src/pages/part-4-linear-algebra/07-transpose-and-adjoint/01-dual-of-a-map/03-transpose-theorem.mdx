@@ -1,0 +1,29 @@
+---
+title: Transpose interpretation of the dual map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Transpose interpretation of the dual map">
+
+The example was not a coincidence.
+
+<Callout kind="theorem" title="Transpose interpretation of T∨">
+Let $V$ and $W$ be finite-dimensional $k$-vector spaces, with basis $(e_i)$ for $V$ and $(f_j)$ for $W$.
+For any $T \colon V \to W$, the matrix of $T^\vee \colon W^\vee \to V^\vee$ expressed in the
+<Term k="dualBasis">dual bases</Term> $(f_j^\vee)$, $(e_i^\vee)$ is exactly the
+<Term k="transposeMatrix">transpose</Term> of the matrix of $T$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="trn-dual-proof-transpose"
+  prompt="Why is the (i,j) entry of the matrix of T∨ equal to the (j,i) entry of T?"
+  solution="The (i,j) entry of T is the coefficient of f_i in T(e_j). Applying T∨ to f_i∨ gives f_i∨ ∘ T, which sends e_j to that same coefficient. So the (j,i) entry of T∨ (the coefficient of e_j∨ in T∨(f_i∨)) equals the (i,j) entry of T."
+/>
+
+The key payoff: the definition of $T^\vee$ is completely **basis-free**. This means whatever basis you choose, $T$ and $T^\vee$ will always appear as transposes of each other.
+
+</SlideLayout>

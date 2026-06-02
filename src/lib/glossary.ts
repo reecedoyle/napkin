@@ -755,6 +755,38 @@ export const glossary = {
     symbol: 'f(X)',
     definition: 'The set of all output values of f: X → Y, written f(X) or f[X]. In Napkin notation this is sometimes written f^im(X). A continuous image of a compact space is compact.',
   },
+
+  // ────────────── Chapter 15 — Duals, adjoint, and transposes ──────────────
+  dualSpace: {
+    term: 'Dual space',
+    symbol: 'V^\\vee',
+    definition: 'The dual space V∨ of a vector space V is the set of all linear maps V → k (the base field), with pointwise addition and scalar multiplication. If V has dimension n, then V∨ also has dimension n.',
+    example: 'The dual of ℝ³ is the space of linear functionals ℝ³ → ℝ, which is itself isomorphic to ℝ³.',
+  },
+  linearFunctional: {
+    term: 'Linear functional',
+    symbol: 'f \\colon V \\to k',
+    definition: 'A linear map from a vector space V to its base field k. Elements of the dual space V∨ are exactly the linear functionals on V.',
+    example: 'On ℝ², the map (x, y) ↦ 3x − 2y is a linear functional.',
+  },
+  dualMap: {
+    term: 'Dual map',
+    symbol: 'T^\\vee',
+    definition: 'Given a linear map T : V → W, the dual map T∨ : W∨ → V∨ sends each functional f ∈ W∨ to the functional f ∘ T ∈ V∨. The arrow direction reverses.',
+    example: 'If T sends basis vectors e₁, e₂ to specific combinations of f₁, f₂, then T∨ sends f₁∨, f₂∨ according to the transposed matrix.',
+  },
+  dualBasis: {
+    term: 'Dual basis',
+    symbol: 'e_1^\\vee, \\dots, e_n^\\vee',
+    definition: 'Given a basis e₁, …, eₙ of V, the dual basis e₁∨, …, eₙ∨ of V∨ is defined by eᵢ∨(eⱼ) = 1 if i = j and 0 otherwise. It is a basis for V∨.',
+    example: 'In ℝ² with standard basis e₁ = (1,0), e₂ = (0,1): e₁∨ is the functional (x,y) ↦ x, and e₂∨ is (x,y) ↦ y.',
+  },
+  transposeMatrix: {
+    term: 'Transpose',
+    symbol: 'M^\\top',
+    definition: 'The transpose of a matrix M is formed by reflecting its entries over the main diagonal: the (i,j) entry of Mᵀ is the (j,i) entry of M. For a linear map T, the matrix of T∨ in the dual bases is the transpose of the matrix of T.',
+    example: 'If M = [[1,3,5],[2,4,6]], then Mᵀ = [[1,2],[3,4],[5,6]].',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
