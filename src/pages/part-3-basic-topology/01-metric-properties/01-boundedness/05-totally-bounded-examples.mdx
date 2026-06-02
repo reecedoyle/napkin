@@ -1,0 +1,33 @@
+---
+title: Examples of totally bounded spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of totally bounded spaces">
+
+<Callout kind="example" title="Totally bounded spaces">
+
+- Any **bounded subset of $\mathbb{R}^n$** is totally bounded. If a set fits inside a single disk of radius $r$, then for any $\varepsilon > 0$ we can cover it by finitely many disks of radius $\varepsilon$. (This is a geometric fact about Euclidean space we accept without full proof here.)
+- In particular, $[0,1]$, $(0,1)$, and $[0,2] \times [0,3]$ are all totally bounded.
+
+</Callout>
+
+<Callout kind="example" title="Bounded but NOT totally bounded">
+
+The <Term k="discreteMetric">discrete metric</Term> on an infinite set is bounded (all distances $\le 1$), but **not** totally bounded. Every $\frac{1}{2}$-ball contains exactly one point, so covering an infinite set with finitely many such balls is impossible.
+
+</Callout>
+
+The key contrast:
+
+| Space | Bounded? | Totally bounded? |
+|---|---|---|
+| $[0,1]$ | Yes | Yes |
+| $\mathbb{R}$ | No | No |
+| $\mathbb{N}$ with discrete metric | Yes | No |
+
+Total boundedness is the right notion if you want "finite in spirit" — and we'll see it reappear when we define compactness.
+
+</SlideLayout>

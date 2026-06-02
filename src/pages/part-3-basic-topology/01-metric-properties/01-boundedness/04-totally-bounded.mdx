@@ -1,0 +1,26 @@
+---
+title: Totally bounded metric spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Totally bounded metric spaces">
+
+The discrete-on-$\mathbb{N}$ example shows that "bounded" can feel degenerate — an infinite set where every pair is exactly 1 apart. A stronger condition rules this out by requiring that the space can be **covered** by finitely many small neighborhoods, no matter how small.
+
+<Callout kind="definition" title="Totally bounded">
+A <Term k="metricSpace">metric space</Term> $M$ is **totally bounded** if for every <Term k="eps">$\varepsilon > 0$</Term>, we can cover $M$ with finitely many <Term k="rNeighborhood">$\varepsilon$-neighborhoods</Term>.
+</Callout>
+
+Picture $[0,1]^2$: for $\varepsilon = 1/2$, four disks of radius $1/2$ centered near the four corners cover the unit square. No matter how small $\varepsilon$ is, finitely many disks of that radius always suffice.
+
+<Callout kind="proposition">
+Totally bounded implies bounded.
+</Callout>
+
+**Proof.** Fix $\varepsilon = 1$. By total boundedness, finitely many $1$-balls $B_1(p_1), \dots, B_1(p_k)$ cover $M$. Take $D = 2 + \max_{i,j} d(p_i, p_j)$; triangle inequality gives $d(x,y) \le D$ for all $x, y \in M$.
+
+The converse fails: the discrete metric on $\mathbb{N}$ is bounded but **not** totally bounded, since covering it with $\frac{1}{2}$-balls would require one ball per point.
+
+</SlideLayout>

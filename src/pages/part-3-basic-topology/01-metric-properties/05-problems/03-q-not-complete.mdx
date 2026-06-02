@@ -1,0 +1,20 @@
+---
+title: Problems — ℚ is not homeomorphic to a complete space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — ℚ is not homeomorphic to a complete space">
+
+A challenging result showing that even though completeness is not a topological invariant, the rationals ℚ are topologically *special*: no space homeomorphic to ℚ can be complete.
+
+<Problem
+  client:load
+  id="mtp-prob-q-not-complete"
+  prompt="Prove that ℚ (with the usual metric) is not homeomorphic to any complete metric space."
+  hint="The standard proof uses the Baire category theorem: in a complete metric space, a countable intersection of dense open sets is dense (in particular, nonempty). Show ℚ violates this."
+  solution="Suppose for contradiction that ℚ is homeomorphic to a complete metric space X via some homeomorphism φ: ℚ → X. The Baire category theorem states that in a complete metric space, a countable intersection of dense open sets is dense. Enumerate the rationals as q₁, q₂, q₃, … For each n, the set Uₙ = X \ {φ(qₙ)} is open and dense in X (removing a single point from a metric space leaves a dense open set). The intersection ∩Uₙ = X \ φ(ℚ) = X \ X = ∅ is not dense (it's empty). This contradicts Baire's theorem, so no such complete X can be homeomorphic to ℚ."
+  difficulty="starred"
+/>
+
+</SlideLayout>

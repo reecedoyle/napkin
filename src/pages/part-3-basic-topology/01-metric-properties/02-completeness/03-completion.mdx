@@ -1,0 +1,24 @@
+---
+title: Completing a metric space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Completing a metric space">
+
+Every metric space can be "fixed" by adding in the missing limit points.
+
+<Callout kind="theorem" title="Completion">
+Every <Term k="metricSpace">metric space</Term> $M$ can be completed: there exists a complete metric space $\overline{M}$ containing $M$ as a <Term k="denseSubset">dense</Term> subspace (every nonempty open set of $\overline{M}$ contains a point of $M$).
+</Callout>
+
+The construction: declare two Cauchy sequences equivalent if their terms get arbitrarily close, then let $\overline{M}$ be the set of equivalence classes. Checking this works is left as a problem.
+
+<Callout kind="example" title="Completing ℚ gives ℝ">
+The completion of <Term k="QQ">$\mathbb{Q}$</Term> (with the usual absolute-value metric) is <Term k="RR">$\mathbb{R}$</Term>. This is sometimes taken as the **definition** of $\mathbb{R}$: the real numbers are (equivalence classes of) Cauchy sequences of rationals.
+</Callout>
+
+This explains why $\mathbb{Q}$ feels "almost like $\mathbb{R}$" but with gaps — those gaps are exactly the Cauchy sequences that fail to converge inside $\mathbb{Q}$.
+
+</SlideLayout>

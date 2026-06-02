@@ -1,0 +1,29 @@
+---
+title: Problems — Banach fixed point and two metrics
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Banach fixed point and two metrics">
+
+Two problems on completeness in action. The first is a cornerstone theorem of analysis; the second probes whether metric properties really depend on the choice of metric.
+
+<Problem
+  client:load
+  id="mtp-prob-banach-fixed-point"
+  prompt="Let M = (M, d) be a complete metric space. Suppose T: M → M is a continuous map such that d(T(p), T(q)) ≤ 0.999·d(p,q) for all p, q ∈ M. (We call T a contraction.) Show that T has a unique fixed point."
+  hint="Start at any x₀ ∈ M and form the sequence x₁ = T(x₀), x₂ = T(x₁), and so on. Show this is Cauchy."
+  solution="Uniqueness: if T(p) = p and T(q) = q with p ≠ q, then d(p,q) = d(T(p),T(q)) ≤ 0.999·d(p,q) < d(p,q), a contradiction. So there is at most one fixed point. Existence: pick any x₀. Let r = 0.999 and c = d(x₀, x₁). By induction d(xₙ, xₙ₊₁) < rⁿ·c. For M < N, triangle inequality gives d(x_M, x_N) < (r^M + r^{M+1} + ··· + r^{N-1})·c < r^M/(1−r) · c, which tends to 0 as M → ∞. So (xₙ) is Cauchy. Since M is complete, xₙ → x for some x ∈ M. Then T(x) = T(lim xₙ) = lim T(xₙ) = lim xₙ₊₁ = x (using continuity of T), so x is a fixed point."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="mtp-prob-two-metrics"
+  prompt="Equip ℝ with two metrics: d_M(x,y) = min{1, |x−y|} and d_N(x,y) = |eˣ − eʸ|. For each of M = (ℝ, d_M) and N = (ℝ, d_N), determine: (a) Is it complete? Bounded? Totally bounded? (b) Are M and N homeomorphic?"
+  hint="(a) M is complete and bounded but not totally bounded. N is neither complete nor bounded. (b) The identity map is a homeomorphism M ≅ ℝ ≅ N."
+  solution="(a) M: all distances are at most 1 (bounded), but finitely many ½-balls cannot cover ℝ (not totally bounded). A sequence converges in M iff it converges in the usual sense on ℝ, so M is complete. N: the sequence −1, −2, −3, … has d_N(−m, −n) = |e^{−m} − e^{−n}| → 0, so it is Cauchy, but it has no limit (it 'goes to −∞'). So N is not complete. N is also unbounded since d_N(0, x) = |1 − eˣ| is unbounded. (b) The identity map is continuous as a map M → ℝ (since d_M ≤ d_std) and its inverse is continuous (d_std ≥ d_M on small scales), giving M ≅ ℝ. Similarly, x ↦ eˣ is a homeomorphism ℝ → (0,∞), and (0,∞) with the metric |s−t| is homeomorphic to N via s = eˣ. So M ≅ N despite the fact that M is complete and bounded while N is neither. This shows these properties are not topological invariants."
+  difficulty="standard"
+/>
+
+</SlideLayout>

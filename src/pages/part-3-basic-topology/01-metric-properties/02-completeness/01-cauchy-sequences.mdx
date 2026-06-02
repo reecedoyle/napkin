@@ -1,0 +1,26 @@
+---
+title: Cauchy sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy sequences">
+
+Consider the decimal approximations to $\sqrt{2}$:
+$$x_1 = 1,\quad x_2 = 1.4,\quad x_3 = 1.41,\quad x_4 = 1.414,\quad \dots$$
+
+In <Term k="RR">$\mathbb{R}$</Term>, this <Term k="convergence">converges</Term> to $\sqrt{2}$. But in <Term k="QQ">$\mathbb{Q}$</Term>, there is no rational number it converges to — so the sequence has no limit inside $\mathbb{Q}$!
+
+Without knowing $\mathbb{R}$ existed, we would have no way to detect that this sequence is "approaching something". We need a definition that only mentions the terms themselves.
+
+<Callout kind="definition" title="Cauchy sequence">
+A sequence $x_1, x_2, \dots$ in a <Term k="metricSpace">metric space</Term> $(M, d_M)$ is **Cauchy** if for any <Term k="eps">$\varepsilon > 0$</Term>,
+$$d_M(x_m, x_n) < \varepsilon \quad \text{for all sufficiently large } m \text{ and } n.$$
+</Callout>
+
+In words: the terms of the sequence get arbitrarily close to **each other**, even if they don't approach any specific point in the space.
+
+Every convergent sequence is automatically Cauchy: if $x_n \to x$, then for large $m, n$ both $x_m$ and $x_n$ are close to $x$, hence close to each other.
+
+</SlideLayout>

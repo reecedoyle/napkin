@@ -1,0 +1,42 @@
+---
+title: Examples of bounded and unbounded spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of bounded and unbounded spaces">
+
+<Callout kind="example" title="Bounded spaces">
+
+- Finite intervals like $[0,1]$ and $(a,b)$ are bounded.
+- The unit square $[0,1]^2$ is bounded.
+- <Term k="discreteMetric">A discrete space</Term> on **any** set is bounded: all distances are either 0 or 1, so $D = 1$ works.
+
+</Callout>
+
+<Callout kind="example" title="Unbounded spaces">
+
+- <Term k="RRn">$\mathbb{R}^n$</Term> is not bounded for any $n \ge 1$.
+- <Term k="NN">$\mathbb{N}$</Term> (with the usual metric) is not bounded, even though it is homeomorphic to the discrete space on an infinite set!
+
+</Callout>
+
+The last point is a warning: boundedness is not a topological property — it is not preserved by homeomorphism.
+
+<MCQ
+  client:load
+  id="mtp-bnd-mcq-discrete"
+  prompt="The discrete metric space on ℕ assigns d(m,n) = 1 whenever m ≠ n. Is it bounded?"
+  options={[
+    { id: "a", label: "No — ℕ is infinite so the diameter must be infinite" },
+    { id: "b", label: "Yes — all pairwise distances are at most 1, so D = 1 works" },
+    { id: "c", label: "Depends — bounded only if we include 0 as a natural number" },
+    { id: "d", label: "No — boundedness requires the space to be compact" },
+  ]}
+  correct="b"
+  explanation="With the discrete metric every two distinct points are exactly 1 apart, so d(p,q) ≤ 1 for all p, q. The diameter is 1 — the space is bounded despite being infinite. Boundedness is about pairwise distances, not cardinality or compactness."
+/>
+
+</SlideLayout>

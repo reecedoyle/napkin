@@ -1,0 +1,20 @@
+---
+title: Subspaces of metric spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Subspaces of metric spaces">
+
+We've been treating sets like $(0,1)$ and $S^1$ as metric spaces in their own right. Let's make this official.
+
+<Callout kind="definition" title="Subspace">
+Every subset $S \subseteq M$ of a <Term k="metricSpace">metric space</Term> $(M, d)$ is itself a metric space, using the **same distance function** restricted to $S \times S$. We call $S$ a **subspace** of $M$.
+</Callout>
+
+For example, the <Term k="unitSphere">unit circle $S^1$</Term> is a subspace of <Term k="RRn">$\mathbb{R}^2$</Term>. We reuse the Euclidean distance; we just restrict it to pairs of points on the circle.
+
+This is why we could talk about sequences converging "in $(0,1)$" versus "in $\mathbb{R}$": the same sequence can converge in one ambient space but not in another, depending on where the limit lives.
+
+</SlideLayout>

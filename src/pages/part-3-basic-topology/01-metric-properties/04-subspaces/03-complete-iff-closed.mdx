@@ -1,0 +1,28 @@
+---
+title: Complete subspaces are closed
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Complete subspaces are closed">
+
+Here is a satisfying connection between the absolute adjective "complete" and the relative adjective "closed".
+
+<Callout kind="proposition" title="Complete iff closed in a complete space">
+Let $M$ be a <Term k="completeSpace">complete</Term> metric space and $S \subseteq M$ a subspace. Then $S$ is complete if and only if $S$ is <Term k="closedSet">closed in $M$</Term>.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="mtp-sub-proof-complete-closed"
+  prompt="Prove: S is complete ⟺ S is closed in M (where M is complete)."
+  solution="(⇒) Suppose S is complete. Let (xₙ) be a sequence in S converging in M to some x ∈ M. Since (xₙ) converges, it is Cauchy. Since S is complete, (xₙ) must converge to some point in S. Limits are unique, so x ∈ S. Hence S contains all its limit points, i.e. S is closed. (⇐) Suppose S is closed in M. Let (xₙ) be a Cauchy sequence in S. Since M is complete and (xₙ) is Cauchy in M, it converges to some x ∈ M. Because S is closed and xₙ ∈ S for all n, the limit x must be in S. So (xₙ) converges in S, proving S is complete."
+/>
+
+This is why $[0,1]$ is complete: it's a closed subset of the complete space $\mathbb{R}$.
+
+And $(0,1)$ fails to be complete for exactly the same reason it fails to be closed in $\mathbb{R}$.
+
+</SlideLayout>
