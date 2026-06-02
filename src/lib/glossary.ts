@@ -757,6 +757,18 @@ export const glossary = {
   },
 
   // ────────────── Chapter 13 — Inner product spaces ──────────────
+  norm: {
+    term: 'Norm',
+    symbol: '\\|v\\|',
+    definition: 'The norm of a vector v in an inner product space: ‖v‖ = √⟨v,v⟩. It measures the "length" of v and is always a non-negative real number, equalling zero only when v = 0.',
+    example: 'On ℝ³, ‖(3,4,0)‖ = √(9+16+0) = 5.',
+  },
+  cauchySchwarz: {
+    term: 'Cauchy-Schwarz inequality',
+    symbol: '|\\langle v, w \\rangle| \\le \\|v\\|\\|w\\|',
+    definition: 'For any two vectors v, w in an inner product space, |⟨v,w⟩| ≤ ‖v‖‖w‖. Equality holds if and only if v and w are linearly dependent. The key step to proving the triangle inequality.',
+    example: 'In ℝ², |u·v| ≤ |u||v| with equality when u and v are parallel.',
+  },
   innerProductSpace: {
     term: 'Inner product space',
     definition: 'A real or complex vector space equipped with an inner product — a function ⟨·,·⟩ that is (conjugate-)symmetric, (sesqui-)linear, and positive definite. It generalises the familiar dot product on ℝⁿ.',

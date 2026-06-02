@@ -1,0 +1,26 @@
+---
+title: Triangle inequality and metric structure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Triangle inequality and metric structure">
+
+From Cauchy-Schwarz we get the triangle inequality, which makes $V$ a <Term k="metricSpace">metric space</Term>.
+
+<Callout kind="theorem" title="Triangle inequality">
+For any $v, w$ in an inner product space,
+
+$$\norm{v + w} \leq \norm{v} + \norm{w},$$
+
+with equality if and only if $v$ and $w$ are linearly dependent and point in the same direction.
+</Callout>
+
+**Proof sketch.** Square both sides: the right side becomes $\norm{v}^2 + 2\norm{v}\norm{w} + \norm{w}^2$. The left side expands to $\norm{v}^2 + 2\,\Re\langle v, w \rangle + \norm{w}^2$. Since $\Re\langle v,w \rangle \leq |\langle v,w \rangle| \leq \norm{v}\norm{w}$ (by <Term k="cauchySchwarz">Cauchy-Schwarz</Term>), the inequality follows.
+
+<Callout kind="remark" title="V becomes a metric space">
+Define $d(v, w) = \norm{v - w}$. The triangle inequality shows this satisfies the metric axiom $d(v, w) \leq d(v, u) + d(u, w)$. And $d(v,w) = 0 \iff v = w$ by positive-definiteness. So every inner product space carries a natural <Term k="metricSpace">metric space</Term> structure.
+</Callout>
+
+</SlideLayout>
