@@ -1,0 +1,27 @@
+---
+title: Problems — row rank and complex conjugate spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — row rank and complex conjugate spaces">
+
+<Problem
+  client:load
+  id="trn-prob-row-rank"
+  prompt="Let M be an m×n matrix over a field k. The column rank of M is the dimension of the span of its n column vectors in k^m; the row rank is the dimension of the span of its m row vectors in k^n. Prove that the row rank equals the column rank."
+  hint="This is the previous problem in disguise. The column rank equals dim(im T) and the row rank equals dim(im T∨)."
+  solution="Let T : k^n → k^m be the linear map encoded by M. The column rank of M equals dim(im T) and the row rank equals dim(im T∨). By the fundamental theorem (previous problem), dim(im T) = dim(im T∨). Hence row rank equals column rank."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="trn-prob-complex-conj-space"
+  prompt="Let V = (V, +, ·) be a complex vector space. Define the complex conjugate vector space V̄ = (V, +, ∗) by c ∗ v = c̄ · v. Show that for any sesquilinear inner form on V, the map V̄ → V∨ given by v ↦ ⟨−, v⟩ is an isomorphism of complex vector spaces."
+  hint="Check that v ↦ ⟨−, v⟩ is linear as a map from V̄: compute what happens when you scale by c in V̄ (using the conjugated scalar multiplication ∗)."
+  solution="The map φ: V̄ → V∨ is given by φ(v) = ⟨−, v⟩. We check linearity over ℂ in V̄: φ(c ∗ v) = ⟨−, c̄v⟩ = c⟨−, v⟩ = c · φ(v), using sesquilinearity. So φ is linear from V̄ to V∨. By the same argument as for the real case, φ is injective (take v as the input: ⟨v, v⟩ = 0 only if v = 0) and dim V̄ = dim V∨, so φ is an isomorphism."
+  difficulty="standard"
+/>
+
+</SlideLayout>

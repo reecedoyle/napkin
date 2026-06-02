@@ -1121,6 +1121,79 @@ export const glossary = {
     symbol: '\\langle v, w \\rangle = \\overline{\\langle w, v \\rangle}',
     definition: 'A property of complex inner products: ⟨v,w⟩ = ⟨w,v⟩ with a complex conjugate. This forces ⟨v,v⟩ to be a real number for every v, making positive-definiteness meaningful over ℂ.',
   },
+
+  // ────────────── Chapter 15 — Duals, adjoint, and transposes ──────────────
+  dualSpace: {
+    term: 'Dual space',
+    symbol: 'V^\\vee',
+    definition: 'The dual space V∨ of a vector space V is the set of all linear maps V → k (the base field), with pointwise addition and scalar multiplication. If V has dimension n, then V∨ also has dimension n.',
+    example: 'The dual of ℝ³ is the space of linear functionals ℝ³ → ℝ, which is itself isomorphic to ℝ³.',
+  },
+  linearFunctional: {
+    term: 'Linear functional',
+    symbol: 'f \\colon V \\to k',
+    definition: 'A linear map from a vector space V to its base field k. Elements of the dual space V∨ are exactly the linear functionals on V.',
+    example: 'On ℝ², the map (x, y) ↦ 3x − 2y is a linear functional.',
+  },
+  dualMap: {
+    term: 'Dual map',
+    symbol: 'T^\\vee',
+    definition: 'Given a linear map T : V → W, the dual map T∨ : W∨ → V∨ sends each functional f ∈ W∨ to the functional f ∘ T ∈ V∨. The arrow direction reverses.',
+    example: 'If T sends basis vectors e₁, e₂ to specific combinations of f₁, f₂, then T∨ sends f₁∨, f₂∨ according to the transposed matrix.',
+  },
+  dualBasis: {
+    term: 'Dual basis',
+    symbol: 'e_1^\\vee, \\dots, e_n^\\vee',
+    definition: 'Given a basis e₁, …, eₙ of V, the dual basis e₁∨, …, eₙ∨ of V∨ is defined by eᵢ∨(eⱼ) = 1 if i = j and 0 otherwise. It is a basis for V∨.',
+    example: 'In ℝ² with standard basis e₁ = (1,0), e₂ = (0,1): e₁∨ is the functional (x,y) ↦ x, and e₂∨ is (x,y) ↦ y.',
+  },
+  transposeMatrix: {
+    term: 'Transpose',
+    symbol: 'M^\\top',
+    definition: 'The transpose of a matrix M is formed by reflecting its entries over the main diagonal: the (i,j) entry of Mᵀ is the (j,i) entry of M. For a linear map T, the matrix of T∨ in the dual bases is the transpose of the matrix of T.',
+    example: 'If M = [[1,3,5],[2,4,6]], then Mᵀ = [[1,2],[3,4],[5,6]].',
+  },
+  innerProductSpace: {
+    term: 'Inner product space',
+    symbol: '(V, \\langle -, - \\rangle)',
+    definition: 'A vector space V equipped with an inner product ⟨u,v⟩: a positive-definite sesquilinear form. Over ℝ this is a real inner product (symmetric bilinear form); over ℂ it is Hermitian sesquilinear.',
+    example: 'ℝⁿ with ⟨u,v⟩ = u₁v₁ + ··· + uₙvₙ is the standard real inner product space.',
+  },
+  orthonormalBasis: {
+    term: 'Orthonormal basis',
+    symbol: 'e_1, \\dots, e_n',
+    definition: 'A basis e₁, …, eₙ of an inner product space in which ⟨eᵢ, eⱼ⟩ = 1 if i = j and 0 otherwise. Every finite-dimensional inner product space has an orthonormal basis (by Gram–Schmidt).',
+    example: 'The standard basis of ℝⁿ is orthonormal for the dot product.',
+  },
+  sesquilinear: {
+    term: 'Sesquilinear form',
+    definition: 'A map ⟨-,-⟩: V × V → ℂ that is linear in the first argument and conjugate-linear in the second: ⟨u, cv⟩ = c̄⟨u,v⟩. The complex inner product is sesquilinear. "Sesqui" means one-and-a-half: half linear on each side.',
+    example: 'On ℂ², ⟨(a,b),(c,d)⟩ = ac̄ + bd̄ is sesquilinear.',
+  },
+  adjointMap: {
+    term: 'Adjoint',
+    symbol: 'T^\\dagger',
+    definition: 'For a linear map T : V → W between finite-dimensional inner product spaces, the adjoint T† : W → V is the unique map satisfying ⟨v, T†(w)⟩_V = ⟨T(v), w⟩_W for all v ∈ V, w ∈ W. In an orthonormal basis, T† is represented by the conjugate transpose of the matrix of T.',
+    example: 'If T has matrix A in an orthonormal basis, then T† has matrix Ā^⊤ (conjugate of the transpose).',
+  },
+  conjugateTranspose: {
+    term: 'Conjugate transpose',
+    symbol: 'A^\\dagger',
+    definition: 'The conjugate transpose of a matrix A is formed by first transposing A (reflecting over the diagonal) and then taking the complex conjugate of every entry. Written A†, A*, or Ā^⊤. For real matrices this is just the ordinary transpose.',
+    example: 'If A = [[i, 2],[3, 4i]], then A† = [[-i, 3],[2, -4i]].',
+  },
+  normalMap: {
+    term: 'Normal linear map',
+    symbol: 'TT^\\dagger = T^\\dagger T',
+    definition: 'A linear map T on an inner product space is normal if it commutes with its adjoint: TT† = T†T. By the spectral theorem, T is normal if and only if there is an orthonormal basis of eigenvectors of T.',
+    example: 'Hermitian maps (T = T†) and unitary maps (T†T = I) are both normal. An upper triangular matrix with nonzero off-diagonal entries is generally not normal.',
+  },
+  hermitian: {
+    term: 'Hermitian (self-adjoint)',
+    symbol: 'T = T^\\dagger',
+    definition: 'A linear map T on an inner product space is Hermitian (or self-adjoint) if T = T†. In an orthonormal basis, the matrix of T equals its own conjugate transpose. Over ℝ this is called symmetric. Hermitian maps are normal with real eigenvalues.',
+    example: 'A real symmetric matrix (aᵢⱼ = aⱼᵢ) is Hermitian. The matrix [[1, i],[-i, 2]] is Hermitian over ℂ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

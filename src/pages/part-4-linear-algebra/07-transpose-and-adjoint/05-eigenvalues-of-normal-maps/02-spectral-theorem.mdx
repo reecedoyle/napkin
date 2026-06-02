@@ -1,0 +1,27 @@
+---
+title: The spectral theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The spectral theorem">
+
+<Callout kind="theorem" title="Normal ⟺ diagonalizable in an orthonormal basis">
+Let $V$ be a finite-dimensional **complex** <Term k="innerProductSpace">inner product space</Term>.
+A linear map $T \colon V \to V$ is <Term k="normalMap">normal</Term> if and only if there exists
+an <Term k="orthonormalBasis">orthonormal basis</Term> of $V$ consisting entirely of eigenvectors of $T$.
+</Callout>
+
+This is sometimes called the **spectral theorem** (for normal operators on finite-dimensional spaces).
+
+**Why this is surprising:** Recall Jordan form — even a map that is diagonalizable might not have an
+*orthonormal* basis of eigenvectors. The theorem says normality is exactly the condition that forces this.
+
+**Why the (⟸) direction is easy.** Write $T$ in the orthonormal eigenbasis; it becomes diagonal.
+A diagonal matrix $D$ satisfies $D D^\dagger = D^\dagger D$ (both equal to the diagonal matrix of $|\lambda_i|^2$).
+
+The hard direction is (⟹): normality forces diagonalizability, then the eigenvectors of distinct eigenvalues
+are automatically orthogonal.
+
+</SlideLayout>

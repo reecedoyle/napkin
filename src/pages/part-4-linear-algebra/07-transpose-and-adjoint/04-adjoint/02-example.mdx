@@ -1,0 +1,33 @@
+---
+title: Computing an adjoint over ℂ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Computing an adjoint over ℂ">
+
+Working over $\mathbb{C}$ makes the conjugation visible.
+
+Let $V$ have orthonormal basis $e_1, e_2, e_3$ and $W$ have orthonormal basis $f_1, f_2$, with
+$$
+T(e_1) = if_1 + 2f_2,\quad T(e_2) = 3f_1 + 4f_2,\quad T(e_3) = 5f_1 + 6if_2.
+$$
+
+We compute $T^\dagger(f_1)$: find the unique $x \in V$ with $\langle v, x \rangle_V = \langle T(v), f_1 \rangle_W$ for all $v$.
+
+Expanding $v = ae_1 + be_2 + ce_3$:
+$$
+\langle T(v), f_1 \rangle_W = ia + 3b + 5c.
+$$
+
+Since the inner product is <Term k="sesquilinear">sesquilinear</Term> (conjugate-linear in the second slot),
+to get the coefficients $i, 3, 5$ in $\langle v, x \rangle_V = \bar{x_1} a + \bar{x_2} b + \bar{x_3} c$
+we need $x_1 = -i$, $x_2 = 3$, $x_3 = 5$.
+
+<Callout kind="example" title="The conjugation">
+$$T^\dagger(f_1) = {-i}\,e_1 + 3e_2 + 5e_3.$$
+The coefficient $i$ in $T(e_1)$ became $-i$ in $T^\dagger(f_1)$ — the adjoint **conjugates** the entries.
+</Callout>
+
+</SlideLayout>

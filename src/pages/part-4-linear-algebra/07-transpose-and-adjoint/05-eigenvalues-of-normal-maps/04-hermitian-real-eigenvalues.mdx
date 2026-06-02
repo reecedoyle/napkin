@@ -1,0 +1,26 @@
+---
+title: Hermitian matrices have real eigenvalues
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Hermitian matrices have real eigenvalues">
+
+<Callout kind="theorem" title="Hermitian matrices have real eigenvalues">
+Every <Term k="hermitian">Hermitian</Term> (self-adjoint) linear map $T \colon V \to V$ is diagonalizable,
+and all of its eigenvalues are real.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="trn-eigen-proof-real-evals"
+  prompt="Assuming T is Hermitian (so T = T†), explain why all eigenvalues of T must be real."
+  solution="Since T is Hermitian it is normal, so by the spectral theorem it has an orthonormal basis of eigenvectors with eigenvalues λ₁, …, λₙ. In this basis T is diagonal with T = T† meaning each λᵢ = ̄λᵢ, which forces every λᵢ to be real."
+/>
+
+This is the advertised poster result for the chapter.
+A symmetric real matrix (think: covariance matrices in statistics, the Laplacian in physics) is always diagonalizable with real eigenvalues — because it is self-adjoint over $\mathbb{R}$.
+
+</SlideLayout>

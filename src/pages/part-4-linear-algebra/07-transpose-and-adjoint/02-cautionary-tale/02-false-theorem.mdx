@@ -1,0 +1,28 @@
+---
+title: A false theorem and its bogus proof
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A false theorem and its bogus proof">
+
+<Callout kind="remark" title="False theorem">
+For any $m \times n$ matrix $M$ over a field $k$, the matrices $M^\top M$ and $M$ have the same rank.
+</Callout>
+
+The proposed "proof" uses the non-canonical isomorphism $\iota \colon W \to W^\vee$ given by $e_i \mapsto e_i^\vee$.
+
+Pick "nice" bases $e_i$ of $V = k^n$ and $f_j$ of $W = k^m$ (from the rank theorem) so that
+$T(e_i) = f_i$ for $i \le k$ and $T(e_i) = 0$ for $i > k$.
+
+Then the composed map $V \xrightarrow{T} W \xrightarrow{\iota} W^\vee \xrightarrow{T^\vee} V^\vee$ sends:
+$$
+e_i \mapsto f_i \mapsto f_i^\vee \mapsto e_i^\vee \quad (i \le k),
+\qquad e_i \mapsto 0 \quad (i > k).
+$$
+
+The output is "clearly rank $k$" — matching $\operatorname{rank}(T)$.
+But the composed map is the matrix $M^\top N M$ where $N$ encodes $\iota$ — **not** $M^\top M$.
+
+</SlideLayout>

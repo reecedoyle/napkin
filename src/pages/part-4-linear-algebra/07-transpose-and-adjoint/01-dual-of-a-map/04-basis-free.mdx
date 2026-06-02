@@ -1,0 +1,37 @@
+---
+title: The basis-free view of transpose
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The basis-free view of transpose">
+
+Standard linear algebra defines the transpose of a matrix by reflecting entries over the diagonal.
+That definition depends on which basis you picked.
+
+The dual map gives a **basis-free** version of the same idea:
+
+<Callout kind="remark" title="Why T∨ is the right definition of transpose">
+$T^\vee$ is defined purely in terms of composition — no coordinates required.
+When you then choose any basis and write $T$ as a matrix, the matrix of $T^\vee$
+automatically comes out as the transpose.
+So "the transpose" is really a property of the map, not the matrix.
+</Callout>
+
+<MCQ
+  client:load
+  id="trn-dual-mcq-direction"
+  prompt="If T : V → W is a linear map, what is the domain of the dual map T∨?"
+  options={[
+    { id: "a", label: "V∨ (the dual of V)" },
+    { id: "b", label: "W∨ (the dual of W)" },
+    { id: "c", label: "V (unchanged)" },
+    { id: "d", label: "W (unchanged)" },
+  ]}
+  correct="b"
+  explanation="T∨ is defined by T∨(f) = f ∘ T for f ∈ W∨. So its domain is W∨ and its codomain is V∨ — the arrow reverses when we pass to duals."
+/>
+
+</SlideLayout>

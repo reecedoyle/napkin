@@ -1,0 +1,27 @@
+---
+title: The adjoint map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The adjoint map">
+
+For inner product spaces, the "right" companion to $T$ is not the dual map $T^\vee$ but the **adjoint** $T^\dagger$ — defined entirely within $V$ and $W$, without invoking dual spaces.
+
+<Callout kind="definition" title="Adjoint">
+Let $V$ and $W$ be finite-dimensional <Term k="innerProductSpace">inner product spaces</Term> and $T \colon V \to W$ a linear map.
+The **adjoint** (or **conjugate transpose**) of $T$, written $T^\dagger \colon W \to V$, is defined by:
+for every $w \in W$, $T^\dagger(w)$ is the unique vector in $V$ satisfying
+$$
+\langle v, T^\dagger(w) \rangle_V = \langle T(v), w \rangle_W \quad \text{for all } v \in V.
+$$
+</Callout>
+
+**Why $T^\dagger(w)$ is well-defined.** The map $v \mapsto \langle T(v), w \rangle_W$ is a linear functional on $V$.
+By the bijection $V \to V^\vee$ (from $\langle -, - \rangle$), this functional equals $\langle -, u \rangle_V$ for
+a unique $u \in V$. That $u$ is <Term k="adjointMap">$T^\dagger(w)$</Term>.
+
+The definition involves no basis and no dual spaces — just the inner product.
+
+</SlideLayout>

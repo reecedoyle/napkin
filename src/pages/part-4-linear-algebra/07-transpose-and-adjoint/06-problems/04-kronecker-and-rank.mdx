@@ -1,0 +1,27 @@
+---
+title: Problems — Kronecker product and rank of M†M
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Kronecker product and rank of M†M">
+
+<Problem
+  client:load
+  id="trn-prob-kronecker"
+  prompt="Find an equivalence between two definitions of the Kronecker product A ⊗ B: (1) the mathematician's version, A ⊗ B : V₁⊗V₂ → W₁⊗W₂ defined on simple tensors by v₁⊗v₂ ↦ A(v₁)⊗B(v₂); and (2) the computer scientist's version, where A is m×n and B is p×q, and A⊗B is the operator taking a q×n matrix X to the p×m matrix BXAᵀ."
+  hint="Pick standard bases and compute both sides on a basis element eⱼ⊗fₗ (where eⱼ is a basis vector for V₁ and fₗ for V₂). Express the result as a matrix and match it with BXAᵀ for X = EⱼₗT (the elementary matrix)."
+  solution="Work over ℝ with standard bases eⱼ for k^n (= V₁ = domain of A) and fₗ for k^q (= V₂ = domain of B). The tensor A⊗B sends eⱼ⊗fₗ to A(eⱼ)⊗B(fₗ) — the j-th column of A tensored with the l-th column of B. In matrix form, if we write a q×n matrix X as a sum ∑ Xₗⱼ Eₗⱼ, then A⊗B maps X (seen as an element of V₁⊗V₂) to ∑ Xₗⱼ A(eⱼ)⊗B(fₗ) = B·X·Aᵀ (the matrix whose (i,k) entry is ∑ⱼₗ Bᵢₗ Xₗⱼ Aₖⱼ = (BXAᵀ)ᵢₖ). This matches the computer scientist's definition."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="trn-prob-rank-mdagger-m"
+  prompt="Let M be an m×n matrix of complex numbers. Show that M†M and M have equal rank. Try to find a basis-free proof by showing ker(T†T) = ker(T) for any linear map T."
+  hint="Show directly that if T†T(v) = 0 then T(v) = 0, using the inner product."
+  solution="It suffices to show ker(T†T) = ker(T), since then rank(T†T) = dim V − dim ker(T†T) = dim V − dim ker(T) = rank(T). The inclusion ker(T) ⊆ ker(T†T) is clear (if T(v) = 0 then T†T(v) = T†(0) = 0). For the other direction: suppose T†T(v) = 0. Then ⟨v, T†T(v)⟩ = 0, i.e. ⟨T(v), T(v)⟩ = 0. By positive-definiteness of the inner product, T(v) = 0. So ker(T†T) ⊆ ker(T). Hence ker(T†T) = ker(T), and rank(M†M) = rank(M)."
+  difficulty="daggered"
+/>
+
+</SlideLayout>

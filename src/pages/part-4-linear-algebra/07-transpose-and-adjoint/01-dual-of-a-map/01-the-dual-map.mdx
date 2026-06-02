@@ -1,0 +1,32 @@
+---
+title: The dual map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The dual map">
+
+Recall that the <Term k="dualSpace">dual space</Term> $V^\vee$ of a vector space $V$ is the space of all linear maps $V \to k$.
+Each such map is called a <Term k="linearFunctional">linear functional</Term>.
+
+Given a linear map $T \colon V \to W$, we can build a companion map that goes the other way on the dual spaces.
+
+<Callout kind="definition" title="Dual map">
+Let $V$ and $W$ be vector spaces and $T \colon V \to W$ a linear map.
+The **dual map** (or **transpose map**)
+$$
+T^\vee \colon W^\vee \to V^\vee
+$$
+is defined by pre-composition: for any functional $f \in W^\vee$,
+$$
+T^\vee(f) = f \circ T.
+$$
+</Callout>
+
+The direction reverses: $T$ goes $V \to W$, while <Term k="dualMap">$T^\vee$</Term> goes $W^\vee \to V^\vee$.
+This reversal is the key feature.
+
+Linearity of $T^\vee$ follows immediately: composing linear maps preserves linearity.
+
+</SlideLayout>

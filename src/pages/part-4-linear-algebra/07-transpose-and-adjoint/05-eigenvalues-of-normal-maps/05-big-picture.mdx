@@ -1,0 +1,33 @@
+---
+title: Big picture — what we have proved
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Big picture — what we have proved">
+
+<Callout kind="remark" title="The chain of ideas">
+1. The **dual map** $T^\vee$ is defined basis-free by pre-composition; its matrix is the transpose of $T$'s matrix.
+2. An **inner product** gives a canonical bijection $V \to V^\vee$ (isomorphism over ℝ).
+3. The **adjoint** $T^\dagger$ is the inner-product version of the dual map; its matrix is the conjugate transpose.
+4. **Normal maps** commute with their adjoint; the spectral theorem says they are exactly the ones diagonalizable in an orthonormal basis.
+5. **Hermitian maps** are a special case; their eigenvalues are all real.
+</Callout>
+
+<MCQ
+  client:load
+  id="trn-eigen-mcq-hermitian"
+  prompt="A Hermitian (self-adjoint) matrix always has which of the following properties?"
+  options={[
+    { id: "a", label: "Only positive eigenvalues" },
+    { id: "b", label: "Only real eigenvalues, and is diagonalizable in an orthonormal basis" },
+    { id: "c", label: "Determinant equal to 1" },
+    { id: "d", label: "Invertibility" },
+  ]}
+  correct="b"
+  explanation="Hermitian implies normal, so by the spectral theorem it is diagonalizable in an orthonormal basis. The condition T = T† forces each eigenvalue λ to satisfy λ = λ̄, i.e. λ is real. But eigenvalues can be 0 (so not necessarily positive or invertible), and the determinant (product of eigenvalues) need not be 1."
+/>
+
+</SlideLayout>

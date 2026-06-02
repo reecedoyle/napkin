@@ -1,0 +1,29 @@
+---
+title: Problems — double dual and fundamental theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — double dual and fundamental theorem">
+
+Two foundational results: the first shows the double dual is canonically isomorphic to the original space; the second ties together all the dimensions you can read off a linear map.
+
+<Problem
+  client:load
+  id="trn-prob-double-dual"
+  prompt="Let V be a finite-dimensional vector space. Show that the map V → (V∨)∨ sending v ↦ (ξ ↦ ξ(v)) is an isomorphism. (This is significant because the isomorphism is canonical — it does not depend on any choice of basis.)"
+  hint="Pick any basis e₁, …, eₙ of V. Show the map sends eᵢ to (eᵢ∨)∨ — the dual basis element that evaluates at eᵢ. Conclude it is a bijection between bases, hence an isomorphism."
+  solution="Define φ: V → (V∨)∨ by φ(v)(ξ) = ξ(v). This is linear: φ(v₁+v₂)(ξ) = ξ(v₁+v₂) = ξ(v₁)+ξ(v₂) = (φ(v₁)+φ(v₂))(ξ). Pick basis e₁,…,eₙ with dual basis e₁∨,…,eₙ∨. Then φ(eᵢ)(eⱼ∨) = eⱼ∨(eᵢ) = δᵢⱼ = (eᵢ∨)∨(eⱼ∨), so φ(eᵢ) = (eᵢ∨)∨. Since φ sends a basis to a basis, it is an isomorphism. The definition used no basis — only the evaluation pairing — so the isomorphism is canonical."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="trn-prob-fundamental-theorem"
+  prompt="Let T : V → W be a linear map of finite-dimensional k-vector spaces. Prove that dim(im T) = dim(im T∨) = dim V − dim(ker T) = dim W − dim(ker T∨)."
+  hint="Apply the rank theorem (the 'linear map basis' theorem) to find bases of V and W in which T looks especially simple — then read off all four quantities."
+  solution="By the rank theorem, pick bases e₁,…,eₙ of V and f₁,…,fₘ of W so that T(eᵢ) = fᵢ for i ≤ k and T(eᵢ) = 0 for i > k (where k = rank T). In these bases, T∨(fᵢ∨) = eᵢ∨ for i ≤ k and T∨(fᵢ∨) = 0 for i > k. So: dim(im T) = k; dim(im T∨) = k; dim V − dim(ker T) = n − (n−k) = k; dim W − dim(ker T∨) = m − (m−k) = k. All four quantities equal k."
+  difficulty="standard"
+/>
+
+</SlideLayout>
