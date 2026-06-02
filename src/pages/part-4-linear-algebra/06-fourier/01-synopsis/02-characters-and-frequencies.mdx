@@ -1,0 +1,28 @@
+---
+title: Characters and frequencies
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Characters and frequencies">
+
+The key move is choosing a *good* orthonormal basis for the function space.
+
+<Callout kind="definition" title="Characters and frequencies">
+An **orthonormal basis** $(e_\xi)_\xi$ of the function space is called the **characters**. The indexing set — the variable $\xi$ — is called the set of **frequencies**. The variable $x \in Z$ on which $f$ is evaluated is the **physical variable**.
+</Callout>
+
+Once we have such a basis, every function $f \colon Z \to \CC$ expands as
+
+$$f(x) = \sum_\xi \wh{f}(\xi)\, e_\xi(x)$$
+
+where $\wh{f}(\xi) \in \CC$ are the <Term k="fourierCoeff">Fourier coefficients</Term>. The map $f \mapsto \wh{f}$ is the **Fourier transform**.
+
+The characters are deliberately chosen to be "nice" — periodic exponentials, multilinear monomials, or roots of unity. Writing $f$ in terms of them means we decompose an arbitrarily complicated function into a sum of simple, symmetric pieces.
+
+<Callout kind="remark">
+The physical variable $x$ and the frequency variable $\xi$ live in the same domain $Z$ for finite groups, but play very different roles. Don't confuse them — one is the "time" side, the other is the "frequency" side.
+</Callout>
+
+</SlideLayout>

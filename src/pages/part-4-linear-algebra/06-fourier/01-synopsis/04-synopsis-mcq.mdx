@@ -1,0 +1,25 @@
+---
+title: Synopsis — check your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Synopsis — check your understanding">
+
+Before diving into the three main examples, make sure the vocabulary is clear.
+
+<MCQ
+  client:load
+  id="four-synopsis-mcq-roles"
+  prompt="In Fourier analysis, which variable is called the 'physical variable'?"
+  options={[
+    { id: "a", label: "ξ (the frequency variable)" },
+    { id: "b", label: "x ∈ Z (the input to f)" },
+    { id: "c", label: "f̂(ξ) (the Fourier coefficient)" },
+    { id: "d", label: "eξ (the character)" },
+  ]}
+  correct="b"
+  explanation="The input x ∈ Z to the function f is the physical variable. The frequency ξ indexes the characters (basis functions), and f̂(ξ) are the Fourier coefficients — the coordinates of f in the character basis."
+/>
+
+</SlideLayout>

@@ -755,6 +755,34 @@ export const glossary = {
     symbol: 'f(X)',
     definition: 'The set of all output values of f: X → Y, written f(X) or f[X]. In Napkin notation this is sometimes written f^im(X). A continuous image of a compact space is compact.',
   },
+
+  // ────────────── Chapter 14 — Bonus: Fourier analysis ──────────────
+  innerProduct: {
+    term: 'Inner product',
+    symbol: '\\langle f, g \\rangle',
+    definition: 'A sesquilinear, conjugate-symmetric, positive-definite form on a complex vector space. For function spaces it is usually an average or integral of f(x)·ḡ(x). It generalises the dot product to infinite-dimensional settings.',
+    example: 'On L²([−π, π]): ⟨f, g⟩ = (1/2π)∫f(x)ḡ(x)dx.',
+  },
+  fourierCoeff: {
+    term: 'Fourier coefficient',
+    symbol: '\\widehat{f}(\\xi)',
+    definition: 'The coordinate of a function f in the character basis. Given an orthonormal basis (eξ) of a function space, f̂(ξ) = ⟨f, eξ⟩. The map ξ ↦ f̂(ξ) is the Fourier transform of f.',
+    example: 'For f(x) = x on [−π, π], the Fourier coefficients are f̂(0) = 0 and f̂(n) = (−1)ⁿ i/n for n ≠ 0.',
+  },
+  circleGroup: {
+    term: 'Circle group 𝕋',
+    symbol: '\\mathbb{T}',
+    definition: 'The additive group ℝ/ℤ of real numbers modulo 1, canonically identified with the unit circle in ℂ via the map e(θ) = exp(2πiθ). It is the natural frequency domain for continuous periodic Fourier analysis.',
+  },
+  character: {
+    term: 'Character (Fourier)',
+    definition: 'A function eξ in the orthonormal basis of a function space used for Fourier analysis. Characters are chosen to be "symmetric" — typically complex exponentials or roots of unity. The index ξ is the frequency.',
+    example: 'For functions on ℤ/nℤ, the characters are eξ(x) = exp(2πiξx/n).',
+  },
+  physicalVariable: {
+    term: 'Physical variable',
+    definition: 'The input variable x ∈ Z of the function f: Z → ℂ being analysed. Distinguished from the frequency variable ξ, which indexes the characters. The name comes from physics, where x might be time or position.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

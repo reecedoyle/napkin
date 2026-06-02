@@ -1,0 +1,28 @@
+---
+title: The circle group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The circle group">
+
+Throughout this chapter, the exponential map plays a central role.
+
+<Callout kind="definition" title="The circle group 𝕋">
+Let $\mathbb{T} = \RR/\ZZ$ denote the **circle group**, the additive group of real numbers modulo $1$. There is a canonical map
+
+$$e \colon \mathbb{T} \to \CC, \qquad e(\theta) = \exp(2\pi i \theta)$$
+
+sending $\TT$ to the complex unit circle. This map satisfies $e(\theta + \phi) = e(\theta)e(\phi)$, so it is a group homomorphism from $(\TT, +)$ to $(\CC^\times, \cdot)$.
+</Callout>
+
+Think of $\TT$ as the interval $[0,1)$ with the endpoints identified, or equivalently as a clock face. The map $e$ wraps this interval once around the unit circle in $\CC$.
+
+<Callout kind="remark">
+When the TeX source writes "$e(\xi \cdot x)$," it means this exponential map evaluated at a product $\xi \cdot x \in \TT$. The resulting complex number has absolute value $1$ — it lies on the unit circle.
+</Callout>
+
+The <Term k="circleGroup">circle group $\TT$</Term> is the natural home for frequencies in continuous Fourier analysis, and the map $e$ is what makes characters look like "waves."
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: The big idea — Fourier analysis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The big idea — Fourier analysis">
+
+Inner product spaces let us measure angles and lengths between functions, not just vectors. Fourier analysis turns that machinery into something spectacular: it says every function on a domain $Z$ can be *decomposed* into a sum of simple, symmetric "waves."
+
+Start with any domain $Z$ and consider the complex vector space of functions $f \colon Z \to \CC$. Equip this space with a <Term k="innerProduct">positive definite inner product</Term> $\langle f, g \rangle$. The norm $\langle f, f \rangle$ measures the "size" of $f$.
+
+<Callout kind="remark" title="Why complex-valued?">
+Working over $\CC$ rather than $\RR$ makes the theory cleaner: the characters (basis functions) become simple exponentials $e^{2\pi i \theta}$ rather than separate sines and cosines. Real-valued functions are the special case where the imaginary part vanishes.
+</Callout>
+
+The payoff: once we have the right inner product and the right basis, a complicated function $f$ becomes a mere list of coefficients — its <Term k="fourierCoeff">Fourier coefficients</Term> — one for each basis element.
+
+</SlideLayout>
