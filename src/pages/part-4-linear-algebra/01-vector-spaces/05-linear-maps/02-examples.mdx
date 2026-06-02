@@ -1,0 +1,41 @@
+---
+title: Linear map examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Linear map examples">
+
+<Callout kind="example" title="Examples of linear maps">
+
+- **Zero map**: $V \to W$ sending everything to $0_W$. Always <Term k="linearMap">linear</Term>.
+- **Identity**: $\id \colon V \to V$. A <Term k="linearIso">linear isomorphism</Term>.
+- **Projection**: $\RR^3 \to \RR$ by $(a, b, c) \mapsto 4a + 2b + c$. Linear.
+- **Evaluation at 3**: $V \to \RR$ by $ax^2 + bx + c \mapsto 9a + 3b + c$, where $V = \{ax^2 + bx + c\}$. Linear.
+- **The map** $\RR^3 \to V$ by $(a, b, c) \mapsto ax^2 + bx + c$ is an isomorphism.
+- **Multiply by $\sqrt{2}$**: $\QQ[\sqrt{2}] \to \QQ[\sqrt{2}]$ sending $a + b\sqrt{2} \mapsto 2b + a\sqrt{2}$. An isomorphism — its inverse is "multiply by $1/\sqrt{2}$".
+</Callout>
+
+<Callout kind="proposition" title="n-dimensional spaces are isomorphic to k^n">
+If $V$ is an $n$-dimensional vector space over $k$, then $V \cong k^{\oplus n}$.
+</Callout>
+
+The isomorphism: pick any basis $e_1, \dots, e_n$ of $V$, then $a_1 e_1 + \cdots + a_n e_n \mapsto (a_1, \dots, a_n)$.
+
+<MCQ
+  client:load
+  id="vs-maps-mcq-evaluation"
+  prompt="The map T : {ax² + bx + c} → ℝ defined by T(ax² + bx + c) = 9a + 3b + c is:"
+  options={[
+    { id: "a", label: "Not linear — it maps polynomials to numbers." },
+    { id: "b", label: "Linear — it is evaluation at x = 3." },
+    { id: "c", label: "An isomorphism." },
+    { id: "d", label: "Linear, but only if a = 0." },
+  ]}
+  correct="b"
+  explanation="T(p + q) = (p+q)(3) = p(3)+q(3) = T(p)+T(q) and T(cp) = cp(3) = cT(p), so T is linear. It maps a 3-dimensional space to a 1-dimensional one, so it cannot be an isomorphism."
+/>
+
+</SlideLayout>

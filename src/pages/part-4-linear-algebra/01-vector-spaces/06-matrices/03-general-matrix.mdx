@@ -1,0 +1,25 @@
+---
+title: Matrices in general — any basis, any field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Matrices in general — any basis, any field">
+
+The concrete $\RR^2$ story generalises immediately. Let $V$ have basis $e_1, \dots, e_m$ and $W$ have basis $w_1, \dots, w_n$. For a linear map $T \colon V \to W$, each image $T(e_j)$ lives in $W$ and expands uniquely:
+
+$$T(e_j) = a_{1j} w_1 + a_{2j} w_2 + \cdots + a_{nj} w_n.$$
+
+<Callout kind="definition" title="Matrix of T relative to chosen bases">
+The <Term k="matrix">**matrix**</Term> of $T$ is the $n \times m$ array whose $j$-th column is the coordinate vector of $T(e_j)$ in the basis $w_1, \dots, w_n$:
+$$[T] = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1m} \\ a_{21} & a_{22} & \cdots & a_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nm} \end{bmatrix}.$$
+</Callout>
+
+**The moral**: a matrix is the laziest possible way to specify a linear map from $V$ to $W$ — it records only what happens to each basis vector, and linearity does the rest.
+
+<Callout kind="example" title="Evaluation at 3, as a matrix">
+Let $V = \{ax^2 + bx + c\}$ with basis $1, x, x^2$, and $W = \RR$ with basis $1$. The "evaluate at 3" map sends $1 \mapsto 1$, $x \mapsto 3$, $x^2 \mapsto 9$, giving the $1 \times 3$ matrix $\begin{bmatrix}1 & 3 & 9\end{bmatrix}$.
+</Callout>
+
+</SlideLayout>

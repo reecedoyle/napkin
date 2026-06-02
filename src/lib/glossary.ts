@@ -813,6 +813,24 @@ export const glossary = {
     definition: 'A vector space is finite-dimensional if it has a finite basis. Otherwise it is infinite-dimensional.',
     example: 'ℝⁿ is finite-dimensional for every n. The space of all real polynomials is infinite-dimensional.',
   },
+  linearMap: {
+    term: 'Linear map',
+    symbol: 'T \\colon V \\to W',
+    definition: 'A function T: V → W between k-vector spaces that respects both operations: T(v₁+v₂) = T(v₁)+T(v₂) and T(a·v) = a·T(v). Also called a linear transformation or k-linear map.',
+    example: 'Evaluation at a point, projection onto a coordinate, and differentiation of polynomials are all linear maps.',
+  },
+  linearIso: {
+    term: 'Linear isomorphism',
+    symbol: 'V \\cong W',
+    definition: 'A bijective linear map. Two vector spaces related by one are isomorphic — they have the same dimension and are structurally identical, just with different names for the elements.',
+    example: '(a,b,c) ↦ ax² + bx + c is a linear isomorphism from ℝ³ to the space of degree-≤-2 real polynomials.',
+  },
+  matrix: {
+    term: 'Matrix',
+    symbol: '[T]',
+    definition: 'The n×m array of scalars encoding a linear map T: V → W, given choices of bases for V and W. The j-th column records the coordinates of T(eⱼ) in the basis of W. Matrix multiplication is defined so that [S∘T] = [S][T].',
+    example: 'The map ℝ³ → ℝ² sending e₁ ↦ 4w₁+7w₂, e₂ ↦ 2w₁+3w₂, e₃ ↦ w₁ has matrix [[4,2,1],[7,3,0]].',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
