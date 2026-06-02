@@ -1,0 +1,32 @@
+---
+title: Group characters are orthonormal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Group characters are orthonormal">
+
+With the bilinear form $\cdot \colon Z \times Z \to \TT$ in hand, we define a character for each frequency $\xi \in Z$.
+
+<Callout kind="proposition" title="eξ are orthonormal">
+For each $\xi \in Z$, define $e_\xi \colon Z \to \CC$ by
+
+$$e_\xi(x) = e(\xi \cdot x) = \exp(2\pi i\, \xi \cdot x).$$
+
+The $|Z|$ functions $\{e_\xi : \xi \in Z\}$ form an orthonormal basis of the space of functions $Z \to \CC$.
+</Callout>
+
+The proof uses the fact that if $\xi \neq \xi'$ then $\xi - \xi' \neq 0$, so non-degeneracy of $\cdot$ ensures the average of $e((\xi - \xi') \cdot x)$ over $x \in Z$ is $0$.
+
+<Callout kind="example" title="Cube roots of unity filter (Z = ℤ/3ℤ)">
+Let $\omega = \exp(\tfrac{2}{3}\pi i)$. The characters $e_0, e_1, e_2$ for $Z = \Zc3$ are:
+
+$$e_\xi(x) = \omega^{\xi x}, \quad \xi \in \{0,1,2\}.$$
+
+So $e_0 \equiv 1$, $e_1(x) = \omega^x$, $e_2(x) = \omega^{2x}$.
+</Callout>
+
+Olympiad veterans may recognise this as the <Term k="rootsOfUnityFilter">roots of unity filter</Term>. It is exactly Fourier analysis on $\Zc3$.
+
+</SlideLayout>

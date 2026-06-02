@@ -788,6 +788,30 @@ export const glossary = {
     term: 'Physical variable',
     definition: 'The input variable x ∈ Z of the function f: Z → ℂ being analysed. Distinguished from the frequency variable ξ, which indexes the characters. The name comes from physics, where x might be time or position.',
   },
+  binaryFunction: {
+    term: 'Boolean / binary function',
+    definition: 'A function f: {±1}ⁿ → {±1} (or more generally {±1}ⁿ → ℂ). Binary Fourier analysis decomposes such functions into multilinear monomials χ_S = ∏_{s∈S} xₛ. These are the characters for the group ({±1}ⁿ, ·).',
+    example: 'Majority(x₁, x₂, x₃) = sign(x₁ + x₂ + x₃) is a Boolean function on {±1}³.',
+  },
+  subsetFreq: {
+    term: 'Subset frequency (binary Fourier)',
+    definition: 'In binary Fourier analysis on {±1}ⁿ, the frequencies are subsets S ⊆ {1, …, n}. The character χ_S is the monomial ∏_{s∈S} xₛ. The Fourier coefficient f̂(S) = ⟨f, χ_S⟩ captures the "influence" of the coordinates in S on f.',
+  },
+  finiteAbelianGroup: {
+    term: 'Finite abelian group',
+    definition: 'A group that is both finite (finitely many elements) and abelian (commutative). By the fundamental theorem, every finite abelian group is isomorphic to a direct sum of cyclic groups ℤ/n₁ℤ ⊕ ··· ⊕ ℤ/nₖℤ.',
+    example: 'ℤ/6ℤ, ℤ/2ℤ ⊕ ℤ/2ℤ, {±1}ⁿ (under pointwise multiplication).',
+  },
+  rootsOfUnityFilter: {
+    term: 'Roots of unity filter',
+    definition: 'An olympiad technique that extracts every k-th term of a sum by averaging with k-th roots of unity. It is exactly Fourier analysis on ℤ/kℤ: if ω = exp(2πi/k), then (1/k)∑_{j=0}^{k-1} ωʲⁿ = 1 if k | n, else 0.',
+    example: 'To sum C(1000, 0) + C(1000, 3) + ··· + C(1000, 999), apply the roots of unity filter with k = 3.',
+  },
+  lTwo: {
+    term: 'L²([−π, π])',
+    symbol: 'L^2([-\\pi,\\pi])',
+    definition: 'The Hilbert space of square-integrable complex-valued functions on [−π, π], with inner product ⟨f,g⟩ = (1/2π)∫f(x)ḡ(x)dx. It is infinite-dimensional and has an orthonormal basis of complex exponentials eₙ(x) = exp(inx) for n ∈ ℤ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

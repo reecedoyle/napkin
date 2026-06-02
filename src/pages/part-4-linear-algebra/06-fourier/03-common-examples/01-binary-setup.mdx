@@ -1,0 +1,26 @@
+---
+title: Binary Fourier analysis — setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Binary Fourier analysis — setup">
+
+The simplest non-trivial case. We take $Z = \{\pm 1\}^n$ — the set of all $\pm 1$ sequences of length $n$.
+
+Functions $f \colon \{\pm 1\}^n \to \CC$ form a $2^n$-dimensional vector space $\CC^Z$. We equip it with the inner product
+
+$$\langle f, g \rangle = \frac{1}{2^n} \sum_{x \in Z} f(x)\,\overline{g(x)}.$$
+
+This is the *average* of $f(x)\overline{g(x)}$ over all $2^n$ inputs. In particular,
+
+$$\langle f, f \rangle = \frac{1}{2^n} \sum_{x \in Z} |f(x)|^2$$
+
+is the average of the squares — clearly non-negative, and zero only if $f \equiv 0$. So $\langle -,- \rangle$ is positive definite.
+
+<Callout kind="remark">
+For <Term k="binaryFunction">Boolean functions</Term> $f \colon \{\pm 1\}^n \to \{\pm 1\}$, we always have $|f(x)|^2 = 1$, so $\langle f, f \rangle = 1$. Every such $f$ is a unit vector.
+</Callout>
+
+</SlideLayout>
