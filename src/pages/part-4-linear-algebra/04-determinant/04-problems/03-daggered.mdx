@@ -1,0 +1,29 @@
+---
+title: Problems — daggered
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — daggered">
+
+Two challenging problems: one connects the characteristic polynomial to traces of wedge powers, and one is the Cauchy–Binet formula.
+
+<Problem
+  client:load
+  id="det-prob-wedge-trace"
+  prompt="Let V be a finite-dimensional vector space over k and T: V → V. Show that det(a·idᵥ − T) = Σₙ₌₀^{dim V} a^{dim V − n} · (−1)ⁿ · tr(∧ⁿ(T)), where the trace of ∧ⁿ(T) is taken viewing it as an endomorphism of ∧ⁿ(V)."
+  hint="Pick a basis, write T in matrix form, and expand det(aI − T) using the Leibniz formula. Group terms by the number of off-diagonal factors chosen; the trace of ∧ⁿ(T) arises as the sum over n-element subsets of {1,…,dim V} of the corresponding minor."
+  solution="Pick a basis e₁,…,eₘ for V and write T with matrix entries xᵢⱼ. Expanding det(aI − T) via the Leibniz formula, each permutation σ contributes sgn(σ) times the product of (aδᵢσ(ᵢ) − xᵢσ(ᵢ)) over i. For a permutation that fixes a set of indices and moves the rest, the 'a' factors come from the fixed points and the 'x' factors from the non-fixed points. Grouping by the number n of non-fixed-point factors and summing over all n-element subsets X of {1,…,m}, the coefficient of a^{m-n} is (-1)ⁿ times the sum over |X|=n subsets of the determinant of the n×n minor of T indexed by X. This last quantity is exactly tr(∧ⁿ(T)), since the trace of ∧ⁿ(T) on basis element ∧_{i∈X} eᵢ picks out the (X,X)-minor. Hence the equality holds."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="det-prob-cauchy-binet"
+  prompt="Let n ≥ s ≥ 1 be integers, A an s×n matrix, and B an n×s matrix. For each s-element subset S ⊆ {1,…,n}, let Aₛ be the s×s submatrix of A with columns indexed by S, and Bₛ the s×s submatrix of B with rows indexed by S. Prove the Cauchy–Binet formula: det(AB) = Σ_{|S|=s} det(Aₛ) det(Bₛ)."
+  hint="Use the wedge-product definition: interpret AB as a composition of maps ℝˢ → ℝⁿ → ℝˢ and expand ∧ˢ(AB) = ∧ˢ(A) ∘ ∧ˢ(B) in terms of the standard basis. Each s-element subset S of {1,…,n} contributes one term."
+  solution="Regard A: ℝˢ → ℝⁿ and B: ℝⁿ → ℝˢ as linear maps. We have ∧ˢ(AB) = ∧ˢ(A) ∘ ∧ˢ(B). Since ℝˢ is s-dimensional, ∧ˢ(ℝˢ) is 1-dimensional with basis f₁ ∧ ··· ∧ fₛ. The map ∧ˢ(B): ∧ˢ(ℝˢ) → ∧ˢ(ℝⁿ) sends f₁ ∧ ··· ∧ fₛ to B(f₁) ∧ ··· ∧ B(fₛ), which expands in the basis {eᵢ₁ ∧ ··· ∧ eᵢₛ : i₁ < ··· < iₛ} of ∧ˢ(ℝⁿ) with coefficient det(Bₛ) for each ordered subset S = {i₁,…,iₛ}. Then ∧ˢ(A) sends eᵢ₁ ∧ ··· ∧ eᵢₛ to A(eᵢ₁) ∧ ··· ∧ A(eᵢₛ), which equals det(Aₛ)(f₁ ∧ ··· ∧ fₛ). Summing over all S gives det(AB) = Σ_{|S|=s} det(Aₛ) det(Bₛ)."
+  difficulty="daggered"
+/>
+
+</SlideLayout>
