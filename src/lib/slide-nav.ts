@@ -82,6 +82,7 @@ const slides: SlideEntry[] = Object.entries(slideRaw)
 export const partTitles: Record<string, string> = {
   'part-1-starting-out': 'Part I — Starting Out',
   'part-2-basic-abstract-algebra': 'Part II — Basic Abstract Algebra',
+  'part-3-basic-topology': 'Part III — Basic Topology',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -90,6 +91,9 @@ export const chapterTitles: Record<string, string> = {
   'part-2-basic-abstract-algebra/01-quotient-groups': 'Chapter 3 — Homomorphisms and quotient groups',
   'part-2-basic-abstract-algebra/02-rings': 'Chapter 4 — Rings and ideals',
   'part-2-basic-abstract-algebra/03-ring-flavors': 'Chapter 5 — Flavors of rings',
+  'part-3-basic-topology/01-metric-properties': 'Chapter 6 — Properties of metric spaces',
+  'part-3-basic-topology/02-topological-spaces': 'Chapter 7 — Topological spaces',
+  'part-3-basic-topology/03-compactness': 'Chapter 8 — Compactness',
 };
 
 export const sectionTitles: Record<string, string> = {

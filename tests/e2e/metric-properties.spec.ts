@@ -108,17 +108,17 @@ test.describe('Metric properties — ProofReveal flow (complete iff closed)', ()
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    await expect(article.getByText(/converges to some point in S/i)).toBeHidden();
+    await expect(article.getByText(/limits are unique/i)).toBeHidden();
 
     await page.getByRole('button', { name: /reveal solution/i }).click();
-    await expect(article.getByText(/converges to some point in S/i)).toBeVisible();
+    await expect(article.getByText(/limits are unique/i)).toBeVisible();
 
     expect(await page.evaluate((k) => window.localStorage.getItem(k), PROOF_KEY)).toContain(
       '"outcome":"revealed"',
     );
 
     await page.reload();
-    await expect(article.getByText(/converges to some point in S/i)).toBeVisible();
+    await expect(article.getByText(/limits are unique/i)).toBeVisible();
   });
 });
 
