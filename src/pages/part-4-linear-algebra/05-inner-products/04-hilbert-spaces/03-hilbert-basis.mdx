@@ -1,0 +1,25 @@
+---
+title: Orthonormal bases for Hilbert spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Orthonormal bases for Hilbert spaces">
+
+For a <Term k="hilbertSpace">Hilbert space</Term>, we upgrade the notion of orthonormal basis to allow countably infinite collections.
+
+<Callout kind="definition" title="Orthonormal basis of a Hilbert space">
+An **orthonormal basis** of a Hilbert space $V$ is a (possibly infinite) sequence $e_1, e_2, \dots$ of vectors such that:
+- $\langle e_i, e_i \rangle = 1$ for all $i$,
+- $\langle e_i, e_j \rangle = 0$ for $i \neq j$, and
+- every $v \in V$ is uniquely expressible as $\displaystyle\sum_i c_i e_i$ where $\displaystyle\sum_i |c_i|^2 < \infty$.
+</Callout>
+
+When $V$ is finite-dimensional this agrees with the earlier definition (finitely many $e_i$, all sums finite). The condition $\sum |c_i|^2 < \infty$ is exactly what the convergence criterion requires.
+
+<Callout kind="remark" title="The big picture">
+A Hilbert space is an inner product space where infinite linear combinations — with square-summable coefficients — are permitted. This is the setting for Fourier analysis, quantum mechanics, and functional analysis.
+</Callout>
+
+</SlideLayout>

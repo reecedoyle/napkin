@@ -1,0 +1,24 @@
+---
+title: Inner product spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Inner product spaces">
+
+<Callout kind="definition" title="Inner product space">
+An **<Term k="innerProductSpace">inner product space</Term>** is either:
+- a real vector space equipped with a real inner form, or
+- a complex vector space equipped with a complex inner product.
+
+A linear map between inner product spaces is just a map between the underlying vector spaces — no compatibility with the inner product is required.
+</Callout>
+
+Throughout this chapter all vector spaces are over $\CC$ or $\RR$. We prefer $\CC$ when possible since $\CC$ is algebraically closed (Jordan forms exist), and every real matrix can be viewed as a complex matrix.
+
+<Callout kind="remark" title="Why not bilinear over ℂ?">
+If $\langle \bullet, \bullet \rangle$ were bilinear (not sesquilinear) on a complex space, then for any unit vector $e$ with $\langle e, e \rangle = 1$ we would get $\langle ie, ie \rangle = i^2 = -1$. The vector $ie$ would have "squared length" $-1$ — contradicting positive-definiteness. <Term k="sesquilinear">Sesquilinearity</Term> is exactly what prevents this.
+</Callout>
+
+</SlideLayout>

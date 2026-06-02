@@ -1,0 +1,35 @@
+---
+title: The standard inner form on ℝⁿ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The standard inner form on ℝⁿ">
+
+The prototype example:
+
+<Callout kind="example" title="Dot product on ℝⁿ">
+Let $e_1, \dots, e_n$ be the standard basis of <Term k="RRn">$\RR^n$</Term>. Define
+
+$$\langle a_1 e_1 + \dots + a_n e_n,\; b_1 e_1 + \dots + b_n e_n \rangle \defeq a_1 b_1 + \dots + a_n b_n.$$
+
+This is the usual dot product. It is symmetric and bilinear by inspection. To check <Term k="positiveDefinite">positive definiteness</Term>: $\langle v, v \rangle = a_1^2 + \dots + a_n^2$, which is zero exactly when every $a_i = 0$.
+</Callout>
+
+<MCQ
+  client:load
+  id="inp-sec1-mcq-dot-bilinear"
+  prompt="Why is the dot product on ℝ² bilinear? Which computation shows linearity in the first argument?"
+  options={[
+    { id: "a", label: "⟨u + v, w⟩ = u·w + v·w — it distributes." },
+    { id: "b", label: "⟨u, v⟩ = |u||v|cos θ — it uses angles." },
+    { id: "c", label: "⟨u, v⟩ = ⟨v, u⟩ — it is symmetric." },
+    { id: "d", label: "⟨u, u⟩ ≥ 0 — it is non-negative." },
+  ]}
+  correct="a"
+  explanation="Bilinear means linear in each argument. Linearity in the first slot is exactly the distributive law: ⟨u + v, w⟩ = ⟨u, w⟩ + ⟨v, w⟩ and ⟨cu, w⟩ = c⟨u, w⟩. Options (c) is symmetry, (d) is positive-definiteness, and (b) is a consequence of the inner product, not a defining property."
+/>
+
+</SlideLayout>

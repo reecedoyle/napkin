@@ -1,0 +1,31 @@
+---
+title: Orthogonality — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Orthogonality — definition">
+
+<Callout kind="definition" title="Orthogonal vectors">
+Two nonzero vectors $v$ and $w$ in an <Term k="innerProductSpace">inner product space</Term> are **<Term k="orthogonal">orthogonal</Term>** if $\langle v, w \rangle = 0$.
+</Callout>
+
+In $\RR^n$ this matches the geometric notion of perpendicularity: $v \cdot w = |v||w|\cos\theta$, so $v \cdot w = 0$ iff $\theta = 90°$. The abstract definition generalises this to any inner product space.
+
+<MCQ
+  client:load
+  id="inp-orth-mcq-orthogonal-check"
+  prompt="In ℝ², which pair of vectors is orthogonal under the standard dot product?"
+  options={[
+    { id: "a", label: "(1, 1) and (1, 2)" },
+    { id: "b", label: "(1, 0) and (0, 1)" },
+    { id: "c", label: "(2, 3) and (3, 2)" },
+    { id: "d", label: "(1, 2) and (2, 1)" },
+  ]}
+  correct="b"
+  explanation="⟨(1,0),(0,1)⟩ = 1·0 + 0·1 = 0. Check: ⟨(1,1),(1,2)⟩ = 3 ≠ 0. ⟨(2,3),(3,2)⟩ = 6+6=12 ≠ 0. ⟨(1,2),(2,1)⟩ = 2+2=4 ≠ 0. Only the standard basis vectors (b) are orthogonal."
+/>
+
+</SlideLayout>

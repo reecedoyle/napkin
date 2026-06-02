@@ -1,0 +1,28 @@
+---
+title: Problems — Pythagorean theorem and finite-dimensional Hilbert
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Pythagorean theorem and finite-dimensional Hilbert">
+
+<Problem
+  client:load
+  id="inp-prob-pythagorean"
+  difficulty="standard"
+  prompt="(Pythagorean theorem) Show that if ⟨v, w⟩ = 0 in an inner product space, then ‖v‖² + ‖w‖² = ‖v + w‖²."
+  solution="Expand: ‖v + w‖² = ⟨v + w, v + w⟩ = ⟨v,v⟩ + ⟨v,w⟩ + ⟨w,v⟩ + ⟨w,w⟩ = ‖v‖² + 0 + 0 + ‖w‖² = ‖v‖² + ‖w‖². The cross terms vanish because ⟨v,w⟩ = 0 and ⟨w,v⟩ = ⟨v,w⟩̄ = 0."
+/>
+
+<Problem
+  client:load
+  id="inp-prob-fin-dim-hilbert"
+  difficulty="starred"
+  prompt="(★ Finite-dimensional implies Hilbert) Show that every finite-dimensional inner product space is a Hilbert space."
+  hint="Fix an orthonormal basis e₁, …, eₙ. A Cauchy sequence in V gives Cauchy sequences of coordinates. Use the fact that ℝⁿ is complete."
+  solution="Let V be a finite-dimensional inner product space and fix an orthonormal basis e₁, …, eₙ. Map each vector v = Σaᵢeᵢ to its coordinate vector (a₁, …, aₙ) ∈ ℝⁿ (or ℂⁿ). This map is an isometry: ‖v‖² = Σ|aᵢ|² = ‖(a₁,…,aₙ)‖². So a sequence in V is Cauchy iff its coordinate sequences are Cauchy in ℝ (or ℂ). Since ℝⁿ is complete, each Cauchy coordinate sequence converges, giving a limiting vector in V. Hence V is complete."
+/>
+
+</SlideLayout>

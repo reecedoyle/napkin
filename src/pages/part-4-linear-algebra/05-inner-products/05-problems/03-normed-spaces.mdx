@@ -1,0 +1,36 @@
+---
+title: Problems — normed spaces and Banach spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — normed spaces and Banach spaces">
+
+<Problem
+  client:load
+  id="inp-prob-ell2"
+  difficulty="standard"
+  prompt="(Sequence space) Consider the space ℓ² of infinite real sequences (a₁, a₂, …) with Σaᵢ² < ∞, equipped with ⟨a, b⟩ = Σaᵢbᵢ. Is this a Hilbert space? If so, identify an orthonormal basis."
+  solution="Yes, ℓ² is a Hilbert space. The inner product ⟨a,b⟩ = Σaᵢbᵢ is well-defined by the Cauchy-Schwarz inequality for ℓ². To show completeness: if (a⁽ⁿ⁾) is a Cauchy sequence in ℓ², each coordinate sequence (aᵢ⁽ⁿ⁾)ₙ is Cauchy in ℝ and converges to some aᵢ. One checks that a = (a₁,a₂,…) ∈ ℓ² and a⁽ⁿ⁾ → a in the ℓ² norm. An orthonormal basis is the sequence of standard unit vectors eₖ = (0,…,0,1,0,…) with the 1 in position k."
+/>
+
+<Problem
+  client:load
+  id="inp-prob-normed-not-inner"
+  difficulty="standard"
+  prompt="(General normed vector spaces) A normed vector space is a vector space with a norm ‖·‖ satisfying non-negativity, homogeneity, and the triangle inequality. Show that the ℓ¹ norm ‖(x₁,…,xₙ)‖₁ = Σ|xᵢ| on ℝⁿ (for n ≥ 2) does not arise from any inner product."
+  solution="If ‖·‖₁ came from an inner product, it would satisfy the parallelogram law: ‖u+v‖² + ‖u−v‖² = 2‖u‖² + 2‖v‖². Take u = (1,0) and v = (0,1) in ℝ². Then ‖u+v‖₁ = 2, ‖u−v‖₁ = 2, ‖u‖₁ = 1, ‖v‖₁ = 1. The left side is 4 + 4 = 8, the right side is 2 + 2 = 4. Since 8 ≠ 4, the parallelogram law fails and ‖·‖₁ does not come from any inner product."
+/>
+
+<Problem
+  client:load
+  id="inp-prob-kuratowski"
+  difficulty="standard"
+  prompt="(Kuratowski embedding) A Banach space is a complete normed vector space. Let (M, d) be any metric space. Prove there exists a Banach space X and an isometric embedding f: M → X (meaning d(x,y) = ‖f(x)−f(y)‖ for all x, y)."
+  hint="Consider the Banach space of bounded real-valued functions on M with the sup norm."
+  solution="Fix a basepoint p₀ ∈ M. For each x ∈ M define fₓ: M → ℝ by fₓ(y) = d(y,x) − d(y,p₀). Each fₓ is bounded (by d(x,p₀)) and continuous, so fₓ belongs to the Banach space X = C_b(M) of bounded continuous functions with the sup norm ‖g‖ = sup_y |g(y)|. The map x ↦ fₓ is isometric: ‖fₓ − fₓ'‖ = sup_y |d(y,x) − d(y,x')| = d(x,x') by the reverse triangle inequality."
+/>
+
+</SlideLayout>

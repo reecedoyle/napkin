@@ -1,0 +1,30 @@
+---
+title: Complex inner products — sesquilinearity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Complex inner products — sesquilinearity">
+
+Over <Term k="CC">$\CC$</Term>, a plain symmetric bilinear form breaks positive-definiteness. If $\langle e, e \rangle = 1$ then $\langle ie, ie \rangle = i^2 \langle e, e \rangle = -1$, giving a vector of "length $\sqrt{-1}$". The fix: replace symmetry with **conjugate symmetry**.
+
+<Callout kind="definition" title="Complex inner product">
+Let $V$ be a complex vector space. A **complex inner product** is a function $\langle \bullet, \bullet \rangle \colon V \times V \to \CC$ satisfying:
+
+- **<Term k="conjugateSymmetry">Conjugate symmetry</Term>**: $\langle v, w \rangle = \ol{\langle w, v \rangle}$.
+- **<Term k="sesquilinear">Sesquilinearity</Term>**: linear in the first argument, anti-linear in the second — $\langle v, cw \rangle = \ol{c}\langle v, w \rangle$.
+- **<Term k="positiveDefinite">Positive definite</Term>**: $\langle v, v \rangle \geq 0$, with equality only when $v = 0_V$.
+</Callout>
+
+Conjugate symmetry enforces $\langle v, v \rangle = \ol{\langle v, v \rangle}$, so $\langle v, v \rangle \in \RR$ for every $v$ — making positive-definiteness meaningful.
+
+<Callout kind="example" title="Dot product on ℂⁿ">
+For $w = (w_1, \dots, w_n)$ and $z = (z_1, \dots, z_n)$ in $\CC^n$, define
+
+$$\langle w, z \rangle \defeq w_1 \ol{z_1} + \dots + w_n \ol{z_n}.$$
+
+The conjugation on $z$ is exactly what restores positive-definiteness: $\langle v, v \rangle = |z_1|^2 + \dots + |z_n|^2 \geq 0$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: The dot product is the only inner form
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The dot product is the only inner form">
+
+<Callout kind="example" title="The dot product is universal">
+Let $V$ be a finite-dimensional inner product space and $e_1, \dots, e_n$ any <Term k="orthonormalBasis">orthonormal basis</Term>. For $v = \sum a_i e_i$ and $w = \sum b_j e_j$,
+
+$$\langle v, w \rangle = \sum_{i,j} a_i \ol{b_j} \langle e_i, e_j \rangle = \sum_{i=1}^n a_i \ol{b_i}.$$
+
+The cross terms vanish because $\langle e_i, e_j \rangle = 0$ for $i \neq j$, and the diagonal terms give $1$ because $\norm{e_i} = 1$.
+</Callout>
+
+**Payoff.** The dot product formula $\sum a_i \ol{b_i}$ arises not because $\RR^n$ is special, but because the standard basis is orthonormal. Any inner product space, in any orthonormal basis, satisfies the same formula. Now you know why $\sum a_i b_i$ behaves so nicely.
+
+</SlideLayout>

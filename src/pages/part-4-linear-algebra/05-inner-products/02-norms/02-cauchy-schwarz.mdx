@@ -1,0 +1,30 @@
+---
+title: Cauchy-Schwarz inequality
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Cauchy-Schwarz inequality">
+
+The key lemma connecting norms and inner products:
+
+<Callout kind="lemma" title="Cauchy-Schwarz">
+Let $V$ be an inner product space. For any $v, w \in V$,
+
+$$|\langle v, w \rangle| \leq \norm{v} \norm{w},$$
+
+with equality if and only if $v$ and $w$ are linearly dependent.
+</Callout>
+
+The proof idea: use the <Term k="positiveDefinite">positive-definiteness</Term> axiom creatively by expanding $\langle cv - w, cv - w \rangle \geq 0$ for a cleverly chosen scalar $c$.
+
+<ProofReveal
+  client:load
+  id="inp-norms-proof-cauchy-schwarz"
+  prompt="Prove Cauchy-Schwarz. (Hint: expand ⟨cv − w, cv − w⟩ ≥ 0 and choose c optimally.)"
+  solution="The inequality is immediate when ⟨v,w⟩ = 0 or when one vector is zero. Otherwise, expand 0 ≤ ⟨cv−w, cv−w⟩ = |c|²‖v‖² − c⟨v,w⟩ − c̄⟨w,v⟩ + ‖w‖². Using conjugate symmetry, this gives 2Re[c⟨v,w⟩] ≤ |c|²‖v‖² + ‖w‖². Choose c = (‖w‖/‖v‖)·(|⟨v,w⟩|/⟨v,w⟩). Then c⟨v,w⟩ = (‖w‖/‖v‖)|⟨v,w⟩| is real and positive, and |c| = ‖w‖/‖v‖. Substituting gives 2(‖w‖/‖v‖)|⟨v,w⟩| ≤ 2‖w‖², hence |⟨v,w⟩| ≤ ‖v‖‖w‖."
+/>
+
+</SlideLayout>

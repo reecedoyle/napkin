@@ -1057,6 +1057,70 @@ export const glossary = {
     definition: 'A linear map T: V → V is diagonalisable if there exists a basis of V consisting entirely of eigenvectors of T. Equivalently (over an algebraically closed field): the geometric multiplicity of every eigenvalue equals its algebraic multiplicity — every Jordan block has size 1.',
     example: 'A symmetric real matrix is always diagonalisable (over ℝ). A non-zero nilpotent map is never diagonalisable.',
   },
+
+  // ────────────── Chapter 13 — Inner product spaces ──────────────
+  normedVectorSpace: {
+    term: 'Normed vector space',
+    definition: 'A vector space V over ℝ or ℂ equipped with a norm ‖·‖: V → ℝ satisfying non-negativity (‖v‖ ≥ 0 with equality iff v = 0), homogeneity (‖λv‖ = |λ|‖v‖), and the triangle inequality (‖v+w‖ ≤ ‖v‖ + ‖w‖). Every inner product space is a normed vector space, but not conversely.',
+    example: 'ℝⁿ with the ℓ¹ norm Σ|xᵢ| is a normed vector space that does not arise from any inner product (for n ≥ 2).',
+  },
+  banachSpace: {
+    term: 'Banach space',
+    definition: 'A complete normed vector space — a normed vector space in which every Cauchy sequence converges. Every Hilbert space is a Banach space. The Kuratowski embedding theorem says every metric space embeds isometrically into a Banach space.',
+    example: 'ℝⁿ with any norm is a Banach space. The space C([0,1]) of continuous functions with the sup norm is a Banach space that is not a Hilbert space.',
+  },
+  ellTwo: {
+    term: 'ℓ² sequence space',
+    symbol: '\\ell^2',
+    definition: 'The space of infinite real (or complex) sequences (a₁, a₂, …) with Σ|aᵢ|² < ∞, equipped with the inner product ⟨a,b⟩ = Σaᵢb̄ᵢ. It is an infinite-dimensional Hilbert space with orthonormal basis {eₖ} (standard unit sequences).',
+  },
+  hilbertSpace: {
+    term: 'Hilbert space',
+    definition: 'An inner product space whose associated metric space (with distance d(v,w) = ‖v−w‖) is complete — every Cauchy sequence converges. Hilbert spaces allow well-defined infinite orthogonal sums Σcᵢeᵢ whenever Σ|cᵢ|² < ∞.',
+    example: 'Every finite-dimensional inner product space is a Hilbert space. The sequence space ℓ² (sequences with Σaᵢ² < ∞) is an infinite-dimensional Hilbert space.',
+  },
+  orthogonal: {
+    term: 'Orthogonal vectors',
+    symbol: '\\langle v, w \\rangle = 0',
+    definition: 'Two nonzero vectors v and w in an inner product space are orthogonal if ⟨v,w⟩ = 0. This generalises perpendicularity from ℝⁿ to any inner product space.',
+    example: 'In ℝ², (1,0) and (0,1) are orthogonal. In ℂ², (1,0) and (0,i) are orthogonal.',
+  },
+  orthonormalBasis: {
+    term: 'Orthonormal basis',
+    definition: 'A basis e₁, …, eₙ of a finite-dimensional inner product space such that ‖eᵢ‖ = 1 for all i and ⟨eᵢ,eⱼ⟩ = 0 for i ≠ j. Every finite-dimensional inner product space has one (by Gram-Schmidt). In any orthonormal basis the inner product equals the standard dot-product formula Σ aᵢb̄ᵢ.',
+    example: 'The standard basis {(1,0),(0,1)} is orthonormal in ℝ² with the dot product.',
+  },
+  norm: {
+    term: 'Norm',
+    symbol: '\\|v\\|',
+    definition: 'The norm of a vector v in an inner product space: ‖v‖ = √⟨v,v⟩. It measures the "length" of v and is always a non-negative real number, equalling zero only when v = 0.',
+    example: 'On ℝ³, ‖(3,4,0)‖ = √(9+16+0) = 5.',
+  },
+  cauchySchwarz: {
+    term: 'Cauchy-Schwarz inequality',
+    symbol: '|\\langle v, w \\rangle| \\le \\|v\\|\\|w\\|',
+    definition: 'For any two vectors v, w in an inner product space, |⟨v,w⟩| ≤ ‖v‖‖w‖. Equality holds if and only if v and w are linearly dependent. The key step to proving the triangle inequality.',
+    example: 'In ℝ², |u·v| ≤ |u||v| with equality when u and v are parallel.',
+  },
+  innerProductSpace: {
+    term: 'Inner product space',
+    definition: 'A real or complex vector space equipped with an inner product — a function ⟨·,·⟩ that is (conjugate-)symmetric, (sesqui-)linear, and positive definite. It generalises the familiar dot product on ℝⁿ.',
+    example: 'ℝⁿ with the dot product, and ℂⁿ with ⟨w,z⟩ = Σ wᵢz̄ᵢ, are both inner product spaces.',
+  },
+  positiveDefinite: {
+    term: 'Positive definite (inner product)',
+    definition: 'A function ⟨·,·⟩ on a vector space is positive definite if ⟨v,v⟩ ≥ 0 for all v, with equality only when v = 0. This ensures the norm ‖v‖ = √⟨v,v⟩ is well-defined and non-negative.',
+  },
+  sesquilinear: {
+    term: 'Sesquilinear',
+    definition: 'A map ⟨·,·⟩: V×V→ℂ is sesquilinear (literally "one-and-a-half linear") if it is linear in the first argument and anti-linear in the second: ⟨v, cw⟩ = c̄⟨v,w⟩. Used for complex inner products.',
+    example: 'The standard dot product on ℂⁿ: ⟨w,z⟩ = Σ wᵢz̄ᵢ is sesquilinear.',
+  },
+  conjugateSymmetry: {
+    term: 'Conjugate symmetry',
+    symbol: '\\langle v, w \\rangle = \\overline{\\langle w, v \\rangle}',
+    definition: 'A property of complex inner products: ⟨v,w⟩ = ⟨w,v⟩ with a complex conjugate. This forces ⟨v,v⟩ to be a real number for every v, making positive-definiteness meaningful over ℂ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

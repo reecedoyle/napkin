@@ -1,0 +1,32 @@
+---
+title: Real inner forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Real inner forms">
+
+For a real vector space we write $\langle v, w \rangle$ instead of $v \cdot w$.
+
+<Callout kind="definition" title="Real inner form">
+Let $V$ be a real vector space. A **real inner form** is a function $\langle \bullet, \bullet \rangle \colon V \times V \to \RR$ that is:
+
+- **Symmetric**: $\langle v, w \rangle = \langle w, v \rangle$ for all $v, w \in V$.
+- **Bilinear**: linear in each argument separately — $\langle cx + y, v \rangle = c\langle x, v \rangle + \langle y, v \rangle$ (and similarly in the second slot).
+- **<Term k="positiveDefinite">Positive definite</Term>**: $\langle v, v \rangle \geq 0$, with equality only when $v = 0_V$.
+</Callout>
+
+<Callout kind="remark">
+Symmetry plus linearity in the first argument automatically gives linearity in the second argument too — so we could have listed just one linearity axiom.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="inp-sec1-proof-bilinear-second"
+  prompt="Show that symmetry + linearity in the first argument implies linearity in the second argument."
+  solution="Let c be a scalar and x, y, v vectors. We compute: ⟨v, cx + y⟩ = ⟨cx + y, v⟩ (symmetry) = c⟨x, v⟩ + ⟨y, v⟩ (linearity in first slot) = c⟨v, x⟩ + ⟨v, y⟩ (symmetry again). So the form is linear in the second argument as well."
+/>
+
+</SlideLayout>

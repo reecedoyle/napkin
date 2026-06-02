@@ -1,0 +1,24 @@
+---
+title: Orthogonal vectors are independent
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Orthogonal vectors are independent">
+
+<Callout kind="lemma" title="Orthogonal vectors are independent">
+Any set of pairwise <Term k="orthogonal">orthogonal</Term> vectors $v_1, \dots, v_n$ with $\norm{v_i} \neq 0$ for each $i$ is linearly independent.
+</Callout>
+
+The proof is elegant: take an inner product of any dependence relation with one of the $v_i$.
+
+<ProofReveal
+  client:load
+  id="inp-orth-proof-orth-indep"
+  prompt="Prove that pairwise orthogonal nonzero vectors are linearly independent."
+  solution="Suppose a₁v₁ + ··· + aₙvₙ = 0. Take the inner product of both sides with v₁: 0 = ⟨v₁, a₁v₁ + ··· + aₙvₙ⟩ = ā₁‖v₁‖². Since ‖v₁‖ ≠ 0, we get a₁ = 0. The same argument applied with v₂, …, vₙ gives a₂ = ··· = aₙ = 0. So the only linear dependence is the trivial one."
+/>
+
+</SlideLayout>
