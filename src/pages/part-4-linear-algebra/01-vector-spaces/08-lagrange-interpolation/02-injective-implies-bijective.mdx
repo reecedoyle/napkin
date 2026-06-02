@@ -1,0 +1,38 @@
+---
+title: Injective ↔ surjective ↔ bijective (equal-dimensional case)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Injective ↔ surjective ↔ bijective (equal-dimensional case)">
+
+The Lagrange proof used a slick fact that is worth isolating.
+
+<Callout kind="proposition" title="Equal dimensions: injective ⟺ surjective">
+Let $T \colon V \to W$ be a <Term k="linearMap">linear map</Term> with $\dim V = \dim W = n$. The following are equivalent:
+- $T$ is injective ($\ker T = \{0\}$).
+- $T$ is surjective ($T(V) = W$).
+- $T$ is an isomorphism.
+</Callout>
+
+This follows directly from rank-nullity: if $\dim \ker T = 0$, then $\dim T(V) = n = \dim W$, so $T(V) = W$.
+
+There is no analogue for sets in general — an injective map $\NN \to \NN$ need not be surjective.
+
+<MCQ
+  client:load
+  id="vs-lagrange-mcq-injsurj"
+  prompt="A linear map T : ℝ⁴ → ℝ⁴ has a two-dimensional kernel. Is T surjective?"
+  options={[
+    { id: "a", label: "Yes — kernel has positive dimension, so T hits everything." },
+    { id: "b", label: "No — by rank-nullity, dim T(V) = 4 − 2 = 2 < 4." },
+    { id: "c", label: "Cannot determine without more information." },
+    { id: "d", label: "Yes — dim V = dim W so injective implies surjective." },
+  ]}
+  correct="b"
+  explanation="Rank-nullity: dim T(ℝ⁴) = dim ℝ⁴ − dim ker T = 4 − 2 = 2. The image is only 2-dimensional, so T misses many vectors in ℝ⁴ and is definitely not surjective."
+/>
+
+</SlideLayout>

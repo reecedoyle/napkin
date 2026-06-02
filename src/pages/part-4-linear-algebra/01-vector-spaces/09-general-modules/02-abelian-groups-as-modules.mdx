@@ -1,0 +1,22 @@
+---
+title: Abelian groups as ℤ-modules
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Abelian groups as ℤ-modules">
+
+There is a clean equivalence of categories lurking here.
+
+<Callout kind="remark" title="Abelian groups ↔ ℤ-modules">
+Every abelian group is a <Term k="rModule">$\ZZ$-module</Term> (as shown in §2), and every $\ZZ$-module is an abelian group. So the two notions are identical. We will freely use the language of modules when studying abelian groups, especially in algebraic number theory and homology.
+</Callout>
+
+**Notation.** For two abelian groups $G$ and $H$, the direct sum $G \oplus H$ denotes their Cartesian product with componentwise addition — emphasising that both groups are abelian.
+
+<Callout kind="example" title="The direct sum ℤ ⊕ ℤ/2ℤ">
+As a $\ZZ$-module, $\ZZ \oplus \ZZ/2\ZZ$ has elements $(n, \bar{a})$ with $n \in \ZZ$ and $\bar{a} \in \{0, 1\}$. It is finitely generated (by $(1,0)$ and $(0,1)$) but not free: the element $(0, \bar{1})$ satisfies $2 \cdot (0,\bar{1}) = (0, \bar{0}) = 0$, so $\{(0,\bar{1})\}$ is not linearly independent.
+</Callout>
+
+</SlideLayout>
