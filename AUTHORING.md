@@ -7,15 +7,32 @@ this for everything else.
 ## TL;DR
 
 1. Read the source TeX at `vendor/napkin/tex/<area>/<chapter>.tex`.
-2. Author MDX slides under `src/pages/<part-dir>/<chapter-dir>/<NN-section>/<MM-slide>.mdx`.
-3. Add a glossary section block to `src/lib/glossary.ts`.
+2. **Author one section at a time. After each section is done: add the glossary entries it needs, then `git add -A && git commit -m "Author <section>"`.** Don't batch glossary or commits to the end — agents have been killed mid-task and lost everything that wasn't committed.
+3. Author MDX slides under `src/pages/<part-dir>/<chapter-dir>/<NN-section>/<MM-slide>.mdx`.
 4. Write one chapter-level e2e spec at `tests/e2e/<chapter-slug>.spec.ts`.
 5. Run `node scripts/verify-chapter.mjs <chapter-dir>` and `npm run check` — fix anything they report.
-6. Commit incrementally (one commit per section) so partial progress survives a stall.
 
 You're working in a dedicated git worktree on a dedicated branch. The
 parent worktree handles merging back to `main` and adding the chapter
 to `chapterTitles` in `slide-nav.ts` — **don't touch `slide-nav.ts`**.
+
+## Working incrementally (read this — it's how to survive a stall)
+
+The Anthropic API enforces a stream-idle watchdog that has killed
+chapter-authoring agents partway through. Recovery is straightforward
+**if your committed history matches your slides on disk**, but it's
+painful otherwise. So:
+
+- **Glossary as you go.** The moment a slide references `<Term k="X">`,
+  add the `X:` entry to `src/lib/glossary.ts`. Never write 20 slides
+  and then sweep up the glossary at the end — if the watchdog fires
+  in the middle, the parent will have to hand-author every missing
+  entry.
+- **Commit at section boundaries.** When section 03's slides + their
+  glossary entries are in, `git add -A && git commit -m "Author §3 …"`
+  before moving to section 04. `git commit` is pre-allowed for you in
+  `.claude/settings.json` — it will just work.
+- **Push nothing.** Just commit. The parent merges your branch.
 
 ## Where things live
 
@@ -156,9 +173,19 @@ One spec at `tests/e2e/<chapter-slug>.spec.ts`. Copy the structure of
 describes, but keep the four exercise-flow blocks (MCQ, NumericInput,
 ProofReveal, Problem). Pick one slide per exercise type to cover.
 
-When asserting on slide text, **match a unique phrase from the actual
-solution / explanation prose**, not a phrase you hope is there. The
-parent has had to fix several "expected wording" mismatches.
+When asserting on slide text, the assertion string must be a **verbatim
+substring of your own slide prose**, copy-pasted — never a paraphrase
+of what you remember writing. Past mistakes that wasted parent time:
+
+- Slide says "the isomorphism sends x ↦ i"; spec asserts `/isomorphism is given by/` → fails.
+- Slide says "must converge to some point in S"; spec asserts `/converges to some point in S/` → fails.
+- Slide title is "A prime ideal that is not prime as an element — ℤ[i]"; spec asserts `/gaussian integers/` → fails.
+
+Pick a 4–8 word fragment that is (a) unique to this slide's solution or
+explanation, (b) copy-pasted character-for-character from the slide
+file, and (c) NOT inside a KaTeX block (math is split into many small
+DOM nodes — text matchers can't find it). Plain English from the
+prose immediately around a Callout is the safest target.
 
 ## Self-verify before reporting done
 

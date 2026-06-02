@@ -140,6 +140,25 @@ for (const wt of agentTrees) {
   sh(`git branch -D ${wt.branch}`);
 }
 
+// ─── 4b. dedupe glossary keys ─────────────────────────────────────────
+//
+// When two chapters in a single Part both introduce the same concept
+// (e.g. hausdorff appearing in both compactness and topological-spaces),
+// merging just concatenates both blocks and TS will error on the
+// duplicate object-literal key. Strip the second occurrence of every
+// repeated key, keeping the first.
+
+const glossPath = resolve(ROOT, 'src/lib/glossary.ts');
+const originalGloss = readFileSync(glossPath, 'utf8');
+const { content: dedupedGloss, dropped } = dedupeGlossaryKeys(originalGloss);
+if (dropped.length > 0) {
+  console.log(`\nAuto-deduping ${dropped.length} cross-chapter glossary key collision(s):`);
+  for (const k of dropped) console.log(`  - dropped second occurrence of "${k}"`);
+  writeFileSync(glossPath, dedupedGloss);
+  sh('git add src/lib/glossary.ts');
+  sh('git commit -m "Dedupe glossary: keys defined by multiple chapters"');
+}
+
 // ─── 5. run quick checks ──────────────────────────────────────────────
 
 console.log('\nRunning npm run check…');
@@ -151,6 +170,61 @@ console.log('\nfinalize-part: done.');
 console.log('Next: run `npm run test:e2e` for the full regression, then `git push`.');
 
 // ─── glossary auto-resolver ────────────────────────────────────────────
+
+/**
+ * Drop second-and-later occurrences of any key in the glossary's top-level
+ * object literal. Operates line-by-line so we can preserve indentation
+ * exactly. An "entry" starts with `  <camelKey>: {` at line start and ends
+ * at the matching `  },` (depth-tracked over the entry body, which may
+ * itself contain nested braces in string literals — but the regex on the
+ * entry header is anchored at column 3 with `\s{2}`, so we can rely on
+ * that exact indentation to find true entry boundaries).
+ */
+function dedupeGlossaryKeys(content) {
+  const lines = content.split('\n');
+  const seen = new Set();
+  const dropped = [];
+  const out = [];
+  const HEADER_RE = /^\s{2}([a-zA-Z_][a-zA-Z0-9_]*):\s*\{\s*$/;
+  // A line of exactly "  }," (two spaces, close brace, comma) closes one
+  // top-level entry. Sentinel-shape because every entry in this file
+  // closes that way.
+  const CLOSER = '  },';
+  let i = 0;
+  while (i < lines.length) {
+    const m = lines[i].match(HEADER_RE);
+    if (!m) {
+      out.push(lines[i]);
+      i++;
+      continue;
+    }
+    const key = m[1];
+    // Collect this entry block until we hit the matching closer.
+    let end = i;
+    while (end < lines.length && lines[end] !== CLOSER) end++;
+    if (end >= lines.length) {
+      // Malformed — bail out by keeping rest verbatim.
+      out.push(...lines.slice(i));
+      break;
+    }
+    const block = lines.slice(i, end + 1);
+    if (seen.has(key)) {
+      dropped.push(key);
+      // Also swallow a single trailing blank line if there is one, so
+      // we don't leave a double-blank where the entry used to be.
+      if (lines[end + 1] === '') {
+        i = end + 2;
+      } else {
+        i = end + 1;
+      }
+    } else {
+      seen.add(key);
+      out.push(...block);
+      i = end + 1;
+    }
+  }
+  return { content: out.join('\n'), dropped };
+}
 
 function resolveAdditiveGlossaryConflict(content) {
   // Expected shape (single conflict in the entire file):
