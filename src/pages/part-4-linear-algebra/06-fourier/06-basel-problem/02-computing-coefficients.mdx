@@ -1,0 +1,29 @@
+---
+title: Computing the Fourier coefficients of f(x) = x
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Computing the Fourier coefficients of f(x) = x">
+
+Now we compute all $\wh{f}(n)$ for $f(x) = x$.
+
+**Zero frequency:** Since $f(x) = x$ is an odd function and the domain $[-\pi,\pi]$ is symmetric,
+
+$$\wh{f}(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi} x\, dx = 0.$$
+
+**Nonzero frequencies:** By the Fourier inversion formula,
+
+$$\wh{f}(n) = \frac{1}{2\pi} \int_{-\pi}^{\pi} x\, e^{-inx}\, dx.$$
+
+Integration by parts: the antiderivative of $x e^{-inx}$ is $\frac{e^{-inx}}{n^2}(1 + inx)$. Evaluating at $\pm\pi$ and using $e^{\pm in\pi} = (-1)^n$ gives:
+
+$$\wh{f}(n) = \frac{(-1)^n}{n} \cdot i, \qquad n \neq 0.$$
+
+So $|\wh{f}(n)|^2 = \frac{1}{n^2}$ for all $n \neq 0$.
+
+<Callout kind="remark">
+The key point: the Fourier coefficients decay as $1/n$, so the Parseval sum $\sum_n 1/n^2$ is finite — consistent with the fact that $f \in L^2$.
+</Callout>
+
+</SlideLayout>
