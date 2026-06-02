@@ -1,0 +1,29 @@
+---
+title: Problems — competition problems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — competition problems">
+
+<Problem
+  client:load
+  id="inp-prob-taiwan-imo"
+  difficulty="standard"
+  prompt="(Taiwan IMO camp ★) In a town there are n people and k clubs. Each club has an odd number of members, and any two clubs have an even number of common members. Prove that k ≤ n."
+  hint="Interpret clubs as vectors in 𝔽₂ⁿ and use dot products mod 2."
+  solution="Represent each club as a vector in 𝔽₂ⁿ (the j-th coordinate is 1 if person j is in the club, 0 otherwise). Define a 'dot product' over 𝔽₂. The odd membership condition says each club-vector v has v·v = 1 (mod 2). The even common-membership condition says any two distinct club-vectors u, v satisfy u·v = 0 (mod 2). So the k club-vectors are orthonormal over 𝔽₂ and hence linearly independent. Therefore k ≤ dim 𝔽₂ⁿ = n."
+/>
+
+<Problem
+  client:load
+  id="inp-prob-putnam-2014"
+  difficulty="standard"
+  prompt="(Putnam 2014 ★) Let n be a positive integer. What is the largest k for which there exist n×n matrices M₁, …, Mₖ and N₁, …, Nₖ with real entries such that for all i and j, the matrix product MᵢNⱼ has a zero entry somewhere on its diagonal if and only if i ≠ j?"
+  hint="The answer is k = nⁿ. Endow tensor products with an inner form. Note that 'zero entry somewhere on its diagonal' is equivalent to the product of those entries being zero."
+  solution="The answer is k = nⁿ. View each row of Mᵢ and each column of Nⱼ as vectors. The diagonal entry (MᵢNⱼ)ₗₗ is the dot product of the l-th row of Mᵢ with the l-th column of Nⱼ. Using the inner product structure on tensor products V⊗W, one can construct exactly nⁿ such matrix pairs, and show this is maximal."
+/>
+
+</SlideLayout>

@@ -757,6 +757,21 @@ export const glossary = {
   },
 
   // ────────────── Chapter 13 — Inner product spaces ──────────────
+  normedVectorSpace: {
+    term: 'Normed vector space',
+    definition: 'A vector space V over ℝ or ℂ equipped with a norm ‖·‖: V → ℝ satisfying non-negativity (‖v‖ ≥ 0 with equality iff v = 0), homogeneity (‖λv‖ = |λ|‖v‖), and the triangle inequality (‖v+w‖ ≤ ‖v‖ + ‖w‖). Every inner product space is a normed vector space, but not conversely.',
+    example: 'ℝⁿ with the ℓ¹ norm Σ|xᵢ| is a normed vector space that does not arise from any inner product (for n ≥ 2).',
+  },
+  banachSpace: {
+    term: 'Banach space',
+    definition: 'A complete normed vector space — a normed vector space in which every Cauchy sequence converges. Every Hilbert space is a Banach space. The Kuratowski embedding theorem says every metric space embeds isometrically into a Banach space.',
+    example: 'ℝⁿ with any norm is a Banach space. The space C([0,1]) of continuous functions with the sup norm is a Banach space that is not a Hilbert space.',
+  },
+  ellTwo: {
+    term: 'ℓ² sequence space',
+    symbol: '\\ell^2',
+    definition: 'The space of infinite real (or complex) sequences (a₁, a₂, …) with Σ|aᵢ|² < ∞, equipped with the inner product ⟨a,b⟩ = Σaᵢb̄ᵢ. It is an infinite-dimensional Hilbert space with orthonormal basis {eₖ} (standard unit sequences).',
+  },
   hilbertSpace: {
     term: 'Hilbert space',
     definition: 'An inner product space whose associated metric space (with distance d(v,w) = ‖v−w‖) is complete — every Cauchy sequence converges. Hilbert spaces allow well-defined infinite orthogonal sums Σcᵢeᵢ whenever Σ|cᵢ|² < ∞.',
