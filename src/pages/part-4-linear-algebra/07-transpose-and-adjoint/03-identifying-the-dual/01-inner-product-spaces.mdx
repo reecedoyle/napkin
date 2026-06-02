@@ -1,0 +1,28 @@
+---
+title: Using the inner product to identify V with V∨
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Using the inner product to identify V with V∨">
+
+Without an inner product, there is no natural isomorphism $V \cong V^\vee$.
+With one, there is.
+
+The idea: every vector $v \in V$ determines a <Term k="linearFunctional">linear functional</Term>
+$\langle -, v \rangle \colon V \to k$, which sends $u \mapsto \langle u, v \rangle$.
+
+**Example.** In $\mathbb{R}^3$ with orthonormal basis $e_1, e_2, e_3$, take $\xi \in V^\vee$ by
+$\xi(e_1) = 3$, $\xi(e_2) = 4$, $\xi(e_3) = 5$.
+Then $\xi(v) = \langle v, 3e_1 + 4e_2 + 5e_3 \rangle$ for every $v$.
+
+So the vector $3e_1 + 4e_2 + 5e_3$ "represents" $\xi$ via the inner product.
+
+<Callout kind="remark">
+This correspondence — each vector $v$ representing the functional $\langle -, v \rangle$ — is
+the **canonical** identification of $V$ with $V^\vee$ available when we have an
+<Term k="innerProductSpace">inner product</Term>.
+</Callout>
+
+</SlideLayout>

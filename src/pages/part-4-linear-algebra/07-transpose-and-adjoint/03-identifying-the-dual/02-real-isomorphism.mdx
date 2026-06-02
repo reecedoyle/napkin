@@ -1,0 +1,32 @@
+---
+title: V ≅ V∨ for real inner product spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="V ≅ V∨ for real inner product spaces">
+
+<Callout kind="theorem" title="Real inner product spaces: V ≅ V∨">
+Let $V$ be a finite-dimensional **real** <Term k="innerProductSpace">inner product space</Term>.
+The map
+$$
+\Phi \colon V \to V^\vee, \qquad v \mapsto \langle -, v \rangle,
+$$
+is an isomorphism of real vector spaces.
+</Callout>
+
+**Proof sketch (injectivity).** Suppose $\langle u, v_1 \rangle = \langle u, v_2 \rangle$ for all $u$.
+Then $\langle u, v_1 - v_2 \rangle = 0$ for all $u$.
+Taking $u = v_1 - v_2$ and using positive-definiteness gives $v_1 - v_2 = 0$.
+
+**Proof sketch (surjectivity).** Take an <Term k="orthonormalBasis">orthonormal basis</Term> $e_1, \dots, e_n$.
+Then $\Phi(e_i) = e_i^\vee$, so $\Phi$ sends the basis to the dual basis — hence is surjective.
+
+<Callout kind="remark">
+Since $\dim V = \dim V^\vee$, proving either injectivity or surjectivity is enough;
+Evan Chen includes both for elegance.
+The moral: if a real inner product space is given, $V$ and $V^\vee$ are canonically isomorphic.
+</Callout>
+
+</SlideLayout>

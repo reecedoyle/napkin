@@ -1,0 +1,30 @@
+---
+title: Why the complex case is different
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the complex case is different">
+
+Over $\mathbb{C}$, the same construction gives only a bijection, not a linear isomorphism.
+
+<Callout kind="theorem" title="Complex case: bijection but not isomorphism">
+Let $V$ be a finite-dimensional **complex** <Term k="innerProductSpace">inner product space</Term>.
+The map $v \mapsto \langle -, v \rangle$ is a bijection $V \to V^\vee$, but it is **not** a linear map.
+</Callout>
+
+The issue: the <Term k="sesquilinear">sesquilinear</Term> inner product is conjugate-linear in the second argument.
+So
+$$
+iv \mapsto \langle -, iv \rangle = -i\langle -, v \rangle.
+$$
+Scaling by $i$ on the input produces $-i$ on the output — this is **anti-linear**, not linear.
+
+The other natural candidate, $v \mapsto \langle v, - \rangle$, is not even in $V^\vee$:
+$\langle v, - \rangle$ is anti-linear in its argument.
+
+So over $\mathbb{C}$, no linear isomorphism $V \cong V^\vee$ arises from the inner product alone.
+We will only need the bijection result in what follows.
+
+</SlideLayout>

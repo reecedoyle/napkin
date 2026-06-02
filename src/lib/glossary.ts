@@ -787,6 +787,23 @@ export const glossary = {
     definition: 'The transpose of a matrix M is formed by reflecting its entries over the main diagonal: the (i,j) entry of Mᵀ is the (j,i) entry of M. For a linear map T, the matrix of T∨ in the dual bases is the transpose of the matrix of T.',
     example: 'If M = [[1,3,5],[2,4,6]], then Mᵀ = [[1,2],[3,4],[5,6]].',
   },
+  innerProductSpace: {
+    term: 'Inner product space',
+    symbol: '(V, \\langle -, - \\rangle)',
+    definition: 'A vector space V equipped with an inner product ⟨u,v⟩: a positive-definite sesquilinear form. Over ℝ this is a real inner product (symmetric bilinear form); over ℂ it is Hermitian sesquilinear.',
+    example: 'ℝⁿ with ⟨u,v⟩ = u₁v₁ + ··· + uₙvₙ is the standard real inner product space.',
+  },
+  orthonormalBasis: {
+    term: 'Orthonormal basis',
+    symbol: 'e_1, \\dots, e_n',
+    definition: 'A basis e₁, …, eₙ of an inner product space in which ⟨eᵢ, eⱼ⟩ = 1 if i = j and 0 otherwise. Every finite-dimensional inner product space has an orthonormal basis (by Gram–Schmidt).',
+    example: 'The standard basis of ℝⁿ is orthonormal for the dot product.',
+  },
+  sesquilinear: {
+    term: 'Sesquilinear form',
+    definition: 'A map ⟨-,-⟩: V × V → ℂ that is linear in the first argument and conjugate-linear in the second: ⟨u, cv⟩ = c̄⟨u,v⟩. The complex inner product is sesquilinear. "Sesqui" means one-and-a-half: half linear on each side.',
+    example: 'On ℂ², ⟨(a,b),(c,d)⟩ = ac̄ + bd̄ is sesquilinear.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
