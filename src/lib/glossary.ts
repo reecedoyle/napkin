@@ -804,6 +804,18 @@ export const glossary = {
     definition: 'A map ⟨-,-⟩: V × V → ℂ that is linear in the first argument and conjugate-linear in the second: ⟨u, cv⟩ = c̄⟨u,v⟩. The complex inner product is sesquilinear. "Sesqui" means one-and-a-half: half linear on each side.',
     example: 'On ℂ², ⟨(a,b),(c,d)⟩ = ac̄ + bd̄ is sesquilinear.',
   },
+  adjointMap: {
+    term: 'Adjoint',
+    symbol: 'T^\\dagger',
+    definition: 'For a linear map T : V → W between finite-dimensional inner product spaces, the adjoint T† : W → V is the unique map satisfying ⟨v, T†(w)⟩_V = ⟨T(v), w⟩_W for all v ∈ V, w ∈ W. In an orthonormal basis, T† is represented by the conjugate transpose of the matrix of T.',
+    example: 'If T has matrix A in an orthonormal basis, then T† has matrix Ā^⊤ (conjugate of the transpose).',
+  },
+  conjugateTranspose: {
+    term: 'Conjugate transpose',
+    symbol: 'A^\\dagger',
+    definition: 'The conjugate transpose of a matrix A is formed by first transposing A (reflecting over the diagonal) and then taking the complex conjugate of every entry. Written A†, A*, or Ā^⊤. For real matrices this is just the ordinary transpose.',
+    example: 'If A = [[i, 2],[3, 4i]], then A† = [[-i, 3],[2, -4i]].',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

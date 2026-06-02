@@ -1,0 +1,34 @@
+---
+title: Adjoint — quick check
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Adjoint — quick check">
+
+<Callout kind="remark" title="Adjoint vs dual map">
+For a **real** inner product space, $T^\dagger$ and $T^\vee$ are "the same" once you identify $V \cong V^\vee$
+via the inner product. For a **complex** inner product space, $T^\dagger$ conjugates entries while $T^\vee$ does not —
+they are genuinely different objects.
+</Callout>
+
+The advantage of $T^\dagger$: it lives entirely in the world of inner product spaces, no dual space required.
+Its matrix is the <Term k="conjugateTranspose">conjugate transpose</Term> $\overline{A^\top}$ whenever you use an orthonormal basis.
+
+<MCQ
+  client:load
+  id="trn-adj-mcq-real"
+  prompt="For a real matrix A (written in an orthonormal basis), what is the matrix of T†?"
+  options={[
+    { id: "a", label: "The conjugate of A (same shape, entries conjugated)" },
+    { id: "b", label: "The transpose Aᵀ" },
+    { id: "c", label: "The identity matrix" },
+    { id: "d", label: "The inverse A⁻¹" },
+  ]}
+  correct="b"
+  explanation="Over ℝ, conjugation does nothing (all entries are already real), so the conjugate transpose ̄Aᵀ is just Aᵀ. The adjoint of a real linear map (in an orthonormal basis) is its ordinary transpose."
+/>
+
+</SlideLayout>
