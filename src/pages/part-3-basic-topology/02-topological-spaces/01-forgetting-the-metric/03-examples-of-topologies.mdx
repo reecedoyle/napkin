@@ -1,0 +1,35 @@
+---
+title: Examples of topologies
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of topologies">
+
+<Callout kind="example" title="Three basic topologies">
+Given a set $X$:
+
+- **Metric topology.** Any metric space gives a topological space: take $\mathcal{T}$ to be the open sets in the metric sense. The three axioms hold.
+- **Discrete topology.** Every subset of $X$ is declared open. This is the topology induced by the <Term k="discreteMetric">discrete metric</Term>.
+- **Indiscrete topology.** Only $\varnothing$ and $X$ are open. This is the opposite extreme — it forgets as much structure as possible.
+</Callout>
+
+The <Term k="discreteSpace">discrete space</Term> is at one extreme (every set open), the indiscrete topology at the other (only two open sets). Most interesting topologies sit somewhere between.
+
+<MCQ
+  client:load
+  id="top-forget-mcq-axioms"
+  prompt="Which axiom distinguishes topological spaces from mere collections of open sets?"
+  options={[
+    { id: "a", label: "Open sets must be uncountable" },
+    { id: "b", label: "Arbitrary unions and finite intersections of open sets are open" },
+    { id: "c", label: "The metric ball of radius 1 must be open" },
+    { id: "d", label: "Every subset is either open or closed, but not both" },
+  ]}
+  correct="b"
+  explanation="The topology axioms require: (1) ∅ and X are open, (2) finite intersections of open sets are open, (3) arbitrary unions of open sets are open. No metric is mentioned — the open sets are the primary data."
+/>
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: Problems — connected components
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — connected components">
+
+<Problem
+  client:load
+  id="top-prob-connected-components"
+  prompt="Let X be a topological space. The connected component of a point p ∈ X is the union of all connected subspaces S ⊆ X that contain p. (a) Must the connected component of p be itself connected? (b) Must the connected component of p be an open subset of X?"
+  hint="(a) Yes — try to disconnect the union. (b) No, even for metric spaces. Think about totally disconnected spaces."
+  solution="(a) Yes. Suppose the connected component C of p is disconnected: C = U ⊔ V with U, V nonempty open subsets of C. Assume p ∈ U. Every connected subspace S containing p satisfies p ∈ U ∩ S, so S ∩ V = ∅ (otherwise S = (S ∩ U) ⊔ (S ∩ V) disconnects S). So no connected S containing p meets V, meaning no element of V can be in C — contradiction. Hence C is connected. (b) No. In a totally disconnected metric space (e.g. the Cantor set or p-adic integers), every connected component is a single point. These spaces have non-discrete topologies, so singleton components need not be open."
+  difficulty="standard"
+/>
+
+</SlideLayout>

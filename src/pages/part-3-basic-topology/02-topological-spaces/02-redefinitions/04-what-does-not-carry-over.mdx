@@ -1,0 +1,22 @@
+---
+title: What doesn't carry over
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What doesn't carry over">
+
+Not every metric concept has a topological analogue.
+
+<Callout kind="remark" title="Completeness and boundedness are metric, not topological">
+"Complete" and "(totally) bounded" are metric properties — they rely on the metric to state. They are not preserved by homeomorphism. The homeomorphism $(0,1) \cong \RR$ (the real line) shows this: $(0,1)$ is bounded and incomplete, while $\RR$ is unbounded and complete.
+</Callout>
+
+<Callout kind="remark" title="Sequences behave poorly in general topological spaces">
+In metric spaces, a function is continuous iff it preserves convergent sequences. In a general topological space this fails. We therefore leave the notion of convergent sequences out of the purely topological setting; whenever sequences appear, we are working in a metric space.
+</Callout>
+
+The loss of sequences is a real cost — but it is exactly compensated by the extra generality we gain. Most spaces we care about in this course are either metric spaces or finite combinatorial objects, where the metric-space toolkit remains available.
+
+</SlideLayout>

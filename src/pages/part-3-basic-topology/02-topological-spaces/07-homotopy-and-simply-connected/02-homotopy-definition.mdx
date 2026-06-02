@@ -1,0 +1,26 @@
+---
+title: Homotopy — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homotopy — definition">
+
+<Callout kind="definition" title="Path homotopy">
+Let $\alpha$ and $\beta$ be paths in $X$ with the same endpoints: $\alpha(0) = \beta(0)$ and $\alpha(1) = \beta(1)$.
+
+A <Term k="homotopy">homotopy</Term> from $\alpha$ to $\beta$ is a continuous function
+$$F \colon [0,1]^2 \to X,\quad F_s(t) \defeq F(s,t),$$
+such that
+$$F_0(t) = \alpha(t),\quad F_1(t) = \beta(t),$$
+and the endpoints stay fixed throughout:
+$$F_s(0) = \alpha(0) = \beta(0),\quad F_s(1) = \alpha(1) = \beta(1)$$
+for all $s \in [0,1]$.
+
+If such an $F$ exists we say $\alpha$ and $\beta$ are <Term k="homotopic">homotopic</Term> and write $\alpha \simeq \beta$.
+</Callout>
+
+Think of $s$ as the "deformation time": at $s=0$ you have path $\alpha$; at $s=1$ you have $\beta$; in between, the path moves continuously while the endpoints stay pinned.
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Problems — disconnectedness and Hausdorff
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — disconnectedness and Hausdorff">
+
+Two problems on the basic properties of topological spaces.
+
+<Problem
+  client:load
+  id="top-prob-disconnected-continuous"
+  prompt="Let X be a topological space. Show that there exists a nonconstant continuous function X → {0,1} (where {0,1} has the discrete topology) if and only if X is disconnected."
+  hint="If X = U ⊔ V with U, V open and nonempty, define f to be 0 on U and 1 on V. For the converse, look at the preimages of {0} and {1}."
+  solution="(⇒) Suppose f : X → {0,1} is nonconstant and continuous. Since {0} and {1} are open in the discrete topology, U = f⁻¹({0}) and V = f⁻¹({1}) are open in X, nonempty (f is nonconstant), disjoint, and cover X. So X = U ⊔ V is disconnected. (⇐) Suppose X = U ⊔ V with U, V nonempty and open. Define f(x) = 0 for x ∈ U and f(x) = 1 for x ∈ V. Then f⁻¹({0}) = U and f⁻¹({1}) = V are both open, so f is continuous. It is nonconstant since both U and V are nonempty."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="top-prob-hausdorff-t1"
+  prompt="Let X be a Hausdorff topological space. Prove that for any point p ∈ X, the singleton set {p} is closed in X."
+  hint="Show that X \\ {p} is open by exhibiting an open neighborhood of each of its points that avoids p."
+  solution="Let q ∈ X with q ≠ p. Since X is Hausdorff, there exist open neighborhoods U of p and V of q with U ∩ V = ∅. In particular V ⊆ X \\ {p}, so q has an open neighborhood V contained in X \\ {p}. Since every point of X \\ {p} has such a neighborhood, X \\ {p} is open, so {p} is closed."
+  difficulty="standard"
+/>
+
+</SlideLayout>

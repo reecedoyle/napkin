@@ -1,0 +1,35 @@
+---
+title: Examples of connected and disconnected spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of connected and disconnected spaces">
+
+<Callout kind="example" title="Disconnected spaces">
+- $[0,1] \cup [2,3]$ is disconnected: $[0,1]$ is clopen in it (its complement $[2,3]$ is also clopen).
+- Any discrete space on more than one point is disconnected: every subset is clopen.
+- $\mathbb{Q}$ is disconnected: the set $\{x \in \mathbb{Q} : x^2 < 2\}$ is clopen in $\mathbb{Q}$ (its complement is $\{x \in \mathbb{Q} : x^2 > 2\}$, also open). The "gap" at $\sqrt{2}$ splits $\mathbb{Q}$.
+</Callout>
+
+<Callout kind="example" title="Connected spaces">
+The interval $[0,1]$ is connected. So is $\RR$, $\RR^n$, and any convex subset of $\RR^n$. (Proofs of these require a bit more work, typically using the intermediate value theorem.)
+</Callout>
+
+<MCQ
+  client:load
+  id="top-conn-mcq-rational-clopen"
+  prompt="Why is the set {x ∈ ℚ : x² < 2} clopen in ℚ?"
+  options={[
+    { id: "a", label: "Because √2 is in ℚ and serves as a boundary point" },
+    { id: "b", label: "Because both it and its complement {x ∈ ℚ : x² > 2} are open in ℚ" },
+    { id: "c", label: "Because it is a closed interval in ℝ restricted to ℚ" },
+    { id: "d", label: "Because ℚ is a field and all field-open sets are clopen" },
+  ]}
+  correct="b"
+  explanation="The set {x ∈ ℚ : x² < 2} is open in ℚ (it is the intersection of the open interval (-√2, √2) with ℚ). Its complement {x ∈ ℚ : x² > 2} is the intersection of (-∞,-√2) ∪ (√2,∞) with ℚ, also open. So the set is clopen — this is possible because √2 ∉ ℚ, so there is a 'gap' with no rational on either side."
+/>
+
+</SlideLayout>

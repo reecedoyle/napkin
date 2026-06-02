@@ -1,0 +1,20 @@
+---
+title: Paths in a topological space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Paths in a topological space">
+
+<Callout kind="definition" title="Path">
+A <Term k="path">path</Term> in a topological space $X$ is a continuous function
+$$\gamma \colon [0,1] \to X.$$
+Its <Term k="pathEndpoints">endpoints</Term> are $\gamma(0)$ and $\gamma(1)$.
+</Callout>
+
+Think of $[0,1]$ as a time parameter $t \in [0,1]$. A path is a continuous journey through $X$ starting at $\gamma(0)$ and ending at $\gamma(1)$.
+
+This agrees perfectly with intuition: a "path" from point $A$ to point $B$ is something you can walk continuously from $A$ to $B$.
+
+</SlideLayout>

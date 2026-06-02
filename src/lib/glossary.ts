@@ -561,6 +561,111 @@ export const glossary = {
     term: 'Ascending chain condition (ACC)',
     definition: 'The condition that there is no infinite strictly ascending chain of ideals I₁ ⊊ I₂ ⊊ I₃ ⊊ ···. Equivalent to every ideal being finitely generated. A ring with the ACC is Noetherian.',
   },
+
+  // ────────────── Chapter 7 — Topological spaces ──────────────
+  topologicalSpace: {
+    term: 'Topological space',
+    symbol: '(X, \\tau)',
+    definition: 'A set X together with a collection τ of subsets of X — the "open sets" — such that ∅ and X are open, arbitrary unions of open sets are open, and finite intersections of open sets are open. Generalises metric spaces by keeping the notion of "open set" but throwing away the distance function.',
+  },
+  topology: {
+    term: 'Topology',
+    symbol: '\\tau',
+    definition: 'The collection of open sets on a space X. Two different topologies on the same underlying set give two different topological spaces.',
+  },
+  openSetTop: {
+    term: 'Open set (in a topological space)',
+    definition: 'Any set that belongs to the topology τ. The defining notion of a topological space — no metric required.',
+  },
+  closedSetTop: {
+    term: 'Closed set (in a topological space)',
+    definition: 'A set whose complement is open. As in metric spaces: arbitrary intersections of closed sets are closed, finite unions of closed sets are closed.',
+  },
+  closureTop: {
+    term: 'Closure (in a topological space)',
+    symbol: '\\overline{S}',
+    definition: 'The smallest closed set containing S. Equivalently, the intersection of all closed sets that contain S.',
+  },
+  clopen: {
+    term: 'Clopen set',
+    definition: 'A set that is simultaneously open and closed. In ℝ the only clopen sets are ∅ and ℝ; in the discrete topology every set is clopen. The clopen sets determine whether a space is connected.',
+  },
+  openNeighborhood: {
+    term: 'Open neighborhood',
+    definition: 'An open set containing a point p. The basic local-context object for talking about continuity and convergence on a topological space.',
+  },
+  continuousTop: {
+    term: 'Continuous map (topological)',
+    symbol: 'f \\colon X \\to Y',
+    definition: 'A function f: X → Y between topological spaces is continuous if for every open set V ⊆ Y, the pre-image f⁻¹(V) is open in X. On metric spaces this agrees with the ε–δ definition.',
+  },
+  homeomorphismTop: {
+    term: 'Homeomorphism (topological)',
+    definition: 'A continuous bijection whose inverse is also continuous. Two homeomorphic spaces have the same topology — the same open sets up to relabelling.',
+  },
+  hausdorff: {
+    term: 'Hausdorff space',
+    definition: 'A topological space in which any two distinct points can be separated by disjoint open neighborhoods. Almost every space you meet in practice is Hausdorff; non-Hausdorff spaces are mostly curiosities.',
+  },
+  separationAxioms: {
+    term: 'Separation axioms',
+    definition: 'A hierarchy of conditions (T₀, T₁, T₂ = Hausdorff, T₃, T₄, …) that progressively guarantee distinct points or closed sets can be separated by open sets. Sharper axioms permit more analysis-style arguments.',
+  },
+  subspaceTopology: {
+    term: 'Subspace topology',
+    definition: 'Given a topological space (X, τ) and a subset S ⊆ X, the subspace topology on S has as its open sets the intersections U ∩ S for every open U ⊆ X.',
+  },
+  discreteSpace: {
+    term: 'Discrete topology',
+    definition: 'The topology on X in which every subset is open. Equivalently, the topology induced by the discrete metric. Every map out of a discrete space is automatically continuous.',
+  },
+  metrizable: {
+    term: 'Metrizable space',
+    definition: 'A topological space whose topology arises from some metric. Not every topological space is metrizable — Hausdorff is necessary but not sufficient.',
+  },
+  connected: {
+    term: 'Connected space',
+    definition: 'A space that cannot be partitioned into two nonempty disjoint open sets. Equivalently: the only clopen subsets are ∅ and the whole space.',
+  },
+  disconnected: {
+    term: 'Disconnected space',
+    definition: 'A space that admits a partition into two nonempty disjoint open sets. The negation of connected.',
+  },
+  pathConnected: {
+    term: 'Path-connected space',
+    definition: 'A space in which any two points can be joined by a continuous path γ: [0,1] → X. Path-connected implies connected, but the converse fails (topologist\'s sine curve).',
+  },
+  path: {
+    term: 'Path',
+    symbol: '\\gamma \\colon [0,1] \\to X',
+    definition: 'A continuous map γ from the unit interval [0,1] into a space X. Used to define path-connectedness and the fundamental group.',
+  },
+  pathEndpoints: {
+    term: 'Path endpoints',
+    definition: 'For a path γ: [0,1] → X, the endpoints are γ(0) and γ(1). A loop is a path whose endpoints coincide.',
+  },
+  homotopy: {
+    term: 'Homotopy',
+    symbol: 'H \\colon X \\times [0,1] \\to Y',
+    definition: 'A continuous deformation between two maps f, g: X → Y — a map H with H(·,0) = f and H(·,1) = g. Two maps related this way are called homotopic.',
+  },
+  homotopic: {
+    term: 'Homotopic',
+    symbol: 'f \\simeq g',
+    definition: 'Two maps f, g: X → Y are homotopic if there is a homotopy between them. Being homotopic is an equivalence relation on continuous maps.',
+  },
+  simplyConnected: {
+    term: 'Simply connected',
+    definition: 'A path-connected space in which every loop is null-homotopic — can be continuously shrunk to a point. ℝⁿ is simply connected; the circle S¹ is not.',
+  },
+  basisTop: {
+    term: 'Basis (of a topology)',
+    definition: 'A collection of open sets B such that every open set is a union of members of B. The basis generates the topology. On ℝⁿ the open balls form a basis.',
+  },
+  topologicalProperty: {
+    term: 'Topological property',
+    definition: 'A property of a topological space that is preserved under homeomorphism. Compactness, connectedness, and Hausdorff-ness are topological; "having diameter ≤ 1" is not.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

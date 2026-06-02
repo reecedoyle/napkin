@@ -1,0 +1,28 @@
+---
+title: Closed sets and closure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Closed sets and closure">
+
+Two equivalent definitions of "closed" existed in metric spaces. Only one survives in full generality:
+
+<Callout kind="definition" title="Closed set and closure">
+A subset $S \subseteq X$ is <Term k="closedSetTop">closed</Term> in $X$ if its complement $X \setminus S$ is open.
+
+The <Term k="closureTop">closure</Term> of $S$, written $\ol{S}$, is the smallest closed set containing $S$.
+</Callout>
+
+The closure exists because an arbitrary intersection of closed sets is again closed (check: the complement is then an arbitrary union of open sets, which is open).
+
+<ProofReveal
+  client:load
+  id="top-redef-proof-preimage-closed"
+  prompt="Show that a function f : X → Y is continuous if and only if the preimage of every closed set in Y is closed in X."
+  solution="Suppose f is continuous. Let C ⊆ Y be closed, so Y \ C is open. Then f⁻¹(Y \ C) = X \ f⁻¹(C) is open in X (by continuity), so f⁻¹(C) is closed. The converse is the same argument with open and closed swapped."
+/>
+
+</SlideLayout>

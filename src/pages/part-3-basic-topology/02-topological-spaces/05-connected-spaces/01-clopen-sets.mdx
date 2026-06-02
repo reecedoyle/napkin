@@ -1,0 +1,18 @@
+---
+title: Clopen sets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Clopen sets">
+
+In any topological space, $\varnothing$ and $X$ are both open **and** closed (their complements are $X$ and $\varnothing$ respectively, both open). The interesting question is whether any other sets share this property.
+
+<Callout kind="definition" title="Clopen set">
+A subset $S$ of a topological space $X$ is <Term k="clopen">clopen</Term> if it is both open and closed in $X$ — equivalently, both $S$ and $X \setminus S$ are open.
+</Callout>
+
+If a nontrivial clopen set exists (one other than $\varnothing$ and $X$), then $X$ splits into two disjoint nonempty open pieces: $S$ and $X \setminus S$. That is, the space is "broken into two parts" with no connection between them.
+
+</SlideLayout>

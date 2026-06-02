@@ -1,0 +1,20 @@
+---
+title: Subspace topology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Subspace topology">
+
+Given a topological space $X$ and a subset $S \subseteq X$, we can make $S$ into a topological space in a natural way.
+
+<Callout kind="definition" title="Subspace topology">
+The <Term k="subspaceTopology">subspace topology</Term> on $S \subseteq X$ declares a subset of $S$ to be open iff it is of the form $U \cap S$ for some open $U \subseteq X$.
+</Callout>
+
+**Example.** The unit circle $S^1 = \{(x,y) \in \RR^2 : x^2 + y^2 = 1\}$ inherits the subspace topology from $\RR^2$. An open arc of the circle is open in $S^1$ because it equals the intersection of some open disk in $\RR^2$ with $S^1$.
+
+For metric spaces, the subspace topology on $S \subseteq M$ agrees with the topology induced by the restricted metric $d|_{S \times S}$. (The proof is slightly fiddly; we take it on trust.)
+
+</SlideLayout>

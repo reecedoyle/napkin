@@ -1,0 +1,17 @@
+---
+title: Why we need bases
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why we need bases">
+
+Describing all open sets of $\RR$ is unwieldy: they include things like
+$$\left(0,1\right) \cup \left(1,\tfrac32\right) \cup \left(2, \tfrac73\right) \cup (2014, 2015).$$
+
+But this complicated open set is just a union of intervals. In fact, **every** open set in $\RR$ is a union of open intervals.
+
+So rather than cataloguing all open sets, it suffices to specify a small generating family and declare: "take all unions." That generating family is called a **basis**.
+
+</SlideLayout>

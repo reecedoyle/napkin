@@ -1,0 +1,34 @@
+---
+title: Hausdorff spaces — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Hausdorff spaces — definition">
+
+<Callout kind="definition" title="Hausdorff space">
+A topological space $X$ is <Term k="hausdorff">Hausdorff</Term> if for any two distinct points $p, q \in X$ there exist open neighborhoods $U \ni p$ and $V \ni q$ with
+$$U \cap V = \varnothing.$$
+</Callout>
+
+The picture: draw disjoint "bubbles" around $p$ and $q$. Hausdorff says you can always do this.
+
+Every metric space is Hausdorff: given distinct $p, q$ with $d(p,q) = r > 0$, take the open balls of radius $r/2$ around each — they are disjoint.
+
+<MCQ
+  client:load
+  id="top-haus-mcq-metric-hausdorff"
+  prompt="Why is every metric space Hausdorff?"
+  options={[
+    { id: "a", label: "Because every metric space is compact" },
+    { id: "b", label: "Because balls of radius d(p,q)/2 around distinct points p and q are disjoint" },
+    { id: "c", label: "Because the topology of a metric space has infinitely many open sets" },
+    { id: "d", label: "Because closed sets separate points in metric spaces" },
+  ]}
+  correct="b"
+  explanation="For distinct p, q with d(p,q) = r > 0, the open balls B(p, r/2) and B(q, r/2) are disjoint: any point z in both would satisfy d(p,q) ≤ d(p,z) + d(z,q) < r/2 + r/2 = r, contradiction."
+/>
+
+</SlideLayout>
