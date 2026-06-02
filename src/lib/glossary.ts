@@ -666,6 +666,38 @@ export const glossary = {
     term: 'Topological property',
     definition: 'A property of a topological space that is preserved under homeomorphism. Compactness, connectedness, and Hausdorff-ness are topological; "having diameter ≤ 1" is not.',
   },
+
+  // ────────────── Chapter 6 — Properties of metric spaces ──────────────
+  cauchySeq: {
+    term: 'Cauchy sequence',
+    definition: 'A sequence (xₙ) in a metric space such that the terms get arbitrarily close to each other: for every ε > 0, d(xₘ, xₙ) < ε for all sufficiently large m and n. Every convergent sequence is Cauchy, but not vice versa in an incomplete space.',
+    example: 'The decimal approximations 1, 1.4, 1.41, 1.414, … to √2 form a Cauchy sequence in ℝ. In ℚ it is Cauchy but has no limit.',
+  },
+  completeSpace: {
+    term: 'Complete metric space',
+    definition: 'A metric space in which every Cauchy sequence converges to a point of the space. ℝ and ℝⁿ are complete; ℚ and (0,1) are not.',
+    example: 'ℝ is complete. The open interval (0,1) is not: the sequence 0.9, 0.99, 0.999, … is Cauchy but converges to 1 ∉ (0,1).',
+  },
+  totallyBounded: {
+    term: 'Totally bounded',
+    definition: 'A metric space that can be covered by finitely many ε-neighborhoods for any ε > 0. Implies bounded, but not vice versa. Every bounded subset of ℝⁿ is totally bounded.',
+    example: '[0,1] is totally bounded. The discrete metric on ℕ is bounded but not totally bounded.',
+  },
+  denseSubset: {
+    term: 'Dense subset',
+    definition: 'A subset S of a metric space M is dense in M if every nonempty open set of M contains a point of S. Equivalently, every point of M is a limit of a sequence in S.',
+    example: 'ℚ is dense in ℝ. Every metric space is dense in its completion.',
+  },
+  eps: {
+    term: 'Epsilon (ε)',
+    symbol: '\\varepsilon',
+    definition: 'The Greek letter ε (epsilon), used throughout analysis as a name for an arbitrarily small positive real number. In ε-δ arguments, "for every ε > 0" means "no matter how small a positive tolerance you demand".',
+  },
+  contraction: {
+    term: 'Contraction mapping',
+    definition: 'A map T: M → M on a metric space such that d(T(p), T(q)) ≤ r·d(p,q) for some fixed r < 1 and all p, q. By the Banach fixed point theorem, every contraction on a complete metric space has a unique fixed point.',
+    example: 'T(x) = x/2 on ℝ is a contraction with r = 1/2; its unique fixed point is 0.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

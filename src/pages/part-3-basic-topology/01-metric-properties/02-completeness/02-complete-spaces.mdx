@@ -1,0 +1,32 @@
+---
+title: Complete metric spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Complete metric spaces">
+
+A Cauchy sequence is trying to converge. Completeness says it succeeds.
+
+<Callout kind="definition" title="Complete metric space">
+A <Term k="metricSpace">metric space</Term> $M$ is **complete** if every <Term k="cauchySeq">Cauchy sequence</Term> in $M$ converges to a point of $M$.
+</Callout>
+
+<Callout kind="example" title="Complete spaces">
+
+- <Term k="RR">$\mathbb{R}$</Term> is complete. (Depending on how you define $\mathbb{R}$, this is either the definition or a theorem.)
+- The <Term k="discreteMetric">discrete metric space</Term> on any set is complete: the only Cauchy sequences are **eventually constant** (all terms equal from some index on), and those obviously converge.
+- The closed interval $[0,1]$ is complete.
+- <Term k="RRn">$\mathbb{R}^n$</Term> is complete.
+
+</Callout>
+
+<Callout kind="example" title="Incomplete spaces">
+
+- <Term k="QQ">$\mathbb{Q}$</Term> is **not** complete: the decimal approximations to $\sqrt{2}$ form a Cauchy sequence with no rational limit.
+- The open interval $(0,1)$ is **not** complete: $0.9, 0.99, 0.999, \dots$ is Cauchy but converges to $1 \notin (0,1)$.
+
+</Callout>
+
+</SlideLayout>

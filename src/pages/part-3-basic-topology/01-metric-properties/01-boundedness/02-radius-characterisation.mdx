@@ -1,0 +1,26 @@
+---
+title: Boundedness via radii
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Boundedness via radii">
+
+There is a useful restatement: instead of a single bound on all pairwise distances ("diameter"), we can ask that every point has a finite "radius" that covers the whole space.
+
+<Callout kind="proposition" title="Radius characterisation of boundedness">
+A <Term k="metricSpace">metric space</Term> $M$ is bounded if and only if for every point $p \in M$ there is a radius $R$ (which may depend on $p$) such that $d(p,q) \le R$ for all $q \in M$.
+</Callout>
+
+The hint is in the names: the first definition measures the **diameter** of $M$; the proposition says we can instead place a **ball of radius $R$** around any chosen centre that still swallows the whole space.
+
+<ProofReveal
+  client:load
+  id="mtp-bnd-proof-radius-equiv"
+  prompt="Prove the two definitions are equivalent. Use the triangle inequality."
+  solution="(⇒) If d(p,q) ≤ D for all p, q, pick any p₀ ∈ M. Then for any q, d(p₀, q) ≤ D, so take R = D. (⇐) Suppose for some fixed p₀ we have d(p₀, q) ≤ R for all q. Then for any p, q ∈ M the triangle inequality gives d(p,q) ≤ d(p,p₀) + d(p₀,q) ≤ R + R = 2R. So D = 2R works."
+/>
+
+</SlideLayout>

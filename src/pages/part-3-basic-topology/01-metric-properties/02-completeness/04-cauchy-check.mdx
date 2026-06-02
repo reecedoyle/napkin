@@ -1,0 +1,35 @@
+---
+title: Identifying Cauchy sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Identifying Cauchy sequences">
+
+Let's make the Cauchy condition concrete. Working in <Term k="RR">$\mathbb{R}$</Term> with the usual metric $d(x,y) = |x - y|$:
+
+<Callout kind="example">
+
+- $a_n = \tfrac{1}{n}$: Is this Cauchy? For large $m, n$ we have $|a_m - a_n| = |\tfrac{1}{m} - \tfrac{1}{n}|$, which can be made as small as we like. Yes, Cauchy — and it converges to $0 \in \mathbb{R}$.
+- $b_n = (-1)^n$: alternates between $-1$ and $1$. The distance $|b_m - b_n|$ equals $2$ infinitely often, so **not** Cauchy.
+- The partial sums $s_n = \sum_{k=1}^n \tfrac{1}{k^2}$: Cauchy in $\mathbb{R}$, converging to $\pi^2/6$.
+
+</Callout>
+
+<MCQ
+  client:load
+  id="mtp-cmp-mcq-cauchy"
+  prompt="Which of the following sequences is Cauchy in ℝ?"
+  options={[
+    { id: "a", label: "aₙ = n (the natural numbers)" },
+    { id: "b", label: "bₙ = (−1)ⁿ" },
+    { id: "c", label: "cₙ = 1/n" },
+    { id: "d", label: "dₙ = n·sin(n)" },
+  ]}
+  correct="c"
+  explanation="cₙ = 1/n is Cauchy: for any ε > 0, pick N with 1/N < ε/2; then for m,n > N we have |1/m − 1/n| ≤ 1/m + 1/n < ε. The others are not Cauchy: aₙ = n grows without bound, bₙ = (−1)ⁿ keeps bouncing, and dₙ = n·sin(n) oscillates with growing amplitude."
+/>
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Problems — completion and Cauchy subsequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — completion and Cauchy subsequences">
+
+Two further problems. The first asks you to construct the completion explicitly; the second gives an equivalent characterisation of total boundedness.
+
+<Problem
+  client:load
+  id="mtp-prob-completion"
+  prompt="Let M be a metric space. Construct a complete metric space M̄ such that M is a subspace of M̄ and M is dense in M̄ (every nonempty open set of M̄ contains a point of M)."
+  hint="As a set, let M̄ be the set of Cauchy sequences (xₙ) in M, modulo the equivalence relation (xₙ) ~ (yₙ) iff lim_n d(xₙ, yₙ) = 0."
+  solution="Define M̄ as the set of equivalence classes of Cauchy sequences in M under (xₙ) ~ (yₙ) iff lim d(xₙ,yₙ) = 0. Give it the metric D([(xₙ)], [(yₙ)]) = lim_n d(xₙ,yₙ) (one checks this limit exists and is well-defined). Embed M into M̄ by sending p to the constant sequence (p, p, p, …). To show completeness: a Cauchy sequence in M̄ is a sequence of equivalence classes; pick a representative Cauchy sequence in M for each class, then use a diagonal argument to extract a Cauchy sequence in M whose equivalence class is the limit. Density follows because every equivalence class [(xₙ)] is the limit of the constant sequences [(xₙ, xₙ, …)] which are points of M."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="mtp-prob-totally-bounded-cauchy-subseq"
+  prompt="Show that a metric space M is totally bounded if and only if every sequence in M has a Cauchy subsequence."
+  hint="See the argument at math.stackexchange.com/q/556150."
+  solution="(⇒) Suppose M is totally bounded. Given a sequence (xₙ), cover M by finitely many 1-balls; by pigeonhole, infinitely many xₙ lie in some ball B₁. Repeat: cover B₁ ∩ M by finitely many ½-balls, infinitely many of the selected xₙ lie in some ½-ball B₂. Continuing, by a diagonal selection we extract a subsequence where terms in stage k all lie in a (1/2^{k-1})-ball, making it Cauchy. (⇐) Suppose M is not totally bounded. Then there is ε > 0 with no finite ε-cover. Build a sequence by choosing x₁ ∈ M, then x₂ outside B_ε(x₁), then x₃ outside B_ε(x₁) ∪ B_ε(x₂), and so on. Every pair has d(xᵢ, xⱼ) ≥ ε, so no subsequence can be Cauchy."
+  difficulty="standard"
+/>
+
+</SlideLayout>

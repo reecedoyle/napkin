@@ -1,0 +1,28 @@
+---
+title: Absolute vs relative adjectives
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Absolute vs relative adjectives">
+
+Subspaces force us to be careful about which adjectives are intrinsic ("absolute") and which require a parent space ("relative").
+
+<Callout kind="definition" title="Absolute and relative adjectives">
+
+- An **absolute adjective** (like "complete" or "bounded") applies to a metric space in isolation. Saying "$[0,1]$ is complete" or "$[0,1]$ is a complete subspace of $\mathbb{R}$" both make sense and mean the same thing.
+- A **relative adjective** (like "<Term k="openSet">open</Term>" or "<Term k="closedSet">closed</Term>") only makes sense relative to a parent space. Asking "is $[0,1]$ open?" is meaningless on its own.
+
+</Callout>
+
+Relative adjectives need a parent:
+
+- Is $[0,1]$ open **in $\mathbb{R}$**? No.
+- Is $[0,1]$ open **in $[0,1]$**? Yes — every space is open in itself.
+- Is $[0,\tfrac{1}{2})$ open **in $[0,1]$**? Yes — it's the open ball of radius $\tfrac{1}{2}$ centred at $0$ **within** $[0,1]$.
+- Is $[0,\tfrac{1}{2})$ open **in $\mathbb{R}$**? No.
+
+The moral: always specify the ambient space when you say "open" or "closed".
+
+</SlideLayout>

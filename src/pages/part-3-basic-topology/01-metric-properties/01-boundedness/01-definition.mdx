@@ -1,0 +1,23 @@
+---
+title: Bounded metric spaces — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Bounded metric spaces — definition">
+
+We already have a notion of open and closed subsets of a metric space. Now we turn to adjectives that describe an **entire** metric space — how large or well-behaved it is.
+
+The simplest such adjective is boundedness: does the space have finite "diameter"?
+
+<Callout kind="definition" title="Bounded metric space">
+A <Term k="metricSpace">metric space</Term> $M$ is **bounded** if there is a constant $D$ such that
+$$d(p,q) \le D \quad \text{for all } p, q \in M.$$
+</Callout>
+
+Think of $D$ as the diameter of the whole space. A bounded space fits inside a ball of finite radius.
+
+The prototype: the closed interval $[0,1]$ is bounded (take $D = 1$), but <Term k="RR">$\mathbb{R}$</Term> is not (no single $D$ can bound the distance between $-n$ and $n$ for all $n$).
+
+</SlideLayout>

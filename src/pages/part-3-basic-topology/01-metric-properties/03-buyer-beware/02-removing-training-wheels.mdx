@@ -1,0 +1,23 @@
+---
+title: Removing the metric training wheels
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Removing the metric training wheels">
+
+We introduced metrics to make <Term k="openSet">open sets</Term> and <Term k="closedSet">closed sets</Term> concrete. Now we see the metric is carrying baggage those concepts don't need.
+
+<Callout kind="remark">
+Completeness and (total) boundedness are **metric properties** — they depend on the specific distance function, not just on which sets are open. Two homeomorphic metric spaces can differ on both. By contrast, properties like "every open cover has a finite subcover" (compactness) will turn out to be truly topological — preserved by homeomorphism.
+</Callout>
+
+The lesson:
+
+- The metric is useful scaffolding — it gives us pictures of open balls and makes $\varepsilon$-$\delta$ arguments run.
+- But the **open sets** derived from the metric are the real protagonist. They'll survive the transition to general topological spaces; the distances won't.
+
+In the next chapter we'll define a topological space directly in terms of open sets, without any metric. The properties we study there — connectedness, compactness — will all be preserved by homeomorphism by definition.
+
+</SlideLayout>

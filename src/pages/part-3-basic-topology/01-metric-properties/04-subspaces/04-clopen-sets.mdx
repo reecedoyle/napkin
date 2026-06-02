@@ -1,0 +1,38 @@
+---
+title: Clopen sets and disconnected spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Clopen sets and disconnected spaces">
+
+A nontrivial set can be **both** open and closed — such sets are sometimes called **clopen** (with a knowing groan).
+
+<Callout kind="example" title="A disconnected space">
+Let $M = [0,1] \cup (2,3)$. Then $[0,1]$ is:
+
+- <Term k="closedSet">closed in $M$</Term>: its complement $(2,3)$ is open in $M$.
+- <Term k="openSet">open in $M$</Term>: every point of $[0,1]$ has a small ball (within $M$) entirely inside $[0,1]$, since $(2,3)$ is far away.
+
+So $[0,1]$ is clopen in $M$. Symmetrically, $(2,3)$ is also clopen in $M$.
+</Callout>
+
+This is not a pathological accident — it's a sign that $M$ is **disconnected**: it splits into two pieces with a gap between them. The existence of a nontrivial clopen subset is precisely the topological definition of disconnectedness (which we'll formalise later).
+
+<MCQ
+  client:load
+  id="mtp-sub-mcq-clopen"
+  prompt="In the space M = [0,1] ∪ (2,3), is the set (2,3) open in M?"
+  options={[
+    { id: "a", label: "No — (2,3) is open in ℝ but not when viewed as a subset of M" },
+    { id: "b", label: "Yes — every point of (2,3) has a small ε-ball (within M) entirely inside (2,3)" },
+    { id: "c", label: "No — (2,3) is not closed, so it cannot be open in M" },
+    { id: "d", label: "Depends — open only if we use the subspace topology" },
+  ]}
+  correct="b"
+  explanation="Openness in M means: for each p ∈ (2,3), some ε-ball around p stays inside (2,3) when restricted to M. Since the nearest point of [0,1] is at distance at least 1 from any point of (2,3), any ε < 1 works. So (2,3) is open in M. It is also closed in M (its complement [0,1] is open), making it clopen."
+/>
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: Completeness and boundedness are not topological
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Completeness and boundedness are not topological">
+
+Here is the punchline of this chapter: both "bounded" and "complete" are metric properties, **not** topological ones. They can differ between <Term k="homeomorphism">homeomorphic</Term> spaces.
+
+<Callout kind="example" title="Homeomorphic spaces with different metric properties">
+Let $M = (0,1)$ and $N = \mathbb{R}$. The map $x \mapsto \tan\!\bigl(\pi(x - \tfrac{1}{2})\bigr)$ is a homeomorphism from $M$ to $N$.
+
+Yet:
+
+- $(0,1)$ is **totally bounded** but **not complete** (the sequence $0.9, 0.99, \dots$ is Cauchy but escapes).
+- $\mathbb{R}$ is **complete** but **not bounded**.
+
+</Callout>
+
+Two spaces that look identical from a topological viewpoint (same open sets, same continuous functions) can have completely different metric behaviour.
+
+This is the first sign that the metric — which we needed to *motivate* open sets — is not what ultimately matters. The open sets are the right object to study. We'll formalise this when we define topological spaces in the next chapter.
+
+</SlideLayout>
