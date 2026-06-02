@@ -1,0 +1,28 @@
+---
+title: Hom as tensor — concrete example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hom as tensor — concrete example">
+
+Let $V = \mathbb{R}^2$ with basis $e_1, e_2$ and let $T: V \to V$ be the map given by the matrix
+
+$$T = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$$
+
+meaning $T(e_1) = e_1 + 3e_2$ and $T(e_2) = 2e_1 + 4e_2$.
+
+The corresponding element of <Term k="dualSpace">$V^\vee$</Term> $\otimes V$ is:
+
+$$e_1^\vee \otimes e_1 + 3e_1^\vee \otimes e_2 + 2e_2^\vee \otimes e_1 + 4e_2^\vee \otimes e_2$$
+
+Wait — let's be careful: column $j$ of $T$ tells us $T(e_j)$. So:
+
+$$\Psi^{-1}(T) = e_1^\vee \otimes (e_1 + 3e_2) + e_2^\vee \otimes (2e_1 + 4e_2)$$
+
+<Callout kind="remark" title="The power of coordinate-free thinking">
+Even though the expression $e_1^\vee \otimes e_1 + \cdots$ changes when you change the basis, the **actual element of $V^\vee \otimes V$ it describes is the same**. The tensor product captures what $T$ truly is, independent of coordinates.
+</Callout>
+
+</SlideLayout>

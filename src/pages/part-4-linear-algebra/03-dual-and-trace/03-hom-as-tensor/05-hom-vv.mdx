@@ -1,0 +1,37 @@
+---
+title: Hom(V,k) is V∨
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Hom(V,k) is V∨">
+
+The isomorphism $\operatorname{Hom}(V,W) \cong V^\vee \otimes W$ specialises nicely when $W = k$.
+
+$$\operatorname{Hom}(V, k) \cong V^\vee \otimes k \cong V^\vee$$
+
+This is exactly the definition of the <Term k="dualSpace">dual space</Term>: $V^\vee = \operatorname{Hom}(V, k)$. So the notation $V^\vee$ and the notation $\operatorname{Hom}(V,k)$ are the same object.
+
+Plugging in $V = W$ also gives a particularly important case for the trace:
+
+$$\operatorname{Hom}(V, V) \cong V^\vee \otimes V$$
+
+Every linear map $T: V \to V$ is represented as an element of <Term k="dualSpace">$V^\vee$</Term> $\otimes V$, and this identification is used to define the trace.
+
+<MCQ
+  client:load
+  id="dat-hom-mcq-hom-vv"
+  prompt="What is dim Hom(V,V) when dim V = n?"
+  options={[
+    { id: "a", label: "n" },
+    { id: "b", label: "2n" },
+    { id: "c", label: "n²" },
+    { id: "d", label: "n + 1" },
+  ]}
+  correct="c"
+  explanation="Hom(V,V) ≅ V∨ ⊗ V has dimension dim(V∨) · dim(V) = n · n = n². In coordinates, this is the space of n×n matrices."
+/>
+
+</SlideLayout>

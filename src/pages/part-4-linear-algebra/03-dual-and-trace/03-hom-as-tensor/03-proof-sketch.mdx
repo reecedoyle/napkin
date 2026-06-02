@@ -1,0 +1,28 @@
+---
+title: Proof of V∨ ⊗ W ≅ Hom(V,W)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Proof of V∨ ⊗ W ≅ Hom(V,W)">
+
+<Callout kind="proposition" title="Sketch of proof">
+The map $\Psi: V^\vee \otimes W \to \operatorname{Hom}(V,W)$ is an isomorphism. Proof in two steps:
+
+1. **Surjectivity:** Given any $T: V \to W$, write $T(e_i) = w_i$ for each basis element. Then $e_1^\vee \otimes w_1 + \cdots + e_n^\vee \otimes w_n$ maps to $T$ under $\Psi$.
+
+2. **Dimension count:** Both sides have dimension $\dim V \cdot \dim W$, so a surjective map between equal-dimensional spaces is an isomorphism.
+</Callout>
+
+The isomorphism $\Psi$ is "natural" — it does not depend on which basis you choose for $V$ or $W$. The *proof* uses coordinates, but the conclusion is coordinate-free.
+
+<ProofReveal
+  client:load
+  id="dat-hom-proof-surjective"
+  prompt="Given T: ℝ² → ℝ² with T(e₁) = 2e₁ + e₂ and T(e₂) = 3e₂, write T as an element of (ℝ²)∨ ⊗ ℝ²."
+  solution="T corresponds to e₁∨ ⊗ (2e₁ + e₂) + e₂∨ ⊗ (3e₂) = 2(e₁∨ ⊗ e₁) + (e₁∨ ⊗ e₂) + 3(e₂∨ ⊗ e₂). Verify: Ψ sends this to v ↦ e₁∨(v)·(2e₁+e₂) + e₂∨(v)·3e₂. For v = e₁: 1·(2e₁+e₂) + 0 = 2e₁ + e₂ = T(e₁). For v = e₂: 0 + 1·3e₂ = 3e₂ = T(e₂). Correct."
+/>
+
+</SlideLayout>
