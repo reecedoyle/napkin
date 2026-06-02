@@ -1,0 +1,25 @@
+---
+title: Why wedge products?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why wedge products?">
+
+The determinant is one of the most-used tools in linear algebra, but it is usually defined as a mysterious alternating sum over permutations. That definition works, but it hides *why* the determinant exists and what it means.
+
+We are going to build the determinant from scratch using a construction called the <Term k="wedgeProduct">wedge product</Term>. The payoff: the key properties of the determinant — multiplicativity, basis-independence — will be automatic rather than painful lemmas.
+
+<Callout kind="remark" title="Big picture">
+The wedge product $\bigwedge^n(V)$ packages up the notion of **signed volume** into an algebraic object. Once we have it, the determinant is just "how does a linear map $T$ scale this volume?" — a single number called $\det T$.
+</Callout>
+
+Here is the road map for this chapter:
+
+1. Define the 2-wedge product $\bigwedge^2(V)$ (parallelogram areas).
+2. Extend to $\bigwedge^m(V)$ for arbitrary $m$ (hypervolumes).
+3. Note that $\bigwedge^n(V)$ is **one-dimensional** when $\dim V = n$.
+4. Use that to define $\det T$ as the unique scalar by which $\bigwedge^n(T)$ multiplies.
+
+</SlideLayout>

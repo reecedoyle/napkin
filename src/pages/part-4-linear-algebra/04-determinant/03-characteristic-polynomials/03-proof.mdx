@@ -1,0 +1,32 @@
+---
+title: Cayley–Hamilton — proof via Jordan form
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Cayley–Hamilton — proof via Jordan form">
+
+The proof uses the Jordan decomposition of $V$.
+
+<Callout kind="proposition" title="Setup">
+Write $V = J_1 \oplus J_2 \oplus \cdots \oplus J_m$ in Jordan normal form, where $J_i$ is a generalised eigenspace for eigenvalue $\lambda_i$ with dimension $d_i$.
+
+Then by definition:
+
+$$
+p_T(X) = (X - \lambda_1)^{d_1}(X - \lambda_2)^{d_2} \cdots (X - \lambda_m)^{d_m}.
+$$
+</Callout>
+
+<ProofReveal
+  client:load
+  id="det-ch-proof-cayley-hamilton"
+  prompt="Using the Jordan decomposition, prove that p_T(T) is the zero map."
+  solution="Evaluate p_T(T) = (T − λ₁·id)^{d₁} ∘ (T − λ₂·id)^{d₂} ∘ ··· ∘ (T − λₘ·id)^{dₘ}. By definition of the generalised eigenspace J₁, the map (T − λ₁·id)^{d₁} is the zero map on J₁. So p_T(T) is zero on J₁. By the same argument it is zero on each Jᵢ. Since V = J₁ ⊕ ··· ⊕ Jₘ, p_T(T) is the zero map on all of V."
+/>
+
+The key insight: the factor $(T - \lambda_i \cdot \mathrm{id})^{d_i}$ annihilates $J_i$ by the very definition of the generalised eigenspace. So the product of all factors annihilates each summand, hence the whole space.
+
+</SlideLayout>

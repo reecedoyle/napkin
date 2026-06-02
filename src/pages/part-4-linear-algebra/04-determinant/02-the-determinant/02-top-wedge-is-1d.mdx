@@ -1,0 +1,36 @@
+---
+title: The top wedge is one-dimensional
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The top wedge is one-dimensional">
+
+Here is the key observation that makes the determinant possible.
+
+<Callout kind="proposition" title="∧ⁿ(V) is one-dimensional">
+If $\dim V = n$, then $\dim \bigwedge^n(V) = \binom{n}{n} = 1$.
+</Callout>
+
+A **one-dimensional** vector space over $k$ is isomorphic to $k$ itself. In particular, every linear map from a one-dimensional space to itself is just **multiplication by a scalar**.
+
+So $\bigwedge^n(T) \colon \bigwedge^n(V) \to \bigwedge^n(V)$ is multiplication by some scalar $c \in k$.
+
+<Callout kind="definition" title="Determinant">
+Let $V$ be an $n$-dimensional vector space and $T \colon V \to V$ a linear map. The **determinant** $\det T$ is the unique scalar $c$ such that
+
+$$
+\bigwedge^n(T) = c \cdot \mathrm{id}_{\bigwedge^n(V)}.
+$$
+
+Concretely, if $e_1 \wedge \cdots \wedge e_n$ is any nonzero element of $\bigwedge^n(V)$, then
+
+$$
+T(e_1) \wedge \cdots \wedge T(e_n) = (\det T)(e_1 \wedge \cdots \wedge e_n).
+$$
+</Callout>
+
+The definition uses no choice of basis for $V$ — it only uses the linear map $T$ and the canonical construction $\bigwedge^n$. So the determinant is **basis-independent by construction**.
+
+</SlideLayout>

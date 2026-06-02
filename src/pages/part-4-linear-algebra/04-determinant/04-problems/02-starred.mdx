@@ -1,0 +1,29 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred">
+
+Two harder problems: a combinatorics result that uses det mod 2, and a competition problem that combines Cayley–Hamilton with diagonalisation.
+
+<Problem
+  client:load
+  id="det-prob-cows"
+  prompt="A herd of 1000 cows of nonzero weight is given. Prove that we can remove one cow such that the remaining 999 cows cannot be partitioned into two sets with equal sum of weights."
+  hint="Suppose for contradiction that for every cow we remove, the remaining 999 can be partitioned. This gives a 1000×1000 matrix M with 0 on the diagonal and ±1 off the diagonal such that Mv = 0, where v is the vector of weights. Show that det M is odd (count derangements mod 2), conclude M is invertible, and derive a contradiction."
+  solution="We argue by contradiction. Let v be the length-1000 vector of weights. Assume for every i, the remaining 999 cows can be split into two equal-weight sets. This translates to a 1000×1000 matrix M with Mv = 0, where M has 0 on the diagonal and ±1 off the diagonal. Modulo 2, every off-diagonal entry is 1. The determinant of this matrix mod 2 equals the number of derangements of {1,…,1000} mod 2. By a known formula, the number of derangements of n elements is odd if and only if n is even (which 1000 is), so det M is odd. In particular det M ≠ 0, so M is invertible. But then Mv = 0 forces v = 0, contradicting the assumption that all weights are nonzero."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="det-prob-putnam-2015"
+  prompt="Let S be the set of real 2×2 matrices [[a,b],[c,d]] such that a, b, c, d form an arithmetic progression in that order. Find all M ∈ S such that for some integer k > 1, Mᵏ ∈ S."
+  hint="For e ≠ 0 (non-constant arithmetic progression), show M has two distinct real eigenvalues. Apply Cayley–Hamilton to express Mᵏ = cM for some scalar c. Then tr M = 0 determines the answer."
+  solution="The answer consists of all matrices of the form [[t, t], [t, t]] and [[-3t, -t], [t, 3t]] for t ∈ ℝ. Both families satisfy k = 3. For the uniqueness part: write M = [[a, a+e], [a+2e, a+3e]]. If e = 0 the matrix is scalar and trivially in S^k. For e ≠ 0, the characteristic polynomial is t² − (2a+3e)t − 2e², which has discriminant (2a+3e)² + 8e² > 0, so M has two distinct real eigenvalues. By Cayley–Hamilton, M² = (2a+3e)M + 2e²I. For Mᵏ ∈ S too, a Cayley–Hamilton argument shows Mᵏ = cM (the constant term must be 0), forcing the eigenvalues to satisfy λ₁/λ₂ = -1, i.e., tr M = 0. Setting 2a + 3e = 0 and substituting gives the family [[-3t,-t],[t,3t]]."
+  difficulty="starred"
+/>
+
+</SlideLayout>

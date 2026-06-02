@@ -1,0 +1,46 @@
+---
+title: Determinant of a 2×2 matrix
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Determinant of a 2×2 matrix">
+
+Let us verify the definition recovers the familiar formula.
+
+<Callout kind="example" title="det of a 2×2 matrix">
+Let $V = \mathbb{R}^2$ with basis $e_1, e_2$ and let
+
+$$
+T = \begin{bmatrix} a & c \\ b & d \end{bmatrix},
+\quad T(e_1) = ae_1 + be_2, \quad T(e_2) = ce_1 + de_2.
+$$
+
+Then $\bigwedge^2(T)$ sends the basis element $e_1 \wedge e_2$ to
+
+$$
+T(e_1) \wedge T(e_2) = (ae_1 + be_2) \wedge (ce_1 + de_2) = (ad - bc)(e_1 \wedge e_2).
+$$
+
+So $\det T = ad - bc$.
+</Callout>
+
+The determinant is the unique scalar by which the map scales the single basis element of $\bigwedge^2(V)$.
+
+<MCQ
+  client:load
+  id="det-det-mcq-2x2-value"
+  prompt="What is det([[3, 1], [2, 4]])?"
+  options={[
+    { id: "a", label: "10" },
+    { id: "b", label: "14" },
+    { id: "c", label: "5" },
+    { id: "d", label: "12" },
+  ]}
+  correct="a"
+  explanation="det([[3,1],[2,4]]) = 3·4 − 1·2 = 12 − 2 = 10. The formula is ad − bc."
+/>
+
+</SlideLayout>

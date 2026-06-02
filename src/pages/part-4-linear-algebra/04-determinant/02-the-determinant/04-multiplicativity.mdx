@@ -1,0 +1,28 @@
+---
+title: Determinant is multiplicative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Determinant is multiplicative">
+
+One of the most useful properties of the determinant follows instantly from the wedge definition.
+
+<Callout kind="theorem" title="det(S ∘ T) = det(S) det(T)">
+For any linear maps $S, T \colon V \to V$,
+
+$$
+\det(S \circ T) = \det(S) \cdot \det(T).
+$$
+</Callout>
+
+**Proof.** By functoriality, $\bigwedge^n(S \circ T) = \bigwedge^n(S) \circ \bigwedge^n(T)$. Composing "multiply by $\det T$" with "multiply by $\det S$" gives "multiply by $\det(S)\det(T)$". So $\det(S \circ T) = \det(S)\det(T)$. $\square$
+
+If you had defined the determinant as an alternating sum over permutations, this would require a painful computation. With the wedge definition it is one line.
+
+<Callout kind="remark" title="Why the matrix definition obscures things">
+Most textbooks define $\det$ via the Leibniz formula — the alternating sum over all permutations — and then verify multiplicativity by calculation. The wedge definition reverses this: multiplicativity is immediate, and the Leibniz formula is a corollary of expanding the wedge product in coordinates.
+</Callout>
+
+</SlideLayout>

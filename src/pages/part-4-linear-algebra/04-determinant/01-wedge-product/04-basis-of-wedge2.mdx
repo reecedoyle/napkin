@@ -1,0 +1,34 @@
+---
+title: Basis of the 2-wedge product
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Basis of the 2-wedge product">
+
+Now we know what $\bigwedge^2(V)$ looks like when $V$ has a basis.
+
+<Callout kind="proposition" title="Basis of ∧²(V)">
+Let $V$ be an $n$-dimensional vector space with basis $e_1, \dots, e_n$. A basis for $\bigwedge^2(V)$ is
+
+$$
+\{ e_i \wedge e_j : 1 \le i < j \le n \}.
+$$
+
+In particular, $\dim \bigwedge^2(V) = \binom{n}{2}$.
+</Callout>
+
+**Why?** Any generator $v \wedge w$ can be expanded into these basis elements using bilinearity. The anti-symmetry relation $e_j \wedge e_i = -(e_i \wedge e_j)$ lets us always put $i < j$, and $e_i \wedge e_i = 0$ removes all diagonal terms.
+
+<NumericInput
+  client:load
+  id="det-wedge-num-dim-wedge2-r4"
+  prompt="What is the dimension of ∧²(ℝ⁴)?"
+  expected={6}
+/>
+
+For $V = \mathbb{R}^4$ (with $n = 4$), $\binom{4}{2} = 6$. The six basis elements are $e_1 \wedge e_2$, $e_1 \wedge e_3$, $e_1 \wedge e_4$, $e_2 \wedge e_3$, $e_2 \wedge e_4$, $e_3 \wedge e_4$.
+
+</SlideLayout>

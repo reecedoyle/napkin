@@ -1,0 +1,32 @@
+---
+title: Wedge product — explicit computation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Wedge product — explicit computation">
+
+Let us compute in $\bigwedge^2(\mathbb{R}^2)$ to see the definition in action.
+
+<Callout kind="example" title="Wedge product in ℝ²">
+Let $v = ae_1 + be_2$ and $w = ce_1 + de_2$ in $\mathbb{R}^2$. Expand using bilinearity:
+
+$$
+v \wedge w = ac(e_1 \wedge e_1) + ad(e_1 \wedge e_2) + bc(e_2 \wedge e_1) + bd(e_2 \wedge e_2).
+$$
+
+Apply $e_i \wedge e_i = 0$ and $e_2 \wedge e_1 = -(e_1 \wedge e_2)$:
+
+$$
+v \wedge w = (ad - bc)(e_1 \wedge e_2).
+$$
+</Callout>
+
+The scalar $ad - bc$ is immediately recognisable: it is the **determinant** of the matrix $\begin{bmatrix} a & c \\ b & d \end{bmatrix}$, and also the **signed area** of the parallelogram spanned by $v$ and $w$.
+
+This is no coincidence. The axiom $v \wedge v = 0$ — "a degenerate parallelogram has zero area" — is exactly the condition that forces the wedge product to measure signed area.
+
+The **miracle** is that this one axiom is all we need: bilinearity plus $v \wedge v = 0$ automatically gives us the full machinery of signed volumes in any dimension.
+
+</SlideLayout>

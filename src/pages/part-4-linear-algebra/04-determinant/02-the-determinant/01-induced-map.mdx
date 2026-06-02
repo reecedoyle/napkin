@@ -1,0 +1,34 @@
+---
+title: The induced wedge map ∧ᵐ(T)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The induced wedge map ∧ᵐ(T)">
+
+Every linear map $T \colon V \to V$ lifts to a linear map on each wedge power.
+
+<Callout kind="definition" title="Induced wedge map">
+Given $T \colon V \to V$, define $\bigwedge^m(T) \colon \bigwedge^m(V) \to \bigwedge^m(V)$ on generators by
+
+$$
+v_1 \wedge v_2 \wedge \cdots \wedge v_m \;\longmapsto\; T(v_1) \wedge T(v_2) \wedge \cdots \wedge T(v_m),
+$$
+
+and extend linearly to all of $\bigwedge^m(V)$.
+</Callout>
+
+This is **well-defined** because $T$ is linear: if two wedge expressions are equal (related by the axioms), their images under $T$ are also equal. Linearity of the map on all of $\bigwedge^m(V)$ follows immediately.
+
+<Callout kind="example" title="Computing ∧²(T) in ℝ⁴">
+Let $T(e_1) = e_2$, $T(e_2) = 2e_3$, $T(e_3) = e_3$, $T(e_4) = 2e_2 + e_3$. Then $\bigwedge^2(T)$ sends
+
+$$
+(e_1 \wedge e_2) + (e_3 \wedge e_4) \;\mapsto\; e_2 \wedge 2e_3 + e_3 \wedge (2e_2 + e_3) = 2e_2 \wedge e_3 + 2e_3 \wedge e_2 = 0.
+$$
+</Callout>
+
+The key functoriality: $\bigwedge^m(S \circ T) = \bigwedge^m(S) \circ \bigwedge^m(T)$. This is because applying $S \circ T$ to each vector before wedging is the same as applying $T$ first and then applying $S$.
+
+</SlideLayout>

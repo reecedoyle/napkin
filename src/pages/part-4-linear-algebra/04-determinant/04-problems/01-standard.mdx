@@ -1,0 +1,47 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+Four standard problems. The first three illustrate key properties of the determinant; the fourth gives a cleaner characterisation of invertibility.
+
+<Problem
+  client:load
+  id="det-prob-column-operations"
+  prompt="Show that adding a scalar multiple of one column to another does not change the determinant. Precisely, for any real n×n matrix with column vectors v₁, …, vₙ and any scalar c, show that det(v₁ + cv₂, v₂, …, vₙ) = det(v₁, v₂, …, vₙ)."
+  hint="Write (v₁ + cv₂) ∧ v₂ ∧ ··· ∧ vₙ = v₁ ∧ v₂ ∧ ··· ∧ vₙ + c(v₂ ∧ v₂ ∧ ··· ∧ vₙ), and observe that the second term vanishes because v₂ appears twice in the wedge."
+  solution="By bilinearity of the wedge, (v₁ + cv₂) ∧ v₂ ∧ ··· ∧ vₙ = v₁ ∧ v₂ ∧ ··· ∧ vₙ + c·(v₂ ∧ v₂ ∧ ··· ∧ vₙ). The second term is zero because v₂ appears twice — repeated entries make the wedge vanish. So the determinant is unchanged."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="det-prob-det-product-eigenvalues"
+  prompt="Let V be an n-dimensional vector space over an algebraically closed field k, and let T: V → V have eigenvalues λ₁, …, λₙ (with algebraic multiplicity). Show that det T = λ₁λ₂···λₙ."
+  hint="Either write T in Jordan normal form and compute ∧ⁿ(T) directly on the basis given by Jordan form, or use the Leibniz formula on the triangular matrix."
+  solution="Write V in Jordan normal form so that T is upper-triangular with λ₁, …, λₙ on the diagonal. The top-wedge basis element is e₁ ∧ ··· ∧ eₙ. Then T(e₁) = λ₁e₁ + (lower terms), so T(e₁) ∧ T(e₂) ∧ ··· ∧ T(eₙ) = λ₁e₁ ∧ (λ₂e₂ + ···) ∧ ··· = λ₁λ₂···λₙ (e₁ ∧ ··· ∧ eₙ), since all cross terms vanish by repeated-index arguments. Hence det T = λ₁···λₙ."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="det-prob-exp-matrix"
+  prompt="Let X be an n×n complex matrix and define exp(X) = I + X + X²/2! + X³/3! + ··· (this series converges). Prove that det(exp(X)) = e^{tr X}."
+  hint="Work in a basis where X is upper-triangular (over ℂ such a basis always exists). The diagonal entries of exp(X) are then e^{x₁₁}, …, e^{xₙₙ}, and the diagonal entries of X are x₁₁, …, xₙₙ."
+  solution="Every complex matrix is upper-triangularisable. Work in a basis where X is upper-triangular with diagonal entries x₁₁, …, xₙₙ. Then exp(X) is also upper-triangular with diagonal entries e^{x₁₁}, …, e^{xₙₙ}. The determinant of an upper-triangular matrix is the product of its diagonal entries, so det(exp(X)) = e^{x₁₁}···e^{xₙₙ} = e^{x₁₁ + ··· + xₙₙ} = e^{tr X}."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="det-prob-iso-iff-det-nonzero"
+  prompt="Let T: V → V be a linear map on a finite-dimensional vector space. Prove that T is an isomorphism if and only if det T ≠ 0."
+  hint="For one direction use the fact that T is an isomorphism iff it is injective (for equal-dimensional spaces). For the other, if T is an isomorphism with inverse S, compute det(S ∘ T)."
+  solution="Since dim V = dim V, T is an isomorphism if and only if it is injective. If T(v) = 0 for some nonzero v, take a basis with e₁ = v. Then ∧ⁿ(T) sends e₁ ∧ e₂ ∧ ··· ∧ eₙ to 0 ∧ T(e₂) ∧ ··· = 0, so det T = 0. Conversely, if T is an isomorphism with inverse S, then det(id) = det(S ∘ T) = det(S)·det(T), so 1 = det(S)·det(T), giving det T ≠ 0."
+  difficulty="standard"
+/>
+
+</SlideLayout>
