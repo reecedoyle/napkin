@@ -825,6 +825,10 @@ export const glossary = {
     term: "Plancherel's theorem",
     definition: 'Generalises Parseval: the Fourier transform is a unitary (inner-product-preserving) isometry between the function space and the frequency space. Concretely, ⟨f, g⟩ = ∑ξ f̂(ξ)ĝ(ξ)̄. Parseval is the special case f = g.',
   },
+  votingMechanism: {
+    term: 'Voting mechanism',
+    definition: 'In the Fourier proof of Arrow\'s theorem, a triple of functions (f, g, h): {±1}ⁿ → {±1} that aggregate voters\' pairwise preferences into a global preference. f(x•) gives A-vs-B, g(y•) gives B-vs-C, h(z•) gives C-vs-A.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

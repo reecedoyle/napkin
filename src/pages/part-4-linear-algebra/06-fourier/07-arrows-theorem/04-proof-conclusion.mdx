@@ -1,0 +1,36 @@
+---
+title: Arrow's theorem — conclusion of proof
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Arrow's theorem — conclusion of proof">
+
+All inequalities in the chain on the previous slide must be **sharp** (equalities). This forces:
+
+1. The factor $\left(\frac{1}{3}\right)^{|S|}$ must not drop below $\frac{1}{3}$, so $|S| \le 1$ for all contributing terms — meaning $\wh{f}$, $\wh{g}$, $\wh{h}$ are supported on sets $S$ of size at most $1$.
+
+2. Since $f, g, h \colon \{\pm1\}^n \to \{\pm1\}$ take values $\pm 1$, a function supported only on singletons must be a single monomial $\pm x_k$ for some $k$.
+
+3. Since $(f, g, h)$ always yields a consistent (non-paradoxical) outcome, the same dictator $k$ and the same sign must appear in all three.
+
+<Callout kind="remark" title="Moral">
+Fourier analysis converts a combinatorial impossibility statement into a string of inequalities, each of which is a standard algebraic fact. The equality conditions pin down the structure of $f$, $g$, $h$ exactly.
+</Callout>
+
+<MCQ
+  client:load
+  id="four-arrow-mcq-dictator"
+  prompt="In the Arrow proof, why must f̂, ĝ, ĥ be supported on sets S with |S| ≤ 1?"
+  options={[
+    { id: "a", label: "Because Parseval forces the sum of squares to equal 1" },
+    { id: "b", label: "Because all inequalities in the chain must be equalities, so (1/3)^|S| cannot be strictly less than 1/3" },
+    { id: "c", label: "Because f, g, h are Boolean functions" },
+    { id: "d", label: "Because the probability of a paradox is exactly 1/4" },
+  ]}
+  correct="b"
+  explanation="For the chain of inequalities to all be equalities, every term with |S| ≥ 2 must contribute zero. Since (1/3)^|S| < 1/3 for |S| ≥ 2, the only way the Parseval bound can be tight is if f̂(S) = ĝ(S) = ĥ(S) = 0 for all |S| ≥ 2."
+/>
+
+</SlideLayout>

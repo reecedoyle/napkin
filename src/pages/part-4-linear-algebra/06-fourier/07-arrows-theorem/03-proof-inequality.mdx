@@ -1,0 +1,21 @@
+---
+title: Arrow's theorem — the Fourier proof
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Arrow's theorem — the Fourier proof">
+
+The proof rests on a probability computation (Problem 2 at chapter's end) that gives the exact probability of a paradoxical outcome:
+
+$$\Pr[\text{paradox}] = \frac{1}{4} + \frac{1}{4} \sum_{S \subseteq \{1,\dots,n\}} \left(-\tfrac{1}{3}\right)^{|S|} \left(\wh{f}(S)\wh{g}(S) + \wh{g}(S)\wh{h}(S) + \wh{h}(S)\wh{f}(S)\right).$$
+
+Assume $\Pr[\text{paradox}] = 0$. Since $\wh{f}(\varnothing) = \mathbb{E} f = 0$ (and similarly for $g, h$), we restrict to $|S| \ge 1$ and derive the chain of inequalities:
+
+$$1 = \sum_{|S| \ge 1} \left(\frac{1}{3}\right)^{|S|}\!\!\left|\wh{f}(S)\wh{g}(S) + \wh{g}(S)\wh{h}(S) + \wh{h}(S)\wh{f}(S)\right|$$
+$$\le \sum_{|S| \ge 1} \left(\frac{1}{3}\right)^{|S|}\!\!\left(\wh{f}(S)^2 + \wh{g}(S)^2 + \wh{h}(S)^2\right)$$
+$$\le \frac{1}{3}\sum_{|S| \ge 1} \left(\wh{f}(S)^2 + \wh{g}(S)^2 + \wh{h}(S)^2\right) = \frac{1}{3}(1 + 1 + 1) = 1$$
+
+using $|ab + bc + ca| \le a^2 + b^2 + c^2$ and Parseval (which gives $\sum_S \wh{f}(S)^2 = \langle f,f \rangle = 1$).
+
+</SlideLayout>
