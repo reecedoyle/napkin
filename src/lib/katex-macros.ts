@@ -66,4 +66,8 @@ export const napkinKatexMacros: Record<string, string> = {
 
   // Preimage notation — Napkin writes \phi\pre(I).
   '\\pre': '^{-1}',
+
+  // Trace and Hom — used in dual-space / trace chapter.
+  '\\Tr': '\\operatorname{Tr}',
+  '\\Hom': '\\operatorname{Hom}',
 };
