@@ -798,6 +798,12 @@ export const glossary = {
     definition: 'A block-diagonal matrix in which each block is a Jordan block, representing a linear map in an optimal basis. Every linear map over an algebraically closed field has a Jordan form, unique up to reordering of blocks.',
     example: 'The Jordan form of a diagonalisable map is its diagonal matrix of eigenvalues.',
   },
+  nilpotent: {
+    term: 'Nilpotent map',
+    symbol: 'T^m = 0',
+    definition: 'A linear map T such that T^m is the zero map for some positive integer m. The only eigenvalue of a nilpotent map is 0. By the Nilpotent Jordan theorem, every nilpotent map on a finite-dimensional space is a direct sum of descending staircases.',
+    example: 'The map e₃ ↦ e₂ ↦ e₁ ↦ 0 on k³ is nilpotent with T³ = 0.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

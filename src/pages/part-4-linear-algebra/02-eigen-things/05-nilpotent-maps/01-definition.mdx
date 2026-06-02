@@ -1,0 +1,36 @@
+---
+title: Nilpotent maps — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Nilpotent maps — definition">
+
+To prove the Jordan form theorem, we take a detour through a special class of maps.
+
+<Callout kind="definition" title="Nilpotent map">
+A linear map $T \colon V \to V$ is <Term k="nilpotent">**nilpotent**</Term> if $T^m$ is the zero map for some positive integer $m$. (Here $T^m$ means $T$ applied $m$ times.)
+</Callout>
+
+The name comes from Latin *nihil* (nothing): apply the map enough times and everything collapses to zero.
+
+<Callout kind="example" title="The descending staircase">
+Let $V = k^3$ with basis $e_1, e_2, e_3$, and define $T$ by
+
+$$
+e_3 \mapsto e_2 \mapsto e_1 \mapsto 0.
+$$
+
+Then $T^3 = 0$ (every vector reaches zero after three applications), so $T$ is nilpotent. The matrix of $T$ is
+
+$$
+T = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}.
+$$
+
+Notice: this is exactly a $3 \times 3$ Jordan block with eigenvalue $\lambda = 0$!
+</Callout>
+
+The only eigenvalue a nilpotent map can have is $\lambda = 0$ — if $T(v) = \lambda v$ and $T^m = 0$, then $\lambda^m v = T^m(v) = 0$, so $\lambda = 0$ (since $v \neq 0$).
+
+</SlideLayout>
