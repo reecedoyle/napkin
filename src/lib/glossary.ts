@@ -813,6 +813,28 @@ export const glossary = {
     term: 'Indecomposable map',
     definition: 'A linear map T: V → V is indecomposable if V cannot be written as a direct sum W₁ ⊕ W₂ of two nontrivial T-invariant subspaces. Every indecomposable piece of a linear map over an algebraically closed field is a single Jordan block.',
   },
+  geomMult: {
+    term: 'Geometric multiplicity',
+    symbol: '\\dim V_\\lambda',
+    definition: 'The dimension of the λ-eigenspace V_λ. Equals the number of Jordan blocks with eigenvalue λ in the Jordan form. Always at most the algebraic multiplicity.',
+    example: 'For a 2×2 Jordan block with eigenvalue 7, the geometric multiplicity of 7 is 1 (one eigenvector).',
+  },
+  algMult: {
+    term: 'Algebraic multiplicity',
+    symbol: '\\dim V^\\lambda',
+    definition: 'The dimension of the generalised eigenspace V^λ, consisting of vectors annihilated by some power of (T − λ·id). Equals the total size of all Jordan blocks with eigenvalue λ.',
+    example: 'For a 2×2 Jordan block plus a 3×3 Jordan block both with eigenvalue 7, the algebraic multiplicity is 2+3=5.',
+  },
+  genEigenspace: {
+    term: 'Generalised eigenspace',
+    symbol: 'V^\\lambda',
+    definition: 'The set of vectors v ∈ V such that (T − λ·id)^n(v) = 0 for some n ≥ 1. It contains the eigenspace V_λ and all "near-eigenvectors" for eigenvalue λ. Its dimension is the algebraic multiplicity of λ.',
+  },
+  diagonalizable: {
+    term: 'Diagonalisable map',
+    definition: 'A linear map T: V → V is diagonalisable if there exists a basis of V consisting entirely of eigenvectors of T. Equivalently (over an algebraically closed field): the geometric multiplicity of every eigenvalue equals its algebraic multiplicity — every Jordan block has size 1.',
+    example: 'A symmetric real matrix is always diagonalisable (over ℝ). A non-zero nilpotent map is never diagonalisable.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

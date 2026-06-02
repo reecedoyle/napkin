@@ -1,0 +1,31 @@
+---
+title: Two notions of "repeated" eigenvalue
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Two notions of &quot;repeated&quot; eigenvalue">
+
+Consider the matrix in Jordan form:
+
+$$
+T =
+\begin{bmatrix}
+7 & 1 & & & & \\
+0 & 7 & & & & \\
+& & 9 & & & \\
+& & & 7 & 1 & 0 \\
+& & & 0 & 7 & 1 \\
+& & & 0 & 0 & 7
+\end{bmatrix}.
+$$
+
+Focus on eigenvalue $7$. In what sense is it "repeated"?
+
+- **Algebraic sense:** $7$ appears **five** times on the diagonal.
+- **Geometric sense:** There are only **two** independent eigenvectors with eigenvalue $7$: $e_1$ and $e_4$. The vector $e_2$ satisfies $T(e_2) = 7e_2 + e_1$, so it is not an eigenvector.
+
+Both notions are valid and useful. They coincide exactly when every Jordan block is $1 \times 1$ — i.e., when the map is diagonalisable.
+
+</SlideLayout>
