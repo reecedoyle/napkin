@@ -1,0 +1,27 @@
+---
+title: Problems — T† vs T∨ and polynomial criteria
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — T† vs T∨ and polynomial criteria">
+
+<Problem
+  client:load
+  id="trn-prob-tdagger-tvee"
+  prompt="Let V and W be real inner product spaces and T : V → W a linear map. The isomorphism V → V∨ sends v ↦ ⟨−, v⟩ (and similarly for W). Show that the diagram with T† on top and T∨ on the bottom (with the two vertical isomorphisms) commutes. That is, T† is just T∨ with the duals eliminated by the real isomorphism."
+  hint="Take any w ∈ W and v ∈ V. Compute both paths around the square and check they agree using the defining property of T†."
+  solution="Let φ_V : V → V∨ and φ_W : W → W∨ be the isomorphisms v ↦ ⟨−,v⟩_V and w ↦ ⟨−,w⟩_W. We need φ_V ∘ T† = T∨ ∘ φ_W. Both sides are maps W → V∨. For any w ∈ W and v ∈ V: (T∨ ∘ φ_W)(w)(v) = φ_W(w)(T(v)) = ⟨T(v), w⟩_W. And (φ_V ∘ T†)(w)(v) = ⟨v, T†(w)⟩_V. By the definition of T†, these are equal. Since this holds for all v, we have φ_V(T†(w)) = T∨(φ_W(w)) for all w, so the diagram commutes."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="trn-prob-polynomial-normal"
+  prompt="Let V be a finite-dimensional complex inner product space and T : V → V a linear map. Show that T is normal if and only if there is a polynomial p ∈ ℂ[t] such that T† = p(T)."
+  hint="If T† = p(T), verify TT† = T†T directly. If T is normal, diagonalize it and use Lagrange interpolation to build p."
+  solution="(⟸) If T† = p(T) then TT† = T·p(T) = p(T)·T = T†T, so T is normal. (⟹) Since T is normal, by the spectral theorem there is an orthonormal basis in which T = diag(λ₁,…,λₙ). Then T† = diag(λ̄₁,…,λ̄ₙ). For any polynomial q, q(T) = diag(q(λ₁),…,q(λₙ)). We want q(λᵢ) = λ̄ᵢ for all i. Since the λᵢ are finitely many complex numbers, Lagrange interpolation gives a polynomial q with this property. Set p = q."
+  difficulty="standard"
+/>
+
+</SlideLayout>
