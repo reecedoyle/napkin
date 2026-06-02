@@ -1,0 +1,27 @@
+---
+title: Problems — Arzelà-Ascoli and metric problems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Arzelà-Ascoli and metric problems">
+
+<Problem
+  client:load
+  id="cpt-prob-arzela-ascoli"
+  prompt="Let f₁, f₂, … : [0,1] → [-100,100] be an equicontinuous sequence of functions, meaning for every ε > 0 there exists δ > 0 such that for all n and all x,y with |x−y| < δ we have |fₙ(x) − fₙ(y)| < ε. Show that we can extract a subsequence fᵢ₁, fᵢ₂, … such that for every x ∈ [0,1], the sequence fᵢ₁(x), fᵢ₂(x), … converges."
+  hint="First extract a subsequence that converges on the rationals in [0,1] using a diagonal argument. Then use equicontinuity to extend convergence to all of [0,1]."
+  solution="Step 1: Let Q = {q₁, q₂, …} be the rationals in [0,1]. At q₁, the sequence (fₙ(q₁)) lies in [-100,100], which is compact, so extract a subsequence converging at q₁. From that subsequence, extract a further subsequence converging at q₂. Continue diagonally: let fᵢₙ be the nth term of the nth extracted subsequence. This diagonal subsequence converges at every rational qₖ. Step 2: Given any x ∈ [0,1] and ε > 0, use equicontinuity to find δ with |fₙ(x) − fₙ(y)| < ε/3 for all n and |x−y| < δ. Pick a rational q with |x−q| < δ. Then |fᵢₙ(x) − fᵢₘ(x)| ≤ |fᵢₙ(x) − fᵢₙ(q)| + |fᵢₙ(q) − fᵢₘ(q)| + |fᵢₘ(q) − fᵢₘ(x)| < ε/3 + |fᵢₙ(q) − fᵢₘ(q)| + ε/3. Since (fᵢₙ(q)) converges, for large n,m the middle term is < ε/3. So (fᵢₙ(x)) is Cauchy in [-100,100] and hence converges."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="cpt-prob-bounded-metric-compact"
+  prompt="Let M = (M,d) be a bounded metric space. Suppose that whenever d' is another metric on M homeomorphic to d, then d' is also bounded. Prove that M is compact."
+  hint="Assuming M is not compact, construct an unbounded continuous function F: M → ℝ. Then the metric d'(x,y) = d(x,y) + |F(x) − F(y)| will be a homeomorphic metric that is unbounded."
+  solution="We prove the contrapositive: if M is not compact, there is a homeomorphic metric d' on M that is unbounded. Since M is not sequentially compact, there is a sequence a₁, a₂, … with no convergent subsequence. For each aᵢ, since the aᵢ don't cluster, there exists rᵢ > 0 with 0 < rᵢ < (1/2)min_{j≠i} d(aᵢ,aⱼ), so the balls Cᵢ of radius rᵢ around aᵢ are pairwise disjoint. Define F(x) = i·(rᵢ − d(x,aᵢ))/rᵢ for x ∈ Cᵢ, and F(x) = 0 for x not in any Cᵢ. The function F is continuous (it is continuous on each Cᵢ and on the complement, and the two pieces agree on boundaries) and unbounded (F(aᵢ) = i). The metric d'(x,y) = d(x,y) + |F(x) − F(y)| is homeomorphic to d (same open sets) but d'(a₁, aᵢ) ≥ |F(a₁) − F(aᵢ)| = |1 − i| → ∞, so d' is unbounded."
+  difficulty="standard"
+/>
+
+</SlideLayout>

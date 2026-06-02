@@ -1,0 +1,18 @@
+---
+title: Problems — partitioning the plane by circles
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — partitioning the plane by circles">
+
+<Problem
+  client:load
+  id="cpt-prob-circles-partition"
+  prompt="A 'circle' here means the boundary of a disk with nonzero radius. (a) Is it possible to partition the plane ℝ² into disjoint circles? (b) From ℝ² we delete two distinct points p and q. Is it possible to partition the remaining points into disjoint circles?"
+  hint="Both answers are no. For (a) use Cantor's intersection theorem: pick any circle C₀ and the circle through its centre, and continue. For (b) colour circles by which of p, q they enclose, and use a connectedness argument."
+  solution="(a) No. Assume for contradiction such a partition exists. Take any circle C₀ and let K₀ be the closed disk with boundary C₀. The centre of K₀ lies on some circle C₁; let K₁ be the closed disk with boundary C₁. Since C₁ passes through the centre of K₀, we have K₁ ⊆ K₀. Continue: Kₙ ⊆ Kₙ₋₁ is a nested sequence of nonempty closed subsets of the compact set K₀. The radii decrease (each Kₙ₊₁ has diameter at most half that of Kₙ), so by Cantor's intersection theorem ∩Kₙ ≠ ∅. But ∩Kₙ is a single point lying on no circle of the partition — contradiction. (b) No. Assume such a partition exists. Colour each circle magenta if it encloses p but not q, cyan if it encloses q but not p, and neon yellow if it encloses both. By the argument of (a) applied to regions containing neither, every point is coloured. One can show the set of magenta points is either a closed disk or open; similarly for cyan. Since ℝ² minus a point or two is connected, neither a closed-disk/open-set pair nor a neon-yellow-enclosing arrangement is consistent with connectivity. A full proof works through cases on whether maximal magenta/cyan circles exist."
+  difficulty="standard"
+/>
+
+</SlideLayout>
