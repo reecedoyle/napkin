@@ -1,0 +1,24 @@
+---
+title: Open covers — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Open covers — definition">
+
+We need a notion of compactness that works for any topological space, not just metric spaces. The key ingredient is the open cover.
+
+<Callout kind="definition" title="Open cover and subcover">
+An <Term k="openCover">**open cover**</Term> of a topological space $X$ is a collection of open sets $\{U_\alpha\}$ (possibly infinite or uncountable) such that
+$$X = \bigcup_\alpha U_\alpha.$$
+
+A <Term k="finiteSubcover">**finite subcover**</Term> is a finite subcollection $U_{\alpha_1}, \dots, U_{\alpha_n}$ from the original cover that still covers $X$:
+$$X = U_{\alpha_1} \cup \cdots \cup U_{\alpha_n}.$$
+</Callout>
+
+**Example:** Cover the square $[0,1]^2$ by placing an open disk of diameter 1 centred at every point. Every point is covered (it lies at the centre of its own disk). This is an open cover with uncountably many sets — but only about four disks suffice to cover the whole square. That four-element subcollection is a finite subcover.
+
+The definition asks: can you always find such a finite subcover, no matter how wasteful the original cover?
+
+</SlideLayout>

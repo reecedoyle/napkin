@@ -1,0 +1,26 @@
+---
+title: Compact spaces — open-cover definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Compact spaces — open-cover definition">
+
+<Callout kind="definition" title="Compact and quasicompact">
+A topological space $X$ is <Term k="quasicompact">**quasicompact**</Term> if every open cover of $X$ has a finite subcover.
+
+It is <Term k="compact">**compact**</Term> if it is also <Term k="hausdorff">Hausdorff</Term>.
+</Callout>
+
+<Callout kind="remark">
+The Hausdorff condition says any two distinct points can be separated by disjoint open sets. All metric spaces are Hausdorff, so for metric spaces the two terms coincide. The distinction between quasicompact and compact matters mainly in algebraic geometry.
+</Callout>
+
+<Callout kind="theorem" title="Sequential ⟺ compact for metric spaces">
+A metric space $M$ is sequentially compact if and only if it is compact (in the open-cover sense).
+</Callout>
+
+We defer the proof to the optional section. The payoff is conceptual: the open-cover definition travels better — it is preserved under homeomorphism and extends to spaces where sequences don't behave well.
+
+</SlideLayout>
