@@ -1,0 +1,25 @@
+---
+title: From dot products to inner products
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From dot products to inner products">
+
+You already know the dot product in <Term k="RRn">$\RR^n$</Term>: for vectors $v = (a_1, \dots, a_n)$ and $w = (b_1, \dots, b_n)$,
+
+$$v \cdot w = a_1 b_1 + \dots + a_n b_n.$$
+
+Two things make this useful:
+
+- $v \cdot w = 0$ exactly when $v$ and $w$ are **perpendicular**, and
+- $|v|^2 = v \cdot v$.
+
+The goal of this chapter is to export both ideas to any vector space over <Term k="RR">$\RR$</Term> or <Term k="CC">$\CC$</Term>. The resulting structure is called an **inner product**, and it gives the vector space a geometry — distances, angles, and a notion of orthogonality.
+
+<Callout kind="remark" title="What we gain">
+Once a vector space has an inner product, it becomes a metric space (via the norm $\|v\| = \sqrt{\langle v,v\rangle}$), and we can identify $V \cong V^\vee$ in a canonical way — something impossible with pure linear algebra.
+</Callout>
+
+</SlideLayout>

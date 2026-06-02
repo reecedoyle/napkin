@@ -755,6 +755,27 @@ export const glossary = {
     symbol: 'f(X)',
     definition: 'The set of all output values of f: X → Y, written f(X) or f[X]. In Napkin notation this is sometimes written f^im(X). A continuous image of a compact space is compact.',
   },
+
+  // ────────────── Chapter 13 — Inner product spaces ──────────────
+  innerProductSpace: {
+    term: 'Inner product space',
+    definition: 'A real or complex vector space equipped with an inner product — a function ⟨·,·⟩ that is (conjugate-)symmetric, (sesqui-)linear, and positive definite. It generalises the familiar dot product on ℝⁿ.',
+    example: 'ℝⁿ with the dot product, and ℂⁿ with ⟨w,z⟩ = Σ wᵢz̄ᵢ, are both inner product spaces.',
+  },
+  positiveDefinite: {
+    term: 'Positive definite (inner product)',
+    definition: 'A function ⟨·,·⟩ on a vector space is positive definite if ⟨v,v⟩ ≥ 0 for all v, with equality only when v = 0. This ensures the norm ‖v‖ = √⟨v,v⟩ is well-defined and non-negative.',
+  },
+  sesquilinear: {
+    term: 'Sesquilinear',
+    definition: 'A map ⟨·,·⟩: V×V→ℂ is sesquilinear (literally "one-and-a-half linear") if it is linear in the first argument and anti-linear in the second: ⟨v, cw⟩ = c̄⟨v,w⟩. Used for complex inner products.',
+    example: 'The standard dot product on ℂⁿ: ⟨w,z⟩ = Σ wᵢz̄ᵢ is sesquilinear.',
+  },
+  conjugateSymmetry: {
+    term: 'Conjugate symmetry',
+    symbol: '\\langle v, w \\rangle = \\overline{\\langle w, v \\rangle}',
+    definition: 'A property of complex inner products: ⟨v,w⟩ = ⟨w,v⟩ with a complex conjugate. This forces ⟨v,v⟩ to be a real number for every v, making positive-definiteness meaningful over ℂ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
