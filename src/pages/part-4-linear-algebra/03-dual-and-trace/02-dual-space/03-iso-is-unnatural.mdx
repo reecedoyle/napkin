@@ -1,0 +1,26 @@
+---
+title: V ≅ V∨ is not canonical
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="V ≅ V∨ is not canonical">
+
+Since $\dim V^\vee = \dim V$, one might declare $V \cong V^\vee$ via $e_i \mapsto e_i^\vee$. This is true as an abstract isomorphism — but it depends on the choice of basis.
+
+<Callout kind="remark" title="The isomorphism V → V∨ is basis-dependent">
+Alice picks basis $e_1 = (1,0,-1)$, $e_2 = (0,1,-1)$ for the plane $V = \{(x,y,z): x+y+z=0\}$. Bob picks $f_1 = (1,0,-1)$, $f_2 = (1,-1,0)$ for the same plane. Both construct "the" isomorphism $V \to V^\vee$ by sending each basis vector to its dual. But $A((1,0,-1))$ and $B((1,0,-1))$ are different elements of $V^\vee$: for $v = (3,5,-8)$, Alice's functional gives $3$ and Bob's gives $8$.
+</Callout>
+
+A "natural" isomorphism would not depend on the choice of basis. The map $e_i \mapsto e_i^\vee$ is natural only after you fix a basis. For inner product spaces, there is a truly canonical isomorphism — the subject of a later chapter.
+
+<ProofReveal
+  client:load
+  id="dat-ds-proof-dim-vee"
+  prompt="Explain in one sentence why dim V∨ = dim V for any finite-dimensional V."
+  solution="The dual basis e₁∨, …, eₙ∨ has exactly n elements and is a basis of V∨, so dim V∨ = n = dim V."
+/>
+
+</SlideLayout>

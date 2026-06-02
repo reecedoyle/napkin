@@ -1,0 +1,22 @@
+---
+title: Dual space — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Dual space — definition">
+
+Among all functions $V \to k$, the linear ones form a well-behaved subspace.
+
+<Callout kind="definition" title="Dual space">
+Let $V$ be a $k$-vector space. The **dual space** $V^\vee$ is the vector space whose elements are all linear maps $V \to k$. Addition and scalar multiplication are pointwise: $(f + g)(v) = f(v) + g(v)$ and $(cf)(v) = c \cdot f(v)$.
+</Callout>
+
+Elements of <Term k="dualSpace">$V^\vee$</Term> are called **linear functionals** or **covectors**. They eat a vector and output a scalar.
+
+The prototype: for $V = \mathbb{R}^3$, think of $V$ as the space of **column vectors**. Then a linear functional is determined by where it sends each basis vector — that is, by a **row vector** $[a \; b \; c]$. The pairing is just matrix multiplication:
+
+$$[a \; b \; c] \begin{bmatrix} x \\ y \\ z \end{bmatrix} = ax + by + cz \in \mathbb{R}$$
+
+</SlideLayout>

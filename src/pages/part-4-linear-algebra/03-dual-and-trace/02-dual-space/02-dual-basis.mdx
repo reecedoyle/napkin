@@ -1,0 +1,26 @@
+---
+title: The dual basis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The dual basis">
+
+A linear map $V \to k$ is completely determined by what it does to a basis. This gives a canonical basis for <Term k="dualSpace">$V^\vee$</Term>.
+
+<Callout kind="proposition" title="Dual basis">
+Let $V$ be a finite-dimensional vector space with basis $e_1, \dots, e_n$. For each $i$, define $e_i^\vee \colon V \to k$ by
+
+$$e_i^\vee(e_j) = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases}$$
+
+In words: $e_i^\vee(v)$ extracts the $e_i$-coefficient of $v$. Then $e_1^\vee, \dots, e_n^\vee$ is a basis of $V^\vee$, called the **<Term k="dualBasis">dual basis</Term>**.
+</Callout>
+
+**Concrete example:** With $V = \mathbb{R}^3$ and the standard basis, $e_1^\vee$ is the map $(x,y,z) \mapsto x$ — it reads off the first coordinate. Any linear functional $f = 3e_1^\vee + 4e_2^\vee + 5e_3^\vee$ satisfies:
+
+$$f(e_1) = 3 \cdot 1 + 4 \cdot 0 + 5 \cdot 0 = 3 \qquad f(2,5,9) = 3 \cdot 2 + 4 \cdot 5 + 5 \cdot 9 = 71$$
+
+This is exactly matrix multiplication by the row $[3 \; 4 \; 5]$.
+
+</SlideLayout>
