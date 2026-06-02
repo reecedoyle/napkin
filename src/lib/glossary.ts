@@ -786,6 +786,18 @@ export const glossary = {
     definition: 'A field in which every non-constant polynomial has at least one root. The archetypal example is ℂ (the fundamental theorem of algebra). Over algebraically closed fields, every linear map on a finite-dimensional space has an eigenvalue.',
     example: 'ℂ is algebraically closed. ℝ is not: x²+1 has no real root.',
   },
+  jordanBlock: {
+    term: 'Jordan block',
+    symbol: 'J_\\lambda',
+    definition: 'An n×n matrix with λ on the main diagonal, 1 just above the diagonal, and 0 everywhere else. A 1×1 Jordan block is just [λ]. Jordan blocks are the indivisible building-blocks of every linear map over an algebraically closed field.',
+    example: 'A 3×3 Jordan block for λ=2 is [[2,1,0],[0,2,1],[0,0,2]].',
+  },
+  jordanForm: {
+    term: 'Jordan canonical form',
+    symbol: 'J',
+    definition: 'A block-diagonal matrix in which each block is a Jordan block, representing a linear map in an optimal basis. Every linear map over an algebraically closed field has a Jordan form, unique up to reordering of blocks.',
+    example: 'The Jordan form of a diagonalisable map is its diagonal matrix of eigenvalues.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

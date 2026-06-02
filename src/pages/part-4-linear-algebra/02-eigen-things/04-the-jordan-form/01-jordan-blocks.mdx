@@ -1,0 +1,31 @@
+---
+title: Jordan blocks
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Jordan blocks">
+
+A diagonal matrix is the ideal case. When diagonalisation is impossible, the next best thing is a <Term k="jordanBlock">**Jordan block**</Term>.
+
+<Callout kind="definition" title="Jordan block">
+A **Jordan block** is an $n \times n$ matrix of the form
+
+$$
+J_\lambda =
+\begin{bmatrix}
+\lambda & 1 & 0 & \dots & 0 \\
+0 & \lambda & 1 & \dots & 0 \\
+0 & 0 & \lambda & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \dots & \lambda
+\end{bmatrix}.
+$$
+
+It has $\lambda$ on the main diagonal and $1$ just above it; all other entries are $0$. A $1 \times 1$ Jordan block is just $\begin{bmatrix}\lambda\end{bmatrix}$.
+</Callout>
+
+Note that a diagonal matrix is the special case where every Jordan block has size $1 \times 1$ — there are no $1$s above the diagonal. The larger the block, the more the map deviates from pure scaling at eigenvalue $\lambda$.
+
+</SlideLayout>
