@@ -1,0 +1,43 @@
+---
+title: Problems — starred and more standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred and more standard">
+
+<Problem
+  client:load
+  id="vs-prob-multivariable-lagrange"
+  prompt="Let S ⊆ ℤ² be a set of n lattice points. Prove there exists a nonzero two-variable real polynomial p(x, y) of degree at most √(2n), such that p(x, y) = 0 for every (x, y) ∈ S."
+  solution="Let d = ⌊√(2n)⌋ and V be the space of real polynomials in x, y of total degree ≤ d. The dimension of V is C(d+2, 2) = (d+1)(d+2)/2 ≥ (d²+1)/2 > n for d = ⌊√(2n)⌋ (since d² ≥ 2n − 2√(2n) + 1, so dim V ≥ n + 1 > n after a short calculation). Evaluation at the n points defines a linear map T: V → ℝⁿ. Since dim V > dim ℝⁿ, the map T cannot be injective, so ker T ≠ {0}: some nonzero p vanishes at every point of S."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-putnam-2003"
+  prompt="Do there exist polynomials a(x), b(x), c(y), d(y) such that 1 + xy + (xy)² = a(x)c(y) + b(x)d(y) holds identically?"
+  hint="Plug in y = −1, 0, 1. Use dimensions of ℝ[x]."
+  solution="No. Suppose such polynomials exist. Plugging in y = 0: 1 = a(x)c(0) + b(x)d(0), so 1 is a linear combination of a(x) and b(x) over ℝ. Similarly plugging in y = 1: 1 + x + x² = a(x)c(1) + b(x)d(1), so 1 + x + x² is a linear combination of a(x) and b(x). And y = −1: 1 − x + x² = a(x)c(−1) + b(x)d(−1). So {1, 1+x+x², 1−x+x²} are all in span{a(x), b(x)}, hence span{1, x, x²} ⊆ span{a(x), b(x)}. But span{1, x, x²} has dimension 3, while span{a(x), b(x)} has dimension at most 2 — contradiction."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-idempotent"
+  prompt="Let P: V → V be a linear map with P(P(v)) = P(v) for all v (P is idempotent, i.e., P² = P). Prove that V = ker P ⊕ im P."
+  solution="We check two things. (1) ker P ∩ im P = {0}: suppose v ∈ ker P ∩ im P, say v = P(w) for some w. Then P(v) = P(P(w)) = P(w) = v, but also P(v) = 0 since v ∈ ker P, so v = 0. (2) V = ker P + im P: for any v ∈ V, write v = (v − P(v)) + P(v). Now P(v − P(v)) = P(v) − P²(v) = P(v) − P(v) = 0, so v − P(v) ∈ ker P, and P(v) ∈ im P. Together these show V = ker P ⊕ im P."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-eventual-decomp"
+  prompt="Let V be a finite-dimensional vector space and T: V → V a linear map. Prove there exists N such that V = ker Tᴺ ⊕ im Tᴺ."
+  hint="The chains ker T ⊆ ker T² ⊆ ··· and im T ⊇ im T² ⊇ ··· must eventually stabilise for dimension reasons."
+  solution="The chain ker T ⊆ ker T² ⊆ ··· is a non-decreasing chain of subspaces of the finite-dimensional V, so it must stabilise: there exists N with ker Tᴺ = ker T^{N+1} = ···. Similarly im T ⊇ im T² ⊇ ··· stabilises at im Tᴺ. When the kernel chain stabilises, T^N is injective on im Tᴺ (so ker Tᴺ ∩ im Tᴺ = {0}). By rank-nullity applied to T^N, dim ker Tᴺ + dim im Tᴺ = dim V, so the two subspaces span V. Hence V = ker Tᴺ ⊕ im Tᴺ."
+  difficulty="starred"
+/>
+
+</SlideLayout>
