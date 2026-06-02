@@ -1,0 +1,22 @@
+---
+title: Hilbert spaces — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hilbert spaces — definition">
+
+An <Term k="innerProductSpace">inner product space</Term> is a metric space (via $d(v,w) = \norm{v-w}$). A **Hilbert space** is one that is also complete.
+
+<Callout kind="definition" title="Hilbert space">
+A **<Term k="hilbertSpace">Hilbert space</Term>** is an inner product space $V$ whose corresponding metric space is <Term k="completeSpace">complete</Term> — every Cauchy sequence converges to a point of $V$.
+</Callout>
+
+In pure algebra we only allow finite linear combinations. But in a complete inner product space, infinite sums can sometimes converge, opening the door to analysis.
+
+<Callout kind="remark" title="Finite-dimensional implies complete">
+Every finite-dimensional inner product space is a Hilbert space. The idea: fix an orthonormal basis $e_1, \dots, e_n$. A Cauchy sequence in $V$ corresponds to $n$ Cauchy sequences of coordinates in $\RR$ (or $\CC$), and $\RR^n$ is complete.
+</Callout>
+
+</SlideLayout>

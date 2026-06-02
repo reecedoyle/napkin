@@ -757,6 +757,11 @@ export const glossary = {
   },
 
   // ────────────── Chapter 13 — Inner product spaces ──────────────
+  hilbertSpace: {
+    term: 'Hilbert space',
+    definition: 'An inner product space whose associated metric space (with distance d(v,w) = ‖v−w‖) is complete — every Cauchy sequence converges. Hilbert spaces allow well-defined infinite orthogonal sums Σcᵢeᵢ whenever Σ|cᵢ|² < ∞.',
+    example: 'Every finite-dimensional inner product space is a Hilbert space. The sequence space ℓ² (sequences with Σaᵢ² < ∞) is an infinite-dimensional Hilbert space.',
+  },
   orthogonal: {
     term: 'Orthogonal vectors',
     symbol: '\\langle v, w \\rangle = 0',

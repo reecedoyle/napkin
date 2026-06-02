@@ -1,0 +1,24 @@
+---
+title: Convergence of infinite orthogonal series
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Convergence of infinite orthogonal series">
+
+Suppose $e_1, e_2, \dots$ is an infinite sequence of pairwise <Term k="orthogonal">orthogonal</Term> unit vectors in a <Term k="hilbertSpace">Hilbert space</Term> $V$, and $c_1, c_2, \dots$ is a sequence of scalars. When does $\sum_i c_i e_i$ converge?
+
+<Callout kind="proposition" title="Convergence criterion">
+The partial sums $v_N = \sum_{i=1}^N c_i e_i$ converge (in the norm) if and only if
+
+$$\sum_{i=1}^\infty |c_i|^2 < \infty.$$
+</Callout>
+
+**Why.** The partial sums form a Cauchy sequence: $\norm{v_j - v_i}^2 = |c_{i+1}|^2 + \dots + |c_j|^2$ (by orthogonality). This tends to zero as $i, j \to \infty$ exactly when $\sum |c_i|^2$ converges. Since $V$ is complete (Hilbert), Cauchy implies convergent.
+
+<Callout kind="remark" title="Completeness is essential">
+Without completeness the partial sums can be Cauchy without converging to anything in $V$. The condition $\sum |c_i|^2 < \infty$ is the precise criterion that makes the infinite sum well-defined.
+</Callout>
+
+</SlideLayout>
