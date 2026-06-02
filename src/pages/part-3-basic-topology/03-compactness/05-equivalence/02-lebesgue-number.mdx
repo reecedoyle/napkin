@@ -1,0 +1,20 @@
+---
+title: Lebesgue number lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lebesgue number lemma">
+
+<Callout kind="lemma" title="Lebesgue number lemma">
+Let $M$ be a compact metric space and $\{U_\alpha\}$ an open cover. Then there exists a real number $\delta > 0$, called a <Term k="lebesgueNumber">**Lebesgue number**</Term> for the covering, such that for every point $p \in M$, the open ball of radius $\delta$ centered at $p$ is entirely contained in some $U_\alpha$.
+</Callout>
+
+**Proof:** Suppose no such $\delta$ exists. Then for each $\delta = 1/k$ there is a point $x_k \in M$ whose $1/k$-ball is not contained in any $U_\alpha$. By sequential compactness, some subsequence $x_{i_k} \to x$.
+
+Since $x \in M$, some $U_\alpha$ contains $x$. Since $U_\alpha$ is open, it contains an $\varepsilon$-ball around $x$ for small $\varepsilon > 0$. For large enough $k$, we have $d(x_{i_k}, x) + 1/i_k < \varepsilon$, so the $1/i_k$-ball around $x_{i_k}$ is inside the $\varepsilon$-ball around $x$, hence inside $U_\alpha$. Contradiction.
+
+**Using the lemma:** Once we have a Lebesgue number $\delta$, total boundedness gives finitely many $\delta$-balls covering $M$. Each ball lies inside some $U_\alpha$, so finitely many $U_\alpha$'s suffice.
+
+</SlideLayout>

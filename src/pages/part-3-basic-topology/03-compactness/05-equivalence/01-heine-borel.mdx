@@ -1,0 +1,25 @@
+---
+title: Heine-Borel for general metric spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Heine-Borel for general metric spaces">
+
+<Callout kind="theorem" title="Heine-Borel (general metric spaces)">
+For a metric space $M$, the following are equivalent:
+1. Every sequence has a convergent subsequence (**sequential compactness**).
+2. $M$ is complete and <Term k="totallyBounded">totally bounded</Term>.
+3. Every open cover has a finite subcover (**open-cover compactness**).
+</Callout>
+
+The equivalence $(1) \iff (2)$ uses the bisection idea from the proof that $[0,1]$ is compact: total boundedness provides the pigeonhole, and completeness ensures the Cauchy sequence found converges.
+
+The harder direction is $(1),(2) \Rightarrow (3)$. The key tool is the **Lebesgue number lemma**.
+
+<Callout kind="remark">
+This section is marked **optional** in Napkin: the proof is instructive but not needed for subsequent chapters. The key takeaway is that the three formulations are equivalent for metric spaces.
+</Callout>
+
+</SlideLayout>
