@@ -831,6 +831,23 @@ export const glossary = {
     definition: 'The n×m array of scalars encoding a linear map T: V → W, given choices of bases for V and W. The j-th column records the coordinates of T(eⱼ) in the basis of W. Matrix multiplication is defined so that [S∘T] = [S][T].',
     example: 'The map ℝ³ → ℝ² sending e₁ ↦ 4w₁+7w₂, e₂ ↦ 2w₁+3w₂, e₃ ↦ w₁ has matrix [[4,2,1],[7,3,0]].',
   },
+  subspace: {
+    term: 'Subspace',
+    definition: 'A subset V′ of a vector space V that is itself a vector space: closed under addition, scalar multiplication, and containing 0_V.',
+    example: '{(x,y,z) : x+y+z = 0} is a 2-dimensional subspace of ℝ³. The kernel of any linear map is a subspace.',
+  },
+  kerMap: {
+    term: 'Kernel of a linear map',
+    symbol: '\\ker T',
+    definition: 'For a linear map T: V → W, the kernel is {v ∈ V : T(v) = 0_W}. Always a subspace of V. T is injective if and only if ker T = {0_V}.',
+    example: 'The kernel of T: ℝ³ → ℝ given by (a,b,c) ↦ a+b+c is the plane {a+b+c = 0}.',
+  },
+  span: {
+    term: 'Span',
+    symbol: '\\operatorname{span}(v_1, \\dots, v_m)',
+    definition: 'The span of vectors v₁,…,vₘ is the set of all their linear combinations: {a₁v₁ + ··· + aₘvₘ : aᵢ ∈ k}. The smallest subspace containing all the vᵢ.',
+    example: 'span{(1,0),(0,1)} = ℝ². span{(1,1)} is the diagonal line y=x in ℝ².',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
