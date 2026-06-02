@@ -1,0 +1,32 @@
+---
+title: The Leibniz formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Leibniz formula">
+
+Expanding the wedge product of the column vectors of a matrix yields the classical formula.
+
+<Callout kind="theorem" title="Leibniz formula">
+For an $n \times n$ matrix $A$ with entries $a_{ij}$,
+
+$$
+\det(A) = \sum_{\sigma \in S_n} \operatorname{sgn}(\sigma)\, a_{1,\sigma(1)}\, a_{2,\sigma(2)} \cdots a_{n,\sigma(n)}.
+$$
+</Callout>
+
+**Where it comes from.** Let $T(e_j) = \sum_i a_{ij} e_i$ (the $j$-th column of $A$ expressed in the basis). Then
+
+$$
+T(e_1) \wedge \cdots \wedge T(e_n) = \Bigl(\sum_{i} a_{i1} e_i\Bigr) \wedge \cdots \wedge \Bigl(\sum_{i} a_{in} e_i\Bigr).
+$$
+
+Expanding by multilinearity gives $n^n$ terms, but almost all vanish: we need to pick one basis vector from each factor, and if any two choices are equal the wedge is zero. So we sum over all ways to pick distinct indices — i.e., over permutations $\sigma$. The anti-symmetry brings in the sign $\operatorname{sgn}(\sigma)$.
+
+<Callout kind="remark">
+American high-school students learn this as the *definition* of the determinant. It is actually a corollary of the wedge-product definition, and should be viewed as a computational tool rather than a conceptual starting point.
+</Callout>
+
+</SlideLayout>
