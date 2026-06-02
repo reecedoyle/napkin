@@ -1,0 +1,24 @@
+---
+title: The interval is compact
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The interval is compact">
+
+<Callout kind="theorem" title="[0,1] is compact">
+The closed interval $[0,1]$ is <Term k="sequentiallyCompact">sequentially compact</Term>.
+</Callout>
+
+**Proof sketch (bisection):** Given a sequence $(x_n)$ in $[0,1]$, we extract a convergent subsequence by successive halving.
+
+1. Split $[0,1]$ into $[0, \tfrac{1}{2}] \cup [\tfrac{1}{2}, 1]$. By pigeonhole, infinitely many terms lie in one half — say the left. Pick the first such term and call it $x_1'$.
+
+2. Keep only terms in the left half after $x_1'$. Now split $[0,\tfrac{1}{2}]$ into two quarters. Again infinitely many land in one quarter. Pick the first, call it $x_2'$.
+
+3. Repeat: at each step the interval shrinks by half, so its length $\to 0$. The sequence $x_1', x_2', \dots$ is Cauchy (terms in a diameter-$\frac{1}{2^k}$ interval), hence converges — and the limit lies in $[0,1]$ since that interval is closed.
+
+The same bisection idea proves the more general Bolzano-Weierstraß theorem.
+
+</SlideLayout>
