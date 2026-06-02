@@ -1,0 +1,18 @@
+---
+title: Problems — metrizable evenly spaced topology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — metrizable evenly spaced topology">
+
+<Problem
+  client:load
+  id="top-prob-evenly-spaced-metrizable"
+  prompt="Prove that the evenly spaced integer topology on ℤ is metrizable: exhibit a metric d on ℤ whose open sets are exactly those described in the previous problem."
+  hint="The balls at 0 should be of the form n!·ℤ. Try d(x,y) = 2017^{−n} where n is the largest integer such that n! divides |x − y|."
+  solution="Define d(x,y) = 2017^{−n} where n is the largest non-negative integer such that n! divides |x−y|, and d(x,x) = 0. This is well-defined because |x−y| is a positive integer with some finite largest factorial divisor. Symmetry and positive-definiteness are immediate. Triangle inequality: n!(x,z) ≥ min(n!(x,y), n!(y,z)) since if n! divides both |x−y| and |y−z| then n! divides |x−z|, so d(x,z) ≤ max(d(x,y),d(y,z)) ≤ d(x,y)+d(y,z). The open balls B(0, 2017^{−n}) = n!·ℤ are arithmetic sequences (common difference n!), so they are open in the evenly spaced topology. Every arithmetic sequence {a + nd} is a ball of radius 2017^{−k} around a for suitable k, so open sets in the metric topology coincide with those in the evenly spaced topology."
+  difficulty="standard"
+/>
+
+</SlideLayout>

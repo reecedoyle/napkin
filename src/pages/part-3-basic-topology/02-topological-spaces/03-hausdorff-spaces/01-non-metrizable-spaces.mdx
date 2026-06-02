@@ -1,0 +1,18 @@
+---
+title: Non-metrizable spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Non-metrizable spaces">
+
+Not every topological space is a metric space in disguise. A space homeomorphic to some metric space is called <Term k="metrizable">metrizable</Term>; many interesting spaces are not.
+
+<Callout kind="example" title="A stupid non-metrizable space">
+Take $X = \{a, b, c\}$ with topology $\mathcal{T} = \{\varnothing, X\}$. The only open sets are the empty set and $X$ itself. No metric on a three-point set can give this topology: a metric space must be able to separate any two distinct points with open balls of different sizes ($d(x,y) > 0$ for $x \neq y$), but this topology cannot separate $a$, $b$, and $c$ at all.
+</Callout>
+
+This motivates the <Term k="separationAxioms">separation axioms</Term>: a hierarchy of conditions that rule out such "stupid" topologies. The most common is the $T_2$ condition, which has a special name.
+
+</SlideLayout>

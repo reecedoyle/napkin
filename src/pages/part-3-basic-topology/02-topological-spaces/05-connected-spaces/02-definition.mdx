@@ -1,0 +1,20 @@
+---
+title: Connected spaces — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Connected spaces — definition">
+
+<Callout kind="definition" title="Connected and disconnected">
+A topological space $X$ is <Term k="disconnected">disconnected</Term> if it has a nontrivial clopen set — one other than $\varnothing$ and $X$.
+
+$X$ is <Term k="connected">connected</Term> if it is not disconnected.
+</Callout>
+
+Equivalently, $X$ is disconnected iff we can write $X = U \sqcup V$ as a disjoint union of two nonempty open sets. The disjoint union sign $\sqcup$ means $U \cap V = \varnothing$ and $U \cup V = X$.
+
+The interval $[0,1]$ is connected — you can't split it into two disjoint nonempty open pieces. The "two disks" space $\{(x,y): x^2+y^2 \le 1\} \cup \{(x,y): (x-4)^2+y^2 \le 1\}$ is disconnected — each disk is a nontrivial clopen set.
+
+</SlideLayout>

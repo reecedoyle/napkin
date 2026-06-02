@@ -1,0 +1,18 @@
+---
+title: Problems — open sets in ℝ are countable unions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — open sets in ℝ are countable unions">
+
+<Problem
+  client:load
+  id="top-prob-countable-intervals"
+  prompt="We know that any open set U ⊆ ℝ can be written as a union of pairwise disjoint open intervals. Prove that such a decomposition has at most countably many intervals."
+  hint="Appeal to ℚ — there are only countably many rational numbers."
+  solution="Since the intervals are pairwise disjoint and each is nonempty, we can choose one rational number from each interval (every nonempty open interval contains a rational). This gives an injection from the collection of intervals into ℚ. Since ℚ is countable, the collection of intervals is at most countable."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,21 @@
+---
+title: Path-connected spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Path-connected spaces">
+
+<Callout kind="definition" title="Path-connected">
+A space $X$ is <Term k="pathConnected">path-connected</Term> if any two points in $X$ are connected by some path — i.e., for any $p, q \in X$ there exists a path $\gamma \colon [0,1] \to X$ with $\gamma(0) = p$ and $\gamma(1) = q$.
+</Callout>
+
+<Callout kind="example" title="Path-connected spaces">
+- $\RR^2$ is path-connected: connect any two points with a straight-line segment.
+- The unit circle $S^1$ is path-connected: connect any two points with a circular arc.
+</Callout>
+
+Path-connectedness is strictly stronger than connectedness: every path-connected space is connected, but not every connected space is path-connected (though counterexamples are exotic).
+
+</SlideLayout>

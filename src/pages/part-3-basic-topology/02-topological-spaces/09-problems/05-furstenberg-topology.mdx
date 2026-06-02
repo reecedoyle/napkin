@@ -1,0 +1,18 @@
+---
+title: Problems — Furstenberg's topology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Furstenberg's topology">
+
+<Problem
+  client:load
+  id="top-prob-furstenberg"
+  prompt="Declare a subset of ℤ to be open if it is a union (possibly empty or infinite) of arithmetic sequences {a + nd : n ∈ ℤ} where a, d ∈ ℤ with d > 0. (a) Verify this forms a topology on ℤ (the evenly spaced integer topology). (b) Prove there are infinitely many primes by considering ⋃_p pℤ."
+  hint="For (b): each pℤ = {…, −p, 0, p, 2p, …} is closed (its complement is a union of arithmetic sequences). If there were finitely many primes, then ⋃_p pℤ = ℤ \\ {−1, 1} would be closed, making {−1,1} open. But all nonempty open sets here are infinite."
+  solution="(a) The empty union is ∅, which is open. ℤ itself is the single sequence {0 + 1·n : n ∈ ℤ}, so open. Unions of unions of arithmetic sequences are again unions of arithmetic sequences, so open. For finite intersections: the intersection of two arithmetic sequences {a + nd} and {b + me} is either empty or an arithmetic sequence with common difference lcm(d,e), by the Chinese Remainder Theorem. Finite intersections of open sets are thus unions of arithmetic sequences, so open. (b) Each arithmetic sequence {a + nd} is itself open. Its complement ℤ \\ {a + nd} is the union of the other d-1 residue classes mod d, also open — so each arithmetic sequence is clopen. In particular pℤ is closed for each prime p. If there were finitely many primes p₁,…,pₖ, then ⋃ᵢ pᵢℤ = ℤ \\ {−1,1} (the only integers without any prime factor) would be a finite union of closed sets, hence closed. But then {−1,1} would be open. However, every nonempty open set is an infinite union of arithmetic sequences, hence infinite — so a two-element set cannot be open. Contradiction."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,35 @@
+---
+title: Simply connected spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Simply connected spaces">
+
+<Callout kind="definition" title="Simply connected">
+A space $X$ is <Term k="simplyConnected">simply connected</Term> if:
+1. $X$ is path-connected, and
+2. for any two points $p, q \in X$, all paths from $p$ to $q$ are homotopic.
+</Callout>
+
+In $\mathbb{C}$ (or equivalently $\RR^2$), condition 2 holds: any two paths between the same endpoints can be deformed into each other. Hence $\mathbb{C}$ is simply connected. After the meteor strikes, $\mathbb{C} \setminus \{0\}$ fails condition 2, so it is **not** simply connected.
+
+More loosely: a simply connected space has "no holes" — you cannot find a closed loop that wraps around an obstacle. The formal theory is the **fundamental group** $\pi_1(X)$, developed in a later chapter.
+
+<MCQ
+  client:load
+  id="top-simp-mcq-simply-conn"
+  prompt="Which of the following is NOT simply connected?"
+  options={[
+    { id: "a", label: "ℝ²" },
+    { id: "b", label: "ℝ³" },
+    { id: "c", label: "ℂ \\ {0} (the punctured complex plane)" },
+    { id: "d", label: "A convex subset of ℝⁿ" },
+  ]}
+  correct="c"
+  explanation="ℂ \\ {0} is path-connected but not simply connected: a loop that winds around the origin once cannot be contracted to a point without crossing the hole. ℝ², ℝ³, and any convex subset of ℝⁿ are all simply connected."
+/>
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: Open neighborhoods
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Open neighborhoods">
+
+<Callout kind="definition" title="Open neighborhood">
+An <Term k="openNeighborhood">open neighborhood</Term> of a point $x \in X$ is any open set $U \in \mathcal{T}$ that contains $x$.
+</Callout>
+
+In a metric space, "open neighborhood" often meant an open ball of some specific radius $r$. Here it means **any** open set containing $x$ — the radius concept no longer applies unless we are in a metric space.
+
+The term "$r$-neighborhood" of $x$ still means the ball $\{y : d(x,y) < r\}$, but this is only available when we have a metric. The looser phrase "open neighborhood" works in any topological space.
+
+</SlideLayout>

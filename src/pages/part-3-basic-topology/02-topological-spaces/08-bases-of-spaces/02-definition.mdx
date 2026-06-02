@@ -1,0 +1,26 @@
+---
+title: Basis of a topological space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basis of a topological space">
+
+<Callout kind="definition" title="Basis">
+A <Term k="basisTop">basis</Term> for a topological space $X$ is a collection $\mathcal{B}$ of open sets such that every open set in $X$ is a union of some elements of $\mathcal{B}$.
+</Callout>
+
+<Callout kind="example" title="Open intervals form a basis for ℝ">
+The open intervals $(a,b)$ form a basis for $\RR$. Every open set is a union of such intervals.
+</Callout>
+
+<Callout kind="theorem" title="r-neighborhoods form a basis for any metric space">
+In any metric space $M$, the open balls (r-neighborhoods) form a basis.
+</Callout>
+
+The proof: given an open set $U$ and any point $p \in U$, by definition of openness there is an open ball $B(p, r_p) \subseteq U$. Then $U = \bigcup_{p \in U} B(p, r_p)$ — a union of basis elements.
+
+Hence in $\RR^2$, every open set is a union of open disks. We never need to worry about "exotic" open sets — just disks.
+
+</SlideLayout>

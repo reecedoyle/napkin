@@ -1,0 +1,24 @@
+---
+title: Path-connected implies connected
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Path-connected implies connected">
+
+<Callout kind="theorem" title="Path-connected implies connected">
+Every path-connected space is connected.
+</Callout>
+
+The proof uses a clever "pullback to $[0,1]$" argument. The key fact is that $[0,1]$ itself is connected.
+
+<ProofReveal
+  client:load
+  id="top-path-proof-implies-connected"
+  prompt="Suppose X = U ⊔ V is a disconnected space (disjoint nonempty open pieces). Show there is no path from a point of U to a point of V."
+  solution="Suppose γ : [0,1] → X is a path from p ∈ U to q ∈ V. Then [0,1] = γ⁻¹(U) ⊔ γ⁻¹(V). Both γ⁻¹(U) and γ⁻¹(V) are open in [0,1] (preimages of open sets under a continuous map). They are nonempty (0 ∈ γ⁻¹(U), 1 ∈ γ⁻¹(V)) and disjoint with union [0,1]. This says [0,1] is disconnected — contradiction, since [0,1] is connected."
+/>
+
+</SlideLayout>

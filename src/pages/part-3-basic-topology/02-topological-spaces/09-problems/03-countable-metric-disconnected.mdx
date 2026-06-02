@@ -1,0 +1,18 @@
+---
+title: Problems — countable metric spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — countable metric spaces">
+
+<Problem
+  client:load
+  id="top-prob-countable-metric-disconnected"
+  prompt="Let M be a metric space with more than one point but at most countably many points. Show that M is disconnected."
+  hint="Pick any point p ∈ M. Consider the set of distances {d(p,q) : q ∈ M, q ≠ p}. This set is countable, so there exists r > 0 not equal to any d(p,q). Show that the open r-ball around p is clopen."
+  solution="Since M is countable and has more than one point, the set {d(p,q) : q ∈ M} is countable. The positive reals are uncountable, so there is some r > 0 with d(p,q) ≠ r for all q ∈ M. Then the open r-ball B(p,r) = {q ∈ M : d(p,q) < r} equals the closed r-ball {q ∈ M : d(p,q) ≤ r}, since no point is at distance exactly r from p. Therefore B(p,r) is both open and closed — it is a nontrivial clopen set (nontrivial because p is in it but not all of M is). Hence M is disconnected."
+  difficulty="standard"
+/>
+
+</SlideLayout>

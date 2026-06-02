@@ -1,0 +1,23 @@
+---
+title: Topological spaces — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Topological spaces — definition">
+
+<Callout kind="definition" title="Topological space">
+A <Term k="topologicalSpace">topological space</Term> is a pair $(X, \mathcal{T})$ where $X$ is a set and $\mathcal{T}$ (the <Term k="topology">topology</Term>) is a collection of subsets of $X$ called the <Term k="openSetTop">open sets</Term>, satisfying:
+
+1. $\varnothing$ and $X$ are both open.
+2. Any finite intersection of open sets is open.
+3. Any union (possibly infinite) of open sets is open.
+</Callout>
+
+The difference from a metric space: the open sets are now **given**, not derived from any distance function.
+
+We usually write $X$ instead of $(X, \mathcal{T})$, leaving the topology implicit — just as we write $G$ for a group instead of $(G, \star)$.
+
+</SlideLayout>

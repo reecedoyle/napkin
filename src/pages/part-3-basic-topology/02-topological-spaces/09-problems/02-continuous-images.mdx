@@ -1,0 +1,18 @@
+---
+title: Problems — continuous images (starred)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — continuous images (starred)">
+
+<Problem
+  client:load
+  id="top-prob-continuous-image-connected"
+  prompt="Let X and Y be topological spaces and let f : X → Y be a continuous function. (a) Show that if X is connected then f(X) is connected. (b) Show that if X is path-connected then f(X) is path-connected."
+  hint="(a) Suppose f(X) = U ⊔ V in Y; pull back to X. (b) Given two points in f(X), find a path between them using a path in X."
+  solution="(a) Give f(X) the subspace topology. Suppose for contradiction f(X) = U ⊔ V with U, V nonempty and open in f(X). Then f⁻¹(U) and f⁻¹(V) are open in X (since f is continuous), nonempty, disjoint, and cover X — contradicting connectedness of X. (b) Given y₁, y₂ ∈ f(X), pick x₁, x₂ ∈ X with f(xᵢ) = yᵢ. Since X is path-connected, there is a path γ : [0,1] → X with γ(0) = x₁ and γ(1) = x₂. Then f ∘ γ : [0,1] → f(X) is a path from y₁ to y₂."
+  difficulty="starred"
+/>
+
+</SlideLayout>

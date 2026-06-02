@@ -1,0 +1,20 @@
+---
+title: From metric to open sets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From metric to open sets">
+
+In the previous chapter we built a rich theory of <Term k="metricSpace">metric spaces</Term>. But a striking theorem emerged: a function between metric spaces is continuous if and only if the preimage of every open set is open.
+
+<Callout kind="remark" title="The key observation">
+That characterisation of continuity never mentions the metric — only the open sets. So maybe the open sets, not the metric, are the "real" structure we need.
+</Callout>
+
+This motivates forgetting the metric entirely and starting fresh with only the open sets as given data. The payoff: we can speak of continuous maps, homeomorphisms, and topological properties on a much wider class of spaces.
+
+The chapter on compact spaces is deliberately separate. Everything here — Hausdorff, connected, path-connected, homotopy — can be stated and proved without compactness.
+
+</SlideLayout>

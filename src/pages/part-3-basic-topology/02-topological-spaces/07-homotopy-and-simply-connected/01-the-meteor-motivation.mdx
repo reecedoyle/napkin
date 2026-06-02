@@ -1,0 +1,20 @@
+---
+title: The meteor motivation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The meteor motivation">
+
+In $\mathbb{C}$, all paths from $p$ to $q$ feel the same — you can continuously deform any one into any other.
+
+Now imagine a meteor destroys the origin, leaving $\mathbb{C} \setminus \{0\}$. Suddenly there are two genuinely different paths from $p$ to $q$: one going to the left of the origin, one going to the right. You cannot continuously slide the "goes-left" path into the "goes-right" path without crossing the hole.
+
+This is the motivating example for **homotopy**: the idea that two paths might or might not be deformable into each other while keeping endpoints fixed.
+
+<Callout kind="remark">
+This is closely related to winding numbers: the left path winds around the origin 0 times relative to the right path, and that difference is an obstruction to deforming one into the other.
+</Callout>
+
+</SlideLayout>

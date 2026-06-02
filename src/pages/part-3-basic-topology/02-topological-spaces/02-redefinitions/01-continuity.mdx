@@ -1,0 +1,20 @@
+---
+title: Continuity without a metric
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Continuity without a metric">
+
+We already know that a map between metric spaces is continuous iff the preimage of every open set is open. We now **adopt this as the definition** for topological spaces.
+
+<Callout kind="definition" title="Continuous map (topological version)">
+A function $f \colon X \to Y$ between topological spaces is <Term k="continuousTop">continuous</Term> at $p \in X$ if the preimage of any open neighborhood of $f(p)$ contains an open neighborhood of $p$.
+
+Equivalently, $f$ is continuous (on all of $X$) if $f^{-1}(U)$ is open in $X$ for every open $U \subseteq Y$.
+</Callout>
+
+This agrees with the metric definition when $X$ and $Y$ are metric spaces. The open-set version simply drops the metric entirely.
+
+</SlideLayout>
