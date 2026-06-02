@@ -757,6 +757,17 @@ export const glossary = {
   },
 
   // ────────────── Chapter 13 — Inner product spaces ──────────────
+  orthogonal: {
+    term: 'Orthogonal vectors',
+    symbol: '\\langle v, w \\rangle = 0',
+    definition: 'Two nonzero vectors v and w in an inner product space are orthogonal if ⟨v,w⟩ = 0. This generalises perpendicularity from ℝⁿ to any inner product space.',
+    example: 'In ℝ², (1,0) and (0,1) are orthogonal. In ℂ², (1,0) and (0,i) are orthogonal.',
+  },
+  orthonormalBasis: {
+    term: 'Orthonormal basis',
+    definition: 'A basis e₁, …, eₙ of a finite-dimensional inner product space such that ‖eᵢ‖ = 1 for all i and ⟨eᵢ,eⱼ⟩ = 0 for i ≠ j. Every finite-dimensional inner product space has one (by Gram-Schmidt). In any orthonormal basis the inner product equals the standard dot-product formula Σ aᵢb̄ᵢ.',
+    example: 'The standard basis {(1,0),(0,1)} is orthonormal in ℝ² with the dot product.',
+  },
   norm: {
     term: 'Norm',
     symbol: '\\|v\\|',

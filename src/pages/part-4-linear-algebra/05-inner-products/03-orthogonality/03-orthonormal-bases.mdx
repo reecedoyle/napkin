@@ -1,0 +1,26 @@
+---
+title: Orthonormal bases
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Orthonormal bases">
+
+<Callout kind="definition" title="Orthonormal basis">
+An **<Term k="orthonormalBasis">orthonormal basis</Term>** of a finite-dimensional inner product space $V$ is a basis $e_1, \dots, e_n$ such that:
+- $\norm{e_i} = 1$ for every $i$ (each vector has unit length), and
+- $\langle e_i, e_j \rangle = 0$ for $i \neq j$ (distinct basis vectors are orthogonal).
+</Callout>
+
+<Callout kind="example" title="Standard orthonormal bases">
+In $\RR^n$ and $\CC^n$ equipped with the standard dot product, the standard basis $e_1, \dots, e_n$ is orthonormal.
+</Callout>
+
+Working with an orthonormal basis simplifies everything: coordinates become inner products. If $v = \sum a_i e_i$ and $w = \sum b_i e_i$, then
+
+$$\langle v, w \rangle = \sum_{i=1}^n a_i \ol{b_i},$$
+
+which is exactly the dot product formula. This is no accident — the orthonormality forces it.
+
+</SlideLayout>
