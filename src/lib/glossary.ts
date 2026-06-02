@@ -728,11 +728,6 @@ export const glossary = {
     term: 'Quasicompact',
     definition: 'A topological space in which every open cover has a finite subcover, without requiring the Hausdorff property. Every compact space is quasicompact. The distinction matters in algebraic geometry.',
   },
-  totallyBounded: {
-    term: 'Totally bounded',
-    definition: 'A metric space M is totally bounded if for every ε > 0, M can be covered by finitely many open balls of radius ε. Every compact metric space is totally bounded.',
-    example: '(0,1) ⊆ ℝ is totally bounded (cover by intervals of length ε). ℝ is not.',
-  },
   uniformlyContinuous: {
     term: 'Uniformly continuous',
     definition: 'A function f: M → N between metric spaces is uniformly continuous if for every ε > 0 there exists δ > 0 (depending only on ε, not on the point) such that d(x,y) < δ implies d(f(x),f(y)) < ε.',
@@ -741,11 +736,6 @@ export const glossary = {
   lebesgueNumber: {
     term: 'Lebesgue number',
     definition: 'Given a compact metric space M and an open cover {Uα}, the Lebesgue number δ > 0 is a number such that every ball of radius δ in M is contained in some single Uα. Its existence is guaranteed by the Lebesgue number lemma.',
-  },
-  hausdorff: {
-    term: 'Hausdorff space',
-    definition: 'A topological space in which any two distinct points can be separated by disjoint open sets. All metric spaces are Hausdorff. The Hausdorff condition is part of the definition of compact (as opposed to quasicompact) in this text.',
-    example: 'Every metric space is Hausdorff. The cofinite topology on an infinite set is not Hausdorff.',
   },
   cofiniteTopology: {
     term: 'Cofinite topology',
