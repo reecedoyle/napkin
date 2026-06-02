@@ -1,0 +1,31 @@
+---
+title: Problems — daggered
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — daggered">
+
+Two harder problems exploring how trace interacts with tensor products and composition.
+
+<Problem
+  client:load
+  id="dat-prob-trace-product"
+  prompt="Let T: V → V and S: W → W be linear maps on finite-dimensional vector spaces. Define T ⊗ S: V ⊗ W → V ⊗ W by (T ⊗ S)(v ⊗ w) = T(v) ⊗ S(w). Prove that Tr(T ⊗ S) = Tr(T) · Tr(S)."
+  hint="Pick bases for V and W. The basis of V ⊗ W is {eᵢ ⊗ fⱼ}. Compute the diagonal entries of T ⊗ S in this basis."
+  solution="Pick bases e₁, …, eₘ of V and f₁, …, fₙ of W. The basis of V ⊗ W is {eᵢ ⊗ fⱼ}. The (i,j)-diagonal entry of T ⊗ S is ⟨eᵢ∨ ⊗ fⱼ∨, (T⊗S)(eᵢ ⊗ fⱼ)⟩ = ⟨eᵢ∨, T(eᵢ)⟩ · ⟨fⱼ∨, S(fⱼ)⟩ = Tᵢᵢ · Sⱼⱼ. Summing over all (i,j): Tr(T⊗S) = Σᵢⱼ Tᵢᵢ Sⱼⱼ = (Σᵢ Tᵢᵢ)(Σⱼ Sⱼⱼ) = Tr(T)·Tr(S)."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="dat-prob-trace-commute"
+  prompt="Let T: V → W and S: W → V be linear maps between finite-dimensional vector spaces. Show that Tr(T ∘ S) = Tr(S ∘ T)."
+  hint="One approach: use coordinates (a straightforward matrix calculation). A cleaner approach: interpret both sides as the same linear map (V∨ ⊗ W) ⊗ (W∨ ⊗ V) → k and verify it is symmetric."
+  solution="Coordinate proof: choose bases for V and W. Then Tr(TS) = Σᵢ (TS)ᵢᵢ = Σᵢ Σⱼ Tᵢⱼ Sⱼᵢ. And Tr(ST) = Σⱼ (ST)ⱼⱼ = Σⱼ Σᵢ Sⱼᵢ Tᵢⱼ. These are equal since multiplication of scalars commutes.
+
+Coordinate-free proof: The maps T and S correspond to elements of V∨⊗W and W∨⊗V respectively. The map (ξ⊗w, η⊗v) ↦ ξ(v)·η(w) is symmetric in (ξ⊗w) and (η⊗v) up to swapping the two factors — and this is exactly what Tr(T∘S) and Tr(S∘T) compute. Checking on pure tensors confirms the equality."
+  difficulty="daggered"
+/>
+
+</SlideLayout>
