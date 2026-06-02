@@ -1,0 +1,30 @@
+---
+title: Examples of compact spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of compact spaces">
+
+<Callout kind="example" title="Compact spaces">
+**(a)** Any **finite** set is compact: a sequence can only take finitely many values, so by pigeonhole some value repeats infinitely — take that constant subsequence.
+
+**(b)** $[0,1]$ is compact. Picture infinitely many dots in $[0,1]$ — they must cluster somewhere.
+
+**(c)** The unit sphere $S^2 = \{(x,y,z) \mid x^2+y^2+z^2=1\}$ in $\mathbb{R}^3$ is compact.
+
+**(d)** The closed unit disk $B^2 = \{(x,y) \mid x^2+y^2 \le 1\}$ is compact.
+
+**(e)** The <Term k="hawaiianEarring">**Hawaiian earring**</Term> in $\mathbb{R}^2$ — infinitely many tangent circles of radii $\frac{1}{n}$ — is compact.
+</Callout>
+
+<Callout kind="proposition" title="Closed subsets of compact spaces">
+Every closed subset of a <Term k="sequentiallyCompact">sequentially compact</Term> space is compact.
+</Callout>
+
+**Why:** Take any sequence in the closed subset. By compactness of the ambient space, it has a convergent subsequence. Since the subset is closed, the limit lies in the subset.
+
+We'll prove $[0,1]$ and the others are compact in the next section.
+
+</SlideLayout>
