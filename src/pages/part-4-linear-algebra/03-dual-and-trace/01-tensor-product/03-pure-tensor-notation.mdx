@@ -1,0 +1,37 @@
+---
+title: Pure tensors and scalar-passing
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Pure tensors and scalar-passing">
+
+The key feature of $\otimes$ is that scalars pass through the wall:
+
+$$4x^2 \otimes y = x^2 \otimes 4y = 2x^2 \otimes 2y$$
+
+All three expressions name the same <Term k="pureTensor">pure tensor</Term> in $V \otimes W$. Addition distributes over $\otimes$ in both arguments:
+
+$$(x + 1) \otimes (y + 1) = x \otimes y + 1 \otimes y + x \otimes 1 + 1 \otimes 1$$
+
+<Callout kind="remark" title="Not every element is a pure tensor">
+Elements of $V \otimes W$ are **sums** of pure tensors. Just as not every polynomial in $\mathbb{R}[x,y]$ factors as $f(x) \cdot g(y)$, not every element of $V \otimes W$ is a single $v \otimes w$.
+</Callout>
+
+<MCQ
+  client:load
+  id="dat-tp-mcq-scalar-pass"
+  prompt="Which of the following equals (2e₁) ⊗ (3f₁) in V ⊗ W?"
+  options={[
+    { id: "a", label: "6(e₁ ⊗ f₁)" },
+    { id: "b", label: "5(e₁ ⊗ f₁)" },
+    { id: "c", label: "e₁ ⊗ f₁ only if 2 = 3" },
+    { id: "d", label: "It cannot be simplified — the 2 and 3 are stuck on different sides" },
+  ]}
+  correct="a"
+  explanation="Scalar passing: (2e₁) ⊗ (3f₁) = 2·(e₁ ⊗ (3f₁)) = 2·3·(e₁ ⊗ f₁) = 6(e₁ ⊗ f₁). The whole point of the ⊗ wall is that scalars float through freely."
+/>
+
+</SlideLayout>
