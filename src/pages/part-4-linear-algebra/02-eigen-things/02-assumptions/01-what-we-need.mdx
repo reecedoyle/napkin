@@ -1,0 +1,27 @@
+---
+title: Assumptions — what we need and why
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Assumptions — what we need and why">
+
+Most big theorems in this chapter require two hypotheses. It is worth spelling them out before we dive in.
+
+<Callout kind="remark" title="Standing assumptions">
+Theorems (but not definitions) in this chapter require:
+
+- $V$ is a **finite-dimensional** vector space.
+- The base field $k$ is **algebraically closed** — every polynomial over $k$ has a root in $k$.
+</Callout>
+
+**Why algebraically closed?** The prototype is <Term k="CC">$\CC$</Term>. The fundamental theorem of algebra says every non-constant polynomial with complex coefficients has a complex root. That is exactly the algebraically closed condition.
+
+**Why does it matter?** Eigenvalues are roots of a certain polynomial attached to $T$. If the field is not algebraically closed, that polynomial might have no roots — meaning no eigenvalues exist. The rotation of $\RR^2$ by $90°$ is the classical example: no real eigenvector, but over $\CC$ there are two.
+
+<Callout kind="remark" title="Practical consequence">
+Any real matrix can be viewed as a complex matrix whose entries happen to be real. So working over $\CC$ is not a real restriction in practice — it just guarantees the theory is complete.
+</Callout>
+
+</SlideLayout>

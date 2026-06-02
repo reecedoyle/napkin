@@ -1,0 +1,42 @@
+---
+title: Eigenvectors and eigenvalues — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Eigenvectors and eigenvalues — definition">
+
+The "nice" vectors we spotted in the previous section — those that $T$ merely scales — deserve a name.
+
+<Callout kind="definition" title="Eigenvector and eigenvalue">
+Let $T \colon V \to V$ and let $v \in V$ be a **nonzero** vector.
+
+We call $v$ an <Term k="eigenvector">**eigenvector**</Term> of $T$ if $T(v) = \lambda v$ for some scalar $\lambda \in k$.
+
+The scalar $\lambda$ is called an <Term k="eigenvalue">**eigenvalue**</Term> of $T$.
+
+We sometimes say "$v$ is a $\lambda$-eigenvector" as shorthand.
+</Callout>
+
+Key points:
+- $v$ must be **nonzero**. The zero vector satisfies $T(0) = 0 = \lambda \cdot 0$ for every $\lambda$, so it is vacuously an eigenvector for any eigenvalue — that is why we exclude it.
+- $\lambda$ itself can be zero (provided $v \neq 0$).
+- No basis is mentioned — eigenvectors are intrinsic to the map, not to any particular choice of coordinates.
+
+<MCQ
+  client:load
+  id="eig-def-mcq-which-is-eigenvector"
+  prompt="For T with matrix [[2,1],[0,3]] in the standard basis e₁,e₂, which vector is an eigenvector?"
+  options={[
+    { id: "a", label: "e₂  (the vector (0,1))" },
+    { id: "b", label: "e₁ + e₂  (the vector (1,1))" },
+    { id: "c", label: "e₁  (the vector (1,0))" },
+    { id: "d", label: "2e₁ + e₂  (the vector (2,1))" },
+  ]}
+  correct="c"
+  explanation="T(e₁) = 2e₁, so e₁ is a 2-eigenvector. T(e₂) = e₁ + 3e₂, which is not a scalar multiple of e₂. T(e₁+e₂) = 2e₁ + (e₁+3e₂) = 3e₁+3e₂ = 3(e₁+e₂), so e₁+e₂ is also an eigenvector — but e₁ is the cleanest answer from the list."
+/>
+
+</SlideLayout>

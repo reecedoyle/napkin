@@ -1,0 +1,36 @@
+---
+title: Getting lucky — a hidden diagonal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Getting lucky — a hidden diagonal">
+
+Most linear maps do not look diagonal in the standard basis. But the **same** map can look diagonal in a better basis.
+
+<Callout kind="example" title="Getting lucky">
+Let $V$ be two-dimensional with basis $e_1, e_2$, and define $T$ by
+
+$$
+e_1 \mapsto 2e_1, \qquad e_2 \mapsto e_1 + 3e_2.
+$$
+
+In the basis $e_1, e_2$ the matrix is $\begin{bmatrix} 2 & 1 \\ 0 & 3 \end{bmatrix}$ — not diagonal. But notice:
+
+$$
+e_1 \mapsto 2e_1, \qquad e_1 + e_2 \mapsto 3(e_1 + e_2).
+$$
+
+Switch to the basis $\{e_1,\, e_1 + e_2\}$. In this new basis,
+
+$$
+T = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}.
+$$
+
+Diagonal after all!
+</Callout>
+
+The point: a "random-looking" map can become the very nice <Term k="diagonalMatrix">diagonal form</Term> once we choose the right basis. This chapter is about **making** that luck systematic.
+
+</SlideLayout>

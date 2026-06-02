@@ -755,6 +755,37 @@ export const glossary = {
     symbol: 'f(X)',
     definition: 'The set of all output values of f: X → Y, written f(X) or f[X]. In Napkin notation this is sometimes written f^im(X). A continuous image of a compact space is compact.',
   },
+
+  // ────────────── Chapter 10 — Eigen-things ──────────────
+  diagonalMatrix: {
+    term: 'Diagonal matrix',
+    symbol: '\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)',
+    definition: 'A square matrix with entries only on the main diagonal: the (i,i) entry is λᵢ and all off-diagonal entries are 0. The map sends each basis vector eᵢ to λᵢeᵢ.',
+    example: 'diag(2, 3) sends e₁ ↦ 2e₁ and e₂ ↦ 3e₂.',
+  },
+  eigenvector: {
+    term: 'Eigenvector',
+    definition: 'A nonzero vector v such that T(v) = λv for some scalar λ. The map T merely scales v — it does not rotate or shear it.',
+    example: 'For T = [[2,1],[0,3]], the vector e₁ is a 2-eigenvector and e₁+e₂ is a 3-eigenvector.',
+  },
+  eigenvalue: {
+    term: 'Eigenvalue',
+    symbol: '\\lambda',
+    definition: 'A scalar λ for which there exists a nonzero vector v with T(v) = λv. Eigenvalues capture the "scaling factors" of a linear map in its most natural directions.',
+    example: 'The matrix [[2,0],[0,3]] has eigenvalues 2 and 3.',
+  },
+  eigenspace: {
+    term: 'Eigenspace',
+    symbol: 'V_\\lambda',
+    definition: 'The set of all λ-eigenvectors of T together with the zero vector. It is a subspace of V. Its dimension is the geometric multiplicity of λ.',
+    example: 'For T = [[2,1],[0,3]], the 2-eigenspace is spanned by e₁; the 3-eigenspace is spanned by e₁+e₂.',
+  },
+  algClosed: {
+    term: 'Algebraically closed field',
+    symbol: 'k',
+    definition: 'A field in which every non-constant polynomial has at least one root. The archetypal example is ℂ (the fundamental theorem of algebra). Over algebraically closed fields, every linear map on a finite-dimensional space has an eigenvalue.',
+    example: 'ℂ is algebraically closed. ℝ is not: x²+1 has no real root.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

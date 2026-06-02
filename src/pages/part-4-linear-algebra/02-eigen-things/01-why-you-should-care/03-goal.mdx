@@ -1,0 +1,24 @@
+---
+title: The goal — Jordan form
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The goal — Jordan form">
+
+Our dream: every linear map $T \colon V \to V$ is diagonal in some basis. That turns out to be **too optimistic** — some maps genuinely resist diagonalisation.
+
+The good news: every map over an algebraically closed field is *almost* diagonal. The precise statement is the <Term k="jordanForm">Jordan canonical form theorem</Term>, which we'll build toward in this chapter.
+
+<Callout kind="remark" title="Road map">
+We will:
+1. Define **eigenvectors** and **eigenvalues** — the special vectors that *are* scaled by $T$.
+2. Define **Jordan blocks** — the unavoidable near-diagonal pieces.
+3. Prove that every map breaks into Jordan blocks (via **nilpotent maps**).
+4. Refine with the notions of **algebraic** and **geometric multiplicity**.
+</Callout>
+
+Two assumptions will underpin most theorems: $V$ must be **finite-dimensional**, and the base field must be **algebraically closed** (e.g. $\CC$). The definitions work without these, but the big theorems need them.
+
+</SlideLayout>
