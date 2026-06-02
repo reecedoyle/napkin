@@ -42,4 +42,13 @@ General hint: the basis-picking theorem and rank-nullity are your best friends h
   difficulty="standard"
 />
 
+<Problem
+  client:load
+  id="vs-prob-tstst-2014"
+  prompt="[TSTST 2014] Let P(x) and Q(x) be arbitrary polynomials with real coefficients, and let d be the degree of P(x). Assume P is not the zero polynomial. Prove there exist polynomials A(x) and B(x) such that: (i) both A and B have degree at most d/2; (ii) at most one of A and B is the zero polynomial; (iii) P divides A + Q·B."
+  hint="Interpret as a linear map V ⊕ V → W for suitable V, W, then use rank-nullity."
+  solution="Let V be the space of real polynomials of degree ≤ d/2, so dim V = 1 + ⌊d/2⌋. Let W be the space of real polynomials modulo P, so dim W = d. Then dim(V ⊕ V) = 2(1 + ⌊d/2⌋) ≥ d + 1 > d = dim W. Consider the linear map T: V ⊕ V → W by (A, B) ↦ A + Q·B (mod P). Since dim(V ⊕ V) > dim W, the map T cannot be injective by rank-nullity — its kernel has positive dimension. Any nonzero element (A, B) in the kernel satisfies A + Q·B ≡ 0 (mod P), i.e., P divides A + Q·B. At most one of A, B is zero (since (0,0) is the zero element, not a 'nonzero kernel element'). This gives the desired A and B."
+  difficulty="standard"
+/>
+
 </SlideLayout>
