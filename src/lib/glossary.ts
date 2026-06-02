@@ -804,6 +804,15 @@ export const glossary = {
     definition: 'A linear map T such that T^m is the zero map for some positive integer m. The only eigenvalue of a nilpotent map is 0. By the Nilpotent Jordan theorem, every nilpotent map on a finite-dimensional space is a direct sum of descending staircases.',
     example: 'The map e₃ ↦ e₂ ↦ e₁ ↦ 0 on k³ is nilpotent with T³ = 0.',
   },
+  tInvariant: {
+    term: 'T-invariant subspace',
+    definition: 'A subspace W ⊆ V that is closed under the action of T: for every w ∈ W, T(w) ∈ W. The restriction T|_W is then a well-defined linear map from W to W.',
+    example: 'Every eigenspace V_λ is T-invariant. Each Jordan block subspace in the Jordan decomposition is T-invariant.',
+  },
+  indecomposable: {
+    term: 'Indecomposable map',
+    definition: 'A linear map T: V → V is indecomposable if V cannot be written as a direct sum W₁ ⊕ W₂ of two nontrivial T-invariant subspaces. Every indecomposable piece of a linear map over an algebraically closed field is a single Jordan block.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

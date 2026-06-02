@@ -1,0 +1,36 @@
+---
+title: Invariant subspaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Invariant subspaces">
+
+To decompose $V$ into Jordan blocks, we first need a notion of a subspace that $T$ "stays inside."
+
+<Callout kind="definition" title="T-invariant subspace">
+A subspace $W \subseteq V$ is called <Term k="tInvariant">**$T$-invariant**</Term> if $T(w) \in W$ for every $w \in W$. In that case, $T$ restricts to a well-defined linear map $T \colon W \to W$.
+</Callout>
+
+<Callout kind="example">
+For any eigenvalue $\lambda$, the eigenspace $V_\lambda$ is $T$-invariant: if $T(v) = \lambda v$ then $T(v) \in V_\lambda$. More generally, the Jordan block subspaces in the Jordan decomposition are $T$-invariant by construction.
+</Callout>
+
+<Callout kind="definition" title="Indecomposable map">
+A map $T \colon V \to V$ is called <Term k="indecomposable">**indecomposable**</Term> if it is impossible to write $V = W_1 \oplus W_2$ where both $W_1$ and $W_2$ are nontrivial $T$-invariant subspaces.
+</Callout>
+
+<Callout kind="proposition" title="Invariant subspace decomposition">
+Let $V$ be finite-dimensional and $T \colon V \to V$ any linear map. Then
+
+$$
+V = V_1 \oplus V_2 \oplus \dots \oplus V_m
+$$
+
+where each $V_i$ is $T$-invariant and $T \colon V_i \to V_i$ is indecomposable.
+</Callout>
+
+The proof is the same as "every integer is a product of primes": if $V$ is already indecomposable, done; otherwise split and repeat.
+
+</SlideLayout>

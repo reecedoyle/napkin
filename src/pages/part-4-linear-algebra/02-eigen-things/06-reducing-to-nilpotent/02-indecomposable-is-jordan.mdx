@@ -1,0 +1,30 @@
+---
+title: Each indecomposable piece is a Jordan block
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Each indecomposable piece is a Jordan block">
+
+The payoff: every indecomposable $T$-invariant piece of $V$ is a single Jordan block.
+
+**Argument.** Take an indecomposable summand $V_1$ from the decomposition. Since the base field is algebraically closed, $T \colon V_1 \to V_1$ has an eigenvalue $\lambda_1$. Let $S = T - \lambda_1 \id$, so $\ker S \neq \{0\}$.
+
+A standard lemma (that we quote) gives, for large enough $N$:
+
+$$
+V_1 = \ker S^N \oplus \operatorname{im} S^N.
+$$
+
+Since $T$ (hence $S$) is indecomposable on $V_1$ and $\ker S^N$ is nontrivial (it contains eigenvectors), we must have $\operatorname{im} S^N = \{0\}$, i.e. $S^N = 0$. So $S = T - \lambda_1 \id$ is nilpotent on $V_1$.
+
+By Nilpotent Jordan, $V_1$ decomposes into staircases under $S$. But $T$ is indecomposable on $V_1$, so there is only **one** staircase. One staircase = one Jordan block.
+
+<Callout kind="remark" title="Summary">
+The Jordan form theorem follows by combining two facts:
+1. Every $V$ decomposes into indecomposable $T$-invariant pieces.
+2. Every indecomposable piece is a single Jordan block (because $T - \lambda \id$ is nilpotent there, and the piece is indecomposable).
+</Callout>
+
+</SlideLayout>
