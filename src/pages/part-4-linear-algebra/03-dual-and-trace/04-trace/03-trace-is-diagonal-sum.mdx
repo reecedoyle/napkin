@@ -1,0 +1,30 @@
+---
+title: Why trace equals the sum of diagonal entries
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Why trace equals the sum of diagonal entries">
+
+The intrinsic definition recovers the familiar formula. Take any basis $e_1, \dots, e_n$ of $V$ and let $T$ have matrix entries $T_{ij}$ (meaning $T(e_j) = \sum_i T_{ij} e_i$).
+
+The corresponding element of $V^\vee \otimes V$ is $\sum_{i,j} T_{ij} \, e_j^\vee \otimes e_i$ (note the indices: the dual basis covector for column $j$, tensored with the basis vector for row $i$).
+
+Applying $\operatorname{ev}$:
+
+$$\operatorname{Tr}(T) = \sum_{i,j} T_{ij} \, e_j^\vee(e_i) = \sum_{i,j} T_{ij} \cdot [i = j] = \sum_i T_{ii}$$
+
+<Callout kind="example" title="2×2 case">
+For $T = \begin{bmatrix}1 & 2\\ 3 & 4\end{bmatrix}$, the element is $e_1^\vee \otimes e_1 + 3e_1^\vee \otimes e_2 + 2e_2^\vee \otimes e_1 + 4e_2^\vee \otimes e_2$. Applying ev: $e_1^\vee(e_1) + 3e_1^\vee(e_2) + 2e_2^\vee(e_1) + 4e_2^\vee(e_2) = 1 + 0 + 0 + 4 = 5$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="dat-tr-num-trace"
+  prompt="What is the trace of the 3×3 identity matrix?"
+  expected={3}
+/>
+
+</SlideLayout>

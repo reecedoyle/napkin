@@ -1,0 +1,23 @@
+---
+title: Trace — intrinsic definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Trace — intrinsic definition">
+
+We now have all the ingredients for an intrinsic definition of the trace.
+
+<Callout kind="definition" title="Trace">
+Let $T: V \to V$ be a linear map on a finite-dimensional $k$-vector space $V$. Using the isomorphism $\operatorname{Hom}(V,V) \cong V^\vee \otimes V$, identify $T$ with an element of $V^\vee \otimes V$. Then define
+
+$$\operatorname{Tr}(T) = \operatorname{ev}(T) \in k.$$
+
+Concretely, this is the composition:
+$$\operatorname{Hom}(V,V) \xrightarrow{\;\cong\;} V^\vee \otimes V \xrightarrow{\;\operatorname{ev}\;} k$$
+</Callout>
+
+This definition makes no reference to a basis or matrix entries. It tells us the trace is a canonical object attached to $T$ itself — not to any particular matrix representing $T$.
+
+</SlideLayout>
