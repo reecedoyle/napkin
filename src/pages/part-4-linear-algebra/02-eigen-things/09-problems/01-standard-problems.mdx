@@ -1,0 +1,25 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+<Problem
+  client:load
+  id="eig-prob-alg-mult-sum"
+  prompt="Given a 2018-dimensional complex vector space V and a map T: V → V, what is the sum of the algebraic multiplicities of all eigenvalues of T?"
+  solution="The sum is 2018 = dim V. The algebraic multiplicities sum to the total number of diagonal entries in the Jordan form, which equals the dimension of V — you are adding the sizes of all the Jordan blocks."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="eig-prob-diagonalizable"
+  prompt="A linear map T: V → V (dim V finite) is called diagonalisable if it has a basis e₁, …, eₙ such that each eᵢ is an eigenvector. (a) Explain the name. (b) Over an algebraically closed field, show T is diagonalisable if and only if the geometric multiplicity of every eigenvalue equals its algebraic multiplicity."
+  solution="(a) If you express T as a matrix in such a basis, every basis vector is an eigenvector, so off-diagonal entries are 0 and the matrix is diagonal. (b) By Jordan form, T is diagonalisable iff every Jordan block has size 1×1. A Jordan block of size 1 contributes 1 to both geometric and algebraic multiplicity. A block of size ≥ 2 contributes 1 to geometric but ≥ 2 to algebraic multiplicity. So all blocks have size 1 iff geometric = algebraic multiplicity for every eigenvalue. (This implicitly uses uniqueness of Jordan form.)"
+  difficulty="standard"
+/>
+
+</SlideLayout>
