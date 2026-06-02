@@ -1,0 +1,33 @@
+---
+title: Multiplicities in action — trace and determinant
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Multiplicities in action — trace and determinant">
+
+<Callout kind="example" title="Reading multiplicities from Jordan form">
+For the matrix from the previous slide with eigenvalue $\lambda = 7$:
+
+- Geometric multiplicity of $7$ = **2** (two Jordan blocks: one $2 \times 2$ and one $3 \times 3$).
+- Algebraic multiplicity of $7$ = **5** (block sizes $2 + 3 = 5$).
+- Geometric multiplicity of $9$ = **1**, algebraic multiplicity of $9$ = **1**.
+</Callout>
+
+**Trace and determinant preview.** The algebraic multiplicities give us a tentative connection to classical invariants:
+
+- The **trace** of $T$ is the sum of all eigenvalues counted with algebraic multiplicity.
+- The **determinant** of $T$ is the product of all eigenvalues counted with algebraic multiplicity.
+
+These definitions require the ground field to be algebraically closed. The next chapters will give coordinate-free (and computationally friendlier) definitions via the characteristic polynomial.
+
+<NumericInput
+  client:load
+  id="eig-mult-num-alg-mult-sum"
+  prompt="For a 2018-dimensional complex vector space V and any linear map T: V → V, what is the sum of the algebraic multiplicities of all eigenvalues of T?"
+  expected={2018}
+/>
+
+</SlideLayout>

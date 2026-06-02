@@ -1,0 +1,32 @@
+---
+title: Eigenspaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Eigenspaces">
+
+The set of all $\lambda$-eigenvectors (together with the zero vector) forms a subspace — this is a quick but important observation.
+
+<Callout kind="definition" title="Eigenspace">
+For any scalar $\lambda$, the <Term k="eigenspace">**$\lambda$-eigenspace**</Term> of $T$ is
+
+$$
+V_\lambda = \{v \in V : T(v) = \lambda v\}.
+$$
+
+It consists of the $\lambda$-eigenvectors together with $\{0\}$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="eig-eigenspace-proof-subspace"
+  prompt="Show that V_λ is a subspace of V."
+  solution="We check the three subspace conditions. (1) 0 ∈ V_λ since T(0) = 0 = λ·0. (2) If T(u) = λu and T(v) = λv then T(u+v) = T(u)+T(v) = λu+λv = λ(u+v), so u+v ∈ V_λ. (3) If T(v) = λv and c is a scalar then T(cv) = cT(v) = c(λv) = λ(cv), so cv ∈ V_λ. All three hold, so V_λ is a subspace."
+/>
+
+Knowing the eigenspace lets us make statements like: "the eigenvalue $2$ has a one-dimensional eigenspace, spanned by $e_1$." That captures how many independent eigenvectors share eigenvalue $\lambda$.
+
+</SlideLayout>

@@ -1,0 +1,36 @@
+---
+title: Problems — differentiation operators
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — differentiation operators">
+
+<Problem
+  client:load
+  id="eig-prob-diff-poly"
+  prompt="Let V = ℝ[x] be the infinite-dimensional real vector space of all polynomials with real coefficients. The derivative d/dx: V → V is a linear map (e.g. it sends x³ to 3x²). Which real numbers are eigenvalues of this map?"
+  hint="Only 0 is. Think about what happens to the degree."
+  solution="Only λ = 0 is an eigenvalue. If (d/dx)(p) = λp, look at degrees: for λ ≠ 0 and deg p > 0, we have deg p' = deg p − 1, so p' cannot be a nonzero scalar multiple of p. Hence p must be constant (degree 0), but then p' = 0, so λp = 0 forces λ = 0. The 0-eigenvectors are exactly the nonzero constants."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="eig-prob-diff-functions"
+  prompt="Let V be the infinite-dimensional real vector space of all infinitely differentiable functions ℝ → ℝ. The derivative d/dx: V → V is a linear map (e.g. it sends cos x to −sin x). Which real numbers are eigenvalues of this map?"
+  hint="All real numbers are eigenvalues!"
+  solution="Every real number c is an eigenvalue: the function e^(cx) satisfies (d/dx)(e^(cx)) = c·e^(cx), so e^(cx) is a c-eigenvector. This gives an eigenvalue for every c ∈ ℝ, so all real numbers are eigenvalues. If you know differential equations, the solutions to y' = cy are exactly the scalar multiples of e^(cx)."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="eig-prob-t-power-diag"
+  prompt="Suppose T: ℂ² → ℂ² is a linear map such that T^(2011) = id (the identity map). Must T be diagonalisable?"
+  hint="Yes. The result holds for any finite-dimensional complex vector space."
+  solution="Yes, T is diagonalisable. Since T^2011 = id, every eigenvalue λ satisfies λ^2011 = 1, so λ is a 2011-th root of unity. All 2011-th roots of unity are distinct, so the minimal polynomial of T divides x^2011 − 1, which has no repeated roots (its derivative 2011x^2010 shares no roots with it). A matrix is diagonalisable iff its minimal polynomial has no repeated roots, so T is diagonalisable."
+  difficulty="standard"
+/>
+
+</SlideLayout>

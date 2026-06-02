@@ -1,0 +1,39 @@
+---
+title: Jordan form — a concrete example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Jordan form — a concrete example">
+
+<Callout kind="example" title="Reading eigenvectors from Jordan form">
+Let $T \colon k^6 \to k^6$ be given by
+
+$$
+T = \begin{bmatrix}
+5 & 0 & 0 & 0 & 0 & 0 \\
+0 & 2 & 1 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 0 & 0 \\
+0 & 0 & 0 & 7 & 0 & 0 \\
+0 & 0 & 0 & 0 & 3 & 0 \\
+0 & 0 & 0 & 0 & 0 & 3 \\
+\end{bmatrix}.
+$$
+
+The blocks are: $[5]$, $\begin{bmatrix}2&1\\0&2\end{bmatrix}$, $[7]$, $\begin{bmatrix}3&0\\0&3\end{bmatrix}$.
+
+Reading off eigenvectors: $e_1$ is a $5$-eigenvector, $e_2$ is a $2$-eigenvector, $e_4$ is a $7$-eigenvector, and any $ae_5 + be_6$ is a $3$-eigenvector.
+
+The vector $e_3$ is **not** an eigenvector: $T(e_3) = e_2 + 2e_3$, which is not a scalar multiple of $e_3$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="eig-jf-num-blocks"
+  prompt="How many Jordan blocks does the matrix T above have?"
+  expected={4}
+/>
+
+</SlideLayout>

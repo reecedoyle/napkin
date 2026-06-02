@@ -977,6 +977,86 @@ export const glossary = {
     definition: 'Given a real vector space V, the complexification V_ℂ = ℂ ⊗_ℝ V is a complex vector space of the same dimension (over ℂ) that allows complex scalars. Constructed via the tensor product over ℝ. Lets us apply results about algebraically closed fields to real matrices.',
     example: 'ℝ³_ℂ = ℂ ⊗_ℝ ℝ³ ≅ ℂ³; elements look like z₁e₁ + z₂e₂ + z₃e₃ with zᵢ ∈ ℂ.',
   },
+
+  // ────────────── Chapter 10 — Eigen-things ──────────────
+  diagonalMatrix: {
+    term: 'Diagonal matrix',
+    symbol: '\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)',
+    definition: 'A square matrix with entries only on the main diagonal: the (i,i) entry is λᵢ and all off-diagonal entries are 0. The map sends each basis vector eᵢ to λᵢeᵢ.',
+    example: 'diag(2, 3) sends e₁ ↦ 2e₁ and e₂ ↦ 3e₂.',
+  },
+  eigenvector: {
+    term: 'Eigenvector',
+    definition: 'A nonzero vector v such that T(v) = λv for some scalar λ. The map T merely scales v — it does not rotate or shear it.',
+    example: 'For T = [[2,1],[0,3]], the vector e₁ is a 2-eigenvector and e₁+e₂ is a 3-eigenvector.',
+  },
+  eigenvalue: {
+    term: 'Eigenvalue',
+    symbol: '\\lambda',
+    definition: 'A scalar λ for which there exists a nonzero vector v with T(v) = λv. Eigenvalues capture the "scaling factors" of a linear map in its most natural directions.',
+    example: 'The matrix [[2,0],[0,3]] has eigenvalues 2 and 3.',
+  },
+  eigenspace: {
+    term: 'Eigenspace',
+    symbol: 'V_\\lambda',
+    definition: 'The set of all λ-eigenvectors of T together with the zero vector. It is a subspace of V. Its dimension is the geometric multiplicity of λ.',
+    example: 'For T = [[2,1],[0,3]], the 2-eigenspace is spanned by e₁; the 3-eigenspace is spanned by e₁+e₂.',
+  },
+  algClosed: {
+    term: 'Algebraically closed field',
+    symbol: 'k',
+    definition: 'A field in which every non-constant polynomial has at least one root. The archetypal example is ℂ (the fundamental theorem of algebra). Over algebraically closed fields, every linear map on a finite-dimensional space has an eigenvalue.',
+    example: 'ℂ is algebraically closed. ℝ is not: x²+1 has no real root.',
+  },
+  jordanBlock: {
+    term: 'Jordan block',
+    symbol: 'J_\\lambda',
+    definition: 'An n×n matrix with λ on the main diagonal, 1 just above the diagonal, and 0 everywhere else. A 1×1 Jordan block is just [λ]. Jordan blocks are the indivisible building-blocks of every linear map over an algebraically closed field.',
+    example: 'A 3×3 Jordan block for λ=2 is [[2,1,0],[0,2,1],[0,0,2]].',
+  },
+  jordanForm: {
+    term: 'Jordan canonical form',
+    symbol: 'J',
+    definition: 'A block-diagonal matrix in which each block is a Jordan block, representing a linear map in an optimal basis. Every linear map over an algebraically closed field has a Jordan form, unique up to reordering of blocks.',
+    example: 'The Jordan form of a diagonalisable map is its diagonal matrix of eigenvalues.',
+  },
+  nilpotent: {
+    term: 'Nilpotent map',
+    symbol: 'T^m = 0',
+    definition: 'A linear map T such that T^m is the zero map for some positive integer m. The only eigenvalue of a nilpotent map is 0. By the Nilpotent Jordan theorem, every nilpotent map on a finite-dimensional space is a direct sum of descending staircases.',
+    example: 'The map e₃ ↦ e₂ ↦ e₁ ↦ 0 on k³ is nilpotent with T³ = 0.',
+  },
+  tInvariant: {
+    term: 'T-invariant subspace',
+    definition: 'A subspace W ⊆ V that is closed under the action of T: for every w ∈ W, T(w) ∈ W. The restriction T|_W is then a well-defined linear map from W to W.',
+    example: 'Every eigenspace V_λ is T-invariant. Each Jordan block subspace in the Jordan decomposition is T-invariant.',
+  },
+  indecomposable: {
+    term: 'Indecomposable map',
+    definition: 'A linear map T: V → V is indecomposable if V cannot be written as a direct sum W₁ ⊕ W₂ of two nontrivial T-invariant subspaces. Every indecomposable piece of a linear map over an algebraically closed field is a single Jordan block.',
+  },
+  geomMult: {
+    term: 'Geometric multiplicity',
+    symbol: '\\dim V_\\lambda',
+    definition: 'The dimension of the λ-eigenspace V_λ. Equals the number of Jordan blocks with eigenvalue λ in the Jordan form. Always at most the algebraic multiplicity.',
+    example: 'For a 2×2 Jordan block with eigenvalue 7, the geometric multiplicity of 7 is 1 (one eigenvector).',
+  },
+  algMult: {
+    term: 'Algebraic multiplicity',
+    symbol: '\\dim V^\\lambda',
+    definition: 'The dimension of the generalised eigenspace V^λ, consisting of vectors annihilated by some power of (T − λ·id). Equals the total size of all Jordan blocks with eigenvalue λ.',
+    example: 'For a 2×2 Jordan block plus a 3×3 Jordan block both with eigenvalue 7, the algebraic multiplicity is 2+3=5.',
+  },
+  genEigenspace: {
+    term: 'Generalised eigenspace',
+    symbol: 'V^\\lambda',
+    definition: 'The set of vectors v ∈ V such that (T − λ·id)^n(v) = 0 for some n ≥ 1. It contains the eigenspace V_λ and all "near-eigenvectors" for eigenvalue λ. Its dimension is the algebraic multiplicity of λ.',
+  },
+  diagonalizable: {
+    term: 'Diagonalisable map',
+    definition: 'A linear map T: V → V is diagonalisable if there exists a basis of V consisting entirely of eigenvectors of T. Equivalently (over an algebraically closed field): the geometric multiplicity of every eigenvalue equals its algebraic multiplicity — every Jordan block has size 1.',
+    example: 'A symmetric real matrix is always diagonalisable (over ℝ). A non-zero nilpotent map is never diagonalisable.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

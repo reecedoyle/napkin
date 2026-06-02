@@ -1,0 +1,30 @@
+---
+title: Proof of Nilpotent Jordan — extending the basis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Proof of Nilpotent Jordan — extending the basis">
+
+Continuing from the previous slide. We have a staircase basis $\mathcal{B}'$ for $W = T(V)$ with $\ell$ staircases. Exactly $\ell$ elements of $\mathcal{B}'$ lie in $\ker T$ (the last element of each staircase). Extend these $\ell$ elements to a basis of $\ker T$ by adding vectors $v_{\ell+1}, \dots, v_m$ where $m = \dim \ker T$.
+
+Now form the extended collection
+
+$$
+\mathcal{B} = \bigl\{ v_1, T(v_1), T^2(v_1), \dots;\; v_2, T(v_2), \dots;\; \dots;\; v_\ell, T(v_\ell), \dots;\; v_{\ell+1}, \dots, v_m \bigr\}.
+$$
+
+**Dimension check.** The number of elements in $\mathcal{B}$ is $\ell + \dim W + (\dim \ker T - \ell) = \dim W + \dim \ker T = \dim V$ (by rank-nullity). So $\mathcal{B}$ has the right size.
+
+<ProofReveal
+  client:load
+  id="eig-nilpot-proof-indep"
+  prompt="Show that the elements of ℬ are linearly independent. (Hint: assume a linear dependence, then apply T to both sides.)"
+  solution="Suppose there is a linear dependence among the elements of ℬ. Group by staircase. Each staircase for v_i contributes terms c_{i,0}·v_i + c_{i,1}·T(v_i) + ···. Apply T to the entire dependence relation: the leading terms v_i drop out (T applied to the bottom of a staircase is 0), leaving a dependence among elements of W that live in ℬ'. Since ℬ' is a basis of W, all those coefficients are 0. Working backwards up the staircases forces all original coefficients to be 0. Hence ℬ is linearly independent."
+/>
+
+Since $\mathcal{B}$ has $\dim V$ linearly independent elements, it is a basis of $V$. By construction it consists of staircases — completing the proof.
+
+</SlideLayout>

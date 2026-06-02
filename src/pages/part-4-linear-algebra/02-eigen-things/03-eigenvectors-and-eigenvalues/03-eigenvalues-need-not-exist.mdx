@@ -1,0 +1,26 @@
+---
+title: Eigenvalues need not exist over ℝ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Eigenvalues need not exist over ℝ">
+
+Over the reals, eigenvalues can simply fail to exist.
+
+<Callout kind="example" title="Rotation has no real eigenvectors">
+Let $V = \RR^2$ and let $T$ be rotation by $90°$ around the origin. Then for any nonzero vector $v$, the image $T(v)$ is perpendicular to $v$, so $T(v)$ cannot be a real multiple of $v$.
+
+Hence $T$ has no real eigenvalue and no real eigenvector.
+</Callout>
+
+The culprit is that $\RR$ is **not** algebraically closed: the polynomial $x^2 + 1$ has no real root. Over $\CC$, the same rotation matrix $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$ has eigenvalues $i$ and $-i$ — complex numbers that square to $-1$.
+
+<Callout kind="theorem" title="Eigenvalues exist over algebraically closed fields">
+Let $k$ be an <Term k="algClosed">algebraically closed field</Term> and $V$ a finite-dimensional $k$-vector space. Then every linear map $T \colon V \to V$ has at least one eigenvalue in $k$.
+</Callout>
+
+**Proof idea.** Pick any nonzero $v \in V$. The vectors $v, T(v), T^2(v), \dots, T^n(v)$ (where $n = \dim V$) are $n+1$ vectors in an $n$-dimensional space, so they must be linearly dependent. That dependence gives a nonzero polynomial $P$ with $P(T)(v) = 0$. Over an algebraically closed field, $P$ factors completely into linear factors $(T - r_i \id)$, and one of those factors must fail to be injective — giving an eigenvector.
+
+</SlideLayout>

@@ -1,0 +1,35 @@
+---
+title: Shifting the eigenvalue
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Shifting the eigenvalue">
+
+Here is the key trick connecting nilpotent maps to Jordan blocks with arbitrary eigenvalue $\lambda$.
+
+Take the double staircase matrix $S$ (eigenvalue $0$) from the previous slide. Add $\lambda \cdot \id$:
+
+$$
+S + \lambda \id =
+\begin{bmatrix}
+\lambda & 1 & 0 &   &   \\
+0 & \lambda & 1 &   &   \\
+0 & 0 & \lambda &   &   \\
+  &   &   & \lambda & 1 \\
+  &   &   & 0 & \lambda
+\end{bmatrix}.
+$$
+
+That is a pair of Jordan blocks with eigenvalue $\lambda$ — exactly Jordan form!
+
+<Callout kind="remark" title="The plan">
+To prove Jordan form for a general $T$:
+1. Break $V$ into subspaces on each of which $T - \lambda \id$ is nilpotent (for the right $\lambda$).
+2. Apply Nilpotent Jordan to each subspace to get the individual Jordan blocks.
+</Callout>
+
+Step 1 is the content of the next section ("Reducing to the nilpotent case"). Step 2 is already done by the Nilpotent Jordan theorem.
+
+</SlideLayout>

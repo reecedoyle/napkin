@@ -1,0 +1,25 @@
+---
+title: Problems — finding eigenspaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — finding eigenspaces">
+
+<Problem
+  client:load
+  id="eig-prob-switcharoo"
+  prompt="Let V be the ℂ-vector space with basis e₁ and e₂. The map T: V → V sends T(e₁) = e₂ and T(e₂) = e₁. Determine the eigenspaces of T."
+  solution="We look for λ and nonzero v = ae₁ + be₂ with T(v) = λv. T(ae₁+be₂) = be₁ + ae₂ = λ(ae₁+be₂). So b = λa and a = λb. Substituting: a = λ²a, giving λ² = 1, so λ = +1 or λ = −1. For λ = 1: b = a, giving eigenvectors proportional to e₁+e₂. For λ = −1: b = −a, giving eigenvectors proportional to e₁−e₂. The +1 eigenspace is spanned by e₁+e₂; the −1 eigenspace is spanned by e₁−e₂."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="eig-prob-poly-backwards"
+  prompt="Define the complex vector space V of polynomials of degree at most 2: V = {ax² + bx + c | a,b,c ∈ ℂ}. Define T: V → V by T(ax²+bx+c) = cx²+bx+a (reverse the coefficients). Determine the eigenspaces of T."
+  solution="T² = identity (reversing twice gives the original polynomial), so eigenvalues satisfy λ² = 1, giving λ = ±1. For λ = 1: T(p) = p means the polynomial is symmetric under reversal. A basis for this eigenspace is {1+x², x}, so it is 2-dimensional. For λ = −1: T(p) = −p means the polynomial is antisymmetric. A basis is {1−x²}, giving a 1-dimensional eigenspace. The +1 eigenspace is spanned by 1+x² and x; the −1 eigenspace is spanned by 1−x²."
+  difficulty="standard"
+/>
+
+</SlideLayout>

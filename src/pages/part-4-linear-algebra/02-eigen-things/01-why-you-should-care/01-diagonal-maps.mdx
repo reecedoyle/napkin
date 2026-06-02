@@ -1,0 +1,43 @@
+---
+title: The simplest linear maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The simplest linear maps">
+
+A square matrix $T$ is really just a linear map from a vector space $V$ to itself. What is the **simplest** kind of such map?
+
+The very simplest: multiply every vector by the same scalar $\lambda$.
+
+$$
+T =
+\begin{bmatrix}
+\lambda & 0 & \dots & 0 \\
+0 & \lambda & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \dots & \lambda
+\end{bmatrix}
+$$
+
+That is a bit too simple — every direction behaves identically. A richer but still manageable situation: scale each **basis element** $e_i$ by its own scalar $\lambda_i$.
+
+<Callout kind="definition" title="Diagonal matrix">
+A <Term k="diagonalMatrix">**diagonal matrix**</Term> is one that has the form
+
+$$
+T = \begin{bmatrix}
+\lambda_1 & 0 & \dots & 0 \\
+0 & \lambda_2 & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \dots & \lambda_n
+\end{bmatrix}
+$$
+
+where $e_i \mapsto \lambda_i e_i$ for each basis element $e_i$.
+</Callout>
+
+Diagonal maps are extremely convenient. For example, $T^{100}$ is immediate: it sends $e_i \mapsto \lambda_i^{100} e_i$. Try that with an arbitrary $n \times n$ matrix.
+
+</SlideLayout>

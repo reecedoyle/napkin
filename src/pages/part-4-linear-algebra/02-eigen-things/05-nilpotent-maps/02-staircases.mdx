@@ -1,0 +1,48 @@
+---
+title: Independent staircases
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Independent staircases">
+
+We can have multiple staircases running in parallel.
+
+<Callout kind="example" title="Double staircase">
+Let $V = k^5$ with basis $e_1, \dots, e_5$, and define $T$ by
+
+$$
+e_3 \mapsto e_2 \mapsto e_1 \mapsto 0 \qquad \text{and} \qquad e_5 \mapsto e_4 \mapsto 0.
+$$
+
+Then $T^3 = 0$, so $T$ is nilpotent. The matrix (omitting zeros for clarity) is
+
+$$
+T = \begin{bmatrix}
+0 & 1 & 0 &   &   \\
+0 & 0 & 1 &   &   \\
+0 & 0 & 0 &   &   \\
+  &   &   & 0 & 1 \\
+  &   &   & 0 & 0
+\end{bmatrix}.
+$$
+</Callout>
+
+This is two Jordan blocks glued side by side. The key theorem says **all** nilpotent maps look like this.
+
+<Callout kind="theorem" title="Nilpotent Jordan">
+Let $V$ be finite-dimensional over an algebraically closed field $k$, and let $T \colon V \to V$ be nilpotent. Then
+
+$$
+V = V_1 \oplus V_2 \oplus \dots \oplus V_m
+$$
+
+where each $V_i$ has a basis of the form $v_i, T(v_i), T^2(v_i), \dots$ (a single staircase), with $T^{\dim V_i}(v_i) = 0$.
+</Callout>
+
+<Callout kind="remark">
+Every nilpotent map is a direct sum of independent staircases. Adding $\lambda \cdot \id$ to a nilpotent map shifts the eigenvalue from $0$ to $\lambda$, converting each staircase to a Jordan block with eigenvalue $\lambda$. This is the bridge from nilpotent maps to general Jordan form.
+</Callout>
+
+</SlideLayout>

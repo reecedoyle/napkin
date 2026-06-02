@@ -1,0 +1,28 @@
+---
+title: Proof of Nilpotent Jordan — induction setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of Nilpotent Jordan — induction setup">
+
+This section is **optional** — you can skip it and still follow the rest of the chapter. It fills in the proof that every nilpotent map is a direct sum of staircases.
+
+**Goal.** Given nilpotent $T \colon V \to V$ (finite-dimensional), build a basis of $V$ consisting of staircases.
+
+**Proof by induction on $\dim V$.** The base case $\dim V = 0$ is trivial. Assume $\dim V \geq 1$.
+
+Let $W = T(V)$ be the image of $T$. Since $T$ is nilpotent, $W \subsetneq V$ (the image is strictly smaller). If $W = \{0\}$ then $T$ is the zero map and every basis vector is a length-$1$ staircase — done.
+
+So assume $\{0\} \subsetneq W \subsetneq V$.
+
+**Inductive hypothesis.** Since $\dim W < \dim V$, the restriction $T|_W \colon W \to W$ is also nilpotent, and by induction $W$ already has a staircase basis:
+
+$$
+\mathcal{B}' = \bigl\{ T(v_1), T^2(v_1), \dots;\; T(v_2), T^2(v_2), \dots;\; \dots;\; T(v_\ell), T^2(v_\ell), \dots \bigr\}
+$$
+
+for some $v_1, \dots, v_\ell \in V$ (each element of $W$ is of the form $T(v)$ for some $v$, so we can choose the $v_i$).
+
+</SlideLayout>
