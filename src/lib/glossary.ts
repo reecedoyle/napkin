@@ -812,6 +812,10 @@ export const glossary = {
     symbol: 'L^2([-\\pi,\\pi])',
     definition: 'The Hilbert space of square-integrable complex-valued functions on [−π, π], with inner product ⟨f,g⟩ = (1/2π)∫f(x)ḡ(x)dx. It is infinite-dimensional and has an orthonormal basis of complex exponentials eₙ(x) = exp(inx) for n ∈ ℤ.',
   },
+  pontryaginDuality: {
+    term: 'Pontryagin duality',
+    definition: 'A duality for locally compact abelian groups G: every such group has a dual group Ĝ (the group of continuous homomorphisms G → 𝕋), and (Ĝ)̂ ≅ G. Fourier analysis on G expands functions in terms of characters indexed by Ĝ. For finite abelian groups Ĝ ≅ G; for 𝕋, Ĝ = ℤ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
