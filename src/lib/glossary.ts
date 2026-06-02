@@ -816,6 +816,15 @@ export const glossary = {
     term: 'Pontryagin duality',
     definition: 'A duality for locally compact abelian groups G: every such group has a dual group Ĝ (the group of continuous homomorphisms G → 𝕋), and (Ĝ)̂ ≅ G. Fourier analysis on G expands functions in terms of characters indexed by Ĝ. For finite abelian groups Ĝ ≅ G; for 𝕋, Ĝ = ℤ.',
   },
+  parsevalThm: {
+    term: "Parseval's theorem",
+    definition: "States that the sum (or integral) of |f̂(ξ)|² over all frequencies ξ equals the average of |f(x)|² over the domain. In other words, the Fourier transform preserves the L² norm: ‖f̂‖² = ‖f‖². A consequence of writing f in an orthonormal basis.",
+    example: 'For f: Z → ℂ on a finite group: ∑ξ |f̂(ξ)|² = (1/|Z|)∑ₓ |f(x)|².',
+  },
+  plancherelThm: {
+    term: "Plancherel's theorem",
+    definition: 'Generalises Parseval: the Fourier transform is a unitary (inner-product-preserving) isometry between the function space and the frequency space. Concretely, ⟨f, g⟩ = ∑ξ f̂(ξ)ĝ(ξ)̄. Parseval is the special case f = g.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

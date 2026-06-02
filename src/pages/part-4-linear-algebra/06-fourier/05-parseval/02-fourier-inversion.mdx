@@ -1,0 +1,28 @@
+---
+title: Fourier inversion formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fourier inversion formula">
+
+The orthonormal-basis fact $a_\xi = \langle x, e_\xi \rangle$ says: to extract the $\xi$-th coordinate, take the inner product with $e_\xi$.
+
+<Callout kind="corollary" title="Fourier inversion formula">
+**Finite abelian group:** For $f \colon Z \to \CC$,
+
+$$\wh{f}(\xi) = \frac{1}{|Z|} \sum_{x \in Z} f(x)\,\overline{e_\xi(x)}.$$
+
+**Fourier series:** For square-integrable $f \colon [-\pi,\pi] \to \CC$,
+
+$$\wh{f}(n) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x)\,\exp(-inx)\, dx.$$
+</Callout>
+
+*Proof:* $\wh{f}(\xi) = \langle f, e_\xi \rangle$, which by definition of the inner product gives the formulas above. (In the series case: $\overline{\exp(inx)} = \exp(-inx)$.)
+
+<Callout kind="question">
+What does the inversion formula give when $\xi = 0$? For a finite group: $\wh{f}(0) = \frac{1}{|Z|}\sum_x f(x)$ — the average value. For $L^2$: $\wh{f}(0) = \frac{1}{2\pi}\int f(x)\,dx$ — also the average. The zero frequency always captures the mean.
+</Callout>
+
+</SlideLayout>

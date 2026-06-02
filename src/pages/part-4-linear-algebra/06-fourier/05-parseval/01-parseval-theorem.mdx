@@ -1,0 +1,28 @@
+---
+title: Parseval's theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Parseval's theorem">
+
+The orthonormal-basis fact $\langle x, x \rangle = \sum_\xi |a_\xi|^2$ translates directly into Fourier language.
+
+<Callout kind="corollary" title="Parseval's theorem">
+**Finite abelian group:** For $f \colon Z \to \CC$,
+
+$$\sum_{\xi \in Z} |\wh{f}(\xi)|^2 = \frac{1}{|Z|} \sum_{x \in Z} |f(x)|^2.$$
+
+**Fourier series:** For square-integrable $f \colon [-\pi,\pi] \to \CC$,
+
+$$\sum_{n \in \ZZ} |\wh{f}(n)|^2 = \frac{1}{2\pi} \int_{-\pi}^{\pi} |f(x)|^2\, dx.$$
+</Callout>
+
+*Proof:* Both sides equal $\langle f, f \rangle$ (the left by the orthonormal-basis fact; the right by definition of the inner product).
+
+<Callout kind="remark">
+<Term k="parsevalThm">Parseval's theorem</Term> says: the "energy" of $f$ in physical space equals the total "energy" spread across all frequencies. No energy is lost or created by the Fourier transform.
+</Callout>
+
+</SlideLayout>
