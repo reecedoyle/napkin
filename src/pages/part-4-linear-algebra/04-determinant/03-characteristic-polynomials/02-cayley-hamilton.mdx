@@ -1,0 +1,26 @@
+---
+title: Cayley–Hamilton theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cayley–Hamilton theorem">
+
+<Callout kind="theorem" title="Cayley–Hamilton">
+Let $T \colon V \to V$ be a linear map on a finite-dimensional vector space over an algebraically closed field. Then $p_T(T) = 0$ — the zero map.
+</Callout>
+
+Here $p_T(T)$ means: if $p_T(X) = X^n + c_{n-1}X^{n-1} + \cdots + c_0$, then
+
+$$
+p_T(T) = T^n + c_{n-1}T^{n-1} + \cdots + c_1 T + c_0 \cdot \mathrm{id}.
+$$
+
+If you define $p_T$ as $\det(X \cdot \mathrm{id} - T)$ and think of $T$ as an array of numbers, this looks like a miracle — and indeed the Wikipedia proofs are famously terrible. With the eigenvalue definition it is nearly trivial.
+
+<Callout kind="remark" title="Why this is 'almost obvious'">
+The theorem is only hard if you define $p_T$ using the determinant formula. Define it using eigenvalues and the proof is one line.
+</Callout>
+
+</SlideLayout>

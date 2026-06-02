@@ -1,0 +1,30 @@
+---
+title: Cayley–Hamilton over non-algebraically-closed fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cayley–Hamilton over non-algebraically-closed fields">
+
+The Cayley–Hamilton theorem as stated requires an algebraically closed field (so that eigenvalues exist). But real matrices also satisfy their characteristic polynomials. We handle this via <Term k="complexification">complexification</Term>.
+
+<Callout kind="definition" title="Complexification">
+Given a real vector space $V$, define its **complexification**
+
+$$
+V_{\mathbb{C}} \defeq \mathbb{C} \otimes_{\mathbb{R}} V.
+$$
+
+Elements look like $z_1 \otimes e_1 + \cdots + z_n \otimes e_n$ with $z_i \in \mathbb{C}$. This is an $n$-dimensional $\mathbb{C}$-vector space with the same basis $e_i$.
+</Callout>
+
+If $T \colon V \to V$ is a real linear map, the complexification $T_{\mathbb{C}} \colon V_{\mathbb{C}} \to V_{\mathbb{C}}$ is defined by $z \otimes v \mapsto z \otimes T(v)$, equivalently $T_{\mathbb{C}} = \mathrm{id}_{\mathbb{C}} \otimes T$.
+
+Since $\mathbb{C}$ is algebraically closed, Cayley–Hamilton applies to $T_{\mathbb{C}}$. One can then deduce the result for $T$ itself — the characteristic polynomial and the vanishing relation are all real, so they descend back from $V_{\mathbb{C}}$ to $V$.
+
+<Callout kind="remark">
+The tensor product is the right way to formalise the idea of "same vector space, but now with complex scalars". This is a pattern you will see repeatedly: tensor up to an algebraically closed field, apply a theorem, then descend back.
+</Callout>
+
+</SlideLayout>

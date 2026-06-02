@@ -1,0 +1,29 @@
+---
+title: Cayley–Hamilton — worked example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cayley–Hamilton — worked example">
+
+<Callout kind="example" title="Verifying Cayley–Hamilton for a 2×2 matrix">
+Let $T = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$.
+
+The characteristic polynomial (using $p_T(X) = \det(X \cdot \mathrm{id} - T)$) is
+
+$$
+p_T(X) = (X-1)(X-4) - (-2)(-3) = X^2 - 5X - 2.
+$$
+
+Cayley–Hamilton says $T^2 - 5T - 2I = 0$. Check:
+
+$$
+T^2 = \begin{bmatrix} 7 & 10 \\ 15 & 22 \end{bmatrix}, \quad
+T^2 - 5T - 2I = \begin{bmatrix} 7 & 10 \\ 15 & 22 \end{bmatrix} - \begin{bmatrix} 5 & 10 \\ 15 & 20 \end{bmatrix} - \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}.
+$$
+</Callout>
+
+If you approach this purely via arrays of numbers, the vanishing looks like magic. But Jordan form makes it transparent: the generalised eigenspaces of $T$ are annihilated factor by factor.
+
+</SlideLayout>
