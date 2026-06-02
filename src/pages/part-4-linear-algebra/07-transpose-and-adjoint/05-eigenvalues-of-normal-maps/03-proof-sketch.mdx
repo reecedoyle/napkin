@@ -1,0 +1,35 @@
+---
+title: Proof sketch — key steps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof sketch — key steps">
+
+The proof of the spectral theorem has two main steps.
+
+**Step 1: Normal implies diagonalizable.**
+
+<Callout kind="lemma" title="Kernel of T equals kernel of T†">
+If $T$ is normal, then $\ker T = \ker T^\dagger$.
+Consequently $\ker T = \ker T^r$ for all $r \ge 1$.
+</Callout>
+
+This is proved by noting $\langle Tv, Tv \rangle = \langle v, T^\dagger T v \rangle = \langle v, TT^\dagger v \rangle = \langle T^\dagger v, T^\dagger v \rangle$.
+So $\|Tv\| = \|T^\dagger v\|$, which forces $\ker T = \ker T^\dagger$.
+
+Since $T - \lambda I$ is also normal whenever $T$ is (check: $(T-\lambda I)^\dagger = T^\dagger - \bar\lambda I$),
+we get $\ker(T-\lambda I) = \ker(T-\lambda I)^r$.
+This means all Jordan blocks have size 1: $T$ is diagonalizable.
+
+**Step 2: Eigenvectors of distinct eigenvalues are orthogonal.**
+
+If $T(v) = \lambda v$ and $T(w) = \mu w$ with $\lambda \ne \mu$, then
+$$
+\lambda \langle v, w \rangle = \langle \lambda v, w \rangle = \langle T(v), w \rangle
+= \langle v, T^\dagger(w) \rangle = \langle v, \bar\mu w \rangle = \mu\langle v, w\rangle.
+$$
+Since $\lambda \ne \mu$ this forces $\langle v, w \rangle = 0$.
+
+</SlideLayout>

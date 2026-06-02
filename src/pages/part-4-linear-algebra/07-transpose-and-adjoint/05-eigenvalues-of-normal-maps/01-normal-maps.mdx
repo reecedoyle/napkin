@@ -1,0 +1,27 @@
+---
+title: Normal and Hermitian maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Normal and Hermitian maps">
+
+We now ask: when does a linear map $T \colon V \to V$ have an **orthonormal** basis of eigenvectors?
+
+<Callout kind="definition" title="Normal, self-adjoint, Hermitian, symmetric">
+Let $T \colon V \to V$ be a linear map on a finite-dimensional inner product space.
+
+- $T$ is **normal** if $TT^\dagger = T^\dagger T$ (the map commutes with its adjoint).
+- $T$ is **self-adjoint** or <Term k="hermitian">**Hermitian**</Term> (over $\mathbb{C}$) if $T = T^\dagger$.
+- For a real inner product space, $T = T^\dagger$ also goes by **symmetric**.
+</Callout>
+
+Examples of normal maps:
+- Every Hermitian (self-adjoint) map is normal (since $T = T^\dagger$ trivially commutes with itself).
+- Diagonal matrices (in any orthonormal basis) are normal.
+- Unitary matrices $U$ (with $U^\dagger U = UU^\dagger = I$) are normal.
+
+Non-example: upper triangular matrices with non-zero off-diagonal entries are generally **not** normal.
+
+</SlideLayout>

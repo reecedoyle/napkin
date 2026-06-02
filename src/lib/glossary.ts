@@ -816,6 +816,18 @@ export const glossary = {
     definition: 'The conjugate transpose of a matrix A is formed by first transposing A (reflecting over the diagonal) and then taking the complex conjugate of every entry. Written A†, A*, or Ā^⊤. For real matrices this is just the ordinary transpose.',
     example: 'If A = [[i, 2],[3, 4i]], then A† = [[-i, 3],[2, -4i]].',
   },
+  normalMap: {
+    term: 'Normal linear map',
+    symbol: 'TT^\\dagger = T^\\dagger T',
+    definition: 'A linear map T on an inner product space is normal if it commutes with its adjoint: TT† = T†T. By the spectral theorem, T is normal if and only if there is an orthonormal basis of eigenvectors of T.',
+    example: 'Hermitian maps (T = T†) and unitary maps (T†T = I) are both normal. An upper triangular matrix with nonzero off-diagonal entries is generally not normal.',
+  },
+  hermitian: {
+    term: 'Hermitian (self-adjoint)',
+    symbol: 'T = T^\\dagger',
+    definition: 'A linear map T on an inner product space is Hermitian (or self-adjoint) if T = T†. In an orthonormal basis, the matrix of T equals its own conjugate transpose. Over ℝ this is called symmetric. Hermitian maps are normal with real eigenvalues.',
+    example: 'A real symmetric matrix (aᵢⱼ = aⱼᵢ) is Hermitian. The matrix [[1, i],[-i, 2]] is Hermitian over ℂ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
