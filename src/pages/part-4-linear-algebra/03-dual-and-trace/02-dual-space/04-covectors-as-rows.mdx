@@ -1,0 +1,35 @@
+---
+title: Covectors as row vectors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Covectors as row vectors">
+
+For $V = \mathbb{R}^n$, there is a clean dictionary between elements of <Term k="dualSpace">$V^\vee$</Term> and row vectors.
+
+| Object | Representation |
+|--------|---------------|
+| Vector $v \in V = \mathbb{R}^n$ | Column matrix $n \times 1$ |
+| Covector $\xi \in V^\vee$ | Row matrix $1 \times n$ |
+| Evaluation $\xi(v)$ | Row × column = scalar |
+
+Any $\xi = a_1 e_1^\vee + \cdots + a_n e_n^\vee$ acts by $\xi(v) = a_1 v_1 + \cdots + a_n v_n$, which is precisely the dot product $[a_1 \cdots a_n] \cdot [v_1 \cdots v_n]^T$.
+
+<MCQ
+  client:load
+  id="dat-ds-mcq-covector-eval"
+  prompt="Let ξ = 2e₁∨ + 3e₂∨ be a covector in (ℝ²)∨. What is ξ(4, 5)?"
+  options={[
+    { id: "a", label: "23" },
+    { id: "b", label: "14" },
+    { id: "c", label: "15" },
+    { id: "d", label: "8" },
+  ]}
+  correct="a"
+  explanation="ξ(4, 5) = 2·e₁∨(4,5) + 3·e₂∨(4,5) = 2·4 + 3·5 = 8 + 15 = 23."
+/>
+
+</SlideLayout>

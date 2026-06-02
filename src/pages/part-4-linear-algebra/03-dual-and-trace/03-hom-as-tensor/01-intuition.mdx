@@ -1,0 +1,24 @@
+---
+title: Hom space — the goal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hom space — the goal">
+
+Linear maps $V \to W$ form a vector space — you can add two such maps or scale one. Let us give this space a name.
+
+<Callout kind="definition" title="Hom space">
+$\operatorname{Hom}(V, W)$ denotes the vector space of all linear maps from $V$ to $W$. When $V$ is $m$-dimensional and $W$ is $n$-dimensional, $\operatorname{Hom}(V,W)$ is $mn$-dimensional — think of it as the space of $n \times m$ matrices.
+</Callout>
+
+The moral of this section:
+
+<Callout kind="remark" title="Key isomorphism">
+There is a **natural isomorphism** $V^\vee \otimes W \cong \operatorname{Hom}(V, W)$.
+</Callout>
+
+Why does this make sense dimensionally? $\dim(V^\vee \otimes W) = \dim V^\vee \cdot \dim W = \dim V \cdot \dim W = \dim \operatorname{Hom}(V,W)$. The theorem says the correspondence is not just an abstract bijection — it is the canonical "God-given" one.
+
+</SlideLayout>

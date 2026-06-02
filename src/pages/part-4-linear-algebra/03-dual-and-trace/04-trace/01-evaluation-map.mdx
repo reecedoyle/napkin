@@ -1,0 +1,26 @@
+---
+title: The evaluation map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The evaluation map">
+
+We have a natural linear map from <Term k="dualSpace">$V^\vee$</Term> $\otimes V$ to the ground field $k$.
+
+<Callout kind="definition" title="Evaluation map">
+The **evaluation map** $\operatorname{ev} \colon V^\vee \otimes V \to k$ is defined on pure tensors by
+
+$$\operatorname{ev}(\xi \otimes v) = \xi(v)$$
+
+and extended linearly to all sums. It "collapses" a covector–vector pair to the scalar that results from applying the covector to the vector.
+</Callout>
+
+On the basis $\{e_i^\vee \otimes e_j\}$ of $V^\vee \otimes V$:
+
+$$\operatorname{ev}(e_i^\vee \otimes e_j) = e_i^\vee(e_j) = \begin{cases} 1 & i = j \\ 0 & i \neq j \end{cases}$$
+
+So the evaluation map picks out exactly the "diagonal" terms.
+
+</SlideLayout>

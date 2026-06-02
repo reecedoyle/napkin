@@ -1,0 +1,22 @@
+---
+title: Tensor product example — two-variable polynomials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tensor product example — two-variable polynomials">
+
+The cleanest example of a <Term k="tensorProduct">tensor product</Term> is:
+
+$$\mathbb{R}[x] \otimes_{\mathbb{R}} \mathbb{R}[y] \cong \mathbb{R}[x,y]$$
+
+The tensor product of real polynomials in $x$ with real polynomials in $y$ is precisely the ring of two-variable polynomials. A monomial $x^a \otimes y^b$ on the left corresponds to $x^a y^b$ on the right.
+
+<Callout kind="remark" title="Pure tensors are the monomials that factor">
+Not every element of $\mathbb{R}[x,y]$ is a pure tensor $f(x) \otimes g(y)$. For instance, $xy + 1$ cannot be written as a single product $f(x)g(y)$. But it *is* a sum of pure tensors: $x \otimes y + 1 \otimes 1$.
+</Callout>
+
+This example also shows the definition works for infinite-dimensional spaces — the <Term k="tensorProduct">tensor product</Term> makes no finiteness requirement. The dimension formula $\dim V \cdot \dim W$ then becomes $\aleph_0 \cdot \aleph_0 = \aleph_0$, which matches $\mathbb{R}[x,y]$ having a countable basis $\{x^a y^b\}$.
+
+</SlideLayout>

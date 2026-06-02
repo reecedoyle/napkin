@@ -1,0 +1,29 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+Two problems that apply the trace to eigenvalues and to a combinatorial linear algebra puzzle.
+
+<Problem
+  client:load
+  id="dat-prob-trace-eigenvalues"
+  prompt="Let V be an n-dimensional vector space over an algebraically closed field k. Let T: V → V be a linear map with eigenvalues λ₁, λ₂, …, λₙ (counted with algebraic multiplicity). Show that Tr(T) = λ₁ + λ₂ + ⋯ + λₙ."
+  hint="Put T in Jordan form. The diagonal entries of a Jordan block are the eigenvalue of that block."
+  solution="The trace equals the sum of diagonal entries in any basis. In the Jordan form basis, the matrix of T is upper-triangular with the eigenvalues λ₁, …, λₙ on the diagonal (one per Jordan block). So Tr(T) = λ₁ + ⋯ + λₙ."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="dat-prob-putnam-eigenvectors"
+  prompt="(Putnam 1988) Let V be an n-dimensional vector space. Suppose T: V → V is a linear map with n+1 eigenvectors such that any n of them are linearly independent. Must T be a scalar multiple of the identity?"
+  hint="Look at the trace of T and think about what the eigenvalue data forces."
+  solution="Yes. Let v₁, …, v_{n+1} be the n+1 eigenvectors with eigenvalues λ₁, …, λ_{n+1}. Since any n of the vᵢ are linearly independent, each vᵢ can be expressed in terms of the remaining n. A dimension argument shows all eigenvalues must be equal: if λᵢ ≠ λⱼ then vᵢ and vⱼ generate a 2-dimensional invariant subspace, and the remaining n−1 eigenvectors must span it — contradiction since they are linearly independent from each other. Hence all λᵢ are equal to some scalar c, and T = cI."
+  difficulty="standard"
+/>
+
+</SlideLayout>

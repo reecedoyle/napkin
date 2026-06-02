@@ -1,0 +1,20 @@
+---
+title: Trace is basis-independent
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Trace is basis-independent">
+
+You may have learned that the <Term k="traceMap">trace</Term> is the sum of the diagonal entries — but did you wonder why it does not depend on the choice of basis?
+
+<Callout kind="corollary" title="Trace is coordinate-free">
+Because the definition $\operatorname{Tr}(T) = \operatorname{ev}(\Psi^{-1}(T))$ involves only the canonical isomorphism $\Psi$ and the evaluation map $\operatorname{ev}$ — neither of which depends on a basis — the trace is invariant under change of basis.
+</Callout>
+
+This means: if you represent $T$ in a different basis and compute $a + d$ (for a 2×2) you still get the same number. The intrinsic definition is why.
+
+The same will be true for the determinant (the next chapter), which also has an intrinsic, coordinate-free definition — this time using the top exterior power instead of the tensor product.
+
+</SlideLayout>

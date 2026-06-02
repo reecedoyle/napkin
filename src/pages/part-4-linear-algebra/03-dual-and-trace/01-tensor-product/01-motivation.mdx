@@ -1,0 +1,23 @@
+---
+title: Tensor product — motivation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tensor product — motivation">
+
+We know $\dim(V \oplus W) = \dim V + \dim W$. What if we want a "product" of spaces — one with $\dim V \cdot \dim W$?
+
+Consider two polynomial spaces:
+
+$$V = \{ ax^2 + bx + c \mid a,b,c \in \mathbb{R} \}, \quad \dim V = 3$$
+$$W = \{ dy + e \mid d,e \in \mathbb{R} \}, \quad \dim W = 2$$
+
+Their <Term k="directSum">direct sum</Term> has dimension $5$. But we want a space of *products* of polynomials from each — something that contains elements like:
+
+$$4x^2y + 5xy + y + 3$$
+
+That space should have basis $\{x^2y,\; xy,\; y,\; x^2,\; x,\; 1\}$ — dimension $6 = 3 \times 2$. This is exactly what the <Term k="tensorProduct">tensor product</Term> $V \otimes W$ gives us.
+
+</SlideLayout>
