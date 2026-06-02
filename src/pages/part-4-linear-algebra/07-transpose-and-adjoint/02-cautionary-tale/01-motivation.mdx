@@ -1,0 +1,26 @@
+---
+title: A tale of a non-canonical isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A tale of a non-canonical isomorphism">
+
+This section is optional but instructive.
+It shows what happens when you try to identify $V$ with $V^\vee$ without an inner product.
+
+Given a basis $e_1, \dots, e_n$ of $V$, there is a "natural-looking" map $V \to V^\vee$ sending $e_i \mapsto e_i^\vee$.
+But this isomorphism depends on the basis — it is **non-canonical**.
+Abusing it leads to false theorems.
+
+<Callout kind="remark" title="Row rank = column rank (a warm-up)">
+Before the cautionary tale, note that the <Term k="dualMap">dual map</Term> already gives a clean proof:
+by the transpose theorem, $\dim(\operatorname{im} T) = \dim(\operatorname{im} T^\vee)$.
+The left side is the column rank of $M$; the right is the row rank.
+So row rank equals column rank — no inner product needed.
+</Callout>
+
+The temptation: can we go further and use the non-canonical $V \cong V^\vee$ to prove things about $M^\top M$?
+
+</SlideLayout>

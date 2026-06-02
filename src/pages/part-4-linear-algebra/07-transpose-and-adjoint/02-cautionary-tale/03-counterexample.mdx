@@ -1,0 +1,36 @@
+---
+title: The counterexample
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The counterexample">
+
+The "false theorem" is indeed false over $\mathbb{C}$.
+
+<Callout kind="exercise" title="Find a counterexample over ℂ">
+Find a nonzero $2 \times 2$ complex matrix $M$ such that $M^\top M$ is the zero matrix.
+</Callout>
+
+**Answer:** take $M = \begin{bmatrix} 1 & i \\ i & -1 \end{bmatrix}$.
+Then
+$$
+M^\top M = \begin{bmatrix} 1 & i \\ i & -1 \end{bmatrix}\begin{bmatrix} 1 & i \\ i & -1 \end{bmatrix}
+= \begin{bmatrix} 1 + i^2 & i - i \\ i - i & i^2 + 1 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}.
+$$
+So $M$ has rank 1 but $M^\top M$ has rank 0.
+
+The flaw in the bogus proof: the non-canonical isomorphism $\iota \colon W \to W^\vee$ encodes as
+some random invertible matrix $N$, so the composed map is $M^\top N M$, not $M^\top M$.
+Over $\mathbb{R}$ with an inner product, $N$ can be forced to be the identity — but not over $\mathbb{C}$.
+
+<NumericInput
+  client:load
+  id="trn-ct-num-rank-m"
+  prompt="In the counterexample above, what is rank(M)?"
+  expected={1}
+/>
+
+</SlideLayout>
