@@ -1,0 +1,25 @@
+---
+title: External direct sum
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="External direct sum">
+
+The direct sum notation $\oplus$ also has an **external** meaning: building a new module from two unrelated ones.
+
+<Callout kind="definition" title="External direct sum">
+Let $M$ and $N$ be $R$-modules. Their <Term k="directSumExt">**direct sum**</Term> $M \oplus N$ is the $R$-module whose elements are pairs $(m, n) \in M \times N$, with operations:
+$$(m_1, n_1) + (m_2, n_2) = (m_1 + m_2, n_1 + n_2), \qquad r \cdot (m, n) = (r \cdot m, r \cdot n).$$
+</Callout>
+
+The same symbol $\oplus$ has two meanings:
+- **Internal**: $V = W_1 \oplus W_2$ says $V$ **splits** as a direct sum of two existing subspaces.
+- **External**: $W_1 \oplus W_2$ is **built** as pairs from two unrelated spaces.
+
+Both definitions "kind of" coincide — $V = X \oplus Y$ (internal, $\RR^2$) just says $\RR^2 \cong \RR \oplus \RR$ (external).
+
+We also write $M^{\oplus n} \defeq \underbrace{M \oplus M \oplus \cdots \oplus M}_{n \text{ times}}$.
+
+</SlideLayout>

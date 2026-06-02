@@ -1,0 +1,24 @@
+---
+title: Basis examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basis examples">
+
+<Callout kind="example" title="Several bases">
+
+- $\QQ[\sqrt{2}] = \{a + b\sqrt{2} \mid a, b \in \QQ\}$ as a $\QQ$-vector space has <Term k="basis">basis</Term> $\{1, \sqrt{2}\}$.
+- The space of all real polynomials has an **infinite** basis $\{1, x, x^2, \dots\}$ — finiteness of sums means polynomials have finite degree.
+- $V = \{(x,y,z) \mid x+y+z=0\}$: there is no single "obvious" basis, but some working examples are $\{(1,-1,0),\ (1,0,-1)\}$ or $\{(0,1,-1),\ (1,0,-1)\}$.
+</Callout>
+
+What fails to be a basis? Take $S = \{3+x^2,\ x+1,\ 5+2x+x^2\}$ inside $V = \{ax^2+bx+c\}$:
+
+1. **Not linearly independent**: $(3+x^2) + 2(x+1) - (5+2x+x^2) = 0$. A nontrivial combination equals zero.
+2. **Not spanning**: $x^2$ cannot be written as a combination of elements of $S$.
+
+A set is a basis iff it is **both** linearly independent and spanning.
+
+</SlideLayout>
