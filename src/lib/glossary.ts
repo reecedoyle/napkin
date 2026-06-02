@@ -757,6 +757,11 @@ export const glossary = {
   },
 
   // ────────────── Chapter 14 — Bonus: Fourier analysis ──────────────
+  hilbertSpace: {
+    term: 'Hilbert space',
+    definition: 'A complete inner product space over ℝ or ℂ. "Complete" means every Cauchy sequence converges to a point in the space. Every finite-dimensional inner product space is automatically a Hilbert space. The space L²([−π, π]) is an infinite-dimensional example.',
+    example: 'ℂⁿ with the standard dot product; L²([−π, π]) with ⟨f,g⟩ = (1/2π)∫f(x)ḡ(x)dx.',
+  },
   innerProduct: {
     term: 'Inner product',
     symbol: '\\langle f, g \\rangle',

@@ -1,0 +1,30 @@
+---
+title: Finite vs. infinite dimensions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Finite vs. infinite dimensions">
+
+Most Fourier examples in this chapter are finite-dimensional, but the star of the show — $L^2([-\pi, \pi])$ — is genuinely infinite-dimensional.
+
+<Callout kind="remark" title="Infinite dimensions are fine here">
+For all three named theorems we will prove (Parseval, Fourier inversion, Plancherel), the proof is literally the same algebraic manipulation. The difference is that in infinite dimensions the sums must *converge*, and the convergence is guaranteed because $L^2$ is a Hilbert space with an orthonormal basis of exponentials. Just trust this and move on.
+</Callout>
+
+<MCQ
+  client:load
+  id="four-hilbert-mcq-coeff"
+  prompt="In an orthonormal basis (eξ), the coefficient aξ of eξ in x equals:"
+  options={[
+    { id: "a", label: "⟨eξ, x⟩" },
+    { id: "b", label: "⟨x, eξ⟩" },
+    { id: "c", label: "|x|²" },
+    { id: "d", label: "x · eξ (dot product)" },
+  ]}
+  correct="b"
+  explanation="The coefficient is aξ = ⟨x, eξ⟩ — the inner product of x with the basis vector eξ. Note the order: x first, then eξ. In a complex inner product ⟨−,−⟩ the second slot is conjugate-linear, so ⟨eξ, x⟩ = āξ, not aξ."
+/>
+
+</SlideLayout>
