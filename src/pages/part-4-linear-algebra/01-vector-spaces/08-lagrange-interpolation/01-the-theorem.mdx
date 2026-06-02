@@ -1,0 +1,28 @@
+---
+title: Lagrange interpolation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lagrange interpolation">
+
+Here is a clean application of linear algebra to a fact you probably saw in high school.
+
+<Callout kind="theorem" title="Lagrange interpolation">
+Let $x_1, \dots, x_{n+1}$ be distinct real numbers and $y_1, \dots, y_{n+1}$ any real numbers. There is a **unique** polynomial $P$ of degree at most $n$ such that $P(x_i) = y_i$ for every $i$.
+</Callout>
+
+When $n = 1$: a unique line through any two points. When $n = 2$: a unique quadratic through any three points.
+
+<Callout kind="proof">
+Let $V$ = polynomials of degree $\leq n$, so $\dim V = n+1$. Let $W = \RR^{n+1}$, so $\dim W = n+1$.
+
+Consider $T \colon V \to W$ by $P \mapsto (P(x_1), \dots, P(x_{n+1}))$. This is a <Term k="linearMap">linear map</Term>.
+
+$T$ is injective: if $P(x_i) = 0$ for all $i$ and $\deg P \leq n$, then $P$ has $n+1$ roots but degree $\leq n$, forcing $P = 0$.
+
+An injective <Term k="linearMap">linear map</Term> between spaces of the **same dimension** is a bijection — by the rank-nullity theorem, $\dim \ker T = 0$ forces $\dim T(V) = n+1 = \dim W$, so $T$ is surjective. The unique preimage of $(y_1, \dots, y_{n+1})$ is the desired $P$.
+</Callout>
+
+</SlideLayout>

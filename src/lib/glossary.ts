@@ -755,6 +755,114 @@ export const glossary = {
     symbol: 'f(X)',
     definition: 'The set of all output values of f: X → Y, written f(X) or f[X]. In Napkin notation this is sometimes written f^im(X). A continuous image of a compact space is compact.',
   },
+
+  // ────────────── Chapter 9 — Vector spaces ──────────────
+  rModule: {
+    term: 'R-module',
+    symbol: 'M',
+    definition: 'An additive abelian group M with a compatible left multiplication by a commutative ring R: scalars r ∈ R act on elements m ∈ M, satisfying distributivity, associativity with ring multiplication, and the unit law 1·m = m.',
+    example: 'ℝ³ is an ℝ-module. ℤ/100ℤ is a ℤ-module. Every abelian group is a ℤ-module.',
+  },
+  vectorSpace: {
+    term: 'Vector space',
+    symbol: 'V',
+    definition: 'An R-module where R is a field. That is, an additive abelian group V together with a scalar multiplication by elements of a field k, satisfying the module axioms.',
+    example: 'ℝ³ over ℝ, ℚ[√2] over ℚ, and the set of real polynomials of degree ≤ 2 over ℝ are all vector spaces.',
+  },
+  vector: {
+    term: 'Vector',
+    definition: 'An element of a vector space. The word emphasises the additive-group structure and scalar multiplication — not the more specific notion of "arrow in ℝ³".',
+    example: 'The polynomial x² − 3x + 1 is a vector in the space of degree-≤-2 polynomials.',
+  },
+  scalar: {
+    term: 'Scalar',
+    definition: 'An element of the field (or ring) by which vectors are scaled. In an ℝ-vector space, scalars are real numbers; in a ℚ-vector space they are rationals.',
+  },
+  directSum: {
+    term: 'Direct sum (internal)',
+    symbol: 'M = M_1 \\oplus M_2',
+    definition: 'If M₁ and M₂ are submodules of M, then M = M₁ ⊕ M₂ means every element of M writes uniquely as m₁ + m₂ with m₁ ∈ M₁, m₂ ∈ M₂. The two pieces do not interact.',
+    example: 'ℝ² = X-axis ⊕ Y-axis. The space {ax² + bx + c} = ℝx² ⊕ ℝx ⊕ ℝ.',
+  },
+  directSumExt: {
+    term: 'Direct sum (external)',
+    symbol: 'M \\oplus N',
+    definition: 'Given R-modules M and N, their external direct sum M ⊕ N consists of pairs (m, n) with componentwise addition and scalar multiplication. The same symbol ⊕ is used for both internal and external direct sums — they agree up to isomorphism.',
+    example: 'ℝ ⊕ ℝ ≅ ℝ², as real vector spaces.',
+  },
+  linearCombination: {
+    term: 'Linear combination',
+    symbol: 'r_1 v_1 + \\cdots + r_n v_n',
+    definition: 'A sum r₁v₁ + ··· + rₙvₙ where the rᵢ are scalars and the vᵢ are vectors. The combination is trivial if all rᵢ = 0.',
+    example: '3·(1,0) + 7·(0,1) = (3,7) is a linear combination in ℝ².',
+  },
+  basis: {
+    term: 'Basis',
+    symbol: 'e_1, \\dots, e_n',
+    definition: 'A set of vectors such that every vector in the space can be written uniquely as a linear combination of them. Equivalently: a linearly independent and spanning set.',
+    example: '{1, x, x²} is the standard basis of degree-≤-2 real polynomials. {(1,0),(0,1)} is the standard basis of ℝ².',
+  },
+  dimension: {
+    term: 'Dimension',
+    symbol: '\\dim V',
+    definition: 'The number of elements in any finite basis of V. Guaranteed to be the same regardless of which basis you choose, by the dimension theorem. Written dim V or dim_k V.',
+    example: 'dim ℝ³ = 3. dim ℚ[√2] = 2 (over ℚ). dim ℝ[x] = ∞.',
+  },
+  finiteDim: {
+    term: 'Finite-dimensional',
+    definition: 'A vector space is finite-dimensional if it has a finite basis. Otherwise it is infinite-dimensional.',
+    example: 'ℝⁿ is finite-dimensional for every n. The space of all real polynomials is infinite-dimensional.',
+  },
+  linearMap: {
+    term: 'Linear map',
+    symbol: 'T \\colon V \\to W',
+    definition: 'A function T: V → W between k-vector spaces that respects both operations: T(v₁+v₂) = T(v₁)+T(v₂) and T(a·v) = a·T(v). Also called a linear transformation or k-linear map.',
+    example: 'Evaluation at a point, projection onto a coordinate, and differentiation of polynomials are all linear maps.',
+  },
+  linearIso: {
+    term: 'Linear isomorphism',
+    symbol: 'V \\cong W',
+    definition: 'A bijective linear map. Two vector spaces related by one are isomorphic — they have the same dimension and are structurally identical, just with different names for the elements.',
+    example: '(a,b,c) ↦ ax² + bx + c is a linear isomorphism from ℝ³ to the space of degree-≤-2 real polynomials.',
+  },
+  matrix: {
+    term: 'Matrix',
+    symbol: '[T]',
+    definition: 'The n×m array of scalars encoding a linear map T: V → W, given choices of bases for V and W. The j-th column records the coordinates of T(eⱼ) in the basis of W. Matrix multiplication is defined so that [S∘T] = [S][T].',
+    example: 'The map ℝ³ → ℝ² sending e₁ ↦ 4w₁+7w₂, e₂ ↦ 2w₁+3w₂, e₃ ↦ w₁ has matrix [[4,2,1],[7,3,0]].',
+  },
+  subspace: {
+    term: 'Subspace',
+    definition: 'A subset V′ of a vector space V that is itself a vector space: closed under addition, scalar multiplication, and containing 0_V.',
+    example: '{(x,y,z) : x+y+z = 0} is a 2-dimensional subspace of ℝ³. The kernel of any linear map is a subspace.',
+  },
+  kerMap: {
+    term: 'Kernel of a linear map',
+    symbol: '\\ker T',
+    definition: 'For a linear map T: V → W, the kernel is {v ∈ V : T(v) = 0_W}. Always a subspace of V. T is injective if and only if ker T = {0_V}.',
+    example: 'The kernel of T: ℝ³ → ℝ given by (a,b,c) ↦ a+b+c is the plane {a+b+c = 0}.',
+  },
+  span: {
+    term: 'Span',
+    symbol: '\\operatorname{span}(v_1, \\dots, v_m)',
+    definition: 'The span of vectors v₁,…,vₘ is the set of all their linear combinations: {a₁v₁ + ··· + aₘvₘ : aᵢ ∈ k}. The smallest subspace containing all the vᵢ.',
+    example: 'span{(1,0),(0,1)} = ℝ². span{(1,1)} is the diagonal line y=x in ℝ².',
+  },
+  finGen: {
+    term: 'Finitely generated module',
+    definition: 'An R-module M is finitely generated if there exist m₁,…,mₙ ∈ M such that every element of M is a linear combination of the mᵢ with coefficients in R.',
+    example: 'Every vector space with a finite basis is finitely generated. ℤ is a finitely generated ℤ-module (generated by {1}).',
+  },
+  freeModule: {
+    term: 'Free module',
+    definition: 'An R-module that has a basis — a linearly independent generating set. The rank (size of any basis) is well-defined. A free module of rank n is isomorphic to Rⁿ.',
+    example: 'ℤ[√2] is a free ℤ-module of rank 2, with basis {1, √2}. ℤ/2ℤ is not free (it has no linearly independent generating set over ℤ).',
+  },
+  rank: {
+    term: 'Rank (of a free module)',
+    definition: 'The size of any basis of a free R-module. Analogous to dimension for vector spaces. The rank-dimension analogy breaks for non-free modules.',
+    example: 'ℤ² has rank 2 as a ℤ-module. ℤ[√5] has rank 2 as a ℤ-module.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

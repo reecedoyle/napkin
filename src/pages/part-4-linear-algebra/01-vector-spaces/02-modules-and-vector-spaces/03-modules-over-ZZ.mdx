@@ -1,0 +1,43 @@
+---
+title: Abelian groups as ℤ-modules
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Abelian groups as ℤ-modules">
+
+Modules generalise vector spaces to any ring. Two important special cases:
+
+<Callout kind="example" title="Every abelian group is a ℤ-module">
+Any abelian group $(G, +)$ becomes a <Term k="rModule">$\ZZ$-module</Term> by defining
+
+$$n \cdot g = \underbrace{g + \cdots + g}_{n \text{ times}} \quad \text{and} \quad (-n) \cdot g = n \cdot (-g)$$
+
+for $n \geq 0$. In particular, $\ZZ/100\ZZ$ is a $\ZZ$-module: $n \cdot \bar{a} = \overline{na}$.
+</Callout>
+
+<Callout kind="example" title="Every ring is a module over itself">
+Any commutative ring $R$ is an $R$-module over itself, using ring multiplication as the scalar multiplication. So $\RR$ is an $\RR$-module (= $\RR$-vector space), and $\ZZ$ is a $\ZZ$-module.
+</Callout>
+
+<Callout kind="question">
+In the quadratic polynomial example, why must we say "degree **at most** 2" rather than "degree exactly 2"? In other words, why is $\{ax^2 + bx + c \mid a, b, c \in \RR,\ a \neq 0\}$ **not** a vector space?
+</Callout>
+
+<MCQ
+  client:load
+  id="vs-mod-mcq-degree-exactly"
+  prompt="Why does {ax² + bx + c : a ≠ 0} fail to be a vector space?"
+  options={[
+    { id: "a", label: "You can't add two polynomials of degree exactly 2." },
+    { id: "b", label: "Closing under addition can drop the degree: (x² + 1) + (-x² + 1) = 2, degree 0." },
+    { id: "c", label: "Scalar multiplication doesn't work on degree-2 polynomials." },
+    { id: "d", label: "The zero polynomial has no degree." },
+  ]}
+  correct="b"
+  explanation="A vector space must be closed under addition and contain 0. Adding (x² + 1) and (-x² + 1) gives 2, which has degree 0 — outside the set. Also the zero polynomial is not of degree exactly 2, so 0 ∉ the set."
+/>
+
+</SlideLayout>

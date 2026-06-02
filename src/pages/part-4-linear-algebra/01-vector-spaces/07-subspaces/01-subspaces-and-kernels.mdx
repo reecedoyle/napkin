@@ -1,0 +1,24 @@
+---
+title: Subspaces, kernels, and spans
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Subspaces, kernels, and spans">
+
+<Callout kind="definition" title="Subspace">
+A <Term k="subspace">**subspace**</Term> of a vector space $V$ is a subset $V' \subseteq V$ that is itself a vector space (i.e., closed under addition and scalar multiplication, and containing $0_V$).
+</Callout>
+
+<Callout kind="example" title="Kernels">
+The <Term k="kerMap">**kernel**</Term> of a linear map $T \colon V \to W$ is $\ker T = \{v \in V \mid T(v) = 0_W\}$. It is a subspace of $V$: if $T(v_1) = 0$ and $T(v_2) = 0$ then $T(v_1 + v_2) = 0$ and $T(av_1) = 0$.
+</Callout>
+
+<Callout kind="example" title="Spans">
+The <Term k="span">**span**</Term> of vectors $v_1, \dots, v_m \in V$ is the set of all linear combinations $\{a_1 v_1 + \cdots + a_m v_m \mid a_i \in k\}$. It is always a subspace of $V$.
+</Callout>
+
+Every subspace contains $0_V$ — any linear combination of zeros is zero, and the zero map sends everything to $0_W$.
+
+</SlideLayout>

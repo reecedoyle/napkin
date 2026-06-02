@@ -1,0 +1,26 @@
+---
+title: Basis completion
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basis completion">
+
+Subspaces interact cleanly with bases.
+
+<Callout kind="theorem" title="Basis completion theorem">
+Let $V$ be an $n$-dimensional vector space and $V'$ a subspace of $V$. Then:
+
+(a) $V'$ is finite-dimensional (with $\dim V' \leq n$).
+
+(b) Any basis $e_1, \dots, e_m$ of $V'$ can be extended to a basis $e_1, \dots, e_m, e_{m+1}, \dots, e_n$ of all of $V$.
+</Callout>
+
+This theorem is geometrically obvious — a basis of a plane inside $\RR^3$ can always be extended by one more independent vector to span all of $\RR^3$ — but we'll use it repeatedly in proofs.
+
+<Callout kind="remark">
+Part (b) is the key tool for "picking a convenient basis" adapted to a map or subspace. By choosing the basis of $V$ to extend one of $V'$, we can put matrices into especially simple forms.
+</Callout>
+
+</SlideLayout>

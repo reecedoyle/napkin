@@ -1,0 +1,25 @@
+---
+title: Splitting a space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Splitting a space">
+
+Go back to $V = \{ax^2 + bx + c \mid a, b, c \in \RR\}$. The three "components" $\RR x^2$, $\RR x$, and $\RR$ don't interact — every element of $V$ is uniquely a sum of one piece from each.
+
+<Callout kind="definition" title="Direct sum (internal)">
+Let $M$ be an $R$-module and $M_1, M_2$ submodules of $M$. We write $M = M_1 \oplus M_2$ and say $M$ is a <Term k="directSum">**direct sum**</Term> of $M_1$ and $M_2$ if every element of $M$ can be written **uniquely** as $m_1 + m_2$ with $m_1 \in M_1$ and $m_2 \in M_2$.
+</Callout>
+
+<Callout kind="example" title="The Euclidean plane">
+$\RR^2 = X \oplus Y$ where $X = \{(x, 0)\}$ and $Y = \{(0, y)\}$ are the $x$- and $y$-axes. Every point $(x, y)$ decomposes **uniquely** as $(x, 0) + (0, y)$.
+</Callout>
+
+So for our quadratic space:
+$$V = \RR x^2 \oplus \RR x \oplus \RR.$$
+
+Each summand is itself just a copy of $\RR$, so $V \cong \RR \oplus \RR \oplus \RR$.
+
+</SlideLayout>

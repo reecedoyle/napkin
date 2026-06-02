@@ -1,0 +1,26 @@
+---
+title: Linear combinations
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Linear combinations">
+
+Three classical notions build the concept of a basis. Think of $\RR^3$ or quadratic polynomials to keep everything concrete.
+
+<Callout kind="definition" title="Linear combination">
+A <Term k="linearCombination">**linear combination**</Term> of vectors $v_1, \dots, v_n$ in an $R$-module $M$ is any sum $r_1 v_1 + \cdots + r_n v_n$ with scalars $r_i \in R$. It is **trivial** if all $r_i = 0$, and **nontrivial** otherwise.
+</Callout>
+
+<Callout kind="definition" title="Linearly independent, spanning, basis">
+Let $v_1, \dots, v_n \in M$.
+
+- **Linearly independent**: the only linear combination that equals $0_M$ is the trivial one.
+- **Spanning** (for vector spaces) / **generating set** (for modules): every $v \in M$ is a linear combination of the $v_i$.
+- **Basis**: every $v \in M$ can be written **uniquely** as a linear combination of the $v_i$. Equivalently: <Term k="basis">a basis</Term> is a linearly independent and spanning set.
+</Callout>
+
+So $\{1, x, x^2\}$ is a <Term k="basis">basis</Term> for $V = \{ax^2 + bx + c\}$: every element writes uniquely as $a \cdot x^2 + b \cdot x + c \cdot 1$.
+
+</SlideLayout>

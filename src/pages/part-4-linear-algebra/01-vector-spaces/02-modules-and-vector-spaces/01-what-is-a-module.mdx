@@ -1,0 +1,24 @@
+---
+title: What is a module?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a module?">
+
+You already know $\RR^n$: vectors you can add and scale by real numbers. The key abstraction generalises "scaling" to any ring.
+
+<Callout kind="definition" title="R-module">
+Fix a commutative ring $R$. An <Term k="rModule">$R$-module</Term> is an additive abelian group $(M, +)$ together with a **left multiplication** $R \times M \to M$, written $r \cdot m$, satisfying for all $r, r_1, r_2 \in R$ and $m, m_1, m_2 \in M$:
+
+1. $r_1 \cdot (r_2 \cdot m) = (r_1 r_2) \cdot m$
+2. $(r_1 + r_2) \cdot m = r_1 \cdot m + r_2 \cdot m$ and $r \cdot (m_1 + m_2) = r \cdot m_1 + r \cdot m_2$
+3. $1_R \cdot m = m$
+
+If $R$ is a field, we call $M$ an $R$-<Term k="vectorSpace">**vector space**</Term>; its elements are called <Term k="vector">**vectors**</Term> and elements of $R$ are called <Term k="scalar">**scalars**</Term>.
+</Callout>
+
+The moral: a module is any structure where you can add two elements and scale by elements of $R$.
+
+</SlideLayout>

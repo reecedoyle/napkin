@@ -1,0 +1,32 @@
+---
+title: Coordinates and dimension
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Coordinates and dimension">
+
+Once you pick a <Term k="basis">basis</Term> $e_1, \dots, e_n$ of a vector space $V$, every vector $v \in V$ is uniquely $v = a_1 e_1 + \cdots + a_n e_n$. You can think of $v$ as the coordinate tuple $(a_1, \dots, a_n)$.
+
+This shows $V \cong k^{\oplus n}$: pick any basis, and you get an isomorphism $v \mapsto (a_1, \dots, a_n)$. Different bases give different isomorphisms, but the number $n = \dim V$ is invariant.
+
+<Callout kind="definition" title="Dimension">
+The <Term k="dimension">**dimension**</Term> of $V$ over $k$, written $\dim_k V$ or $\dim V$, is the number of elements in any finite basis. We say $V$ is <Term k="finiteDim">**finite-dimensional**</Term> if such a basis exists; otherwise $V$ is **infinite-dimensional**.
+</Callout>
+
+Examples:
+- $\dim_\RR \RR^3 = 3$.
+- $\dim_\RR \CC = 2$ (basis $\{1, i\}$ over $\RR$).
+- $\dim_\QQ \QQ[\sqrt{2}] = 2$ (basis $\{1, \sqrt{2}\}$).
+- $\RR[x]$ (all polynomials) is infinite-dimensional.
+
+<NumericInput
+  client:load
+  id="vs-basis-num-dim-plane"
+  prompt="What is the dimension of the subspace {(x, y, z) : x + y + z = 0} inside ℝ³?"
+  expected={2}
+/>
+
+</SlideLayout>

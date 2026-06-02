@@ -1,0 +1,54 @@
+---
+title: Problems — standard and daggered
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard and daggered">
+
+General hint: the basis-picking theorem and rank-nullity are your best friends here.
+
+<Problem
+  client:load
+  id="vs-prob-injsurj-table"
+  prompt="Let V and W be finite-dimensional vector spaces with nonzero dimension. Complete the table by writing 'always', 'sometimes', or 'never' for each entry: (i) If dim V > dim W, is T injective / surjective / isomorphism? (ii) If dim V = dim W? (iii) If dim V < dim W?"
+  hint="Use rank-nullity. Also consider the zero map."
+  solution="If dim V > dim W: T injective — never (ker T has positive dimension by rank-nullity); T surjective — sometimes (e.g. projection ℝ² → ℝ, or zero map); T isomorphism — never. If dim V = dim W: injective — sometimes, surjective — sometimes, isomorphism — sometimes (all three are equivalent when they hold). If dim V < dim W: injective — sometimes (e.g. inclusion ℝ → ℝ²); surjective — never (image has dimension ≤ dim V < dim W); isomorphism — never. The 'nevers' all follow from rank-nullity: dim T(V) ≤ min(dim V, dim W)."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-equal-dim-equiv"
+  prompt="Let V and W be finite-dimensional with dim V = dim W. Prove that for a linear map T: V → W, the following are equivalent: (i) T is injective, (ii) T is surjective, (iii) T is bijective."
+  solution="(iii) → (i) and (iii) → (ii) are immediate. For (i) → (ii): if T is injective then ker T = {0}, so dim T(V) = dim V − 0 = dim V = dim W by rank-nullity, hence T(V) = W. For (ii) → (i): if T is surjective then dim T(V) = dim W = dim V, so dim ker T = dim V − dim T(V) = 0, hence ker T = {0}."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-magic-squares"
+  prompt="A magic square is a 3×3 matrix of real numbers where every row, column, and both diagonals sum to the same value. Find the dimension of the space of magic squares as a real vector space."
+  solution="The space of 3×3 real matrices has dimension 9. A magic square is determined by linear constraints: all row/column/diagonal sums equal some common value s. One can check that the space of magic squares is 3-dimensional: one basis is the all-ones matrix, and two linearly independent 'traceless' magic squares. (Alternatively, map the space of all 3×3 matrices to ℝ⁸ by (row1 sum − diag sum, row2 sum − diag sum, …), and compute the kernel dimension.)"
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-sqrt5-matrix"
+  prompt="Let V = ℚ[√5] = {a + b√5} be a two-dimensional ℚ-vector space with basis {1, √5}. Write down the 2×2 rational matrix corresponding to multiplication by √5."
+  hint="1 ↦ √5 and √5 ↦ 5."
+  solution="The map m_{√5}: a + b√5 ↦ √5·(a + b√5) = a√5 + 5b = 5b + a√5. In the basis {1, √5}: 1 ↦ 0·1 + 1·√5 (column (0,1)) and √5 ↦ 5·1 + 0·√5 (column (5,0)). So the matrix is [[0, 5],[1, 0]]."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="vs-prob-tstst-2014"
+  prompt="[TSTST 2014] Let P(x) and Q(x) be arbitrary polynomials with real coefficients, and let d be the degree of P(x). Assume P is not the zero polynomial. Prove there exist polynomials A(x) and B(x) such that: (i) both A and B have degree at most d/2; (ii) at most one of A and B is the zero polynomial; (iii) P divides A + Q·B."
+  hint="Interpret as a linear map V ⊕ V → W for suitable V, W, then use rank-nullity."
+  solution="Let V be the space of real polynomials of degree ≤ d/2, so dim V = 1 + ⌊d/2⌋. Let W be the space of real polynomials modulo P, so dim W = d. Then dim(V ⊕ V) = 2(1 + ⌊d/2⌋) ≥ d + 1 > d = dim W. Consider the linear map T: V ⊕ V → W by (A, B) ↦ A + Q·B (mod P). Since dim(V ⊕ V) > dim W, the map T cannot be injective by rank-nullity — its kernel has positive dimension. Any nonzero element (A, B) in the kernel satisfies A + Q·B ≡ 0 (mod P), i.e., P divides A + Q·B. At most one of A, B is zero (since (0,0) is the zero element, not a 'nonzero kernel element'). This gives the desired A and B."
+  difficulty="standard"
+/>
+
+</SlideLayout>

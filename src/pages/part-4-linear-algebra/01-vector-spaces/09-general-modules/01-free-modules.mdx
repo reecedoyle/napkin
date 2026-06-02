@@ -1,0 +1,24 @@
+---
+title: General modules — free and finitely generated
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="General modules — free and finitely generated">
+
+Most of this chapter assumed fields. Here is what changes for a general commutative ring $R$.
+
+**What fails.** The maximality/minimality theorem for bases breaks down. In $\ZZ$ as a $\ZZ$-module: $\{2\}$ is linearly independent but cannot be extended to a basis ($\{2, 1\}$ is generating, but $1$ is in the span of $\{2\}$ only if $2 \mid 1$ in $\ZZ$ — which fails). Similarly $\{2, 3\}$ generates $\ZZ$ (since $\gcd(2,3)=1$) but no proper subset does.
+
+<Callout kind="definition" title="Finitely generated and free modules">
+An $R$-module $M$ is <Term k="finGen">**finitely generated**</Term> if it has a finite generating set.
+
+$M$ is <Term k="freeModule">**free**</Term> if it has a <Term k="basis">basis</Term>. The analogue of the dimension theorem still holds: the size of any basis (the <Term k="rank">**rank**</Term>) is an invariant. A free module of rank $n$ satisfies $M \cong R^{\oplus n}$.
+</Callout>
+
+<Callout kind="example" title="A free ℤ-module">
+$\ZZ[\sqrt{2}] = \{a + b\sqrt{2} \mid a, b \in \ZZ\}$ has basis $\{1, \sqrt{2}\}$ as a $\ZZ$-module, so it is free of rank 2.
+</Callout>
+
+</SlideLayout>

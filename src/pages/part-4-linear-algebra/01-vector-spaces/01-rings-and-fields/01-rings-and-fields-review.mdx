@@ -1,0 +1,39 @@
+---
+title: Rings and fields — a quick review
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Rings and fields — a quick review">
+
+Linear algebra takes place inside a field. Before diving in, here is a compact reminder of the two structures involved.
+
+<Callout kind="definition" title="Ring and field">
+A **ring** is a structure with a commutative addition and multiplication (plus subtraction), additive identity <Term k="zeroR">$0$</Term> and multiplicative identity <Term k="oneR">$1$</Term>. A **field** <Term k="field">$k$</Term> is a ring in which every nonzero element has a multiplicative inverse — you can always divide.
+</Callout>
+
+The prototype ring is <Term k="ZZ">$\ZZ$</Term>. The prototypical fields are <Term k="QQ">$\QQ$</Term>, <Term k="RR">$\RR$</Term>, and <Term k="CC">$\CC$</Term>. The integers fail to be a field because $2$ has no inverse in $\ZZ$.
+
+**Convention.** The letter $R$ is reserved for a commutative ring; $k$ or $K$ for a field. If you replace "field" by "$\RR$" everywhere in this chapter, you lose almost nothing.
+
+<Callout kind="definition" title="Additive abelian group">
+An **additive abelian group** $(M, +)$ has a commutative addition, subtraction, and an identity $0$, but no required multiplication. The set $\RR^3$ with componentwise addition is a clean example.
+</Callout>
+
+<MCQ
+  client:load
+  id="vs-rings-mcq-which-field"
+  prompt="Which of the following is a field?"
+  options={[
+    { id: "a", label: "ℤ (integers under + and ·)" },
+    { id: "b", label: "ℤ/6ℤ (integers mod 6)" },
+    { id: "c", label: "ℚ (rationals under + and ·)" },
+    { id: "d", label: "ℤ[x] (polynomials with integer coefficients)" },
+  ]}
+  correct="c"
+  explanation="ℚ is a field: every nonzero rational a/b has inverse b/a. ℤ fails (2 has no inverse). ℤ/6ℤ fails (2 and 3 are zero-divisors). ℤ[x] fails (the polynomial x has no inverse)."
+/>
+
+</SlideLayout>

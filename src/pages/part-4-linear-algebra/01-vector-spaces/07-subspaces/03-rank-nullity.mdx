@@ -1,0 +1,31 @@
+---
+title: Rank-nullity theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Rank-nullity theorem">
+
+The most important result about linear maps is how dimension is shared between kernel and image.
+
+<Callout kind="theorem" title="Picking a basis for linear maps">
+Let $T \colon V \to W$ be a linear map of finite-dimensional spaces, with $n = \dim V$, $m = \dim W$. There exist bases $e_1, \dots, e_n$ of $V$ and $f_1, \dots, f_m$ of $W$, and a nonneg integer $k$, such that $T(e_i) = f_i$ for $i \leq k$ and $T(e_i) = 0$ for $i > k$.
+</Callout>
+
+In the adapted bases, $T$ looks like: first $k$ basis vectors map bijectively to $f_1, \dots, f_k$; the remaining $n-k$ go to zero. So $\dim \ker T = n-k$ and $\dim T(V) = k$.
+
+<Callout kind="theorem" title="Rank-nullity theorem">
+For $T \colon V \to W$ between finite-dimensional spaces:
+$$\dim V = \dim \ker T + \dim T(V).$$
+</Callout>
+
+<ProofReveal
+  client:load
+  id="vs-sub-proof-rank-nullity"
+  prompt="Derive rank-nullity from the basis-picking theorem above."
+  solution="From the basis-picking theorem, we get adapted bases with k vectors mapping to the image and n−k mapping to zero. So dim ker T = n−k and dim T(V) = k. Adding: (n−k) + k = n = dim V. ∎"
+/>
+
+</SlideLayout>

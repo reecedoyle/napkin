@@ -1,0 +1,25 @@
+---
+title: Linear maps — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Linear maps — definition">
+
+We have homomorphisms of groups, continuous maps of topological spaces. Now: structure-preserving maps of vector spaces.
+
+<Callout kind="definition" title="Linear map">
+Let $V$ and $W$ be vector spaces over the same field $k$. A <Term k="linearMap">**linear map**</Term> $T \colon V \to W$ satisfies:
+
+1. $T(v_1 + v_2) = T(v_1) + T(v_2)$ for all $v_1, v_2 \in V$
+2. $T(a \cdot v) = a \cdot T(v)$ for all $a \in k$, $v \in V$
+
+A bijective linear map is a <Term k="linearIso">**linear isomorphism**</Term>. We then write $V \cong W$ and say they are **isomorphic**.
+</Callout>
+
+In $T(a \cdot v) = a \cdot T(v)$, the first $\cdot$ is in $V$ and the second in $W$ — but both are scalar multiplication by the same scalar $a \in k$.
+
+**Key consequence**: $T(a_1 e_1 + \cdots + a_n e_n) = a_1 T(e_1) + \cdots + a_n T(e_n)$. So knowing $T$ on a basis determines $T$ everywhere.
+
+</SlideLayout>

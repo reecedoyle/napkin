@@ -1,0 +1,30 @@
+---
+title: First examples of vector spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="First examples of vector spaces">
+
+The favorite running example throughout this chapter is the space of quadratic polynomials.
+
+<Callout kind="example" title="Quadratic polynomials">
+The set $V = \{ax^2 + bx + c \mid a, b, c \in \RR\}$ is an <Term k="vectorSpace">$\RR$-vector space</Term>: you can add any two quadratics and multiply by real <Term k="scalar">scalars</Term>. You cannot multiply two elements together and stay in $V$ — but that's irrelevant, a vector space has no notion of multiplying two vectors.
+
+This space turns out to have **dimension 3** — one slot for each of $\{1, x, x^2\}$.
+</Callout>
+
+<Callout kind="example" title="Euclidean spaces">
+- $\RR^3 = \{(x, y, z) \mid x, y, z \in \RR\}$ under componentwise addition is an $\RR$-vector space of dimension 3.
+- $\CC = \{a + bi \mid a, b \in \RR\}$ is a **real** vector space of dimension 2 (scale by reals, not complex numbers).
+- $\RR$ itself is a real vector space of dimension 1.
+</Callout>
+
+<Callout kind="example" title="More examples">
+- $\QQ[\sqrt{2}] = \{a + b\sqrt{2} \mid a, b \in \QQ\}$ is a <Term k="vectorSpace">$\QQ$-vector space</Term>. It is **not** an $\RR$-vector space — $\sqrt{3} \cdot 1 \notin \QQ[\sqrt{2}]$.
+- The set $\{(x,y,z) \mid x + y + z = 0,\ x,y,z \in \RR\}$ is a 2-dimensional real vector space.
+- All functions $f\colon \RR \to \RR$, under pointwise addition and scaling, form a vector space.
+</Callout>
+
+</SlideLayout>
