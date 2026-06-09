@@ -99,6 +99,12 @@ if (mdxFiles.length === 0) {
 // authored these and the file system serves them fine.
 const NAME_RE = /^\d{2}-[A-Za-z0-9-]+(\.mdx)?$/;
 
+// Mirror of the Kind union in src/components/Callout.astro.
+const CALLOUT_KINDS = new Set([
+  'definition', 'theorem', 'proposition', 'lemma', 'corollary',
+  'example', 'remark', 'question', 'exercise',
+]);
+
 // per-chapter counters
 const problemComponents = [];
 const termKeysUsed = new Set();
@@ -123,6 +129,23 @@ for (const file of realSlides) {
   }
   if (/<SlideLayout[\s\S]*?\b(part|chapter)=/.test(src)) {
     err(`${rel}: passes <SlideLayout part="…" / chapter="…">. Drop those props — they auto-derive from the URL.`);
+  }
+  // NumericInput.expected is typed `string`; agents have repeatedly
+  // passed `expected={5}` (number) instead of `expected="5"`. The
+  // component then crashes inside answersEqual() on submit and the
+  // test sees no "Not quite" / "Correct" feedback.
+  for (const m of src.matchAll(/expected=\{([^}]*)\}/g)) {
+    const inner = m[1].trim();
+    if (/^[-+]?\d+(\.\d+)?([eE][-+]?\d+)?$/.test(inner)) {
+      err(`${rel}: <NumericInput expected={${inner}}> — pass a string instead: expected="${inner}". NumericInput.expected is typed as string.`);
+    }
+  }
+  // Callout.kind is a closed union — anything else crashes at render time.
+  for (const m of src.matchAll(/<Callout\s+kind="([^"]+)"/g)) {
+    const kind = m[1];
+    if (!CALLOUT_KINDS.has(kind)) {
+      err(`${rel}: <Callout kind="${kind}"> — kind must be one of ${[...CALLOUT_KINDS].join(', ')}.`);
+    }
   }
 
   // ── Term keys ──────────────────────────────────────────────────────

@@ -98,7 +98,7 @@ test.describe('Eigen-things — NumericInput flow (algebraic multiplicity sum)',
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('1000');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();

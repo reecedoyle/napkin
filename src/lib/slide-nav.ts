@@ -83,6 +83,7 @@ export const partTitles: Record<string, string> = {
   'part-1-starting-out': 'Part I — Starting Out',
   'part-2-basic-abstract-algebra': 'Part II — Basic Abstract Algebra',
   'part-3-basic-topology': 'Part III — Basic Topology',
+  'part-4-linear-algebra': 'Part IV — Linear Algebra',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -94,6 +95,13 @@ export const chapterTitles: Record<string, string> = {
   'part-3-basic-topology/01-metric-properties': 'Chapter 6 — Properties of metric spaces',
   'part-3-basic-topology/02-topological-spaces': 'Chapter 7 — Topological spaces',
   'part-3-basic-topology/03-compactness': 'Chapter 8 — Compactness',
+  'part-4-linear-algebra/01-vector-spaces': 'Chapter 9 — Vector spaces',
+  'part-4-linear-algebra/02-eigen-things': 'Chapter 10 — Eigen-things',
+  'part-4-linear-algebra/03-dual-and-trace': 'Chapter 11 — Dual space and trace',
+  'part-4-linear-algebra/04-determinant': 'Chapter 12 — Determinant',
+  'part-4-linear-algebra/05-inner-products': 'Chapter 13 — Inner product spaces',
+  'part-4-linear-algebra/06-fourier': 'Chapter 14 — Bonus: Fourier analysis',
+  'part-4-linear-algebra/07-transpose-and-adjoint': 'Chapter 15 — Duals, adjoint, and transposes',
 };
 
 export const sectionTitles: Record<string, string> = {

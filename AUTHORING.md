@@ -127,6 +127,19 @@ Each exercise has a stable kebab-case `id`, scoped to the chapter:
 Two exercises on one slide must have different ids. Storage key is
 `napkin:exercise:<slidePath>#<id>`.
 
+**NumericInput.expected is a STRING**, not a number. Pass
+`expected="5"` — never `expected={5}`. The latter slips past
+`astro check` but crashes at render time when `String.trim()` is
+called on the number, and the test will silently see no
+"Not quite" / "Correct" feedback.
+
+**`<Callout kind="…">` must be one of the nine allowed kinds**:
+definition, theorem, proposition, lemma, corollary, example,
+remark, question, exercise. Anything else (e.g. `kind="proof"`)
+crashes the page at render time. To present a worked proof, use
+`<Callout kind="remark" title="Proof">` or `<Callout kind="example"
+title="Proof">`, or just put the proof in plain prose.
+
 | TeX | Component | Notes |
 | --- | --- | --- |
 | Concept check / "Which of the following…" | `<MCQ>` | 3–4 options, one correct, explanation |

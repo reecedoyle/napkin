@@ -88,7 +88,7 @@ test.describe('Determinant — NumericInput flow (dim of ∧²(ℝ⁴))', () => 
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('4');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();
@@ -116,17 +116,17 @@ test.describe('Determinant — ProofReveal flow (anti-symmetry from v∧v=0)', (
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    await expect(article.getByText(/Expand/i)).toBeHidden();
+    await expect(article.getByText(/using bilinearity/i)).toBeHidden();
 
     await page.getByRole('button', { name: /reveal solution/i }).click();
-    await expect(article.getByText(/Expand/i)).toBeVisible();
+    await expect(article.getByText(/using bilinearity/i)).toBeVisible();
 
     expect(await page.evaluate((k) => window.localStorage.getItem(k), PROOF_KEY)).toContain(
       '"outcome":"revealed"',
     );
 
     await page.reload();
-    await expect(article.getByText(/Expand/i)).toBeVisible();
+    await expect(article.getByText(/using bilinearity/i)).toBeVisible();
   });
 });
 

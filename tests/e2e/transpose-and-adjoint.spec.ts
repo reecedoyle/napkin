@@ -95,7 +95,7 @@ test.describe('Transpose and adjoint — NumericInput flow (rank of M)', () => {
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('2');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();
@@ -147,10 +147,10 @@ test.describe('Transpose and adjoint — Problem flow (double dual)', () => {
 
     const article = page.getByRole('article');
     // "canonical" only appears inside the solution, not the prompt/hint
-    await expect(article.getByText(/canonical/i).first()).toBeHidden();
+    await expect(article.getByText(/evaluation pairing/i).first()).toBeHidden();
 
     await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/canonical/i).first()).toBeVisible();
+    await expect(article.getByText(/evaluation pairing/i).first()).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();

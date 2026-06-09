@@ -100,7 +100,7 @@ test.describe('Vector spaces — NumericInput flow (dimension of plane in ℝ³)
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('3');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();
@@ -128,17 +128,17 @@ test.describe('Vector spaces — ProofReveal flow (rank-nullity)', () => {
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    await expect(article.getByText(/adapted bases/i)).toBeHidden();
+    await expect(article.getByText(/we get adapted bases/i)).toBeHidden();
 
     await page.getByRole('button', { name: /reveal solution/i }).click();
-    await expect(article.getByText(/adapted bases/i)).toBeVisible();
+    await expect(article.getByText(/we get adapted bases/i)).toBeVisible();
 
     expect(await page.evaluate((k) => window.localStorage.getItem(k), PROOF_KEY)).toContain(
       '"outcome":"revealed"',
     );
 
     await page.reload();
-    await expect(article.getByText(/adapted bases/i)).toBeVisible();
+    await expect(article.getByText(/we get adapted bases/i)).toBeVisible();
   });
 });
 
@@ -152,10 +152,12 @@ test.describe('Vector spaces — Problem flow (idempotent decomposition)', () =>
 
     const article = page.getByRole('article');
     // "ker P ∩ im P" only appears inside the idempotent solution text
-    await expect(article.getByText(/ker P ∩ im P/i)).toBeHidden();
+    await expect(article.getByText(/we check two things/i)).toBeHidden();
 
-    await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/ker P ∩ im P/i)).toBeVisible();
+    // 3rd <Problem> on the slide is the idempotent one — lattice
+     // points and Putnam are above it, T^N stabilisation below.
+    await page.getByRole('button', { name: /show solution/i }).nth(2).click();
+    await expect(article.getByText(/we check two things/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();
