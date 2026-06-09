@@ -1,0 +1,25 @@
+---
+title: Jordan–Hölder theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Jordan–Hölder theorem">
+
+Different composition series of the same group can look very different — the example of $\Zc{12}$ has three series:
+$$\{0\} \trianglelefteq \Zc{2} \trianglelefteq \Zc{4} \trianglelefteq \Zc{12}, \quad
+\{0\} \trianglelefteq \Zc{2} \trianglelefteq \Zc{6} \trianglelefteq \Zc{12}, \quad
+\{0\} \trianglelefteq \Zc{3} \trianglelefteq \Zc{6} \trianglelefteq \Zc{12}.$$
+
+Yet in each case the <Term k="compositionFactors">composition factors</Term> are $\Zc{2}$, $\Zc{2}$, $\Zc{3}$ — the same set, just in a different order.
+
+<Callout kind="theorem" title="Jordan–Hölder">
+Every finite group $G$ admits a <Term k="compositionSeries">composition series</Term>, and any two composition series have the same composition factors up to reordering and isomorphism.
+</Callout>
+
+This is the group-theoretic analogue of the fundamental theorem of arithmetic: prime factorisation is unique up to reordering. The "primes" here are the simple groups.
+
+The theorem says we can speak of **the** composition factors of $G$ without ambiguity — they are a well-defined invariant of $G$.
+
+</SlideLayout>

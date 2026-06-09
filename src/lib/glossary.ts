@@ -1230,7 +1230,7 @@ export const glossary = {
     example: 'ℤ/8ℤ and the quaternion group Q₈ are 2-groups.',
   },
 
-  // §2 — Proving Sylow
+  // §2 — Proving Sylow's theorem
   orbitStabilizer: {
     term: 'Orbit-stabilizer theorem',
     symbol: '|\\mathcal{O}| = |G| / |\\mathrm{Stab}_G(x)|',
@@ -1247,6 +1247,32 @@ export const glossary = {
     symbol: 'N_G(H)',
     definition: 'For a subgroup H ≤ G, the normalizer N_G(H) = {g ∈ G : gHg⁻¹ = H} is the largest subgroup of G in which H is normal. It is the stabilizer of H under the conjugation action.',
     example: 'N_G(H) = G iff H ⊴ G. If H = G then N_G(H) = G trivially.',
+  },
+
+  // §3 — Simple groups and Jordan–Hölder
+  simpleGroup: {
+    term: 'Simple group',
+    definition: 'A group with no normal subgroups other than the trivial group {1} and itself. These are the "atoms" of group theory — every finite group is built from simple groups via composition series.',
+    example: 'ℤ/pℤ for any prime p. The alternating group A₅ is the smallest non-abelian simple group, of order 60.',
+  },
+  compositionSeries: {
+    term: 'Composition series',
+    symbol: '\\{1\\} = H_0 \\trianglelefteq H_1 \\trianglelefteq \\cdots \\trianglelefteq H_n = G',
+    definition: 'A maximal-length chain of subgroups {1} = H₀ ⊴ H₁ ⊴ ··· ⊴ Hₙ = G. Maximal means no proper subgroups can be inserted between consecutive terms. The quotients Hᵢ₊₁/Hᵢ are all simple groups.',
+    example: 'For ℤ/12ℤ: {0} ⊴ ℤ/2ℤ ⊴ ℤ/4ℤ ⊴ ℤ/12ℤ is a composition series.',
+  },
+  compositionFactors: {
+    term: 'Composition factors',
+    definition: 'The simple groups Hᵢ₊₁/Hᵢ arising from a composition series {1} = H₀ ⊴ ··· ⊴ Hₙ = G. By the Jordan–Hölder theorem, the multiset of composition factors is the same for any choice of composition series.',
+    example: 'The composition factors of ℤ/12ℤ are ℤ/2ℤ, ℤ/2ℤ, ℤ/3ℤ — mirroring the factorisation 12 = 2²·3.',
+  },
+  babyMonster: {
+    term: 'Baby monster group',
+    definition: 'The second largest sporadic simple group, of order 2⁴¹·3¹³·5⁶·7²·11·13·17·19·23·31·47 ≈ 4×10³³. It is one of the 26 sporadic groups in the classification of finite simple groups.',
+  },
+  monsterGroup: {
+    term: 'Monster group',
+    definition: 'The largest sporadic simple group, also called the friendly giant, of order approximately 8×10⁵³. It contains 20 of the 26 sporadic simple groups as subquotients; those 20 are called the happy family.',
   },
 } as const satisfies Record<string, GlossaryEntry>;
 
