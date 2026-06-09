@@ -1223,6 +1223,12 @@ export const glossary = {
     definition: 'An R-module M satisfying the ascending chain condition: there is no infinite strictly ascending chain of submodules M₁ ⊊ M₂ ⊊ ⋯. Equivalently, every submodule of M is finitely generated. A Noetherian ring R is precisely R viewed as a Noetherian R-module.',
     example: 'For a PID R, the free module Rⁿ is Noetherian. ℤ[x₁, x₂, …] with infinitely many variables is not Noetherian.',
   },
+  invariantFactors: {
+    term: 'Invariant factors',
+    symbol: 's_1 \\mid s_2 \\mid \\cdots \\mid s_m',
+    definition: 'The elements s₁, s₂, …, sₘ in the invariant factor decomposition M ≅ R/(s₁) ⊕ ⋯ ⊕ R/(sₘ) of a finitely generated R-module over a PID. They satisfy s₁ ∣ s₂ ∣ ⋯ ∣ sₘ and are unique up to multiplication by units.',
+    example: 'For ℤ/6ℤ the single invariant factor is 6. For ℤ/2ℤ ⊕ ℤ/6ℤ the invariant factors are 2 and 6 (since 2 ∣ 6).',
+  },
   abelianGroup: {
     term: 'Abelian group',
     symbol: '(G, +)',
