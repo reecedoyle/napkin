@@ -1,0 +1,27 @@
+---
+title: "Problems — class equation and normality"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — class equation and normality">
+
+<Problem
+  client:load
+  id="act-prob-class-equation"
+  prompt="(The class equation) Let G be a finite group. Define the centralizer C_G(g) = {x ∈ G : xg = gx}. Show that |G| = |Z(G)| + Σ_{s ∈ S} |G|/|C_G(s)|, where S is a set of representatives of all conjugacy classes of G with more than one element."
+  hint="Partition G into conjugacy classes and apply orbit-stabilizer to each."
+  solution="Each conjugacy class is an orbit of G under conjugation. Orbits partition G. The conjugacy class of x has size |G|/|C_G(x)| by orbit-stabilizer. Singleton conjugacy classes — those with |𝒪_x| = 1 — are precisely the elements of Z(G). Summing the sizes of all conjugacy classes gives |G| = Σ_{conjugacy classes 𝒪} |𝒪|. Separating the singletons from the rest: |G| = |Z(G)| + Σ_{non-singleton classes, rep. s} |G|/|C_G(s)|."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="act-prob-index-p-normal"
+  prompt="Let G be a finite group of order n ≥ 2 and let p be the smallest prime dividing n. Let H ≤ G with [G:H] = p. Show that H is normal in G."
+  hint="Let H act on the p left cosets {gH} by left multiplication: h·(gH) = hgH. Apply orbit-stabilizer to any orbit 𝒪. Show |𝒪| ≠ p is impossible, then show every non-H coset can be sent to any other — contradiction — so each coset is in its own orbit, forcing conjugation to fix H."
+  solution="H acts on the set of p left cosets of H by left multiplication. Each orbit 𝒪 satisfies |𝒪| divides |H| (orbit-stabilizer) and |𝒪| ≤ p (only p cosets). Since |𝒪| also divides |G| = p·|H|, and p is the smallest prime dividing |G|, any prime divisor of |𝒪| is ≥ p. But |𝒪| ≤ p, so |𝒪| = 1 or |𝒪| = p. If every orbit had size p then the p cosets would form one orbit, but H itself is fixed by all h ∈ H (since hH = H), giving an orbit of size 1 — contradiction. So H itself is an orbit of size 1, meaning hH = H for all h ∈ H (trivially true), but more importantly, every other coset must also form a size-1 orbit (since the total count is p = 1 + (p-1) ones, impossible unless p = 1, or there is exactly one orbit of size p−1... re-checking: the orbit of H has size 1. The remaining p−1 cosets are permuted by H. By orbit-stabilizer on any one of them, |𝒪| divides |H|. Since all prime factors of |H| are ≥ p and |𝒪| ≤ p−1, we need |𝒪| = 1. So every coset is fixed by all of H, meaning hgH = gH for all h ∈ H and all g, i.e., g⁻¹hg ∈ H for all g, h. This is exactly normality of H in G."
+  difficulty="daggered"
+/>
+
+</SlideLayout>
