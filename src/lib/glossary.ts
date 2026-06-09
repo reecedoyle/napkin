@@ -1274,6 +1274,18 @@ export const glossary = {
     term: 'Monster group',
     definition: 'The largest sporadic simple group, also called the friendly giant, of order approximately 8×10⁵³. It contains 20 of the 26 sporadic simple groups as subquotients; those 20 are called the happy family.',
   },
+
+  // §4 — Problems
+  transitiveAction: {
+    term: 'Transitive group action',
+    definition: 'A group action of G on X is transitive if for any two elements x₁, x₂ ∈ X there exists g ∈ G with g·x₁ = x₂. Equivalently, X is a single orbit under the action.',
+    example: 'S_n acts transitively on {1, …, n}. The action of ℤ on itself by addition is transitive.',
+  },
+  faithfulAction: {
+    term: 'Faithful group action',
+    definition: 'A group action of G on X is faithful if the only element g ∈ G with g·x = x for all x ∈ X is the identity. Equivalently, the homomorphism G → Sym(X) is injective.',
+    example: 'S_n acting on {1, …, n} by permutation is faithful. The trivial action g·x = x for all g is not faithful (unless G = {1}).',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

@@ -1,0 +1,33 @@
+---
+title: Cauchy's theorem and order 56
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Cauchy's theorem and order 56">
+
+<Callout kind="remark">
+These problems apply the Sylow theorems to specific group orders. The key technique: combine the congruence and divisibility constraints on <Term k="sylowNp">$n_p$</Term> to narrow down possibilities, then count elements to get a contradiction.
+</Callout>
+
+<Problem
+  client:load
+  id="syl-prob-cauchy"
+  difficulty="starred"
+  prompt="(Cauchy's theorem) Let G be a group and let p be a prime dividing |G|. Prove that G has an element of order p."
+  hint="A Sylow p-subgroup exists. Show it contains an element of order p. (Cauchy's theorem can also be proved without Sylow — it is sometimes used to give alternate proofs of Sylow.)"
+  solution="By Sylow's theorem, G has a Sylow p-subgroup P of order pⁿ for some n ≥ 1. Since P is a p-group of order at least p, it is nontrivial. Pick any non-identity element g ∈ P; its order divides |P| = pⁿ, so the order of g is pᵏ for some k ≥ 1. Then g^(pᵏ⁻¹) has order p."
+/>
+
+<Problem
+  client:load
+  id="syl-prob-order-56"
+  difficulty="standard"
+  prompt="Let G be a finite simple group. Show that |G| ≠ 56."
+  hint="Count Sylow 2 and 7 subgroups and see how many elements they account for."
+  solution="Suppose |G| = 56 = 2³·7 and G is simple. Consider the Sylow 7-subgroups: n₇ ≡ 1 (mod 7) and n₇ ∣ 8, so n₇ ∈ {1, 8}. Since G is simple, n₇ ≠ 1, so n₇ = 8. That gives 8·(7−1) = 48 elements of order 7. The remaining 56 − 48 = 8 elements must form the unique Sylow 2-subgroup (size 8), which is therefore normal — contradicting simplicity."
+/>
+
+</SlideLayout>

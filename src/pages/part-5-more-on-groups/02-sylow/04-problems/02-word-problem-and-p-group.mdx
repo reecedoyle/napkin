@@ -1,0 +1,29 @@
+---
+title: The word problem and simple p-groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="The word problem and simple p-groups">
+
+<Problem
+  client:load
+  id="syl-prob-word-ab-ba"
+  difficulty="standard"
+  prompt="Consider all words in letters a and b. You may insert or delete any subword of the form www (where w is a word) anywhere. Can you turn the word ab into the word ba?"
+  hint="Construct a non-abelian group in which every element has order 3, then map a and b to elements of that group."
+  solution="The answer is no. Consider the group of upper-triangular 3×3 matrices over 𝔽₃ with 1s on the diagonal. Every element has order 1 or 3 (a power of p = 3). Map a and b to two non-commuting elements of this group. Each insertion/deletion of www preserves the image since (image of w)³ = identity. Since ab and ba have different images in this non-abelian group, they cannot be related by the allowed moves."
+/>
+
+<Problem
+  client:load
+  id="syl-prob-simple-p-group"
+  difficulty="standard"
+  prompt="Let p be a prime and suppose G is a simple group whose order is a power of p. Show that G ≅ ℤ/pℤ."
+  hint="First handle the abelian case, then show G cannot be non-abelian. For the non-abelian case, let Z(G) be the center and use conjugation orbits modulo p."
+  solution="If G is abelian and simple, its only normal subgroups are {1} and G itself. Pick any non-identity g ∈ G; the cyclic subgroup ⟨g⟩ is normal (G is abelian), so ⟨g⟩ = G. The order of G is a prime power pⁿ, and G is cyclic, so G ≅ ℤ/pⁿℤ. This is simple only when n = 1, giving G ≅ ℤ/pℤ. Now suppose G is non-abelian. The center Z(G) is a normal subgroup, so Z(G) = {1}. G acts on itself by conjugation, breaking into orbits: {1}, 𝒪₁, 𝒪₂, …. Each non-trivial orbit has size divisible by p (orbit-stabilizer and |G| = pⁿ). Summing: |G| = 1 + (sum of orbit sizes) ≡ 1 (mod p). But |G| = pⁿ ≡ 0 (mod p), a contradiction. So G must be abelian."
+/>
+
+</SlideLayout>
