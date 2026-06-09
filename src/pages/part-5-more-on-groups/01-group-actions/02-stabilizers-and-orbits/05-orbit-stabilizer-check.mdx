@@ -1,0 +1,35 @@
+---
+title: "Using orbit-stabilizer — a quick check"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Using orbit-stabilizer — a quick check">
+
+The orbit-stabilizer theorem gives us $|G| = |\OO| \cdot |\Stab_G(x)|$ whenever $G$ acts on $X$ and $\OO$ is the orbit of $x$.
+
+<Callout kind="example" title="Setup">
+The <Term k="Sn">symmetric group $S_4$</Term> acts on the set $\{1,2,3,4\}$ by applying permutations. Consider the point $x = 1$.
+
+- The orbit of $1$ is all of $\{1,2,3,4\}$ (any element can be sent to any other), so $|\OO_1| = 4$.
+- By orbit-stabilizer, $|{\Stab}_{S_4}(1)| = |S_4|/|\OO_1| = 24/4 = 6$.
+</Callout>
+
+<MCQ
+  client:load
+  id="act-orb-mcq-stab-s4"
+  prompt="What is Stab_{S_4}(1) — the set of permutations in S_4 that fix 1?"
+  options={[
+    { id: "a", label: "The set of all permutations of {2, 3, 4} — isomorphic to S_3" },
+    { id: "b", label: "Only the identity permutation" },
+    { id: "c", label: "All permutations that fix every element — just the identity" },
+    { id: "d", label: "All 12 even permutations (the alternating group A_4)" },
+  ]}
+  correct="a"
+  explanation="A permutation fixes 1 iff it only permutes {2, 3, 4}. There are 3! = 6 such permutations, forming a copy of S_3. This matches orbit-stabilizer: |S_4| / |O_1| = 24 / 4 = 6."
+/>
+
+</SlideLayout>

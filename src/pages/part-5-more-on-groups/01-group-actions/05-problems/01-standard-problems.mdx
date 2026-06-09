@@ -1,0 +1,38 @@
+---
+title: "Problems — bracelets and conjugacy"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — bracelets and conjugacy">
+
+Three problems to practice the main ideas: Burnside's lemma for counting colorings with a dihedral symmetry, an order invariance fact, and the proof of Burnside itself.
+
+<Problem
+  client:load
+  id="act-prob-bracelet"
+  prompt="(PUMaC 2009 C8) Taotao wants to buy a bracelet consisting of seven beads, each of which is orange, white or black. The bracelet can be rotated and reflected in space. Find the number of possible bracelets."
+  hint="Apply Burnside's lemma with the dihedral group D_{14} (7 rotations + 7 reflections). The answer is 198."
+  solution="The symmetry group is D_{14} with 14 elements: rotations r⁰, r¹, …, r⁶ and reflections s, rs, r²s, …, r⁶s. For the identity: all 3⁷ = 2187 colorings are fixed. For a rotation rᵏ with 1 ≤ k ≤ 6: a coloring is fixed iff all beads in each orbit of the rotation have the same color. Since 7 is prime, rᵏ has a single 7-cycle, so all 7 beads must be the same color — 3 fixed colorings per rotation. For each of the 7 reflections: a reflection of a 7-bead bracelet fixes one bead and swaps the other 6 in pairs; so we can choose the fixed bead's color (3 choices) and each pair's color (3 choices × 3 pairs) = 3⁴ = 81 fixed colorings per reflection. Total: (2187 + 6·3 + 7·81)/14 = (2187 + 18 + 567)/14 = 2772/14 = 198."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="act-prob-same-order"
+  prompt="Show that two elements in the same conjugacy class have the same order."
+  hint="If h' = ghg⁻¹, compute (h')^n directly."
+  solution="Let h' = ghg⁻¹. By induction, (h')^n = g h^n g⁻¹ for all n ≥ 1. Then (h')^n = 1 iff g h^n g⁻¹ = 1 iff h^n = g⁻¹g = 1. So h and h' have the same order."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="act-prob-burnside-proof"
+  prompt="Prove Burnside's lemma: the number of orbits of G acting on X equals (1/|G|) Σ_{g∈G} |FixPt(g)|."
+  hint="Double-count pairs (g, x) with g·x = x."
+  solution="Count pairs (g, x) with g·x = x in two ways. Summing over g gives Σ_{g∈G} |FixPt(g)|. Summing over x gives Σ_{x∈X} |Stab_G(x)|. By orbit-stabilizer, |Stab_G(x)| = |G|/|𝒪_x|. So Σ_{x∈X} |Stab_G(x)| = Σ_{orbit 𝒪} Σ_{x∈𝒪} (|G|/|𝒪|) = Σ_{orbit 𝒪} |G| = (number of orbits)·|G|. Equating the two counts and dividing by |G| gives the result."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: "Group action — definition"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Group action — definition">
+
+<Callout kind="definition" title="Group action">
+Let $X$ be a set and $G$ a group. A <Term k="groupAction">**group action**</Term> is a binary operation
+$$\cdot \colon G \times X \to X$$
+satisfying two axioms for all $g_1, g_2 \in G$ and $x \in X$:
+1. **Compatibility**: $(g_1 g_2) \cdot x = g_1 \cdot (g_2 \cdot x)$.
+2. **Identity**: $1_G \cdot x = x$.
+</Callout>
+
+Compatibility says "apply $g_2$ then $g_1$" equals "apply the product $g_1 g_2$ at once". The identity axiom says the neutral element does nothing.
+
+Think of the action as a family of bijections $\phi_g \colon X \to X$ (one for each $g \in G$) that compose in the same way as the group elements do: $\phi_{g_1 g_2} = \phi_{g_1} \circ \phi_{g_2}$.
+
+</SlideLayout>

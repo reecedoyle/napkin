@@ -1,0 +1,22 @@
+---
+title: "Group actions — the AIME motivation"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Group actions — the AIME motivation">
+
+Here is a classic competition problem:
+
+<Callout kind="example" title="AIME 1996">
+Two of the squares of a 7×7 checkerboard are painted yellow, and the rest are painted green. Two color schemes are equivalent if one can be obtained from the other by applying a rotation in the plane of the board. How many inequivalent color schemes are possible?
+</Callout>
+
+Let $X$ be the set of all $\binom{49}{2} = 1176$ possible colorings. The group <Term k="Zc">$\Zc{4} = \langle r \mid r^4 = 1 \rangle$</Term> of rotations "acts" on $X$: the generator $r$ sends each coloring $x \in X$ to the coloring $r \cdot x$ obtained by rotating $90°$.
+
+Two colorings are **equivalent** if one can be reached from the other by some element of the group. The problem asks: how many equivalence classes are there?
+
+This is the prototype for the concept of a **group action** — a group operating on a set by relabeling or transforming its elements.
+
+</SlideLayout>

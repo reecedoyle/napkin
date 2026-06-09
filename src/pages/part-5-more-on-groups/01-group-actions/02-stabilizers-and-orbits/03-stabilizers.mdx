@@ -1,0 +1,24 @@
+---
+title: "Stabilizers"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Stabilizers">
+
+<Callout kind="definition" title="Stabilizer">
+The <Term k="stabilizer">**stabilizer**</Term> of a point $x \in X$ is the set of group elements that fix $x$:
+$$\Stab_G(x) \defeq \{ g \in G \mid g \cdot x = x \}.$$
+</Callout>
+
+<Callout kind="example" title="Stabilizer in the AIME setting">
+With $G = \Zc{4}$ acting on checkerboard colorings, let $x$ be the configuration where the two yellow squares are opposite corners. The $180°$ rotation $r^2$ maps opposite corners to themselves, so $r^2$ fixes $x$. But $r$ and $r^3$ move the yellow squares to non-corner positions, so they do not fix $x$. Thus
+$$\Stab_G(x) = \{1, r^2\} \cong \Zc{2}.$$
+</Callout>
+
+<Callout kind="question" title="Check: is Stab_G(x) a subgroup?">
+Verify closure (if $g, h$ fix $x$ then so does $gh$), identity (1_G fixes $x$), and inverses (if $g$ fixes $x$ then $g^{-1}$ fixes $x$).
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: "Burnside — proof sketch via double counting"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Burnside — proof sketch via double counting">
+
+The standard proof is a model of olympiad-style double counting.
+
+<ProofReveal
+  client:load
+  id="act-burn-proof-double-count"
+  prompt="Prove Burnside's lemma: the number of orbits equals (1/|G|) Σ_{g∈G} |FixPt(g)|."
+  solution="Double-count pairs (g, x) with g·x = x. Counting by g gives Σ_{g∈G} |FixPt(g)|. Counting by x gives Σ_{x∈X} |Stab_G(x)|. By orbit-stabilizer, |Stab_G(x)| = |G|/|orbit of x|. Grouping elements by their orbit: Σ_{x∈X} (|G|/|𝒪_x|) = Σ_{orbit 𝒪} Σ_{x∈𝒪} (|G|/|𝒪|) = Σ_{orbit 𝒪} |G| = (number of orbits)·|G|. Dividing both sides by |G| gives the lemma."
+/>
+
+The key insight is that within each orbit every element contributes $|G|/|\mathcal{O}|$ to the sum, and an orbit of size $|\mathcal{O}|$ contributes $|\mathcal{O}| \cdot |G|/|\mathcal{O}| = |G|$. Summing over all orbits and dividing by $|G|$ counts the orbits.
+
+</SlideLayout>

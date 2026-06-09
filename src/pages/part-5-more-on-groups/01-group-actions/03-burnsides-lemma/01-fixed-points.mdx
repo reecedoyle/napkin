@@ -1,0 +1,26 @@
+---
+title: "Fixed points of an action"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fixed points of an action">
+
+To count orbits we introduce a key quantity for each group element.
+
+<Callout kind="definition" title="Fixed points of g">
+For an element $g \in G$ acting on $X$, define
+$$\FixPt(g) \defeq \{ x \in X \mid g \cdot x = x \}.$$
+This is the set of points of $X$ that are fixed by $g$.
+</Callout>
+
+Note the contrast: the <Term k="stabilizer">stabilizer</Term> $\Stab_G(x)$ fixes a point and varies over $G$; here $\FixPt(g)$ fixes a group element and varies over $X$.
+
+There is a double-counting identity connecting the two:
+$$\sum_{g \in G} |\FixPt(g)| = \sum_{x \in X} |\Stab_G(x)|.$$
+Both sides count pairs $(g, x)$ with $g \cdot x = x$, just in different order.
+
+This double-count is the engine behind Burnside's lemma.
+
+</SlideLayout>

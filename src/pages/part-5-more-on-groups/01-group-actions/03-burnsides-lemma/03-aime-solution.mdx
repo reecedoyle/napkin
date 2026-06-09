@@ -1,0 +1,23 @@
+---
+title: "Burnside in action — solving the AIME problem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Burnside in action — solving the AIME problem">
+
+We have <Term k="Zc">$G = \Zc{4} = \{1, r, r^2, r^3\}$</Term> acting on the $\binom{49}{2} = 1176$ colorings.
+
+<Callout kind="example" title="AIME 1996 — counting fixed points">
+For each $g \in G$ we compute $|\FixPt(g)|$:
+
+- $g = 1$: every coloring is fixed, so $|\FixPt(1)| = 1176$.
+- $g = r^2$ (180° rotation): the two yellow squares must be symmetric about the center. There are exactly 24 such pairs (the board has 24 pairs of diametrically opposite squares), so $|\FixPt(r^2)| = 24$.
+- $g = r$ or $g = r^3$ (90° or 270° rotation): any fixed coloring would need the two yellow squares to lie in the same 4-cycle of the rotation, but we are coloring only 2 of 49 squares, and the cycle structure forces a contradiction — no coloring with exactly two yellow squares is fixed. So $|\FixPt(r)| = |\FixPt(r^3)| = 0$.
+</Callout>
+
+By Burnside's lemma, the number of inequivalent color schemes is
+$$\frac{1}{4}(1176 + 24 + 0 + 0) = \frac{1200}{4} = \boxed{300}.$$
+
+</SlideLayout>

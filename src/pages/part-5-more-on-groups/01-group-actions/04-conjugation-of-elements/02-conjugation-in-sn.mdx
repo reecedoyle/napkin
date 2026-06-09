@@ -1,0 +1,21 @@
+---
+title: "Conjugation in S_n — relabeling elements"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Conjugation in S_n — relabeling elements">
+
+Why does $ghg^{-1}$ appear naturally? Consider <Term k="Sn">$G = S_5$</Term>.
+
+<Callout kind="example" title="Conjugation in S_5 is relabeling">
+For any $\sigma \in S_5$ and $\pi \in S_5$, conjugation sends
+$$\sigma \colon \begin{cases} 1 \mapsto 3 \\ 2 \mapsto 1 \\ 3 \mapsto 5 \\ 4 \mapsto 2 \\ 5 \mapsto 4 \end{cases} \quad \longmapsto \quad \pi\sigma\pi^{-1} \colon \begin{cases} \pi(1) \mapsto \pi(3) \\ \pi(2) \mapsto \pi(1) \\ \pi(3) \mapsto \pi(5) \\ \pi(4) \mapsto \pi(2) \\ \pi(5) \mapsto \pi(4) \end{cases}$$
+</Callout>
+
+The permutation $\pi\sigma\pi^{-1}$ has exactly the same **shape** as $\sigma$ — it just **renames** the elements $1, 2, 3, 4, 5$ as $\pi(1), \pi(2), \pi(3), \pi(4), \pi(5)$. So conjugation in $S_n$ exactly preserves cycle type.
+
+By Cayley's theorem every finite group embeds in some $S_n$, so this "relabeling" intuition is universal.
+
+</SlideLayout>

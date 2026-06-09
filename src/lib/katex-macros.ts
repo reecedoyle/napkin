@@ -70,4 +70,9 @@ export const napkinKatexMacros: Record<string, string> = {
   // Trace and Hom — used in dual-space / trace chapter.
   '\\Tr': '\\operatorname{Tr}',
   '\\Hom': '\\operatorname{Hom}',
+
+  // Group actions (Chapter 16) — orbits, stabilizers, fixed points.
+  '\\OO': '\\mathcal{O}',
+  '\\Stab': '\\operatorname{Stab}',
+  '\\FixPt': '\\operatorname{FixPt}',
 };

@@ -1173,6 +1173,61 @@ export const glossary = {
     example: 'A real symmetric matrix (aᵢⱼ = aⱼᵢ) is Hermitian. The matrix [[1, i],[-i, 2]] is Hermitian over ℂ.',
   },
 
+  // ────────────── Chapter 16 — Group actions ──────────────
+  groupAction: {
+    term: 'Group action',
+    symbol: '\\cdot \\colon G \\times X \\to X',
+    definition: 'A way for a group G to act on a set X by a binary operation · satisfying: (g₁g₂)·x = g₁·(g₂·x) (compatibility) and 1_G·x = x (identity). Equivalently, a group homomorphism G → S_X into the symmetric group of bijections of X.',
+    example: 'ℤ/4ℤ acts on the 7×7 checkerboard by 90° rotations. S_n acts on {1,…,n} by σ·k = σ(k).',
+  },
+  orbit: {
+    term: 'Orbit',
+    symbol: '\\mathcal{O}_x',
+    definition: 'The orbit of a point x ∈ X under the action of G is the set of all points reachable from x: 𝒪_x = {g·x : g ∈ G}. Orbits partition X into disjoint equivalence classes under the relation "reachable by a group element".',
+    example: 'For ℤ/4ℤ acting on 7×7 checkerboard colorings by rotation, two colorings are in the same orbit iff one is a rotation of the other.',
+  },
+  stabilizer: {
+    term: 'Stabilizer',
+    symbol: '\\operatorname{Stab}_G(x)',
+    definition: 'The stabilizer of a point x ∈ X is the subgroup of G consisting of elements that fix x: Stab_G(x) = {g ∈ G : g·x = x}. By the orbit-stabilizer theorem, |orbit of x| · |Stab_G(x)| = |G|.',
+    example: 'For ℤ/4ℤ acting on the checkerboard, if x has two yellow squares at opposite corners, then Stab_{ℤ/4}(x) = {1, r²} ≅ ℤ/2ℤ.',
+  },
+  orbitStabilizer: {
+    term: 'Orbit-stabilizer theorem',
+    symbol: '|\\mathcal{O}| \\cdot |\\operatorname{Stab}_G(x)| = |G|',
+    definition: 'For a finite group G acting on X and any point x in orbit 𝒪: |𝒪| · |Stab_G(x)| = |G|. Proved by exhibiting a bijection between 𝒪 and the set of left cosets of Stab_G(x) in G.',
+    example: 'S_4 acts on {1,2,3,4}: the orbit of 1 has size 4, so the stabilizer of 1 has size 24/4 = 6.',
+  },
+  fixedPoints: {
+    term: 'Fixed points of g',
+    symbol: '\\operatorname{FixPt}(g)',
+    definition: 'For an element g of a group G acting on X, FixPt(g) = {x ∈ X : g·x = x} is the set of points fixed by g. Distinct from the stabilizer: the stabilizer fixes a point x and lives in G; FixPt(g) fixes a group element g and lives in X.',
+    example: 'For ℤ/4ℤ acting on checkerboard colorings by rotation, FixPt(r²) consists of the 24 colorings symmetric under 180° rotation.',
+  },
+  burnsideLemma: {
+    term: "Burnside's lemma",
+    symbol: '\\frac{1}{|G|}\\sum_{g \\in G}|\\operatorname{FixPt}(g)|',
+    definition: 'The number of orbits of a group G acting on a finite set X equals (1/|G|)∑_{g∈G}|FixPt(g)|. Proved by double-counting pairs (g,x) with g·x = x. Despite its name, the result is due to Cauchy and Frobenius.',
+    example: 'ℤ/4ℤ on 7×7 checkerboard colorings: (1176 + 24 + 0 + 0)/4 = 300 distinct colorings.',
+  },
+  conjugacyClass: {
+    term: 'Conjugacy class',
+    definition: 'The conjugacy class of an element h ∈ G is the orbit of h under the conjugation action: {ghg⁻¹ : g ∈ G}. Its size equals |G|/|C_G(h)|. Elements in the same class have the same order. For S_n, conjugacy classes correspond to cycle types.',
+    example: 'In S_5, all 3-cycles form one conjugacy class; all permutations of cycle type (3,2) form another.',
+  },
+  centerGroup: {
+    term: 'Center of a group Z(G)',
+    symbol: 'Z(G)',
+    definition: 'The set Z(G) = {x ∈ G : gx = xg for all g ∈ G} of elements that commute with every element. Always a normal subgroup of G. Under conjugation, Z(G) is exactly the set of fixed points — elements whose conjugacy class has size 1.',
+    example: 'Z(S_n) = {id} for n ≥ 3. Z(G) = G when G is abelian.',
+  },
+  centralizer: {
+    term: 'Centralizer C_G(h)',
+    symbol: 'C_G(h)',
+    definition: 'The centralizer of h ∈ G is C_G(h) = {x ∈ G : xh = hx} — the subgroup of elements that commute with h. It is the stabilizer of h under conjugation. By orbit-stabilizer, the conjugacy class of h has size |G|/|C_G(h)|.',
+    example: 'In S_3, the centralizer of a transposition (12) is {id, (12)} ≅ ℤ/2ℤ.',
+  },
+
   // ────────────── Chapter 11 — Dual space and trace ──────────────
   tensorProduct: {
     term: 'Tensor product',
