@@ -1,0 +1,26 @@
+---
+title: Uniqueness — the torsion submodule
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Uniqueness — the torsion submodule">
+
+To prove uniqueness for the full decomposition $M \cong R^{\oplus r} \oplus R/(q_1) \oplus \cdots \oplus R/(q_m)$, we separate the free and torsion parts.
+
+<Callout kind="definition" title="Torsion element and torsion submodule">
+An element $a \in M$ is a <Term k="torsionElem">**torsion element**</Term> if there exists $r \in R$, $r \neq 0$, with $r \cdot a = 0$. The <Term k="torsionSubmod">**torsion submodule**</Term> $\Tor(M)$ is the set of all torsion elements of $M$.
+</Callout>
+
+Key observation: in $M \cong R^{\oplus r} \oplus R/(q_1) \oplus \cdots \oplus R/(q_m)$,
+
+- Any element with zero $R^{\oplus r}$ component is killed by $q_1 q_2 \cdots q_m$, so it is a torsion element.
+- Any element with nonzero $R^{\oplus r}$ component is not torsion (since $R$ is an integral domain and a free summand has no torsion).
+
+Therefore:
+$$\Tor(M) \cong R/(q_1) \oplus \cdots \oplus R/(q_m), \quad M/\Tor(M) \cong R^{\oplus r}.$$
+
+Both pieces are intrinsically determined by $M$, so $r$ and the $q_i$ are unique.
+
+</SlideLayout>

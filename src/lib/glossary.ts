@@ -1223,6 +1223,18 @@ export const glossary = {
     definition: 'An R-module M satisfying the ascending chain condition: there is no infinite strictly ascending chain of submodules M₁ ⊊ M₂ ⊊ ⋯. Equivalently, every submodule of M is finitely generated. A Noetherian ring R is precisely R viewed as a Noetherian R-module.',
     example: 'For a PID R, the free module Rⁿ is Noetherian. ℤ[x₁, x₂, …] with infinitely many variables is not Noetherian.',
   },
+  torsionElem: {
+    term: 'Torsion element',
+    symbol: 'r \\cdot a = 0',
+    definition: 'An element a of an R-module M is a torsion element if there exists a nonzero r ∈ R with r·a = 0. In ℤ-modules (abelian groups) these are the elements of finite order.',
+    example: 'In ℤ/6ℤ every element is torsion (multiplying by 6 kills everything). In ℤ itself the only torsion element is 0.',
+  },
+  torsionSubmod: {
+    term: 'Torsion submodule',
+    symbol: '\\operatorname{Tor}(M)',
+    definition: 'The submodule Tor(M) of an R-module M consisting of all torsion elements. When M ≅ Rʳ ⊕ R/(q₁) ⊕ ⋯ ⊕ R/(qₘ), the torsion submodule is exactly R/(q₁) ⊕ ⋯ ⊕ R/(qₘ) and M/Tor(M) ≅ Rʳ.',
+    example: 'In ℤ ⊕ ℤ/6ℤ, the torsion submodule is {0} ⊕ ℤ/6ℤ ≅ ℤ/6ℤ.',
+  },
   cokernel: {
     term: 'Cokernel',
     symbol: '\\operatorname{coker} T',
