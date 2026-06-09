@@ -1,0 +1,24 @@
+---
+title: Smith normal form — worked example over ℤ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smith normal form — worked example over ℤ">
+
+Let's compute the <Term k="smithFactors">Smith normal form</Term> of the $\ZZ$-matrix
+$$T = \begin{pmatrix} 18 & 38 & 48 \\ 14 & 30 & 32 \end{pmatrix}.$$
+
+The GCD of all entries is $2$. We apply the Euclidean algorithm to the first column: subtract the second row from the first, then subtract three times that from the second:
+$$\begin{pmatrix} 18 & 38 & 48 \\ 14 & 30 & 32 \end{pmatrix} \to \begin{pmatrix} 4 & 8 & 16 \\ 14 & 30 & 32 \end{pmatrix} \to \begin{pmatrix} 4 & 8 & 16 \\ 2 & 6 & -16 \end{pmatrix}.$$
+
+Swap rows, then kill the rest of the first row and column using $s_1 = 2$:
+$$\to \begin{pmatrix} 2 & 6 & -16 \\ 4 & 8 & 16 \end{pmatrix} \to \begin{pmatrix} 2 & 0 & 0 \\ 0 & -4 & 48 \end{pmatrix}.$$
+
+Now apply the Euclidean algorithm to the $1 \times 2$ lower-right block $(-4, 48)$. Since $4 \mid 48$, we can kill the $48$ directly:
+$$\to \begin{pmatrix} 2 & 0 & 0 \\ 0 & -4 & 0 \end{pmatrix} \to \begin{pmatrix} 2 & 0 & 0 \\ 0 & 4 & 0 \end{pmatrix}.$$
+
+The Smith normal form is $\operatorname{diag}(2, 4)$. Check: $2 \mid 4$. The cokernel is $\Zc{2} \oplus \Zc{4} \oplus \ZZ$.
+
+</SlideLayout>

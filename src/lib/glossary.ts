@@ -1223,6 +1223,12 @@ export const glossary = {
     definition: 'An R-module M satisfying the ascending chain condition: there is no infinite strictly ascending chain of submodules M₁ ⊊ M₂ ⊊ ⋯. Equivalently, every submodule of M is finitely generated. A Noetherian ring R is precisely R viewed as a Noetherian R-module.',
     example: 'For a PID R, the free module Rⁿ is Noetherian. ℤ[x₁, x₂, …] with infinitely many variables is not Noetherian.',
   },
+  smithFactors: {
+    term: 'Smith invariant factors',
+    symbol: 's_1 \\mid s_2 \\mid \\cdots \\mid s_k',
+    definition: 'The diagonal entries s₁, s₂, …, sₖ in the Smith normal form of a matrix T over a PID, satisfying s₁ ∣ s₂ ∣ ⋯ ∣ sₖ. They are unique up to units and determine the cokernel of T as R/(s₁) ⊕ ⋯ ⊕ R/(sₖ) ⊕ Rʳ.',
+    example: 'The Smith normal form of [[18,38,48],[14,30,32]] over ℤ is diag(2,4); the cokernel is ℤ/2ℤ ⊕ ℤ/4ℤ ⊕ ℤ.',
+  },
   torsionElem: {
     term: 'Torsion element',
     symbol: 'r \\cdot a = 0',

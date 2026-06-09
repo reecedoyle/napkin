@@ -1,0 +1,22 @@
+---
+title: Smith normal form — the theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smith normal form — the theorem">
+
+<Callout kind="theorem" title="Smith normal form">
+Let $R$ be a <Term k="pid">PID</Term>, and let $T \colon R^{\oplus m} \to R^{\oplus n}$ be a linear map. Set $k = \min\{m, n\}$. Then there exist bases for $R^{\oplus m}$ and $R^{\oplus n}$ in which $T$ has matrix
+$$\begin{pmatrix} s_1 & & & \\ & s_2 & & \\ & & \ddots & \\ & & & s_k \end{pmatrix}$$
+with $s_1 \mid s_2 \mid \dots \mid s_k$ (and all off-diagonal entries zero).
+</Callout>
+
+The $s_i$ are called the <Term k="smithFactors">**Smith invariant factors**</Term> of $T$. They are unique up to multiplication by units and are the same as the invariant factors of the cokernel module $\operatorname{coker}(T) = R^{\oplus n}/\operatorname{im}(T)$.
+
+<Callout kind="remark" title="Smith vs Jordan">
+In Jordan form, the source and target are the same space and we pick **one** basis. In Smith form, source and target are different free modules, so we pick **two** independent bases — giving the stronger diagonal (not just upper-triangular) normal form.
+</Callout>
+
+</SlideLayout>
