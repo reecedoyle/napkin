@@ -1,0 +1,20 @@
+---
+title: "Examples of group actions"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of group actions">
+
+<Callout kind="example" title="Examples of group actions">
+- <Term k="Zc">$\Zc{4}$</Term> acts on the 7×7 checkerboard colorings by rotation (the AIME example).
+- $\Zc{4} = \langle r \rangle$ acts on <Term k="RR">$\RR^2$</Term> by $r \cdot (x,y) = (y,-x)$ — a $90°$ rotation.
+- The <Term k="Dn">dihedral group $D_{2n}$</Term> acts on the set of colorings of the vertices of a regular $n$-gon.
+- The <Term k="Sn">symmetric group $S_n$</Term> acts on $\{1, 2, \ldots, n\}$ by applying the permutation: $\sigma \cdot x \defeq \sigma(x)$.
+- Any group $G$ acts on itself by left multiplication: $g \cdot g' \defeq g \star g'$.
+</Callout>
+
+The last example — $G$ acting on itself — is deceptively powerful. It is the key ingredient in Cayley's theorem, which embeds every finite group into a symmetric group.
+
+</SlideLayout>

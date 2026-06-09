@@ -1,0 +1,30 @@
+---
+title: "Actions as homomorphisms into S_X"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Actions as homomorphisms into S_X">
+
+There is a cleaner way to say what a group action is.
+
+<Callout kind="proposition" title="Actions as homomorphisms">
+A group action of $G$ on $X$ is equivalent to a <Term k="homomorphism">group homomorphism</Term>
+$$\phi \colon G \to S_X,$$
+where $S_X$ is the <Term k="Sn">symmetric group</Term> of all bijections $X \to X$.
+</Callout>
+
+Given an action, define $\phi(g) = (x \mapsto g \cdot x)$. The compatibility axiom $(g_1 g_2) \cdot x = g_1 \cdot (g_2 \cdot x)$ is exactly $\phi(g_1 g_2) = \phi(g_1) \circ \phi(g_2)$, i.e., $\phi$ is a homomorphism. The identity axiom $1_G \cdot x = x$ says $\phi(1_G) = \id_X$, so the identity lands on the identity permutation.
+
+Conversely, any homomorphism $\phi \colon G \to S_X$ defines an action via $g \cdot x \defeq \phi(g)(x)$.
+
+<ProofReveal
+  client:load
+  id="act-def-proof-hom-view"
+  prompt="Why does the identity axiom follow from φ being a group homomorphism (without stating it separately)?"
+  solution="A group homomorphism sends the identity to the identity: φ(1_G) = id_{S_X} (the identity permutation). So 1_G · x = φ(1_G)(x) = id_X(x) = x. The identity axiom is a consequence of φ respecting the group structure."
+/>
+
+</SlideLayout>

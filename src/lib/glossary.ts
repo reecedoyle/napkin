@@ -1173,6 +1173,14 @@ export const glossary = {
     example: 'A real symmetric matrix (aᵢⱼ = aⱼᵢ) is Hermitian. The matrix [[1, i],[-i, 2]] is Hermitian over ℂ.',
   },
 
+  // ────────────── Chapter 16 — Group actions ──────────────
+  groupAction: {
+    term: 'Group action',
+    symbol: '\\cdot \\colon G \\times X \\to X',
+    definition: 'A way for a group G to act on a set X by a binary operation · satisfying: (g₁g₂)·x = g₁·(g₂·x) (compatibility) and 1_G·x = x (identity). Equivalently, a group homomorphism G → S_X into the symmetric group of bijections of X.',
+    example: 'ℤ/4ℤ acts on the 7×7 checkerboard by 90° rotations. S_n acts on {1,…,n} by σ·k = σ(k).',
+  },
+
   // ────────────── Chapter 11 — Dual space and trace ──────────────
   tensorProduct: {
     term: 'Tensor product',
