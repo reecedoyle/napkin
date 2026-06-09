@@ -1,0 +1,32 @@
+---
+title: Rank of a finitely generated abelian group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Rank of a finitely generated abelian group">
+
+<Callout kind="definition" title="Rank">
+The <Term k="abelianRank">**rank**</Term> of a <Term k="fgAbelian">finitely generated abelian group</Term> $G$ is the integer $r$ appearing in the decomposition
+$$G \cong \ZZ^{\oplus r} \oplus \Zc{q_1} \oplus \dots \oplus \Zc{q_m}.$$
+</Callout>
+
+The rank measures the "free" part of $G$. Groups with rank 0 are finite (they are products of cyclic groups of prime-power order). Groups with rank $> 0$ are infinite.
+
+<MCQ
+  client:load
+  id="pid-fg-mcq-rank"
+  prompt="What is the rank of the group ℤ ⊕ ℤ/4ℤ ⊕ ℤ/9ℤ?"
+  options={[
+    { id: "a", label: "0" },
+    { id: "b", label: "1" },
+    { id: "c", label: "2" },
+    { id: "d", label: "3" },
+  ]}
+  correct="b"
+  explanation="The group has one free ℤ summand and two finite cyclic summands. The rank counts only the free copies of ℤ, so the rank is 1."
+/>
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Classification of finitely generated abelian groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Classification of finitely generated abelian groups">
+
+The examples from the previous slide turn out to be the only examples:
+
+<Callout kind="theorem" title="Fundamental theorem of finitely generated abelian groups">
+Let $G$ be a <Term k="fgAbelian">finitely generated abelian group</Term>. Then there exist an integer $r \geq 0$ and prime powers $q_1, \dots, q_m$ (not necessarily distinct) such that
+$$G \cong \ZZ^{\oplus r} \oplus \Zc{q_1} \oplus \dots \oplus \Zc{q_m}.$$
+This decomposition is unique up to permutation of the $\Zc{q_i}$.
+</Callout>
+
+The integer $r$ is called the <Term k="abelianRank">**rank**</Term> of $G$; it counts the "free" copies of $\ZZ$.
+
+This theorem is actually a corollary of a much more general fact — the **PID structure theorem** — which applies to any finitely generated module over any PID. Our chapter proves that general theorem, and the abelian group classification falls out as a special case (take $R = \ZZ$).
+
+<NumericInput
+  client:load
+  id="pid-fg-num-z3z5-generators"
+  prompt="The group ℤ/3ℤ ⊕ ℤ/5ℤ is finitely generated. What is the minimum number of generators it needs?"
+  expected="1"
+/>
+
+</SlideLayout>
