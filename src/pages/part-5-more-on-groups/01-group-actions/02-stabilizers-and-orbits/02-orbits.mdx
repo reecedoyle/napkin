@@ -1,0 +1,23 @@
+---
+title: "Orbits"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Orbits">
+
+<Callout kind="definition" title="Orbit">
+The <Term k="orbit">**orbit**</Term> of a point $x \in X$ under the action of $G$ is the set of all points reachable from $x$:
+$$\OO_x \defeq \{ g \cdot x \mid g \in G \} \subseteq X.$$
+</Callout>
+
+Orbits partition $X$ into disjoint equivalence classes — every element of $X$ belongs to exactly one orbit. The AIME problem asks for the number of orbits.
+
+For example, if $G = \Zc{4}$ acts on the checkerboard colorings by rotation:
+- All four rotations of a given configuration land in the same orbit.
+- Configurations that cannot be rotated into each other are in different orbits.
+
+The number of orbits is the answer to "how many truly distinct configurations are there?" — this is what Burnside's lemma computes.
+
+</SlideLayout>

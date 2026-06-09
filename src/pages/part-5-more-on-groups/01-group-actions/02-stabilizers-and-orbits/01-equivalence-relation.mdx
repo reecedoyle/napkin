@@ -1,0 +1,26 @@
+---
+title: "Orbits — the induced equivalence relation"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Orbits — the induced equivalence relation">
+
+Given a <Term k="groupAction">group action</Term> of $G$ on $X$, define a relation $\sim$ on $X$ by
+$$x \sim y \iff x = g \cdot y \text{ for some } g \in G.$$
+
+In the AIME example, $x \sim y$ means "one coloring can be rotated into the other".
+
+<Callout kind="question" title="Check: is this an equivalence relation?">
+Verify reflexivity ($x \sim x$), symmetry ($x \sim y \Rightarrow y \sim x$), and transitivity ($x \sim y, y \sim z \Rightarrow x \sim z$) using the two group action axioms.
+</Callout>
+
+The answer is yes:
+- **Reflexive**: $1_G \cdot x = x$ by the identity axiom.
+- **Symmetric**: if $x = g \cdot y$ then $y = g^{-1} \cdot x$ (since $g^{-1} \cdot (g \cdot y) = (g^{-1}g) \cdot y = 1_G \cdot y = y$).
+- **Transitive**: if $x = g_1 \cdot y$ and $y = g_2 \cdot z$, then $x = (g_1 g_2) \cdot z$ by compatibility.
+
+The equivalence classes are called the **orbits** of the action.
+
+</SlideLayout>

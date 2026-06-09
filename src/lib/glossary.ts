@@ -1180,6 +1180,24 @@ export const glossary = {
     definition: 'A way for a group G to act on a set X by a binary operation · satisfying: (g₁g₂)·x = g₁·(g₂·x) (compatibility) and 1_G·x = x (identity). Equivalently, a group homomorphism G → S_X into the symmetric group of bijections of X.',
     example: 'ℤ/4ℤ acts on the 7×7 checkerboard by 90° rotations. S_n acts on {1,…,n} by σ·k = σ(k).',
   },
+  orbit: {
+    term: 'Orbit',
+    symbol: '\\mathcal{O}_x',
+    definition: 'The orbit of a point x ∈ X under the action of G is the set of all points reachable from x: 𝒪_x = {g·x : g ∈ G}. Orbits partition X into disjoint equivalence classes under the relation "reachable by a group element".',
+    example: 'For ℤ/4ℤ acting on 7×7 checkerboard colorings by rotation, two colorings are in the same orbit iff one is a rotation of the other.',
+  },
+  stabilizer: {
+    term: 'Stabilizer',
+    symbol: '\\operatorname{Stab}_G(x)',
+    definition: 'The stabilizer of a point x ∈ X is the subgroup of G consisting of elements that fix x: Stab_G(x) = {g ∈ G : g·x = x}. By the orbit-stabilizer theorem, |orbit of x| · |Stab_G(x)| = |G|.',
+    example: 'For ℤ/4ℤ acting on the checkerboard, if x has two yellow squares at opposite corners, then Stab_{ℤ/4}(x) = {1, r²} ≅ ℤ/2ℤ.',
+  },
+  orbitStabilizer: {
+    term: 'Orbit-stabilizer theorem',
+    symbol: '|\\mathcal{O}| \\cdot |\\operatorname{Stab}_G(x)| = |G|',
+    definition: 'For a finite group G acting on X and any point x in orbit 𝒪: |𝒪| · |Stab_G(x)| = |G|. Proved by exhibiting a bijection between 𝒪 and the set of left cosets of Stab_G(x) in G.',
+    example: 'S_4 acts on {1,2,3,4}: the orbit of 1 has size 4, so the stabilizer of 1 has size 24/4 = 6.',
+  },
 
   // ────────────── Chapter 11 — Dual space and trace ──────────────
   tensorProduct: {

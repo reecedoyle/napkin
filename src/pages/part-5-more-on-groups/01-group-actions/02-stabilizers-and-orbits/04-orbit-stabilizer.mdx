@@ -1,0 +1,20 @@
+---
+title: "Orbit-stabilizer theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Orbit-stabilizer theorem">
+
+<Callout kind="theorem" title="Orbit-stabilizer theorem">
+Let $G$ act on $X$, and let $\OO$ be an orbit with $x \in \OO$. Set $S = \Stab_G(x)$. There is a natural bijection between $\OO$ and the set of <Term k="leftCoset">left cosets</Term> of $S$ in $G$. In particular,
+$$|\OO| \cdot |S| = |G|.$$
+Moreover, the stabilizers of all $y \in \OO$ have the same size.
+</Callout>
+
+**Why the bijection works.** Each coset $gS$ specifies the point $g \cdot x \in \OO$. If $g' \in gS$ then $g' = gs$ for some $s \in S$, so $g' \cdot x = g \cdot (s \cdot x) = g \cdot x$ (since $s$ fixes $x$). So the map $gS \mapsto g \cdot x$ is well-defined. It is a bijection because every $y \in \OO$ is $g \cdot x$ for some $g$, and two elements sending $x$ to the same target differ by an element of $S$.
+
+Since the $|\OO|$ cosets of $S$ partition $G$ and each has size $|S|$, we get $|G| = |\OO| \cdot |S|$.
+
+</SlideLayout>
