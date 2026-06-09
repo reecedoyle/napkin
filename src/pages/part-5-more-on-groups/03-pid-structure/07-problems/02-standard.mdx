@@ -1,0 +1,29 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+Two problems that push the structure theorem further.
+
+<Problem
+  client:load
+  id="pid-prob-noniso-with-injections"
+  prompt="Find two abelian groups G and H that are not isomorphic, but for which there exist injective homomorphisms G ↪ H and H ↪ G. (Hint: the structure theorem almost rules out finitely generated examples — look for infinitely generated ones.)"
+  hint="The structure theorem says finitely generated abelian groups are classified, so any two with injections both ways must be isomorphic. Think about infinite direct sums where you can shift index."
+  solution="Take G = ℤ/3ℤ ⊕ ℤ/9ℤ ⊕ ℤ/9ℤ ⊕ ℤ/9ℤ ⊕ ⋯ and H = ℤ/9ℤ ⊕ ℤ/9ℤ ⊕ ℤ/9ℤ ⊕ ⋯. There is an injection G ↪ H (send the ℤ/3ℤ summand to a ℤ/9ℤ summand and shift the rest) and H ↪ G (shift the index). But G ≇ H because G has an element of order 3 (the generator of the first summand) that is not divisible by 3 within G, while in H every element of order 3 is 3 times an element of order 9."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="pid-prob-rings-fg-counterexample"
+  prompt="Let A ⊆ B ⊆ C be rings. Suppose C is a finitely generated A-module. Must B be a finitely generated A-module?"
+  hint="The answer is yes when A is Noetherian (B is a submodule of a Noetherian module). Look for a counterexample where A is not Noetherian."
+  solution="No. Take A = ℤ[x₁, x₂, …] (polynomial ring in infinitely many variables), and introduce an element ε with ε² = 0 but ε ≠ 0. Set B = ℤ[x₁, x₂, …, εx₁, εx₂, …] and C = ℤ[x₁, x₂, …, ε]. Then C is generated over A by {1, ε}, so C is a finitely generated A-module. But B requires εx₁, εx₂, … as generators over A, and no finite subset suffices since the xᵢ are algebraically independent. So B is not finitely generated over A."
+  difficulty="standard"
+/>
+
+</SlideLayout>

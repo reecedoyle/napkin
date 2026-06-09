@@ -1,0 +1,38 @@
+---
+title: Problems — daggered
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — daggered">
+
+Three daggered problems applying the structure theorem to vector spaces and matrix normal forms.
+
+<Problem
+  client:load
+  id="pid-prob-vector-spaces-iso"
+  prompt="A vector space V over a field k has a finite spanning set of vectors. Show that V ≅ k^n for some n. (Hint: in the structure theorem, k/(sᵢ) ∈ {0, k}.)"
+  hint="Apply the structure theorem with R = k. A field has only two ideals, (0) and k itself, so each sᵢ is either 0 or a unit."
+  solution="View V as a finitely generated k-module. Since k is a PID, the structure theorem gives V ≅ ⊕ᵢ k/(sᵢ). For each i: if sᵢ = 0 then k/(0) = k, contributing a free summand; if sᵢ ≠ 0 then sᵢ is a unit (k is a field), so k/(sᵢ) = 0. Thus every summand is either k or 0, and V ≅ kⁿ where n is the number of nonzero summands."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="pid-prob-frobenius-form"
+  prompt="Let T: V → V where V is a finite-dimensional vector space over any field k. Show that T can be written as a block-diagonal matrix whose blocks are companion matrices (with 0, 1 down the subdiagonal and arbitrary entries in the last column). (Hint: view V as a k[x]-module with x·v = T(v).)"
+  hint="Apply the structure theorem to the k[x]-module V: V ≅ ⊕ᵢ k[x]/(sᵢ). Each cyclic summand k[x]/(s) has basis {1, x, x², …, x^(deg s - 1)}, and T acts on this basis by the companion matrix of s."
+  solution="Make V into a k[x]-module by x·v = T(v). Since k is a PID so is k[x] (it is a Euclidean domain), and V is finitely generated. The structure theorem gives V ≅ ⊕ᵢ k[x]/(sᵢ). Each summand k[x]/(s) with s = xᵈ + aₐ₋₁xᵈ⁻¹ + ⋯ + a₀ has k-basis {1, x, …, xᵈ⁻¹}, and multiplication by x in this basis gives the companion matrix of s (with 1s on the subdiagonal and the coefficients of s in the last column). The block-diagonal assembly of these companion matrices is the Frobenius normal form of T."
+  difficulty="daggered"
+/>
+
+<Problem
+  client:load
+  id="pid-prob-jordan-form"
+  prompt="Let T: V → V where V is a finite-dimensional vector space over an algebraically closed field k. Prove that T can be written in Jordan normal form. (Hint: use the primary form of the structure theorem; each sᵢ splits into linear factors.)"
+  hint="In the k[x]-module decomposition from the Frobenius problem, use the primary form instead: V ≅ ⊕ᵢ k[x]/(pᵢ^eᵢ). Since k is algebraically closed, every prime element of k[x] is linear: pᵢ = x − λᵢ."
+  solution="As in the Frobenius problem, write V ≅ ⊕ᵢ k[x]/(sᵢ) as a k[x]-module. Use the primary (not invariant) form: V ≅ ⊕ᵢ k[x]/(x−λᵢ)^eᵢ since k is algebraically closed. The summand k[x]/(x−λ)^e has basis {1, (x−λ), …, (x−λ)^(e−1)}, on which T acts with eigenvalue λ and a single Jordan block. Assembling these blocks gives the Jordan normal form."
+  difficulty="daggered"
+/>
+
+</SlideLayout>
