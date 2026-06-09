@@ -1,0 +1,22 @@
+---
+title: "Conjugation — G acting on itself"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Conjugation — G acting on itself">
+
+The most important self-action of a group is conjugation.
+
+<Callout kind="definition" title="Conjugation action">
+A group $G$ acts on itself by **conjugation**:
+$$g \colon h \mapsto ghg\inv.$$
+The orbit of $h$ under this action is called the <Term k="conjugacyClass">**conjugacy class**</Term> of $h$.
+</Callout>
+
+The element $ghg^{-1}$ is called the <Term k="conjugate">conjugate of $h$ by $g$</Term>. At first this looks artificial, but the next slide reveals why it's natural.
+
+Note that the stabilizer of $h$ under conjugation is exactly the set of $g$ that commute with $h$: $g \cdot h = ghg^{-1} = h \iff gh = hg$. This is the **centralizer** $C_G(h) = \{g \in G \mid gh = hg\}$.
+
+</SlideLayout>

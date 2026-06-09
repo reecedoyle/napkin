@@ -1210,6 +1210,23 @@ export const glossary = {
     definition: 'The number of orbits of a group G acting on a finite set X equals (1/|G|)∑_{g∈G}|FixPt(g)|. Proved by double-counting pairs (g,x) with g·x = x. Despite its name, the result is due to Cauchy and Frobenius.',
     example: 'ℤ/4ℤ on 7×7 checkerboard colorings: (1176 + 24 + 0 + 0)/4 = 300 distinct colorings.',
   },
+  conjugacyClass: {
+    term: 'Conjugacy class',
+    definition: 'The conjugacy class of an element h ∈ G is the orbit of h under the conjugation action: {ghg⁻¹ : g ∈ G}. Its size equals |G|/|C_G(h)|. Elements in the same class have the same order. For S_n, conjugacy classes correspond to cycle types.',
+    example: 'In S_5, all 3-cycles form one conjugacy class; all permutations of cycle type (3,2) form another.',
+  },
+  centerGroup: {
+    term: 'Center of a group Z(G)',
+    symbol: 'Z(G)',
+    definition: 'The set Z(G) = {x ∈ G : gx = xg for all g ∈ G} of elements that commute with every element. Always a normal subgroup of G. Under conjugation, Z(G) is exactly the set of fixed points — elements whose conjugacy class has size 1.',
+    example: 'Z(S_n) = {id} for n ≥ 3. Z(G) = G when G is abelian.',
+  },
+  centralizer: {
+    term: 'Centralizer C_G(h)',
+    symbol: 'C_G(h)',
+    definition: 'The centralizer of h ∈ G is C_G(h) = {x ∈ G : xh = hx} — the subgroup of elements that commute with h. It is the stabilizer of h under conjugation. By orbit-stabilizer, the conjugacy class of h has size |G|/|C_G(h)|.',
+    example: 'In S_3, the centralizer of a transposition (12) is {id, (12)} ≅ ℤ/2ℤ.',
+  },
 
   // ────────────── Chapter 11 — Dual space and trace ──────────────
   tensorProduct: {
