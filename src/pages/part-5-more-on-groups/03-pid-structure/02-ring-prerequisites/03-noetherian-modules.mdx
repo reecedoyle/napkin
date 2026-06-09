@@ -1,0 +1,26 @@
+---
+title: Noetherian modules
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Noetherian modules">
+
+The concept of a Noetherian ring generalises to modules:
+
+<Callout kind="definition" title="Noetherian module">
+An $R$-module $M$ is <Term k="noetherianModule">**Noetherian**</Term> if it satisfies either of the following equivalent conditions:
+- **ACC:** There is no infinite strictly ascending chain $M_1 \subsetneq M_2 \subsetneq \cdots$ of submodules.
+- **Finite generation:** Every submodule of $M$ (including $M$ itself) is finitely generated.
+</Callout>
+
+A Noetherian ring $R$ is exactly one for which $R$ is Noetherian as an $R$-module.
+
+**Key fact.** If $R$ is a PID then $R$ is Noetherian (as a ring), which implies $R^{\oplus d}$ is Noetherian as an $R$-module. This will be used in the proof of the structure theorem to show that every submodule of a finitely generated free $R$-module is itself finitely generated.
+
+<Callout kind="remark" title="Why this matters">
+The structure theorem needs: "any submodule of a finitely generated free module over a PID is finitely generated." This follows from $R^{\oplus d}$ being Noetherian.
+</Callout>
+
+</SlideLayout>

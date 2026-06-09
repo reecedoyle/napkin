@@ -1,0 +1,42 @@
+---
+title: Structure theorem — primary decomposition form
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Structure theorem — primary decomposition form">
+
+The Chinese Remainder Theorem lets us refine the invariant form further by splitting each $R/(s_i)$ along its prime factors:
+
+<Callout kind="corollary" title="Structure theorem — primary form">
+Let $R$ be a <Term k="pid">PID</Term> and $M$ a finitely generated $R$-module. Then
+$$M \cong R^{\oplus r} \oplus R/(q_1) \oplus R/(q_2) \oplus \dots \oplus R/(q_m)$$
+where each $q_i = p_i^{e_i}$ for some <Term k="primeElement">prime element</Term> $p_i \in R$ and integer $e_i \geq 1$.
+</Callout>
+
+**Proof sketch.** Factor each invariant factor $s_i$ into prime powers. Apply CRT: $R/(p^a q^b) \cong R/(p^a) \times R/(q^b)$ when $(p)$ and $(q)$ are coprime prime ideals.
+
+The quantities $r$ and $q_1, \dots, q_m$ are unique up to permutation (we prove this in the uniqueness section).
+
+<Callout kind="remark" title="Two forms of one theorem">
+- **Invariant form**: summands linked by $s_1 \mid s_2 \mid \cdots$; good for theoretical arguments.
+- **Primary form**: summands are prime-power cyclic modules; good for concrete computations.
+</Callout>
+
+<MCQ
+  client:load
+  id="pid-st-mcq-primary-form"
+  prompt="Which primary form matches ℤ/6ℤ as a ℤ-module?"
+  options={[
+    { id: "a", label: "ℤ/2ℤ ⊕ ℤ/3ℤ" },
+    { id: "b", label: "ℤ/6ℤ only (cannot split)" },
+    { id: "c", label: "ℤ/2ℤ ⊕ ℤ/2ℤ ⊕ ℤ/3ℤ" },
+    { id: "d", label: "ℤ/3ℤ ⊕ ℤ/3ℤ" },
+  ]}
+  correct="a"
+  explanation="By CRT, ℤ/6ℤ ≅ ℤ/2ℤ ⊕ ℤ/3ℤ since gcd(2,3)=1. Each summand is a prime-power cyclic module. The other options are wrong — they change the order or add extra summands."
+/>
+
+</SlideLayout>

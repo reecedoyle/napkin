@@ -1,0 +1,28 @@
+---
+title: Uniqueness — prime power exponents via dimension counting
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Uniqueness — prime power exponents via dimension counting">
+
+It remains to show that the prime powers $q_i = p_i^{e_i}$ are unique. Fix a prime element $p$ and focus on the summands with that prime.
+
+**Key idea.** For an $R$-module $M$ and any prime $p$, define the quotients
+$$p^e M / p^{e+1} M.$$
+These are vector spaces over the field $R/(p)$. Their dimensions are intrinsic to $M$ and recover the exponents.
+
+<Callout kind="lemma" title="Quotient is a vector space over R/(p)">
+For each $e \geq 0$, the module $p^e M / p^{e+1} M$ is naturally an $R/(p)$-vector space.
+</Callout>
+
+**Example.** Take $R = \ZZ$, $p = 3$, $M = \Zc{9} \oplus \Zc{243}$. Then:
+- $\dim(M/3M) = 2$, $\dim(3M/9M) = 2$, $\dim(9M/27M) = 1$, etc.
+
+Reading off the dimensions tells you the exponents $e_i$ precisely. For summand $R/(p^{e_i})$:
+$$\dim\bigl(p^e R/(p^{e_i}) \,/\, p^{e+1} R/(p^{e_i})\bigr) = \begin{cases} 1 & e < e_i \\ 0 & e \geq e_i. \end{cases}$$
+
+The sequence of dimensions is an intrinsic invariant of $M$, so the exponents are unique up to permutation.
+
+</SlideLayout>

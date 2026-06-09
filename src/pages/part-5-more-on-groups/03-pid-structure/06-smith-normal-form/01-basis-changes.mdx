@@ -1,0 +1,23 @@
+---
+title: Smith normal form — allowed basis changes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smith normal form — allowed basis changes">
+
+We want to simplify the matrix of the linear map $T \colon R^{\oplus m} \to R^{\oplus n}$. Since we have two separate free modules, we can change the basis of each independently.
+
+<Callout kind="remark" title="Permitted operations">
+- **Swap rows or columns.** Reorders the basis elements.
+- **Add $c$ times a column to another column.** Replaces $e_j \mapsto e_j + c\, e_i$ in the source basis.
+- **Add $c$ times a row to another row.** Replaces $f_i \mapsto f_i - c\, f_j$ in the target basis.
+- **Multiply a row or column by a unit.** Scales a basis element.
+</Callout>
+
+More formally, replacing $T$ with $AT$ (where $A$ is an invertible $n \times n$ matrix) changes the target basis. Replacing $T$ with $TB$ (where $B$ is an invertible $m \times m$ matrix) changes the source basis.
+
+The difference from Jordan form: there we had **one** module $V$ with **one** basis to change. Here we have **two** modules with **two** independent bases, giving much more flexibility — we expect to get a diagonal (not just triangular) result.
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: Smith normal form — proof via the Euclidean algorithm
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smith normal form — proof via the Euclidean algorithm">
+
+The general proof generalises the worked example:
+
+<Callout kind="remark" title="Proof strategy">
+1. Let $s_1 = \gcd$ of all entries of $T$.
+2. Use row/column operations to move $s_1$ to the upper-left corner.
+3. Use $s_1$ to kill all other entries in its row and column (possible because $s_1$ divides them all).
+4. Recurse on the lower-right $(m-1) \times (n-1)$ submatrix.
+</Callout>
+
+The key lemma justifying step 2 is a "Euclidean algorithm" for rows/columns:
+
+<Callout kind="lemma" title="GCD via row/column operations">
+If $a$ and $b$ are entries in the same row or column, there is a sequence of basis changes that replaces $a$ with $\gcd(a,b)$.
+</Callout>
+
+**Proof.** Write $\gcd(a,b) = xa + yb$. Since $R$ is a PID, $(x,y) = (1)$, so find $u,v$ with $xu + yv = 1$. The invertible matrix
+$$\begin{pmatrix} x & y \\ -v & u \end{pmatrix}$$
+applied to the column $\binom{a}{b}$ yields $\binom{\gcd(a,b)}{\text{something}}$, as required.
+
+Repeating this argument finitely many times (the GCD process terminates since $R$ is Noetherian) produces the Smith normal form.
+
+</SlideLayout>

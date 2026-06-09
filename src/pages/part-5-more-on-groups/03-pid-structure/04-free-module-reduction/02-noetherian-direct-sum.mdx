@@ -1,0 +1,31 @@
+---
+title: Direct sums of Noetherian modules are Noetherian
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Direct sums of Noetherian modules are Noetherian">
+
+To justify that $K$ is finitely generated, we need:
+
+<Callout kind="lemma" title="Direct sum of Noetherian modules is Noetherian">
+If $M$ and $N$ are <Term k="noetherianModule">Noetherian</Term> $R$-modules, then $M \oplus N$ is also Noetherian.
+</Callout>
+
+The naive guess — that any submodule $L \subseteq M \oplus N$ splits as $P \oplus Q$ — fails. For example $M = N = \ZZ$ has the submodule $L = \{(n,n) \mid n \in \ZZ\}$ which is not a direct sum.
+
+The correct proof uses an asymmetric construction. Define:
+$$A = \{x \in M \mid (x, 0) \in L\}, \quad B = \{y \in N \mid \exists x : (x,y) \in L\}.$$
+
+Both $A \subseteq M$ and $B \subseteq N$ are submodules, so they are finitely generated (since $M$ and $N$ are Noetherian). Generators for $A$ and $B$ together generate all of $L$.
+
+<ProofReveal
+  client:load
+  id="pid-free-proof-rdn-noetherian"
+  prompt="Explain in one sentence why generators of A and generators of B together generate L."
+  solution="Every element (x, y) ∈ L has y ∈ B so write y = Σ rᵢbᵢ; then (x, y) − Σ rᵢyᵢ lies in A ⊕ {0} and is handled by the generators of A, so x₁, …, xₖ, y₁, …, y_ℓ together generate L."
+/>
+
+</SlideLayout>

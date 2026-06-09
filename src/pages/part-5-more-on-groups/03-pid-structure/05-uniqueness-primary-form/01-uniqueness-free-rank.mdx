@@ -1,0 +1,24 @@
+---
+title: Uniqueness — the free rank is well-defined
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Uniqueness — the free rank is well-defined">
+
+The structure theorem says $M$ decomposes as $R^{\oplus r} \oplus R/(q_1) \oplus \cdots \oplus R/(q_m)$. But is this decomposition unique? We prove it is.
+
+First, the free part:
+
+<Callout kind="theorem" title="Uniqueness of free rank">
+For a commutative integral domain $R$, if a free module $M$ has a finite basis, then every other basis has the same number of elements.
+</Callout>
+
+The proof passes to the fraction field. Let $F = \Frac(R)$ and embed $M \cong R^n$ into the $F$-vector space $V \cong F^n$.
+
+**Proof.** Suppose $w_1, \dots, w_m \in M$ with $m > n$. Viewed in $V$, there exist $f_1, \dots, f_m \in F$ not all zero with $\sum f_i w_i = 0$ (since $\dim_F V = n < m$). Clear denominators: multiply through to get $r_i \in R$ not all zero with $\sum r_i w_i = 0$. So $w_1, \dots, w_m$ are linearly dependent over $R$ and cannot be a basis.
+
+This is the same argument as the dimension theorem for vector spaces, adapted to a PID by passing through the fraction field.
+
+</SlideLayout>

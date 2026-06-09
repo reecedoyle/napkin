@@ -1,0 +1,28 @@
+---
+title: What the structure theorem explains
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What the structure theorem explains">
+
+The PID structure theorem is a single result with several famous corollaries:
+
+<Callout kind="corollary" title="Classification of finitely generated abelian groups">
+Every <Term k="fgAbelian">finitely generated abelian group</Term> is isomorphic to $\ZZ^{\oplus r} \oplus \Zc{q_1} \oplus \dots \oplus \Zc{q_m}$ with the $q_i$ prime powers.
+Take $R = \ZZ$.
+</Callout>
+
+<Callout kind="corollary" title="All finite-dimensional vector spaces are isomorphic">
+Every finite-dimensional vector space over a field $k$ is isomorphic to $k^{\oplus n}$ for some $n$.
+Take $R = k$ (a field is a PID). Every ideal is $(0)$ or $(1)$, so every $k$-module is free.
+</Callout>
+
+<Callout kind="corollary" title="Jordan and Frobenius normal forms">
+Let $T \colon V \to V$ be a linear map. Viewing $V$ as a $k[x]$-module (where $x$ acts by $T$), the structure theorem gives a decomposition. This yields Jordan form (if $k$ is algebraically closed) or Frobenius normal form (for general $k$).
+</Callout>
+
+All four corollaries from the chapter introduction follow from one proof.
+
+</SlideLayout>

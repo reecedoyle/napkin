@@ -1,0 +1,25 @@
+---
+title: Structure theorem — invariant factor form
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Structure theorem — invariant factor form">
+
+Here is the main result:
+
+<Callout kind="theorem" title="Structure theorem — invariant form">
+Let $R$ be a <Term k="pid">PID</Term> and let $M$ be a finitely generated $R$-module. Then
+$$M \cong \bigoplus_{i=1}^m R/(s_i)$$
+for some elements $s_i \in R$ (possibly zero) satisfying
+$$s_1 \mid s_2 \mid \dots \mid s_m.$$
+</Callout>
+
+The $s_i$ are called <Term k="invariantFactors">**invariant factors**</Term> of $M$. They are unique up to multiplication by units, and the divisibility chain $s_1 \mid s_2 \mid \cdots \mid s_m$ is what makes the form "canonical".
+
+When $s_i = 0$ the summand $R/(0) \cong R$, giving a free copy. When $s_i \neq 0$, the summand $R/(s_i)$ is a cyclic module of "size" $s_i$.
+
+**Key case.** Take $R = \ZZ$: then $R/(s_i) = \ZZ/s_i\ZZ$, and the theorem says every finitely generated abelian group is a direct sum of cyclic groups with the divisibility condition on their orders.
+
+</SlideLayout>
