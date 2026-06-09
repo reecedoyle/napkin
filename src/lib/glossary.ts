@@ -1198,6 +1198,18 @@ export const glossary = {
     definition: 'For a finite group G acting on X and any point x in orbit 𝒪: |𝒪| · |Stab_G(x)| = |G|. Proved by exhibiting a bijection between 𝒪 and the set of left cosets of Stab_G(x) in G.',
     example: 'S_4 acts on {1,2,3,4}: the orbit of 1 has size 4, so the stabilizer of 1 has size 24/4 = 6.',
   },
+  fixedPoints: {
+    term: 'Fixed points of g',
+    symbol: '\\operatorname{FixPt}(g)',
+    definition: 'For an element g of a group G acting on X, FixPt(g) = {x ∈ X : g·x = x} is the set of points fixed by g. Distinct from the stabilizer: the stabilizer fixes a point x and lives in G; FixPt(g) fixes a group element g and lives in X.',
+    example: 'For ℤ/4ℤ acting on checkerboard colorings by rotation, FixPt(r²) consists of the 24 colorings symmetric under 180° rotation.',
+  },
+  burnsideLemma: {
+    term: "Burnside's lemma",
+    symbol: '\\frac{1}{|G|}\\sum_{g \\in G}|\\operatorname{FixPt}(g)|',
+    definition: 'The number of orbits of a group G acting on a finite set X equals (1/|G|)∑_{g∈G}|FixPt(g)|. Proved by double-counting pairs (g,x) with g·x = x. Despite its name, the result is due to Cauchy and Frobenius.',
+    example: 'ℤ/4ℤ on 7×7 checkerboard colorings: (1176 + 24 + 0 + 0)/4 = 300 distinct colorings.',
+  },
 
   // ────────────── Chapter 11 — Dual space and trace ──────────────
   tensorProduct: {

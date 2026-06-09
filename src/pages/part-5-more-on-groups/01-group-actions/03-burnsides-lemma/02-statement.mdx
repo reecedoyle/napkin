@@ -1,0 +1,21 @@
+---
+title: "Burnside's lemma"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Burnside's lemma">
+
+<Callout kind="theorem" title="Burnside's lemma (the lemma that is not Burnside's)">
+Let $G$ act on a finite set $X$. The number of <Term k="orbit">orbits</Term> equals
+$$\frac{1}{|G|} \sum_{g \in G} |\FixPt(g)|.$$
+</Callout>
+
+In plain terms: **count all fixed points across every group element, then average over the group**. The result is always an integer — the number of distinct objects up to the symmetry.
+
+A historical note: this result was proved by Cauchy and Frobenius before Burnside; it is sometimes called *the lemma that is not Burnside's*. But the name has stuck.
+
+The proof is a nice double-count. One version is left as a bonus problem (it's a three-liner once you see the trick).
+
+</SlideLayout>

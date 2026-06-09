@@ -1,0 +1,28 @@
+---
+title: "Burnside exercise — coloring a spinner"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Burnside exercise — coloring a spinner">
+
+<Callout kind="exercise" title="MathCounts — coloring a circular spinner">
+A circular spinner has seven sections of equal size, each colored either red or blue. Two colorings are considered the same if one can be rotated to yield the other. How many distinct colorings are there?
+</Callout>
+
+The group is <Term k="Zc">$G = \Zc{7}$</Term>, acting on the $2^7 = 128$ colorings of 7 sections by rotation. Since 7 is prime, the only rotation with any fixed points is the identity:
+- $g = 1$: all $128$ colorings are fixed.
+- $g = r^k$ for $k = 1, \ldots, 6$: a coloring is fixed only if all 7 sections have the same color, giving $2$ fixed colorings for each.
+
+$$\text{Orbits} = \frac{1}{7}(128 + 2 + 2 + 2 + 2 + 2 + 2) = \frac{128 + 12}{7} = \frac{140}{7} = 20.$$
+
+<NumericInput
+  client:load
+  id="act-burn-num-spinner"
+  prompt="How many distinct ways can the spinner be colored?"
+  expected="20"
+/>
+
+</SlideLayout>
