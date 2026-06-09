@@ -1203,6 +1203,31 @@ export const glossary = {
     definition: 'For a linear map T: V → V on a finite-dimensional space V, the trace Tr(T) is the scalar obtained by identifying T with an element of V∨ ⊗ V and applying the evaluation map. In any basis it equals the sum of the diagonal entries of the matrix of T.',
     example: 'The 2×2 matrix [[a,b],[c,d]] has trace a + d.',
   },
+  // ────────────── Chapter 17 — Find all groups (Sylow) ──────────────
+  sylowSubgroup: {
+    term: 'Sylow p-subgroup',
+    symbol: '\\operatorname{Syl}_p(G)',
+    definition: 'If |G| = pⁿm with gcd(p, m) = 1, a Sylow p-subgroup is a subgroup of G of order pⁿ — the full prime-power part of |G| for the prime p.',
+    example: 'For |G| = 12 = 2²·3, the Sylow 2-subgroups have order 4 and the Sylow 3-subgroups have order 3.',
+  },
+  sylowNp: {
+    term: 'Number of Sylow p-subgroups',
+    symbol: 'n_p',
+    definition: 'The number of distinct Sylow p-subgroups of G. Constrained by the Sylow theorems: nₚ ≡ 1 (mod p) and nₚ divides |G|/pⁿ. The Sylow subgroup is normal if and only if nₚ = 1.',
+    example: 'For G of order 15 = 3·5: n₅ ≡ 1 (mod 5) and n₅ ∣ 3, forcing n₅ = 1.',
+  },
+  conjugateSubgroup: {
+    term: 'Conjugate subgroups',
+    symbol: 'H, gHg^{-1}',
+    definition: 'Two subgroups H and K of G are conjugate if K = gHg⁻¹ for some g ∈ G. Conjugate subgroups are isomorphic. The Sylow theorems say any two Sylow p-subgroups are conjugate.',
+    example: 'In S₃, the three subgroups of order 2 are all conjugate to each other.',
+  },
+  pGroup: {
+    term: 'p-group',
+    symbol: 'P',
+    definition: 'A group whose order is a power of a prime p: |P| = pᵏ for some k ≥ 0. Every orbit of a p-group acting on a set has size either 1 or divisible by p.',
+    example: 'ℤ/8ℤ and the quaternion group Q₈ are 2-groups.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

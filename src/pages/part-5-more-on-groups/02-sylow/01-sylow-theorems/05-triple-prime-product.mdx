@@ -1,0 +1,33 @@
+---
+title: Groups of triple prime order
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Groups of triple prime order">
+
+Here is a beautiful application of the Sylow theorems — a counting argument that rules out certain group structures entirely.
+
+<Callout kind="proposition" title="Triple product of primes">
+If $|G| = pqr$ is the product of three distinct primes, then $G$ must have a normal <Term k="sylowSubgroup">Sylow subgroup</Term>.
+</Callout>
+
+**Proof idea.** Assume $p < q < r$ and suppose for contradiction that $n_p, n_q, n_r > 1$.
+
+Since $n_r \mid pq$ and $n_r \equiv 1 \pmod{r}$, and $r > p, q$, we get $n_r = pq$.
+
+Any two distinct Sylow subgroups for the same prime intersect trivially (by Lagrange, since their orders are distinct prime powers). So the non-identity elements from different Sylow subgroups don't overlap.
+
+Counting distinct non-identity elements: at least $n_p(p-1) + n_q(q-1) + n_r(r-1) \geq (1+p)(p-1) + (1+q)(q-1) + pq(r-1)$, which exceeds $pqr = |G|$. Contradiction.
+
+<NumericInput
+  client:load
+  id="syl-tpp-num-nr-for-30"
+  prompt="Let |G| = 30 = 2 · 3 · 5. If G is simple (no normal subgroups), what must n₅ equal?"
+  expected="6"
+  hint="n₅ ≡ 1 (mod 5) and n₅ ∣ 6. The options are 1 and 6. If n₅ = 1 the Sylow 5-subgroup is normal."
+/>
+
+</SlideLayout>
