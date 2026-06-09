@@ -1,0 +1,28 @@
+---
+title: Ring prerequisites — prime elements in a UFD
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Ring prerequisites — prime elements in a UFD">
+
+The structure theorem will work for any <Term k="pid">PID</Term> $R$. Before stating it, we need a few facts about UFDs (recall every PID is a UFD).
+
+The intuition carries directly from $R = \ZZ$:
+
+<Callout kind="definition" title="Prime element">
+If $R$ is a <Term k="ufd">UFD</Term>, a nonzero element $p \in R$ is a <Term k="primeElement">**prime element**</Term> if the ideal $(p)$ is a <Term k="primeIdeal">prime ideal</Term>. Equivalently: $p$ is not a unit, and whenever $p = xy$ then $x$ or $y$ is a unit.
+</Callout>
+
+In $\ZZ$ the prime elements are $\{\pm 2, \pm 3, \pm 5, \dots\}$ — the usual primes and their negatives. In a general UFD every element factors into prime elements, just as in $\ZZ$:
+$$r = u \, p_1^{e_1} p_2^{e_2} \cdots p_m^{e_m}$$
+where $u$ is a unit and the $p_i$ are prime elements.
+
+<Callout kind="definition" title="Divisibility">
+We say $r$ <Term k="divides">**divides**</Term> $s$ (written $r \mid s$) if $s = r'r$ for some $r' \in R$.
+</Callout>
+
+In terms of the prime factorisation: $r \mid s$ exactly when the exponent of each prime in $r$ is at most the corresponding exponent in $s$.
+
+</SlideLayout>
