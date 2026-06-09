@@ -1286,12 +1286,6 @@ export const glossary = {
   },
 
   // §2 — Proving Sylow's theorem
-  orbitStabilizer: {
-    term: 'Orbit-stabilizer theorem',
-    symbol: '|\\mathcal{O}| = |G| / |\\mathrm{Stab}_G(x)|',
-    definition: 'For a group G acting on a set X and any element x ∈ X, the size of the orbit of x times the size of the stabilizer of x equals |G|. So |orbit| = |G| / |stabilizer|.',
-    example: 'S₃ acting on {1,2,3} by permutation: the orbit of 1 has size 3, and the stabilizer of 1 is {e,(2 3)}, size 2. Indeed 3·2 = 6 = |S₃|.',
-  },
   conjugationAction: {
     term: 'Conjugation action',
     symbol: 'g \\cdot H = gHg^{-1}',
