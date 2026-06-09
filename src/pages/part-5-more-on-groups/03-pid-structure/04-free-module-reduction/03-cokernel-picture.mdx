@@ -1,0 +1,26 @@
+---
+title: M as a cokernel — the key picture
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="M as a cokernel — the key picture">
+
+Putting it together, we have reduced the problem to linear algebra:
+
+<Callout kind="remark" title="The key reduction">
+Every finitely generated $R$-module $M$ over a PID $R$ is the <Term k="cokernel">cokernel</Term> of some linear map $T \colon R^{\oplus f} \to R^{\oplus d}$:
+$$M \cong R^{\oplus d} / \operatorname{im}(T).$$
+</Callout>
+
+Step 2 of the proof will show that, by choosing the right bases for $R^{\oplus f}$ and $R^{\oplus d}$, we can put $T$ into **Smith normal form** — a diagonal matrix
+$$T \sim \operatorname{diag}(s_1, s_2, \dots, s_k, 0, \dots, 0)$$
+with $s_1 \mid s_2 \mid \dots \mid s_k$.
+
+Once $T$ is in Smith form, the cokernel reads off immediately:
+$$M \cong R/(s_1) \oplus R/(s_2) \oplus \dots \oplus R/(s_k) \oplus R^{\oplus (d-k)}.$$
+
+This is exactly the invariant form of the structure theorem.
+
+</SlideLayout>

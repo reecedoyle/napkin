@@ -1223,6 +1223,12 @@ export const glossary = {
     definition: 'An R-module M satisfying the ascending chain condition: there is no infinite strictly ascending chain of submodules M₁ ⊊ M₂ ⊊ ⋯. Equivalently, every submodule of M is finitely generated. A Noetherian ring R is precisely R viewed as a Noetherian R-module.',
     example: 'For a PID R, the free module Rⁿ is Noetherian. ℤ[x₁, x₂, …] with infinitely many variables is not Noetherian.',
   },
+  cokernel: {
+    term: 'Cokernel',
+    symbol: '\\operatorname{coker} T',
+    definition: 'For a linear map T: M → N of R-modules, the cokernel is N / im(T), the quotient of N by the image of T. While the kernel measures how far T is from injective, the cokernel measures how far T is from surjective.',
+    example: 'The cokernel of ×2: ℤ → ℤ (multiplication by 2) is ℤ/2ℤ.',
+  },
   invariantFactors: {
     term: 'Invariant factors',
     symbol: 's_1 \\mid s_2 \\mid \\cdots \\mid s_m',
