@@ -1,0 +1,33 @@
+---
+title: Steps 3 and 4 — Counting n_p
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Steps 3 and 4 — Counting n_p">
+
+Let $\mathcal{S}$ be the set of all Sylow $p$-subgroups, so $|\mathcal{S}| = n_p$.
+
+**Step 3: $n_p \equiv 1 \pmod{p}$.**
+
+Fix a Sylow $p$-subgroup $P$ and let $P$ act on $\mathcal{S}$ by conjugation.
+
+- $P$ is a $p$-group, so fixed points account for $n_p \pmod{p}$.
+- We claim $P$ is the **only** fixed point. If $Q$ is also a fixed point ($xQx^{-1} = Q$ for all $x \in P$), then both $P$ and $Q$ lie in the <Term k="normalizer">normalizer</Term> $N_G(Q)$. Applying Step 2 inside $N_G(Q)$ shows $P$ and $Q$ are conjugate in $N_G(Q)$, hence $P = Q$.
+
+So exactly $1$ fixed point, giving $n_p \equiv 1 \pmod{p}$.
+
+**Step 4: $n_p \mid m$.**
+
+Let $G$ act on $\mathcal{S}$ by conjugation. Step 2 says this action has one orbit (all Sylow subgroups are conjugate). By orbit-stabilizer, $n_p = |\mathcal{S}|$ divides $|G| = p^n m$. Since $n_p \equiv 1 \pmod{p}$, we get $\gcd(n_p, p^n) = 1$, so $n_p$ divides $m$.
+
+<ProofReveal
+  client:load
+  id="syl-proof-np-mod-p"
+  prompt="Why does 'P is the only fixed point of the conjugation action of P on 𝒮' imply nₚ ≡ 1 (mod p)?"
+  solution="Because P acts as a p-group on 𝒮, the number of fixed points equals |𝒮| = nₚ mod p. Exactly one fixed point means nₚ ≡ 1 (mod p)."
+/>
+
+</SlideLayout>

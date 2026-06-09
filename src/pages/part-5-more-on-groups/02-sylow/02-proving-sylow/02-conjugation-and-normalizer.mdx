@@ -1,0 +1,26 @@
+---
+title: Conjugation action and the normalizer
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Conjugation action and the normalizer">
+
+Let $X$ be the set of all subgroups of $G$. There is a natural action of $G$ on $X$ called <Term k="conjugationAction">conjugation</Term>:
+$$g \cdot H = gHg^{-1} = \{ ghg^{-1} \mid h \in H \}.$$
+
+Two subgroups $H$ and $K$ are <Term k="conjugateSubgroup">conjugate</Term> precisely when they are in the same orbit under this action.
+
+<Callout kind="definition" title="Normalizer">
+The <Term k="normalizer">normalizer</Term> of a subgroup $H$ in $G$ is
+$$N_G(H) \defeq \{ g \in G \mid gHg^{-1} = H \}.$$
+It is the stabilizer of $H$ under the conjugation action — the largest subgroup of $G$ in which $H$ is normal.
+</Callout>
+
+Note that $H \leq N_G(H) \leq G$ always. The normalizer is $G$ itself exactly when $H$ is <Term k="normalSubgroup">normal in $G$</Term>.
+
+The orbit-stabilizer theorem then gives:
+$$\text{(number of conjugates of } H \text{)} = [G : N_G(H)].$$
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Step 2 — All Sylow subgroups are conjugate
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Step 2 — All Sylow subgroups are conjugate">
+
+We show: if $P$ is a Sylow $p$-subgroup and $Q$ is any $p$-subgroup, then $Q \subseteq gPg^{-1}$ for some $g \in G$.
+
+**Proof.** Let $Q$ act on the set of left cosets of $P$ by left multiplication.
+
+- $Q$ is a <Term k="pGroup">$p$-group</Term>, so every orbit has size $1$ or divisible by $p$.
+- The total number of cosets is $m = |G|/p^n$, which is not divisible by $p$.
+
+So some coset $gP$ is a fixed point for the entire action of $Q$: we have $q(gP) = gP$ for all $q \in Q$.
+
+This means $qg \in gP$ for every $q \in Q$, which rearranges to $Q \subseteq gPg^{-1}$.
+
+If $Q$ is also a Sylow $p$-subgroup, then $|Q| = |gPg^{-1}| = p^n$, so equality holds: $Q = gPg^{-1}$.
+
+<Callout kind="corollary">
+Any two Sylow $p$-subgroups are <Term k="conjugateSubgroup">conjugate</Term>, hence <Term k="isomorphic">isomorphic</Term>.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: Group actions recap (optional)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Group actions recap (optional)">
+
+The proof of Sylow's theorem uses group actions heavily. Here is the machinery we need.
+
+When a group $G$ acts on a set $X$:
+
+- The **orbits** of the action partition $X$ into disjoint pieces.
+- For any orbit $\mathcal{O}$ and any $x \in \mathcal{O}$, the <Term k="orbitStabilizer">orbit-stabilizer theorem</Term> gives $|\mathcal{O}| = |G| / |\text{Stab}_G(x)|$.
+- If $G$ is a <Term k="pGroup">$p$-group</Term>, then every orbit has size $1$ or divisible by $p$.
+
+<Callout kind="remark" title="Fixed points">
+An element $x \in X$ is a **fixed point** when its orbit has size $1$ — meaning $g \cdot x = x$ for every $g \in G$. This is a very strong condition: every single group element fixes $x$.
+</Callout>
+
+The key counting trick: if $G$ is a $p$-group, then the number of fixed points of the action is congruent to $|X|$ mod $p$. (The non-singleton orbits all have sizes divisible by $p$, so they vanish mod $p$.)
+
+</SlideLayout>

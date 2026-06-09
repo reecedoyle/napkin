@@ -1204,6 +1204,7 @@ export const glossary = {
     example: 'The 2×2 matrix [[a,b],[c,d]] has trace a + d.',
   },
   // ────────────── Chapter 17 — Find all groups (Sylow) ──────────────
+  // §1 — Sylow theorems
   sylowSubgroup: {
     term: 'Sylow p-subgroup',
     symbol: '\\operatorname{Syl}_p(G)',
@@ -1227,6 +1228,25 @@ export const glossary = {
     symbol: 'P',
     definition: 'A group whose order is a power of a prime p: |P| = pᵏ for some k ≥ 0. Every orbit of a p-group acting on a set has size either 1 or divisible by p.',
     example: 'ℤ/8ℤ and the quaternion group Q₈ are 2-groups.',
+  },
+
+  // §2 — Proving Sylow
+  orbitStabilizer: {
+    term: 'Orbit-stabilizer theorem',
+    symbol: '|\\mathcal{O}| = |G| / |\\mathrm{Stab}_G(x)|',
+    definition: 'For a group G acting on a set X and any element x ∈ X, the size of the orbit of x times the size of the stabilizer of x equals |G|. So |orbit| = |G| / |stabilizer|.',
+    example: 'S₃ acting on {1,2,3} by permutation: the orbit of 1 has size 3, and the stabilizer of 1 is {e,(2 3)}, size 2. Indeed 3·2 = 6 = |S₃|.',
+  },
+  conjugationAction: {
+    term: 'Conjugation action',
+    symbol: 'g \\cdot H = gHg^{-1}',
+    definition: 'The action of G on its set of subgroups defined by g · H = gHg⁻¹ = {ghg⁻¹ : h ∈ H}. The stabilizer of H under this action is exactly the normalizer N_G(H).',
+  },
+  normalizer: {
+    term: 'Normalizer',
+    symbol: 'N_G(H)',
+    definition: 'For a subgroup H ≤ G, the normalizer N_G(H) = {g ∈ G : gHg⁻¹ = H} is the largest subgroup of G in which H is normal. It is the stabilizer of H under the conjugation action.',
+    example: 'N_G(H) = G iff H ⊴ G. If H = G then N_G(H) = G trivially.',
   },
 } as const satisfies Record<string, GlossaryEntry>;
 
