@@ -1,0 +1,25 @@
+---
+title: The three Sylow theorems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The three Sylow theorems">
+
+<Callout kind="theorem" title="The Sylow theorems">
+Let $G$ be a group of order $p^n m$ with $\gcd(p, m) = 1$ and $p$ prime.
+Let <Term k="sylowNp">$n_p$</Term> be the number of <Term k="sylowSubgroup">Sylow $p$-subgroups</Term> of $G$. Then:
+
+**(a)** <Term k="pmod">$n_p \equiv 1 \pmod{p}$</Term>. In particular $n_p \neq 0$: a Sylow $p$-subgroup exists.
+
+**(b)** <Term k="divides">$n_p \mid m$</Term>.
+
+**(c)** Any two Sylow $p$-subgroups are <Term k="conjugateSubgroup">conjugate subgroups</Term> (hence <Term k="isomorphic">isomorphic</Term>).
+</Callout>
+
+Part (a) guarantees existence and pins down $n_p$ mod $p$. Part (b) further constrains the value. Together they often force $n_p = 1$.
+
+Part (c) says that even if there are multiple Sylow $p$-subgroups, they all look the same — they are rearrangements of each other inside $G$.
+
+</SlideLayout>

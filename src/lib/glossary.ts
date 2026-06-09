@@ -1203,6 +1203,89 @@ export const glossary = {
     definition: 'For a linear map T: V → V on a finite-dimensional space V, the trace Tr(T) is the scalar obtained by identifying T with an element of V∨ ⊗ V and applying the evaluation map. In any basis it equals the sum of the diagonal entries of the matrix of T.',
     example: 'The 2×2 matrix [[a,b],[c,d]] has trace a + d.',
   },
+  // ────────────── Chapter 17 — Find all groups (Sylow) ──────────────
+  // §1 — Sylow theorems
+  sylowSubgroup: {
+    term: 'Sylow p-subgroup',
+    symbol: '\\operatorname{Syl}_p(G)',
+    definition: 'If |G| = pⁿm with gcd(p, m) = 1, a Sylow p-subgroup is a subgroup of G of order pⁿ — the full prime-power part of |G| for the prime p.',
+    example: 'For |G| = 12 = 2²·3, the Sylow 2-subgroups have order 4 and the Sylow 3-subgroups have order 3.',
+  },
+  sylowNp: {
+    term: 'Number of Sylow p-subgroups',
+    symbol: 'n_p',
+    definition: 'The number of distinct Sylow p-subgroups of G. Constrained by the Sylow theorems: nₚ ≡ 1 (mod p) and nₚ divides |G|/pⁿ. The Sylow subgroup is normal if and only if nₚ = 1.',
+    example: 'For G of order 15 = 3·5: n₅ ≡ 1 (mod 5) and n₅ ∣ 3, forcing n₅ = 1.',
+  },
+  conjugateSubgroup: {
+    term: 'Conjugate subgroups',
+    symbol: 'H, gHg^{-1}',
+    definition: 'Two subgroups H and K of G are conjugate if K = gHg⁻¹ for some g ∈ G. Conjugate subgroups are isomorphic. The Sylow theorems say any two Sylow p-subgroups are conjugate.',
+    example: 'In S₃, the three subgroups of order 2 are all conjugate to each other.',
+  },
+  pGroup: {
+    term: 'p-group',
+    symbol: 'P',
+    definition: 'A group whose order is a power of a prime p: |P| = pᵏ for some k ≥ 0. Every orbit of a p-group acting on a set has size either 1 or divisible by p.',
+    example: 'ℤ/8ℤ and the quaternion group Q₈ are 2-groups.',
+  },
+
+  // §2 — Proving Sylow's theorem
+  orbitStabilizer: {
+    term: 'Orbit-stabilizer theorem',
+    symbol: '|\\mathcal{O}| = |G| / |\\mathrm{Stab}_G(x)|',
+    definition: 'For a group G acting on a set X and any element x ∈ X, the size of the orbit of x times the size of the stabilizer of x equals |G|. So |orbit| = |G| / |stabilizer|.',
+    example: 'S₃ acting on {1,2,3} by permutation: the orbit of 1 has size 3, and the stabilizer of 1 is {e,(2 3)}, size 2. Indeed 3·2 = 6 = |S₃|.',
+  },
+  conjugationAction: {
+    term: 'Conjugation action',
+    symbol: 'g \\cdot H = gHg^{-1}',
+    definition: 'The action of G on its set of subgroups defined by g · H = gHg⁻¹ = {ghg⁻¹ : h ∈ H}. The stabilizer of H under this action is exactly the normalizer N_G(H).',
+  },
+  normalizer: {
+    term: 'Normalizer',
+    symbol: 'N_G(H)',
+    definition: 'For a subgroup H ≤ G, the normalizer N_G(H) = {g ∈ G : gHg⁻¹ = H} is the largest subgroup of G in which H is normal. It is the stabilizer of H under the conjugation action.',
+    example: 'N_G(H) = G iff H ⊴ G. If H = G then N_G(H) = G trivially.',
+  },
+
+  // §3 — Simple groups and Jordan–Hölder
+  simpleGroup: {
+    term: 'Simple group',
+    definition: 'A group with no normal subgroups other than the trivial group {1} and itself. These are the "atoms" of group theory — every finite group is built from simple groups via composition series.',
+    example: 'ℤ/pℤ for any prime p. The alternating group A₅ is the smallest non-abelian simple group, of order 60.',
+  },
+  compositionSeries: {
+    term: 'Composition series',
+    symbol: '\\{1\\} = H_0 \\trianglelefteq H_1 \\trianglelefteq \\cdots \\trianglelefteq H_n = G',
+    definition: 'A maximal-length chain of subgroups {1} = H₀ ⊴ H₁ ⊴ ··· ⊴ Hₙ = G. Maximal means no proper subgroups can be inserted between consecutive terms. The quotients Hᵢ₊₁/Hᵢ are all simple groups.',
+    example: 'For ℤ/12ℤ: {0} ⊴ ℤ/2ℤ ⊴ ℤ/4ℤ ⊴ ℤ/12ℤ is a composition series.',
+  },
+  compositionFactors: {
+    term: 'Composition factors',
+    definition: 'The simple groups Hᵢ₊₁/Hᵢ arising from a composition series {1} = H₀ ⊴ ··· ⊴ Hₙ = G. By the Jordan–Hölder theorem, the multiset of composition factors is the same for any choice of composition series.',
+    example: 'The composition factors of ℤ/12ℤ are ℤ/2ℤ, ℤ/2ℤ, ℤ/3ℤ — mirroring the factorisation 12 = 2²·3.',
+  },
+  babyMonster: {
+    term: 'Baby monster group',
+    definition: 'The second largest sporadic simple group, of order 2⁴¹·3¹³·5⁶·7²·11·13·17·19·23·31·47 ≈ 4×10³³. It is one of the 26 sporadic groups in the classification of finite simple groups.',
+  },
+  monsterGroup: {
+    term: 'Monster group',
+    definition: 'The largest sporadic simple group, also called the friendly giant, of order approximately 8×10⁵³. It contains 20 of the 26 sporadic simple groups as subquotients; those 20 are called the happy family.',
+  },
+
+  // §4 — Problems
+  transitiveAction: {
+    term: 'Transitive group action',
+    definition: 'A group action of G on X is transitive if for any two elements x₁, x₂ ∈ X there exists g ∈ G with g·x₁ = x₂. Equivalently, X is a single orbit under the action.',
+    example: 'S_n acts transitively on {1, …, n}. The action of ℤ on itself by addition is transitive.',
+  },
+  faithfulAction: {
+    term: 'Faithful group action',
+    definition: 'A group action of G on X is faithful if the only element g ∈ G with g·x = x for all x ∈ X is the identity. Equivalently, the homomorphism G → Sym(X) is injective.',
+    example: 'S_n acting on {1, …, n} by permutation is faithful. The trivial action g·x = x for all g is not faithful (unless G = {1}).',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

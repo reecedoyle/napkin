@@ -1,0 +1,22 @@
+---
+title: The classification problem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The classification problem">
+
+Suppose someone hands you a positive integer $n$ and asks: list every group of order $n$, up to isomorphism.
+
+This is the "find all groups" problem. It sounds simple. It is not.
+
+For small $n$ the answer is short — there are few groups of order $6$ or $10$. But even asking which groups have a given order is deep and subtle. The Sylow theorems are the main tool for attacking it.
+
+<Callout kind="remark" title="Reformulation">
+We are looking for all functions $f \colon \{1,\dots,n\} \times \{1,\dots,n\} \to \{1,\dots,n\}$ satisfying the group axioms: identity, associativity, and inverses. The Sylow theorems constrain which orders are even possible for certain subgroup structures.
+</Callout>
+
+The key idea: if the order of $G$ has prime-power factors, those factors force certain subgroups to exist — and the number of such subgroups is tightly constrained by arithmetic.
+
+</SlideLayout>

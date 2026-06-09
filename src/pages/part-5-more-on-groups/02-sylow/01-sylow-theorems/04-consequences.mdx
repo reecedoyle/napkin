@@ -1,0 +1,36 @@
+---
+title: Consequences of the Sylow theorems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Consequences of the Sylow theorems">
+
+The Sylow theorems have several immediate corollaries that are useful in practice.
+
+<Callout kind="corollary">
+- A Sylow $p$-subgroup is <Term k="normalSubgroup">normal</Term> if and only if <Term k="sylowNp">$n_p = 1$</Term>.
+- If $|G| = pq$ with $p < q$ both prime, then $n_q = 1$ (so $G$ has a normal subgroup of order $q$).
+- Any abelian group has exactly one Sylow $p$-subgroup for each prime $p$ dividing $|G|$.
+- If $p \neq q$, then a Sylow $p$-subgroup and a Sylow $q$-subgroup intersect only in the identity.
+</Callout>
+
+The second point is worth seeing concretely: if $|G| = pq$ with $p < q$, then $n_q \equiv 1 \pmod{q}$ and $n_q \mid p$. Since $q > p$, the only value satisfying both is $n_q = 1$.
+
+<MCQ
+  client:load
+  id="syl-cons-mcq-normal-sylow"
+  prompt="A group G has order 35 = 5 · 7. How many Sylow 7-subgroups does G have?"
+  options={[
+    { id: "a", label: "Could be 1 or 7" },
+    { id: "b", label: "Exactly 1" },
+    { id: "c", label: "Exactly 7" },
+    { id: "d", label: "Could be 1, 5, or 7" },
+  ]}
+  correct="b"
+  explanation="We need n₇ ≡ 1 (mod 7) and n₇ ∣ 5. The divisors of 5 are 1 and 5. Only n₇ = 1 satisfies n₇ ≡ 1 (mod 7), since 5 ≡ 5 (mod 7) ≠ 1. So the Sylow 7-subgroup is unique and therefore normal."
+/>
+
+</SlideLayout>

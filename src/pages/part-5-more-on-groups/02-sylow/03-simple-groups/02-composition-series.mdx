@@ -1,0 +1,24 @@
+---
+title: Composition series
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Composition series">
+
+Every integer factors as a product of primes. The analogous statement for groups uses normal subgroups.
+
+<Callout kind="definition" title="Composition series">
+A <Term k="compositionSeries">**composition series**</Term> of a group $G$ is a chain of subgroups of maximal length:
+$$\{1\} = H_0 \trianglelefteq H_1 \trianglelefteq H_2 \trianglelefteq \cdots \trianglelefteq H_n = G.$$
+The <Term k="compositionFactors">**composition factors**</Term> are the quotient groups $H_1/H_0,\, H_2/H_1,\, \dots,\, H_n/H_{n-1}$.
+</Callout>
+
+The "maximal length" condition forces each composition factor to be a <Term k="simpleGroup">simple group</Term> — if $H_{i+1}/H_i$ were not simple, we could insert another group between $H_i$ and $H_{i+1}$, contradicting maximality.
+
+**Example.** For $\Zc{12}$:
+$$\{0\} \trianglelefteq \Zc{2} \trianglelefteq \Zc{4} \trianglelefteq \Zc{12}$$
+has composition factors $\Zc{2}$, $\Zc{2}$, $\Zc{3}$ — mirroring the prime factorisation $12 = 2^2 \cdot 3$.
+
+</SlideLayout>

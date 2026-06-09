@@ -1,0 +1,22 @@
+---
+title: Sylow p-subgroups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sylow p-subgroups">
+
+Write <Term k="groupOrder">$|G|$</Term> as $p^n m$ where $p$ is prime and <Term k="pmod">$\gcd(p, m) = 1$</Term> (i.e.\ $p \nmid m$).
+
+<Callout kind="definition" title="Sylow p-subgroup">
+A <Term k="sylowSubgroup">**Sylow $p$-subgroup**</Term> of $G$ is a subgroup of order $p^n$ — the largest possible prime-power subgroup for that prime $p$.
+</Callout>
+
+The number of Sylow $p$-subgroups is written <Term k="sylowNp">$n_p$</Term>.
+
+**Example.** If $|G| = 12 = 2^2 \cdot 3$, then a Sylow $2$-subgroup has order $4$ and a Sylow $3$-subgroup has order $3$.
+
+Lagrange's theorem guarantees that any subgroup of $G$ has order dividing $|G|$. What's remarkable about Sylow subgroups is that they exist at all — Lagrange says subgroups can only have certain orders, but it says nothing about which of those orders actually occur.
+
+</SlideLayout>

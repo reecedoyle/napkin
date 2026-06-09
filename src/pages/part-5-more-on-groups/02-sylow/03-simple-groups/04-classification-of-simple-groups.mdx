@@ -1,0 +1,26 @@
+---
+title: Classification of finite simple groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Classification of finite simple groups">
+
+Since every finite group is built from simple groups via composition series, classifying all finite simple groups is a central goal. Remarkably, this classification is complete.
+
+<Callout kind="theorem" title="Classification of finite simple groups (CFSG)">
+Every finite simple group is one of:
+- $\Zc{p}$ for $p$ prime,
+- the alternating group $A_n$ for $n \geq 5$,
+- a **group of Lie type** (families analogous to matrix groups over finite fields), or
+- one of **26 sporadic groups** that fit into none of the above families.
+</Callout>
+
+The proof spans tens of thousands of journal pages and was completed around 2004.
+
+The two largest sporadic groups have playful names. The <Term k="babyMonster">**baby monster group**</Term> has order approximately $4 \times 10^{33}$. The <Term k="monsterGroup">**monster group**</Term> (also called the **friendly giant**) has order approximately $8 \times 10^{53}$ and contains 20 of the 26 sporadic groups as subquotients — these 20 are called the **happy family**.
+
+Math is weird.
+
+</SlideLayout>

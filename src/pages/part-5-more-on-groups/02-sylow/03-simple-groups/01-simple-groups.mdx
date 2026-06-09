@@ -1,0 +1,35 @@
+---
+title: Simple groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Simple groups">
+
+Just as primes are integers that cannot be factored further, simple groups are the "atoms" of group theory.
+
+<Callout kind="definition" title="Simple group">
+A <Term k="simpleGroup">**simple group**</Term> is a group with no <Term k="normalSubgroup">normal subgroups</Term> other than the trivial group and itself.
+</Callout>
+
+The cyclic group <Term k="Zc">$\Zc{p}$</Term> is simple precisely when $p$ is prime — its only subgroups are $\{0\}$ and $\Zc{p}$ itself, and for abelian groups every subgroup is normal.
+
+For $n \geq 5$, the **alternating group** $A_n$ (even permutations in $S_n$) is also simple. This is the key obstruction to solving quintic equations by radicals.
+
+<MCQ
+  client:load
+  id="syl-simp-mcq-which-simple"
+  prompt="Which of the following groups is simple?"
+  options={[
+    { id: "a", label: "ℤ/6ℤ" },
+    { id: "b", label: "ℤ/7ℤ" },
+    { id: "c", label: "ℤ/9ℤ" },
+    { id: "d", label: "S₄" },
+  ]}
+  correct="b"
+  explanation="ℤ/7ℤ is cyclic of prime order 7, so it is simple. ℤ/6ℤ has a normal subgroup {0,2,4} ≅ ℤ/3ℤ. ℤ/9ℤ has a normal subgroup {0,3,6} ≅ ℤ/3ℤ. S₄ has the normal subgroup V₄ = {e,(12)(34),(13)(24),(14)(23)}."
+/>
+
+</SlideLayout>

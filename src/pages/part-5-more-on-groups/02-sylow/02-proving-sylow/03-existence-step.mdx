@@ -1,0 +1,28 @@
+---
+title: Step 1 — Sylow subgroups exist
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Step 1 — Sylow subgroups exist">
+
+Let $|G| = p^n m$ with $\gcd(p, m) = 1$. We prove a Sylow $p$-subgroup exists.
+
+**The key number-theoretic fact:** let $X$ be the set of all subsets of $G$ of size $p^n$. Then
+$$|X| = \binom{p^n m}{p^n} \not\equiv 0 \pmod{p}.$$
+(Provable via Lucas' theorem.)
+
+<Callout kind="remark" title="Proof">
+Let $G$ act on $X$ by left multiplication: $g \cdot S = \{gs \mid s \in S\}$.
+
+Since $|X| \not\equiv 0 \pmod{p}$, some orbit $\mathcal{O}$ has size not divisible by $p$.
+
+Pick $S \in \mathcal{O}$ and let $H = \text{Stab}_G(S)$. The orbit-stabilizer theorem gives $p^n \mid |H|$.
+
+Now let $H$ act on $S$ by left multiplication. Since $H$ stabilises $S$, this is well-defined. Each orbit has size $|H|$ (the stabiliser of any $s \in S$ under this action is trivial). So $|H|$ divides $|S| = p^n$.
+
+Hence $|H| = p^n$, and $H$ is our Sylow $p$-subgroup.
+</Callout>
+
+</SlideLayout>

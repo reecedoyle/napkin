@@ -1,0 +1,26 @@
+---
+title: Faithful transitive action of S₅
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Faithful transitive action of S₅">
+
+<Callout kind="definition" title="Transitive and faithful actions">
+A group action of $G$ on $X$ is <Term k="transitiveAction">**transitive**</Term> if for every $x_1, x_2 \in X$ there exists $g \in G$ with $g \cdot x_1 = x_2$.
+
+It is <Term k="faithfulAction">**faithful**</Term> if the only $g \in G$ with $g \cdot x = x$ for all $x \in X$ is $g = 1_G$ — no non-identity element acts trivially on all of $X$.
+</Callout>
+
+<Problem
+  client:load
+  id="syl-prob-s5-faithful"
+  difficulty="standard"
+  prompt="Does there exist a faithful transitive action of S₅ on a six-element set?"
+  hint="A transitive action of G on a set of size n corresponds to a subgroup H ≤ G of index n. For S₅ acting on 6 elements, look for a subgroup of index 6 in S₅ (so of order 20). The action is faithful iff the largest normal subgroup of G contained in H is trivial."
+  solution="Yes. The subgroup H of order 20 in S₅ — the Frobenius group GA(1,5), which is the normalizer of a Sylow 5-subgroup — has index 6. The action of S₅ on the 6 cosets of H is transitive by construction. Since S₅ is almost simple (its only normal subgroups are {e}, A₅, and S₅) and H contains neither A₅ nor S₅, the kernel of the action is trivial, so the action is faithful."
+/>
+
+</SlideLayout>
