@@ -1,0 +1,22 @@
+---
+title: Semisimple algebras — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Semisimple algebras — definition">
+
+<Callout kind="definition" title="Semisimple algebra">
+A finite-dimensional algebra $A$ is <Term k="semisimpleAlgebra">**semisimple**</Term> if every finite-dimensional representation of $A$ is completely reducible.
+</Callout>
+
+Intuitively: $A$ is semisimple when there are no "weird" indecomposable-but-reducible representations. Every representation just decomposes cleanly into irreducible blocks.
+
+The prototype of pathological behavior is a representation that has a proper subrepresentation but cannot be split as a direct sum — these are called indecomposable but reducible. Semisimplicity rules this out entirely.
+
+<Callout kind="remark" title="Why this matters">
+Once we know $A$ is semisimple, understanding all representations of $A$ reduces to two steps: (1) classify the irreps, and (2) count multiplicities. There are no exotic indecomposables to worry about.
+</Callout>
+
+</SlideLayout>

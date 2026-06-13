@@ -1,0 +1,28 @@
+---
+title: Sum of squares formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sum of squares formula">
+
+Combining the semisimplicity theorem with the density theorem gives a beautiful formula.
+
+<Callout kind="theorem" title="Sum of squares formula">
+For a finite-dimensional algebra $A$ with irreps $V_1, \dots, V_r$,
+
+$$\sum_i (\dim V_i)^2 \le \dim A,$$
+
+with equality if and only if $A$ is semisimple. When equality holds:
+
+$$\Reg(A) \cong \bigoplus_i \Mat(V_i) \cong \bigoplus_i V_i^{\oplus \dim V_i}.$$
+</Callout>
+
+The inequality comes from the density theorem's surjection $A \twoheadrightarrow \bigoplus_i \Mat(V_i)$. Equality means this map is an isomorphism — i.e., $A$ itself is already a direct sum of matrix algebras.
+
+<Callout kind="remark" title="Jacobson radical">
+For any finite-dimensional $A$, the kernel of $A \to \bigoplus_i \Mat(V_i)$ is the <Term k="jacobsonRadical">Jacobson radical</Term> $\operatorname{Rad}(A)$ — the elements acting by zero in all irreps. Semisimplicity is equivalent to $\operatorname{Rad}(A) = 0$.
+</Callout>
+
+</SlideLayout>
