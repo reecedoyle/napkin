@@ -2,26 +2,26 @@
 title: Problems — starred
 ---
 import SlideLayout from '@/layouts/SlideLayout.astro';
-import Callout from '@/components/Callout.astro';
-import Term from '@/components/Term.astro';
 import Problem from '@/components/Problem';
 
 <SlideLayout title="Problems — starred">
 
 <Problem
+  client:load
   difficulty="standard"
   id="chr-prob-quaternions"
-  prompt="Compute the character table of the quaternion group $Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}$."
-  hint="There are five conjugacy classes: $\{1\}$, $\{-1\}$, $\{\pm i\}$, $\{\pm j\}$, $\{\pm k\}$. Find four one-dimensional representations from homomorphisms $Q_8 \to \CC^\times$, then use orthogonality to recover the fifth row."
-  solution="The four one-dimensional representations come from the quotient $Q_8 / \langle -1 \rangle \cong \ZZ/2 \times \ZZ/2$, giving characters $\CC_\mathrm{triv}$, $\CC_i$ (where $\pm i \mapsto 1$, $\pm j \mapsto -1$, $\pm k \mapsto -1$), $\CC_j$ (where $\pm j \mapsto 1$, $\pm i \mapsto -1$, $\pm k \mapsto -1$), and $\CC_k$. The fifth row (dimension 2) is recovered by orthogonality, giving character values $(2, -2, 0, 0, 0)$. The complete table: $\CC_\mathrm{triv}$: $(1,1,1,1,1)$; $\CC_i$: $(1,1,1,-1,-1)$; $\CC_j$: $(1,1,-1,1,-1)$; $\CC_k$: $(1,1,-1,-1,1)$; $\CC^2$: $(2,-2,0,0,0)$."
+  prompt="Compute the character table of the quaternion group Q₈ = {±1, ±i, ±j, ±k}."
+  hint="There are five conjugacy classes: {1}, {-1}, {±i}, {±j}, {±k}. Find four one-dimensional representations from homomorphisms Q₈ → ℂˣ, then use orthogonality to recover the fifth row."
+  solution="The four one-dimensional representations come from the quotient Q₈/⟨-1⟩ ≅ ℤ/2 × ℤ/2, giving C_triv, C_i (i ↦ 1, j ↦ -1, k ↦ -1), C_j (j ↦ 1, i ↦ -1, k ↦ -1), and C_k. The fifth row (dimension 2) is recovered by orthogonality, giving character values (2, -2, 0, 0, 0). The complete table has rows C_triv: (1,1,1,1,1); C_i: (1,1,1,-1,-1); C_j: (1,1,-1,1,-1); C_k: (1,1,-1,-1,1); C²: (2,-2,0,0,0)."
 />
 
 <Problem
+  client:load
   difficulty="starred"
   id="chr-prob-second-orthog"
-  prompt="Let $g, h \in G$ and let $V_1, \dots, V_r$ be the irreps of $G$. Prove the second orthogonality formula: $\sum_{i=1}^r \chi_{V_i}(g) \ol{\chi_{V_i}(h)} = \begin{cases} |C_G(g)| & \text{if } g \sim h \\ 0 & \text{otherwise.} \end{cases}$ Here $C_G(g) = \{x \in G : xg = gx\}$ is the centralizer."
-  hint="Construct two square $r \times r$ matrices $A$ and $B$ such that $AB$ is the identity by the first orthogonality relation. Then use the product $BA$ to derive the second orthogonality relation."
-  solution="Let $A$ be the $r \times r$ matrix with $A_{ij} = \chi_{V_i}(C_j) \sqrt{|C_j|/|G|}$ (rows indexed by irreps, columns by conjugacy classes). Let $B = A^*$ (conjugate transpose). The first orthogonality relation says $AB = I$. For square matrices, $AB = I$ implies $BA = I$, giving the second orthogonality relation after translating back: $\sum_i \chi_{V_i}(C_j) \ol{\chi_{V_i}(C_k)} = (|G|/|C_j|) \delta_{jk}$. Since $|C_j| = |G|/|C_G(g_j)|$ by the orbit-stabilizer theorem, this becomes $|C_G(g)|$ when $j = k$."
+  prompt="Let g, h be elements of a finite group G and let V₁, …, Vᵣ be the irreps of G. Prove the second orthogonality formula: Σᵢ χ_{Vᵢ}(g) · conjugate(χ_{Vᵢ}(h)) = |C_G(g)| if g and h are conjugate, and 0 otherwise. Here C_G(g) = {x ∈ G : xg = gx}."
+  hint="Construct two square r × r matrices A and B such that AB = I using the first orthogonality. Then since AB = I implies BA = I for square matrices, use BA to derive the second orthogonality formula."
+  solution="Index rows by irreps and columns by conjugacy classes. Let A_{ij} = χ_{Vᵢ}(Cⱼ) √(|Cⱼ|/|G|) and B = A* (conjugate transpose). The first orthogonality relation says (AA*)_{ij} = δᵢⱼ, i.e. AA* = I. Since A is a square r × r matrix, AA* = I implies A*A = I. The (j,k) entry of A*A = I gives Σᵢ A*_{ji} A_{ik} = Σᵢ (|Cⱼ|/|G|)^{1/2} χ̄_{Vᵢ}(Cⱼ) χ_{Vᵢ}(Cₖ) (|Cₖ|/|G|)^{1/2} = δⱼₖ. Multiplying through by |G|/(|Cⱼ||Cₖ|)^{1/2} and then evaluating at j = k gives the second orthogonality formula. Since |Cⱼ| = |G|/|C_G(gⱼ)| by orbit-stabilizer, the diagonal entry becomes |C_G(g)|."
 />
 
 </SlideLayout>

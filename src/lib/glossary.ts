@@ -1417,12 +1417,6 @@ export const glossary = {
     definition: 'A square array whose rows are labeled by irreducible representations and whose columns are labeled by conjugacy classes of a finite group G. Entry (i, j) is the value of χ_{V_i} on any element of conjugacy class j.',
     example: 'S₃ has three conjugacy classes and three irreps, giving a 3×3 character table.',
   },
-  conjugacyClass: {
-    term: 'Conjugacy class',
-    symbol: 'C_g',
-    definition: 'The conjugacy class of an element g in a group G is the set {hgh⁻¹ : h ∈ G} of all conjugates of g. Elements in the same conjugacy class have identical character values for every representation.',
-    example: 'In S₃ the conjugacy classes are {id}, {(12),(23),(31)}, and {(123),(321)}.',
-  },
   abelianizationAlg: {
     term: 'Abelianization of an algebra',
     symbol: 'A^{\\mathrm{ab}}',

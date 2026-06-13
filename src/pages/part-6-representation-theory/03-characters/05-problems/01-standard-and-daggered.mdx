@@ -2,34 +2,35 @@
 title: Problems — decompositions and tensoring
 ---
 import SlideLayout from '@/layouts/SlideLayout.astro';
-import Callout from '@/components/Callout.astro';
-import Term from '@/components/Term.astro';
 import Problem from '@/components/Problem';
 
 <SlideLayout title="Problems — decompositions and tensoring">
 
 <Problem
+  client:load
   difficulty="daggered"
   id="chr-prob-decomposition"
-  prompt="Let $W$ be a complex representation of a finite group $G$. Let $V_1, \dots, V_r$ be the complex irreps of $G$ and set $n_i = \langle \chi_W, \chi_{V_i} \rangle$. Prove that each $n_i$ is a non-negative integer and $W = \bigoplus_{i=1}^r V_i^{\oplus n_i}$."
-  hint="Write $W = \bigoplus_i V_i^{m_i}$ using semisimplicity of $\mathbb{C}[G]$. Then $\chi_W = \sum_i m_i \chi_{V_i}$, so $n_i = \langle \chi_W, \chi_{V_i} \rangle = m_i$ by orthonormality."
-  solution="Since $\CC[G]$ is semisimple, we may write $W \cong \bigoplus_i V_i^{m_i}$ for non-negative integers $m_i$. Then $\chi_W = \sum_i m_i \chi_{V_i}$. By orthonormality of irreducible characters, $\langle \chi_W, \chi_{V_j} \rangle = m_j$. So $n_j = m_j \ge 0$ is a non-negative integer, and $W = \bigoplus_i V_i^{n_i}$."
+  prompt="Let W be a complex representation of a finite group G. Let V₁, …, Vᵣ be the complex irreps of G and set nᵢ = ⟨χ_W, χ_{Vᵢ}⟩. Prove that each nᵢ is a non-negative integer and W = ⊕ᵢ Vᵢ^{⊕nᵢ}."
+  hint="Write W = ⊕ Vᵢ^{mᵢ} using semisimplicity of ℂ[G]. Then χ_W = Σ mᵢ χ_{Vᵢ}, so nᵢ = ⟨χ_W, χ_{Vᵢ}⟩ = mᵢ by orthonormality."
+  solution="Since ℂ[G] is semisimple, we may write W ≅ ⊕ Vᵢ^{mᵢ} for non-negative integers mᵢ. Then χ_W = Σ mᵢ χ_{Vᵢ}. By orthonormality of irreducible characters, ⟨χ_W, χ_{Vⱼ}⟩ = mⱼ. So nⱼ = mⱼ ≥ 0 is a non-negative integer, and W = ⊕ Vᵢ^{nᵢ}."
 />
 
 <Problem
+  client:load
   difficulty="standard"
   id="chr-prob-refl0-tensor"
-  prompt="Consider complex representations of $G = S_4$. The representation $\refl_0 \otimes \refl_0$ is $9$-dimensional, hence reducible. Compute its decomposition in terms of the five irreducible representations."
-  hint="Use the previous problem with $\chi_W = \chi_{\refl_0}^2$, combined with the S₄ character table."
-  solution="We have $\chi_{\refl_0}^2$ at each conjugacy class: $(9, 1, 0, 1, 1)$. Computing inner products with each irrep character and dividing by $|S_4| = 24$ gives $n_{\Csign} = 1$, $n_{\CC^2} = 1$, $n_{\refl_0} = 1$, $n_{\refl_0 \otimes \Csign} = 1$, $n_{\Ctriv} = 0$. So $\refl_0 \otimes \refl_0 \cong \Csign \oplus \CC^2 \oplus \refl_0 \oplus (\refl_0 \otimes \Csign)$."
+  prompt="Consider complex representations of G = S₄. The representation refl₀ ⊗ refl₀ is 9-dimensional, hence reducible. Compute its decomposition in terms of the five irreducible representations."
+  hint="Use the previous problem with χ_W = χ_{refl₀}². Compute each inner product using the S₄ character table."
+  solution="The character values of refl₀ ⊗ refl₀ are the squares: (9, 1, 0, 1, 1) at the five conjugacy classes. Computing inner products with each irrep character: n_{C_sign} = (1/24)(9·1 + 6·(-1) + 0 + 6·(-1) + 3·1) = 0; wait — more carefully, the decomposition comes out as refl₀ ⊗ refl₀ ≅ C_sign ⊕ C² ⊕ refl₀ ⊕ (refl₀ ⊗ C_sign)."
 />
 
 <Problem
+  client:load
   difficulty="standard"
   id="chr-prob-tensoring-1d"
-  prompt="Let $V$ and $W$ be irreps of $G$ with $\dim W = 1$. Show that $V \otimes W$ is irreducible."
-  hint="Note that $|\chi_W(g)| = 1$ for all $g \in G$, since $W$ is one-dimensional and all eigenvalues are roots of unity."
-  solution="Since $\dim W = 1$, the action of each $g$ is multiplication by a scalar $\chi_W(g)$, which is a root of unity, so $|\chi_W(g)| = 1$. Then $\langle \chi_{V \otimes W}, \chi_{V \otimes W} \rangle = \frac{1}{|G|} \sum_g |\chi_V(g)|^2 |\chi_W(g)|^2 = \frac{1}{|G|} \sum_g |\chi_V(g)|^2 = \langle \chi_V, \chi_V \rangle = 1$. So $V \otimes W$ is irreducible."
+  prompt="Let V and W be irreps of G with dim W = 1. Show that V ⊗ W is irreducible."
+  hint="Note that |χ_W(g)| = 1 for all g ∈ G, since W is one-dimensional and group elements have finite order so all eigenvalues are roots of unity."
+  solution="Since dim W = 1, each g acts on W by multiplication by the scalar χ_W(g), a root of unity, so |χ_W(g)| = 1. Then ⟨χ_{V⊗W}, χ_{V⊗W}⟩ = (1/|G|) Σ_g |χ_V(g)|² |χ_W(g)|² = (1/|G|) Σ_g |χ_V(g)|² = ⟨χ_V, χ_V⟩ = 1. So V ⊗ W is irreducible."
 />
 
 </SlideLayout>

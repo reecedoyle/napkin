@@ -26,14 +26,16 @@ Property (I) says characters are **class functions** — functions constant on c
 This will follow immediately once we note that $\Tr(TS) = \Tr(ST)$ for any matrices $T, S$.
 
 <MCQ
+  client:load
   id="chr-def-mcq-dimension"
-  prompt="What does $\chi_V(1_A)$ equal, where $1_A$ is the identity element of the algebra $A$?"
+  prompt="What does χ_V(1_A) equal, where 1_A is the identity element of the algebra A?"
   options={[
-    { id: 'a', label: '$1$' },
-    { id: 'b', label: '$0$' },
-    { id: 'c', label: '$\\dim V$', correct: true },
-    { id: 'd', label: '$|G|$' },
+    { id: 'a', label: '1' },
+    { id: 'b', label: '0' },
+    { id: 'c', label: 'dim V' },
+    { id: 'd', label: '|G|' },
   ]}
+  correct="c"
   explanation="The identity element acts as the identity map on V, whose trace is dim V — the number of 1s on the diagonal."
 />
 
