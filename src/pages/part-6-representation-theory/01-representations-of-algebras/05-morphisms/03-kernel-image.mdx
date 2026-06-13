@@ -1,0 +1,26 @@
+---
+title: "Kernel and image are subrepresentations"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Kernel and image are subrepresentations">
+
+<Callout kind="proposition" title="Kernel and image">
+Let $T \colon V \to W$ be an <Term k="intertwinOp">intertwining operator</Term>.
+- $\ker T \subseteq V$ is a <Term k="subrep">subrepresentation</Term> of $V$.
+- $\mathrm{im}\, T \subseteq W$ is a subrepresentation of $W$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="ralg-mor-proof-ker-im"
+  prompt="Prove both parts using the intertwining identity T(a·v) = a·T(v)."
+  solution="Kernel: if v ∈ ker T, then T(a·v) = a·T(v) = a·0 = 0, so a·v ∈ ker T. Image: if w = T(v) ∈ im T, then a·w = a·T(v) = T(a·v) ∈ im T."
+/>
+
+This gives us a very useful consequence: if $T \colon V \to W$ is a nonzero intertwining operator and $V$ is irreducible, then $\ker T = \{0\}$, so $T$ is injective. The image is then a nonzero subrepresentation of $W$. This is the key step in Schur's lemma.
+
+</SlideLayout>

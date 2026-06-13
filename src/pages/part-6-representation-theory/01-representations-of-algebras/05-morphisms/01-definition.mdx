@@ -1,0 +1,24 @@
+---
+title: "Intertwining operators — definition"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Intertwining operators — definition">
+
+<Callout kind="definition" title="Intertwining operator">
+Let $V$ and $W$ be representations of $A$. An <Term k="intertwinOp">**intertwining operator**</Term> (or **morphism of representations**) is a linear map $T \colon V \to W$ satisfying
+
+$$T(a \cdot v) = a \cdot T(v)$$
+
+for all $a \in A$ and $v \in V$. If $T$ is invertible it is an **isomorphism** of representations, and we write $V \cong W$.
+</Callout>
+
+Think of it this way: $T$ does not matter whether you act by $a$ first and then apply $T$, or apply $T$ first and then act by $a$ — the results agree. In commutative-diagram language, the square
+
+$$V \xrightarrow{\rho_V(a)} V \xrightarrow{T} W \quad = \quad V \xrightarrow{T} W \xrightarrow{\rho_W(a)} W$$
+
+commutes for every $a \in A$.
+
+</SlideLayout>
