@@ -1,0 +1,27 @@
+---
+title: The dual representation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The dual representation">
+
+To handle the conjugate $\ol{\chi_W(g)}$ in the inner product, we need a representation whose character is the complex conjugate.
+
+<Callout kind="definition" title="Dual representation">
+Let $(V, \rho)$ be a representation of $G$.
+The <Term k="dualRepresentation">**dual representation**</Term> $V^\vee$ acts on the dual space $V^\vee = \Hom(V, \CC)$.
+For $\xi \in V^\vee$ and $v \in V$:
+$$(g \cdot \xi)(v) \defeq \xi\!\left(\rho(g^{-1})(v)\right).$$
+</Callout>
+
+**Character of the dual:** The action of $g$ on $V^\vee$ has eigenvalues $\lambda_1^{-1}, \dots, \lambda_n^{-1}$ whenever $g$ acts on $V$ with eigenvalues $\lambda_1, \dots, \lambda_n$.
+Since $g^{|G|} = 1_G$, every $\lambda_i$ is a root of unity, so $\lambda_i^{-1} = \ol{\lambda_i}$.
+Hence:
+
+$$\chi_{V^\vee}(g) = \sum_i \lambda_i^{-1} = \sum_i \ol{\lambda_i} = \ol{\chi_V(g)}.$$
+
+The formula $|\lambda| = 1 \iff \lambda^{-1} = \ol\lambda$ is the crucial step.
+
+</SlideLayout>

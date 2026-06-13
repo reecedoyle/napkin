@@ -1,0 +1,28 @@
+---
+title: Proof of orthogonality
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of orthogonality">
+
+The proof reduces the inner product to a single character value via the averaging operator.
+
+Using $\chi_V(g)\ol{\chi_W(g)} = \chi_{V \otimes W^\vee}(g)$, we rewrite:
+
+$$\langle \chi_V, \chi_W \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_{V \otimes W^\vee}(g) = \chi_{V \otimes W^\vee}\!\left(\frac{1}{|G|} \sum_{g \in G} g\right).$$
+
+Let $P \colon V \otimes W^\vee \to V \otimes W^\vee$ be the action of the averaging element $\frac{1}{|G|} \sum_{g \in G} g$.
+
+<Callout kind="remark" title="P is an idempotent projection">
+A direct computation shows $P^2 = P$ (idempotent). So $V \otimes W^\vee = \ker P \oplus \img P$, and $P$ acts as $0$ on $\ker P$ and as $1$ on $\img P$. Hence $\Tr P = \dim \img P$.
+
+The image $\img P$ is precisely the **$G$-fixed subspace**: $\{x \in V \otimes W^\vee : g \cdot x = x \text{ for all } g \in G\}$.
+</Callout>
+
+Under the natural isomorphism $V \otimes W^\vee \cong \Hom(W, V)$, an element $T \in \Hom(W, V)$ is $G$-fixed if and only if $T(g \cdot w) = g \cdot T(w)$ for all $w \in W$ — that is, $T$ is a morphism of representations.
+
+Therefore $\dim \img P = \dim \Homrep(W, V)$, completing the proof.
+
+</SlideLayout>

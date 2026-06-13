@@ -1,0 +1,26 @@
+---
+title: An inner product on class functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="An inner product on class functions">
+
+From here we specialize to finite groups $G$ represented over $\CC$.
+The character table's "dot product" rows (Property IV) is an actual inner product.
+
+<Callout kind="definition" title="Inner product on class functions">
+Let <Term k="classFunctions">$\FunCl(G)$</Term> be the $\CC$-vector space of functions $\Classes(G) \to \CC$.
+We equip it with the **Hermitian inner product**
+$$\langle f_1, f_2 \rangle = \frac{1}{|G|} \sum_{g \in G} f_1(g)\, \ol{f_2(g)}.$$
+</Callout>
+
+This is exactly the "dot product" from the $S_3$ table:
+
+- $\langle \chi_{\Ctriv}, \chi_{\Csign} \rangle = \frac{1}{6}(1 \cdot 1 + 3 \cdot (1)(-1) + 2 \cdot (1)(1)) = \frac{1+(-3)+2}{6} = 0$.
+
+The **orthogonality theorem** says the irreducible characters form an orthonormal basis of $\FunCl(G)$.
+This simultaneously proves Properties (III) and (IV).
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: Testing irreducibility via characters
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Testing irreducibility via characters">
+
+The orthogonality theorem gives a mechanical criterion for irreducibility.
+
+<Callout kind="corollary" title="Irreducibility criterion">
+A finite-dimensional complex representation $V$ of $G$ is irreducible if and only if
+$$\langle \chi_V, \chi_V \rangle = 1.$$
+</Callout>
+
+**Why?** Write $V = \bigoplus_i V_i^{\oplus m_i}$ (possible since $\CC[G]$ is semisimple).
+Then $\chi_V = \sum_i m_i \chi_{V_i}$, so $\langle \chi_V, \chi_V \rangle = \sum_i m_i^2$ by orthonormality.
+This equals $1$ if and only if exactly one $m_i = 1$ and the rest are $0$, i.e.\ $V$ is irreducible.
+
+For $S_3$, checking $\refl_0$ directly from the character table:
+$$\langle \chi_{\refl_0}, \chi_{\refl_0} \rangle = \frac{1}{6}(4 + 0 + 0 + 0 + 1 + 1) = 1. \checkmark$$
+
+<NumericInput
+  id="chr-orth-num-norm-s3triv"
+  prompt="Compute $\langle \chi_{\mathbb{C}_\mathrm{triv}}, \chi_{\mathbb{C}_\mathrm{triv}} \rangle$ for $S_3$. (Enter the value.)"
+  expected="1"
+/>
+
+</SlideLayout>
