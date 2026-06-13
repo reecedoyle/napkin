@@ -1,0 +1,24 @@
+---
+title: "k-algebras — definition"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="k-algebras — definition">
+
+<Callout kind="definition" title="k-algebra">
+Let $k$ be a field. A <Term k="kAlgebra">**$k$-algebra**</Term> $A$ is a possibly noncommutative ring equipped with a ring homomorphism $k \hookrightarrow A$ (whose image is the "copy of $k$"), satisfying $\lambda \cdot a = a \cdot \lambda$ for each $\lambda \in k$ and $a \in A$.
+
+If multiplication is also commutative, $A$ is a **commutative algebra**.
+</Callout>
+
+Equivalently, $A$ is a <Term k="vectorSpace">$k$-vector space</Term> with an associative, bilinear multiplication (with identity $1_A$). The "copy of $k$" comes from scaling the identity: $\lambda \mapsto \lambda 1_A$.
+
+Think of a $k$-algebra as a ring that "knows about" the field $k$ — scalars from $k$ commute with everything and act as expected.
+
+<Callout kind="remark" title="Convention">
+Some authors require neither associativity nor a unit, calling what we have an "associative algebra with 1". We always assume both.
+</Callout>
+
+</SlideLayout>

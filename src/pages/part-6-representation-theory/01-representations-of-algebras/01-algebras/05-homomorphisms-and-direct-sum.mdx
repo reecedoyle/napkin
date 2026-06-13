@@ -1,0 +1,22 @@
+---
+title: "Algebra homomorphisms and direct sums"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Algebra homomorphisms and direct sums">
+
+<Callout kind="definition" title="Algebra homomorphism">
+A <Term k="algHom">**homomorphism**</Term> of $k$-algebras $A \to B$ is a linear map $T \colon A \to B$ that respects multiplication ($T(xy) = T(x)T(y)$) and sends $1_A$ to $1_B$. It is simultaneously a ring homomorphism and a vector space map.
+</Callout>
+
+<Callout kind="definition" title="Direct sum of algebras">
+Given $k$-algebras $A$ and $B$, the <Term k="algDirectSum">**direct sum**</Term> $A \oplus B$ consists of formal sums $a + b$ with $a \in A$, $b \in B$. Addition is componentwise; products across the summands are declared zero: $ab = 0$ for $a \in A$ and $b \in B$.
+</Callout>
+
+The identity of $A \oplus B$ is $1_A + 1_B$. Equivalently, think of $A \oplus B$ as pairs $(a, b)$ with componentwise multiplication $(a,b)(a',b') = (aa', bb')$.
+
+This mirrors the product ring construction from ring theory — we just give it a different name and notation in the algebra context.
+
+</SlideLayout>

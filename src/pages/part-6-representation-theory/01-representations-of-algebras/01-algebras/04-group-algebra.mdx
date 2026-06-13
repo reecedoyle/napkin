@@ -1,0 +1,22 @@
+---
+title: "The group algebra k[G]"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The group algebra k[G]">
+
+<Callout kind="definition" title="Group algebra">
+The <Term k="groupAlgebra">**group algebra**</Term> $k[G]$ is the $k$-vector space whose **basis elements** are the elements of $G$, with multiplication of basis elements given by the group multiplication in $G$, extended bilinearly.
+</Callout>
+
+**Example.** Take $G = \mathbb{Z}/2\mathbb{Z} = \{1_G, x\}$. Then
+
+$$k[G] = \{ a 1_G + b x \mid a, b \in k \}$$
+
+with multiplication $(a 1_G + bx)(c 1_G + dx) = (ac + bd) 1_G + (bc + ad)x$.
+
+This is one of the most important algebras in representation theory: a **representation of the algebra $k[G]$** turns out to be exactly the same thing as a **representation of the group $G$**. We will make this precise in the next section.
+
+</SlideLayout>
