@@ -1,0 +1,25 @@
+---
+title: "Simple groups have no prime-power conjugacy classes"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Simple groups have no prime-power conjugacy classes">
+
+<Callout kind="lemma" title="Simple groups have no prime-power conjugacy classes">
+A finite <Term k="simpleGroup">simple group</Term> $G$ cannot have a <Term k="conjugacyClass">conjugacy class</Term> of size $p^k$ (for $k > 0$ and $p$ prime).
+</Callout>
+
+**Proof by contradiction.** Assume $C$ is such a class with $|C| = p^k$. Fix $g \in C$.
+
+By the second orthogonality formula applied to $g$ and $1_G$ (distinct conjugacy classes):
+$$\sum_{i=1}^r (\dim V_i)\,\chi_{V_i}(g) = 0.$$
+
+The trivial representation contributes $\dim V_{\text{triv}} \cdot \chi_{\text{triv}}(g) = 1$. After subtracting this, the remaining sum equals $-1$, which is not divisible by $p$. So there must exist a **nontrivial** irrep $V$ with $p \nmid \dim V$ and $\chi_V(g) \neq 0$.
+
+Now $\gcd(|C|, \dim V) = \gcd(p^k, \dim V) = 1$ (since $p \nmid \dim V$). By the previous lemma, $\rho(g)$ acts as a scalar on $V$.
+
+Consider $H = \langle ab^{-1} \mid a, b \in C \rangle$. This is a normal subgroup of $G$: it is nontrivial (since $|C| > 1$), and every element of $H$ acts trivially on $V$ (since scalars compose trivially). But then $H$ is a proper nontrivial normal subgroup, contradicting $G$ being simple. $\square$
+
+</SlideLayout>
