@@ -1457,7 +1457,7 @@ export const glossary = {
     definition: 'A nonzero representation V that has no proper nonzero subrepresentations. The building blocks of representation theory.',
     example: 'The one-dimensional subspace {(t,t,t)} in ℝ³ is an irrep of ℝ[S₃].',
   },
-  indecomposable: {
+  indecomposableRep: {
     term: 'Indecomposable representation',
     symbol: 'V',
     definition: 'A representation V that cannot be written as V = W₁ ⊕ W₂ for two proper nonzero subrepresentations W₁ and W₂. Every irreducible representation is indecomposable, but not vice versa.',
