@@ -1,0 +1,26 @@
+---
+title: Density theorem — explicit example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Density theorem — explicit example">
+
+Let $A = \Mat_2(k)$ with the obvious irrep $V = k^{\oplus 2}$.
+
+The density theorem says: for any $e_1, e_2 \in V$ linearly independent and any $w_1, w_2 \in V$, there exists $a \in A$ with $a \cdot e_1 = w_1$ and $a \cdot e_2 = w_2$.
+
+To see the proof's mechanism, choose instead **linearly dependent** $e_1 = (1,0)$ and $e_2 = (2,0)$. The map $\Reg(A) \to V^{\oplus 2}$ by $a \mapsto (a \cdot e_1, a \cdot e_2)$ has image $\{(v, 2v) : v \in V\}$, isomorphic to $V^{\oplus 1}$ via $v \mapsto (v, 2v)$.
+
+<ProofReveal
+  client:load
+  id="ssa-density-proof-linear-dep"
+  prompt="What explicit linear combination shows e₁ and e₂ are dependent (i.e., finds constants c₁, c₂ with c₁e₁ + c₂e₂ = 0)?"
+  solution="Take c₁ = 2, c₂ = −1. Then 2·e₁ + (−1)·e₂ = 2·(1,0) − (2,0) = (0,0) = 0. The constant matrix X = [1 2] expresses (e₁, e₂) = (1,0) · [1 2], and [2 −1] · [1 2]ᵀ = 0, giving the contradiction."
+/>
+
+The proof works because the basis assumption in the non-degenerate case prevents this from happening: a **true** basis cannot have such a dependence.
+
+</SlideLayout>
