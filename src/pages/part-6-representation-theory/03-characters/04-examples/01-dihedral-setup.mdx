@@ -1,0 +1,25 @@
+---
+title: Character table of D₁₀ — setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Character table of D₁₀ — setup">
+
+We compute the character table of the dihedral group $D_{10} = \langle r, s \mid r^5 = s^2 = 1,\; rs = sr^{-1} \rangle$ (order $10$).
+
+Let $\omega = \exp(2\pi i / 5)$.
+The group has **four conjugacy classes**: $\{1\}$, $\{r, r^4\}$, $\{r^2, r^3\}$, and $\{sr^k : k = 0,\dots, 4\}$.
+So there are exactly four irreps.
+
+<Callout kind="example" title="Four representations of D₁₀">
+- $\Ctriv$: all elements act as the identity.
+- $\Csign$: $r \mapsto 1$, $s \mapsto -1$.
+- $V_1$ (2-dimensional): $r \mapsto \begin{bmatrix} \omega & 0 \\ 0 & \omega^4 \end{bmatrix}$, $s \mapsto \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$.
+- $V_2$ (2-dimensional): $r \mapsto \begin{bmatrix} \omega^2 & 0 \\ 0 & \omega^3 \end{bmatrix}$, $s \mapsto \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$.
+</Callout>
+
+The dimensions satisfy $1^2 + 1^2 + 2^2 + 2^2 = 10 = |D_{10}|$, consistent with Property (III).
+
+</SlideLayout>

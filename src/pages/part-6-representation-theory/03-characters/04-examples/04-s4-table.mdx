@@ -1,0 +1,31 @@
+---
+title: Character table of S₄ — the full table
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Character table of S₄ — the full table">
+
+We find the three remaining irreps using the reflection representation and tensoring.
+
+The **reflection representation** $\refl_0 = \{(w,x,y,z) : w+x+y+z = 0\} \subset \CC^4$ is 3-dimensional.
+A direct character computation gives values $3, 1, 0, -1, -1$, and checking $\langle \chi_{\refl_0}, \chi_{\refl_0} \rangle = 1$ confirms it is irreducible.
+
+Tensoring with $\Csign$ (which has $|\chi_{\Csign}| = 1$ everywhere) gives another irrep $\refl_0 \otimes \Csign$, with characters $3, -1, 0, 1, -1$.
+
+The 2-dimensional irrep $\CC^2$ is recovered by orthogonality to fill the last row.
+
+<Callout kind="example" title="Complete character table of S₄">
+| $S_4$ | $\mathrm{id}$ | $(\cdot\;\cdot)$ | $(\cdot\;\cdot\;\cdot)$ | $(\cdot\;\cdot\;\cdot\;\cdot)$ | $(\cdot\;\cdot)(\cdot\;\cdot)$ |
+|---|---|---|---|---|---|
+| $\Ctriv$ | $1$ | $1$ | $1$ | $1$ | $1$ |
+| $\Csign$ | $1$ | $-1$ | $1$ | $-1$ | $1$ |
+| $\CC^2$ | $2$ | $0$ | $-1$ | $0$ | $2$ |
+| $\refl_0$ | $3$ | $1$ | $0$ | $-1$ | $-1$ |
+| $\refl_0 \otimes \Csign$ | $3$ | $-1$ | $0$ | $1$ | $-1$ |
+</Callout>
+
+One can verify all orthogonality relations directly from this table.
+
+</SlideLayout>

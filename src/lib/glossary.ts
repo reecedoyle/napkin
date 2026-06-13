@@ -1404,6 +1404,7 @@ export const glossary = {
     definition: 'The integer r in the decomposition G ≅ ℤʳ ⊕ ℤ/q₁ℤ ⊕ ⋯ ⊕ ℤ/qₘℤ of a finitely generated abelian group G. It counts the free ℤ-summands. Groups of rank 0 are finite.',
     example: 'ℤ has rank 1. ℤ ⊕ ℤ has rank 2. ℤ/nℤ has rank 0.',
   },
+<<<<<<< HEAD
   // ────────────── Chapter 19 — Representations of algebras ──────────────
   kAlgebra: {
     term: 'k-algebra',
@@ -1590,6 +1591,50 @@ export const glossary = {
     symbol: '\\det M_G',
     definition: 'For a finite group G of order n, introduce variables xₘ for each g ∈ G. The group matrix M_G is the n×n matrix with (g,h)-entry x_{gh}. Its determinant det M_G is a polynomial in |G| variables. Frobenius showed det M_G factors into exactly one irreducible factor per conjugacy class, each appearing with multiplicity equal to its degree.',
     example: 'For G = ℤ/2ℤ: det M_G = (x₁ − x_T)(x₁ + x_T), one linear factor per conjugacy class.',
+  },
+
+  // ────────────── Chapter 21 — Characters ──────────────
+  characterRep: {
+    term: 'Character of a representation',
+    symbol: '\\chi_V',
+    definition: 'For a finite-dimensional representation V of an algebra A over a field k, the character χ_V: A → k is defined by χ_V(a) = Tr(ρ(a)), the trace of the action matrix. It is k-linear but not multiplicative.',
+    example: 'For the trivial one-dimensional representation, χ_triv(g) = 1 for all g. For a 2-dimensional representation, χ_V(1) = 2.',
+  },
+  characterTable: {
+    term: 'Character table',
+    symbol: '\\chi_{V_i}(g_j)',
+    definition: 'A square array whose rows are labeled by irreducible representations and whose columns are labeled by conjugacy classes of a finite group G. Entry (i, j) is the value of χ_{V_i} on any element of conjugacy class j.',
+    example: 'S₃ has three conjugacy classes and three irreps, giving a 3×3 character table.',
+  },
+  abelianizationAlg: {
+    term: 'Abelianization of an algebra',
+    symbol: 'A^{\\mathrm{ab}}',
+    definition: 'For an algebra A, the abelianization A^ab = A/[A,A] is the quotient by the subspace [A,A] spanned by all commutators xy − yx. Characters factor through A^ab, so they live in its dual space.',
+    example: 'If A = Mat_d(k) then A^ab is one-dimensional, since the trace-zero matrices span [A,A].',
+  },
+  commutatorSubspace: {
+    term: 'Commutator subspace',
+    symbol: '[A, A]',
+    definition: 'The k-vector subspace of an algebra A spanned by all commutators xy − yx for x, y ∈ A. Every character χ_V vanishes on [A,A] because Tr(ρ(xy) − ρ(yx)) = Tr(ρ(x)ρ(y)) − Tr(ρ(y)ρ(x)) = 0.',
+    example: 'In a commutative algebra [A,A] = {0}. In Mat_2(ℂ) the commutator subspace is the set of trace-zero matrices.',
+  },
+  dualRepresentation: {
+    term: 'Dual representation',
+    symbol: 'V^\\vee',
+    definition: 'For a representation (V, ρ) of a group G, the dual representation V∨ acts on the dual vector space V∨ = Hom(V, k). The group element g acts on a functional ξ ∈ V∨ by (g·ξ)(v) = ξ(ρ(g⁻¹)(v)). The character satisfies χ_{V∨}(g) = conjugate of χ_V(g).',
+    example: 'For the standard 2-dimensional representation of S₃, the dual is isomorphic to it (it is self-dual).',
+  },
+  tensorProductRep: {
+    term: 'Tensor product of representations',
+    symbol: 'V \\otimes W',
+    definition: 'For group representations (V, ρ_V) and (W, ρ_W) of G, the tensor product V ⊗ W is the representation on V ⊗ W where g acts by g·(v ⊗ w) = ρ_V(g)(v) ⊗ ρ_W(g)(w). The character satisfies χ_{V⊗W}(g) = χ_V(g) · χ_W(g).',
+    example: 'If V and W are both 2-dimensional, then V ⊗ W is 4-dimensional.',
+  },
+  classFunctions: {
+    term: 'Space of class functions',
+    symbol: '\\operatorname{Fun}_{\\mathrm{class}}(G)',
+    definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
+    example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
 } as const satisfies Record<string, GlossaryEntry>;
 

@@ -1,0 +1,27 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred">
+
+<Problem
+  client:load
+  difficulty="standard"
+  id="chr-prob-quaternions"
+  prompt="Compute the character table of the quaternion group Q₈ = {±1, ±i, ±j, ±k}."
+  hint="There are five conjugacy classes: {1}, {-1}, {±i}, {±j}, {±k}. Find four one-dimensional representations from homomorphisms Q₈ → ℂˣ, then use orthogonality to recover the fifth row."
+  solution="The four one-dimensional representations come from the quotient Q₈/⟨-1⟩ ≅ ℤ/2 × ℤ/2, giving C_triv, C_i (i ↦ 1, j ↦ -1, k ↦ -1), C_j (j ↦ 1, i ↦ -1, k ↦ -1), and C_k. The fifth row (dimension 2) is recovered by orthogonality, giving character values (2, -2, 0, 0, 0). The complete table has rows C_triv: (1,1,1,1,1); C_i: (1,1,1,-1,-1); C_j: (1,1,-1,1,-1); C_k: (1,1,-1,-1,1); C²: (2,-2,0,0,0)."
+/>
+
+<Problem
+  client:load
+  difficulty="starred"
+  id="chr-prob-second-orthog"
+  prompt="Let g, h be elements of a finite group G and let V₁, …, Vᵣ be the irreps of G. Prove the second orthogonality formula: Σᵢ χ_{Vᵢ}(g) · conjugate(χ_{Vᵢ}(h)) = |C_G(g)| if g and h are conjugate, and 0 otherwise. Here C_G(g) = {x ∈ G : xg = gx}."
+  hint="Construct two square r × r matrices A and B such that AB = I using the first orthogonality. Then since AB = I implies BA = I for square matrices, use BA to derive the second orthogonality formula."
+  solution="Index rows by irreps and columns by conjugacy classes. Let A_{ij} = χ_{Vᵢ}(Cⱼ) √(|Cⱼ|/|G|) and B = A* (conjugate transpose). The first orthogonality relation says (AA*)_{ij} = δᵢⱼ, i.e. AA* = I. Since A is a square r × r matrix, AA* = I implies A*A = I. The (j,k) entry of A*A = I gives Σᵢ A*_{ji} A_{ik} = Σᵢ (|Cⱼ|/|G|)^{1/2} χ̄_{Vᵢ}(Cⱼ) χ_{Vᵢ}(Cₖ) (|Cₖ|/|G|)^{1/2} = δⱼₖ. Multiplying through by |G|/(|Cⱼ||Cₖ|)^{1/2} and then evaluating at j = k gives the second orthogonality formula. Since |Cⱼ| = |G|/|C_G(gⱼ)| by orbit-stabilizer, the diagonal entry becomes |C_G(g)|."
+/>
+
+</SlideLayout>

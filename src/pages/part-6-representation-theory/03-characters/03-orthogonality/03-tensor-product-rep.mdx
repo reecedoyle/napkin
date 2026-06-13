@@ -1,0 +1,29 @@
+---
+title: The tensor product of representations
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The tensor product of representations">
+
+We also need a representation whose character is the pointwise product of two characters.
+
+<Callout kind="definition" title="Tensor product representation">
+Let $(V, \rho_V)$ and $(W, \rho_W)$ be representations of $G$.
+The <Term k="tensorProductRep">**tensor product**</Term> $V \otimes W$ is the representation on $V \otimes_\CC W$
+where $G$ acts on pure tensors by
+$$g \cdot (v \otimes w) \defeq (\rho_V(g)(v)) \otimes (\rho_W(g)(w)),$$
+extended linearly.
+</Callout>
+
+**Character of the tensor product:** If $g$ acts on $V$ with eigenvalues $\lambda_i$ and on $W$ with eigenvalues $\mu_j$, then $g$ acts on $V \otimes W$ with eigenvalues $\lambda_i \mu_j$.
+Hence $\chi_{V \otimes W}(g) = \chi_V(g) \cdot \chi_W(g)$.
+
+<Callout kind="remark" title="Why this only works for groups">
+For a group representation: $g \cdot (v \otimes w) = (g \cdot v) \otimes (g \cdot w)$. This is well-defined.
+
+For a general algebra element $a$, setting $a \cdot (v \otimes w) = (a \cdot v) \otimes (a \cdot w)$ fails to be linear in $a$ — for instance, replacing $a$ by $2a$ gives $(2a \cdot v) \otimes (2a \cdot w) = 4(a \cdot v) \otimes (a \cdot w) \ne 2(a \cdot v) \otimes (a \cdot w)$.
+</Callout>
+
+</SlideLayout>

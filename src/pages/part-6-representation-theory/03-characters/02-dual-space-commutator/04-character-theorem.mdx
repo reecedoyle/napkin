@@ -1,0 +1,34 @@
+---
+title: The character theorem for algebras
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The character theorem for algebras">
+
+We can now state the main structural result about characters of algebra representations.
+
+<Callout kind="theorem" title="Characters of algebra representations">
+Let $A$ be an algebra over an algebraically closed field. Then:
+
+**(a)** The characters of pairwise non-isomorphic finite-dimensional irreps are **linearly independent** in $(A^{\mathrm{ab}})^\vee$.
+
+**(b)** If $A$ is finite-dimensional and semisimple, the characters of the irreps form a **basis** of $(A^{\mathrm{ab}})^\vee$.
+
+In particular, in (b), the number of irreps of $A$ equals $\dim A^{\mathrm{ab}}$.
+</Callout>
+
+For part (a), linear independence uses the density theorem: a dependence $\sum_i c_i \chi_{V_i}(a) = 0$ for all $a$ forces each $c_i = 0$.
+
+<ProofReveal
+  client:load
+  id="chr-comm-proof-part-b"
+  prompt="Sketch why part (b) follows from part (a) when A is semisimple."
+  solution="By semisimplicity A ≅ ⊕ᵢ Mat(Vᵢ). Each Mat(Vᵢ) has a one-dimensional abelianization, so dim A^ab = r (the number of irreps). Part (a) gives r linearly independent elements in a space of dimension r, so they form a basis."
+/>
+
+**Corollary for groups:** Since $k[G]^{\mathrm{ab}}$ has dimension equal to the number of conjugacy classes, the number of irreps of $G$ equals the number of conjugacy classes. This is Property (II).
+
+</SlideLayout>

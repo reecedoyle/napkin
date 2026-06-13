@@ -1,0 +1,35 @@
+---
+title: Character trace formulas
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Character trace formulas">
+
+We collect the three key trace identities in one place.
+
+<Callout kind="theorem" title="Character traces">
+For finite-dimensional representations $V$ and $W$ of $G$ and any $g \in G$:
+
+**(a)** $\chi_{V \oplus W}(g) = \chi_V(g) + \chi_W(g)$.
+
+**(b)** $\chi_{V \otimes W}(g) = \chi_V(g) \cdot \chi_W(g)$.
+
+**(c)** $\chi_{V^\vee}(g) = \ol{\chi_V(g)}$.
+</Callout>
+
+Parts (a) and (b) follow from the matrix identities $\Tr(S \oplus T) = \Tr(S) + \Tr(T)$ and $\Tr(S \otimes T) = \Tr(S)\Tr(T)$.
+
+Part (c) was proved on the previous slide: the eigenvalues of $g$ acting on $V^\vee$ are the inverses of the eigenvalues on $V$, and since they are roots of unity, inversion equals complex conjugation.
+
+<Callout kind="remark" title="These do not extend to algebra elements">
+Identities (b) and (c) are special to *group* elements.
+For a general $a \in \CC[G]$, it is **false** that $\chi_{V^\vee}(a) = \ol{\chi_V(a)}$.
+The tensor product for algebras is also defined differently (via the diagonal action, not the naïve product).
+</Callout>
+
+Putting (b) and (c) together: $\chi_V(g)\ol{\chi_W(g)} = \chi_{V \otimes W^\vee}(g)$.
+This is the key identity that lets us rewrite the inner product as a single character evaluation.
+
+</SlideLayout>

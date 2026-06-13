@@ -1,0 +1,25 @@
+---
+title: The orthogonality theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The orthogonality theorem">
+
+We can now state and prove the main theorem of this chapter.
+
+<Callout kind="theorem" title="Orthogonality">
+For any finite-dimensional complex representations $V$ and $W$ of $G$:
+$$\langle \chi_V, \chi_W \rangle = \dim \Homrep(W, V).$$
+In particular, for irreps:
+$$\langle \chi_V, \chi_W \rangle = \begin{cases} 1 & V \cong W \\ 0 & \text{otherwise.} \end{cases}$$
+</Callout>
+
+<Callout kind="corollary" title="Irreps give an orthonormal basis">
+The characters of all irreducible representations of $G$ form an **orthonormal basis** of <Term k="classFunctions">$\FunCl(G)$</Term>.
+</Callout>
+
+This simultaneously proves Properties (III) (norm of each irrep character is 1, giving $\sum_i d_i^2 = |G|$) and Property (IV) (distinct irrep characters are orthogonal).
+
+</SlideLayout>

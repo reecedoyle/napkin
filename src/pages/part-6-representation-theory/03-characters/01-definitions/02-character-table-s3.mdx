@@ -1,0 +1,37 @@
+---
+title: Character table of S₃
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Character table of S₃">
+
+The three irreps of $G = S_3$ each give a character.
+For one-dimensional representations the trace **is** the scalar the element acts by.
+
+<Callout kind="example" title="Characters of S₃">
+Write the three irreps in columns indexed by group elements:
+
+| $\chi_V(g)$ | $\id$ | $(1\;2)$ | $(2\;3)$ | $(3\;1)$ | $(1\;2\;3)$ | $(3\;2\;1)$ |
+|---|---|---|---|---|---|---|
+| $\Ctriv$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ |
+| $\Csign$ | $1$ | $-1$ | $-1$ | $-1$ | $1$ | $1$ |
+| $\refl_0$ | $2$ | $0$ | $0$ | $0$ | $-1$ | $-1$ |
+
+For $\refl_0$, use the basis $(1,0,-1)$ and $(0,1,-1)$ and compute traces directly.
+</Callout>
+
+This array is called the <Term k="characterTable">**character table**</Term> of $G$.
+It encodes all finite-dimensional representation theory of $G$ over $\CC$.
+
+Notice a few striking patterns in the table:
+
+- The three transpositions $(1\;2)$, $(2\;3)$, $(3\;1)$ give identical columns.
+- The two 3-cycles $(1\;2\;3)$ and $(3\;2\;1)$ give identical columns.
+- The sum of squares in each row equals $|G| = 6$.
+- Any two rows are "orthogonal" in a suitable inner-product sense.
+
+These are not coincidences. The rest of the chapter explains why they must hold.
+
+</SlideLayout>
