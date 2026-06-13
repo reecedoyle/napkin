@@ -75,4 +75,8 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\OO': '\\mathcal{O}',
   '\\Stab': '\\operatorname{Stab}',
   '\\FixPt': '\\operatorname{FixPt}',
+
+  // Representation theory (Chapter 22) — regular rep and restriction.
+  '\\Reg': '\\operatorname{Reg}',
+  '\\restrict': '\\restriction_{#1}',
 };

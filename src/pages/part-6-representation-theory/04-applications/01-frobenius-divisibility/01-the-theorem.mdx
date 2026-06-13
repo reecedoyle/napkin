@@ -1,0 +1,25 @@
+---
+title: "Frobenius divisibility"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Frobenius divisibility">
+
+We now have enough machinery to prove three beautiful results. The first ties the dimension of an irreducible representation directly to the size of the group.
+
+<Callout kind="theorem" title="Frobenius divisibility">
+Let $V$ be a <Term k="complexIrrep">complex irrep</Term> of a finite group $G$. Then $\dim V$ divides $|G|$.
+</Callout>
+
+The proof uses **algebraic integers** — complex numbers that are roots of monic polynomials with integer coefficients.
+
+<Callout kind="definition" title="Algebraic integer">
+A complex number $\alpha$ is an <Term k="algebraicInteger">algebraic integer</Term> if there exists a monic polynomial $P \in \ZZ[x]$ with $P(\alpha) = 0$.
+The set of all algebraic integers forms a ring <Term k="algIntRing">$\ol\ZZ$</Term>, and $\ol\ZZ \cap \QQ = \ZZ$.
+</Callout>
+
+The key insight: $|G|/\dim V$ is a positive rational number, and we will show it lies in $\ol\ZZ$. Since the only algebraic integers that are also rational numbers are ordinary integers, the divisibility follows.
+
+</SlideLayout>
