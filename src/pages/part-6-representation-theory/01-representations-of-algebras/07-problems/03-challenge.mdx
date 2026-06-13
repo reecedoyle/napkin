@@ -1,0 +1,20 @@
+---
+title: "Problems — challenge"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — challenge">
+
+<Problem
+  client:load
+  id="ralg-prob-indecomp-intertwine"
+  difficulty="standard"
+  statement="Let $(V, \rho)$ be an **indecomposable** (but not necessarily irreducible) representation of an algebra $A$. Prove that any intertwining operator $T \colon V \to V$ is either nilpotent or an isomorphism. (Note that Schur's lemma for algebraically closed fields does not apply, since $k$ may not be algebraically closed.)"
+  hint="Apply the following fact (endomorphism eventual lemma): for a finite-dimensional vector space V and T ∈ End(V), there exists n with V = ker(Tⁿ) ⊕ im(Tⁿ)."
+  solution="By the endomorphism eventual lemma, for large enough n we have V = ker(Tⁿ) ⊕ im(Tⁿ). Both ker(Tⁿ) and im(Tⁿ) are subrepresentations of V (since T is intertwining, Tⁿ is too, and kernels/images of intertwiners are subrepresentations). Since V is indecomposable, one of them must be 0. If ker(Tⁿ) = 0 then T is injective; since V is finite-dimensional this means T is an isomorphism. If im(Tⁿ) = 0 then Tⁿ = 0, so T is nilpotent."
+/>
+
+</SlideLayout>
