@@ -75,4 +75,13 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\OO': '\\mathcal{O}',
   '\\Stab': '\\operatorname{Stab}',
   '\\FixPt': '\\operatorname{FixPt}',
+
+  // Representation theory (Chapter 21 — Characters).
+  '\\Ctriv': '\\mathbb{C}_{\\mathrm{triv}}',
+  '\\Csign': '\\mathbb{C}_{\\mathrm{sign}}',
+  '\\refl': '\\operatorname{refl}',
+  '\\img': '\\operatorname{im}',
+  '\\Classes': '\\operatorname{Classes}',
+  '\\FunCl': '\\operatorname{Fun}_{\\mathrm{class}}',
+  '\\Homrep': '\\operatorname{Hom}_{\\mathrm{rep}}',
 };

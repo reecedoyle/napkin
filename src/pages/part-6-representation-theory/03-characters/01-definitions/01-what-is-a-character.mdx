@@ -1,0 +1,29 @@
+---
+title: What is a character?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a character?">
+
+Every finite-dimensional representation carries a single scalar-valued function that captures its essential data — the **character**.
+
+<Callout kind="definition" title="Character of a representation">
+Let $V = (V, \rho)$ be a finite-dimensional representation of an algebra $A$ over a field $k$.
+The <Term k="characterRep">**character**</Term> $\chi_V \colon A \to k$ is defined by
+$$\chi_V(a) \defeq \Tr\!\bigl(\rho(a) \colon V \to V\bigr).$$
+</Callout>
+
+Since both $\Tr$ and $\rho$ are additive (i.e.\ $k$-linear), $\chi_V$ is itself a $k$-linear map — but **not** multiplicative.
+
+Two immediate consequences:
+
+- **Direct sums:** $\chi_{V \oplus W} = \chi_V + \chi_W$ for any representations $V$ and $W$.
+- **Dimension readout:** $\chi_V(1_A) = \Tr(\id_V) = \dim V$.
+
+For the group algebra $A = k[G]$ we only need to specify $\chi_V(g)$ for each $g \in G$;
+the linearity of $\chi_V$ then determines the full map $k[G] \to k$.
+So we often treat a character as a function $G \to k$.
+
+</SlideLayout>

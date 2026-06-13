@@ -1,0 +1,40 @@
+---
+title: Four mysterious properties
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Four mysterious properties">
+
+The $S_3$ character table satisfies four properties that hold for **every** finite group $G$.
+We will prove each one as the chapter progresses.
+
+<Callout kind="remark" title="Four properties to explain">
+**(I)** $\chi_V(g)$ depends only on the <Term k="conjugacyClass">conjugacy class</Term> of $g$.
+
+**(II)** The number of rows equals the number of conjugacy classes of $G$.
+
+**(III)** The sum of squares of any row equals $|G|$.
+(For $S_3$: $1^2 + 1^2 + 2^2 = 6$, $1^2 + 1^2 + 1^2 = 3 \ne 6$... actually $1+1+4=6$. ✓)
+
+**(IV)** The "dot product" of any two distinct rows is zero.
+</Callout>
+
+Property (I) says characters are **class functions** — functions constant on conjugacy classes.
+This will follow immediately once we note that $\Tr(TS) = \Tr(ST)$ for any matrices $T, S$.
+
+<MCQ
+  id="chr-def-mcq-dimension"
+  prompt="What does $\chi_V(1_A)$ equal, where $1_A$ is the identity element of the algebra $A$?"
+  options={[
+    { id: 'a', label: '$1$' },
+    { id: 'b', label: '$0$' },
+    { id: 'c', label: '$\\dim V$', correct: true },
+    { id: 'd', label: '$|G|$' },
+  ]}
+  explanation="The identity element acts as the identity map on V, whose trace is dim V — the number of 1s on the diagonal."
+/>
+
+</SlideLayout>
