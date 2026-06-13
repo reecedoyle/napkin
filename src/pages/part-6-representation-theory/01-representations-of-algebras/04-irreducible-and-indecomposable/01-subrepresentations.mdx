@@ -1,0 +1,20 @@
+---
+title: "Subrepresentations"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Subrepresentations">
+
+We want to classify all representations of an algebra, but "silly" representations like the block-diagonal one should not count as something new. The right language is subrepresentations.
+
+<Callout kind="definition" title="Subrepresentation">
+Let $V$ be a representation of $A$. A <Term k="subrep">**subrepresentation**</Term> $W \subseteq V$ is a subspace $W$ that is **invariant** under the action of $A$: for all $a \in A$ and $w \in W$, $a \cdot w \in W$.
+</Callout>
+
+If $V = W_1 \oplus W_2$ as representations, then $W_1$ and $W_2$ are each subrepresentations of $V$.
+
+The trivial examples are $\{0\}$ and $V$ itself — every representation has these. The interesting question is whether there are any **proper nonzero** subrepresentations.
+
+</SlideLayout>

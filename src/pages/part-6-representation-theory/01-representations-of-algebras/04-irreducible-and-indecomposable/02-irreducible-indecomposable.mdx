@@ -1,0 +1,20 @@
+---
+title: "Irreducible and indecomposable representations"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Irreducible and indecomposable representations">
+
+<Callout kind="definition" title="Irreducible and indecomposable">
+- $V$ is <Term k="irrep">**irreducible**</Term> if it has no proper nonzero subrepresentations.
+- $V$ is <Term k="indecomposable">**indecomposable**</Term> if there is no pair of proper subrepresentations $W_1$, $W_2$ with $V = W_1 \oplus W_2$.
+- An <Term k="irrep">**irrep**</Term> is an irreducible representation.
+</Callout>
+
+Every irreducible representation is indecomposable (trivially). The converse fails.
+
+**Example.** The $\mathbb{R}[S_3]$ representation on $\mathbb{R}^{\oplus 3}$ is neither irreducible nor indecomposable: it decomposes as $W_1 \oplus W_2$. But $W_1 = \{(t,t,t)\}$ is irreducible (it is one-dimensional) and $W_2 = \{x+y+z=0\}$ is also irreducible (any nonzero element spans all of $W_2$ after applying transpositions).
+
+</SlideLayout>
