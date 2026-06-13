@@ -1,0 +1,20 @@
+---
+title: "Representations of matrix algebras"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Representations of matrix algebras">
+
+The simplest example: let $A = \Mat_2(\mathbb{R})$. The most obvious representation is $V = \mathbb{R}^{\oplus 2}$ with a matrix $a \in A$ acting by $a \cdot v = a(v)$ (ordinary matrix–vector multiplication).
+
+More generally, for any vector space $V$ over $k$, the algebra $A = \Mat(V)$ has an obvious representation on $V$ itself.
+
+There are also less obvious representations. For example, $A = \Mat_2(\mathbb{R})$ also acts on $V = \mathbb{R}^{\oplus 4}$ via
+
+$$\rho \colon \begin{bmatrix} a & b \\ c & d \end{bmatrix} \mapsto \begin{bmatrix} a & b & 0 & 0 \\ c & d & 0 & 0 \\ 0 & 0 & a & b \\ 0 & 0 & c & d \end{bmatrix}.$$
+
+Viewing $\mathbb{R}^{\oplus 4} = \mathbb{R}^{\oplus 2} \oplus \mathbb{R}^{\oplus 2}$, this is just the matrix acting on each copy of $\mathbb{R}^{\oplus 2}$ independently — a **direct sum** of two copies of the obvious representation.
+
+</SlideLayout>

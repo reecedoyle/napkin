@@ -1,0 +1,24 @@
+---
+title: "Representations of A ⊕ B decompose"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Representations of A ⊕ B decompose">
+
+<Callout kind="proposition" title="Representations of A ⊕ B are V_A ⊕ V_B">
+Let $A$ and $B$ be $k$-algebras. Every representation of <Term k="algDirectSum">$A \oplus B$</Term> is of the form $V_A \oplus V_B$, where $V_A$ and $V_B$ are representations of $A$ and $B$ respectively.
+</Callout>
+
+The key idea is that the identity elements $1_A$ and $1_B$ in $A \oplus B$ act as **projections** onto the $A$ and $B$ components of any representation.
+
+<ProofReveal
+  client:load
+  id="ralg-ds-proof-decomp"
+  prompt="How do we split V into V_A and V_B?"
+  solution="Set V_A = {ρ(1_A)v : v ∈ V} and V_B = {ρ(1_B)v : v ∈ V}. Since 1_A + 1_B = 1_{A⊕B}, every v satisfies v = ρ(1_A)v + ρ(1_B)v. The two subspaces are disjoint: if ρ(1_A)v = ρ(1_B)v′, apply ρ(1_A) to get ρ(1_A)v = ρ(1_A 1_B)v′ = 0, since 1_A 1_B = 0 in A ⊕ B."
+/>
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: "Problems — starred"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred">
+
+<Problem
+  client:load
+  id="ralg-prob-mat-v-rep"
+  difficulty="starred"
+  statement="Let $(V, \rho)$ be a representation of $A$. Make $\Mat(V)$ into a representation of $A$ with action $a \cdot T = \rho(a) \circ T$ for $T \in \Mat(V)$. (a) Show that $\rho \colon \mathrm{Reg}(A) \to \Mat(V)$ is an intertwining operator. (b) If $V$ is $d$-dimensional, show that $\Mat(V) \cong V^{\oplus d}$ as representations of $A$."
+  hint="For part (b), pick a basis $e_1, \dots, e_d$ for $V$ and consider the map $T \mapsto (T(e_1), \dots, T(e_d))$."
+  solution="(a) We need to show ρ(a·b) = a·ρ(b) in Mat(V). By definition, ρ(a·b) = ρ(ab) as a linear map on V. The action a·T in Mat(V) is ρ(a)∘T, so a·ρ(b) = ρ(a)∘ρ(b) = ρ(ab) = ρ(a·b). So ρ intertwines the left-multiplication action on Reg(A) with the action on Mat(V). (b) Fix a basis e₁, …, e_d of V. Define Φ: Mat(V) → V^⊕d by Φ(T) = (T(e₁), …, T(e_d)). This is a linear isomorphism of vector spaces. It intertwines: Φ(a·T) = Φ(ρ(a)∘T) = (ρ(a)T(e₁), …, ρ(a)T(e_d)) = a·(T(e₁), …, T(e_d)) = a·Φ(T)."
+/>
+
+<Problem
+  client:load
+  id="ralg-prob-reg-intertwine"
+  difficulty="starred"
+  statement="Fix an algebra $A$. Find all intertwining operators $T \colon \mathrm{Reg}(A) \to \mathrm{Reg}(A)$."
+  hint="Try right multiplication."
+  solution="The intertwining operators are exactly the right-multiplication maps T_b: a ↦ ab for some fixed b ∈ A. To check: T_b(c·a) = T_b(ca) = cab = c·(ab) = c·T_b(a). To see these are all: for any intertwining T, we have T(a) = T(a·1_A) = a·T(1_A), so T is right multiplication by b = T(1_A)."
+/>
+
+</SlideLayout>

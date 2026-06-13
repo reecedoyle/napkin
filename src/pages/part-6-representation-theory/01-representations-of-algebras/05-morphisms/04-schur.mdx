@@ -1,0 +1,39 @@
+---
+title: "Schur's lemma"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Schur's lemma">
+
+<Callout kind="theorem" title="Schur's lemma">
+Let $V$ and $W$ be representations of a $k$-algebra $A$. Let $T \colon V \to W$ be a **nonzero** <Term k="intertwinOp">intertwining operator</Term>. Then:
+1. If $V$ is <Term k="irrep">irreducible</Term>, then $T$ is injective.
+2. If $W$ is irreducible, then $T$ is surjective.
+
+In particular, if both $V$ and $W$ are irreducible then $T$ is an isomorphism.
+</Callout>
+
+<Callout kind="theorem" title="Schur's lemma — algebraically closed case">
+Let $k$ be algebraically closed and $V$ a finite-dimensional irrep of $A$. Then every intertwining operator $T \colon V \to V$ is multiplication by some scalar $\lambda \in k$.
+</Callout>
+
+The proof uses eigenvalues: $T$ has an eigenvalue $\lambda$ over an algebraically closed field. Then $T - \lambda \cdot \mathrm{id}_V$ is an intertwining operator with nontrivial kernel — by Schur, it must be zero. So $T = \lambda \cdot \mathrm{id}_V$.
+
+<MCQ
+  client:load
+  id="ralg-mor-mcq-schur"
+  prompt="Over ℝ, rotation by 90° is an intertwining operator V → V for a certain representation of ℝ[x]. Why doesn't the algebraically closed Schur lemma apply here?"
+  options={[
+    { id: "a", label: "ℝ[x] is not a k-algebra" },
+    { id: "b", label: "Rotation by 90° is not linear" },
+    { id: "c", label: "ℝ is not algebraically closed" },
+    { id: "d", label: "The representation is not irreducible" },
+  ]}
+  correct="c"
+  explanation="ℝ is not algebraically closed — the polynomial x²+1 has no real root, so a rotation matrix (whose minimal polynomial is x²+1) need not be a scalar multiple of the identity. Over ℂ, every finite-dimensional irrep has only scalar intertwining operators."
+/>
+
+</SlideLayout>

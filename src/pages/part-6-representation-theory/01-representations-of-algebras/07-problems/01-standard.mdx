@@ -1,0 +1,28 @@
+---
+title: "Problems — standard"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+<Problem
+  client:load
+  id="ralg-prob-one-dim-isom"
+  difficulty="daggered"
+  statement="Suppose we have one-dimensional representations $V_1 = (V_1, \rho_1)$ and $V_2 = (V_2, \rho_2)$ of a $k$-algebra $A$. Show that $V_1 \cong V_2$ if and only if $\rho_1(a)$ and $\rho_2(a)$ are multiplication by the same scalar for every $a \in A$."
+  solution="Since V₁ and V₂ are one-dimensional, every linear map on them is multiplication by a scalar. A nonzero intertwining operator T: V₁ → V₂ is itself multiplication by some nonzero scalar c ∈ k. The intertwining condition T(a·v) = a·T(v) becomes ρ₁(a)(cv) = c·ρ₂(a)(v), i.e. c·ρ₁(a)·v = c·ρ₂(a)·v for all v. Since c ≠ 0, this gives ρ₁(a) = ρ₂(a) for all a. Conversely, if ρ₁ = ρ₂, the identity map id: V₁ → V₂ (identifying the underlying vector spaces) is an isomorphism of representations."
+/>
+
+<Problem
+  client:load
+  id="ralg-prob-schur-commutative"
+  difficulty="daggered"
+  statement="Let $A$ be a commutative algebra over an algebraically closed field $k$. Prove that any finite-dimensional irrep of $A$ is one-dimensional."
+  hint="For any $a \in A$, the map $v \mapsto a \cdot v$ is an intertwining operator $V \to V$."
+  solution="Fix any a ∈ A and consider the map φ_a: V → V defined by φ_a(v) = a·v. We claim φ_a is intertwining: for any b ∈ A and v ∈ V, φ_a(b·v) = a·(b·v) = (ab)·v = (ba)·v = b·(a·v) = b·φ_a(v), using commutativity of A. Since k is algebraically closed and V is finite-dimensional, φ_a has an eigenvalue λ. By Schur's lemma (algebraically closed version), φ_a = λ·id_V. So every element of A acts as a scalar on V. Any one-dimensional subspace is then a subrepresentation, and since V is irreducible, V must be one-dimensional."
+/>
+
+</SlideLayout>

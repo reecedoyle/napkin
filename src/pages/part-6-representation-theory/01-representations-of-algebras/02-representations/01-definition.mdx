@@ -1,0 +1,25 @@
+---
+title: "Representations — definition"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Representations — definition">
+
+<Callout kind="definition" title="Representation of a k-algebra">
+A <Term k="algRepresentation">**representation**</Term> of a $k$-algebra $A$ (also called a **left $A$-module**) is:
+
+1. A $k$-vector space $V$, and
+2. An **action** $\cdot$ of $A$ on $V$: for every $a \in A$ and $v \in V$ we get $a \cdot v \in V$, satisfying $(a+b) \cdot v = a \cdot v + b \cdot v$, $a \cdot (v+w) = a \cdot v + a \cdot w$, $(ab) \cdot v = a \cdot (b \cdot v)$, and $\lambda \cdot v = \lambda v$ for $\lambda \in k$.
+</Callout>
+
+Equivalently, a representation is a pair $(V, \rho)$ where $\rho \colon A \to \Mat(V)$ is a $k$-algebra homomorphism and $a \cdot v = \rho(a)(v)$.
+
+<Callout kind="remark" title="The moral">
+A representation lets us **represent** the abstract elements of $A$ as concrete linear maps (matrices) on a vector space. We reduce algebra to linear algebra.
+</Callout>
+
+By abuse of notation, we often say "$V$ is a representation" even though the action $\rho$ is implicit.
+
+</SlideLayout>

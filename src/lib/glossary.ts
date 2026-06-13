@@ -1404,6 +1404,75 @@ export const glossary = {
     definition: 'The integer r in the decomposition G ≅ ℤʳ ⊕ ℤ/q₁ℤ ⊕ ⋯ ⊕ ℤ/qₘℤ of a finitely generated abelian group G. It counts the free ℤ-summands. Groups of rank 0 are finite.',
     example: 'ℤ has rank 1. ℤ ⊕ ℤ has rank 2. ℤ/nℤ has rank 0.',
   },
+  // ────────────── Chapter 19 — Representations of algebras ──────────────
+  kAlgebra: {
+    term: 'k-algebra',
+    symbol: 'A',
+    definition: 'A possibly noncommutative ring A equipped with a ring homomorphism k → A from a field k, whose image commutes with everything in A. Equivalently, a k-vector space with an associative bilinear multiplication that has an identity element.',
+    example: 'k itself, k[x₁,…,xₙ], and Matₙ(k) are all k-algebras.',
+  },
+  MatnK: {
+    term: 'Matrix algebra Matₙ(k)',
+    symbol: '\\Mat_n(k)',
+    definition: 'The set of n×n matrices with entries in a field k, under matrix addition and multiplication. This is a k-algebra; multiplication is noncommutative for n ≥ 2.',
+    example: 'Mat₂(ℝ) consists of all 2×2 real matrices. It is a 4-dimensional ℝ-algebra.',
+  },
+  groupAlgebra: {
+    term: 'Group algebra k[G]',
+    symbol: 'k[G]',
+    definition: 'The k-vector space with basis indexed by the elements of a group G, with multiplication extending the group multiplication bilinearly. A representation of k[G] is the same as a group representation of G.',
+    example: 'For G = ℤ/2ℤ = {1,x}, k[G] = {a·1 + b·x : a,b ∈ k} with (a+bx)(c+dx) = (ac+bd)+(bc+ad)x.',
+  },
+  algHom: {
+    term: 'Algebra homomorphism',
+    symbol: 'T: A \\to B',
+    definition: 'A linear map T: A → B between k-algebras that respects multiplication (T(xy) = T(x)T(y)) and sends 1_A to 1_B. It is simultaneously a ring homomorphism and a k-linear map.',
+  },
+  algDirectSum: {
+    term: 'Direct sum of algebras',
+    symbol: 'A \\oplus B',
+    definition: 'The k-algebra whose elements are formal sums a + b (a ∈ A, b ∈ B), with componentwise addition, products within each summand as usual, and the cross-products declared zero (a·b = 0 for a ∈ A, b ∈ B). The identity is 1_A + 1_B.',
+    example: 'Mat₂(ℝ) ⊕ Mat₂(ℝ) has elements that look like block-diagonal 4×4 matrices.',
+  },
+  algRepresentation: {
+    term: 'Representation of an algebra',
+    symbol: '(V, \\rho)',
+    definition: 'A pair of a k-vector space V and a k-algebra homomorphism ρ: A → Mat(V), telling us how every element of A acts as a linear map on V. Equivalently, an A-module.',
+    example: 'The natural action of Matₙ(k) on kⁿ by matrix–vector multiplication is a representation.',
+  },
+  regularRep: {
+    term: 'Regular representation',
+    symbol: '\\operatorname{Reg}(A)',
+    definition: 'The representation of A on itself, where a acts on b by left multiplication: a·b = ab. The underlying vector space is A itself.',
+  },
+  subrep: {
+    term: 'Subrepresentation',
+    symbol: 'W \\subseteq V',
+    definition: 'A subspace W of a representation V that is invariant under the algebra action: a·w ∈ W for all a ∈ A and w ∈ W.',
+    example: 'In the permutation representation of S₃ on ℝ³, the diagonal {(t,t,t)} is a subrepresentation.',
+  },
+  irrep: {
+    term: 'Irreducible representation (irrep)',
+    symbol: 'V',
+    definition: 'A nonzero representation V that has no proper nonzero subrepresentations. The building blocks of representation theory.',
+    example: 'The one-dimensional subspace {(t,t,t)} in ℝ³ is an irrep of ℝ[S₃].',
+  },
+  indecomposableRep: {
+    term: 'Indecomposable representation',
+    symbol: 'V',
+    definition: 'A representation V that cannot be written as V = W₁ ⊕ W₂ for two proper nonzero subrepresentations W₁ and W₂. Every irreducible representation is indecomposable, but not vice versa.',
+    example: 'The representation of k[x] on k² by ρ(x) = [[1,1],[0,1]] is indecomposable but not irreducible.',
+  },
+  intertwinOp: {
+    term: 'Intertwining operator (morphism of representations)',
+    symbol: 'T: V \\to W',
+    definition: 'A linear map T: V → W between representations of A satisfying T(a·v) = a·T(v) for all a ∈ A and v ∈ V. An invertible intertwining operator is an isomorphism of representations.',
+    example: 'Scalar multiplication T(v) = λv is always an intertwining operator.',
+  },
+  schurLemma: {
+    term: "Schur's lemma",
+    definition: "If V and W are representations and T: V → W is a nonzero intertwining operator, then: T is injective if V is irreducible, and T is surjective if W is irreducible. In particular, any nonzero morphism between two irreps is an isomorphism.",
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

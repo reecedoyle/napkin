@@ -1,0 +1,21 @@
+---
+title: "Examples of intertwining operators"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of intertwining operators">
+
+Some natural <Term k="intertwinOp">intertwining operators</Term>:
+
+- **Scalar maps.** For any $\lambda \in k$, the map $T(v) = \lambda v$ is intertwining.
+- **Inclusions.** If $W \subseteq V$ is a <Term k="subrep">subrepresentation</Term>, the inclusion $W \hookrightarrow V$ is intertwining.
+- **Projections.** The projection $V_1 \oplus V_2 \twoheadrightarrow V_1$ is intertwining.
+- **Rotations.** Let $A = \mathbb{R}[x]$ act on $V = \mathbb{R}^{\oplus 2}$ by $\rho(x) = $ rotation by $90°$. Then rotation by $30°$ is also an intertwining operator (rotations commute).
+
+<Callout kind="example" title="A non-example">
+Let $A = \Mat_2(\mathbb{R}) \oplus \Mat_2(\mathbb{R})$. The two irreps $V_1 = \{(m,n,0,0)\}$ and $V_2 = \{(0,0,p,q)\}$ of $A$ are isomorphic as $\mathbb{R}$-vector spaces but **not** as representations of $A$ — any intertwining operator $V_1 \to V_2$ must be identically zero.
+</Callout>
+
+</SlideLayout>

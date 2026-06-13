@@ -1,0 +1,32 @@
+---
+title: "Examples of k-algebras"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of k-algebras">
+
+Let $k$ be any field. The following are all <Term k="kAlgebra">$k$-algebras</Term>:
+
+- The field $k$ itself.
+- The <Term k="polyRing">polynomial ring</Term> $k[x_1, \dots, x_n]$.
+- The set <Term k="MatnK">$\Mat_n(k)$</Term> of $n \times n$ matrices with entries in $k$ (multiplication is noncommutative for $n \geq 2$).
+- The set $\Mat(V)$ of linear maps $T \colon V \to V$ for a $k$-vector space $V$ — this is essentially $\Mat_n(k)$ once you pick a basis.
+
+<MCQ
+  client:load
+  id="ralg-alg-mcq-commutative"
+  prompt="Which of the following k-algebras is always commutative?"
+  options={[
+    { id: "a", label: "Mat_n(k) for n ≥ 2" },
+    { id: "b", label: "k[x₁, …, xₙ]" },
+    { id: "c", label: "Mat(V) for dim V ≥ 2" },
+    { id: "d", label: "The group algebra k[G] for non-abelian G" },
+  ]}
+  correct="b"
+  explanation="Polynomial rings are commutative — polynomials multiply in any order. Matrix algebras Mat_n(k) and Mat(V) are noncommutative for n ≥ 2. The group algebra k[G] is commutative if and only if G is abelian."
+/>
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: "Why algebras? — motivation"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why algebras? — motivation">
+
+In the 19th century, the word "group" had not yet been invented. Mathematicians worked directly with concrete subsets of <Term k="GLn">$\GL(n)$</Term> or <Term k="Sn">$S_n$</Term>. Only later was the abstract group definition introduced.
+
+Abstraction is powerful, but concreteness is often more useful for computation. If we can take an abstract group $G$ and **represent** it as a collection of matrices in $\GL(n)$, we reduce group-theoretic questions to linear algebra — which is much easier.
+
+<Callout kind="remark" title="The central idea">
+Representation theory asks: how can we take an abstract algebraic object and represent its elements as matrices?
+</Callout>
+
+Rather than jumping straight to groups, we first develop the theory for **algebras** — a slightly more general setting that makes everything cleaner.
+
+</SlideLayout>

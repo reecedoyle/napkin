@@ -1,0 +1,24 @@
+---
+title: "Indecomposable but not irreducible — an example"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Indecomposable but not irreducible — an example">
+
+Let $A = \mathbb{R}[x]$ and let $V = \mathbb{R}^{\oplus 2}$ with action
+
+$$\rho(x) = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}.$$
+
+The subspace $W = \{(t, 0) \mid t \in \mathbb{R}\}$ is a <Term k="subrep">subrepresentation</Term>: $\rho(x)(t,0) = (t, 0)$. So $V$ is **not irreducible**.
+
+<ProofReveal
+  client:load
+  id="ralg-irr-proof-indecomp"
+  prompt="Show that W = {(t,0)} is the only proper nonzero subrepresentation of V, so V is indecomposable."
+  solution="Any subrepresentation U must be invariant under T = ρ(x). If U contains a vector (a,b) with b ≠ 0, apply T repeatedly: T(a,b) = (a+b, b), T²(a,b) = (a+2b, b), and so on. The vectors (a+nb, b) for all n span a 2-dimensional space, so U = V. Thus any proper nonzero subrepresentation can only contain vectors with second coordinate 0, i.e. U ⊆ W. Since W is one-dimensional, U = W. Because there is only one proper nonzero subrepresentation, we cannot write V = W₁ ⊕ W₂ with both proper and nonzero."
+/>
+
+</SlideLayout>
