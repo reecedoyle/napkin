@@ -1,0 +1,28 @@
+---
+title: "Group representations via the group algebra"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Group representations via the group algebra">
+
+The most important example. Let $A = k[S_3]$ and $V = \mathbb{R}^{\oplus 3} = \{(x,y,z)\}$. Each permutation $\pi \in S_3$ acts by permuting coordinates:
+
+$$(1\;2) \cdot (x,y,z) = (y,x,z).$$
+
+In matrix form, $(1\;2)$ maps to the permutation matrix $\begin{bmatrix}0&1&0\\1&0&0\\0&0&1\end{bmatrix}$.
+
+More generally:
+
+<Callout kind="definition" title="Group representation">
+A <Term k="algRepresentation">representation</Term> $(V, \rho)$ of the group algebra $k[G]$ is exactly a <Term k="groupAlgebra">group homomorphism</Term> $\psi \colon G \to \GL(V)$. We call this a **group representation** of $G$. In particular, $\rho(1_G) = \mathrm{id}_V$.
+</Callout>
+
+So studying representations of the algebra $k[G]$ is the same as studying group representations of $G$.
+
+<Callout kind="example" title="Regular representation">
+Any $k$-algebra $A$ has a <Term k="regularRep">**regular representation**</Term> $\mathrm{Reg}(A)$: the algebra $A$ acts on itself by left multiplication, $a \cdot b = ab$.
+</Callout>
+
+</SlideLayout>
