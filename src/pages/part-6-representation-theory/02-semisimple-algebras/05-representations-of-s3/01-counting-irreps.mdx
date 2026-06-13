@@ -1,0 +1,22 @@
+---
+title: Representations of ℂ[S₃] — counting irreps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Representations of ℂ[S₃] — counting irreps">
+
+Let us classify all irreducible representations of $\CC[S_3]$.
+
+We will take as given (to be proved in the next chapter) that the number of irreps of a finite group $G$ equals the number of conjugacy classes of $G$. The symmetric group $S_3$ has exactly **three** conjugacy classes: the identity, transpositions, and 3-cycles.
+
+So there are three irreps. If their dimensions are $d_1, d_2, d_3$, then by the <Term k="sumOfSquaresFormula">sum of squares formula</Term>:
+
+$$d_1^2 + d_2^2 + d_3^2 = |S_3| = 6.$$
+
+<Callout kind="remark" title="Solving for the dimensions">
+We need three positive integers whose squares sum to 6. The only solution (up to reordering) is $d_1 = d_2 = 1$ and $d_3 = 2$, since $1 + 1 + 4 = 6$. So the three irreps have dimensions 1, 1, and 2.
+</Callout>
+
+</SlideLayout>
