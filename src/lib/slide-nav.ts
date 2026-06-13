@@ -85,6 +85,7 @@ export const partTitles: Record<string, string> = {
   'part-3-basic-topology': 'Part III — Basic Topology',
   'part-4-linear-algebra': 'Part IV — Linear Algebra',
   'part-5-more-on-groups': 'Part V — More on Groups',
+  'part-6-representation-theory': 'Part VI — Representation Theory',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -106,6 +107,10 @@ export const chapterTitles: Record<string, string> = {
   'part-5-more-on-groups/01-group-actions': 'Chapter 16 — Group actions overkill AIME problems',
   'part-5-more-on-groups/02-sylow': 'Chapter 17 — Find all groups',
   'part-5-more-on-groups/03-pid-structure': 'Chapter 18 — The PID structure theorem',
+  'part-6-representation-theory/01-representations-of-algebras': 'Chapter 19 — Representations of algebras',
+  'part-6-representation-theory/02-semisimple-algebras': 'Chapter 20 — Semisimple algebras',
+  'part-6-representation-theory/03-characters': 'Chapter 21 — Characters',
+  'part-6-representation-theory/04-applications': 'Chapter 22 — Some applications',
 };
 
 export const sectionTitles: Record<string, string> = {

@@ -17,7 +17,7 @@ const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
   { url: `${BASE}/02-representations/04-group-reps`, heading: /group representations via the group algebra/i },
   // Section 3 — Direct sums
   { url: `${BASE}/03-direct-sums/01-definition`, heading: /direct sum of representations/i },
-  { url: `${BASE}/03-direct-sums/02-s3-example`, heading: /s.*3.*permutation representation decomposes/i },
+  { url: `${BASE}/03-direct-sums/02-s3-example`, heading: /permutation representation decomposes/i },
   { url: `${BASE}/03-direct-sums/03-reps-of-direct-sum-algebra`, heading: /representations of a.*b decompose/i },
   // Section 4 — Irreducible and indecomposable
   { url: `${BASE}/04-irreducible-and-indecomposable/01-subrepresentations`, heading: /subrepresentations/i },

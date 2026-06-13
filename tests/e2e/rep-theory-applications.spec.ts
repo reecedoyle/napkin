@@ -16,7 +16,7 @@ const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
   { url: `${BASE}/02-burnsides-theorem/04-proof-of-burnside`, heading: /proof of burnside/i },
   // Section 3 — Frobenius determinant
   { url: `${BASE}/03-frobenius-determinant/01-the-matrix`, heading: /group determinant matrix/i },
-  { url: `${BASE}/03-frobenius-determinant/02-s3-example`, heading: /group determinant.*s.*3.*example/i },
+  { url: `${BASE}/03-frobenius-determinant/02-s3-example`, heading: /group determinant — s₃ example/i },
   { url: `${BASE}/03-frobenius-determinant/03-the-theorem`, heading: /frobenius determinant theorem/i },
   { url: `${BASE}/03-frobenius-determinant/04-proof-setup`, heading: /frobenius determinant.*proof setup/i },
   { url: `${BASE}/03-frobenius-determinant/05-proof-irreducible-distinct`, heading: /irreducibility and distinctness/i },
@@ -82,7 +82,7 @@ test.describe('Rep-theory applications — NumericInput flow (smallest nonabelia
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('4');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();
@@ -120,6 +120,6 @@ test.describe('Rep-theory applications — ProofReveal flow (ℤ[G] integral)', 
     );
 
     await page.reload();
-    await expect(article.getByText(/ascending chain/i)).toBeVisible();
+    await expect(article.getByText(/monic polynomial of degree/i)).toBeVisible();
   });
 });
