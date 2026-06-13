@@ -1404,7 +1404,6 @@ export const glossary = {
     definition: 'The integer r in the decomposition G ≅ ℤʳ ⊕ ℤ/q₁ℤ ⊕ ⋯ ⊕ ℤ/qₘℤ of a finitely generated abelian group G. It counts the free ℤ-summands. Groups of rank 0 are finite.',
     example: 'ℤ has rank 1. ℤ ⊕ ℤ has rank 2. ℤ/nℤ has rank 0.',
   },
-<<<<<<< HEAD
   // ────────────── Chapter 19 — Representations of algebras ──────────────
   kAlgebra: {
     term: 'k-algebra',
@@ -1482,12 +1481,6 @@ export const glossary = {
     definition: 'For representations V and W of an algebra A over a field k, Hom_rep(V,W) is the vector space of intertwining operators (A-equivariant linear maps) from V to W. When k is algebraically closed and V, W are irreducible, this is k if V ≅ W and 0 otherwise.',
     example: 'If V is an irrep, Hom_rep(V^⊕m, V^⊕n) ≅ Mat_{n×m}(k): the space has dimension nm.',
   },
-  intertwinOp: {
-    term: 'Intertwining operator',
-    symbol: 'T \\colon V \\to W',
-    definition: 'A linear map T: V → W between representations of an algebra A satisfying T(a·v) = a·T(v) for all a ∈ A and v ∈ V. Also called a representation morphism or A-equivariant map. These are the morphisms in the category of representations.',
-    example: 'The zero map and the identity map are always intertwining operators. If A = ℝ and V = W = ℝ², any scalar multiple of the identity intertwines.',
-  },
   completelyReducible: {
     term: 'Completely reducible representation',
     symbol: 'V = \\bigoplus_i V_i',
@@ -1500,12 +1493,6 @@ export const glossary = {
     definition: 'A finite-dimensional algebra A over k such that every finite-dimensional representation of A is completely reducible. Equivalently, A is isomorphic to a direct sum of matrix algebras Mat_{d₁}(k) ⊕ ⋯ ⊕ Mat_{dᵣ}(k). The d_i are the dimensions of the irreps.',
     example: 'The group algebra ℂ[S₃] is semisimple and isomorphic to ℂ ⊕ ℂ ⊕ Mat₂(ℂ), reflecting the three irreps of S₃ with dimensions 1, 1, 2.',
   },
-  regularRep: {
-    term: 'Regular representation',
-    symbol: '\\Reg(A)',
-    definition: 'The representation of an algebra A on itself by left multiplication: a element acts on b ∈ A by a·b = ab. This is a faithful representation and often decomposes to reveal all irreps.',
-    example: 'For the group algebra k[G], Reg(k[G]) is the representation of G on itself by left multiplication, with k[G] as the vector space.',
-  },
   jacobsonDensity: {
     term: 'Jacobson density theorem',
     symbol: 'A \\twoheadrightarrow \\bigoplus_i \\Mat(V_i)',
@@ -1517,12 +1504,6 @@ export const glossary = {
     symbol: '\\operatorname{Rad}(A)',
     definition: 'The kernel of the map A → ⊕ᵢ Mat(Vᵢ) combining all irreps of A. It consists of all elements of A that act by zero in every irreducible representation. A is semisimple exactly when its Jacobson radical is trivial (i.e., zero).',
     example: 'For a semisimple algebra A ≅ ⊕ᵢ Matₙᵢ(k), the Jacobson radical is {0}.',
-  },
-  groupAlgebra: {
-    term: 'Group algebra',
-    symbol: 'k[G]',
-    definition: 'For a field k and group G, the group algebra k[G] is the vector space with basis {g : g ∈ G} and multiplication extending the group law by k-linearity. Representations of G over k correspond bijectively to k[G]-modules.',
-    example: 'ℂ[ℤ/2ℤ] = ℂ·{1} ⊕ ℂ·{g} with g² = 1 is isomorphic to ℂ ⊕ ℂ (via 1±g).',
   },
   trivialGroupRep: {
     term: 'Trivial representation',
