@@ -84,6 +84,7 @@ export const partTitles: Record<string, string> = {
   'part-2-basic-abstract-algebra': 'Part II — Basic Abstract Algebra',
   'part-3-basic-topology': 'Part III — Basic Topology',
   'part-4-linear-algebra': 'Part IV — Linear Algebra',
+  'part-5-more-on-groups': 'Part V — More on Groups',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -102,6 +103,9 @@ export const chapterTitles: Record<string, string> = {
   'part-4-linear-algebra/05-inner-products': 'Chapter 13 — Inner product spaces',
   'part-4-linear-algebra/06-fourier': 'Chapter 14 — Bonus: Fourier analysis',
   'part-4-linear-algebra/07-transpose-and-adjoint': 'Chapter 15 — Duals, adjoint, and transposes',
+  'part-5-more-on-groups/01-group-actions': 'Chapter 16 — Group actions overkill AIME problems',
+  'part-5-more-on-groups/02-sylow': 'Chapter 17 — Find all groups',
+  'part-5-more-on-groups/03-pid-structure': 'Chapter 18 — The PID structure theorem',
 };
 
 export const sectionTitles: Record<string, string> = {

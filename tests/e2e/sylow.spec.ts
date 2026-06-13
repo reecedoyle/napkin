@@ -87,7 +87,7 @@ test.describe('Sylow — NumericInput flow (n₅ for |G|=30)', () => {
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('1');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();
@@ -141,7 +141,8 @@ test.describe('Sylow — Problem flow (|G| ≠ 56)', () => {
     // "contradicting simplicity" appears only inside the solution text
     await expect(article.getByText(/contradicting simplicity/i)).toBeHidden();
 
-    await page.getByRole('button', { name: /show solution/i }).first().click();
+    // The order-56 Problem is the 2nd on this slide (Cauchy's theorem is 1st).
+    await page.getByRole('button', { name: /show solution/i }).nth(1).click();
     await expect(article.getByText(/contradicting simplicity/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);

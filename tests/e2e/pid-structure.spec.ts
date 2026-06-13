@@ -94,7 +94,7 @@ test.describe('PID structure theorem — NumericInput flow (minimum generators o
   test('wrong then correct, persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
 
-    const input = page.getByPlaceholder('a number').first();
+    const input = page.getByRole('textbox').first();
     await input.fill('2');
     await page.getByRole('button', { name: /^check$/i }).first().click();
     await expect(page.getByText(/not quite/i).first()).toBeVisible();
@@ -122,17 +122,17 @@ test.describe('PID structure theorem — ProofReveal flow (Noetherian direct sum
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    await expect(article.getByText(/generators of A and generators of B/i)).toBeHidden();
+    await expect(article.getByText(/is handled by the generators/i)).toBeHidden();
 
     await page.getByRole('button', { name: /reveal solution/i }).click();
-    await expect(article.getByText(/generators of A and generators of B/i)).toBeVisible();
+    await expect(article.getByText(/is handled by the generators/i)).toBeVisible();
 
     expect(await page.evaluate((k) => window.localStorage.getItem(k), PROOF_KEY)).toContain(
       '"outcome":"revealed"',
     );
 
     await page.reload();
-    await expect(article.getByText(/generators of A and generators of B/i)).toBeVisible();
+    await expect(article.getByText(/is handled by the generators/i)).toBeVisible();
   });
 });
 
