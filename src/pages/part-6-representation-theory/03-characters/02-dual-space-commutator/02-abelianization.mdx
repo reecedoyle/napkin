@@ -1,0 +1,30 @@
+---
+title: The abelianization of an algebra
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The abelianization of an algebra">
+
+The observation $\chi_V(ab) = \chi_V(ba)$ means every character vanishes on all commutators $ab - ba$.
+This motivates quotienting out by the <Term k="commutatorSubspace">commutator subspace</Term> $[A, A]$.
+
+<Callout kind="definition" title="Abelianization">
+The <Term k="abelianizationAlg">**abelianization**</Term> of an algebra $A$ is
+$$A^{\mathrm{ab}} \coloneqq A / [A, A]$$
+where $[A, A]$ is the $k$-subspace spanned by $\{xy - yx : x, y \in A\}$.
+Each character $\chi_V$ factors through $A^{\mathrm{ab}}$, so we may view it as a linear functional in $(A^{\mathrm{ab}})^\vee$.
+</Callout>
+
+<Callout kind="example" title="Three abelianizations">
+**(a)** If $A$ is commutative, $[A,A] = \{0\}$ and $A^{\mathrm{ab}} = A$.
+
+**(b)** $A = \Mat_k(d)$: the commutator subspace is exactly the trace-zero matrices,
+so $A^{\mathrm{ab}}$ is one-dimensional (spanned by the identity).
+
+**(c)** $A = k[G]$: in $A^{\mathrm{ab}}$ we identify $gh \sim hg$ for all $g, h \in G$, i.e.\ $ghg^{-1} \sim h$.
+So $A^{\mathrm{ab}}$ is the space of $k$-linear combinations of **conjugacy classes** of $G$.
+</Callout>
+
+</SlideLayout>

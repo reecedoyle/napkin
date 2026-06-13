@@ -1,0 +1,26 @@
+---
+title: Trace commutativity and class functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Trace commutativity and class functions">
+
+The key algebraic fact behind Property (I) is that $\Tr(TS) = \Tr(ST)$ for any two matrices.
+
+<Callout kind="proposition" title="Characters are class functions">
+For any algebra $A$, any representation $V$, and any $a, b \in A$:
+$$\chi_V(ab) = \chi_V(ba).$$
+In particular, if $g$ and $h$ are conjugate in a group $G$ (say $h = xgx^{-1}$), then $\chi_V(g) = \chi_V(h)$.
+</Callout>
+
+**Why?** $\chi_V(ab) = \Tr(\rho(a)\rho(b)) = \Tr(\rho(b)\rho(a)) = \chi_V(ba)$.
+
+For conjugacy: $\chi_V(xgx^{-1}) = \chi_V(g \cdot x^{-1} x) = \chi_V(g)$, using the identity twice.
+
+This proves Property (I): each column of the character table is well-defined, depending only on the <Term k="conjugacyClass">conjugacy class</Term>.
+
+In other words, $\chi_V$ is a member of <Term k="classFunctions">$\FunCl(G)$</Term> — the space of class functions on $G$.
+
+</SlideLayout>
