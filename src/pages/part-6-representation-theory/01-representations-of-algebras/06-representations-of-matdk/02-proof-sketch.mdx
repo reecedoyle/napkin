@@ -1,0 +1,26 @@
+---
+title: "Proof sketch — splitting V via matrix idempotents"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof sketch — splitting V via matrix idempotents">
+
+We sketch the proof for $d = 2$. The algebra $A = \Mat_2(k)$ has four key basis matrices:
+
+$$E_1 = \begin{bmatrix}1&0\\0&0\end{bmatrix},\ E_2 = \begin{bmatrix}0&0\\0&1\end{bmatrix},\ E_3 = \begin{bmatrix}0&1\\0&0\end{bmatrix},\ E_4 = \begin{bmatrix}0&0\\1&0\end{bmatrix}.$$
+
+They satisfy $E_1 + E_2 = I$, $E_1^2 = E_1$, $E_3^2 = 0$, $E_1 E_2 = 0$, and so on. Let $V$ be any representation and set $M_i = \rho(E_i)$. The $M_i$ must satisfy the same relations.
+
+<Callout kind="remark" title="The problem rephrased">
+Find all vector spaces $V$ and quadruples $M_1, M_2, M_3, M_4$ of linear maps on $V$ satisfying the multiplication table of the $E_i$.
+</Callout>
+
+**Step 1.** Since $M_1 + M_2 = \mathrm{id}_V$, set $W_1 = \mathrm{im}(M_1)$ and $W_2 = \mathrm{im}(M_2)$. Then $V = W_1 \oplus W_2$.
+
+**Step 2.** $M_4 \colon W_1 \to W_2$ and $M_3 \colon W_2 \to W_1$ are mutually inverse, so $W_1 \cong W_2$.
+
+**Step 3.** If $e_1, \dots, e_n$ is a basis for $W_1$, then $\{e_j, M_4 e_j\}$ spans a copy of $W = k^{\oplus 2}$ and forms a subrepresentation. Iterating, $V \cong W^{\oplus n}$.
+
+</SlideLayout>

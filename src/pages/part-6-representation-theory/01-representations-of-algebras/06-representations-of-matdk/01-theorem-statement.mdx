@@ -1,0 +1,22 @@
+---
+title: "Representations of Mat_d(k) — the theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Representations of Mat_d(k) — the theorem">
+
+We can already classify all representations of the matrix algebra. This is a complete classification — and there is only one irrep.
+
+<Callout kind="theorem" title="Representations of Mat_d(k)">
+Let $k$ be any field, $d$ a positive integer, and $W = k^{\oplus d}$ the obvious representation of $A = \Mat_d(k)$. Then every finite-dimensional <Term k="algRepresentation">representation</Term> of $\Mat_d(k)$ is isomorphic to $W^{\oplus n}$ for some positive integer $n$. In particular, $W$ is the unique irrep (up to isomorphism).
+</Callout>
+
+The $n = 1$ case is the obvious representation where a matrix $a$ acts on $k^d$ by multiplication.
+
+For $n \geq 2$, the representation $W^{\oplus n}$ can be visualized as $a$ acting on each copy of $k^d$ independently — exactly the block-diagonal picture we saw earlier.
+
+The remarkable content is that these are the **only** representations. There is no room for anything exotic.
+
+</SlideLayout>
