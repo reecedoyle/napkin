@@ -1,0 +1,30 @@
+---
+title: Character table of S₄ — setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Character table of S₄ — setup">
+
+The symmetric group $S_4$ has five conjugacy classes (by cycle type) and therefore five irreps.
+
+<Callout kind="example" title="Conjugacy classes of S₄">
+| Cycle type | Representative | Size |
+|---|---|---|
+| $1$ (identity) | $\mathrm{id}$ | $1$ |
+| $2$ (transposition) | $(1\;2)$ | $6$ |
+| $3$ (3-cycle) | $(1\;2\;3)$ | $8$ |
+| $4$ (4-cycle) | $(1\;2\;3\;4)$ | $6$ |
+| $2+2$ (double transposition) | $(1\;2)(3\;4)$ | $3$ |
+
+Total: $1 + 6 + 8 + 6 + 3 = 24 = |S_4|$. ✓
+</Callout>
+
+We immediately know two one-dimensional irreps: $\Ctriv$ and $\Csign$ (using the sign homomorphism $S_4 \to \{\pm 1\}$).
+
+The remaining three dimensions $d_1, d_2, d_3$ satisfy:
+$$d_1^2 + d_2^2 + d_3^2 = 24 - 1 - 1 = 22,$$
+which has the unique solution (up to reordering) $(d_1, d_2, d_3) = (2, 3, 3)$.
+
+</SlideLayout>
