@@ -1,0 +1,25 @@
+---
+title: "Frobenius determinant — proof setup"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Frobenius determinant — proof setup">
+
+The proof uses the <Term k="regularRepresentation">regular representation</Term> $\Reg(\CC[G])$.
+
+Define a linear map $T \colon \CC[G] \to \CC[G]$ by
+$$T\bigl(\{x_g\}_{g \in G}\bigr) = \sum_{g \in G} x_g\,\rho(g).$$
+The matrix of $T$ in the standard basis of $\CC[G]$ is exactly $M_G$, so $\det T = \det M_G$.
+
+By the decomposition of the regular representation,
+$$\CC[G] \cong \bigoplus_{i=1}^r V_i^{\oplus d_i} \quad (d_i = \dim V_i).$$
+Breaking $T$ along this decomposition:
+$$\det T = \prod_{i=1}^r \bigl(\det(T\!\restriction_{V_i})\bigr)^{d_i}.$$
+
+So we need to show two things:
+- Each $\det(T\!\restriction_{V_i})$ is **irreducible**, and
+- These polynomials are **pairwise distinct** for different $i$.
+
+</SlideLayout>

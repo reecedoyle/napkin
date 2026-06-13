@@ -1,0 +1,22 @@
+---
+title: "Frobenius determinant — irreducibility and distinctness"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Frobenius determinant — irreducibility and distinctness">
+
+We complete the proof.
+
+<Callout kind="remark" title="Each factor is irreducible">
+By the density theorem, any matrix $M \in \Mat(V_i)$ can be achieved by some choice of complex numbers $\{x_g\}$: that is, $(T\!\restriction_{V_i})(\{x_g\}) = M$. View $T\!\restriction_{V_i}$ as a $d_i \times d_i$ matrix whose entries are linear polynomials in the $x_g$'s, and these entries must be **linearly independent** (otherwise some matrix in $\Mat(V_i)$ would be unreachable). Then, up to a linear change of variables, $\det(T\!\restriction_{V_i})$ becomes the generic determinant $\det(y_{jk})_{1 \le j,k \le d_i}$ in $d_i^2$ variables, which is always irreducible.
+</Callout>
+
+<Callout kind="remark" title="The factors are pairwise distinct">
+From $\det(T\!\restriction_{V_i})$ we can read off the character $\chi_{V_i}$: if $k = \dim V_i$, then $\chi_{V_i}(g)$ is the coefficient of $x_g x_{1_G}^{k-1}$. Since distinct irreps have distinct characters, the polynomials are distinct.
+</Callout>
+
+Both conditions hold, so the theorem is proved. The number of irreducible factors equals the number of distinct irreps, which equals the number of conjugacy classes of $G$.
+
+</SlideLayout>

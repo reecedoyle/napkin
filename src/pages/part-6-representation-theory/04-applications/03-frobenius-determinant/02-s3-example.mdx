@@ -1,0 +1,26 @@
+---
+title: "The group determinant — S₃ example"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The group determinant — S₃ example">
+
+For $G = S_3$, the group matrix $M_{S_3}$ is $6 \times 6$. A long computation gives:
+
+$$\det M_{S_3} = \Bigl(\sum_{\sigma \in S_3} x_\sigma\Bigr) \Bigl(\sum_{\sigma \in S_3} \sign(\sigma)\,x_\sigma\Bigr) \Bigl(F(x_\id, x_{(123)}, x_{(321)}) - F(x_{(12)}, x_{(23)}, x_{(31)})\Bigr)^2$$
+
+where $F(a,b,c) = a^2 + b^2 + c^2 - ab - bc - ca$, and that last factor is irreducible.
+
+**Notice:**
+- There are **3 irreducible factors** — matching the 3 conjugacy classes of $S_3$.
+- The three factors have degrees **1, 1, 2** — matching the dimensions of the three irreps.
+- The degree-2 factor appears with **multiplicity 2** — equal to its degree.
+- Total degree: $1 + 1 + 2 \cdot 2 = 6 = |S_3|$. ✓
+
+<Callout kind="remark">
+Compare with the sum-of-squares identity: $1^2 + 1^2 + 2^2 = 6$. Both encode the same data — the irrep dimensions.
+</Callout>
+
+</SlideLayout>
