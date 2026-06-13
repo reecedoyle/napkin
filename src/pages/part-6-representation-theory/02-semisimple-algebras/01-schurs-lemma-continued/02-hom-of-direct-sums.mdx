@@ -1,0 +1,33 @@
+---
+title: Hom-spaces of direct sums
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hom-spaces of direct sums">
+
+Let $V$ be a finite-dimensional irrep. What is $\Homrep(V^{\oplus m}, V^{\oplus n})$?
+
+An intertwining operator $T \colon V^{\oplus m} \to V^{\oplus n}$ is determined by the $mn$ compositions
+
+$$V \hookrightarrow V^{\oplus m} \xrightarrow{T} V^{\oplus n} \twoheadrightarrow V$$
+
+where the first map includes into the $i$th copy and the last projects onto the $j$th copy. By Schur's lemma each composition is a scalar $c_{ij} \in k$.
+
+So $T$ is given by an $n \times m$ matrix of scalars acting on $V$-valued column vectors:
+
+$$
+\begin{bmatrix}
+c_{11} & \cdots & c_{1m} \\
+\vdots & \ddots & \vdots \\
+c_{n1} & \cdots & c_{nm}
+\end{bmatrix}
+\begin{bmatrix} v_1 \\ \vdots \\ v_m \end{bmatrix} \in V^{\oplus n}.
+$$
+
+<Callout kind="remark" title="Type mismatch">
+The $c_{ij}$ are scalars in $k$ but the $v_i$ are vectors in $V$. This is not an ordinary matrix multiplication in $k^n$; the outputs are linear combinations of elements of $V$. The non-isomorphic irreps "do not talk to each other."
+</Callout>
+
+</SlideLayout>

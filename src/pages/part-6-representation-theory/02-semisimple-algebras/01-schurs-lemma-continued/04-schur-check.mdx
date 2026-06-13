@@ -1,0 +1,31 @@
+---
+title: Checking Schur's lemma — a worked example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Checking Schur's lemma — a worked example">
+
+Let $V$ be a two-dimensional irrep of some algebra $A$. By the theorem:
+
+$$\Homrep(V^{\oplus 2}, V^{\oplus 3}) \cong \Mat_{3 \times 2}(k).$$
+
+So the space of intertwining operators $V^{\oplus 2} \to V^{\oplus 3}$ has dimension $3 \times 2 = 6$.
+
+<MCQ
+  client:load
+  id="ssa-schur-mcq-dim-hom"
+  prompt="What is the dimension of Hom_rep(V ⊕ V ⊕ V, V ⊕ V) when V is a 1-dimensional irrep?"
+  options={[
+    { id: "a", label: "2" },
+    { id: "b", label: "3" },
+    { id: "c", label: "6" },
+    { id: "d", label: "9" },
+  ]}
+  correct="c"
+  explanation="By Schur's theorem, Hom_rep(V^3, V^2) ≅ Mat_{2×3}(k), which has dimension 2 × 3 = 6. The matrix has 2 rows (output copies) and 3 columns (input copies)."
+/>
+
+</SlideLayout>

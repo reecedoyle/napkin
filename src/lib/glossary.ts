@@ -1404,6 +1404,79 @@ export const glossary = {
     definition: 'The integer r in the decomposition G ≅ ℤʳ ⊕ ℤ/q₁ℤ ⊕ ⋯ ⊕ ℤ/qₘℤ of a finitely generated abelian group G. It counts the free ℤ-summands. Groups of rank 0 are finite.',
     example: 'ℤ has rank 1. ℤ ⊕ ℤ has rank 2. ℤ/nℤ has rank 0.',
   },
+  // ────────────── Chapter 20 — Semisimple algebras ──────────────
+  Homrep: {
+    term: 'Hom-rep space',
+    symbol: '\\Homrep(V, W)',
+    definition: 'For representations V and W of an algebra A over a field k, Hom_rep(V,W) is the vector space of intertwining operators (A-equivariant linear maps) from V to W. When k is algebraically closed and V, W are irreducible, this is k if V ≅ W and 0 otherwise.',
+    example: 'If V is an irrep, Hom_rep(V^⊕m, V^⊕n) ≅ Mat_{n×m}(k): the space has dimension nm.',
+  },
+  intertwinOp: {
+    term: 'Intertwining operator',
+    symbol: 'T \\colon V \\to W',
+    definition: 'A linear map T: V → W between representations of an algebra A satisfying T(a·v) = a·T(v) for all a ∈ A and v ∈ V. Also called a representation morphism or A-equivariant map. These are the morphisms in the category of representations.',
+    example: 'The zero map and the identity map are always intertwining operators. If A = ℝ and V = W = ℝ², any scalar multiple of the identity intertwines.',
+  },
+  completelyReducible: {
+    term: 'Completely reducible representation',
+    symbol: 'V = \\bigoplus_i V_i',
+    definition: 'A representation V that decomposes as a direct sum of irreducible subrepresentations. Equivalently, every subrepresentation has a complementary subrepresentation. This rules out "indecomposable but reducible" pathologies.',
+    example: 'Every representation of a finite group over ℂ is completely reducible by Maschke\'s theorem. The representation of ℝ on ℂ² by t↦[[1,t],[0,1]] is NOT completely reducible.',
+  },
+  semisimpleAlgebra: {
+    term: 'Semisimple algebra',
+    symbol: 'A \\cong \\bigoplus_i \\Mat_{d_i}(k)',
+    definition: 'A finite-dimensional algebra A over k such that every finite-dimensional representation of A is completely reducible. Equivalently, A is isomorphic to a direct sum of matrix algebras Mat_{d₁}(k) ⊕ ⋯ ⊕ Mat_{dᵣ}(k). The d_i are the dimensions of the irreps.',
+    example: 'The group algebra ℂ[S₃] is semisimple and isomorphic to ℂ ⊕ ℂ ⊕ Mat₂(ℂ), reflecting the three irreps of S₃ with dimensions 1, 1, 2.',
+  },
+  regularRep: {
+    term: 'Regular representation',
+    symbol: '\\Reg(A)',
+    definition: 'The representation of an algebra A on itself by left multiplication: a element acts on b ∈ A by a·b = ab. This is a faithful representation and often decomposes to reveal all irreps.',
+    example: 'For the group algebra k[G], Reg(k[G]) is the representation of G on itself by left multiplication, with k[G] as the vector space.',
+  },
+  jacobsonDensity: {
+    term: 'Jacobson density theorem',
+    symbol: 'A \\twoheadrightarrow \\bigoplus_i \\Mat(V_i)',
+    definition: 'Given pairwise nonisomorphic finite-dimensional irreps V₁, …, Vᵣ of an algebra A, the combined representation map A → ⊕ᵢ Mat(Vᵢ) is surjective. Informally: any finite tuple of actions on nonisomorphic irreps can be simultaneously achieved by a single element of A.',
+    example: 'For A = Mat₂(k), the single irrep V = k² gives a surjection A → Mat(V) = Mat₂(k) which is the identity — trivially surjective.',
+  },
+  jacobsonRadical: {
+    term: 'Jacobson radical',
+    symbol: '\\operatorname{Rad}(A)',
+    definition: 'The kernel of the map A → ⊕ᵢ Mat(Vᵢ) combining all irreps of A. It consists of all elements of A that act by zero in every irreducible representation. A is semisimple exactly when its Jacobson radical is trivial (i.e., zero).',
+    example: 'For a semisimple algebra A ≅ ⊕ᵢ Matₙᵢ(k), the Jacobson radical is {0}.',
+  },
+  groupAlgebra: {
+    term: 'Group algebra',
+    symbol: 'k[G]',
+    definition: 'For a field k and group G, the group algebra k[G] is the vector space with basis {g : g ∈ G} and multiplication extending the group law by k-linearity. Representations of G over k correspond bijectively to k[G]-modules.',
+    example: 'ℂ[ℤ/2ℤ] = ℂ·{1} ⊕ ℂ·{g} with g² = 1 is isomorphic to ℂ ⊕ ℂ (via 1±g).',
+  },
+  trivialGroupRep: {
+    term: 'Trivial representation',
+    symbol: '\\mathbb{C}_{\\mathrm{triv}}',
+    definition: 'The one-dimensional representation of a group G over ℂ (or k) in which every group element acts as the identity (scalar 1). Every group has exactly one trivial representation up to isomorphism.',
+    example: 'In ℂ_triv for S₃, every permutation σ acts as multiplication by 1. Compare with the sign representation where σ acts by sign(σ) = ±1.',
+  },
+  signRep: {
+    term: 'Sign representation',
+    symbol: '\\mathbb{C}_{\\mathrm{sign}}',
+    definition: 'The one-dimensional representation of the symmetric group Sₙ over ℂ in which each permutation σ acts by its sign: σ·v = sign(σ)·v. Even permutations act as +1 and odd permutations as −1.',
+    example: 'In ℂ_sign for S₃, the transposition (12) acts as −1, while the 3-cycle (123) acts as +1.',
+  },
+  reflectionRep: {
+    term: 'Reflection representation refl₀',
+    symbol: '\\refl_0',
+    definition: 'The two-dimensional representation of Sₙ given by the hyperplane {(x₁,…,xₙ) : x₁+⋯+xₙ = 0} inside kⁿ, where Sₙ acts by permuting coordinates. For S₃ this is the unique irreducible two-dimensional representation.',
+    example: 'For S₃, the space {(x,y,z) : x+y+z = 0} has basis e₁−e₂ and e₂−e₃. The transposition (12) swaps x and y, acting on the basis by a 2×2 matrix.',
+  },
+  sumOfSquaresFormula: {
+    term: 'Sum of squares formula',
+    symbol: '\\sum_i (\\dim V_i)^2 \\leq \\dim A',
+    definition: 'For a finite-dimensional algebra A with irreps V₁, …, Vᵣ, the sum of squares of their dimensions satisfies Σᵢ (dim Vᵢ)² ≤ dim A, with equality if and only if A is semisimple. When equality holds, Reg(A) ≅ ⊕ᵢ Vᵢ^⊕(dim Vᵢ).',
+    example: 'For ℂ[S₃] with |S₃| = 6 and irreps of dimensions 1, 1, 2: 1² + 1² + 2² = 6 = dim ℂ[S₃]. Equality holds, confirming ℂ[S₃] is semisimple.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

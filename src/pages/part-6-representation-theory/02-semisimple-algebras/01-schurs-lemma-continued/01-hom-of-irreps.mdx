@@ -1,0 +1,28 @@
+---
+title: Hom-spaces between irreps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hom-spaces between irreps">
+
+Fix an algebraically closed field $k$ throughout. For representations $V$ and $W$ of an algebra $A$, write <Term k="Homrep">$\Homrep(V,W)$</Term> for the space of <Term k="intertwinOp">intertwining operators</Term> — the $A$-equivariant linear maps $T \colon V \to W$.
+
+Schur's lemma (which we already proved) says: for finite-dimensional irreps $V$ and $W$,
+
+$$
+\Homrep(V,W) \cong
+\begin{cases}
+k & \text{if } V \cong W, \\
+0 & \text{if } V \not\cong W.
+\end{cases}
+$$
+
+So there is essentially one nonzero map between isomorphic irreps (up to scaling), and none at all between non-isomorphic ones.
+
+<Callout kind="remark" title="Standing assumption">
+Throughout this chapter $k$ is algebraically closed. This is what makes Schur's lemma give scalars rather than division algebras, and it is what drives everything that follows.
+</Callout>
+
+</SlideLayout>
