@@ -1,0 +1,27 @@
+---
+title: "Proof of Frobenius divisibility"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of Frobenius divisibility">
+
+Let $C_1, \dots, C_m$ be the <Term k="conjugacyClass">conjugacy classes</Term> of $G$, and let $V = (V, \rho)$ be a complex irrep with character $\chi_V$.
+
+We want to show $|G|/\dim V \in \ZZ$. Using the <Term k="innerProdChar">inner product of characters</Term> $\langle \chi_V, \chi_V \rangle = 1$, we rewrite:
+$$\frac{|G|}{\dim V} = \frac{|G|\langle \chi_V, \chi_V \rangle}{\dim V} = \sum_{g \in G} \frac{\chi_V(g)\,\ol{\chi_V(g)}}{\dim V}.$$
+
+Grouping by conjugacy classes:
+$$\frac{|G|}{\dim V} = \sum_{i=1}^m \ol{\chi_V(C_i)} \cdot \frac{|C_i|\,\chi_V(C_i)}{\dim V}.$$
+
+<Callout kind="remark" title="The key algebraic integer">
+For each conjugacy class $C_i$, set $T_i = \rho\!\left(\sum_{h \in C_i} h\right)$.
+Since $T_i$ commutes with all of $\rho(G)$, Schur's lemma gives $T_i = \lambda_i \cdot \id_V$, so
+$$\frac{|C_i|\,\chi_V(C_i)}{\dim V} = \frac{\Tr T_i}{\dim V} = \lambda_i.$$
+By the lemma, $\lambda_i \in \ol\ZZ$. Meanwhile $\ol{\chi_V(C_i)} \in \ol\ZZ$ since it is a sum of roots-of-unity conjugates. Their product is also in $\ol\ZZ$.
+</Callout>
+
+So $|G|/\dim V$ is a sum of algebraic integers — hence itself an algebraic integer. Being rational too, it must be an ordinary integer.
+
+</SlideLayout>

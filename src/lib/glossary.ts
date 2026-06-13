@@ -1547,6 +1547,50 @@ export const glossary = {
     definition: 'For a finite-dimensional algebra A with irreps V₁, …, Vᵣ, the sum of squares of their dimensions satisfies Σᵢ (dim Vᵢ)² ≤ dim A, with equality if and only if A is semisimple. When equality holds, Reg(A) ≅ ⊕ᵢ Vᵢ^⊕(dim Vᵢ).',
     example: 'For ℂ[S₃] with |S₃| = 6 and irreps of dimensions 1, 1, 2: 1² + 1² + 2² = 6 = dim ℂ[S₃]. Equality holds, confirming ℂ[S₃] is semisimple.',
   },
+
+  // ────────────── Chapter 22 — Some applications ──────────────
+  complexIrrep: {
+    term: 'Complex irreducible representation',
+    symbol: '(V, \\rho)',
+    definition: "A representation ρ: G → GL(V) of a finite group G over ℂ that has no proper nonzero G-invariant subspaces. Every finite-dimensional complex representation decomposes into a direct sum of irreps (by Maschke's theorem). The number of irreps equals the number of conjugacy classes of G.",
+    example: 'S₃ has three complex irreps of dimensions 1, 1, 2. The symmetric group Sₙ has one irrep for each partition of n.',
+  },
+  algebraicInteger: {
+    term: 'Algebraic integer',
+    symbol: '\\alpha \\in \\ol{\\mathbb{Z}}',
+    definition: 'A complex number α that is a root of some monic polynomial with integer coefficients: there exist integers aₙ₋₁, …, a₀ with αⁿ + aₙ₋₁αⁿ⁻¹ + ⋯ + a₀ = 0. Every ordinary integer is an algebraic integer. The only algebraic integers that are also rational numbers are the ordinary integers.',
+    example: '√2 is an algebraic integer (root of x² − 2). i is an algebraic integer (root of x² + 1). 1/2 is not an algebraic integer.',
+  },
+  algIntRing: {
+    term: 'Ring of algebraic integers',
+    symbol: '\\overline{\\mathbb{Z}}',
+    definition: 'The set of all algebraic integers in ℂ, denoted ℤ̄ or 𝒪. It is closed under addition and multiplication, so it forms a ring. Its intersection with ℚ is exactly ℤ.',
+    example: 'ℤ̄ contains all roots of unity, all square roots of integers, and all eigenvalues of integer matrices.',
+  },
+  groupRingZZ: {
+    term: 'Integral group ring ℤ[G]',
+    symbol: '\\mathbb{Z}[G]',
+    definition: 'The ring whose elements are formal integer linear combinations ∑_{g∈G} nₘg with nₘ ∈ ℤ, added pointwise and multiplied using the group law of G. When the coefficient ring is ℂ instead one gets the group algebra ℂ[G].',
+    example: 'For G = ℤ/2ℤ = {1, T}, an element of ℤ[G] looks like a·1 + b·T with a, b ∈ ℤ. Multiplication: T² = 1.',
+  },
+  innerProdChar: {
+    term: 'Inner product of characters',
+    symbol: '\\langle \\chi_V, \\chi_W \\rangle',
+    definition: 'For characters χ_V, χ_W of representations of a finite group G, their inner product is ⟨χ_V, χ_W⟩ = (1/|G|) ∑_{g∈G} χ_V(g) χ_W(g)̄. This equals 1 if V ≅ W are irreducible, and 0 if V and W are non-isomorphic irreps.',
+    example: 'For S₃ with its two 1-dimensional irreps V₁, V₂ and its 2-dimensional irrep V₃: ⟨χ_{V₁}, χ_{V₃}⟩ = 0.',
+  },
+  regularRepresentation: {
+    term: 'Regular representation',
+    symbol: '\\operatorname{Reg}(\\mathbb{C}[G])',
+    definition: 'The representation of G on the group algebra ℂ[G] by left multiplication: g acts by sending ∑ aₕh to ∑ aₕ(gh). Its character satisfies χ_Reg(1) = |G| and χ_Reg(g) = 0 for g ≠ 1. It decomposes as the direct sum ⊕ᵢ Vᵢ^{dim Vᵢ} over all irreps Vᵢ.',
+    example: 'For G = ℤ/3ℤ, the regular representation on ℂ³ decomposes into three distinct 1-dimensional irreps (the three cube roots of unity).',
+  },
+  groupDeterminant: {
+    term: 'Group determinant',
+    symbol: '\\det M_G',
+    definition: 'For a finite group G of order n, introduce variables xₘ for each g ∈ G. The group matrix M_G is the n×n matrix with (g,h)-entry x_{gh}. Its determinant det M_G is a polynomial in |G| variables. Frobenius showed det M_G factors into exactly one irreducible factor per conjugacy class, each appearing with multiplicity equal to its degree.',
+    example: 'For G = ℤ/2ℤ: det M_G = (x₁ − x_T)(x₁ + x_T), one linear factor per conjugacy class.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

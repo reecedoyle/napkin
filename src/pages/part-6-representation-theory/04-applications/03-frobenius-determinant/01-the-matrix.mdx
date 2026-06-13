@@ -1,0 +1,25 @@
+---
+title: "The group determinant matrix"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The group determinant matrix">
+
+The problem that launched representation theory: given a finite group $G$ of order $n$, introduce one variable $x_g$ for each $g \in G$ and form the $n \times n$ matrix $M_G$ with
+$$(M_G)_{g,h} = x_{gh}.$$
+
+<Callout kind="definition" title="Group determinant">
+The <Term k="groupDeterminant">group determinant</Term> $\det M_G$ is a polynomial in the $|G|$ variables $\{x_g\}_{g \in G}$.
+</Callout>
+
+<Callout kind="example" title="ℤ/2ℤ">
+For $G = \Zc{2} = \langle T \mid T^2 = 1 \rangle$, the matrix is
+$$M_G = \begin{bmatrix} x_{\id} & x_T \\ x_T & x_{\id} \end{bmatrix},$$
+and $\det M_G = (x_{\id} - x_T)(x_{\id} + x_T)$ — two linear factors.
+</Callout>
+
+Dedekind noticed in 1896 that $\det M_G$ always factors into irreducible polynomials in a suspiciously structured way. He wrote to Frobenius, who invented representation theory to explain it.
+
+</SlideLayout>

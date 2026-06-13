@@ -1,0 +1,23 @@
+---
+title: "Lemma: gcd(|C|, dim V) = 1"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lemma: gcd(|C|, dim V) = 1">
+
+We need two lemmas. The first is analytic.
+
+<Callout kind="lemma" title="When gcd(|C|, dim V) = 1">
+Let $V$ be a complex irrep of $G$ and let $C$ be a <Term k="conjugacyClass">conjugacy class</Term> with $\gcd(|C|, \dim V) = 1$. For any $g \in C$, exactly one of the following holds:
+- $\rho(g)$ is multiplication by a scalar (a scalar matrix), or
+- $\chi_V(g) = \Tr\,\rho(g) = 0$.
+</Callout>
+
+**Proof sketch.** Let $n = \dim V$ and let $\varepsilon_1, \dots, \varepsilon_n$ be the eigenvalues of $\rho(g)$ (roots of unity). From the proof of Frobenius divisibility, $\frac{|C|}{n}\chi_V(g) \in \ol\ZZ$. Since $\gcd(|C|, n) = 1$, Bezout gives integers $s, t$ with $s|C| + tn = 1$, so
+$$\frac{1}{n}\chi_V(g) = \frac{1}{n}(\varepsilon_1 + \dots + \varepsilon_n) \in \ol\ZZ.$$
+
+A fact from algebraic number theory (proved in the problems) then forces either all $\varepsilon_i$ equal — giving a scalar matrix — or their average is zero, giving $\chi_V(g) = 0$.
+
+</SlideLayout>

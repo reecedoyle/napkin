@@ -1,0 +1,22 @@
+---
+title: "Burnside's theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Burnside's theorem">
+
+Representation theory is often advertised with this example: a **purely group-theoretic** statement whose simplest known proof uses characters.
+
+<Callout kind="theorem" title="Burnside's theorem">
+Let $G$ be a nonabelian group of order $p^a q^b$, where $p$ and $q$ are distinct primes and $a, b \ge 0$. Then $G$ is not <Term k="simpleGroup">simple</Term>.
+</Callout>
+
+In other words: a group whose order has exactly two distinct prime factors can never be nonabelian and simple simultaneously. This is a striking constraint — the possible "atoms" of group theory are ruled out for many orders.
+
+<Callout kind="remark" title="Why representation theory?">
+The result is about groups — no mention of vector spaces. Yet the proof goes through characters of representations, making this the poster-child example for how representation theory pays dividends beyond its own domain (much as RSA is the poster child for number theory).
+</Callout>
+
+</SlideLayout>

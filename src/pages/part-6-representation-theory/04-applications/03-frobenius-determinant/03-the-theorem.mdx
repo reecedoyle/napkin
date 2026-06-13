@@ -1,0 +1,26 @@
+---
+title: "Frobenius determinant theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Frobenius determinant theorem">
+
+The pattern in the examples is not a coincidence.
+
+<Callout kind="theorem" title="Frobenius determinant">
+For any finite group $G$, the polynomial $\det M_G$ factors into irreducible polynomials such that:
+1. The **number** of irreducible factors equals the number of <Term k="conjugacyClass">conjugacy classes</Term> of $G$, and
+2. The **multiplicity** of each irreducible factor equals its degree.
+</Callout>
+
+Equivalently: if $V_1, \dots, V_r$ are the distinct <Term k="complexIrrep">complex irreps</Term> of $G$ and $d_i = \dim V_i$, then
+$$\det M_G = \prod_{i=1}^r (F_i)^{d_i}$$
+where each $F_i$ is an irreducible polynomial of degree $d_i$.
+
+<Callout kind="remark" title="Connection to sum of squares">
+Taking degrees: $\sum_i d_i \cdot d_i = \sum_i d_i^2 = |G|$. This is exactly the sum-of-squares identity for representations!
+</Callout>
+
+</SlideLayout>

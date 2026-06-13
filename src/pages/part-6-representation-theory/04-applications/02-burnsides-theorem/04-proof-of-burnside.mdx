@@ -1,0 +1,31 @@
+---
+title: "Proof of Burnside's theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Proof of Burnside's theorem">
+
+With both lemmas in hand, Burnside's theorem is a short counting argument.
+
+**Proof.** Suppose for contradiction that $G$ is simple, nonabelian, $|G| = p^a q^b$.
+
+Partition $G$ into its <Term k="conjugacyClass">conjugacy classes</Term>. Each class has size either:
+- **1** — these are exactly the elements of the centre $Z(G)$; there are $|Z(G)|$ of them.
+- **divisible by $pq$** — because by the lemma no class can have size $p^k$ or $q^k$ with $k > 0$.
+
+Since $|G| = \sum |C_i|$, we get $|Z(G)| \equiv |G| = p^a q^b \equiv 0 \pmod{p}$.
+
+But $p \mid |Z(G)|$ and $|Z(G)| \ge 1$ forces $|Z(G)| > 1$. So the centre is nontrivial. Since $G$ is nonabelian, $Z(G) \neq G$. Thus $Z(G)$ is a proper nontrivial normal subgroup of $G$, contradicting simplicity. $\square$
+
+<NumericInput
+  client:load
+  id="app-bsd-num-min-order"
+  question="What is the smallest order of a nonabelian group? (This is why the theorem requires 'nonabelian'.)"
+  expected="6"
+  placeholder="a number"
+/>
+
+</SlideLayout>

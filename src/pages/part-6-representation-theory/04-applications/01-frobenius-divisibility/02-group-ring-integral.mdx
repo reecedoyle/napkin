@@ -1,0 +1,27 @@
+---
+title: "Elements of ℤ[G] are integral"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Elements of ℤ[G] are integral">
+
+Before proving Frobenius divisibility, we need a lemma about the <Term k="groupRingZZ">group ring $\ZZ[G]$</Term>.
+
+<Callout kind="lemma" title="Elements of ℤ[G] are integral">
+Let $\alpha \in \ZZ[G]$. Then there exists a monic polynomial $P$ with integer coefficients such that $P(\alpha) = 0$.
+In other words, every element of $\ZZ[G]$ is an <Term k="algebraicInteger">algebraic integer</Term>.
+</Callout>
+
+The proof uses the fact that $\ZZ[G]$ is a <Term k="noetherian">Noetherian ring</Term> — ascending chains of ideals must stabilise.
+
+<ProofReveal
+  client:load
+  id="app-frob-proof-zg-integral"
+  prompt="How does the Noetherian property force α to satisfy a monic polynomial?"
+  solution="Let A_k be the ℤ-span of 1, α¹, …, αᵏ inside ℤ[G]. These form an ascending chain A₀ ⊆ A₁ ⊆ A₂ ⊆ ⋯. Since ℤ[G] is Noetherian, the chain must stabilise: A_k = A_{k+1} for some k. This means α^{k+1} is an integer linear combination of 1, α, …, α^k — exactly the condition that α satisfies a monic polynomial of degree k+1 with integer coefficients."
+/>
+
+</SlideLayout>

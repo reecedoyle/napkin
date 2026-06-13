@@ -76,7 +76,7 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\Stab': '\\operatorname{Stab}',
   '\\FixPt': '\\operatorname{FixPt}',
 
-  // Representation theory (Chapters 19–20) — Hom-rep, regular rep, special reps.
+  // Representation theory (Chapters 19–22) — Hom-rep, regular rep, special reps, restriction.
   '\\Homrep': '\\operatorname{Hom}_{\\mathrm{rep}}',
   '\\Reg': '\\operatorname{Reg}',
   '\\refl': '\\operatorname{refl}',
@@ -87,4 +87,5 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\injto': '\\hookrightarrow',
   '\\img': '\\operatorname{im}',
   '\\opname': '\\operatorname',
+  '\\restrict': '\\restriction_{#1}',
 };
