@@ -1,0 +1,36 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+<Problem
+  client:load
+  id="ssa-prob-cyclic-irreps"
+  prompt="Find all irreducible representations of ℂ[ℤ/nℤ]. How many are there, and what are their dimensions?"
+  hint="They are all one-dimensional — there are exactly n of them. Think about what the homomorphisms ℤ/nℤ → ℂˣ are."
+  solution="Since ℂ[ℤ/nℤ] is semisimple (char 0 doesn't divide n), its irreps are all one-dimensional by the sum of squares bound: if we had one of dimension ≥ 2 the sum of squares would exceed n, but the number of irreps equals the number of conjugacy classes = n (ℤ/nℤ is abelian, so every element is its own class). The n irreps are χₖ for k = 0, 1, …, n−1, where the generator g ∈ ℤ/nℤ acts by the nth root of unity ζₙᵏ = e^(2πik/n). These are all one-dimensional and pairwise non-isomorphic, and 1² × n = n = dim ℂ[ℤ/nℤ]."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="ssa-prob-maschke-requires-finite"
+  prompt="Consider the representation of ℝ (under addition) on ℂ² by t ↦ [[1, t], [0, 1]]. Show this representation is not irreducible, but it is indecomposable. (Maschke's theorem requires G finite — this shows the theorem fails for infinite groups.)"
+  hint="The span of (1, 0) is a subrepresentation. To show indecomposability: any complement would have to be a one-dimensional subspace, and you can show no such G-invariant complement exists."
+  solution="Not irreducible: the span of (1, 0) is invariant under every [[1,t],[0,1]] since [[1,t],[0,1]]·(1,0)ᵀ = (1,0)ᵀ. So W = ℂ·(1,0) is a proper subrepresentation. Indecomposable: suppose V = W ⊕ W' for some G-invariant W'. W' is one-dimensional, say spanned by (a, b) with b ≠ 0 (since W' ∩ W = 0). Applying t ↦ [[1,t],[0,1]]: (a,b) maps to (a+tb, b). For W' to be invariant we need (a+tb, b) = c·(a,b) for some scalar c, which gives b = cb and a+tb = ca. From the first equation c = 1, but then a+tb = a requires t = 0 for all t ∈ ℝ — a contradiction. So no such W' exists."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="ssa-prob-irreps-finite-dim"
+  prompt="Prove that all irreducible representations of a finite group G are finite-dimensional."
+  hint="This is actually easy. Pick any nonzero vector v ∈ V and consider the subspace spanned by all g·v for g ∈ G."
+  solution="Pick any v ∈ V with v ≠ 0. The subspace W = span{g·v : g ∈ G} is G-invariant: for any h ∈ G, h·(g·v) = (hg)·v ∈ W. This W is nonzero (it contains v) and finite-dimensional (it is spanned by at most |G| vectors). Since V is irreducible and W is a nonzero subrepresentation, W = V. So V is finite-dimensional."
+  difficulty="standard"
+/>
+
+</SlideLayout>
