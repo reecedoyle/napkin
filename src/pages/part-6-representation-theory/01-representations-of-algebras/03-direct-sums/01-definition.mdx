@@ -1,0 +1,20 @@
+---
+title: "Direct sum of representations"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Direct sum of representations">
+
+<Callout kind="definition" title="Direct sum of representations">
+Let $V = (V, \rho_V)$ and $W = (W, \rho_W)$ be representations of a $k$-algebra $A$. The <Term k="algDirectSum">**direct sum**</Term> $V \oplus W$ is the vector space $V \oplus W$ with action $a \cdot (v, w) = (a \cdot v, a \cdot w)$.
+</Callout>
+
+In matrix form, the action $\rho$ of $V \oplus W$ looks like a block-diagonal matrix:
+
+$$\rho(a) = \begin{bmatrix} \rho_V(a) & 0 \\ 0 & \rho_W(a) \end{bmatrix}.$$
+
+This is exactly what we saw with $\Mat_2(\mathbb{R})$ acting on $\mathbb{R}^{\oplus 4}$: each matrix acts on the two $\mathbb{R}^{\oplus 2}$ summands independently.
+
+</SlideLayout>

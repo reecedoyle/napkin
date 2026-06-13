@@ -1,0 +1,22 @@
+---
+title: "The S₃ permutation representation decomposes"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The S₃ permutation representation decomposes">
+
+Let $A = \mathbb{R}[S_3]$ act by permuting coordinates on $V = \mathbb{R}^{\oplus 3}$. Consider the two subspaces:
+
+$$W_1 = \{(t,t,t) \mid t \in \mathbb{R}\}, \qquad W_2 = \{(x,y,z) \mid x + y + z = 0\}.$$
+
+Both $W_1$ and $W_2$ are <Term k="subrep">subrepresentations</Term>: any permutation of equal coordinates stays in $W_1$, and permuting coordinates preserves the sum $x+y+z$.
+
+Since $V = W_1 \oplus W_2$ as vector spaces (check: dimension 1 + dimension 2 = 3, and $W_1 \cap W_2 = \{0\}$), we get $V = W_1 \oplus W_2$ as representations.
+
+<Callout kind="remark" title="Takeaway">
+The 3-dimensional permutation representation is not primitive — it decomposes into two smaller pieces. Representation theory studies which representations decompose and which do not.
+</Callout>
+
+</SlideLayout>
