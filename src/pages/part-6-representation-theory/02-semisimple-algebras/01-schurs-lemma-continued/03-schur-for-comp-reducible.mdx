@@ -1,0 +1,26 @@
+---
+title: Schur's lemma for completely reducible representations
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Schur's lemma for completely reducible representations">
+
+The matrix-of-scalars picture extends to all <Term k="completelyReducible">completely reducible</Term> representations.
+
+<Callout kind="theorem" title="Schur's lemma for completely reducible representations">
+Let $V = \bigoplus_i V_i^{\oplus n_i}$ and $W = \bigoplus_i V_i^{\oplus m_i}$ be finite-dimensional completely reducible representations, where each $V_i$ is an irrep. Then
+
+$$\Homrep(V, W) \cong \bigoplus_i \Mat_{m_i \times n_i}(k).$$
+
+An intertwining operator $T \colon V \to W$ amounts to, for each $i$, an $m_i \times n_i$ matrix of scalars giving the map $V_i^{\oplus n_i} \to V_i^{\oplus m_i}$.
+</Callout>
+
+The key point: maps between non-isomorphic irreps must be zero. So the full Hom-space breaks into independent blocks, one per isomorphism class of irrep. Different irrep types cannot "mix."
+
+<Callout kind="corollary" title="Subrepresentations of completely reducible representations">
+If $V = \bigoplus_i V_i^{\oplus n_i}$ is completely reducible and $W \subseteq V$ is a subrepresentation, then $W \cong \bigoplus_i V_i^{\oplus m_i}$ for some $m_i \le n_i$, and the inclusion is given by matrices on each block.
+</Callout>
+
+</SlideLayout>

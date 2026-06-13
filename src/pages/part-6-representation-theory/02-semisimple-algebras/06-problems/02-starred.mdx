@@ -1,0 +1,27 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred">
+
+<Problem
+  client:load
+  id="ssa-prob-dten-irreps"
+  prompt="Determine all the complex irreducible representations of D₁₀ (the dihedral group of order 10, i.e., symmetries of a regular pentagon)."
+  hint="There are only two one-dimensional irreps of D₁₀ (corresponding to the two homomorphisms D₁₀ → ℂˣ). The remaining irreps are two-dimensional."
+  solution="D₁₀ has order 10 and 4 conjugacy classes: {e}, {r², r³} (wait — D₁₀ has elements r, r², r³, r⁴, and 5 reflections). Actually |D₁₀| = 10 with conjugacy classes: {e}, {r, r⁴}, {r², r³}, and two classes of reflections of size 5/2 each — so 4 conjugacy classes total. Thus 4 irreps. Sum of squares: d₁² + d₂² + d₃² + d₄² = 10. The two 1-dimensional ones are the trivial rep and the sign rep (r ↦ 1, reflection ↦ −1). Remaining sum: 10 − 1 − 1 = 8 = 2² + 2². So two 2-dimensional irreps. They are given by ρₖ(r) = [[ζ₅ᵏ, 0], [0, ζ₅⁻ᵏ]] and ρₖ(s) = [[0,1],[1,0]] for k = 1 and k = 2 (where ζ₅ = e^(2πi/5)). These are non-isomorphic since Tr(ρ₁(r)) = ζ₅ + ζ₅⁻¹ ≠ ζ₅² + ζ₅⁻² = Tr(ρ₂(r))."
+  difficulty="starred"
+/>
+
+<Problem
+  client:load
+  id="ssa-prob-aime-bug"
+  prompt="[AIME 2018] A wheel has two concentric circles connected by five spokes. A bug starts at point A and takes 15 steps, moving to an adjacent label each time, only counterclockwise along the inner circle and clockwise along the outer circle. In how many ways can the bug end up back at A?"
+  hint="Let r, t ∈ D₁₀ be rotation and reflection respectively. Each bug step along the inner circle corresponds to r and along the outer circle to t. The answer can be computed as (1/|D₁₀|) · Tr((ρ(r) + ρ(t))^15) summed over all irreps, using the irreps from the previous problem."
+  solution="Use D₁₀ with |D₁₀| = 10 acting on itself. Each step is either the inner-circle move (r) or outer-circle move (t). We need to count walks of length 15 returning to A, which equals (1/10) · Σᵢ dᵢ · Tr(ρᵢ(r+t)^15) where the sum is over irreps ρᵢ of dimension dᵢ. For the trivial rep: r+t ↦ 2, so contribution is (1/10)·1·2^15 = 3276.8. For the sign rep: r ↦ 1, t ↦ −1, so r+t ↦ 0, contribution 0. For each 2-dim rep ρₖ: Tr(ρₖ(r)+ρₖ(t)) = ζ₅ᵏ + ζ₅⁻ᵏ + 0 + 0 = 2cos(2πk/5). The number of walks is (1/10)[2^15 + 0 + 2·(2cos72°)^15 + 2·(2cos144°)^15]. After computing: cos72° = (√5−1)/4... the answer is 306."
+  difficulty="starred"
+/>
+
+</SlideLayout>

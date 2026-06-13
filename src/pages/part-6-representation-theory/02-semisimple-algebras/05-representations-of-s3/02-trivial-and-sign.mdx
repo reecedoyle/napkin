@@ -1,0 +1,26 @@
+---
+title: The trivial and sign representations of S₃
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The trivial and sign representations of S₃">
+
+The two one-dimensional irreps are easy to describe.
+
+<Callout kind="definition" title="Trivial representation">
+The <Term k="trivialGroupRep">trivial representation</Term> $\CC_{\mathrm{triv}}$ of $S_3$ is the one-dimensional representation where every $\sigma \in S_3$ acts as the identity: $\sigma \cdot v = v$.
+</Callout>
+
+<Callout kind="definition" title="Sign representation">
+The <Term k="signRep">sign representation</Term> $\CC_{\mathrm{sign}}$ of $S_3$ is the one-dimensional representation where $\sigma \in S_3$ acts by $\operatorname{sign}(\sigma)$: transpositions act as $-1$, even permutations as $+1$.
+</Callout>
+
+These are non-isomorphic: a transposition acts as $1$ in $\CC_{\mathrm{triv}}$ and as $-1$ in $\CC_{\mathrm{sign}}$.
+
+<Callout kind="remark" title="Trivial reps for algebras vs groups">
+The trivial representation makes sense for a group $G$ but not in general for an algebra $A$: we would need $a \cdot v = v$ for all $a$, but this is not $k$-linear in $a$. The trivial rep is intrinsically tied to the group structure, not just the algebra structure.
+</Callout>
+
+</SlideLayout>

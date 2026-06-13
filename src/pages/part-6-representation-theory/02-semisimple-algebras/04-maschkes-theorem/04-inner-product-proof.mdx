@@ -1,0 +1,24 @@
+---
+title: Maschke's theorem — inner product proof over ℂ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Maschke's theorem — inner product proof over ℂ">
+
+Over $k = \CC$ there is a slicker proof using averaging of inner products.
+
+Start with any bilinear form $B \colon V \times V \to \CC$. Average it:
+
+$$\langle v, w \rangle = \frac{1}{|G|} \sum_{g \in G} B(g \cdot v, g \cdot w).$$
+
+This averaged form is **$G$-invariant**: $\langle g \cdot v, g \cdot w \rangle = \langle v, w \rangle$ for all $g \in G$.
+
+<Callout kind="remark" title="How this gives Maschke's theorem">
+If $W \subseteq V$ is a subrepresentation, consider its orthogonal complement $W^\perp$ with respect to the $G$-invariant inner product. Since the inner product is $G$-invariant, $W^\perp$ is also $G$-invariant (i.e., a subrepresentation). And $V = W \oplus W^\perp$ by the standard orthogonal decomposition. So every subrepresentation has a complement.
+</Callout>
+
+This argument is elegant but specialised to $\CC$; the averaging-map proof works over any algebraically closed field of characteristic not dividing $|G|$.
+
+</SlideLayout>

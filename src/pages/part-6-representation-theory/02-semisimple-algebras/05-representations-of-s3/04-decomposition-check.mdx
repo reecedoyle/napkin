@@ -1,0 +1,30 @@
+---
+title: Decomposing the permutation representation of S₃
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Decomposing the permutation representation of S₃">
+
+The natural **permutation representation** of $S_3$ acts on $V = \CC^{\oplus 3}$ by permuting the standard basis vectors $e_1, e_2, e_3$.
+
+This is a three-dimensional representation. By the classification, it decomposes as
+
+$$V = \refl_0 \oplus \CC_{\mathrm{triv}}.$$
+
+Indeed: the trivial subrepresentation is spanned by $e_1 + e_2 + e_3$ (every permutation fixes this vector). The complement $\refl_0 = \{x + y + z = 0\}$ is the two-dimensional irrep.
+
+<Callout kind="remark" title="No sign representation here">
+The sign representation does not appear in the permutation representation of $S_3$ on $\CC^3$. The only summands are $\refl_0$ and $\CC_{\mathrm{triv}}$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="ssa-s3-num-dim-reflection"
+  prompt="What is the dimension of refl₀, the reflection representation of S₃?"
+  expected="2"
+/>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: Maschke's proof — verifying the averaging map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Maschke's proof — verifying the averaging map">
+
+Let us verify the three key properties of $P = \frac{1}{|G|}\sum_{g \in G} \rho(g^{-1}) \circ \pi \circ \rho(g)$.
+
+<ProofReveal
+  client:load
+  id="ssa-maschke-proof-P-fixes-W"
+  prompt="Show that P(w) = w for every w ∈ W. (Recall: π is a projection onto W, meaning π(v) = v for v ∈ W, and W is G-invariant.)"
+  solution="For w ∈ W: since W is G-invariant, ρ(g)(w) ∈ W for each g. Since π is a projection onto W, π(ρ(g)(w)) = ρ(g)(w). Applying ρ(g⁻¹): ρ(g⁻¹)(π(ρ(g)(w))) = ρ(g⁻¹)(ρ(g)(w)) = w. Averaging |G| equal terms w: P(w) = (1/|G|) · |G| · w = w."
+/>
+
+<Callout kind="remark" title="Why G-equivariance holds">
+For any $h \in G$ and $v \in V$: $\rho(h)(P(v)) = \frac{1}{|G|}\sum_g \rho(h)\rho(g^{-1})\pi\rho(g)(v)$. Re-index by $g' = hg$ (a bijection on $G$): this equals $\frac{1}{|G|}\sum_{g'} \rho(g'^{-1})\pi\rho(g')(h \cdot v) = P(\rho(h)(v))$. So $P$ is $G$-equivariant.
+</Callout>
+
+</SlideLayout>

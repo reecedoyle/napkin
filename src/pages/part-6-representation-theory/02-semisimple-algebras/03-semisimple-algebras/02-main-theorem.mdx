@@ -1,0 +1,26 @@
+---
+title: Semisimple algebras — main theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Semisimple algebras — main theorem">
+
+<Callout kind="theorem" title="Characterisation of semisimple algebras">
+Let $A$ be a finite-dimensional algebra. The following are equivalent:
+
+1. $A \cong \bigoplus_i \Mat_{d_i}(k)$ for some positive integers $d_i$.
+2. $A$ is <Term k="semisimpleAlgebra">semisimple</Term>.
+3. The <Term k="regularRep">regular representation</Term> $\Reg(A)$ is completely reducible.
+</Callout>
+
+The chain is: (i) $\Rightarrow$ (ii) $\Rightarrow$ (iii) $\Rightarrow$ (i).
+
+**(i) $\Rightarrow$ (ii):** Every rep of $\bigoplus_i \Mat_{d_i}(k)$ decomposes into reps of each $\Mat_{d_i}(k)$, which are all completely reducible.
+
+**(ii) $\Rightarrow$ (iii):** Tautological — the regular rep is a representation.
+
+**(iii) $\Rightarrow$ (i):** The clever step. Write $\Reg(A) = \bigoplus_i V_i^{\oplus n_i}$. Then $\Homrep(\Reg(A), \Reg(A)) \cong \bigoplus_i \Mat_{n_i}(k)$ by Schur's theorem. But also $\Homrep(\Reg(A), \Reg(A)) \cong A^{\mathrm{op}}$ (right multiplication). Since $\Mat_n(k)^{\mathrm{op}} \cong \Mat_n(k)$ (by transpose), we get $A \cong \bigoplus_i \Mat_{n_i}(k)$.
+
+</SlideLayout>

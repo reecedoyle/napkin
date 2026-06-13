@@ -1,0 +1,26 @@
+---
+title: Maschke's proof — the averaging map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Maschke's proof — the averaging map">
+
+**Goal:** given any subrepresentation $W \subseteq V$, find a $G$-invariant complement $W'$ with $V = W \oplus W'$.
+
+Start with any projection $\pi \colon V \to W$ (not necessarily $G$-equivariant). Average it over the group to get a $G$-equivariant projection:
+
+$$P = \frac{1}{|G|} \sum_{g \in G} \rho(g^{-1}) \circ \pi \circ \rho(g).$$
+
+<Callout kind="proposition" title="Properties of P">
+The averaging map $P$ satisfies:
+
+- For $w \in W$: $P(w) = w$ (so $P$ fixes $W$ pointwise).
+- For all $v \in V$: $P(v) \in W$ (so the image of $P$ is $W$).
+- $P$ is an intertwining operator (it commutes with the $G$-action).
+</Callout>
+
+Since $P$ is idempotent (the identity on its image), we get the decomposition $V = \ker P \oplus \operatorname{im} P$. Both $\ker P$ and $\operatorname{im} P$ are subrepresentations (since $P$ is an intertwining operator), giving us $V = \ker P \oplus W$ as desired.
+
+</SlideLayout>

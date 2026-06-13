@@ -1,0 +1,26 @@
+---
+title: Jacobson density theorem — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Jacobson density theorem — statement">
+
+<Callout kind="theorem" title="Jacobson density theorem">
+Let $(V_1, \rho_1), \dots, (V_r, \rho_r)$ be pairwise non-isomorphic finite-dimensional irreps of $A$. Then the combined map
+
+$$\bigoplus_{i=1}^r \rho_i \colon A \twoheadrightarrow \bigoplus_{i=1}^r \Mat(V_i)$$
+
+is surjective.
+</Callout>
+
+The moral: density is the **Chinese remainder theorem** for irreps. CRT says you can find a single integer $N$ satisfying any tuple of congruences simultaneously. Here you can find a single $a \in A$ inducing any desired tuple of actions $(\rho_1(a), \dots, \rho_r(a))$ — even the $r=1$ case (surjectivity of one $\rho_i$) is non-obvious.
+
+<Callout kind="corollary" title="Finiteness of irreps">
+Any finite-dimensional algebra $A$ has at most $\dim A$ irreps. In fact $\sum_i (\dim V_i)^2 \le \dim A$.
+</Callout>
+
+The inequality follows immediately: the <Term k="jacobsonDensity">surjection</Term> $A \twoheadrightarrow \bigoplus_i V_i^{\oplus \dim V_i}$ forces $\sum (\dim V_i)^2 \le \dim A$.
+
+</SlideLayout>

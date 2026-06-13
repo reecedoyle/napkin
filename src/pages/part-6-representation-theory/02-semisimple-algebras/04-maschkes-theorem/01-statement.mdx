@@ -1,0 +1,22 @@
+---
+title: Maschke's theorem — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Maschke's theorem — statement">
+
+<Callout kind="theorem" title="Maschke's theorem">
+Let $G$ be a finite group and $k$ an algebraically closed field whose characteristic does not divide $|G|$. Then $k[G]$ is semisimple.
+</Callout>
+
+In particular, over $\CC$ (characteristic 0), the <Term k="groupAlgebra">group algebra</Term> $\CC[G]$ is semisimple for every finite group $G$. So all representations of finite groups over $\CC$ are completely reducible.
+
+The key hypothesis is that the characteristic of $k$ does not divide $|G|$. When it does, things break down — the averaging argument used in the proof requires dividing by $|G|$, which is impossible in characteristic dividing $|G|$.
+
+<Callout kind="remark" title="Characteristic matters">
+Over a field of characteristic $p$ dividing $|G|$, the group algebra $k[G]$ need not be semisimple. This is the world of **modular representation theory**, which is significantly harder.
+</Callout>
+
+</SlideLayout>

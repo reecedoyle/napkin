@@ -1,0 +1,29 @@
+---
+title: Checking semisimplicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Checking semisimplicity">
+
+<MCQ
+  client:load
+  id="ssa-semisimple-mcq-identify"
+  prompt="Which of the following is a semisimple algebra over ℂ?"
+  options={[
+    { id: "a", label: "ℂ[x] / (x²) — the algebra of dual numbers" },
+    { id: "b", label: "ℂ × ℂ — the product of two copies of ℂ" },
+    { id: "c", label: "Upper triangular 2×2 matrices over ℂ" },
+    { id: "d", label: "ℂ[x] — polynomial ring in one variable" },
+  ]}
+  correct="b"
+  explanation="ℂ × ℂ ≅ Mat₁(ℂ) ⊕ Mat₁(ℂ), which is a direct sum of matrix algebras — semisimple by the theorem. The dual numbers ℂ[x]/(x²) have Jacobson radical (x), which is nonzero. Upper triangular matrices have a nilpotent Jacobson radical. ℂ[x] is infinite-dimensional so the theorem doesn't directly apply, but its quotients ℂ[x]/(xⁿ) for n ≥ 2 are not semisimple."
+/>
+
+<Callout kind="remark" title="Key diagnostic">
+An algebra is semisimple exactly when it has no nonzero nilpotent ideals. The dual numbers $k[x]/(x^2)$ have the nilpotent element $x$, so they fail. Direct sums of matrix algebras have none.
+</Callout>
+
+</SlideLayout>
