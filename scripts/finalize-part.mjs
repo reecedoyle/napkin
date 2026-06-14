@@ -112,23 +112,26 @@ for (const wt of agentTrees) {
 
   // result === 'conflict'
   const conflicted = sh('git diff --name-only --diff-filter=U').trim().split('\n').filter(Boolean);
-  if (conflicted.length !== 1 || conflicted[0] !== 'src/lib/glossary.ts') {
-    console.error(`Merge of ${wt.branch} produced unexpected conflicts:`);
-    for (const f of conflicted) console.error(`  ${f}`);
+  const unsupported = conflicted.filter((f) => !ADDITIVE_FILES[f]);
+  if (unsupported.length > 0) {
+    console.error(`Merge of ${wt.branch} produced conflicts in unsupported files:`);
+    for (const f of unsupported) console.error(`  ${f}`);
     console.error('Resolve manually, commit, then re-run.');
     process.exit(1);
   }
 
-  console.log('  Auto-resolving src/lib/glossary.ts (additive section blocks)…');
-  const glossPath = resolve(ROOT, 'src/lib/glossary.ts');
-  const resolved = resolveAdditiveGlossaryConflict(readFileSync(glossPath, 'utf8'));
-  if (!resolved) {
-    console.error(`  Conflict didn't match the expected additive pattern (chapter section block at end).`);
-    console.error('  Resolve manually, commit, then re-run.');
-    process.exit(1);
+  for (const f of conflicted) {
+    console.log(`  Auto-resolving ${f} (additive section blocks)…`);
+    const full = resolve(ROOT, f);
+    const resolved = resolveAdditiveConflict(readFileSync(full, 'utf8'), ADDITIVE_FILES[f].glueLine);
+    if (!resolved) {
+      console.error(`  Conflict in ${f} didn't match the expected additive pattern.`);
+      console.error('  Resolve manually, commit, then re-run.');
+      process.exit(1);
+    }
+    writeFileSync(full, resolved);
+    sh(`git add ${f}`);
   }
-  writeFileSync(glossPath, resolved);
-  sh('git add src/lib/glossary.ts');
   sh(`git commit -m "Merge ${wt.branch}"`);
 }
 
@@ -140,23 +143,29 @@ for (const wt of agentTrees) {
   sh(`git branch -D ${wt.branch}`);
 }
 
-// ─── 4b. dedupe glossary keys ─────────────────────────────────────────
+// ─── 4b. dedupe keys in additive files ────────────────────────────────
 //
 // When two chapters in a single Part both introduce the same concept
-// (e.g. hausdorff appearing in both compactness and topological-spaces),
-// merging just concatenates both blocks and TS will error on the
-// duplicate object-literal key. Strip the second occurrence of every
-// repeated key, keeping the first.
+// (e.g. hausdorff appearing in both compactness and topological-spaces;
+// \Reg appearing in both semisimple and applications), merging just
+// concatenates both blocks and TS will error on the duplicate
+// object-literal key. Strip the second occurrence of every repeated key,
+// keeping the first.
 
-const glossPath = resolve(ROOT, 'src/lib/glossary.ts');
-const originalGloss = readFileSync(glossPath, 'utf8');
-const { content: dedupedGloss, dropped } = dedupeGlossaryKeys(originalGloss);
-if (dropped.length > 0) {
-  console.log(`\nAuto-deduping ${dropped.length} cross-chapter glossary key collision(s):`);
+const dedupePaths = [];
+for (const [path, cfg] of Object.entries(ADDITIVE_FILES)) {
+  const full = resolve(ROOT, path);
+  const before = readFileSync(full, 'utf8');
+  const { content: after, dropped } = dedupeKeys(before, cfg);
+  if (dropped.length === 0) continue;
+  console.log(`\nAuto-deduping ${dropped.length} cross-chapter collision(s) in ${path}:`);
   for (const k of dropped) console.log(`  - dropped second occurrence of "${k}"`);
-  writeFileSync(glossPath, dedupedGloss);
-  sh('git add src/lib/glossary.ts');
-  sh('git commit -m "Dedupe glossary: keys defined by multiple chapters"');
+  writeFileSync(full, after);
+  sh(`git add ${path}`);
+  dedupePaths.push(path);
+}
+if (dedupePaths.length > 0) {
+  sh('git commit -m "Dedupe keys defined by multiple chapters"');
 }
 
 // ─── 5. run quick checks ──────────────────────────────────────────────
@@ -169,26 +178,43 @@ run('npm run test:unit');
 console.log('\nfinalize-part: done.');
 console.log('Next: run `npm run test:e2e` for the full regression, then `git push`.');
 
-// ─── glossary auto-resolver ────────────────────────────────────────────
+// ─── additive-file conflict resolver and key deduper ─────────────────
+
+// Files in this map share two properties that make automatic conflict
+// resolution + dedupe safe: (a) each chapter appends a new comment-headed
+// section block at the end of a top-level object literal; (b) duplicate
+// keys are an actual TS error, so the second occurrence has to go.
+//
+// glueLine: a literal line to insert between the HEAD block and the
+//   INCOMING block during conflict resolution. Needed for multi-line
+//   entries (glossary), where the conflict markers eat the trailing
+//   "  },"; not needed for one-line entries (macros).
+//
+// shape: how to identify entry boundaries during dedupe.
+//   - 'multiline': entry starts with `  <camelKey>: {` and ends with `  },`
+//   - 'oneline'  : entry is a single `  'key': value,` line
+const ADDITIVE_FILES = {
+  'src/lib/glossary.ts': { glueLine: '  },', shape: 'multiline' },
+  'src/lib/katex-macros.ts': { glueLine: null, shape: 'oneline' },
+};
+
+function dedupeKeys(content, cfg) {
+  return cfg.shape === 'multiline'
+    ? dedupeMultilineEntries(content)
+    : dedupeOnelineEntries(content);
+}
 
 /**
- * Drop second-and-later occurrences of any key in the glossary's top-level
- * object literal. Operates line-by-line so we can preserve indentation
- * exactly. An "entry" starts with `  <camelKey>: {` at line start and ends
- * at the matching `  },` (depth-tracked over the entry body, which may
- * itself contain nested braces in string literals — but the regex on the
- * entry header is anchored at column 3 with `\s{2}`, so we can rely on
- * that exact indentation to find true entry boundaries).
+ * Drop second-and-later occurrences of any top-level key in a TS object
+ * literal where each entry spans multiple lines, starting with
+ * `  <camelKey>: {` and ending with `  },`. Used for src/lib/glossary.ts.
  */
-function dedupeGlossaryKeys(content) {
+function dedupeMultilineEntries(content) {
   const lines = content.split('\n');
   const seen = new Set();
   const dropped = [];
   const out = [];
   const HEADER_RE = /^\s{2}([a-zA-Z_][a-zA-Z0-9_]*):\s*\{\s*$/;
-  // A line of exactly "  }," (two spaces, close brace, comma) closes one
-  // top-level entry. Sentinel-shape because every entry in this file
-  // closes that way.
   const CLOSER = '  },';
   let i = 0;
   while (i < lines.length) {
@@ -199,24 +225,16 @@ function dedupeGlossaryKeys(content) {
       continue;
     }
     const key = m[1];
-    // Collect this entry block until we hit the matching closer.
     let end = i;
     while (end < lines.length && lines[end] !== CLOSER) end++;
     if (end >= lines.length) {
-      // Malformed — bail out by keeping rest verbatim.
       out.push(...lines.slice(i));
       break;
     }
     const block = lines.slice(i, end + 1);
     if (seen.has(key)) {
       dropped.push(key);
-      // Also swallow a single trailing blank line if there is one, so
-      // we don't leave a double-blank where the entry used to be.
-      if (lines[end + 1] === '') {
-        i = end + 2;
-      } else {
-        i = end + 1;
-      }
+      i = lines[end + 1] === '' ? end + 2 : end + 1;
     } else {
       seen.add(key);
       out.push(...block);
@@ -226,7 +244,33 @@ function dedupeGlossaryKeys(content) {
   return { content: out.join('\n'), dropped };
 }
 
-function resolveAdditiveGlossaryConflict(content) {
+/**
+ * Drop second-and-later occurrences of any top-level key where each
+ * entry is a single quoted-key line: `  'key': 'value',`. Used for
+ * src/lib/katex-macros.ts.
+ */
+function dedupeOnelineEntries(content) {
+  const lines = content.split('\n');
+  const seen = new Set();
+  const dropped = [];
+  const out = [];
+  const KEY_RE = /^\s+'([^']+)':/;
+  for (const line of lines) {
+    const m = line.match(KEY_RE);
+    if (m) {
+      const key = m[1];
+      if (seen.has(key)) {
+        dropped.push(key);
+        continue;
+      }
+      seen.add(key);
+    }
+    out.push(line);
+  }
+  return { content: out.join('\n'), dropped };
+}
+
+function resolveAdditiveConflict(content, glueLine) {
   // Expected shape (single conflict in the entire file):
   //
   //     <<<<<<< HEAD
@@ -268,10 +312,11 @@ function resolveAdditiveGlossaryConflict(content) {
     return null;
   }
 
-  // Trim trailing whitespace from each side, then concatenate with a
-  // `},` separator so HEAD's last entry closes properly. The standalone
-  // `  },` that already sits immediately after the conflict block in
-  // the file closes the incoming side's last entry — leave it alone.
-  const joined = headPart.replace(/\s+$/, '') + '\n  },\n\n' + incomingPart.replace(/\s+$/, '') + '\n';
+  // Concatenate both sides. For multiline-entry files, glueLine is the
+  // literal `  },` that closes HEAD's last entry (whose closer was
+  // swallowed by the conflict markers). For one-line files no glue is
+  // needed — each entry closes itself on the same line.
+  const separator = glueLine ? `\n${glueLine}\n\n` : '\n\n';
+  const joined = headPart.replace(/\s+$/, '') + separator + incomingPart.replace(/\s+$/, '') + '\n';
   return content.replace(whole, joined);
 }
