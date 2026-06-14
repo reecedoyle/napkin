@@ -1,0 +1,24 @@
+---
+title: A naming quirk — inverse vs. forward
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="A naming quirk — inverse vs. forward">
+
+<Callout kind="remark" title="Why 'inverse'?">
+The transform we defined — with the $+jk$ exponent in $\omega_N^{jk}$ — is traditionally called the **inverse** discrete Fourier transform. The "forward" DFT uses $\omega_N^{-jk}$ instead. The naming is a historical accident and causes genuine confusion.
+
+Confusingly, the corresponding quantum operation is called the (not-inverted) quantum Fourier transform, so the signs are swapped again.
+</Callout>
+
+Don't let the naming derail you. The important facts are:
+
+- The transform is a linear operation on an $N$-vector of complex numbers.
+- It converts between "time domain" (the signal $x$) and "frequency domain" (the amplitudes $y$).
+- For a periodic input, the amplitudes peak at predictable frequencies.
+- The forward and inverse transforms are just matrix transposes of each other, differing only in the sign of the exponent.
+
+For Shor's algorithm, what matters is that the quantum analogue can be implemented with far fewer operations than the classical one.
+
+</SlideLayout>

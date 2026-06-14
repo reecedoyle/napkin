@@ -1,0 +1,26 @@
+---
+title: Roots of unity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Roots of unity">
+
+Fix a positive integer $N$. The key number is
+
+$$\omega_N = \exp\!\left(\frac{2\pi i}{N}\right).$$
+
+This is a <Term k="primitiveRootOfUnity">primitive $N$-th root of unity</Term>: it satisfies $\omega_N^N = 1$, and no smaller positive power equals $1$.
+
+<Callout kind="example" title="The sixth roots of unity">
+For $N = 6$, $\omega_6 = e^{i\pi/3}$ is a point on the unit circle at angle $60°$. Raising to successive powers rotates by $60°$ each time:
+
+$$\omega_6^0 = 1,\quad \omega_6^1 = e^{i\pi/3},\quad \omega_6^2 = e^{2i\pi/3},\quad \omega_6^3 = -1,\quad \omega_6^4 = e^{4i\pi/3},\quad \omega_6^5 = e^{5i\pi/3}.$$
+
+After six steps we return to $1$.
+</Callout>
+
+The powers $1, \omega_N, \omega_N^2, \ldots, \omega_N^{N-1}$ are evenly spaced around the <Term k="complexUnitCircle">unit circle</Term>. This "clock arithmetic on the circle" is exactly what the Fourier transform exploits.
+
+</SlideLayout>

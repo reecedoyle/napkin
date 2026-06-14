@@ -1,0 +1,35 @@
+---
+title: The discrete inverse Fourier transform
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The discrete inverse Fourier transform">
+
+<Callout kind="definition" title="Discrete inverse Fourier transform (DIFT)">
+Given a tuple of complex numbers $(x_0, x_1, \ldots, x_{N-1})$, its <Term k="dift">discrete inverse Fourier transform</Term> is the sequence $(y_0, y_1, \ldots, y_{N-1})$ defined by
+
+$$y_k = \frac{1}{N} \sum_{j=0}^{N-1} \omega_N^{jk} x_j.$$
+</Callout>
+
+In matrix form this is a single multiplication:
+
+$$\begin{bmatrix} y_0 \\ y_1 \\ \vdots \\ y_{N-1} \end{bmatrix}
+= \frac{1}{N}
+\begin{bmatrix}
+1 & 1 & 1 & \cdots & 1 \\
+1 & \omega_N & \omega_N^2 & \cdots & \omega_N^{N-1} \\
+1 & \omega_N^2 & \omega_N^4 & \cdots & \omega_N^{2(N-1)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & \omega_N^{N-1} & \omega_N^{2(N-1)} & \cdots & \omega_N^{(N-1)^2}
+\end{bmatrix}
+\begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix}.$$
+
+The transform and its inverse are related by:
+
+$$x_k = \sum_{j=0}^{N-1} y_j \, \omega_N^{-jk}.$$
+
+So the DIFT takes a signal $x$ and produces amplitudes $y$; the original signal is recoverable by the inverse.
+
+</SlideLayout>

@@ -1,0 +1,39 @@
+---
+title: The classical complexity bottleneck
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The classical complexity bottleneck">
+
+Applying the DIFT naively — multiplying the $N \times N$ matrix by the input vector — takes $O(N^2)$ multiplications.
+
+The <Term k="fft">fast Fourier transform</Term> (FFT) improves this dramatically by reusing intermediate computations. It brings the classical cost down to $O(N \log N)$.
+
+For Shor's algorithm, we need to factor $M = pq$. We'll take $N = 2^n$ where $n \approx 2\log_2 M$. So:
+
+- The naive transform costs $O(N^2) = O(M^4)$ — hopelessly slow.
+- The classical FFT costs $O(N \log N) = O(M^2 \log M)$ — much better, but still polynomial in $M$.
+- We need $O((\log M)^2) = O(n^2)$ — exponentially better.
+
+<Callout kind="remark" title="The quantum advantage">
+The QFT achieves $O(n^2)$ quantum gate operations for an $n$-qubit input, where $N = 2^n$. This is not just a constant-factor improvement — it is exponentially fewer operations than any classical algorithm can achieve.
+</Callout>
+
+<MCQ
+  client:load
+  id="shor-dft-mcq-fft-cost"
+  prompt="The classical FFT reduces the DFT cost from O(N²) to O(N log N). If N = 2ⁿ, what is the FFT cost in terms of n?"
+  options={[
+    { id: "a", label: "O(2ⁿ · n) — still exponential in n" },
+    { id: "b", label: "O(n²) — polynomial in n" },
+    { id: "c", label: "O(n log n) — quasi-linear in n" },
+    { id: "d", label: "O(2^(2n)) — double-exponential in n" },
+  ]}
+  correct="a"
+  explanation="O(N log N) = O(2ⁿ · n). Since N = 2ⁿ, this is still exponential in n. The QFT achieves O(n²) gates — polynomial in n — which is why it is exponentially faster."
+/>
+
+</SlideLayout>

@@ -1617,6 +1617,34 @@ export const glossary = {
     definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
+  // ────────────── Chapter 25 — Shor's algorithm ──────────────
+  QFT: {
+    term: 'Quantum Fourier transform',
+    symbol: 'U_{\\mathrm{QFT}}',
+    definition: 'The quantum analogue of the discrete Fourier transform, implemented as a unitary gate on n qubits. It maps a computational-basis state |k⟩ to a superposition whose amplitudes are the DFT of the unit vector eₖ. Achievable with O(n²) quantum gates, versus O(2ⁿ · n) classically.',
+    example: 'Applied to a periodic superposition with period r, the QFT produces a superposition concentrated near multiples of N/r.',
+  },
+  primitiveRootOfUnity: {
+    term: 'Primitive N-th root of unity',
+    symbol: '\\omega_N',
+    definition: 'The complex number ωₙ = exp(2πi/N). It satisfies ωₙᴺ = 1 and no smaller positive power equals 1. The powers ωₙ⁰, ωₙ¹, …, ωₙᴺ⁻¹ are the N distinct N-th roots of unity, evenly spaced around the unit circle.',
+    example: 'ω₄ = i, ω₆ = e^(iπ/3), ω₈ = e^(iπ/4) = (1+i)/√2.',
+  },
+  complexUnitCircle: {
+    term: 'Unit circle in ℂ',
+    symbol: 'S^1',
+    definition: 'The set of complex numbers with absolute value 1: {z ∈ ℂ : |z| = 1}. Under multiplication it is a group. The N-th roots of unity form a cyclic subgroup of order N.',
+  },
+  dift: {
+    term: 'Discrete inverse Fourier transform (DIFT)',
+    symbol: 'y_k = \\tfrac{1}{N}\\sum_j \\omega_N^{jk} x_j',
+    definition: 'A linear transform on an N-tuple of complex numbers: the k-th output is yₖ = (1/N) Σⱼ ωₙʲᵏ xⱼ. Used to detect periodicity: if the input has period r, the outputs are concentrated at multiples of N/gcd(N,r).',
+    example: 'For N=6 and input (0,1,0,1,0,1) (period 2), the nonzero outputs land at k=0 and k=3 — multiples of 6/2=3.',
+  },
+  fft: {
+    term: 'Fast Fourier transform (FFT)',
+    definition: 'A classical algorithm that computes the DFT of an N-point signal in O(N log N) operations instead of O(N²). It works by recursively splitting the transform into smaller sub-transforms and reusing intermediate results. Even so, for Shor\'s algorithm this is too slow — the quantum Fourier transform achieves O(n²) gates for N = 2ⁿ.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

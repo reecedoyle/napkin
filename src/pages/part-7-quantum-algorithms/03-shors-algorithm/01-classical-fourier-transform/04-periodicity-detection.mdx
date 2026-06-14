@@ -1,0 +1,22 @@
+---
+title: Why DIFT detects periodicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why DIFT detects periodicity">
+
+The whole point of the transform is this:
+
+<Callout kind="theorem" title="Periodicity detection">
+If the sequence $(x_0, \ldots, x_{N-1})$ is periodic with period $r$ — meaning $x_{j+r} = x_j$ for all $j$ — then the output amplitudes $y_k$ are concentrated at indices $k$ that are multiples of $N/\gcd(N, r)$.
+</Callout>
+
+Intuitively: a periodic signal has energy only at its fundamental frequency and its harmonics. The transform reveals those frequencies as large amplitudes.
+
+We can think of the $y_k$ as measuring "how much $\omega_N^k$-frequency is present" in the input. A signal that repeats every $r$ steps excites exactly the frequencies that are integer multiples of $1/r$.
+
+This is the bridge from periodicity to Fourier: if we can measure the output frequencies, we can read off the period $r$.
+
+</SlideLayout>
