@@ -86,6 +86,7 @@ export const partTitles: Record<string, string> = {
   'part-4-linear-algebra': 'Part IV — Linear Algebra',
   'part-5-more-on-groups': 'Part V — More on Groups',
   'part-6-representation-theory': 'Part VI — Representation Theory',
+  'part-7-quantum-algorithms': 'Part VII — Quantum Algorithms',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -111,6 +112,9 @@ export const chapterTitles: Record<string, string> = {
   'part-6-representation-theory/02-semisimple-algebras': 'Chapter 20 — Semisimple algebras',
   'part-6-representation-theory/03-characters': 'Chapter 21 — Characters',
   'part-6-representation-theory/04-applications': 'Chapter 22 — Some applications',
+  'part-7-quantum-algorithms/01-quantum-states': 'Chapter 23 — Quantum states and measurements',
+  'part-7-quantum-algorithms/02-quantum-circuits': 'Chapter 24 — Quantum circuits',
+  'part-7-quantum-algorithms/03-shors-algorithm': "Chapter 25 — Shor's algorithm",
 };
 
 export const sectionTitles: Record<string, string> = {
