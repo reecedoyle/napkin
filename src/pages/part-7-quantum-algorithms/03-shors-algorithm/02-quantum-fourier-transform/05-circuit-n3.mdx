@@ -1,0 +1,30 @@
+---
+title: The QFT circuit for n = 3
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The QFT circuit for n = 3">
+
+For $n = 3$ qubits (so $N = 8$), the QFT circuit uses controlled-$R_k$ gates. Reading left to right:
+
+1. Apply $H$ to qubit $x_3$. Then apply controlled-$R_2$ (control: $x_2$) and controlled-$R_3$ (control: $x_1$) to produce $\ket{0} + e^{2\pi i \cdot 0.x_3 x_2 x_1}\ket{1}$ on the top wire.
+2. Apply $H$ to qubit $x_2$. Then apply controlled-$R_2$ (control: $x_1$) to produce $\ket{0} + e^{2\pi i \cdot 0.x_2 x_1}\ket{1}$ on the middle wire.
+3. Apply $H$ to qubit $x_1$ alone to produce $\ket{0} + e^{2\pi i \cdot 0.x_1}\ket{1}$ on the bottom wire.
+
+The output (bottom to top) is exactly the tensor product from the factorization proposition.
+
+<Callout kind="remark" title="Controlled gates">
+A controlled-$R_k$ gate applies $R_k$ to the target qubit only when the control qubit is $\ket{1}$. This is how the phase factor $e^{2\pi i \cdot 0.x_j \cdots x_1}$ accumulates contributions from multiple bits.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="shor-qft-proof-n3-output"
+  prompt="Verify that after step 1 above, the top wire holds the state (|0⟩ + exp(2πi · 0.x₃x₂x₁)|1⟩)/√2."
+  solution="Start with |x₃⟩. After H: (|0⟩ + e^(iπ x₃)|1⟩)/√2. The controlled-R₂ controlled by x₂ multiplies |1⟩ by e^(2πi x₂/4) = e^(2πi · 0.0x₂). The controlled-R₃ controlled by x₁ multiplies |1⟩ by e^(2πi x₁/8) = e^(2πi · 0.00x₁). Combined: the phase on |1⟩ is e^(iπ x₃) · e^(2πi · 0.0x₂) · e^(2πi · 0.00x₁) = e^(2πi(x₃/2 + x₂/4 + x₁/8)) = e^(2πi · 0.x₃x₂x₁). This gives (|0⟩ + e^(2πi · 0.x₃x₂x₁)|1⟩)/√2 as claimed."
+/>
+
+</SlideLayout>

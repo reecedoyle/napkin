@@ -1,0 +1,28 @@
+---
+title: Shor's algorithm — the complete picture
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Shor's algorithm — the complete picture">
+
+We can now state the full algorithm. To factor $M = pq$ (with $p, q$ odd primes):
+
+<Callout kind="theorem" title="Shor's algorithm (complete)">
+**Input**: $M = pq$.
+
+**Repeat until success**:
+1. Pick $N = 2^n$ with $N \geq M^2$ (so $n = \lceil 2 \log_2 M \rceil$).
+2. Pick $x \in \{2, \ldots, M-1\}$ uniformly at random. If $\gcd(x, M) > 1$, output the factor immediately.
+3. Prepare the state $\ket{\psi} = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \ket{k}\ket{0}$.
+4. Apply $U_x$: get $\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \ket{k}\ket{x^k \bmod M}$.
+5. Measure the second register to collapse the first to a periodic state $\ket{\phi}$.
+6. Apply $\UQFT$ to the first register.
+7. Measure to get $j$; apply continued fractions to $j/N$ to extract a candidate $r$.
+8. If $r$ is even and $\gcd(x^{r/2}-1, M) \notin \{1, M\}$: output the factor. Else go to step 2.
+</Callout>
+
+**Complexity**: $O(n^3) = O((\log M)^3)$ — polynomial in the input length.
+
+</SlideLayout>

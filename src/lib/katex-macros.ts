@@ -90,4 +90,9 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\restrict': '\\restriction_{#1}',
   '\\Classes': '\\operatorname{Classes}',
   '\\FunCl': '\\operatorname{Fun}_{\\mathrm{class}}',
+
+  // Quantum computing (Chapter 25 — Shor's algorithm) — Dirac ket notation, QFT.
+  '\\ket': '\\left|#1\\right\\rangle',
+  '\\bra': '\\left\\langle#1\\right|',
+  '\\UQFT': 'U_{\\mathrm{QFT}}',
 };

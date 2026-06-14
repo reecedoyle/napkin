@@ -1,0 +1,28 @@
+---
+title: Qubits and computational basis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Qubits and computational basis">
+
+We work with an $n$-<Term k="qubit">qubit</Term> quantum system. The computational basis states are $\ket{0}, \ket{1}, \ldots, \ket{N-1}$ where $N = 2^n$.
+
+<Callout kind="remark" title="Binary notation convention">
+We write $\ket{x}$ as shorthand for the tensor product $\ket{x_n} \otimes \ket{x_{n-1}} \otimes \cdots \otimes \ket{x_1}$, where $x = x_n x_{n-1} \cdots x_1$ in binary.
+
+For example, with $n = 3$: $\ket{6} = \ket{1} \otimes \ket{1} \otimes \ket{0}$, since $6 = 110_2$.
+
+We also write $0.x_1 x_2 \cdots x_n$ for the binary fraction $\sum_{k=1}^n x_k / 2^k$.
+</Callout>
+
+A general $n$-qubit state is a superposition
+
+$$\ket{\psi} = \sum_{k=0}^{N-1} x_k \ket{k}$$
+
+where the amplitudes $(x_0, \ldots, x_{N-1}) \in \mathbb{C}^N$ satisfy $\sum |x_k|^2 = 1$.
+
+The $n$-qubit space has an orthonormal basis $\ket{0}, \ket{1}, \ldots, \ket{N-1}$ — exactly $N = 2^n$ basis states. This exponential dimension is the resource that quantum computing exploits.
+
+</SlideLayout>

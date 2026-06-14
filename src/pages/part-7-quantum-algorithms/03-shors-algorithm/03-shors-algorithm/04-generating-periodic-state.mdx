@@ -1,0 +1,30 @@
+---
+title: Generating the periodic state
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Generating the periodic state">
+
+Pick $N = 2^n$ with $N \geq M^2$. The algorithm begins by creating a uniform superposition:
+
+$$\ket{\psi} = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \ket{k}.$$
+
+This uses $n$ Hadamard gates (one per qubit), since $H^{\otimes n}\ket{0}^{\otimes n}$ gives exactly this uniform superposition.
+
+<Callout kind="example" title="Factoring 77: initial state">
+To factor $M = 77 = 7 \times 11$, take $n = 13$ and $N = 2^{13} = 8192 \geq 77^2 = 5929$. Start with the state
+
+$$\ket{\psi} = \frac{1}{\sqrt{8192}} \sum_{k=0}^{8191} \ket{k}.$$
+</Callout>
+
+Next, build a circuit $U_x$ that computes modular exponentiation: it maps $\ket{k}\ket{0}$ to $\ket{k}\ket{x^k \bmod M}$.
+
+Applying $U_x$ to $\ket{\psi}\otimes\ket{0}$ gives
+
+$$\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \ket{k} \otimes \ket{x^k \bmod M}.$$
+
+This is a <Term k="entangledState">quantum entanglement</Term> of register 1 (the index $k$) and register 2 (the value $x^k \bmod M$).
+
+</SlideLayout>

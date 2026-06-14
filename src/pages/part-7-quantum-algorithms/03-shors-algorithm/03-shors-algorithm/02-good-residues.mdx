@@ -1,0 +1,26 @@
+---
+title: Good residues and why they exist
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Good residues and why they exist">
+
+<Callout kind="definition" title="Good residue mod M">
+Call $x \in \Zm{M}$ a **good** residue if all three conditions hold:
+
+1. $\gcd(x, M) = 1$ (so the order of $x$ is defined),
+2. the order $r$ of $x \pmod M$ is even, and
+3. neither $(x^{r/2} - 1)$ nor $(x^{r/2} + 1)$ is $\equiv 0 \pmod M$.
+
+Under these conditions, $\gcd(x^{r/2} - 1, M)$ equals $p$ or $q$.
+</Callout>
+
+The remarkable fact — proved by a Chinese Remainder Theorem argument over the two prime factors $p$ and $q$ — is that at least half of all residues in <Term k="ZmM">$(\mathbb{Z}/M\mathbb{Z})^\times$</Term> are good.
+
+So the algorithm is randomized: pick $x$ uniformly at random, check if $\gcd(x, M) > 1$ (if so, we accidentally found a factor already), otherwise find the order of $x$ and try. We succeed with probability $\geq 1/2$ on each attempt.
+
+Order-finding is the hard part. That is where the quantum computer comes in.
+
+</SlideLayout>

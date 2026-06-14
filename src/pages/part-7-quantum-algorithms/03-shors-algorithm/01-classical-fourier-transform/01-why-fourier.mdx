@@ -1,0 +1,26 @@
+---
+title: Why Fourier? The big picture
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why Fourier? The big picture">
+
+Shor's algorithm factors an integer $M = pq$ in $O((\log M)^2)$ time on a quantum computer — exponentially faster than any known classical algorithm. This is arguably why agencies like the NSA have poured millions into quantum computing research.
+
+The crux move is the <Term k="QFT">quantum Fourier transform</Term>. To understand it, we first need the classical version.
+
+<Callout kind="remark" title="The central idea">
+The Fourier transform detects **periodicity** in data. Shor's algorithm turns the integer-factoring problem into a period-finding problem, then uses the QFT to find that period blazingly fast.
+</Callout>
+
+Here is the chain of reductions:
+
+1. Factoring $M$ reduces to finding the **order** $r$ of some $x \pmod M$.
+2. Order-finding is a **periodicity** problem: the sequence $x^0, x^1, x^2, \ldots \pmod M$ repeats with period $r$.
+3. The QFT extracts periodicity from a quantum superposition in $O(n^2)$ gates, where $N = 2^n \approx M^2$.
+
+We build up from the classical case first.
+
+</SlideLayout>

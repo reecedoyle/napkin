@@ -1,0 +1,26 @@
+---
+title: The general QFT circuit
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The general QFT circuit">
+
+The pattern generalizes inductively. For $n$ qubits, the QFT circuit is:
+
+1. Apply the QFT recursively to the top $n-1$ qubits ($x_n, \ldots, x_2$).
+2. Apply controlled-$R_k$ gates from qubit $x_1$ (the least significant bit) to each of the top qubits: controlled-$R_n$ targets $x_n$, controlled-$R_{n-1}$ targets $x_{n-1}$, and so on down to controlled-$R_2$ targeting $x_2$.
+3. Apply $H$ to qubit $x_1$.
+
+This "unrolls" to exactly $n$ Hadamard gates plus $\binom{n}{2}$ controlled-$R_k$ gates.
+
+<Callout kind="theorem" title="QFT gate count">
+The QFT on $n$ qubits requires $n + \binom{n}{2} = O(n^2)$ quantum gates.
+</Callout>
+
+Since $N = 2^n$, we have $n = \log_2 N$, so $O(n^2) = O((\log N)^2)$. This is enormously better than the classical FFT's $O(N \log N) = O(2^n \cdot n)$ operations.
+
+For Shor's algorithm with $N \approx M^2$ (where $M$ is the number to factor), we get gate count $O((\log M)^2)$ — polynomial in the input length $\log M$.
+
+</SlideLayout>

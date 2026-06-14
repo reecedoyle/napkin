@@ -1,0 +1,22 @@
+---
+title: Definition of the QFT
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Definition of the QFT">
+
+<Callout kind="definition" title="Quantum Fourier transform">
+Consider an $n$-qubit state $\ket{\psi} = \sum_{k=0}^{N-1} x_k \ket{k}$. The <Term k="QFT">quantum Fourier transform</Term> $\UQFT$ is defined by
+
+$$\UQFT(\ket{\psi}) = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} \left( \sum_{k=0}^{N-1} \omega_N^{jk} x_k \right) \ket{j}.$$
+
+In matrix form (using basis $\ket{0}, \ldots, \ket{N-1}$):
+
+$$\UQFT = \frac{1}{\sqrt{N}} \begin{bmatrix} 1 & 1 & 1 & \cdots & 1 \\ 1 & \omega_N & \omega_N^2 & \cdots & \omega_N^{N-1} \\ 1 & \omega_N^2 & \omega_N^4 & \cdots & \omega_N^{2(N-1)} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1 & \omega_N^{N-1} & \omega_N^{2(N-1)} & \cdots & \omega_N^{(N-1)^2} \end{bmatrix}.$$
+</Callout>
+
+Compare with the DIFT: the matrix is identical except we divide by $\sqrt{N}$ instead of $N$. This $\sqrt{N}$ factor makes $\UQFT$ <Term k="unitaryGate">unitary</Term> — a legal quantum gate must preserve the normalization $\sum |x_k|^2 = 1$.
+
+</SlideLayout>
