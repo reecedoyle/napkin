@@ -1667,8 +1667,8 @@ export const glossary = {
     symbol: 'H',
     definition: 'The single-qubit gate H = (1/√2)[[1,1],[1,−1]]. It maps |0⟩ to (|0⟩+|1⟩)/√2 and |1⟩ to (|0⟩−|1⟩)/√2, creating an equal superposition. It is its own inverse: H² = I.',
   },
-  tensorProduct: {
-    term: 'Tensor product of quantum states',
+  qubitTensorProduct: {
+    term: 'Tensor product of qubit states',
     symbol: '\\ket{a} \\otimes \\ket{b}',
     definition: 'The combined state of two independent quantum systems. If system 1 is in state |a⟩ and system 2 is in state |b⟩, the joint state is |a⟩⊗|b⟩, often written |ab⟩. An n-qubit state is a tensor product of n single-qubit spaces, giving a 2ⁿ-dimensional state space.',
     example: '|0⟩⊗|1⟩ = |01⟩ is one of the four basis states for a 2-qubit system.',
