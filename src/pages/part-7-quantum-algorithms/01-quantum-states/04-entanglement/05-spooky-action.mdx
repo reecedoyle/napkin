@@ -1,0 +1,20 @@
+---
+title: Spooky action at a distance
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Spooky action at a distance">
+
+The singlet-state phenomenon has a name: Einstein called it <Term k="spukhafteWirkung">spukhafte Fernwirkung</Term> — "spooky action at a distance". Imagine qubit $A$ in a lab in Tokyo and qubit $B$ in London. The moment someone measures $A$ and collapses the singlet state, the state of $B$ is determined — instantly, no matter the distance.
+
+<Callout kind="remark" title="The moral">
+States which are not pure tensors in $H_A \otimes H_B$ correspond to **entangled** states. The qubits cannot be described independently; the state of the system must be given as a whole. Entangled states mean the qubits somehow depend on each other, even when separated.
+</Callout>
+
+This does **not** allow faster-than-light signalling — the outcome seen in Tokyo is random, so no information is transmitted. But it shows that quantum correlations are stronger than anything classical probability can explain.
+
+Entanglement is the engine behind quantum error correction, quantum key distribution, and — in the next chapter — quantum computation.
+
+</SlideLayout>

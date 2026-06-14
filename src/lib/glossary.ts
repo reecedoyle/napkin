@@ -1767,6 +1767,65 @@ export const glossary = {
     definition: 'A boolean function f: {0,1}ⁿ → {0,1} where exactly half of all inputs map to 0 and half map to 1. The Deutsch-Jozsa problem asks to distinguish balanced from constant functions.',
     example: 'The function f(x) = x₁ (the first input bit) is balanced for any n ≥ 1.',
   },
+  },
+
+  // ────────────── Chapter 23 — Quantum states and measurements ──────────────
+  singletState: {
+    term: 'Singlet state',
+    symbol: '\\ket{\\Psi_-}',
+    definition: 'The two-qubit entangled state |Ψ₋⟩ = (1/√2)|01⟩ − (1/√2)|10⟩. It is not a pure tensor in ℂ² ⊗ ℂ². Measuring one qubit instantly determines the other — Einstein\'s "spooky action at a distance".',
+    example: 'Measuring qubit A of |Ψ₋⟩ along σ_z gives +1 with prob 1/2 (collapsing to |01⟩) or −1 with prob 1/2 (collapsing to |10⟩). Either way, B is now determined.',
+  },
+  quantumEntanglement: {
+    term: 'Quantum entanglement',
+    definition: 'A state of a composite quantum system (e.g. H_A ⊗ H_B) that is not a pure tensor — not of the form |u⟩_A ⊗ |v⟩_B. Entangled qubits cannot be described independently; measuring one instantaneously affects what measurements of the other will reveal.',
+    example: 'The singlet state |Ψ₋⟩ = (|01⟩ − |10⟩)/√2 is entangled. The state |00⟩ is not.',
+  },
+  spukhafteWirkung: {
+    term: 'Spooky action at a distance',
+    definition: 'Einstein\'s phrase (German: spukhafte Fernwirkung) for the phenomenon whereby measuring one part of an entangled pair instantly determines the state of the other part, regardless of the spatial distance between them. Not a signalling mechanism — the local outcome is random.',
+  },
+  observable: {
+    term: 'Observable',
+    definition: 'In quantum mechanics, a physical quantity that can be measured — represented mathematically by a Hermitian operator T on the state space. The eigenvalues of T are the possible measurement outcomes (always real), and the eigenvectors form the measurement basis.',
+    example: 'Position, momentum, and spin are observables. The Pauli matrix σ_z is the observable for spin measured along the z-axis.',
+  },
+  quantumCollapse: {
+    term: 'Quantum collapse',
+    definition: 'When a quantum state |ψ⟩ is measured along an observable T and eigenvalue λ is observed, the state instantaneously collapses to its projection onto the eigenspace H_λ. All amplitude in other eigenspaces is destroyed. Repeated measurement of the same observable gives the same result.',
+    example: 'Measuring |ψ⟩ = (1/√2)|0⟩ + (1/√2)|1⟩ along σ_z and getting +1 collapses the state to |0⟩.',
+  },
+  pauliMatrices: {
+    term: 'Pauli matrices',
+    symbol: '\\sigma_x, \\sigma_y, \\sigma_z',
+    definition: 'Three 2×2 Hermitian matrices that together with the identity I form a basis for all 2×2 Hermitian matrices. They are the natural observables for a single qubit: measuring along σ_z reads out |0⟩ vs |1⟩; σ_x and σ_y measure in rotated bases.',
+    example: 'σ_z = [[1,0],[0,-1]], σ_x = [[0,1],[1,0]], σ_y = [[0,−i],[i,0]].',
+  },
+  quantumAmplitude: {
+    term: 'Quantum amplitude',
+    definition: 'A complex coefficient cᵢ in the expansion |ψ⟩ = Σ cᵢ|i⟩ of a quantum state. The probability of observing outcome i when measuring in the basis {|i⟩} equals |cᵢ|². For a normalised state, the amplitudes satisfy Σ|cᵢ|² = 1.',
+    example: 'In |ψ⟩ = (3/5)|0⟩ + (4/5)|1⟩, the amplitudes are 3/5 and 4/5, giving probabilities 9/25 and 16/25.',
+  },
+  superposition: {
+    term: 'Superposition',
+    definition: 'A quantum state that is a nontrivial linear combination of basis states — neither purely |0⟩ nor purely |1⟩. Before measurement, the system genuinely exists in all basis states simultaneously, weighted by their amplitudes.',
+    example: '(1/√2)|0⟩ + (1/√2)|1⟩ is an equal superposition of |0⟩ and |1⟩.',
+  },
+  braKetNotation: {
+    term: 'Bra-ket notation',
+    definition: 'Dirac\'s notation for vectors in a complex inner product space. A vector is written as a "ket" |ψ⟩ and its dual as a "bra" ⟨ψ|. The inner product ⟨ψ|φ⟩ is formed by snapping bra and ket together — hence "bracket".',
+    example: '|0⟩ and |1⟩ are the standard basis kets for a qubit; ⟨0|0⟩ = 1 and ⟨0|1⟩ = 0.',
+  },
+  braVector: {
+    term: 'Bra',
+    symbol: '\\langle \\psi |',
+    definition: 'The dual vector of a ket |ψ⟩ in bra-ket notation, written ⟨ψ|. In coordinates it is the conjugate transpose (row vector) of the ket column vector. The bra ⟨ψ| acts on kets by the inner product: ⟨ψ|φ⟩ = ⟨|ψ⟩, |φ⟩⟩.',
+  },
+  qubit: {
+    term: 'Qubit',
+    definition: 'A quantum bit: any unit vector in the two-dimensional complex Hilbert space ℂ² with orthonormal basis |0⟩ and |1⟩. A qubit α|0⟩ + β|1⟩ has |α|² + |β|² = 1. Unlike a classical bit, a qubit can be in a superposition of 0 and 1.',
+    example: 'The state (1/√2)|0⟩ + (1/√2)|1⟩ is an equal superposition qubit.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

@@ -1,0 +1,20 @@
+---
+title: n-qubit systems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="n-qubit systems">
+
+One qubit lives in $\CC^{\oplus 2}$. More generally, any finite quantum system lives in an $n$-dimensional complex Hilbert space.
+
+<Callout kind="definition" title="n-dimensional quantum state">
+An $n$-state quantum system is described by a normalised ket
+$$\ket{\psi} = c_0\ket{0} + c_1\ket{1} + \cdots + c_{n-1}\ket{n-1} \in H$$
+where $H$ is an $n$-dimensional complex Hilbert space with orthonormal basis $\ket{0}, \dots, \ket{n-1}$, and the <Term k="quantumAmplitude">amplitudes</Term> satisfy $\sum_{i} |c_i|^2 = 1$.
+</Callout>
+
+The moral is simple: quantum generalises classical by replacing a discrete set $\{0, \dots, n-1\}$ with a complex vector space whose orthonormal basis is indexed by that set. Classical states are the basis vectors; everything else is superposition.
+
+</SlideLayout>

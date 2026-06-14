@@ -1,0 +1,33 @@
+---
+title: Simultaneous measurement of two qubits
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Simultaneous measurement of two qubits">
+
+We can also measure both qubits simultaneously using a diagonal observable on the full $4$-dimensional space.
+
+<Callout kind="example" title="Simultaneous readout">
+For $\ket\psi = \alpha\ket{00} + \beta\ket{01} + \gamma\ket{10} + \delta\ket{11}$, define the diagonal observable $T$ by $T\ket{00} = 0$, $T\ket{01} = 1$, $T\ket{10} = 2$, $T\ket{11} = 3$. Then we observe $0, 1, 2, 3$ with probabilities $|\alpha|^2, |\beta|^2, |\gamma|^2, |\delta|^2$, and the state collapses to the corresponding basis vector.
+</Callout>
+
+This is the standard "computational basis measurement": read out both bits at once, getting a two-bit string with probabilities given by squared amplitudes.
+
+<MCQ
+  client:load
+  id="qs-ent-mcq-entangled"
+  prompt="Which of the following is an entangled two-qubit state (not a pure tensor)?"
+  options={[
+    { id: "a", label: "|00⟩" },
+    { id: "b", label: "(1/√2)|0⟩ ⊗ (|0⟩ + |1⟩)" },
+    { id: "c", label: "(1/√2)(|00⟩ + |11⟩)" },
+    { id: "d", label: "|1⟩ ⊗ |0⟩" },
+  ]}
+  correct="c"
+  explanation="(1/√2)(|00⟩ + |11⟩) is a Bell state — it cannot be factored as |u⟩ ⊗ |v⟩ (try it and you get a contradiction). Options a, b, d are all pure tensors."
+/>
+
+</SlideLayout>

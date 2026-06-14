@@ -1,0 +1,28 @@
+---
+title: Distinguishing states by measurement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Distinguishing states by measurement">
+
+When can we reliably tell two quantum states apart?
+
+<Callout kind="proposition" title="Orthogonal states are distinguishable">
+If two states $\ket{\psi}$ and $\ket{\phi}$ are **orthogonal** ($\braket{\psi|\phi} = 0$), we can find a Hermitian observable that tells them apart with 100% certainty — and measuring does not collapse either state.
+</Callout>
+
+The key observation: orthogonal states are eigenvectors of the same operator for **different** eigenvalues. Measuring that operator gives a deterministic outcome for each state — no probabilistic collapse occurs within each eigenspace.
+
+In particular, the two computational basis states $\ket{0}$ and $\ket{1}$ are orthogonal, so measuring along $\sigma_z$ perfectly distinguishes them. That's why $\sigma_z$-measurement is the standard "readout" in quantum circuits.
+
+<ProofReveal
+  client:load
+  id="qs-obs-proof-repeat-measure"
+  prompt="If we measure $\ket{\psi}$ along $T$ and get eigenvalue $\lambda$, what happens when we measure along $T$ again immediately after?"
+  solution="After the first measurement, $\ket{\psi}$ has collapsed to a vector in the eigenspace $H_\lambda$. That collapsed state is itself an eigenstate of $T$ with eigenvalue $\lambda$. So a second measurement along $T$ always returns the same value $\lambda$ with certainty — and produces no further collapse."
+/>
+
+</SlideLayout>

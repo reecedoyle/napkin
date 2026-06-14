@@ -1,0 +1,22 @@
+---
+title: Measuring the singlet state along σ_x
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Measuring the singlet state along σ_x">
+
+We now probe the <Term k="singletState">singlet state</Term> $\ket{\Psi_-}$ with a different observable — measuring qubit $A$ along $\sigma_x$ instead of $\sigma_z$. The result is striking: the same spooky correlation appears in the $x$-basis.
+
+<Problem
+  client:load
+  id="qs-prob-singlet-x"
+  difficulty="standard"
+  prompt="We measure $\ket{\Psi_-}$ along $\sigma_x^A \otimes \id_B$ and obtain either $+1$ or $-1$. Determine the state of qubit $B$ after each outcome."
+  hint="Rewrite $\ket{\Psi_-}$ in the $\sigma_x$ eigenbasis: $\ket{\Psi_-} = -\tfrac{1}{\sqrt2}\bigl(\ket{x\uparrow}_A \otimes \ket{x\downarrow}_B - \ket{x\downarrow}_A \otimes \ket{x\uparrow}_B\bigr)$, where $\ket{x\uparrow} = \tfrac{1}{\sqrt2}(\ket0+\ket1)$ and $\ket{x\downarrow} = \tfrac{1}{\sqrt2}(\ket0-\ket1)$."
+  solution="By a straightforward computation, $\ket{\Psi_-} = -\tfrac{1}{\sqrt2}(\ket{x\uparrow}_A \otimes \ket{x\downarrow}_B - \ket{x\downarrow}_A \otimes \ket{x\uparrow}_B)$. The $+1$ eigenspace of $\sigma_x^A \otimes \id_B$ is spanned by $\ket{x\uparrow}_A \otimes \ket{x\uparrow}_B$ and $\ket{x\uparrow}_A \otimes \ket{x\downarrow}_B$; the $-1$ eigenspace by vectors with $\ket{x\downarrow}_A$. Reading off the coefficients: measuring $+1$ collapses $B$ to $\ket{x\downarrow}_B$, and measuring $-1$ collapses $B$ to $\ket{x\uparrow}_B$. Measuring $A$ in the $x$-basis completely determines $B$ in the $x$-basis — the same spooky correlation as in the $z$-basis."
+/>
+
+</SlideLayout>

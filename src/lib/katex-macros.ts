@@ -76,6 +76,11 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\Stab': '\\operatorname{Stab}',
   '\\FixPt': '\\operatorname{FixPt}',
 
+  // Quantum computation (Chapters 23–) — bra-ket / Dirac notation.
+  '\\ket': '\\left|#1\\right\\rangle',
+  '\\bra': '\\left\\langle#1\\right|',
+  '\\braket': '\\left\\langle#1\\right\\rangle',
+
   // Representation theory (Chapters 19–22) — Hom-rep, regular rep, special reps, restriction, class functions.
   '\\Homrep': '\\operatorname{Hom}_{\\mathrm{rep}}',
   '\\Reg': '\\operatorname{Reg}',

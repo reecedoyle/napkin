@@ -1,0 +1,22 @@
+---
+title: Quantum collapse
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Quantum collapse">
+
+The strangest part of quantum measurement is what happens **after** you look.
+
+<Callout kind="definition" title="Quantum collapse">
+Suppose we measure $\ket{\psi} = \sum_i c_i\ket{i}_T$ along $T$ and observe eigenvalue $\lambda$.  Let $H_\lambda$ be the eigenspace for $\lambda$ — the span of all $\ket{i}_T$ with $\lambda_i = \lambda$.  After the measurement the state **collapses** to the projection of $\ket{\psi}$ onto $H_\lambda$:
+$$\ket{\psi} \;\longrightarrow\; \sum_{\substack{i \,:\, \lambda_i = \lambda}} c_i\ket{i}_T.$$
+All components outside $H_\lambda$ are destroyed. This is called <Term k="quantumCollapse">quantum collapse</Term>.
+</Callout>
+
+When $\lambda$ is a simple (non-degenerate) eigenvalue, the collapsed state is just $\ket{i}_T$ (up to normalisation) — a single basis vector. The measurement has pinned the state precisely.
+
+When eigenvalues repeat, the collapse projects onto the whole eigenspace; more information survives.
+
+</SlideLayout>

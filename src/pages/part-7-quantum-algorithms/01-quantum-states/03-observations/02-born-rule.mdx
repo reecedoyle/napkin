@@ -1,0 +1,21 @@
+---
+title: The Born rule
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Born rule">
+
+Given a Hermitian <Term k="observable">observable</Term> $T$ with orthonormal eigenbasis $\ket{0}_T, \dots, \ket{n-1}_T$ and eigenvalues $\lambda_0, \dots, \lambda_{n-1}$, expand the state as
+$$\ket{\psi} = c_0\ket{0}_T + c_1\ket{1}_T + \cdots + c_{n-1}\ket{n-1}_T.$$
+
+<Callout kind="theorem" title="Born rule">
+When we measure $\ket{\psi}$ along $T$, the probability of observing eigenvalue $\lambda_i$ is
+$$\Pr[\text{observe } \lambda_i] = \frac{|c_i|^2}{|c_0|^2 + \cdots + |c_{n-1}|^2}.$$
+For a normalised state the denominator is $1$, so $\Pr[\text{observe } \lambda_i] = |c_i|^2$.
+</Callout>
+
+The denominator handles the fact that an overall scalar factor $c\ket\psi$ is physically the same state as $\ket\psi$ — scaling all amplitudes by the same $c$ leaves all probabilities unchanged.
+
+</SlideLayout>

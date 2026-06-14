@@ -1,0 +1,28 @@
+---
+title: The singlet state
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The singlet state">
+
+Now for the state that started a century of philosophical debate about the nature of reality.
+
+<Callout kind="definition" title="Singlet state">
+The <Term k="singletState">singlet state</Term> is
+$$\ket{\Psi_-} = \frac{1}{\sqrt2}\ket{01} - \frac{1}{\sqrt2}\ket{10} \;\in\; \CC^{\oplus 2} \otimes \CC^{\oplus 2}.$$
+It is **not** a pure tensor — it cannot be written as $\ket{u}_A \otimes \ket{v}_B$ for any $\ket{u}, \ket{v}$.
+</Callout>
+
+Measure qubit $A$ along $\sigma_z^A \otimes \id_B$. The eigenspaces are:
+- $+1$: span of $\ket{00}$ and $\ket{01}$.
+- $-1$: span of $\ket{10}$ and $\ket{11}$.
+
+Since $\ket{\Psi_-}$ has amplitude $1/\sqrt2$ in $\ket{01}$ and $-1/\sqrt2$ in $\ket{10}$:
+- With probability $1/2$ we observe $+1$ and the state collapses to $\ket{01}$.
+- With probability $1/2$ we observe $-1$ and the state collapses to $\ket{10}$.
+
+In both cases, observing qubit $A$ **completely determines qubit $B$** — even though we only touched $A$.
+
+</SlideLayout>

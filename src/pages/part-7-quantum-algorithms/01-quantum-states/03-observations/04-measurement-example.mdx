@@ -1,0 +1,27 @@
+---
+title: Measurement example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Measurement example">
+
+Let $H = \CC^{\oplus 2}$ and consider
+$$\ket{\psi} = \frac{i}{\sqrt{5}}\ket{0} + \frac{2}{\sqrt{5}}\ket{1}.$$
+
+<Callout kind="example" title="Measuring along σ_z">
+Take the observable
+$$T = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}.$$
+Its eigenvectors are $\ket{0}$ (eigenvalue $+1$) and $\ket{1}$ (eigenvalue $-1$). The state $\ket{\psi}$ is already written in this eigenbasis, so the Born rule gives:
+- observe $+1$ with probability $|i/\sqrt{5}|^2 = 1/5$.
+- observe $-1$ with probability $|2/\sqrt{5}|^2 = 4/5$.
+
+After measurement the state collapses to $\ket{0}$ or $\ket{1}$ accordingly. The original amplitudes are gone — **measuring destroys information**.
+</Callout>
+
+<Callout kind="example" title="Measuring along the identity">
+Take $T = \id$. Every vector is an eigenvector with eigenvalue $+1$, so we always observe $+1$ with probability 1. There is **no collapse** — no coefficients are destroyed, since we never distinguish which eigenspace we projected onto.
+</Callout>
+
+</SlideLayout>

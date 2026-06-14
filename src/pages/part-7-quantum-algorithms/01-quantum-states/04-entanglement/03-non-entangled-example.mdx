@@ -1,0 +1,22 @@
+---
+title: Non-entangled two-qubit example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Non-entangled two-qubit example">
+
+Here is the product-state case worked out, so the entangled case stands in sharp contrast.
+
+<Callout kind="example" title="Two independent qubits">
+Qubit $A$ is in state $\frac{i}{\sqrt5}\ket0_A + \frac{2}{\sqrt5}\ket1_A$ and qubit $B$ is in state $\frac{1}{\sqrt2}\ket0_B + \frac{1}{\sqrt2}\ket1_B$. The joint state is the pure tensor
+$$\ket\psi = \left(\tfrac{i}{\sqrt5}\ket0_A + \tfrac{2}{\sqrt5}\ket1_A\right) \otimes \left(\tfrac{1}{\sqrt2}\ket0_B + \tfrac{1}{\sqrt2}\ket1_B\right).$$
+Measuring $B$ along $\sigma_z^B$ via $\id_A \otimes \sigma_z^B$:
+- Observe $+1$ (eigenvectors $\ket{00}, \ket{10}$) with probability $1/2$; collapsed state is $\left(\frac{i}{\sqrt5}\ket0_A + \frac{2}{\sqrt5}\ket1_A\right) \otimes \ket0_B$.
+- Observe $-1$ (eigenvectors $\ket{01}, \ket{11}$) with probability $1/2$; collapsed state is the same $A$-component tensored with $\ket1_B$.
+
+The $A$ qubit is untouched — its state does not depend on which outcome we observed for $B$.
+</Callout>
+
+</SlideLayout>

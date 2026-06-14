@@ -1,0 +1,29 @@
+---
+title: Normalisation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Normalisation">
+
+Two nonzero kets that differ only by a global scalar phase $c \neq 0$ are physically indistinguishable — no measurement can tell them apart. So we always normalise:
+
+<Callout kind="definition" title="Normalised state">
+A ket $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$ is **normalised** if
+$$\braket{\psi|\psi} = |\alpha|^2 + |\beta|^2 = 1.$$
+For an $n$-dimensional space, the condition becomes $|c_0|^2 + |c_1|^2 + \cdots + |c_{n-1}|^2 = 1$.
+</Callout>
+
+The coefficients $c_i$ are called **amplitudes**. The quantity $|c_i|^2$ will turn out to be the probability of observing outcome $i$ — which is why probabilities must sum to 1.
+
+<NumericInput
+  client:load
+  id="qs-ss-num-normalise"
+  prompt="If $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$ with $\alpha = 3/5$ (real) and $\beta = 4/5$ (real), what is $\braket{\psi|\psi}$?"
+  expected="1"
+  hint="Compute |3/5|² + |4/5|² = 9/25 + 16/25."
+/>
+
+</SlideLayout>

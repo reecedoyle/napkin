@@ -1,0 +1,23 @@
+---
+title: Tensor products of qubits
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tensor products of qubits">
+
+Two qubits together live in a bigger space.
+
+<Callout kind="definition" title="Two-qubit state space">
+Two qubits $A$ and $B$ jointly occupy the <Term k="tensorProduct">tensor product</Term> $H = H_A \otimes H_B = \CC^{\oplus 2} \otimes \CC^{\oplus 2}$. This is a four-dimensional space with orthonormal basis
+$$\ket{0}_A \otimes \ket{0}_B, \quad \ket{0}_A \otimes \ket{1}_B, \quad \ket{1}_A \otimes \ket{0}_B, \quad \ket{1}_A \otimes \ket{1}_B.$$
+We abbreviate these to $\ket{00}, \ket{01}, \ket{10}, \ket{11}$.
+</Callout>
+
+A general two-qubit state is a normalised vector
+$$\ket{\psi} = \alpha\ket{00} + \beta\ket{01} + \gamma\ket{10} + \delta\ket{11}, \qquad |\alpha|^2 + |\beta|^2 + |\gamma|^2 + |\delta|^2 = 1.$$
+
+When $\ket{\psi}$ is a <Term k="pureTensor">pure tensor</Term> — i.e.\ of the form $\ket{u}_A \otimes \ket{v}_B$ — the two qubits behave independently: no knowledge of one tells you anything about the other. The interesting physics happens when $\ket\psi$ is **not** a pure tensor.
+
+</SlideLayout>
