@@ -1742,11 +1742,6 @@ export const glossary = {
     definition: 'A linear map U on a finite-dimensional inner product space that preserves inner products: ⟨U(x), U(y)⟩ = ⟨x, y⟩ for all x, y. Equivalently, U†U = I (its adjoint is its inverse), or U preserves norms. All quantum gates are unitary.',
     example: 'The Hadamard matrix H = (1/√2)[[1,1],[1,−1]] is unitary: H† = H and H² = I.',
   },
-  hadamardGate: {
-    term: 'Hadamard gate',
-    definition: 'A one-qubit quantum gate represented by the matrix H = (1/√2)[[1,1],[1,−1]]. It sends |0⟩ to the "plus" superposition (|0⟩+|1⟩)/√2 and |1⟩ to the "minus" superposition (|0⟩−|1⟩)/√2. H is its own inverse.',
-    example: 'Applying H twice returns the original qubit: H(H|ψ⟩) = |ψ⟩.',
-  },
   noCloning: {
     term: 'No-cloning theorem',
     definition: 'A fundamental result in quantum mechanics: there is no unitary operation that can duplicate an arbitrary unknown qubit state. That is, no U satisfies U(|ψ⟩ ⊗ |0⟩) = |ψ⟩ ⊗ |ψ⟩ for all |ψ⟩.',
@@ -1820,11 +1815,6 @@ export const glossary = {
     term: 'Bra',
     symbol: '\\langle \\psi |',
     definition: 'The dual vector of a ket |ψ⟩ in bra-ket notation, written ⟨ψ|. In coordinates it is the conjugate transpose (row vector) of the ket column vector. The bra ⟨ψ| acts on kets by the inner product: ⟨ψ|φ⟩ = ⟨|ψ⟩, |φ⟩⟩.',
-  },
-  qubit: {
-    term: 'Qubit',
-    definition: 'A quantum bit: any unit vector in the two-dimensional complex Hilbert space ℂ² with orthonormal basis |0⟩ and |1⟩. A qubit α|0⟩ + β|1⟩ has |α|² + |β|² = 1. Unlike a classical bit, a qubit can be in a superposition of 0 and 1.',
-    example: 'The state (1/√2)|0⟩ + (1/√2)|1⟩ is an equal superposition qubit.',
   },
 } as const satisfies Record<string, GlossaryEntry>;
 
