@@ -24,6 +24,26 @@ import { resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
+// Files where an automatic merge-conflict resolution + key dedupe is safe.
+// They share two properties: (a) each chapter appends a new comment-headed
+// section block at the end of a top-level object literal; (b) duplicate keys
+// are an actual TS error, so the second occurrence has to go. Declared up
+// here (not beside the resolver fns below) because the merge loop references
+// it — a `const` is not hoisted, so a later declaration would be a TDZ error.
+//
+// glueLine: a literal line to insert between the HEAD block and the INCOMING
+//   block during conflict resolution. Needed for multi-line entries
+//   (glossary), where the conflict markers eat the trailing "  },"; not
+//   needed for one-line entries (macros).
+//
+// shape: how to identify entry boundaries during dedupe.
+//   - 'multiline': entry starts with `  <camelKey>: {` and ends with `  },`
+//   - 'oneline'  : entry is a single `  'key': value,` line
+const ADDITIVE_FILES = {
+  'src/lib/glossary.ts': { glueLine: '  },', shape: 'multiline' },
+  'src/lib/katex-macros.ts': { glueLine: null, shape: 'oneline' },
+};
+
 function sh(cmd, opts = {}) {
   return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], ...opts });
 }
@@ -179,24 +199,7 @@ console.log('\nfinalize-part: done.');
 console.log('Next: run `npm run test:e2e` for the full regression, then `git push`.');
 
 // ─── additive-file conflict resolver and key deduper ─────────────────
-
-// Files in this map share two properties that make automatic conflict
-// resolution + dedupe safe: (a) each chapter appends a new comment-headed
-// section block at the end of a top-level object literal; (b) duplicate
-// keys are an actual TS error, so the second occurrence has to go.
-//
-// glueLine: a literal line to insert between the HEAD block and the
-//   INCOMING block during conflict resolution. Needed for multi-line
-//   entries (glossary), where the conflict markers eat the trailing
-//   "  },"; not needed for one-line entries (macros).
-//
-// shape: how to identify entry boundaries during dedupe.
-//   - 'multiline': entry starts with `  <camelKey>: {` and ends with `  },`
-//   - 'oneline'  : entry is a single `  'key': value,` line
-const ADDITIVE_FILES = {
-  'src/lib/glossary.ts': { glueLine: '  },', shape: 'multiline' },
-  'src/lib/katex-macros.ts': { glueLine: null, shape: 'oneline' },
-};
+// (ADDITIVE_FILES is declared near the top — the merge loop needs it.)
 
 function dedupeKeys(content, cfg) {
   return cfg.shape === 'multiline'
