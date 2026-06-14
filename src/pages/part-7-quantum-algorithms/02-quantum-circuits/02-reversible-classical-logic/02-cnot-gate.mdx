@@ -1,0 +1,44 @@
+---
+title: The CNOT gate
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The CNOT gate">
+
+The most important reversible two-bit gate is the <Term k="cnotGate">CNOT gate</Term> (controlled-NOT).
+
+<Callout kind="definition" title="CNOT gate">
+The **CNOT gate** takes two bits $(x, y)$ and outputs $(x,\; x \oplus y)$, where $\oplus$ denotes XOR (addition mod 2). The first bit $x$ is the "control" — it determines whether the second bit gets flipped.
+
+| In $(x, y)$ | Out |
+|---|---|
+| $(0, 0)$ | $(0, 0)$ |
+| $(0, 1)$ | $(0, 1)$ |
+| $(1, 0)$ | $(1, 1)$ |
+| $(1, 1)$ | $(1, 0)$ |
+</Callout>
+
+The control bit $x$ passes through unchanged. The target bit $y$ gets flipped if and only if the control is $1$. Reversibility is clear: running CNOT twice returns the original input.
+
+<Callout kind="example" title="CNOT simulates NOT">
+CNOT can simulate NOT using one <Term k="ancillaBit">ancilla bit</Term> fixed at $1$. Feed in $(x, 1)$: the output is $(x, x \oplus 1) = (x, \text{not } x)$. So the bottom wire carries $\text{not } x$, and we can discard the top wire as a <Term k="garbageBit">garbage bit</Term>.
+</Callout>
+
+<MCQ
+  client:load
+  id="qcirc-rev-mcq-cnot-output"
+  prompt="What does CNOT output when the input is (1, 0)?"
+  options={[
+    { id: "a", label: "(0, 0)" },
+    { id: "b", label: "(1, 0)" },
+    { id: "c", label: "(1, 1)" },
+    { id: "d", label: "(0, 1)" },
+  ]}
+  correct="c"
+  explanation="The control bit x = 1 causes the target to flip: y = 0 becomes 0 ⊕ 1 = 1. The control passes through unchanged. So the output is (1, 1)."
+/>
+
+</SlideLayout>

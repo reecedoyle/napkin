@@ -1,0 +1,27 @@
+---
+title: Why reversibility matters
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why reversibility matters">
+
+Quantum gates are always linear maps. Linear maps on finite-dimensional spaces are invertible if and only if they are bijections. That forces every quantum gate to be <Term k="reversibleGate">reversible</Term>.
+
+So before we can describe quantum circuits, we need to understand what computation looks like when restricted to reversible gates.
+
+<Callout kind="definition" title="Reversible gate">
+A gate is **reversible** if it is a bijection from its input space to its output space. In particular, a reversible gate must have the same number of input bits as output bits.
+</Callout>
+
+Which classical gates survive this constraint?
+
+<Callout kind="example" title="Reversible vs. non-reversible">
+- AND, OR, COPY are **not** reversible. Dimension alone rules them out: AND takes 2 bits in and produces 1 bit out — a map $\{0,1\}^2 \to \{0,1\}$ cannot be a bijection.
+- NOT **is** reversible: it is the bijection $\{0,1\} \to \{0,1\}$ that swaps $0$ and $1$.
+</Callout>
+
+So the only nontrivial reversible gate on one bit is NOT. We need to look at two- and three-bit gates for anything richer.
+
+</SlideLayout>
