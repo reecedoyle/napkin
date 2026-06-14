@@ -1,0 +1,30 @@
+---
+title: Hadamard and rotation gates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hadamard and rotation gates">
+
+Not every quantum gate has a classical analog. The most important new gate is the <Term k="hadamardGate">Hadamard gate</Term>.
+
+<Callout kind="definition" title="Hadamard gate">
+The Hadamard gate $H$ is the one-qubit unitary given by the matrix
+
+$$H = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}.$$
+
+It maps $|0\rangle \mapsto \tfrac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$ and $|1\rangle \mapsto \tfrac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$.
+
+Note that $H^2 = I$ — the Hadamard gate is its own inverse.
+</Callout>
+
+More generally, any $2 \times 2$ unitary matrix $U$ defines a one-qubit rotation gate, and there is a corresponding **controlled-$U$ gate** on two qubits: the gate applies $U$ to the second qubit if and only if the first (control) qubit is $|1\rangle$, leaving the first qubit unchanged. The CNOT gate is controlled-$\sigma_x$.
+
+<Callout kind="remark">
+The Hadamard gate is the quantum "coin flip": it takes a definite state $|0\rangle$ and puts it into an equal superposition. Applying it again collapses the superposition back to the definite state. This superposition-then-interference pattern is the core trick behind most quantum algorithms.
+</Callout>
+
+The quantum Toffoli gate also exists, defined on the three-qubit basis exactly as the classical Toffoli gate, then extended linearly.
+
+</SlideLayout>

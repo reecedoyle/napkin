@@ -1,0 +1,30 @@
+---
+title: The no-cloning theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The no-cloning theorem">
+
+The classical COPY gate duplicates any bit. Can we do the same with qubits?
+
+Using CNOT with a $|0\rangle$ ancilla on the bottom, we can copy basis states: $(|0\rangle, |0\rangle) \mapsto (|0\rangle, |0\rangle)$ and $(|1\rangle, |0\rangle) \mapsto (|1\rangle, |1\rangle)$. So it looks like CNOT copies $|0\rangle$ and $|1\rangle$.
+
+But try copying a superposition. Feed in $|x_-\rangle \otimes |0\rangle$ where $|x_-\rangle = \tfrac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$:
+
+$$U_{\text{CNOT}}(|x_-\rangle \otimes |0\rangle) = \tfrac{1}{\sqrt{2}}(|00\rangle - |11\rangle) = |\Psi_-\rangle$$
+
+This is not $|x_-\rangle \otimes |x_-\rangle$ — it is the entangled singlet state again. The "copy" operation fails for superpositions.
+
+<Callout kind="theorem" title="No-cloning theorem">
+There is no unitary map $U$ on two qubits that satisfies $U(|\psi\rangle \otimes |0\rangle) = |\psi\rangle \otimes |\psi\rangle$ for all qubits $|\psi\rangle$.
+</Callout>
+
+The <Term k="noCloning">no-cloning theorem</Term> is a fundamental constraint of quantum mechanics. We can copy classical basis states, but we cannot copy an arbitrary unknown quantum state. This has deep implications for quantum cryptography and quantum error correction.
+
+<Callout kind="remark">
+The no-cloning theorem also explains why quantum information cannot be "eavesdropped" without disturbing the state — you can't make a quiet copy of an unknown qubit.
+</Callout>
+
+</SlideLayout>

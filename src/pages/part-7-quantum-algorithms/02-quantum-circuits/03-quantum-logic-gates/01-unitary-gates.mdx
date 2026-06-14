@@ -1,0 +1,28 @@
+---
+title: Quantum gates are unitary maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Quantum gates are unitary maps">
+
+In classical circuits, a gate computes a boolean function. In quantum circuits, a gate is a **linear map** — because the state space is a vector space of superpositions.
+
+<Callout kind="definition" title="Unitary map">
+Let $V$ be a finite-dimensional inner product space. A linear map $U \colon V \to V$ is <Term k="unitaryMap">**unitary**</Term> if any of the following equivalent conditions holds:
+
+- It preserves inner products: $\langle U(x), U(y) \rangle = \langle x, y \rangle$ for all $x, y \in V$.
+- Its adjoint is its inverse: $U^\dagger U = I$.
+- It preserves norms: $\|U(x)\| = \|x\|$ for all $x \in V$.
+</Callout>
+
+<Callout kind="remark">
+**Quantum logic gates are unitary matrices.**
+
+Since unitary maps are always bijections, quantum gates are always reversible — which is why the previous section on reversible classical logic wasn't a detour.
+</Callout>
+
+There is one more constraint hidden here: probabilities must sum to $1$. Norm-preservation by $U$ is exactly what guarantees this: if $\|\psi\| = 1$ before a gate, then $\|U\psi\| = 1$ after it.
+
+</SlideLayout>
