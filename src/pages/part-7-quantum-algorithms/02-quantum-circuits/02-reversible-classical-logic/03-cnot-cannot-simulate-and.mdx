@@ -1,0 +1,26 @@
+---
+title: CNOT cannot simulate AND
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="CNOT cannot simulate AND">
+
+NOT and CNOT are the only nontrivial reversible gates on one or two bits. Is CNOT alone sufficient for universal reversible computation?
+
+<Callout kind="proposition" title="CNOT ⇏ AND">
+The CNOT gate cannot simulate the boolean function $x \text{ and } y$, even with ancilla bits.
+</Callout>
+
+The proof is elegant: CNOT maps $(x, y) \mapsto (x, x \oplus y)$. Any circuit built from CNOT gates (and ancilla bits set to fixed values) computes a function of the form $a_1 x_1 + a_2 x_2 + \dots + a_n x_n \pmod 2$. These are linear functions over $\mathbb{F}_2$.
+
+The AND function $x \text{ and } y$ is not linear over $\mathbb{F}_2$ — it is the product $xy$, which has no linear expression in $x$ and $y$ alone. So no CNOT circuit can simulate AND, no matter how many ancilla bits you add.
+
+<Callout kind="remark">
+This is a very CS-flavored argument: CNOT generates only affine functions over $\mathbb{F}_2$, so it has limited expressiveness compared to classical universality.
+</Callout>
+
+To get universality we need a three-bit gate that can introduce nonlinearity — specifically, the <Term k="toffoliGate">Toffoli gate</Term>.
+
+</SlideLayout>

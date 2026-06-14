@@ -1,0 +1,29 @@
+---
+title: The quantum CNOT and entanglement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The quantum CNOT and entanglement">
+
+Every reversible classical gate lifts to a quantum gate: define $U$ on the computational basis states exactly as the classical gate does, then extend by linearity.
+
+The quantum <Term k="cnotGate">CNOT gate</Term> $U_{\text{CNOT}}$ acts on the four basis states of a 2-qubit space $\mathbb{C}^2 \otimes \mathbb{C}^2$:
+
+$$U_{\text{CNOT}}|00\rangle = |00\rangle, \quad U_{\text{CNOT}}|01\rangle = |01\rangle$$
+$$U_{\text{CNOT}}|10\rangle = |11\rangle, \quad U_{\text{CNOT}}|11\rangle = |10\rangle$$
+
+This matches the classical truth table perfectly on basis states. But now something remarkable happens with superpositions.
+
+<Callout kind="example" title="CNOT creates entanglement">
+Let $|x_-\rangle = \tfrac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$ and feed in $|x_-\rangle \otimes |1\rangle$:
+
+$$U_{\text{CNOT}}\!\left(\tfrac{1}{\sqrt{2}}(|0\rangle - |1\rangle) \otimes |1\rangle\right) = \tfrac{1}{\sqrt{2}}(|01\rangle - |11\rangle) \xmapsto{U_{\text{CNOT}}} \tfrac{1}{\sqrt{2}}(|01\rangle - |10\rangle) = |\Psi_-\rangle$$
+
+The output $|\Psi_-\rangle$ is the singlet Bell state — a maximally entangled state! We started with a product state and ended up with an entangled one.
+</Callout>
+
+This is the key insight: quantum gates on product states can produce entangled output. Classical gates never entangle anything — classical bits are always separable.
+
+</SlideLayout>

@@ -1,0 +1,37 @@
+---
+title: The Toffoli gate is universal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The Toffoli gate is universal">
+
+<Callout kind="definition" title="Toffoli gate (CCNOT)">
+The <Term k="toffoliGate">Toffoli gate</Term> is a reversible three-bit gate with two control bits $x$, $y$ and one target bit $z$. It maps
+$$
+(x,\, y,\, z) \;\longmapsto\; (x,\, y,\, z \oplus xy).
+$$
+The target $z$ is flipped if and only if **both** control bits are $1$.
+</Callout>
+
+<Callout kind="theorem" title="Toffoli gate is universal">
+The Toffoli gate alone can reversibly simulate any boolean function.
+</Callout>
+
+It suffices to show Toffoli can simulate AND and NOT (we already know NOT + AND gives universality).
+
+- **AND**: Feed in $(x, y, 0)$ with ancilla $0$ on the target. Output is $(x, y, xy)$ — so the target carries $x \text{ and } y$, with no garbage bits.
+- **NOT**: Feed in $(1, z, 1)$ using two ancilla $1$-bits. Output is $(1, z, 1 \oplus z) = (1, z, \text{not } z)$ — so the target carries $\text{not } z$. The inputs $1$ and $z$ are carried through as garbage bits.
+
+<ProofReveal
+  client:load
+  id="qcirc-rev-proof-toffoli-not"
+  prompt="Verify that (1, z, 1) fed into Toffoli produces (1, z, not z)."
+  solution="Toffoli maps (x, y, z) ↦ (x, y, z ⊕ xy). With x = 1 and y = z we get z ⊕ 1·z. But we want NOT of the third input, so set x = 1, y = 1, z_target = z: output third bit is z ⊕ (1·1) = z ⊕ 1 = not z. Yes, (1, 1, z) ↦ (1, 1, not z) is the correct configuration for NOT."
+/>
+
+Since Toffoli can simulate AND and NOT reversibly, and AND+NOT is universal for all boolean functions, Toffoli is a universal reversible gate.
+
+</SlideLayout>

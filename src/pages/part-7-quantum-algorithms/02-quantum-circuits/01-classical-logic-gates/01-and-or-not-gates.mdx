@@ -1,0 +1,39 @@
+---
+title: AND, OR, NOT — the classical toolkit
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="AND, OR, NOT — the classical toolkit">
+
+Classical circuits are made of <Term k="logicGate">logic gates</Term>: small boxes that take bits in and spit bits out. You've seen these before. The three workhorses are AND, OR, and NOT.
+
+<Callout kind="definition" title="AND gate">
+The AND gate takes two input bits $A$ and $B$ and outputs $1$ exactly when both inputs are $1$:
+
+| $A$ | $B$ | $A \text{ and } B$ |
+|-----|-----|-----|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+</Callout>
+
+The OR gate outputs $1$ when at least one input is $1$. The NOT gate flips a single bit.
+
+| $A$ | $B$ | $A \text{ or } B$ |
+|-----|-----|-----|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+| $A$ | $\text{not } A$ |
+|-----|------|
+| 0 | 1 |
+| 1 | 0 |
+
+We also have the <Term k="copyGate">COPY gate</Term>, which takes one bit in and duplicates it: input $0$ produces two $0$s, input $1$ produces two $1$s.
+
+</SlideLayout>

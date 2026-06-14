@@ -1,0 +1,43 @@
+---
+title: Measurement and conclusion
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Measurement and conclusion">
+
+After discarding the bottom qubit, the top wire is in state $|x_+\rangle$ (if $f$ is constant) or $|x_-\rangle$ (if $f$ is balanced). We apply one final $H$ gate to distinguish them:
+
+$$H|x_+\rangle = |0\rangle \qquad H|x_-\rangle = |1\rangle.$$
+
+Then we measure in the $\{|0\rangle, |1\rangle\}$ basis.
+
+<Callout kind="theorem" title="Deutsch-Jozsa (n = 1)">
+The circuit $|01\rangle \xrightarrow{H^{\otimes 2}} \xrightarrow{U_f} \xrightarrow{H \otimes I} \text{measure top}$ determines whether $f$ is constant or balanced using a single call to the oracle:
+- If $f$ is **constant**, the measurement returns $|0\rangle$ (with certainty).
+- If $f$ is **balanced**, the measurement returns $|1\rangle$ (with certainty).
+</Callout>
+
+Classically, worst-case requires $2^{n-1} + 1 = 2$ queries for $n = 1$. We just solved it with one.
+
+<Callout kind="remark">
+The general $n$-qubit algorithm applies $H^{\otimes n}$ to $n$ zero qubits, queries $U_f$, applies $H^{\otimes n}$ again, and measures all $n$ bits. The probability of measuring $|0 \cdots 0\rangle$ is exactly $1$ for constant $f$ and $0$ for balanced $f$.
+</Callout>
+
+<MCQ
+  client:load
+  id="qcirc-dj-mcq-measurement"
+  prompt="In the n=1 Deutsch-Jozsa circuit, what does measuring |0⟩ on the top wire tell you?"
+  options={[
+    { id: "a", label: "f is balanced" },
+    { id: "b", label: "f is constant" },
+    { id: "c", label: "f(0) = 0" },
+    { id: "d", label: "The measurement is random" },
+  ]}
+  correct="b"
+  explanation="After the final Hadamard, the top wire is |0⟩ if and only if the pre-Hadamard state was |x₊⟩ = (|0⟩+|1⟩)/√2, which happens exactly when f is constant (both phases are equal). Measuring |1⟩ would indicate f is balanced."
+/>
+
+</SlideLayout>

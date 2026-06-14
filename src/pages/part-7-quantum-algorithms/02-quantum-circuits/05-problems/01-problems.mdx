@@ -1,0 +1,109 @@
+---
+title: Problems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems">
+
+<Problem
+  client:load
+  id="qcirc-prob-fredkin"
+  difficulty="standard"
+  prompt={<>
+    <p>The <strong>Fredkin gate</strong> (also called the controlled swap, or CSWAP gate) is the three-bit reversible gate that swaps the last two input bits whenever the first bit is 1. Its truth table is:</p>
+    <table>
+      <thead><tr><th colSpan={3}>In</th><th colSpan={3}>Out</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+      </tbody>
+    </table>
+    <p>Show that the Fredkin gate is reversible and universal.</p>
+  </>}
+  hint={<p>One approach: construct the CCNOT (Toffoli) gate using a few Fredkin gates. Toffoli is universal, so this suffices.</p>}
+  solution={<>
+    <p><strong>Reversibility:</strong> The Fredkin gate is its own inverse — applying it twice restores the original input, since swapping twice is the identity. So it is a bijection on its input space.</p>
+    <p><strong>Universality:</strong> We show the Fredkin gate can reversibly implement a Toffoli (CCNOT) gate. Use the following sequence of Fredkin operations (where Fred(a, b, c) outputs (a, b', c') with b' and c' swapped if a = 1):</p>
+    <ul>
+      <li>(z, ¬z, −) = Fred(z, 1, 0)</li>
+      <li>(x, a, −) = Fred(x, 1, 0)</li>
+      <li>(y, b, −) = Fred(y, a, 0)</li>
+      <li>(−, c, −) = Fred(b, 0, 1)</li>
+      <li>(−, d, −) = Fred(c, z, ¬z)</li>
+    </ul>
+    <p>Direct computation shows that d = z + xy (mod 2), which is exactly the CCNOT output. Since Toffoli is universal for reversible classical computation, the Fredkin gate is also universal.</p>
+  </>}
+/>
+
+<Problem
+  client:load
+  id="qcirc-prob-no-clone"
+  difficulty="standard"
+  prompt={<>
+    <p><strong>Baby no-cloning theorem.</strong> Show that there is no unitary map U on two qubits satisfying U(|ψ⟩ ⊗ |0⟩) = |ψ⟩ ⊗ |ψ⟩ for every qubit |ψ⟩. In other words, no circuit can clone an arbitrary unknown qubit.</p>
+  </>}
+  hint={<p>Plug in |ψ⟩ = |0⟩, then |ψ⟩ = |1⟩, then |ψ⟩ = |x₊⟩ = (|0⟩+|1⟩)/√2, and derive a contradiction using linearity of U.</p>}
+  solution={<>
+    <p>Suppose such a unitary U existed. Then:</p>
+    <ul>
+      <li>U(|0⟩ ⊗ |0⟩) = |0⟩ ⊗ |0⟩ = |00⟩</li>
+      <li>U(|1⟩ ⊗ |0⟩) = |1⟩ ⊗ |1⟩ = |11⟩</li>
+    </ul>
+    <p>Now apply U to |x₊⟩ ⊗ |0⟩ = (1/√2)(|0⟩+|1⟩) ⊗ |0⟩. By linearity of U:</p>
+    <p>U(|x₊⟩ ⊗ |0⟩) = (1/√2)(U(|0⟩⊗|0⟩) + U(|1⟩⊗|0⟩)) = (1/√2)(|00⟩ + |11⟩).</p>
+    <p>But if U were a cloner, we would need the output to be |x₊⟩ ⊗ |x₊⟩ = (1/2)(|0⟩+|1⟩)⊗(|0⟩+|1⟩) = (1/2)(|00⟩+|01⟩+|10⟩+|11⟩).</p>
+    <p>These two states are different — (1/√2)(|00⟩+|11⟩) ≠ (1/2)(|00⟩+|01⟩+|10⟩+|11⟩). Contradiction.</p>
+  </>}
+/>
+
+<Problem
+  client:load
+  id="qcirc-prob-deutsch-jozsa-general"
+  difficulty="standard"
+  prompt={<>
+    <p><strong>Deutsch-Jozsa (general n).</strong> Consider the following circuit for the general Deutsch-Jozsa algorithm: take n copies of |0⟩, apply H to each, apply the oracle U_f (which acts on n+1 qubits), apply H again to the n input qubits (discarding the last), then measure all n bits.</p>
+    <p>Show that the probability of measuring |0…0⟩ is 1 if f is constant and 0 if f is balanced.</p>
+  </>}
+  hint={<p>First show that U_f sends |x₁⟩⊗…⊗|x_m⟩⊗|x₋⟩ to (−1)^(f(x₁,…,x_m)) times itself. Then track what happens to the superposition created by H^(⊗n).</p>}
+  solution={<>
+    <p>Let |x₋⟩ = (1/√2)(|0⟩−|1⟩). The oracle acts as U_f(|x⟩⊗|x₋⟩) = (−1)^(f(x))|x⟩⊗|x₋⟩ — a phase kickback.</p>
+    <p>Starting from |0…0⟩⊗|1⟩, after H^(⊗n+1) the state is (2^(−n/2))Σ_x |x⟩ ⊗ |x₋⟩. After U_f it becomes (2^(−n/2))Σ_x (−1)^(f(x)) |x⟩ ⊗ |x₋⟩. Discarding the last qubit leaves (2^(−n/2))Σ_x (−1)^(f(x)) |x⟩.</p>
+    <p>Now apply H^(⊗n). Using H|x_i⟩ = (1/√2)Σ_{y_i} (−1)^(x_i y_i)|y_i⟩, we get coefficient of |y⟩ = 2^(−n) Σ_x (−1)^(f(x)+x·y).</p>
+    <p>At y = 0…0 this coefficient is 2^(−n) Σ_x (−1)^(f(x)). If f is constant this sum is ±1 (all signs agree), giving probability 1. If f is balanced exactly half the signs are +1 and half −1, so the sum is 0, giving probability 0.</p>
+  </>}
+/>
+
+<Problem
+  client:load
+  id="qcirc-prob-barenco"
+  difficulty="daggered"
+  prompt={<>
+    <p><strong>Barenco et al. (1995).</strong> Let</p>
+    <p>P = [[1, 0], [0, i]] and Q = (1/√2)[[1, −i], [−i, 1]].</p>
+    <p>Verify that the quantum Toffoli gate can be implemented using only controlled P and Q rotations (controlled one- and two-qubit gates) via the circuit shown in the source. This was a surprise: classical reversible logic requires genuine three-bit gates (Toffoli, Fredkin), but quantum mechanics allows decomposition into controlled two-qubit rotations.</p>
+  </>}
+  hint={<p>This is a direct matrix computation. Track the effect of each gate on the eight computational basis states of the three-qubit space, and verify the output matches the Toffoli truth table.</p>}
+  solution={<>
+    <p>This is a direct computation. The circuit decomposes as:</p>
+    <ol>
+      <li>Controlled-Q on qubits 2 and 3 (control: qubit 2)</li>
+      <li>Controlled-Q on qubits 1 and 3 (control: qubit 1)</li>
+      <li>Controlled-P on qubits 1 and 2 (control: qubit 1)</li>
+      <li>CNOT on qubits 1 and 2 (Toffoli target: qubit 2)</li>
+      <li>Controlled-Q† on qubits 2 and 3 (control: qubit 2)</li>
+      <li>CNOT on qubits 1 and 2</li>
+    </ol>
+    <p>Checking on each basis state |x₁x₂x₃⟩: when x₁ = x₂ = 1 the accumulated phases cancel to give a net flip of qubit 3. Otherwise the phases cancel to give the identity. The key identity is Q²P = (phase) × (flip), verified by matrix multiplication.</p>
+    <p>The surprise is that this works with only two-qubit (and one-qubit) controlled gates, unlike the classical case where AND is irreducibly a two-bit-to-one function requiring a genuine three-bit gate to implement reversibly.</p>
+  </>}
+/>
+
+</SlideLayout>

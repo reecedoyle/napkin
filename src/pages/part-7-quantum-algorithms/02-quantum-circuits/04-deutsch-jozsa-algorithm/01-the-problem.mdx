@@ -1,0 +1,28 @@
+---
+title: The Deutsch-Jozsa problem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Deutsch-Jozsa problem">
+
+The <Term k="deutschJozsa">Deutsch-Jozsa algorithm</Term> is the first clean example of quantum speedup over classical computation. The setup is deliberately simple — its value is as proof of concept, not practical utility.
+
+<Callout kind="definition" title="The Deutsch-Jozsa problem">
+We are given a black-box function $f \colon \{0,1\}^n \to \{0,1\}$ that is promised to be either:
+- **Constant**: every input maps to the same output (all $0$ or all $1$), or
+- **<Term k="balancedFunction">Balanced</Term>**: exactly half the inputs map to $0$ and half map to $1$.
+
+The goal is to determine which case holds using as few queries to $f$ as possible.
+</Callout>
+
+The function is given as a reversible black-box gate — the <Term k="oracleUf">oracle $U_f$</Term> — defined by $U_f(|x\rangle \otimes |y\rangle) = |x\rangle \otimes |y \oplus f(x)\rangle$. This flips the output qubit $y$ whenever $f(x) = 1$, without disturbing the input $x$.
+
+<Callout kind="question" title="Classical lower bound">
+Classically, in the worst case you must query $f$ on up to $2^{n-1} + 1$ inputs before you can be certain whether $f$ is constant or balanced. (If you've seen $2^{n-1}$ identical outputs and haven't hit a disagreement, the next query might still contradict you.)
+</Callout>
+
+So classically this requires $\Theta(2^n)$ queries. Quantum mechanically it needs exactly **one**.
+
+</SlideLayout>

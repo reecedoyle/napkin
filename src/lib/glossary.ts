@@ -1700,6 +1700,73 @@ export const glossary = {
     term: 'Fast Fourier transform (FFT)',
     definition: 'A classical algorithm that computes the DFT of an N-point signal in O(N log N) operations instead of O(N²). It works by recursively splitting the transform into smaller sub-transforms and reusing intermediate results. Even so, for Shor\'s algorithm this is too slow — the quantum Fourier transform achieves O(n²) gates for N = 2ⁿ.',
   },
+
+  // ────────────── Chapter 24 — Quantum circuits ──────────────
+  logicGate: {
+    term: 'Logic gate',
+    definition: 'A basic building block of a circuit that takes one or more bits as input and produces one or more bits as output according to a fixed boolean function. Examples include AND, OR, NOT, and COPY.',
+    example: 'The AND gate outputs 1 only when both input bits are 1.',
+  },
+  copyGate: {
+    term: 'COPY gate',
+    definition: 'A classical logic gate that takes one input bit and produces two identical output bits — it duplicates the bit. COPY has no reversible quantum analog because of the no-cloning theorem.',
+    example: 'COPY(0) = (0, 0) and COPY(1) = (1, 1).',
+  },
+  reversibleGate: {
+    term: 'Reversible gate',
+    definition: 'A logic gate that is a bijection from its input space to its output space: distinct inputs always produce distinct outputs, and the computation can be run backwards. Reversible gates must have the same number of input and output bits.',
+    example: 'NOT is reversible on one bit. AND is not reversible: both (0,0) and (0,1) map to output 0.',
+  },
+  ancillaBit: {
+    term: 'Ancilla bit',
+    definition: 'An extra input bit, set to a fixed value (0 or 1), that a reversible circuit uses as workspace. Ancilla bits allow reversible circuits to simulate non-reversible functions. The name comes from the Latin word for "maid".',
+    example: 'The CNOT gate simulates NOT when the second input is fixed at 1 (the ancilla).',
+  },
+  garbageBit: {
+    term: 'Garbage bit',
+    definition: 'An output bit from a reversible circuit that carries no useful information about the answer. Garbage bits are an unavoidable side effect when reversibly simulating non-injective functions.',
+    example: 'The Toffoli gate simulating NOT outputs x, z (the original inputs) as garbage alongside the actual NOT result.',
+  },
+  cnotGate: {
+    term: 'CNOT gate',
+    definition: 'The controlled-NOT gate: a reversible 2-bit gate that flips the second bit if and only if the first bit (the "control") is 1, leaving the first bit unchanged. Equivalently it computes (x, y) ↦ (x, x XOR y).',
+    example: 'CNOT(1, 0) = (1, 1) and CNOT(1, 1) = (1, 0).',
+  },
+  toffoliGate: {
+    term: 'Toffoli gate',
+    definition: 'The controlled-controlled-NOT (CCNOT) gate: a reversible 3-bit gate with two control bits x, y and a target bit z. It flips z if and only if both x and y are 1, mapping (x, y, z) ↦ (x, y, z ⊕ xy). The Toffoli gate is universal for reversible classical computation.',
+    example: 'Toffoli(1, 1, 0) = (1, 1, 1); Toffoli(1, 0, 1) = (1, 0, 1).',
+  },
+  unitaryMap: {
+    term: 'Unitary map',
+    definition: 'A linear map U on a finite-dimensional inner product space that preserves inner products: ⟨U(x), U(y)⟩ = ⟨x, y⟩ for all x, y. Equivalently, U†U = I (its adjoint is its inverse), or U preserves norms. All quantum gates are unitary.',
+    example: 'The Hadamard matrix H = (1/√2)[[1,1],[1,−1]] is unitary: H† = H and H² = I.',
+  },
+  hadamardGate: {
+    term: 'Hadamard gate',
+    definition: 'A one-qubit quantum gate represented by the matrix H = (1/√2)[[1,1],[1,−1]]. It sends |0⟩ to the "plus" superposition (|0⟩+|1⟩)/√2 and |1⟩ to the "minus" superposition (|0⟩−|1⟩)/√2. H is its own inverse.',
+    example: 'Applying H twice returns the original qubit: H(H|ψ⟩) = |ψ⟩.',
+  },
+  noCloning: {
+    term: 'No-cloning theorem',
+    definition: 'A fundamental result in quantum mechanics: there is no unitary operation that can duplicate an arbitrary unknown qubit state. That is, no U satisfies U(|ψ⟩ ⊗ |0⟩) = |ψ⟩ ⊗ |ψ⟩ for all |ψ⟩.',
+    example: 'You can copy the classical basis states |0⟩ and |1⟩ using CNOT, but a superposition α|0⟩ + β|1⟩ cannot be cloned.',
+  },
+  deutschJozsa: {
+    term: 'Deutsch-Jozsa algorithm',
+    definition: 'A quantum algorithm that determines whether a black-box boolean function f: {0,1}ⁿ → {0,1} is constant or balanced using a single query to the oracle, versus the Ω(2^(n-1)) queries required classically in the worst case.',
+    example: 'For n=1, a single Hadamard-oracle-Hadamard circuit on 2 qubits solves the problem in one step.',
+  },
+  oracleUf: {
+    term: 'Oracle U_f',
+    definition: 'A reversible black-box gate for a boolean function f: {0,1}ⁿ → {0,1} that maps (|x⟩, |y⟩) ↦ (|x⟩, |y ⊕ f(x)⟩). It flips the output qubit y when f(x) = 1, leaving the input qubits unchanged. Used in quantum algorithms to query f without measuring it.',
+    example: 'For constant f = 1, U_f always flips y. For f(x) = x₁, U_f flips y only when the first input bit is 1.',
+  },
+  balancedFunction: {
+    term: 'Balanced function',
+    definition: 'A boolean function f: {0,1}ⁿ → {0,1} where exactly half of all inputs map to 0 and half map to 1. The Deutsch-Jozsa problem asks to distinguish balanced from constant functions.',
+    example: 'The function f(x) = x₁ (the first input bit) is balanced for any n ≥ 1.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
