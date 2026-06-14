@@ -1,0 +1,24 @@
+---
+title: Greenberger–Horne–Zeilinger paradox
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Greenberger–Horne–Zeilinger paradox">
+
+<Callout kind="remark" title="Context">
+This problem concerns a three-qubit entangled state. The GHZ paradox shows that quantum correlations cannot be explained by any local hidden-variable theory — a result for which Anton Zeilinger received a Nobel Prize in 2022.
+</Callout>
+
+<Problem
+  client:load
+  id="qs-prob-ghz"
+  difficulty="standard"
+  prompt="Consider the three-qubit state $\ket{\Psi}_{\mathrm{GHZ}} = \tfrac{1}{\sqrt2}\bigl(\ket0_A\ket0_B\ket0_C - \ket1_A\ket1_B\ket1_C\bigr)$ in $(\CC^{\oplus2})^{\otimes 3}$. Find the measurement values (with certainty) along each of $\sigma_y^A \otimes \sigma_y^B \otimes \sigma_x^C$, $\sigma_y^A \otimes \sigma_x^B \otimes \sigma_y^C$, $\sigma_x^A \otimes \sigma_y^B \otimes \sigma_y^C$, and $\sigma_x^A \otimes \sigma_x^B \otimes \sigma_x^C$. What happens when you multiply all four measurement values together?"
+  hint="The measurement values are $+1$, $+1$, $+1$, $-1$ respectively. Multiply them to get $-1$. Now observe that $(\sigma_y^A \otimes \sigma_y^B \otimes \sigma_x^C)(\sigma_y^A \otimes \sigma_x^B \otimes \sigma_y^C)(\sigma_x^A \otimes \sigma_y^B \otimes \sigma_y^C) = -\id^A \otimes \id^B \otimes \id^C$ (using $\sigma_y^2 = I$ and $\sigma_x \sigma_y = i\sigma_z$, etc.). That identity has measurement value $+1$ on any normalised state, contradicting the product $-1$."
+  solution="One computes directly that $\ket{\Psi}_{\mathrm{GHZ}}$ is an eigenstate with eigenvalue $+1$ for each of the first three operators, and eigenvalue $-1$ for $\sigma_x^A \otimes \sigma_x^B \otimes \sigma_x^C$. The product of the four measurement values is $+1 \cdot +1 \cdot +1 \cdot (-1) = -1$. But the product of the four operators equals $-\id_A \otimes \id_B \otimes \id_C$ (since $\sigma_y \sigma_y = I$ and cross-terms produce an overall $i^2 = -1$), which always has measurement value $-1$ on any normalised state — consistent! The paradox is this: if the measurement outcomes were predetermined independently for each qubit, the four products would multiply to give a contradiction. This rules out local hidden-variable theories: the values cannot have been prepared in advance independently."
+/>
+
+</SlideLayout>
