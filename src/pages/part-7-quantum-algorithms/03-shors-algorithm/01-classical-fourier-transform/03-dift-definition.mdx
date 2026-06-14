@@ -15,7 +15,8 @@ $$y_k = \frac{1}{N} \sum_{j=0}^{N-1} \omega_N^{jk} x_j.$$
 
 In matrix form this is a single multiplication:
 
-$$\begin{bmatrix} y_0 \\ y_1 \\ \vdots \\ y_{N-1} \end{bmatrix}
+$$
+\begin{bmatrix} y_0 \\ y_1 \\ \vdots \\ y_{N-1} \end{bmatrix}
 = \frac{1}{N}
 \begin{bmatrix}
 1 & 1 & 1 & \cdots & 1 \\
@@ -24,7 +25,8 @@ $$\begin{bmatrix} y_0 \\ y_1 \\ \vdots \\ y_{N-1} \end{bmatrix}
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 1 & \omega_N^{N-1} & \omega_N^{2(N-1)} & \cdots & \omega_N^{(N-1)^2}
 \end{bmatrix}
-\begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix}.$$
+\begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix}.
+$$
 
 The transform and its inverse are related by:
 

@@ -142,11 +142,12 @@ test.describe('Quantum states — Problem flow (singlet x-measurement)', () => {
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    // "spooky correlation" only appears inside the solution text
-    await expect(article.getByText(/spooky correlation/i)).toBeHidden();
+    // "Reading off the coefficients" only appears inside the solution text
+    // ("spooky correlation" also appears in the visible intro prose).
+    await expect(article.getByText(/Reading off the coefficients/i)).toBeHidden();
 
     await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/spooky correlation/i)).toBeVisible();
+    await expect(article.getByText(/Reading off the coefficients/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();
