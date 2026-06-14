@@ -1,0 +1,39 @@
+---
+title: AND, OR, NOT, COPY are universal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="AND, OR, NOT, COPY are universal">
+
+The four gates AND, OR, NOT, COPY are enough to compute anything.
+
+<Callout kind="theorem" title="AND, OR, NOT, COPY are universal">
+Any boolean function $f \colon \{0,1\}^n \to \{0,1\}$ can be implemented as a circuit using only AND, OR, NOT, and COPY gates.
+</Callout>
+
+The proof is concrete: for any $f$, list every input string where $f = 1$. For each such string, build an AND of the appropriate literals (using NOT to handle $0$-inputs). Then OR all those clauses together. COPY is used when an input bit feeds into more than one gate.
+
+For example, if $f(a,b,c) = 1$ only on $(0,1,1)$ and $(1,1,0)$, the circuit computes $[(\text{not } a) \text{ and } b \text{ and } c] \text{ or } [a \text{ and } b \text{ and } (\text{not } c)]$.
+
+<Callout kind="remark">
+Since $x \text{ and } y = \text{not}((\text{not } x) \text{ or } (\text{not } y))$ by De Morgan's law, the AND gate is actually redundant — OR and NOT alone suffice.
+</Callout>
+
+<MCQ
+  client:load
+  id="qcirc-clg-mcq-universal"
+  prompt="Which set of gates is sufficient to compute any boolean function?"
+  options={[
+    { id: "a", label: "NOT alone" },
+    { id: "b", label: "AND and COPY" },
+    { id: "c", label: "OR and NOT" },
+    { id: "d", label: "AND alone" },
+  ]}
+  correct="c"
+  explanation="OR and NOT together are sufficient — De Morgan's law lets you build AND from OR and NOT. AND alone can only produce monotone functions (no negation), so it is far from universal."
+/>
+
+</SlideLayout>
