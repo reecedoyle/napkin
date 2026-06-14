@@ -1,0 +1,24 @@
+---
+title: The bottleneck — modular exponentiation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The bottleneck — modular exponentiation">
+
+The QFT is fast, but building the oracle $U_x$ — the circuit that computes $\ket{k}\ket{0} \mapsto \ket{k}\ket{x^k \bmod M}$ — is the clumsy part of Shor's algorithm.
+
+<Callout kind="remark" title="Why U_x is hard to build">
+We need $U_x$ to compute $x^k \bmod M$ for a superposition of all $k$ simultaneously. Classically, modular exponentiation via repeated squaring takes $O(n^3)$ bit operations (for $n$-bit $M$). Quantumly, we can implement this as a reversible circuit — but it still requires $O(n^3)$ quantum gates.
+
+This is why Shor's algorithm has complexity $O(n^3)$ rather than $O(n^2)$: the QFT is cheap, but the oracle is not.
+</Callout>
+
+Importantly, $U_x$ can be built efficiently because repeated squaring is efficient:
+
+$$x^k = x^{k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0} = (x^{2^{n-1}})^{k_{n-1}} \cdots (x^2)^{k_1} \cdot x^{k_0} \pmod M.$$
+
+Each squaring step is computable modulo $M$, and there are $n$ steps. A reversible quantum circuit for this uses $O(n^3)$ Toffoli gates.
+
+</SlideLayout>

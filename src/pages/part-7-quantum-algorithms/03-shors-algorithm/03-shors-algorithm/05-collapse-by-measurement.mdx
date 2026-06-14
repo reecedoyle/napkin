@@ -1,0 +1,24 @@
+---
+title: Collapsing to a periodic superposition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Collapsing to a periodic superposition">
+
+After creating the entangled state $\frac{1}{\sqrt{N}} \sum_{k} \ket{k} \otimes \ket{x^k \bmod M}$, we **measure the second register**.
+
+Suppose we measure the value $v$ (e.g. $v = 128$). This forces the first register to collapse to a superposition over only those $k$ with $x^k \equiv v \pmod M$. Since $x^k \bmod M$ is periodic with period $r$, those $k$ values are $k_0, k_0 + r, k_0 + 2r, \ldots$ for some $k_0$ with $x^{k_0} \equiv v$.
+
+<Callout kind="example" title="Factoring 77: after measuring">
+With $x = 2$, $M = 77$, suppose we measure $v = 128$ on the second register. The first register collapses to (up to normalization):
+
+$$\ket{\phi} = \ket{k_0} + \ket{k_0 + r} + \ket{k_0 + 2r} + \cdots$$
+
+where $k_0$ is the smallest non-negative integer with $2^{k_0} \equiv 128 \pmod{77}$, i.e.\ $k_0 = 7$.
+</Callout>
+
+The specific value of $k_0$ doesn't matter — only the spacing $r$ between the terms does. Now we apply the QFT to $\ket{\phi}$ to extract $r$.
+
+</SlideLayout>

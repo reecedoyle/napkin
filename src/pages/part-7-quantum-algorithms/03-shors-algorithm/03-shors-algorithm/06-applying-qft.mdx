@@ -1,0 +1,28 @@
+---
+title: Applying the QFT — destructive interference
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Applying the QFT — destructive interference">
+
+Now apply $\UQFT$ to the first register $\ket{\phi} = \ket{k_0} + \ket{k_0+r} + \ket{k_0+2r} + \cdots$.
+
+The coefficient of $\ket{j}$ in $\UQFT\ket{\phi}$ is proportional to
+
+$$\omega_N^{k_0 j} \cdot \left(\omega_N^{0} + \omega_N^{jr} + \omega_N^{2jr} + \omega_N^{3jr} + \cdots\right).$$
+
+This inner sum is a <Term k="geometricSeries">geometric series</Term> of roots of unity. It is nearly zero by <Term k="destructiveInterference">destructive interference</Term> unless $\omega_N^{jr} = 1$, i.e.\ unless $jr/N$ is an integer.
+
+<Callout kind="theorem" title="QFT output concentrates near multiples of N/r">
+Approximately,
+
+$$\UQFT(\ket{\phi}) \approx \sum_{\substack{0 \leq j < N \\ jr \equiv 0 \pmod{N}}} \ket{j}$$
+
+up to scaling. So when we measure $\UQFT\ket{\phi}$, we obtain a $j$ with $jr/N$ close to an integer.
+</Callout>
+
+In other words: a single measurement of the QFT output gives us a random multiple $j \approx sN/r$ for some integer $s$.
+
+</SlideLayout>

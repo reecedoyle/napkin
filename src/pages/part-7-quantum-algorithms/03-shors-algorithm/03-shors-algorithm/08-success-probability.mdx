@@ -1,0 +1,26 @@
+---
+title: Success probability and repetition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Success probability and repetition">
+
+The algorithm does not always succeed on the first try. There are two sources of failure:
+
+1. **Bad $x$**: the randomly chosen $x$ is not "good" (order is odd, or $x^{r/2} \equiv \pm 1 \pmod M$). This happens with probability at most $1/2$.
+
+2. **Bad measurement**: the measured $j$ has $\gcd(s, r) > 1$, so the continued fraction gives a fraction $s'/r'$ with $r' \mid r$ but $r' \neq r$. We can only guarantee success when $\gcd(s, r) = 1$.
+
+<Callout kind="theorem" title="Success probability">
+The probability that a single run (with a good $x$) produces the correct $r$ is at least $1/\log r$.
+
+Since $r < M$, this means $1/\log r \geq 1/\log M = 1/n$.
+</Callout>
+
+So repeating $O(n)$ times (with fresh random $x$ each time) suffices to find the correct $r$ with high probability. Each run costs $O(n^2)$ QFT gates plus $O(n^3)$ classical gates for modular exponentiation — giving an overall complexity of $O(n^3) = O((\log M)^3)$.
+
+This is polynomial in the input length, making it exponentially faster than the best known classical factoring algorithms.
+
+</SlideLayout>

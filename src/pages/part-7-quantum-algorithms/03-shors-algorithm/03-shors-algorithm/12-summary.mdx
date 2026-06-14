@@ -1,0 +1,26 @@
+---
+title: Summary — the pieces fit together
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Summary — the pieces fit together">
+
+We have assembled the full picture. Here is how the pieces fit:
+
+<Callout kind="remark" title="The chain of ideas">
+1. **Factoring → order-finding**: $\gcd(x^{r/2} \pm 1, M)$ gives factors of $M = pq$ when $x$ is "good" and $r$ is the order of $x \bmod M$. Good $x$ exist in abundance (more than half of all valid residues).
+
+2. **Order-finding → period-finding**: the sequence $x^k \bmod M$ is periodic with period $r$. Build a quantum state encoding this sequence.
+
+3. **Period-finding → QFT**: measuring the QFT of a periodic quantum state yields $j \approx sN/r$. Continued fractions recover $r$.
+
+4. **QFT → $O(n^2)$ gates**: the tensor product factorization lets us implement the $2^n \times 2^n$ Fourier matrix with only $O(n^2)$ local quantum gates.
+</Callout>
+
+Each reduction is elementary on its own. The genius of Shor's algorithm is recognizing that all four reductions compose, turning an apparently intractable problem (factoring) into something a quantum computer can handle efficiently.
+
+This is Shor's algorithm.
+
+</SlideLayout>

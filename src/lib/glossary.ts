@@ -1618,6 +1618,39 @@ export const glossary = {
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
   // ────────────── Chapter 25 — Shor's algorithm ──────────────
+  multiplicativeOrder: {
+    term: 'Multiplicative order of x mod M',
+    symbol: '\\operatorname{ord}_M(x)',
+    definition: 'For gcd(x, M) = 1, the multiplicative order of x mod M is the smallest positive integer r with x^r ≡ 1 (mod M). Equivalently, r is the period of the sequence x⁰, x¹, x², … modulo M.',
+    example: 'The order of 2 mod 15 is 4, since 2⁴ = 16 ≡ 1 (mod 15).',
+  },
+  ZmM: {
+    term: 'Multiplicative group mod M',
+    symbol: '(\\mathbb{Z}/M\\mathbb{Z})^\\times',
+    definition: 'The set of residues mod M that are coprime to M, under multiplication. Its size is φ(M) (Euler\'s totient). For M = pq with p, q prime, φ(M) = (p−1)(q−1).',
+    example: 'For M = 15: (ℤ/15ℤ)× = {1,2,4,7,8,11,13,14}, which has φ(15) = 8 elements.',
+  },
+  entangledState: {
+    term: 'Quantum entanglement',
+    definition: 'A quantum state of two or more systems that cannot be written as a tensor product of individual states. Measuring one part instantly determines correlations in the other. Entanglement is the resource that makes quantum algorithms like Shor\'s non-trivially different from classical probabilistic algorithms.',
+    example: 'The state (|0⟩|0⟩ + |1⟩|1⟩)/√2 is entangled: measuring the first qubit as 0 forces the second to also be 0.',
+  },
+  geometricSeries: {
+    term: 'Geometric series',
+    symbol: '\\sum_{k=0}^{n-1} r^k = \\frac{r^n - 1}{r - 1}',
+    definition: 'A sum of a geometric progression: 1 + r + r² + ··· + r^(n−1) = (rⁿ − 1)/(r − 1) for r ≠ 1. When r is a root of unity ≠ 1, the sum is 0 — this is the destructive interference principle used in the QFT.',
+    example: 'Sum of all N-th roots of unity: 1 + ω + ω² + ··· + ω^(N−1) = 0 for ω = e^(2πi/N).',
+  },
+  destructiveInterference: {
+    term: 'Destructive interference',
+    definition: 'When complex amplitudes sum to (nearly) zero because they point in different directions around the unit circle. In the QFT applied to a periodic state, all frequency components except multiples of N/r cancel by destructive interference, causing the output to concentrate at those multiples.',
+    example: 'The sum ω^0 + ω^1 + ··· + ω^(N−1) = 0 (all N-th roots of unity cancel).',
+  },
+  continuedFractions: {
+    term: 'Continued fraction algorithm',
+    definition: 'An algorithm that expresses a real number as a nested fraction [a₀; a₁, a₂, …] = a₀ + 1/(a₁ + 1/(a₂ + …)). The successive convergents p_k/q_k are the best rational approximations to the number with bounded denominator. Used in Shor\'s algorithm to recover r/N from the measured j/N.',
+    example: 'The continued fraction of 4642/8192 has convergents 0, 1, 1/2, 4/7, 13/23, 17/30, … The denominator 30 reveals the period r = 30.',
+  },
   qubit: {
     term: 'Qubit',
     definition: 'A quantum bit — the basic unit of quantum information. A qubit state lives in ℂ², and can be any superposition α|0⟩ + β|1⟩ with |α|² + |β|² = 1. An n-qubit system has state space ℂ^(2ⁿ), with 2ⁿ computational basis states.',

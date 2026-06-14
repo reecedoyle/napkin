@@ -1,0 +1,26 @@
+---
+title: Factoring reduces to order-finding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Factoring reduces to order-finding">
+
+Let $p, q > 3$ be distinct odd primes and $M = pq$. We want to find $p$ and $q$.
+
+The key reduction is:
+
+<Callout kind="theorem" title="Factoring via order">
+If we can find the <Term k="multiplicativeOrder">multiplicative order</Term> $r$ of any $x \pmod M$ with $\gcd(x, M) = 1$, we can factor $M$ in polynomial time.
+</Callout>
+
+Here is why. If $r$ is even (which we can arrange), then $x^r \equiv 1 \pmod M$ means
+
+$$(x^{r/2} - 1)(x^{r/2} + 1) \equiv 0 \pmod M.$$
+
+Since $M = pq$, one of these factors is divisible by $p$ and the other by $q$ — as long as neither factor is $\equiv 0 \pmod M$. Then $\gcd(x^{r/2} - 1, M)$ gives us $p$ or $q$ directly, via the Euclidean algorithm.
+
+The remaining question: does a suitable $x$ always exist, and can we find the order $r$ efficiently?
+
+</SlideLayout>
