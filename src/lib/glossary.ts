@@ -1618,6 +1618,22 @@ export const glossary = {
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
   // ────────────── Chapter 23 — Quantum states and measurements ──────────────
+  observable: {
+    term: 'Observable',
+    definition: 'In quantum mechanics, a physical quantity that can be measured — represented mathematically by a Hermitian operator T on the state space. The eigenvalues of T are the possible measurement outcomes (always real), and the eigenvectors form the measurement basis.',
+    example: 'Position, momentum, and spin are observables. The Pauli matrix σ_z is the observable for spin measured along the z-axis.',
+  },
+  quantumCollapse: {
+    term: 'Quantum collapse',
+    definition: 'When a quantum state |ψ⟩ is measured along an observable T and eigenvalue λ is observed, the state instantaneously collapses to its projection onto the eigenspace H_λ. All amplitude in other eigenspaces is destroyed. Repeated measurement of the same observable gives the same result.',
+    example: 'Measuring |ψ⟩ = (1/√2)|0⟩ + (1/√2)|1⟩ along σ_z and getting +1 collapses the state to |0⟩.',
+  },
+  pauliMatrices: {
+    term: 'Pauli matrices',
+    symbol: '\\sigma_x, \\sigma_y, \\sigma_z',
+    definition: 'Three 2×2 Hermitian matrices that together with the identity I form a basis for all 2×2 Hermitian matrices. They are the natural observables for a single qubit: measuring along σ_z reads out |0⟩ vs |1⟩; σ_x and σ_y measure in rotated bases.',
+    example: 'σ_z = [[1,0],[0,-1]], σ_x = [[0,1],[1,0]], σ_y = [[0,−i],[i,0]].',
+  },
   quantumAmplitude: {
     term: 'Quantum amplitude',
     definition: 'A complex coefficient cᵢ in the expansion |ψ⟩ = Σ cᵢ|i⟩ of a quantum state. The probability of observing outcome i when measuring in the basis {|i⟩} equals |cᵢ|². For a normalised state, the amplitudes satisfy Σ|cᵢ|² = 1.',

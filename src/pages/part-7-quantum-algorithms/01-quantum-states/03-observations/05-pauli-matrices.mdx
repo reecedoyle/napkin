@@ -1,0 +1,28 @@
+---
+title: Pauli matrices
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pauli matrices">
+
+For the two-dimensional qubit space, the most natural Hermitian observables come in a family of three.
+
+<Callout kind="definition" title="Pauli matrices">
+The three <Term k="pauliMatrices">Pauli matrices</Term> are
+$$\sigma_z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}, \qquad \sigma_x = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \qquad \sigma_y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}.$$
+Each is Hermitian. Together with the identity $I$, they form a basis for all $2 \times 2$ Hermitian matrices.
+</Callout>
+
+Their normalised eigenvectors are:
+
+| | $+1$ eigenvector | $-1$ eigenvector |
+|---|---|---|
+| $\sigma_z$ | $\ket{0}$ | $\ket{1}$ |
+| $\sigma_x$ | $\tfrac{1}{\sqrt2}(\ket{0}+\ket{1})$ | $\tfrac{1}{\sqrt2}(\ket{0}-\ket{1})$ |
+| $\sigma_y$ | $\tfrac{1}{\sqrt2}(\ket{0}+i\ket{1})$ | $\tfrac{1}{\sqrt2}(\ket{0}-i\ket{1})$ |
+
+These six vectors are often called "$z$-up/$z$-down", "$x$-up/$x$-down", "$y$-up/$y$-down". To measure a qubit in one of the three standard bases, apply the corresponding Pauli matrix.
+
+</SlideLayout>

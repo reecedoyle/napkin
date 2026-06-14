@@ -1,0 +1,22 @@
+---
+title: Hermitian operators as observables
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hermitian operators as observables">
+
+To extract information from a quantum state we perform a **measurement**. The key fact: every physical observable corresponds to a <Term k="hermitian">Hermitian</Term> operator.
+
+<Callout kind="definition" title="Hermitian operator (reminder)">
+A linear map $T \colon V \to V$ on an inner product space is **Hermitian** (or self-adjoint) if
+$$\langle Tx, y \rangle = \langle x, Ty \rangle \quad \text{for all } x, y \in V,$$
+equivalently $T = T^\dagger$ (equals its own conjugate transpose). Hermitian operators have **real eigenvalues** and their eigenvectors are **pairwise orthogonal**.
+</Callout>
+
+This is the spectral theorem in action: a Hermitian $T$ on an $n$-dimensional space has an orthonormal eigenbasis $\ket{0}_T, \dots, \ket{n-1}_T$ with real eigenvalues $\lambda_0, \dots, \lambda_{n-1}$.
+
+The physical interpretation: the eigenvalues are the **possible measurement outcomes** (always real, which is reassuring for a lab result), and the eigenvectors tell us which basis to measure in.
+
+</SlideLayout>
