@@ -1,0 +1,22 @@
+---
+title: Measuring one qubit at a time
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Measuring one qubit at a time">
+
+We often want to measure only qubit $B$ without disturbing $A$. This is done using a **partial observable**.
+
+<Callout kind="definition" title="Partial measurement">
+To measure only qubit $B$ along $M_B$, apply the operator
+$$\id_A \otimes M_B \colon H_A \otimes H_B \to H_A \otimes H_B.$$
+The eigenvalues of $\id_A \otimes M_B$ are exactly those of $M_B$, and the eigenspace for eigenvalue $\lambda$ is $H_A \otimes (H_B)_\lambda$. So the $A$ qubit is completely unaffected by the collapse.
+</Callout>
+
+For a pure tensor state $\ket{u}_A \otimes \ket{v}_B$, measuring $B$ along $M_B$ leaves $A$ in state $\ket{u}$ — as if the two qubits never interacted. That's the classical intuition: independent systems stay independent.
+
+The story changes dramatically when the state is entangled.
+
+</SlideLayout>

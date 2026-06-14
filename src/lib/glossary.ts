@@ -1618,6 +1618,21 @@ export const glossary = {
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
   // ────────────── Chapter 23 — Quantum states and measurements ──────────────
+  singletState: {
+    term: 'Singlet state',
+    symbol: '\\ket{\\Psi_-}',
+    definition: 'The two-qubit entangled state |Ψ₋⟩ = (1/√2)|01⟩ − (1/√2)|10⟩. It is not a pure tensor in ℂ² ⊗ ℂ². Measuring one qubit instantly determines the other — Einstein\'s "spooky action at a distance".',
+    example: 'Measuring qubit A of |Ψ₋⟩ along σ_z gives +1 with prob 1/2 (collapsing to |01⟩) or −1 with prob 1/2 (collapsing to |10⟩). Either way, B is now determined.',
+  },
+  quantumEntanglement: {
+    term: 'Quantum entanglement',
+    definition: 'A state of a composite quantum system (e.g. H_A ⊗ H_B) that is not a pure tensor — not of the form |u⟩_A ⊗ |v⟩_B. Entangled qubits cannot be described independently; measuring one instantaneously affects what measurements of the other will reveal.',
+    example: 'The singlet state |Ψ₋⟩ = (|01⟩ − |10⟩)/√2 is entangled. The state |00⟩ is not.',
+  },
+  spukhafteWirkung: {
+    term: 'Spooky action at a distance',
+    definition: 'Einstein\'s phrase (German: spukhafte Fernwirkung) for the phenomenon whereby measuring one part of an entangled pair instantly determines the state of the other part, regardless of the spatial distance between them. Not a signalling mechanism — the local outcome is random.',
+  },
   observable: {
     term: 'Observable',
     definition: 'In quantum mechanics, a physical quantity that can be measured — represented mathematically by a Hermitian operator T on the state space. The eigenvalues of T are the possible measurement outcomes (always real), and the eigenvectors form the measurement basis.',
