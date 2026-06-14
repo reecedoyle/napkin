@@ -20,8 +20,15 @@
       "Bash(npm run check)",
       "Bash(npm run build)",
       "Bash(npm run test:unit*)",
+      "Bash(npm run test:e2e)",
+      "Bash(npx playwright test*)",
 
-      "Bash(node scripts/verify-chapter*)"
+      "Bash(node scripts/verify-chapter*)",
+      "Bash(node ./scripts/verify-chapter*)",
+      "Bash(node scripts/finalize-part*)",
+
+      "Bash(curl -s*)",
+      "Bash(gh run watch *)"
     ]
   }
 }
