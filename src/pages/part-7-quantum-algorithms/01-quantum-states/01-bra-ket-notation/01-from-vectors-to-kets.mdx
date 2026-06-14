@@ -1,0 +1,23 @@
+---
+title: From vectors to kets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From vectors to kets">
+
+In the previous part we studied <Term k="innerProductSpace">inner product spaces</Term> over $\CC$. Quantum mechanics lives entirely in that setting — but physicists invented their own notation for it, and the whole field uses it.
+
+<Callout kind="definition" title="Ket">
+In <Term k="braKetNotation">bra-ket notation</Term>, a vector in a complex inner product space $H$ is written $\ket{\psi}$ and called a **ket**. The label $\psi$ is just a name — it can be any symbol: $\ket{0}$, $\ket{1}$, $\ket{\uparrow}$, $\ket{\text{spin}}$, whatever is convenient.
+</Callout>
+
+The orthonormal basis elements of an $n$-dimensional space $H$ are conventionally labelled
+$$\ket{0},\; \ket{1},\; \dots,\; \ket{n-1}$$
+instead of $e_0, e_1, \dots, e_{n-1}$.  A generic vector is then a linear combination
+$$\ket{\psi} = c_0\ket{0} + c_1\ket{1} + \cdots + c_{n-1}\ket{n-1}, \qquad c_i \in \CC.$$
+
+Think of it as a notational convention, not a new concept. Everything you know about complex vector spaces still applies.
+
+</SlideLayout>

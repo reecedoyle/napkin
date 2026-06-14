@@ -1617,6 +1617,23 @@ export const glossary = {
     definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
+  // ────────────── Chapter 23 — Quantum states and measurements ──────────────
+  braKetNotation: {
+    term: 'Bra-ket notation',
+    definition: 'Dirac\'s notation for vectors in a complex inner product space. A vector is written as a "ket" |ψ⟩ and its dual as a "bra" ⟨ψ|. The inner product ⟨ψ|φ⟩ is formed by snapping bra and ket together — hence "bracket".',
+    example: '|0⟩ and |1⟩ are the standard basis kets for a qubit; ⟨0|0⟩ = 1 and ⟨0|1⟩ = 0.',
+  },
+  braVector: {
+    term: 'Bra',
+    symbol: '\\langle \\psi |',
+    definition: 'The dual vector of a ket |ψ⟩ in bra-ket notation, written ⟨ψ|. In coordinates it is the conjugate transpose (row vector) of the ket column vector. The bra ⟨ψ| acts on kets by the inner product: ⟨ψ|φ⟩ = ⟨|ψ⟩, |φ⟩⟩.',
+  },
+  qubit: {
+    term: 'Qubit',
+    definition: 'A quantum bit: any unit vector in the two-dimensional complex Hilbert space ℂ² with orthonormal basis |0⟩ and |1⟩. A qubit α|0⟩ + β|1⟩ has |α|² + |β|² = 1. Unlike a classical bit, a qubit can be in a superposition of 0 and 1.',
+    example: 'The state (1/√2)|0⟩ + (1/√2)|1⟩ is an equal superposition qubit.',
+  },
+
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

@@ -1,0 +1,33 @@
+---
+title: Finite-dimensional Hilbert spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Finite-dimensional Hilbert spaces">
+
+In the Fourier analysis chapter we worked with infinite-dimensional <Term k="hilbertSpace">Hilbert spaces</Term>. For quantum computation we only need the finite-dimensional case, which is much simpler.
+
+<Callout kind="remark" title="Convention for this part">
+Throughout Part 7, every Hilbert space $H$ is finite-dimensional. A finite-dimensional complex inner product space is automatically complete, so "Hilbert space" just means "finite-dimensional complex inner product space with orthonormal basis $\ket{0}, \dots, \ket{n-1}$."
+</Callout>
+
+The canonical example is $H = \CC^{\oplus 2}$: the two-dimensional complex space with orthonormal basis $\ket{0}$ and $\ket{1}$. This is the home of a single <Term k="qubit">qubit</Term>.
+
+<MCQ
+  client:load
+  id="qs-bk-mcq-bra-of-ket"
+  prompt="If $\ket{\psi} = [1+i,\; 2]^T$ (a column vector), what is the bra $\bra{\psi}$?"
+  options={[
+    { id: "a", label: "[1+i, 2] (the same row vector)" },
+    { id: "b", label: "[1−i, 2] (conjugate the first entry only)" },
+    { id: "c", label: "[1−i, 2] (conjugate transpose of the column)" },
+    { id: "d", label: "[−1−i, −2] (negate every entry)" },
+  ]}
+  correct="c"
+  explanation="The bra is the conjugate transpose of the ket. Both entries are conjugated: (1+i)* = 1−i and 2* = 2. Options b and c happen to produce the same row vector here — the key operation is conjugate-transpose of the column."
+/>
+
+</SlideLayout>

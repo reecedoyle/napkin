@@ -1,0 +1,25 @@
+---
+title: Bras and the inner product
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Bras and the inner product">
+
+Every ket $\ket{\psi}$ has a matching <Term k="braVector">dual vector</Term> called a **bra**, written $\bra{\psi}$. In coordinates: if
+$$\ket{\psi} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}$$
+then $\bra{\psi}$ is the row vector of complex conjugates
+$$\bra{\psi} = \begin{bmatrix} \ol{\alpha} & \ol{\beta} \end{bmatrix}.$$
+
+The inner product $\langle \ket{\psi}, \ket{\phi} \rangle$ is then the matrix product of the bra with the ket, written as a **bracket**:
+$$\braket{\psi|\phi} = \ol{\alpha}\gamma + \ol{\beta}\delta \qquad \text{when } \ket{\phi} = \begin{bmatrix}\gamma \\ \delta\end{bmatrix}.$$
+
+<Callout kind="remark" title="Why 'bra-ket'?">
+The pair $\bra{\psi}$ and $\ket{\phi}$ snap together into $\braket{\psi|\phi}$ — a bracket. The name is a pun: **bra** + **ket** = **bracket**. Due to Dirac, hence also called **Dirac notation**.
+</Callout>
+
+In particular, the squared norm of a unit state is
+$$\braket{\psi|\psi} = |\alpha|^2 + |\beta|^2.$$
+
+</SlideLayout>
