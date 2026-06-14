@@ -1618,6 +1618,16 @@ export const glossary = {
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
   // ────────────── Chapter 23 — Quantum states and measurements ──────────────
+  quantumAmplitude: {
+    term: 'Quantum amplitude',
+    definition: 'A complex coefficient cᵢ in the expansion |ψ⟩ = Σ cᵢ|i⟩ of a quantum state. The probability of observing outcome i when measuring in the basis {|i⟩} equals |cᵢ|². For a normalised state, the amplitudes satisfy Σ|cᵢ|² = 1.',
+    example: 'In |ψ⟩ = (3/5)|0⟩ + (4/5)|1⟩, the amplitudes are 3/5 and 4/5, giving probabilities 9/25 and 16/25.',
+  },
+  superposition: {
+    term: 'Superposition',
+    definition: 'A quantum state that is a nontrivial linear combination of basis states — neither purely |0⟩ nor purely |1⟩. Before measurement, the system genuinely exists in all basis states simultaneously, weighted by their amplitudes.',
+    example: '(1/√2)|0⟩ + (1/√2)|1⟩ is an equal superposition of |0⟩ and |1⟩.',
+  },
   braKetNotation: {
     term: 'Bra-ket notation',
     definition: 'Dirac\'s notation for vectors in a complex inner product space. A vector is written as a "ket" |ψ⟩ and its dual as a "bra" ⟨ψ|. The inner product ⟨ψ|φ⟩ is formed by snapping bra and ket together — hence "bracket".',

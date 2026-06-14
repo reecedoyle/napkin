@@ -1,0 +1,23 @@
+---
+title: Classical vs quantum bits
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Classical vs quantum bits">
+
+A classical bit is one of exactly two states: $0$ or $1$. More generally, a classical system with $n$ possible states is just a discrete set $\{0, 1, \dots, n-1\}$.
+
+Quantum mechanics is more generous. Instead of picking a single state, we allow any complex linear combination of states. This is called a **superposition**.
+
+<Callout kind="definition" title="Quantum state (qubit)">
+A <Term k="qubit">qubit</Term> is a nonzero vector in $H = \CC^{\oplus 2}$ with orthonormal basis $\ket{0}$ and $\ket{1}$. Written
+$$\ket{\psi} = \alpha\ket{0} + \beta\ket{1}, \qquad \alpha, \beta \in \CC, \; (\alpha, \beta) \neq (0, 0).$$
+We usually normalise so $\braket{\psi|\psi} = |\alpha|^2 + |\beta|^2 = 1$.
+</Callout>
+
+The classical states $\ket{0}$ and $\ket{1}$ are the special cases $\alpha = 1, \beta = 0$ and $\alpha = 0, \beta = 1$. Between them sits a continuum of quantum states, such as the **equal superposition**
+$$\frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}.$$
+
+</SlideLayout>
