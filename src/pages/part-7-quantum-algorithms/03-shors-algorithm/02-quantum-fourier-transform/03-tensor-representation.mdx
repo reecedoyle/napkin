@@ -1,0 +1,24 @@
+---
+title: Tensor product representation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tensor product representation">
+
+The key algebraic fact that makes the QFT efficient is that $\UQFT\ket{x}$ factors as a <Term k="tensorProduct">tensor product</Term> of single-qubit states.
+
+<Callout kind="proposition" title="Tensor factorization of the QFT">
+Let $\ket{x} = \ket{x_n x_{n-1} \cdots x_1}$ (binary notation). Then:
+
+$$\UQFT(\ket{x_n x_{n-1} \cdots x_1}) = \frac{1}{\sqrt{N}} \Big(\ket{0} + e^{2\pi i \cdot 0.x_1}\ket{1}\Big) \otimes \Big(\ket{0} + e^{2\pi i \cdot 0.x_2 x_1}\ket{1}\Big) \otimes \cdots \otimes \Big(\ket{0} + e^{2\pi i \cdot 0.x_n \cdots x_1}\ket{1}\Big).$$
+</Callout>
+
+Each factor $\ket{0} + e^{2\pi i \cdot 0.x_j \cdots x_1}\ket{1}$ is a single-qubit state that depends only on the $j$ least significant bits of $x$.
+
+This factorization is what the quantum circuit exploits: rather than doing a full $N \times N$ matrix multiply, we apply a sequence of local (one- and two-qubit) gates that build up each factor one bit at a time.
+
+The proof is a direct (and quite tedious) expansion — just multiply out and verify term by term.
+
+</SlideLayout>

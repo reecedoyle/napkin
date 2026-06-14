@@ -1,0 +1,31 @@
+---
+title: The rotation gates R_k
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The rotation gates R_k">
+
+The QFT circuit is built from two kinds of gates: the <Term k="hadamardGate">Hadamard gate</Term> $H$ and the controlled rotation gates $R_k$.
+
+<Callout kind="definition" title="Phase rotation gate">
+For $k \geq 1$, the rotation gate is
+
+$$R_k = \begin{bmatrix} 1 & 0 \\ 0 & e^{2\pi i / 2^k} \end{bmatrix}.$$
+
+$R_k$ leaves $\ket{0}$ unchanged and rotates $\ket{1}$ by angle $2\pi/2^k$.
+</Callout>
+
+Some familiar cases:
+- $R_1$: rotation by $\pi$ — this is the Pauli-$Z$ gate.
+- $R_2$: rotation by $\pi/2$ — this is the $S$ gate.
+- $R_3$: rotation by $\pi/4$ — this is the $T$ gate.
+
+For large $k$, $R_k$ barely rotates at all (angle $2\pi/2^k \to 0$). In practice, $R_k$ for large $k$ contributes negligibly and can be dropped to reduce circuit depth — but the exact QFT includes all of them.
+
+The Hadamard gate is:
+
+$$H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}, \qquad H\ket{0} = \frac{\ket{0}+\ket{1}}{\sqrt{2}}, \quad H\ket{1} = \frac{\ket{0}-\ket{1}}{\sqrt{2}}.$$
+
+</SlideLayout>

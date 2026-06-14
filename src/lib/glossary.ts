@@ -1618,6 +1618,28 @@ export const glossary = {
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
   // ────────────── Chapter 25 — Shor's algorithm ──────────────
+  qubit: {
+    term: 'Qubit',
+    definition: 'A quantum bit — the basic unit of quantum information. A qubit state lives in ℂ², and can be any superposition α|0⟩ + β|1⟩ with |α|² + |β|² = 1. An n-qubit system has state space ℂ^(2ⁿ), with 2ⁿ computational basis states.',
+    example: 'A single qubit can be in state (|0⟩ + |1⟩)/√2, meaning measurement yields 0 or 1 each with probability 1/2.',
+  },
+  unitaryGate: {
+    term: 'Unitary quantum gate',
+    symbol: 'U',
+    definition: 'A linear transformation U on a Hilbert space (the qubit state space) that is unitary: U†U = I. Unitarity ensures the gate preserves the normalization ∑|xₖ|² = 1, keeping the state a valid probability distribution.',
+    example: 'The Hadamard gate H, the CNOT gate, and the QFT are all unitary.',
+  },
+  hadamardGate: {
+    term: 'Hadamard gate',
+    symbol: 'H',
+    definition: 'The single-qubit gate H = (1/√2)[[1,1],[1,−1]]. It maps |0⟩ to (|0⟩+|1⟩)/√2 and |1⟩ to (|0⟩−|1⟩)/√2, creating an equal superposition. It is its own inverse: H² = I.',
+  },
+  tensorProduct: {
+    term: 'Tensor product of quantum states',
+    symbol: '\\ket{a} \\otimes \\ket{b}',
+    definition: 'The combined state of two independent quantum systems. If system 1 is in state |a⟩ and system 2 is in state |b⟩, the joint state is |a⟩⊗|b⟩, often written |ab⟩. An n-qubit state is a tensor product of n single-qubit spaces, giving a 2ⁿ-dimensional state space.',
+    example: '|0⟩⊗|1⟩ = |01⟩ is one of the four basis states for a 2-qubit system.',
+  },
   QFT: {
     term: 'Quantum Fourier transform',
     symbol: 'U_{\\mathrm{QFT}}',
