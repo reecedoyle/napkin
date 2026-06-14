@@ -1,0 +1,26 @@
+---
+title: The Deutsch-Jozsa circuit
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Deutsch-Jozsa circuit">
+
+For $n = 1$, the circuit that solves the problem uses just two <Term k="hadamardGate">Hadamard gates</Term> and one call to the oracle $U_f$:
+
+$$|0\rangle \xrightarrow{H} \tfrac{1}{\sqrt2}(|0\rangle+|1\rangle) \xrightarrow{U_f} \cdots \xrightarrow{H} \text{measure}$$
+$$|1\rangle \xrightarrow{H} \tfrac{1}{\sqrt2}(|0\rangle-|1\rangle) \xrightarrow{U_f} \cdots$$
+
+More precisely, the circuit is: start with $|01\rangle$, apply $H \otimes H$, apply $U_f$, apply $H$ to the top wire, then measure the top wire.
+
+<Callout kind="remark">
+It might seem strange to apply $H$ to the bottom wire — classically it carries the "output" of $f$. But quantum mechanically, the bottom wire's superposition state $\tfrac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$ will absorb the phase effect of $f$, allowing the top wire to carry the distinguishing information.
+</Callout>
+
+After the two Hadamard gates, the two-qubit state is:
+$$\tfrac{1}{\sqrt2}(|0\rangle + |1\rangle) \otimes \tfrac{1}{\sqrt2}(|0\rangle - |1\rangle) = \tfrac{1}{2}\Big(|0\rangle \otimes (|0\rangle - |1\rangle) + |1\rangle \otimes (|0\rangle - |1\rangle)\Big).$$
+
+Now we apply $U_f$ and watch what happens.
+
+</SlideLayout>

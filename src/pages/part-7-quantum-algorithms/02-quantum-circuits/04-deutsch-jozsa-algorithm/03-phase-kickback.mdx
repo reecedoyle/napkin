@@ -1,0 +1,29 @@
+---
+title: Phase kickback — the key trick
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Phase kickback — the key trick">
+
+After applying $H \otimes H$ to $|01\rangle$, applying the oracle $U_f$ transforms the state by a phase factor depending on $f$.
+
+The oracle maps $|x\rangle \otimes (|0\rangle - |1\rangle) \mapsto (-1)^{f(x)} \cdot |x\rangle \otimes (|0\rangle - |1\rangle)$. The factor $(-1)^{f(x)}$ is a global phase on the $x$-component — it "kicks back" into the top wire as a sign.
+
+Applying this to our superposition state:
+
+$$\frac{1}{2}\Big(|0\rangle(|0\rangle - |1\rangle) + |1\rangle(|0\rangle - |1\rangle)\Big) \xmapsto{U_f} \frac{1}{2}\Big((-1)^{f(0)}|0\rangle + (-1)^{f(1)}|1\rangle\Big) \otimes (|0\rangle - |1\rangle).$$
+
+The state factors — it is **not entangled**. We can discard the bottom qubit entirely and focus on the top wire:
+
+$$\text{top wire state} = \frac{1}{\sqrt2}\Big((-1)^{f(0)}|0\rangle + (-1)^{f(1)}|1\rangle\Big).$$
+
+<Callout kind="example" title="What the top wire carries">
+- If $f$ is **constant**, both signs are the same: the state is $\pm\tfrac{1}{\sqrt2}(|0\rangle + |1\rangle) = \pm|x_+\rangle$.
+- If $f$ is **balanced**, the signs are opposite: the state is $\pm\tfrac{1}{\sqrt2}(|0\rangle - |1\rangle) = \pm|x_-\rangle$.
+
+These two states are orthogonal and distinguishable in a single measurement.
+</Callout>
+
+</SlideLayout>
