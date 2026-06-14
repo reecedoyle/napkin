@@ -1762,7 +1762,6 @@ export const glossary = {
     definition: 'A boolean function f: {0,1}ⁿ → {0,1} where exactly half of all inputs map to 0 and half map to 1. The Deutsch-Jozsa problem asks to distinguish balanced from constant functions.',
     example: 'The function f(x) = x₁ (the first input bit) is balanced for any n ≥ 1.',
   },
-  },
 
   // ────────────── Chapter 23 — Quantum states and measurements ──────────────
   singletState: {
