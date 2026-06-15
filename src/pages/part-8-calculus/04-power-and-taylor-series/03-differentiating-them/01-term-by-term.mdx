@@ -1,0 +1,22 @@
+---
+title: Differentiating term by term
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Differentiating term by term">
+
+With ordinary finite sums, we differentiate term by term without a second thought. For <Term k="powerSeries">power series</Term>, this still works — but it is a theorem, not obvious.
+
+<Callout kind="theorem" title="Term-by-term differentiation">
+Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have <Term k="radiusOfConvergence">radius of convergence</Term> $R > 0$. Then all derivatives of $f$ exist on $(-R, R)$ and are given by
+
+$$f'(x) = \sum_{n=1}^\infty n\, a_n x^{n-1}, \quad f''(x) = \sum_{n=2}^\infty n(n-1)\, a_n x^{n-2}, \quad \dots$$
+
+Each differentiated series also has radius of convergence $R$. In particular, $f$ is <Term k="smoothFunction">smooth</Term>.
+</Callout>
+
+The proof uses *uniform convergence* — the fact that inside any compact subinterval $[-r, r]$ with $r < R$, the series converges not just pointwise but uniformly. We omit the details.
+
+</SlideLayout>

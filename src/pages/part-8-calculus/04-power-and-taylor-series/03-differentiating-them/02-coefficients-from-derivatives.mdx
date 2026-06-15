@@ -1,0 +1,28 @@
+---
+title: Coefficients from derivatives
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Coefficients from derivatives">
+
+The term-by-term differentiation theorem has an immediate payoff: the coefficients of a power series are locked in by the function's derivatives at 0.
+
+<Callout kind="corollary" title="Coefficients determined by derivatives">
+If $f(x) = \sum_{n=0}^\infty a_n x^n$ has radius of convergence $R > 0$, then
+
+$$a_n = \frac{f^{(n)}(0)}{n!}.$$
+</Callout>
+
+<ProofReveal
+  client:load
+  id="pts-diff-proof-coeff"
+  prompt="Why is aₙ = f⁽ⁿ⁾(0)/n!?"
+  solution="Differentiate f(x) = ∑ aₙ xⁿ exactly n times term by term. The k-th term aₖ xᵏ becomes aₖ · k(k−1)⋯(k−n+1) xᵏ⁻ⁿ. At x = 0 only the k = n term survives, contributing aₙ · n!. So f⁽ⁿ⁾(0) = aₙ · n!, and dividing by n! gives aₙ."
+/>
+
+This formula will be the definition of the <Term k="taylorSeries">Taylor series</Term> of any smooth function.
+
+</SlideLayout>

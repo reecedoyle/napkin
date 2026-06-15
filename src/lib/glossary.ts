@@ -1619,6 +1619,18 @@ export const glossary = {
   },
 
   // ────────────── Chapter 29 — Power series and Taylor series ──────────────
+  smoothFunction: {
+    term: 'Smooth function',
+    symbol: 'C^\\infty',
+    definition: 'A function that is infinitely differentiable — all derivatives of every order exist. Also written C∞. Every power series with positive radius of convergence defines a smooth function on its interval of convergence.',
+    example: 'Polynomials, sin, cos, and eˣ are smooth. The function |x| is not smooth at 0 (its derivative is not differentiable there).',
+  },
+  taylorSeries: {
+    term: 'Taylor series',
+    symbol: '\\sum_{n=0}^\\infty \\frac{f^{(n)}(p)}{n!}(x-p)^n',
+    definition: 'For a smooth function f and a point p, the Taylor series of f at p is the power series whose n-th coefficient is f⁽ⁿ⁾(p)/n!. It is always well-defined, but need not converge to f.',
+    example: 'The Taylor series of eˣ at p = 0 is 1 + x + x²/2! + x³/3! + ⋯, which does converge to eˣ everywhere.',
+  },
   powerSeries: {
     term: 'Power series',
     symbol: '\\sum_{n=0}^\\infty a_n z^n',
