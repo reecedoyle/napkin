@@ -1636,6 +1636,31 @@ export const glossary = {
     definition: 'For any real r, the function x ↦ xʳ has derivative rxʳ⁻¹. For integer r this follows from the limit definition; for all real r it follows from writing xʳ = e^{r log x} and applying the chain rule.',
     example: "(x^{1/2})′ = (1/2)x^{-1/2} = 1/(2√x).",
   },
+  localMaximum: {
+    term: 'Local maximum',
+    definition: 'A point p in the domain of f : U → ℝ is a local maximum if there is an open neighbourhood V of p (with V ⊆ U) such that f(p) ≥ f(x) for all x ∈ V. The value f(p) need not be the global maximum.',
+    example: 'f(x) = cos x has local maxima at x = 0, ±2π, ±4π, …',
+  },
+  localMinimum: {
+    term: 'Local minimum',
+    definition: 'A point p is a local minimum of f if there is an open neighbourhood V of p with f(p) ≤ f(x) for all x ∈ V. Equivalently, p is a local maximum of −f.',
+    example: 'f(x) = x² has a local (and global) minimum at x = 0.',
+  },
+  localExtrema: {
+    term: 'Local extremum',
+    definition: 'A point that is either a local maximum or a local minimum of a function. By Fermat\'s theorem, every local extremum of a differentiable function is a stationary point (where f′ = 0).',
+    example: 'x = 0 is a local extremum of f(x) = x², but not of f(x) = x³.',
+  },
+  stationaryPoint: {
+    term: 'Stationary point',
+    definition: 'A point p where f′(p) = 0. Every local extremum of a differentiable function is a stationary point, but not every stationary point is an extremum (it may be an inflection point).',
+    example: 'f(x) = x³ has f′(0) = 0 but x = 0 is an inflection point, not an extremum.',
+  },
+  extremeValueThm: {
+    term: 'Extreme value theorem (compactness)',
+    definition: 'A continuous function on a compact (closed and bounded) subset of ℝ achieves both its maximum and minimum values. This guarantees global extrema exist when working on a closed interval [a, b].',
+    example: 'f(x) = sin x on [0, 2π] achieves maximum 1 (at π/2) and minimum −1 (at 3π/2).',
+  },
   openInterval: {
     term: 'Open interval',
     symbol: '(a, b)',

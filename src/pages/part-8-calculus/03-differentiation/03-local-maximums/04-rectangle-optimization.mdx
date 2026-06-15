@@ -1,0 +1,33 @@
+---
+title: "Example: rectangle area optimization"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Example: rectangle area optimization">
+
+Here is the strategy in action on a concrete example.
+
+<Callout kind="example" title="Rectangle with perimeter 20 — maximum area">
+Label the sides $x$ and $10 - x$, so the area is
+$$f(x) = x(10 - x) = 10x - x^2 \qquad f \colon [0, 10] \to \RR.$$
+
+By <Term k="extremeValueThm">compactness</Term>, a global maximum exists. Any interior maximum satisfies
+$$0 = f'(x) = 10 - 2x \implies x = 5.$$
+Candidates: $x \in \{0, 5, 10\}$.
+
+Evaluating: $f(0) = 0$, $f(5) = 25$, $f(10) = 0$.
+
+The maximum area $25$ is achieved by the $5 \times 5$ square; the minimum area $0$ is achieved by the degenerate rectangles.
+</Callout>
+
+<NumericInput
+  client:load
+  id="diff-max-num-rectangle-max"
+  prompt="What is the maximum area among all rectangles with perimeter 20?"
+  expected="25"
+/>
+
+</SlideLayout>
