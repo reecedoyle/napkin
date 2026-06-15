@@ -1,0 +1,31 @@
+---
+title: Non-examples of uniform continuity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Non-examples of uniform continuity">
+
+To build intuition, let's look at two classic failures — and one surprising success.
+
+<Callout kind="example" title="Uniform continuity failures">
+
+**(a) $f(x) = x^2$ on $\mathbb{R}$.**
+Take $\eps = 0.1$. However small we choose $\delta$, large values of $x$ and $y = x + \delta/2$ satisfy $|x - y| < \delta$ but
+$$|x^2 - y^2| = |x+y| \cdot |x-y| \approx 2|x| \cdot \frac\delta2 = |x|\delta,$$
+which grows without bound as $x \to \infty$. No single $\delta$ works everywhere.
+
+**(b) $f(x) = 1/x$ on $(0,1)$.**
+Near $x = 0$ the function explodes — the derivative is $-1/x^2$, unbounded — so again, no global $\delta$ can tame it.
+
+**(c) $f(x) = \sqrt{x}$ on $\mathbb{R}_{>0}$ — but this one IS uniformly continuous!**
+Even though the derivative $1/(2\sqrt{x})$ blows up near 0, the function itself stays bounded in oscillation. One can check:
+$$|x - y| < \eps^2 \implies |\sqrt{x} - \sqrt{y}| < \eps.$$
+Unbounded derivative does **not** imply failure of uniform continuity.
+
+</Callout>
+
+The lesson: uniform continuity is about how much $f$ *can fluctuate* across the domain, not about slopes at individual points.
+
+</SlideLayout>
