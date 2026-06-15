@@ -1,0 +1,31 @@
+---
+title: Extending functions from a dense subset
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Extending functions from a dense subset">
+
+Dense subsets are the right setting for extending functions. The idea: if $f \colon \mathbb{Q} \to N$ is continuous, we can try to extend it to all of $\mathbb{R}$ by filling in each real number as a limit.
+
+For instance, to define $\widetilde{f}(\sqrt{2})$ we must have
+$$\widetilde{f}(\sqrt{2}) = \lim_{n \to \infty} f(1.41421\ldots_n),$$
+since $\sqrt{2}$ is the limit of its rational truncations. **There is at most one way to do this** — the extension is unique if it exists.
+
+But existence can fail in two ways:
+
+<Callout kind="example" title="When extension fails">
+
+**(a) The target isn't complete.**
+The identity $f \colon \mathbb{Q} \to \mathbb{Q}$ cannot be extended to $\widetilde{f} \colon \mathbb{R} \to \mathbb{Q}$, since $\widetilde{f}(\sqrt{2})$ would need to be an irrational real number — which doesn't live in $\mathbb{Q}$.
+
+**(b) The function explodes.**
+Let $f \colon \mathbb{Q} \to \mathbb{R}$ by $f(x) = \frac{1}{x - \sqrt{2}}$.
+Near $x = \sqrt{2}$, the values of $f$ blow up without bound, so no value can be assigned to $\widetilde{f}(\sqrt{2})$.
+
+</Callout>
+
+The fix for (b): require $f$ to be <Term k="uniformlyContinuous">uniformly continuous</Term>. A function that's uniformly continuous on a dense subset has tightly controlled oscillations — it can't explode.
+
+</SlideLayout>

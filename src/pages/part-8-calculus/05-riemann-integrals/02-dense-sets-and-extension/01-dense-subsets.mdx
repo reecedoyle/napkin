@@ -1,0 +1,42 @@
+---
+title: Dense subsets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Dense subsets">
+
+A subset $S$ of a topological space $X$ is <Term k="denseSubset">**dense**</Term> if it "touches" every open region of $X$ — no open set avoids it entirely.
+
+<Callout kind="definition" title="Dense subset">
+A subset $S \subseteq X$ of a topological space $X$ is **dense** if every nonempty open subset of $X$ contains at least one point of $S$.
+</Callout>
+
+Equivalently (for metric spaces): $S$ is dense in $X$ iff every point of $X$ is a limit of a sequence in $S$.
+
+<Callout kind="example" title="Dense sets in practice">
+
+- $\mathbb{Q}$ is <Term k="denseSubset">dense</Term> in $\mathbb{R}$: between any two reals lies a rational.
+- Any metric space $M$ is dense in its completion $\overline{M}$. This is essentially the definition of completion.
+
+</Callout>
+
+Dense subsets matter because they determine functions completely: if two continuous functions agree on a dense set, they agree everywhere.
+
+<MCQ
+  client:load
+  id="ri-dense-mcq-which-dense"
+  prompt="Which of the following is dense in ℝ?"
+  options={[
+    { id: "a", label: "The integers ℤ" },
+    { id: "b", label: "The rationals ℚ" },
+    { id: "c", label: "The open interval (0, 1)" },
+    { id: "d", label: "The Cantor set" },
+  ]}
+  correct="b"
+  explanation="ℚ is dense in ℝ: every real number is a limit of rationals (e.g. its decimal truncations). ℤ is not dense (no integer lies between 0.1 and 0.9). The interval (0,1) is not dense (it misses all of (1,2)). The Cantor set is closed and nowhere dense."
+/>
+
+</SlideLayout>
