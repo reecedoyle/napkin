@@ -1,0 +1,28 @@
+---
+title: "Constructing ℚₚ — Laurent series with base p"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Constructing ℚₚ — Laurent series with base p">
+
+Since <Term k="Zp">$\mathbb{Z}_p$</Term> is an integral domain, we can form its field of fractions.
+
+<Callout kind="definition" title="p-adic numbers ℚₚ">
+The **$p$-adic numbers** <Term k="Qp">$\QQ_p$</Term> are the field of fractions of $\ZZ_p$.
+</Callout>
+
+<Callout kind="proposition" title="Structure of ℚₚ">
+Every nonzero $x \in \QQ_p$ is uniquely of the form $x = p^k u$ where $k \in \ZZ$ and $u \in \ZZ_p^\times$.
+In base $p$, elements of $\QQ_p$ look like **Laurent series extending infinitely to the left**:
+$$\sum_{k \ge -n} a_k p^k = \overline{\ldots a_2 a_1 a_0 . a_{-1} \ldots a_{-n}}_p.$$
+</Callout>
+
+The analogy is exact: $\ZZ_p : \QQ_p = K[\![X]\!] : K(\!(X)\!)$. The only denominators you ever need are **powers of $p$** — not arbitrary elements.
+
+<Callout kind="remark" title="Characteristic zero warning">
+Despite everything, $\QQ_p$ has characteristic **zero**, not $p$. Adding $p$ copies of $1$ gives $p$, not $0$.
+</Callout>
+
+</SlideLayout>

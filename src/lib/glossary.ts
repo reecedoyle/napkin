@@ -1643,6 +1643,24 @@ export const glossary = {
     definition: 'For x ∈ ℤₚ with |x|ₚ < 1 and any rational r, the series ∑ C(r,n) xⁿ converges in ℚₚ to (1+x)^r. This extends the usual binomial theorem to non-integer exponents in the p-adic setting.',
     example: 'For r = −2: (1+x)⁻² = 1 − 2x + 3x² − 4x³ + … converges in ℚₚ whenever |x|ₚ < 1.',
   },
+  Zp: {
+    term: 'p-adic integers ℤₚ',
+    symbol: '\\mathbb{Z}_p',
+    definition: 'The ring of p-adic integers, where p is a prime. An element is a compatible sequence of residues (x₁ mod p, x₂ mod p², x₃ mod p³, …). Equivalently, ℤₚ is the completion of ℤ with respect to the p-adic absolute value, or the inverse limit of the rings ℤ/pᵉℤ.',
+    example: 'In ℤ₃: the integer 50 appears as (2 mod 3, 5 mod 9, 23 mod 27, …). The element (1, 4, 13, 40, …) = 1 + 3 + 3² + … = −1/2 is in ℤ₃ but not in ℤ.',
+  },
+  padicValuation: {
+    term: 'p-adic valuation νₚ',
+    symbol: '\\nu_p(x)',
+    definition: 'For a nonzero rational (or p-adic) number x, νₚ(x) is the largest integer k such that pᵏ divides x — equivalently, the exponent of p in the unique factorization x = pᵏu with u a p-adic unit. By convention νₚ(0) = +∞.',
+    example: 'ν₃(54) = ν₃(2·3³) = 3. ν₅(25/7) = ν₅(5²/7) = 2.',
+  },
+  padicAbsVal: {
+    term: 'p-adic absolute value |·|ₚ',
+    symbol: '|x|_p = p^{-\\nu_p(x)}',
+    definition: 'The function |·|ₚ: ℚₚ → ℝ≥0 defined by |x|ₚ = p^{−νₚ(x)} for x ≠ 0, and |0|ₚ = 0. Two numbers are "close" in this metric when their difference is divisible by a high power of p.',
+    example: '|3|₃ = 3⁻¹ = 1/3. |9|₃ = 3⁻² = 1/9. |1|₃ = 1. |1/3|₃ = 3.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
