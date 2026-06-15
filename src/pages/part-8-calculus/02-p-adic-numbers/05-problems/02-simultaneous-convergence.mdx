@@ -1,0 +1,18 @@
+---
+title: "Problems — simultaneous convergence"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — simultaneous convergence">
+
+<Problem
+  client:load
+  id="pad-prob-simultaneous-conv"
+  difficulty="standard"
+  prompt="Let p be a prime. Find a sequence q₁, q₂, … of rational numbers such that: (i) qₙ → 0 in the real sense; (ii) qₙ → 2021 in the p-adic sense. (Mentioned on MathOverflow.)"
+  hint="Try qₙ = 2021/(1 + pⁿ). Check both conditions: what does the denominator do as n → ∞ in ℝ? What is νₚ(qₙ − 2021) as n → ∞?"
+  solution="Set qₙ = 2021/(1 + pⁿ). In ℝ: the denominator 1 + pⁿ grows without bound, so qₙ → 0. In ℚₚ: compute qₙ − 2021 = 2021·(1 − (1 + pⁿ))/(1 + pⁿ) = −2021·pⁿ/(1 + pⁿ). Since 1 + pⁿ ≡ 1 (mod p), the denominator is a p-adic unit, so νₚ(qₙ − 2021) = νₚ(2021) + n → ∞. Hence |qₙ − 2021|ₚ → 0, i.e., qₙ → 2021 in ℚₚ."
+/>
+
+</SlideLayout>

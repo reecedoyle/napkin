@@ -1,0 +1,28 @@
+---
+title: "Problems — compactness and topology"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Problems — compactness and topology">
+
+<Problem
+  client:load
+  id="pad-prob-zp-compact"
+  difficulty="daggered"
+  prompt="Show that ℚₚ is not compact, but ℤₚ is compact. For compactness of ℤₚ, use sequential compactness."
+  hint="For ℤₚ: given any sequence in ℤₚ, use a diagonal argument on the components to extract a convergent subsequence. For ℚₚ: exhibit an open cover with no finite subcover."
+  solution="ℤₚ is sequentially compact: given (xⁿ) in ℤₚ, infinitely many share the same residue mod p (pigeonhole), so pass to that subsequence; repeat mod p², then p³, etc., extracting a diagonal subsequence that converges. For non-compactness of ℚₚ: the open balls {x : |x|ₚ < pⁿ} for n = 1, 2, … cover ℚₚ but no finite subcollection does, since elements of arbitrarily large p-adic absolute value exist."
+/>
+
+<Problem
+  client:load
+  id="pad-prob-totally-disconnected"
+  difficulty="daggered"
+  prompt="Show that both ℤₚ and ℚₚ are totally disconnected: the only connected subsets are the empty set and singleton sets."
+  hint="Show that for any two distinct points x ≠ y there is a clopen (simultaneously open and closed) set containing x but not y. Use a ball of radius |x − y|ₚ / 2."
+  solution="Let x ≠ y in ℤₚ (the same argument works for ℚₚ). Let r = |x − y|ₚ > 0. The open ball B(x, r) = {z : |z − x|ₚ < r} is clopen in the ultrametric topology (every open ball is also closed), contains x, and does not contain y. So {x} is separated from {y} by a clopen set. Any subset with more than one point can be similarly disconnected, so the connected components are singletons."
+/>
+
+</SlideLayout>
