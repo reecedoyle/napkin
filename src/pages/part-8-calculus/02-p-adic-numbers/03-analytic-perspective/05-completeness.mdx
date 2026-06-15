@@ -1,0 +1,20 @@
+---
+title: "ℚₚ is the completion of ℚ"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="ℚₚ is the completion of ℚ">
+
+The $p$-adic absolute value <Term k="padicAbsVal">$\abs{\cdot}_p$</Term> is already well-defined on $\QQ$ (we have $\nu_p$ in olympiads already). The trouble is $\QQ$ is not complete with respect to it — Cauchy sequences in this metric can fail to converge in $\QQ$, just as $1, 1.4, 1.41, 1.414, \ldots$ doesn't converge in $\QQ$ with the real metric.
+
+<Callout kind="theorem" title="ℚₚ is complete">
+$\QQ_p$ is the **completion** of $\QQ$ with respect to $\abs{\cdot}_p$: it contains $\QQ$, every Cauchy sequence converges, and it is the smallest such field.
+
+Equivalently: $\ZZ_p = \{x \in \QQ_p : \abs{x}_p \le 1\}$.
+</Callout>
+
+**Philosophical point.** To estimate $\sum_{n=1}^{10000} n^{-2}$ you really want to know $\pi^2/6$ — which requires the real numbers ($\QQ$ completed under $|\cdot|$). Similarly, to work mod $p^3$ with denominators, you want $\QQ_p$ ($\QQ$ completed under $|\cdot|_p$).
+
+</SlideLayout>

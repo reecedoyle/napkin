@@ -1,0 +1,25 @@
+---
+title: "The p-adic metric — closeness via divisibility"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The p-adic metric — closeness via divisibility">
+
+Until now we've worked algebraically. Moving forward, we borrow language from analysis.
+
+In $\RR$, two numbers are "close" when they're near each other on the number line. For $p$-adic purposes, we only care about mod $p^e$ information — so we call two elements "close" when they **agree modulo high powers of $p$**.
+
+<Callout kind="definition" title="p-adic valuation and absolute value">
+For $x \in \QQ_p^\times$, write $x = p^k u$ with $u \in \ZZ_p^\times$. The **$p$-adic valuation** is $\nu_p(x) = k$, with $\nu_p(0) = +\infty$.
+
+The **$p$-adic absolute value** is
+$$\abs{x}_p = p^{-\nu_p(x)}, \quad \abs{0}_p = 0.$$
+</Callout>
+
+So $\abs{x - y}_p$ is small precisely when $x - y$ is divisible by a large power of $p$ — exactly the notion of "closeness" we wanted.
+
+Concretely: $\abs{p^e}_p = p^{-e}$, so higher powers of $p$ are **smaller** in this metric, the opposite of the real absolute value.
+
+</SlideLayout>

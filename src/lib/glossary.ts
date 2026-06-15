@@ -1661,6 +1661,12 @@ export const glossary = {
     definition: 'The function |·|ₚ: ℚₚ → ℝ≥0 defined by |x|ₚ = p^{−νₚ(x)} for x ≠ 0, and |0|ₚ = 0. Two numbers are "close" in this metric when their difference is divisible by a high power of p.',
     example: '|3|₃ = 3⁻¹ = 1/3. |9|₃ = 3⁻² = 1/9. |1|₃ = 1. |1/3|₃ = 3.',
   },
+  ultrametric: {
+    term: 'Ultrametric (strong triangle inequality)',
+    symbol: '|x+y|_p \\le \\max\\{|x|_p, |y|_p\\}',
+    definition: 'A strengthening of the triangle inequality satisfied by the p-adic absolute value: |x + y|ₚ ≤ max{|x|ₚ, |y|ₚ}. Equality holds when |x|ₚ ≠ |y|ₚ. As a consequence every triangle in a p-adic metric space is isosceles, and series converge if and only if their terms go to zero.',
+    example: 'In ℚ₃: |3 + 9|₃ = |12|₃ = 1/3 = max{1/3, 1/9}, achieving equality since |3|₃ ≠ |9|₃.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
