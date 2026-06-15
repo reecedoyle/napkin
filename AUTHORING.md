@@ -120,6 +120,27 @@ are available: `\ZZ \RR \QQ \CC \NN \FF \Zc{n} \Zcc{p-1} \Zm{p} \ord
 \abs{x} \norm{v} \GL \SL \Aut \Inn \Syl \Gal \id \defeq \half \eps \inv
 \Mat` and more. If you need a new shorthand, add it there.
 
+**Multi-line display math: put `$$` on its own line at both ends.** A
+block whose opening `$$` is glued to content and spans several lines —
+`$$\begin{bmatrix}…` then more rows then `…\end{bmatrix}$$` — is NOT
+tokenized as math by remark-math, so its `{…}` get parsed as JSX
+expressions and the build dies with "Expected a closing tag for
+`<SlideLayout>`". Write it as a standalone block instead:
+
+```mdx
+$$
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}
+$$
+```
+
+Single-line `$$…$$` is also fine. `astro check` does NOT catch this —
+only `npm run build` does (see Self-verify).
+
+**Never write a bare `{token}` in prose or JSX text.** Outside `$…$`,
+MDX reads `{y_i}` as a JavaScript expression and the page crashes at
+render with "y_i is not defined". Either wrap the math in `$…$`, or use
+parentheses for grouping in plain-text math (`Σ_(y_i)`, `2^(−n)`).
+
 ### Exercises
 
 Each exercise has a stable kebab-case `id`, scoped to the chapter:
@@ -127,11 +148,29 @@ Each exercise has a stable kebab-case `id`, scoped to the chapter:
 Two exercises on one slide must have different ids. Storage key is
 `napkin:exercise:<slidePath>#<id>`.
 
+**All exercise props must be plain STRINGS — never JSX.** The exercise
+components are `client:load` React islands; their props are serialized
+for hydration, so a JSX value cannot survive. Passing
+`prompt={<><p>…</p></>}` or `solution={<>…</>}` to `<Problem>` passes
+`astro check` but crashes every render with "Objects are not valid as a
+React child (found: object with keys {astro:jsx,…})". Write
+`prompt="…"`, `hint="…"`, `solution="…"` as strings. That means no
+tables/lists/`<strong>` inside a prompt or solution — flatten to prose
+(a truth table is usually redundant with one sentence describing the
+gate). `$…$` math inside the string is fine. The current `<Problem>`
+prop is `prompt` (some older slides pass `statement=`, which the
+component now ignores — don't copy that).
+
 **NumericInput.expected is a STRING**, not a number. Pass
 `expected="5"` — never `expected={5}`. The latter slips past
 `astro check` but crashes at render time when `String.trim()` is
 called on the number, and the test will silently see no
 "Not quite" / "Correct" feedback.
+
+**Always give NumericInput `placeholder="a number"`.** The component
+defaults to `'Your answer'`, but the e2e template locates the field with
+`getByPlaceholder('a number')`. Omit it and the NumericInput test hangs
+until timeout.
 
 **`<Callout kind="…">` must be one of the nine allowed kinds**:
 definition, theorem, proposition, lemma, corollary, example,
@@ -200,11 +239,21 @@ file, and (c) NOT inside a KaTeX block (math is split into many small
 DOM nodes — text matchers can't find it). Plain English from the
 prose immediately around a Callout is the safest target.
 
+For a ProofReveal/Problem reveal test, the fragment must appear **only
+inside the hidden solution** — not in any visible prose elsewhere on the
+slide. The test asserts the fragment is `toBeHidden()` before the click,
+so if the same phrase also sits in the slide's intro the assertion fails
+before you even reveal. (A real miss: the phrase "spooky correlation"
+was used both in a slide's intro sentence and its solution; the hidden
+assertion failed. The fix was to assert on "Reading off the
+coefficients", which lives only in the solution.)
+
 ## Self-verify before reporting done
 
 ```sh
 node scripts/verify-chapter.mjs <part-dir>/<chapter-dir>
 npm run check
+npm run build
 ```
 
 `verify-chapter` validates:
@@ -215,7 +264,14 @@ npm run check
 - every `\begin{(s|d)?problem}` in the source TeX has a `<Problem>` somewhere in the chapter
 - no MDX uses relative `../` imports or the legacy `part="…" chapter="…"` props
 
-Fix any issues it reports before committing.
+**`npm run build` is not optional.** `astro check` only typechecks — it
+passes clean on every gotcha in the KaTeX and Exercises sections above
+(multi-line `$$`, bare `{token}`, JSX exercise props). Only the build
+actually renders each page, so it's the step that surfaces those. Build
+fails fast on the first broken page; read the file path in the error,
+fix, rebuild. Don't report done on a green `check` alone.
+
+Fix any issues these report before committing.
 
 ## Out of scope
 
