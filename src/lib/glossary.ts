@@ -1617,6 +1617,20 @@ export const glossary = {
     definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
+
+  // ────────────── Chapter 29 — Power series and Taylor series ──────────────
+  powerSeries: {
+    term: 'Power series',
+    symbol: '\\sum_{n=0}^\\infty a_n z^n',
+    definition: 'An "infinite polynomial" of the form a₀ + a₁z + a₂z² + ⋯ with fixed coefficients a₀, a₁, …. When the variable z is replaced by a real or complex number h, we get an ordinary infinite series that may or may not converge.',
+    example: '1 + z + z² + z³ + ⋯ is a power series with every coefficient equal to 1.',
+  },
+  radiusOfConvergence: {
+    term: 'Radius of convergence',
+    symbol: 'R',
+    definition: 'The radius R ≥ 0 (possibly ∞) such that a power series ∑ aₙzⁿ converges absolutely for |z| < R and diverges for |z| > R. Given by 1/R = lim sup |aₙ|^{1/n} (Cauchy–Hadamard formula).',
+    example: 'The geometric series ∑ zⁿ has R = 1: it converges for |z| < 1 and diverges for |z| > 1.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

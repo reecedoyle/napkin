@@ -1,0 +1,39 @@
+---
+title: Reading off coefficients by differentiating
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Reading off coefficients by differentiating">
+
+We know $\frac{1}{1-x} = 1 + x + x^2 + \cdots$ for $|x| < 1$. But suppose we didn't — how would we find the coefficients $a_n$ in
+
+$$\frac{1}{1-x} = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots$$
+
+**Step 1:** Plug in $x = 0$. We get $a_0 = 1$.
+
+**Step 2:** Differentiate both sides. The left side gives $(1-x)^{-2}$; the right side gives $a_1 + 2a_2 x + 3a_3 x^2 + \cdots$. Plug in $x = 0$ again: $a_1 = 1$.
+
+**Step 3:** Differentiate again. Each derivative shifts the coefficients — the pattern forces $a_n = 1$ for all $n$.
+
+<Callout kind="remark" title="Key takeaway">
+If a function equals a power series, its coefficients are completely determined by its derivatives at 0: $a_n = f^{(n)}(0)/n!$. We can always *compute* the series; the hard question is whether it *converges to* $f$.
+</Callout>
+
+<MCQ
+  client:load
+  id="pts-mot-mcq-coeff"
+  prompt="For f(x) = 1/(1-x) with power series ∑ aₙ xⁿ, what is a₃?"
+  options={[
+    { id: "a", label: "0" },
+    { id: "b", label: "1" },
+    { id: "c", label: "6" },
+    { id: "d", label: "1/6" },
+  ]}
+  correct="b"
+  explanation="Differentiating 1/(1-x) three times gives 6·(1-x)^{-4}. Plugging in x=0 gives 6, and dividing by 3! = 6 yields a₃ = 1. Equivalently, the geometric series is 1 + x + x² + x³ + ⋯, so every coefficient is 1."
+/>
+
+</SlideLayout>
