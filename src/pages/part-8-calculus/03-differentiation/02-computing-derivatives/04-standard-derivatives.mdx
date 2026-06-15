@@ -1,0 +1,21 @@
+---
+title: Standard derivatives and the power rule
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Standard derivatives and the power rule">
+
+With the three rules in hand, we can build a library. We take two facts on faith (since we haven't defined $e^x$ rigorously yet) and derive the rest.
+
+<Callout kind="proposition" title="Library of known derivatives">
+- $(e^x)' = e^x$
+- $(\sin x)' = \cos x$, $\;\;(\cos x)' = -\sin x$
+- $(\log x)' = 1/x$ for $x > 0$ — proved by differentiating $x = e^{\log x}$ via the chain rule.
+- **<Term k="powerRule">Power rule</Term>:** $(x^r)' = rx^{r-1}$ for any real $r > 0$ — proved by writing $x^r = e^{r \log x}$ and applying the chain rule.
+</Callout>
+
+The power rule proof illustrates the value of the library: we get a result for *all real exponents* (not just integers) as an almost-free consequence of $(e^x)' = e^x$ and the chain rule.
+
+</SlideLayout>

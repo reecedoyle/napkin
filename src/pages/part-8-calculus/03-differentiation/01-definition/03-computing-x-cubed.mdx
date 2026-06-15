@@ -1,0 +1,29 @@
+---
+title: "Example: derivative of x³"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Example: derivative of x³">
+
+Let's run the definition once to build muscle memory.
+
+<Callout kind="example" title="Derivative of x³ is 3x²">
+Let $f(x) = x^3$. For nonzero $h$:
+$$\frac{f(p+h) - f(p)}{h} = \frac{(p+h)^3 - p^3}{h} = \frac{3p^2 h + 3ph^2 + h^3}{h} = 3p^2 + 3ph + h^2.$$
+Taking $h \to 0$:
+$$f'(p) = \lim_{h \to 0}(3p^2 + 3ph + h^2) = 3p^2.$$
+</Callout>
+
+We write $f'(x) = 3x^2$ as shorthand for "the derivative of $f$ at every point $p$ equals $3p^2$." Once we have differentiation rules, we'll never have to do this limit computation again — but it's useful to see it once.
+
+<NumericInput
+  client:load
+  id="diff-def-num-x-cubed-at-2"
+  prompt="Using f(x) = x³, what is f′(2)?"
+  expected="12"
+/>
+
+</SlideLayout>

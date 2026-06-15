@@ -1,0 +1,23 @@
+---
+title: A smooth function flat at the origin
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A smooth function flat at the origin">
+
+Here is an example that shows smooth functions can behave very differently from polynomials.
+
+<Callout kind="example" title="Smooth, with all derivatives zero at 0">
+Define
+$$f(x) = \begin{cases} e^{-1/x} & x > 0 \\ 0 & x \le 0. \end{cases}$$
+
+This function is <Term k="smoothFunction">smooth</Term>, and $f^{(n)}(0) = 0$ for every $n \ge 0$.
+
+So $f$ has every derivative equal to zero at the origin — yet $f$ is not identically zero (it is positive for all $x > 0$).
+</Callout>
+
+This is a key example for the distinction between *smooth* and *analytic* functions. A function is **analytic** at $p$ if it equals its Taylor series near $p$. The function above is smooth but **not analytic at 0**: its Taylor series there is identically $0$, which does not match the function on $(0, \infty)$.
+
+</SlideLayout>

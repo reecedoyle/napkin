@@ -1,0 +1,26 @@
+---
+title: The limit definition of the derivative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The limit definition of the derivative">
+
+Most of us learned derivatives as rules: "power rule, product rule, done." The point of this chapter is to show where those rules *come from* — and more importantly, to prove the theorems (Rolle, MVT) that make the whole machine work.
+
+We start with the definition of the derivative as a limit.
+
+<Callout kind="definition" title="Derivative">
+Let <Term k="openInterval">$U$</Term> be an open subset of <Term k="RR">$\RR$</Term> and let $f \colon U \to \RR$ be a function. Let $p \in U$.
+
+We say $f$ is <Term k="differentiable">**differentiable**</Term> at $p$ if the limit
+$$\lim_{h \to 0} \frac{f(p+h) - f(p)}{h}$$
+exists. If so, we denote its value $f'(p)$ and call it the <Term k="derivative">**derivative**</Term> of $f$ at $p$.
+
+The function $f$ is **differentiable** (on all of $U$) if it is differentiable at every point, and we regard $f' \colon U \to \RR$ as a function in its own right.
+</Callout>
+
+The fraction $\frac{f(p+h)-f(p)}{h}$ is undefined at $h = 0$, so when we write the limit we mean the limit *as $h$ approaches $0$*, ignoring any value at $h = 0$ itself.
+
+</SlideLayout>

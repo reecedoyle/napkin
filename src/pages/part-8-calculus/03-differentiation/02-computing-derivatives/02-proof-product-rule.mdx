@@ -1,0 +1,18 @@
+---
+title: Proof of the product rule
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of the product rule">
+
+The product rule proof works by a clever algebraic split.
+
+<Callout kind="remark" title="Proof">
+For nonzero $h$ and point $p$, split the numerator by adding and subtracting $f(p+h)\,g(p)$: the difference quotient equals $\frac{f(p+h) - f(p)}{h} \cdot g(p+h) + \frac{g(p+h) - g(p)}{h} \cdot f(p).$ As $h \to 0$: the first ratio $\to f'(p)$, and $g(p+h) \to g(p)$ (since $g$ is continuous at $p$, as it is differentiable). The second ratio $\to g'(p)$, and $f(p)$ is a constant. So the whole expression $\to f'(p)\,g(p) + g'(p)\,f(p)$.
+</Callout>
+
+The key ingredient is that differentiability implies continuity: we need $g(p+h) \to g(p)$ to replace $g(p+h)$ by $g(p)$ in the limit.
+
+</SlideLayout>

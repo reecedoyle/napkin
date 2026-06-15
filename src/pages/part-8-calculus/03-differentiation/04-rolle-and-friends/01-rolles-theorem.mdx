@@ -1,0 +1,24 @@
+---
+title: "Rolle's theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Rolle's theorem">
+
+Fermat's theorem immediately gives us a beautiful consequence: if a differentiable function starts and ends at the same height, it must have a horizontal tangent somewhere in between.
+
+<Callout kind="theorem" title="Rolle's theorem">
+Suppose $f \colon [a,b] \to \RR$ is <Term k="continuousFunction">continuous</Term> on $[a,b]$, <Term k="differentiable">differentiable</Term> on $(a,b)$, and $f(a) = f(b)$.
+
+Then there exists $c \in (a,b)$ such that $f'(c) = 0$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+If $f$ is constant, any $c$ works. Otherwise $f$ is nonconstant, so its global maximum and minimum (which exist by compactness) are not both achieved at the endpoints (since $f(a) = f(b)$). At least one extremum must lie inside $(a,b)$. By Fermat's theorem, that interior extremum has $f'(c) = 0$.
+</Callout>
+
+This is why Fermat's theorem is so powerful: it converts a topological fact (a continuous function on a compact set attains its extrema) into an analytic fact (the derivative vanishes somewhere).
+
+</SlideLayout>

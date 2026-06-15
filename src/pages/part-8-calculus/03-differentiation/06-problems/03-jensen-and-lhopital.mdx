@@ -1,0 +1,27 @@
+---
+title: Problems — Jensen and L'Hôpital
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Jensen and L'Hôpital">
+
+<Problem
+  client:load
+  id="diff-prob-jensen"
+  difficulty="standard"
+  prompt="[Jensen's inequality] Let f : (a,b) → ℝ be twice differentiable with f″(x) ≥ 0 for all x (i.e. f is convex). Prove that f((x+y)/2) ≤ (f(x)+f(y))/2 for all x, y ∈ (a,b)."
+  solution="Let m = (x+y)/2. Apply the MVT (or racetrack principle) twice. Since f″ ≥ 0, f′ is non-decreasing. By the MVT applied to [m, y]: f(y) − f(m) = f′(c₁)(y − m) for some c₁ ∈ (m, y). Similarly f(m) − f(x) = f′(c₂)(m − x) for some c₂ ∈ (x, m). Since c₂ < m < c₁ and f′ is non-decreasing, f′(c₁) ≥ f′(c₂). Then f(y) − f(m) = f′(c₁)(y−m) ≥ f′(c₂)(m−x) = f(m) − f(x), so f(x) + f(y) ≥ 2f(m) = 2f((x+y)/2)."
+/>
+
+<Problem
+  client:load
+  id="diff-prob-lhopital"
+  difficulty="standard"
+  prompt="[L'Hôpital's rule, one case] Let f, g : ℝ → ℝ be differentiable with lim_{x→p} f(x) = lim_{x→p} g(x) = 0. Prove that lim_{x→p} f(x)/g(x) = lim_{x→p} f′(x)/g′(x), provided the right-hand limit exists."
+  solution="Since f and g are differentiable and their limits at p are 0, we may extend them continuously to p by setting f(p) = g(p) = 0. Apply the ratio (Cauchy) MVT on [p, x] (or [x, p]): there exists c between p and x with f′(c)(g(x)−g(p)) = g′(c)(f(x)−f(p)), i.e. f′(c) g(x) = g′(c) f(x), so f(x)/g(x) = f′(c)/g′(c). As x → p, c (which is between x and p) also → p, so f(x)/g(x) = f′(c)/g′(c) → lim_{x→p} f′(x)/g′(x)."
+/>
+
+</SlideLayout>

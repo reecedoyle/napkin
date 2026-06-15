@@ -1,0 +1,36 @@
+---
+title: Finding global extrema via compactness
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Finding global extrema via compactness">
+
+Fermat's theorem finds all *local* extrema inside an open domain. To find **global** extrema we need a bounded closed domain, where we know extrema exist (by <Term k="extremeValueThm">compactness</Term>).
+
+<Callout kind="remark" title="Strategy for global optimization">
+1. Work on a **compact** (closed and bounded) domain $Z = [a, b]$.
+2. Any interior local extremum satisfies $f'(p) = 0$ — find all such $p$.
+3. The global maximum and minimum must be among: the **stationary points** inside $(a,b)$, and the **endpoints** $a$, $b$.
+4. Evaluate $f$ at each candidate and compare.
+</Callout>
+
+This is the rigorous version of the "set $f' = 0$ and check endpoints" procedure from high school.
+
+<MCQ
+  client:load
+  id="diff-max-mcq-global-strategy"
+  prompt="When optimizing f on [a, b], which candidates do we check for the global maximum?"
+  options={[
+    { id: "a", label: "Only the points where f′ = 0" },
+    { id: "b", label: "Only the endpoints a and b" },
+    { id: "c", label: "Points where f′ = 0 inside (a,b), plus the endpoints a and b" },
+    { id: "d", label: "Points where f″ = 0" },
+  ]}
+  correct="c"
+  explanation="By Fermat's theorem any interior local maximum has f′ = 0, but the global maximum might occur at an endpoint. We must check all stationary points inside (a,b) together with both endpoints, then pick the largest value."
+/>
+
+</SlideLayout>

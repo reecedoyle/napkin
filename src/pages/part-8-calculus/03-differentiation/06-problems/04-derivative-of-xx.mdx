@@ -1,0 +1,20 @@
+---
+title: "Problem — derivative of x^x"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — derivative of x^x">
+
+<Problem
+  client:load
+  id="diff-prob-deriv-xx"
+  difficulty="standard"
+  prompt="Calculate the derivative of f : (0, ∞) → ℝ defined by f(x) = x^x."
+  hint="First rewrite it as f(x) = e^{x log x}."
+  solution="Write f(x) = e^{x log x} and apply the chain rule (with the fact that (e^u)′ = e^u · u′) and product rule on u = x log x: u′ = 1 · log x + x · (1/x) = log x + 1. Therefore f′(x) = e^{x log x} · (log x + 1) = x^x (1 + log x)."
+/>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: Sum, product, and chain rule
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sum, product, and chain rule">
+
+Now the rules. All three hold **point-by-point**: if $f$ and $g$ are differentiable at $p$, so are $f + g$, $f \cdot g$, and $g \circ f$.
+
+<Callout kind="theorem" title="The core differentiation rules">
+Let $f \colon U \to \RR$ and $g \colon U \to \RR$ be differentiable functions on open subsets of <Term k="RR">$\RR$</Term>.
+
+- **Sum rule:** $(f + g)'(x) = f'(x) + g'(x).$
+- **<Term k="productRule">Product rule</Term>:** $(f \cdot g)'(x) = f'(x)\,g(x) + f(x)\,g'(x).$
+- **<Term k="chainRule">Chain rule</Term>:** If $f \colon U \to V$ and $g \colon V \to \RR$, then $(g \circ f)'(x) = g'(f(x)) \cdot f'(x).$
+</Callout>
+
+The sum rule is essentially immediate from limit arithmetic. The product and chain rules need a short trick each.
+
+</SlideLayout>

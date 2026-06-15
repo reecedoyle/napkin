@@ -1815,6 +1815,89 @@ export const glossary = {
     symbol: '\\langle \\psi |',
     definition: 'The dual vector of a ket |ψ⟩ in bra-ket notation, written ⟨ψ|. In coordinates it is the conjugate transpose (row vector) of the ket column vector. The bra ⟨ψ| acts on kets by the inner product: ⟨ψ|φ⟩ = ⟨|ψ⟩, |φ⟩⟩.',
   },
+
+  // ────────────── Chapter 28 — Differentiation ──────────────
+  productRule: {
+    term: 'Product rule',
+    symbol: "(fg)'",
+    definition: 'For differentiable functions f and g, (f·g)′(x) = f′(x)g(x) + f(x)g′(x). Proved by splitting the difference quotient into two terms, then taking the limit.',
+    example: '(x² · sin x)′ = 2x sin x + x² cos x.',
+  },
+  chainRule: {
+    term: 'Chain rule',
+    symbol: "(g∘f)'",
+    definition: 'If f : U → V and g : V → ℝ are differentiable, then (g∘f)′(x) = g′(f(x)) · f′(x). Geometrically: the rate of change of the composition equals the outer rate times the inner rate.',
+    example: "(sin(x²))′ = cos(x²) · 2x.",
+  },
+  powerRule: {
+    term: 'Power rule',
+    symbol: "(x^r)'",
+    definition: 'For any real r, the function x ↦ xʳ has derivative rxʳ⁻¹. For integer r this follows from the limit definition; for all real r it follows from writing xʳ = e^{r log x} and applying the chain rule.',
+    example: "(x^{1/2})′ = (1/2)x^{-1/2} = 1/(2√x).",
+  },
+  smoothFunction: {
+    term: 'Smooth function (C∞)',
+    symbol: 'C^\\infty',
+    definition: 'A function f : U → ℝ is smooth if it is infinitely differentiable: the n-th derivative f^(n) exists for every n ≥ 0. Polynomials, eˣ, log, sin, and cos are all smooth, as are their compositions.',
+    example: 'The function f(x) = e^{−1/x} for x > 0 and 0 for x ≤ 0 is smooth, but not analytic at 0 (all its derivatives at 0 are 0 yet f is nonzero for x > 0).',
+  },
+  rollesTheorem: {
+    term: "Rolle's theorem",
+    definition: "If f : [a,b] → ℝ is continuous, differentiable on (a,b), and f(a) = f(b), then there exists c ∈ (a,b) with f′(c) = 0. Proved by compactness: a non-constant function on [a,b] must achieve an interior extremum, which Fermat's theorem forces to be a stationary point.",
+    example: 'f(x) = x² − 1 on [−1, 1]: f(−1) = f(1) = 0, and f′(0) = 0.',
+  },
+  meanValueThm: {
+    term: 'Mean value theorem',
+    definition: "If f : [a,b] → ℝ is continuous and differentiable on (a,b), then there exists c ∈ (a,b) such that f′(c) = (f(b) − f(a))/(b − a). Proved by applying Rolle's theorem to g(x) = f(x) − sx where s is the secant slope.",
+    example: 'If a car travels 900 km in 5 hours, at some instant the speedometer reads exactly 180 km/h.',
+  },
+  localMaximum: {
+    term: 'Local maximum',
+    definition: 'A point p in the domain of f : U → ℝ is a local maximum if there is an open neighbourhood V of p (with V ⊆ U) such that f(p) ≥ f(x) for all x ∈ V. The value f(p) need not be the global maximum.',
+    example: 'f(x) = cos x has local maxima at x = 0, ±2π, ±4π, …',
+  },
+  localMinimum: {
+    term: 'Local minimum',
+    definition: 'A point p is a local minimum of f if there is an open neighbourhood V of p with f(p) ≤ f(x) for all x ∈ V. Equivalently, p is a local maximum of −f.',
+    example: 'f(x) = x² has a local (and global) minimum at x = 0.',
+  },
+  localExtrema: {
+    term: 'Local extremum',
+    definition: 'A point that is either a local maximum or a local minimum of a function. By Fermat\'s theorem, every local extremum of a differentiable function is a stationary point (where f′ = 0).',
+    example: 'x = 0 is a local extremum of f(x) = x², but not of f(x) = x³.',
+  },
+  stationaryPoint: {
+    term: 'Stationary point',
+    definition: 'A point p where f′(p) = 0. Every local extremum of a differentiable function is a stationary point, but not every stationary point is an extremum (it may be an inflection point).',
+    example: 'f(x) = x³ has f′(0) = 0 but x = 0 is an inflection point, not an extremum.',
+  },
+  extremeValueThm: {
+    term: 'Extreme value theorem (compactness)',
+    definition: 'A continuous function on a compact (closed and bounded) subset of ℝ achieves both its maximum and minimum values. This guarantees global extrema exist when working on a closed interval [a, b].',
+    example: 'f(x) = sin x on [0, 2π] achieves maximum 1 (at π/2) and minimum −1 (at 3π/2).',
+  },
+  openInterval: {
+    term: 'Open interval',
+    symbol: '(a, b)',
+    definition: 'The set of real numbers strictly between a and b: {x ∈ ℝ : a < x < b}. Open intervals are the standard domains for derivatives because every interior point has a full neighbourhood within the set.',
+    example: '(0, 1) contains all reals between 0 and 1, not including the endpoints.',
+  },
+  differentiable: {
+    term: 'Differentiable function',
+    definition: 'A function f : U → ℝ on an open set U ⊆ ℝ is differentiable at a point p ∈ U if the limit lim_{h→0} (f(p+h) − f(p))/h exists. It is differentiable (on U) if this holds at every point.',
+    example: 'f(x) = x³ is differentiable everywhere; f(x) = |x| is continuous everywhere but not differentiable at x = 0.',
+  },
+  derivative: {
+    term: 'Derivative',
+    symbol: "f'(p)",
+    definition: "The derivative of f at p is the value of the limit lim_{h→0} (f(p+h) − f(p))/h, denoted f′(p). Geometrically it is the slope of the tangent line to the graph of f at the point (p, f(p)).",
+    example: "If f(x) = x², then f′(p) = 2p for every p.",
+  },
+  continuousFunction: {
+    term: 'Continuous function',
+    definition: 'A function f : U → ℝ is continuous at p if lim_{x→p} f(x) = f(p). Equivalently, for every ε > 0 there exists δ > 0 such that |x − p| < δ implies |f(x) − f(p)| < ε. Every differentiable function is continuous, but not vice versa.',
+    example: 'f(x) = |x| is continuous at 0 (the limit from both sides equals 0 = f(0)) but not differentiable there.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

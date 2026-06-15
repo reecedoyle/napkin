@@ -1,0 +1,23 @@
+---
+title: The mean value theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The mean value theorem">
+
+Rolle's theorem only applies when $f(a) = f(b)$. The mean value theorem (MVT) removes that restriction by "tilting" the function.
+
+<Callout kind="theorem" title="Mean value theorem">
+Suppose $f \colon [a,b] \to \RR$ is <Term k="continuousFunction">continuous</Term> on $[a,b]$ and <Term k="differentiable">differentiable</Term> on $(a,b)$. Then there exists $c \in (a,b)$ such that
+$$f'(c) = \frac{f(b) - f(a)}{b - a}.$$
+</Callout>
+
+Pictorially: the slope of the secant from $(a, f(a))$ to $(b, f(b))$ is achieved as a tangent slope somewhere in between.
+
+<Callout kind="remark" title="Proof">
+Let $s = \frac{f(b)-f(a)}{b-a}$ (the secant slope) and define $g(x) = f(x) - sx$. Then $g(a) = f(a) - sa$ and $g(b) = f(b) - sb = f(a) - sa$ (verify: $g(b) - g(a) = (f(b)-f(a)) - s(b-a) = 0$). So $g(a) = g(b)$ and we apply <Term k="rollesTheorem">Rolle's theorem</Term> to $g$, obtaining $c$ with $g'(c) = f'(c) - s = 0$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: "Example: e^x ≥ 1 + x"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: e^x ≥ 1 + x">
+
+The same compactness-plus-Fermat strategy proves a non-trivial analytic inequality.
+
+<Callout kind="proposition" title="e^x ≥ 1 + x for all real x">
+For every real number $x$, $e^x \ge 1 + x$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Define $f(x) = e^x - (x+1)$ on $\RR$. For $|x|$ large, $f(x) > 0$ is obvious.
+
+To check all $x$: restrict to the compact interval $[-1, 100]$. By <Term k="extremeValueThm">compactness</Term>, $f$ achieves its global minimum at some $p$.
+
+If $p$ is interior, Fermat gives $f'(p) = e^p - 1 = 0$, so $p = 0$.
+
+Check: $f(-1) = e^{-1} > 0$, $f(100) > 0$, $f(0) = 0$.
+
+So $p = 0$ is the global minimum on $[-1, 100]$, and $f(0) = 0 \ge 0$. Since outside $[-1, 100]$ we also have $f > 0$, we conclude $e^x \ge 1 + x$ for all $x$.
+</Callout>
+
+This illustrates the key use of the MVT-era toolkit: **derivative information controls function behavior**.
+
+</SlideLayout>

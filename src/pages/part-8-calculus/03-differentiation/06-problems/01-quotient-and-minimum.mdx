@@ -1,0 +1,27 @@
+---
+title: Problems — quotient rule and x^x minimum
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — quotient rule and x^x minimum">
+
+<Problem
+  client:load
+  id="diff-prob-quotient-rule"
+  difficulty="standard"
+  prompt="Let f : (a,b) → ℝ and g : (a,b) → ℝ_{>0} be differentiable. Let h = f/g. Show that h′(x) = (f′(x) g(x) − f(x) g′(x)) / g(x)²."
+  solution="Write h = f · (1/g) and apply the product rule: h′ = f′ · (1/g) + f · (1/g)′. To find (1/g)′, write 1/g = (g)^{−1} and apply the chain rule (or write g · (1/g) = 1, differentiate both sides using the product rule to get g′ · (1/g) + g · (1/g)′ = 0, hence (1/g)′ = −g′/g²). Substituting: h′ = f′/g + f · (−g′/g²) = (f′g − fg′)/g²."
+/>
+
+<Problem
+  client:load
+  id="diff-prob-xx-minimum"
+  difficulty="standard"
+  prompt="For real numbers x > 0, how small can x^x be? Find the minimum value of f(x) = x^x on (0, ∞)."
+  solution="Write f(x) = e^{x log x}. Differentiate: f′(x) = x^x (1 + log x) (using the chain and product rules). Setting f′(x) = 0 gives 1 + log x = 0, so x = e^{−1} = 1/e. Check: f(1/e) = (1/e)^{1/e} = e^{−1/e}. As x → 0⁺ or x → ∞, f(x) → ∞ (or grows), so this interior critical point is the global minimum. The minimum value is e^{−1/e} ≈ 0.6922."
+/>
+
+</SlideLayout>

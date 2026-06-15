@@ -1,0 +1,20 @@
+---
+title: Local extrema — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Local extrema — definition">
+
+One classical use of calculus: finding where a function achieves its maximum or minimum. Let's set up the terminology precisely.
+
+<Callout kind="definition" title="Local maximum and minimum">
+Let $f \colon U \to \RR$ be a function. A **<Term k="localMaximum">local maximum</Term>** is a point $p \in U$ such that there exists an open neighbourhood $V$ of $p$ (with $V \subseteq U$) where $f(p) \ge f(x)$ for every $x \in V$.
+
+A **<Term k="localMinimum">local minimum</Term>** is defined similarly. A **<Term k="localExtrema">local extremum</Term>** is a point that is either a local maximum or a local minimum.
+</Callout>
+
+Informally: $p$ is a local maximum if $f$ does not exceed $f(p)$ anywhere nearby. We do not require $f(p)$ to be the largest value over the entire domain — only locally.
+
+</SlideLayout>

@@ -1,0 +1,37 @@
+---
+title: Smooth vs analytic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Smooth vs analytic">
+
+The hierarchy of "niceness" for real functions is:
+
+$$\text{analytic} \;\subset\; \text{smooth} \;\subset\; \text{differentiable} \;\subset\; \text{continuous}$$
+
+Each inclusion is strict.
+
+<Callout kind="remark" title="Why this matters">
+In complex analysis (over ℂ), the situation is completely different: a once-differentiable complex function is automatically analytic. Over ℝ, differentiability and analyticity are genuinely different conditions. The example $f(x) = e^{-1/x}$ (for $x > 0$) is the canonical witness.
+</Callout>
+
+The function $f(x) = |x|$ witnesses that continuous does not imply differentiable (it fails at $x = 0$). Higher calculus and PDE theory care deeply about exactly which level of smoothness a function has.
+
+<MCQ
+  client:load
+  id="diff-smooth-mcq-absolute-value"
+  prompt="The function f(x) = |x| is:"
+  options={[
+    { id: "a", label: "Smooth (C∞)" },
+    { id: "b", label: "Differentiable everywhere but not smooth" },
+    { id: "c", label: "Continuous everywhere but not differentiable at x = 0" },
+    { id: "d", label: "Not continuous" },
+  ]}
+  correct="c"
+  explanation="|x| is continuous everywhere (left and right limits both equal |p| = f(p) at every p). But at x = 0 the left derivative is −1 and the right derivative is +1, so the limit defining f′(0) does not exist. Hence f is not differentiable (and a fortiori not smooth) at 0."
+/>
+
+</SlideLayout>

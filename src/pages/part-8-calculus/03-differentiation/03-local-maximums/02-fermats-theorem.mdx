@@ -1,0 +1,22 @@
+---
+title: "Fermat's theorem on stationary points"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fermat's theorem on stationary points">
+
+The derivative detects local extrema.
+
+<Callout kind="theorem" title="Fermat's theorem on stationary points">
+Suppose $f \colon U \to \RR$ is <Term k="differentiable">differentiable</Term> and $p \in U$ is a <Term k="localExtrema">local extremum</Term>. Then $f'(p) = 0$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Assume for contradiction $f'(p) > 0$. Then for small enough $|h|$ we have $\frac{f(p+h)-f(p)}{h} > 0$. This means $f(p+h) > f(p)$ when $h > 0$ and $f(p+h) < f(p)$ when $h < 0$, so $p$ is not a local extremum. The case $f'(p) < 0$ is symmetric.
+</Callout>
+
+**Important:** the converse is false. The function $f(x) = x^3$ has $f'(0) = 0$, but $x = 0$ is not a local extremum — $f$ is strictly increasing through it. A point where $f' = 0$ is called a **<Term k="stationaryPoint">stationary point</Term>**, but it might be an inflection point rather than an extremum.
+
+</SlideLayout>

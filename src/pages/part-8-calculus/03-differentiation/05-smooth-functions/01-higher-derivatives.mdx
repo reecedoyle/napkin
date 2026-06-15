@@ -1,0 +1,18 @@
+---
+title: Higher derivatives
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Higher derivatives">
+
+If $f \colon U \to \RR$ is differentiable, we get $f' \colon U \to \RR$. If $f'$ itself is differentiable, we can differentiate again to get $f'' = (f')'$. We write $f^{(n)}$ for the $n$-th derivative, with $f^{(0)} = f$ by convention.
+
+<Callout kind="definition" title="Smooth function">
+A function $f \colon U \to \RR$ is **<Term k="smoothFunction">smooth</Term>** (or $C^\infty$) if it is infinitely differentiable — meaning $f^{(n)}$ exists for every $n \ge 0$.
+</Callout>
+
+Most familiar functions are smooth: polynomials, $e^x$, $\log x$, $\sin x$, $\cos x$, and all their compositions. The interesting question is whether there exist smooth functions with unusual properties.
+
+</SlideLayout>
