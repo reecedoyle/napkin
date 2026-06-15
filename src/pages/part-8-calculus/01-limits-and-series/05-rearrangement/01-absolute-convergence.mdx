@@ -1,0 +1,26 @@
+---
+title: Absolute convergence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Absolute convergence">
+
+The definition of convergence depends on the *order* of the terms. Rearranging them might change the sum — or even the question of whether it converges. Understanding when rearrangement is safe starts with distinguishing two kinds of convergence.
+
+<Callout kind="definition" title="Absolute and conditional convergence">
+A series $\sum_k a_k$ **converges absolutely** if
+
+$$\sum_k |a_k| < \infty,$$
+
+i.e. the series of absolute values converges. If the series converges but not absolutely, it **converges conditionally**.
+</Callout>
+
+<Callout kind="proposition" title="Absolute implies ordinary convergence">
+If $\sum_k a_k$ converges absolutely, then it converges.
+</Callout>
+
+The proof uses Cauchy: if the partial sums of $\sum |a_k|$ are Cauchy, so are the partial sums of $\sum a_k$, because $|s_m - s_n| \le \sum_{k=n+1}^m |a_k|$.
+
+</SlideLayout>

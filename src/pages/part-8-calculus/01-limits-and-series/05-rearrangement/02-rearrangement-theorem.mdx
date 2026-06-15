@@ -1,0 +1,24 @@
+---
+title: Rearrangement — absolutely vs conditionally convergent
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Rearrangement — absolutely vs conditionally convergent">
+
+The story of rearranging series is as clean as it could possibly be.
+
+<Callout kind="theorem" title="Absolute convergence: rearrangement is fine">
+If $\sum_k a_k$ <Term k="absoluteConvergence">converges absolutely</Term> to $L$, then any permutation of the terms also converges to $L$.
+</Callout>
+
+The key idea: choose $N$ large enough that the "tail" $\sum_{k>N} |a_k| < \frac{\eps}{2}$ and the first $N$ partial sum is within $\frac{\eps}{2}$ of $L$. Any sufficiently long rearrangement contains $a_1, \ldots, a_N$ plus some later terms; those later terms are bounded by $\frac{\eps}{2}$ in absolute value.
+
+<Callout kind="theorem" title="Riemann rearrangement theorem — conditional convergence">
+If $\sum_k a_k$ <Term k="conditionalConvergence">converges conditionally</Term>, then for *any* real number $T$ (or $\pm\infty$), there exists a rearrangement of the terms that converges to $T$.
+</Callout>
+
+So conditional convergence and rearrangement are maximally incompatible: you can rearrange to get *any* value you want. In practice, nonneg­ative series (which are absolutely convergent or diverge to $+\infty$) can always be rearranged freely.
+
+</SlideLayout>

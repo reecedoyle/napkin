@@ -1664,6 +1664,17 @@ export const glossary = {
     definition: 'An infinite series ∑ aₖ is defined as the limit of its partial sums sₙ = a₁ + a₂ + ⋯ + aₙ. If this limit exists and is finite, the series converges; otherwise it diverges. There is no actual "infinite addition" — only a limit.',
     example: '∑_{k=1}^∞ 1/(k(k+1)) = 1, because the partial sums telescope to 1 − 1/(n+1) → 1.',
   },
+  absoluteConvergence: {
+    term: 'Absolute convergence',
+    symbol: '\\sum_k |a_k| < \\infty',
+    definition: 'A series ∑ aₖ converges absolutely if the series of absolute values ∑ |aₖ| converges. Absolute convergence is stronger than ordinary convergence and implies that the series can be rearranged in any order without changing its sum.',
+    example: '∑ 1/n² converges absolutely (all terms positive). The alternating harmonic series 1 − 1/2 + 1/3 − … converges but NOT absolutely.',
+  },
+  conditionalConvergence: {
+    term: 'Conditional convergence',
+    definition: 'A series ∑ aₖ converges conditionally if it converges but does NOT converge absolutely — i.e. ∑ |aₖ| diverges. Conditionally convergent series are dangerous: by the Riemann rearrangement theorem, their terms can be permuted to converge to any value.',
+    example: 'The alternating harmonic series 1 − 1/2 + 1/3 − 1/4 + … converges (to ln 2) but ∑ 1/n diverges, so convergence is only conditional.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
