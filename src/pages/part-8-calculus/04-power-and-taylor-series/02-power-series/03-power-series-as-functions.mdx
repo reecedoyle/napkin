@@ -1,0 +1,29 @@
+---
+title: Power series as functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Power series as functions">
+
+If a <Term k="powerSeries">power series</Term> has radius of convergence $R > 0$, we can treat it as a function
+
+$$f \colon (-R, R) \to \mathbb{R}, \quad f(h) = \sum_{n=0}^\infty a_n h^n.$$
+
+If $R = \infty$ we get a function $f \colon \mathbb{R} \to \mathbb{R}$.
+
+<Callout kind="remark" title="Series vs. function">
+There is a subtle distinction here. A power series is initially just a sequence of coefficients $(a_0, a_1, a_2, \dots)$ — think of it like a polynomial. Cauchy–Hadamard lets us *also* read it as a function. We blur this distinction freely, just as we treat the polynomial $x^2 + 1$ both as a formal expression and as a function $x \mapsto x^2 + 1$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="pts-ps-num-r-geometric"
+  prompt="What is the radius of convergence of the power series ∑ 2ⁿ zⁿ?"
+  expected="1/2"
+  hint="Apply Cauchy–Hadamard: 1/R = lim sup |aₙ|^{1/n} = lim sup (2ⁿ)^{1/n} = 2."
+/>
+
+</SlideLayout>
