@@ -10,7 +10,7 @@ import Problem from '@/components/Problem';
   client:load
   id="lim-prob-comparison-test"
   difficulty="daggered"
-  statement="(Comparison test) Let $\sum a_n$ and $\sum b_n$ be two series. Assume $\sum b_n$ is absolutely convergent, and $|a_n| \le |b_n|$ for all $n$. Prove that $\sum a_n$ is absolutely convergent."
+  prompt="(Comparison test) Let $\sum a_n$ and $\sum b_n$ be two series. Assume $\sum b_n$ is absolutely convergent, and $|a_n| \le |b_n|$ for all $n$. Prove that $\sum a_n$ is absolutely convergent."
   solution="We need to show ∑ |aₙ| converges. Since |aₙ| ≤ |bₙ| for all n, the partial sums of ∑ |aₙ| are bounded above by the partial sums of ∑ |bₙ|. Since ∑ |bₙ| converges (∑ bₙ is absolutely convergent), its partial sums are bounded by some M. Hence the partial sums of ∑ |aₙ| are also bounded by M. All terms |aₙ| are nonnegative, so by the bounded-nonneg­ative criterion, ∑ |aₙ| converges."
 />
 
@@ -18,7 +18,7 @@ import Problem from '@/components/Problem';
   client:load
   id="lim-prob-geometric-series"
   difficulty="standard"
-  statement="(Geometric series) Let $-1 < r < 1$ be a real number. Show that the series $1 + r + r^2 + r^3 + \cdots$ converges absolutely and determine what it converges to."
+  prompt="(Geometric series) Let $-1 < r < 1$ be a real number. Show that the series $1 + r + r^2 + r^3 + \cdots$ converges absolutely and determine what it converges to."
   hint="The nth partial sum is (1 − rⁿ⁺¹)/(1 − r)."
   solution="Since |r| < 1 we have |r|ⁿ → 0, so the series ∑ |r|ⁿ of absolute values has partial sums (1 − |r|ⁿ⁺¹)/(1 − |r|) → 1/(1 − |r|) < ∞. This proves absolute convergence. For the actual value: the nth partial sum is sₙ = (1 − rⁿ⁺¹)/(1 − r). Since |r| < 1 we have rⁿ⁺¹ → 0, so sₙ → 1/(1 − r). The series converges to 1/(1 − r)."
 />

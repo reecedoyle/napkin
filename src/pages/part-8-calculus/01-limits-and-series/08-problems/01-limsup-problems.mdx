@@ -10,7 +10,7 @@ import Problem from '@/components/Problem';
   client:load
   id="lim-prob-limsup-compute"
   difficulty="standard"
-  statement="Define the sequence $a_n = (-1)^n + \frac{n^3}{2^n}$ for every positive integer $n$. Compute the limit infimum and the limit supremum."
+  prompt="Define the sequence $a_n = (-1)^n + \frac{n^3}{2^n}$ for every positive integer $n$. Compute the limit infimum and the limit supremum."
   solution="Note that n³/2ⁿ → 0 as n → ∞ (exponential beats polynomial). So for large n, aₙ ≈ (−1)ⁿ. More precisely, for even n: aₙ = 1 + n³/2ⁿ → 1; for odd n: aₙ = −1 + n³/2ⁿ → −1. The sequence oscillates, approaching 1 from above and −1 from below. Therefore limsup aₙ = 1 and liminf aₙ = −1."
 />
 
@@ -18,7 +18,7 @@ import Problem from '@/components/Problem';
   client:load
   id="lim-prob-limsup-iff-converge"
   difficulty="standard"
-  statement="For which bounded sequences $(a_n)$ does $\liminf_n a_n = \limsup_n a_n$?"
+  prompt="For which bounded sequences $(a_n)$ does $\liminf_n a_n = \limsup_n a_n$?"
   hint="Think about what it means when the eventual extremes squeeze together."
   solution="Exactly the convergent sequences. If aₙ → L then for any ε > 0 all but finitely many terms lie in (L−ε, L+ε), so the tail sup and tail inf both converge to L. Conversely, if liminf = limsup = L then for any ε > 0 every tail has sup ≤ L + ε and inf ≥ L − ε, so eventually all terms are in (L−ε, L+ε), which means aₙ → L."
 />
