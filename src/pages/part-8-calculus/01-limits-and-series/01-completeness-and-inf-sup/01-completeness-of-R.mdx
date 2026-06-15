@@ -1,0 +1,35 @@
+---
+title: Completeness of ℝ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Completeness of ℝ">
+
+Real analysis is built on two foundational facts about <Term k="RR">$\RR$</Term>. We've actually seen the first one already, back when we studied metric spaces.
+
+<Callout kind="theorem" title="ℝ is complete">
+As a metric space, <Term k="RR">$\RR$</Term> is **complete**: every <Term k="cauchySequence">Cauchy sequence</Term> in $\RR$ converges to a limit in $\RR$.
+</Callout>
+
+Recall what "Cauchy" means: the terms get arbitrarily close to *each other*, without needing to know the limit in advance. Completeness says: in $\RR$, that's enough to guarantee convergence.
+
+The classic failure case is <Term k="QQ">$\QQ$</Term>: the sequence $1,\ 1.4,\ 1.41,\ 1.414,\ \ldots$ (successive decimal truncations of $\sqrt{2}$) is Cauchy in $\QQ$ but its limit $\sqrt{2}$ isn't rational. So $\QQ$ is not complete.
+
+<MCQ
+  client:load
+  id="lim-s1-mcq-complete"
+  prompt="Which of the following is a Cauchy sequence in ℚ that does NOT converge in ℚ?"
+  options={[
+    { id: "a", label: "1, 1/2, 1/3, 1/4, … (converging to 0)" },
+    { id: "b", label: "1, 1.4, 1.41, 1.414, … (truncations of √2)" },
+    { id: "c", label: "1, 2, 3, 4, … (diverging to ∞)" },
+    { id: "d", label: "0, 0, 0, … (constant sequence)" },
+  ]}
+  correct="b"
+  explanation="The truncations of √2 form a Cauchy sequence in ℚ — consecutive terms get arbitrarily close — but √2 is irrational, so the limit doesn't exist in ℚ. This shows ℚ is not complete. Options (a) and (d) converge in ℚ itself; option (c) is not Cauchy."
+/>
+
+</SlideLayout>

@@ -1,0 +1,37 @@
+---
+title: Sup and inf of sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Sup and inf of sequences">
+
+We extend sup/inf notation to sequences in the natural way.
+
+<Callout kind="definition" title="Sup and inf of a sequence">
+For a sequence $a_1, a_2, \ldots$ we write
+
+$$
+\sup_n a_n \defeq \sup \{ a_n \mid n \in \NN \}, \qquad \inf_n a_n \defeq \inf \{ a_n \mid n \in \NN \}.
+$$
+
+We also call the sequence "bounded above/below" in the same sense as a set.
+</Callout>
+
+<Callout kind="example" title="Infimum of a sequence">
+The sequence $a_n = \tfrac{1}{n}$ gives the set $\{1, \tfrac{1}{2}, \tfrac{1}{3}, \ldots\}$. This set has no minimum — there is no smallest positive fraction — but its greatest lower bound is $0$. So $\inf_n a_n = 0$.
+</Callout>
+
+Note that $0$ is never actually achieved by the sequence, yet it is the infimum. This is exactly the same phenomenon as $\sup(0,1) = 1$ even though $1 \notin (0,1)$.
+
+<NumericInput
+  client:load
+  id="lim-s1-num-sup-seq"
+  prompt="The sequence aₙ = 1 − 1/n gives a₁ = 0, a₂ = 1/2, a₃ = 2/3, …. What is sup aₙ?"
+  expected="1"
+  hint="The terms approach 1 but never reach it. What is the least upper bound of the set {0, 1/2, 2/3, 3/4, …}?"
+/>
+
+</SlideLayout>

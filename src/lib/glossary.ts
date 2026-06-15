@@ -1617,6 +1617,25 @@ export const glossary = {
     definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
+
+  // ────────────── Chapter 26 — Limits and series ──────────────
+  cauchySequence: {
+    term: 'Cauchy sequence',
+    definition: 'A sequence (aₙ) in a metric space is Cauchy if for every ε > 0 there exists N such that d(aₘ, aₙ) < ε for all m, n ≥ N. Intuitively, the terms become arbitrarily close to each other. In ℝ, every Cauchy sequence converges.',
+    example: 'The decimal approximations 1, 1.4, 1.41, 1.414, … of √2 form a Cauchy sequence in ℚ, but their limit √2 is not rational.',
+  },
+  supremum: {
+    term: 'Supremum',
+    symbol: '\\sup S',
+    definition: 'The supremum (least upper bound) of a nonempty set S of real numbers is the smallest real number M such that x ≤ M for all x ∈ S. Written sup S. It may or may not belong to S. If S is unbounded above we write sup S = +∞.',
+    example: 'sup(0,1) = 1, even though 1 ∉ (0,1). For any finite nonempty set, sup S = max S.',
+  },
+  infimum: {
+    term: 'Infimum',
+    symbol: '\\inf S',
+    definition: 'The infimum (greatest lower bound) of a nonempty set S of real numbers is the largest real number m such that m ≤ x for all x ∈ S. Written inf S. It may or may not belong to S. If S is unbounded below we write inf S = −∞.',
+    example: 'inf{1/n : n ≥ 1} = 0, even though 0 is never a term of the sequence.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
