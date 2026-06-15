@@ -1898,6 +1898,74 @@ export const glossary = {
     definition: 'A function f : U → ℝ is continuous at p if lim_{x→p} f(x) = f(p). Equivalently, for every ε > 0 there exists δ > 0 such that |x − p| < δ implies |f(x) − f(p)| < ε. Every differentiable function is continuous, but not vice versa.',
     example: 'f(x) = |x| is continuous at 0 (the limit from both sides equals 0 = f(0)) but not differentiable there.',
   },
+
+
+  // ────────────── Chapter 27 — Bonus: A hint of p-adic numbers ──────────────
+  surjtoZp: {
+    term: 'Reduction map ℤ → ℤ/p',
+    symbol: '\\mathbb{Z} \\twoheadrightarrow \\mathbb{Z}/p',
+    definition: 'The surjective ring homomorphism sending an integer n to its residue class n mod p. It is far from injective: every residue class has infinitely many preimages. Much information about n is lost when we only keep n mod p.',
+    example: 'Under ℤ → ℤ/3, the integers 0, 3, 6, 9, … all map to the same element 0.',
+  },
+  Qp: {
+    term: 'p-adic numbers ℚₚ',
+    symbol: '\\mathbb{Q}_p',
+    definition: 'The field of p-adic numbers, where p is a prime. It is the completion of ℚ with respect to the p-adic absolute value |·|ₚ. Elements can be thought of as "Laurent series with base p" — infinite to the left, possibly finite to the right.',
+    example: 'ℚ₃ contains elements like −1/2 = 1 + 3 + 3² + 3³ + … (an infinite series convergent in the 3-adic metric).',
+  },
+  ZinjZp: {
+    term: 'Embedding ℤ ↪ ℤₚ',
+    symbol: '\\mathbb{Z} \\hookrightarrow \\mathbb{Z}_p',
+    definition: 'The injective ring homomorphism sending an integer n to the compatible sequence (n mod p, n mod p², n mod p³, …). Unlike the reduction map ℤ → ℤ/p, this map loses no information about n.',
+    example: 'The integer 50 embeds as (2 mod 3, 5 mod 9, 23 mod 27, 50 mod 81, 50 mod 243, …) in ℤ₃.',
+  },
+  genBinomThm: {
+    term: 'Generalized binomial theorem (p-adic)',
+    symbol: '(1+x)^r = \\sum_{n \\ge 0} \\binom{r}{n} x^n',
+    definition: 'For x ∈ ℤₚ with |x|ₚ < 1 and any rational r, the series ∑ C(r,n) xⁿ converges in ℚₚ to (1+x)^r. This extends the usual binomial theorem to non-integer exponents in the p-adic setting.',
+    example: 'For r = −2: (1+x)⁻² = 1 − 2x + 3x² − 4x³ + … converges in ℚₚ whenever |x|ₚ < 1.',
+  },
+  Zp: {
+    term: 'p-adic integers ℤₚ',
+    symbol: '\\mathbb{Z}_p',
+    definition: 'The ring of p-adic integers, where p is a prime. An element is a compatible sequence of residues (x₁ mod p, x₂ mod p², x₃ mod p³, …). Equivalently, ℤₚ is the completion of ℤ with respect to the p-adic absolute value, or the inverse limit of the rings ℤ/pᵉℤ.',
+    example: 'In ℤ₃: the integer 50 appears as (2 mod 3, 5 mod 9, 23 mod 27, …). The element (1, 4, 13, 40, …) = 1 + 3 + 3² + … = −1/2 is in ℤ₃ but not in ℤ.',
+  },
+  padicValuation: {
+    term: 'p-adic valuation νₚ',
+    symbol: '\\nu_p(x)',
+    definition: 'For a nonzero rational (or p-adic) number x, νₚ(x) is the largest integer k such that pᵏ divides x — equivalently, the exponent of p in the unique factorization x = pᵏu with u a p-adic unit. By convention νₚ(0) = +∞.',
+    example: 'ν₃(54) = ν₃(2·3³) = 3. ν₅(25/7) = ν₅(5²/7) = 2.',
+  },
+  padicAbsVal: {
+    term: 'p-adic absolute value |·|ₚ',
+    symbol: '|x|_p = p^{-\\nu_p(x)}',
+    definition: 'The function |·|ₚ: ℚₚ → ℝ≥0 defined by |x|ₚ = p^{−νₚ(x)} for x ≠ 0, and |0|ₚ = 0. Two numbers are "close" in this metric when their difference is divisible by a high power of p.',
+    example: '|3|₃ = 3⁻¹ = 1/3. |9|₃ = 3⁻² = 1/9. |1|₃ = 1. |1/3|₃ = 3.',
+  },
+  ultrametric: {
+    term: 'Ultrametric (strong triangle inequality)',
+    symbol: '|x+y|_p \\le \\max\\{|x|_p, |y|_p\\}',
+    definition: 'A strengthening of the triangle inequality satisfied by the p-adic absolute value: |x + y|ₚ ≤ max{|x|ₚ, |y|ₚ}. Equality holds when |x|ₚ ≠ |y|ₚ. As a consequence every triangle in a p-adic metric space is isosceles, and series converge if and only if their terms go to zero.',
+    example: 'In ℚ₃: |3 + 9|₃ = |12|₃ = 1/3 = max{1/3, 1/9}, achieving equality since |3|₃ ≠ |9|₃.',
+  },
+  mahlerBasis: {
+    term: 'Binomial coefficient functions (Mahler basis)',
+    symbol: '\\binom{x}{n}',
+    definition: 'The functions C(x,n) = x(x−1)⋯(x−(n−1))/n! for n = 0, 1, 2, … These are integer-valued polynomials that form an orthonormal basis for the space of continuous functions ℤₚ → ℚₚ via Mahler\'s theorem.',
+    example: 'C(x,0) = 1, C(x,1) = x, C(x,2) = x(x−1)/2. For integer x ≥ n, C(x,n) is the usual binomial coefficient.',
+  },
+  mahlerCoeff: {
+    term: 'Mahler coefficients',
+    symbol: 'a_n = \\sum_{k=0}^n \\binom{n}{k}(-1)^{n-k}f(k)',
+    definition: 'For a function f: ℤₚ → ℚₚ, the nth Mahler coefficient is the nth finite difference Δⁿf(0) = ∑_{k=0}^n C(n,k)(−1)^{n−k}f(k). By Mahler\'s theorem, f is continuous if and only if aₙ → 0, in which case f(x) = ∑ aₙ C(x,n).',
+    example: 'For f(n) = n²: a₀ = 0, a₁ = 1, a₂ = 2, aₙ = 0 for n ≥ 3 (since x² = C(x,1) + 2C(x,2) in the binomial basis).',
+  },
+  strassmann: {
+    term: "Strassmann's theorem",
+    definition: 'If f: ℤₚ → ℚₚ is analytic (has a convergent power series expansion on ℤₚ), then f has only finitely many zeros. This is the p-adic analogue of the statement that a nonzero analytic function on a compact complex domain has finitely many zeros.',
+    example: 'Applied in the proof of the Skolem–Mahler–Lech theorem: the function f(n) = x_{nT+r} coming from a linear recurrence is analytic, so it either vanishes identically or has finitely many zeros.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

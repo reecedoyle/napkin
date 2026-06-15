@@ -1,0 +1,25 @@
+---
+title: "Mahler's theorem — a basis for continuous functions"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Mahler's theorem — a basis for continuous functions">
+
+One of the big surprises of $p$-adic analysis: we can describe **all** continuous functions $\ZZ_p \to \QQ_p$.
+
+The building blocks are the <Term k="mahlerBasis">binomial coefficient functions</Term>
+$$\binom{x}{n} \defeq \frac{x(x-1)\cdots(x-(n-1))}{n!}.$$
+
+<Callout kind="theorem" title="Mahler's theorem">
+Let $f \colon \ZZ_p \to \QQ_p$ be continuous. Define the **Mahler coefficients**
+$$a_n = \sum_{k=0}^n \binom{n}{k}(-1)^{n-k} f(k).$$
+Then $a_n \to 0$ and $f(x) = \sum_{n \ge 0} a_n \binom{x}{n}$ for all $x \in \ZZ_p$.
+
+Conversely, any sequence $(a_n)$ with $a_n \to 0$ defines a continuous function this way.
+</Callout>
+
+So continuous functions $\ZZ_p \to \QQ_p$ are in bijection with sequences $(a_0, a_1, a_2, \ldots)$ in $\QQ_p$ converging to $0$.
+
+</SlideLayout>

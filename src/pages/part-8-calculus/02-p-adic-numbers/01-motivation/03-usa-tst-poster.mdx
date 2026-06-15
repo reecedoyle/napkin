@@ -1,0 +1,25 @@
+---
+title: "A motivating example — USA TST 2002"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A motivating example — USA TST 2002">
+
+Here is why all this matters in practice.
+
+<Callout kind="example" title="USA TST 2002/2 (poster problem)">
+For a prime $p$, show that
+$$f_p(x) = \sum_{k=1}^{p-1} \frac{1}{(px+k)^2} \pmod{p^3}$$
+does not depend on $x$.
+</Callout>
+
+This problem clearly asks only about mod $p^3$ information — yet manipulating the denominators mod $p^3$ is painful because $\mathbb{Z}/p^3\mathbb{Z}$ is not an integral domain.
+
+With <Term k="Qp">$\QQ_p$</Term>, the <Term k="genBinomThm">generalized binomial theorem</Term> applies:
+$$\left(1 + \frac{px}{k}\right)^{-2} = \sum_{n \ge 0} \binom{-2}{n} \left(\frac{px}{k}\right)^n.$$
+
+This identity is meaningless over $\QQ$ or $\RR$ (the series doesn't converge for general $x$), but it's valid over $\QQ_p$. We'll return to this proof at the end of the analytic perspective section.
+
+</SlideLayout>

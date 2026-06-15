@@ -1,0 +1,22 @@
+---
+title: "Defining ℤₚ — compatible residues"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining ℤₚ — compatible residues">
+
+The key idea: a $p$-adic integer "knows" all of its residues mod $p^e$ simultaneously, and those residues must be consistent with each other.
+
+<Callout kind="definition" title="p-adic integer">
+A **$p$-adic integer** is a sequence
+$$x = (x_1 \bmod p,\; x_2 \bmod p^2,\; x_3 \bmod p^3,\; \ldots)$$
+of residues satisfying the **compatibility relations**: $x_i \equiv x_j \pmod{p^i}$ for $i < j$.
+
+The set <Term k="Zp">$\mathbb{Z}_p$</Term> of all $p$-adic integers forms a ring under componentwise addition and multiplication.
+</Callout>
+
+Every usual integer $n$ gives such a sequence: $(n \bmod p,\; n \bmod p^2,\; \ldots)$. So we get an injection $\mathbb{Z} \hookrightarrow \mathbb{Z}_p$. But there are many more $p$-adic integers than ordinary ones.
+
+</SlideLayout>

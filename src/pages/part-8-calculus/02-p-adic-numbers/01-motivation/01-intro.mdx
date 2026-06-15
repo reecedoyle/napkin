@@ -1,0 +1,23 @@
+---
+title: "What are p-adic numbers?"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What are p-adic numbers?">
+
+This is a **bonus chapter** at the intersection of algebra and analysis. Throughout, $p$ denotes a prime.
+
+In elementary number theory we already wield two powerful tools:
+
+1. **Taking modulo** $p$ or $p^e$ — reduce an equation to get a necessary condition.
+2. **The $p$-adic valuation** $\nu_p$ — track divisibility by powers of $p$.
+
+Both tools are indispensable in olympiad work. But each has a frustrating limitation: taking mod $p$ loses information (the map <Term k="surjtoZp">$\mathbb{Z} \twoheadrightarrow \mathbb{Z}/p$</Term> is far from injective), while taking mod $p^2$ gives finer control at the cost of working in a ring that isn't even a field.
+
+<Callout kind="remark" title="The p-adic promise">
+The $p$-adic numbers $\QQ_p$ are designed to fix both problems at once: they carry "all mod $p^e$ information simultaneously" while remaining a field where $1/p$ makes sense.
+</Callout>
+
+</SlideLayout>

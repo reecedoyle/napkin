@@ -1,0 +1,20 @@
+---
+title: "Convergence in ℚₚ — terms must go to zero"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Convergence in ℚₚ — terms must go to zero">
+
+We can define convergence in <Term k="Qp">$\QQ_p$</Term> exactly as in $\RR$: a sequence $s_n$ converges to $L$ if $\abs{s_n - L}_p \to 0$. But there is a remarkable simplification for series.
+
+<Callout kind="proposition" title="Series converge iff terms go to zero">
+A series $\sum_{k=1}^\infty x_k$ in $\QQ_p$ converges **if and only if** $\abs{x_k}_p \to 0$.
+</Callout>
+
+Compare with $\RR$: the harmonic series $\sum 1/n$ diverges even though $1/n \to 0$. The ultrametric inequality is why this can't happen in $\QQ_p$.
+
+This means that the base-$p$ expansion $\sum_{k \ge 0} a_k p^k$ converges in $\ZZ_p$ for **any** coefficients $a_k \in \{0, \ldots, p-1\}$: the $k$-th term has $\abs{a_k p^k}_p \le p^{-k} \to 0$.
+
+</SlideLayout>

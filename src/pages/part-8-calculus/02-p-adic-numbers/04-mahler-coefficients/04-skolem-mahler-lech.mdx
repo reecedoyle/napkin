@@ -1,0 +1,20 @@
+---
+title: "Skolem–Mahler–Lech theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Skolem–Mahler–Lech theorem">
+
+As a striking application of the machinery above:
+
+<Callout kind="theorem" title="Skolem–Mahler–Lech">
+Let $(x_i)_{i \ge 0}$ be an integer linear recurrence:
+$x_n = c_1 x_{n-1} + \cdots + c_k x_{n-k}$
+for integers $c_1, \ldots, c_k$. Then the set $\{i \mid x_i = 0\}$ is **eventually periodic**.
+</Callout>
+
+**Proof sketch.** Write $x_i = \langle A^i u, v \rangle$ for a matrix $A$. Pick a prime $p \nmid \det A$ and let $T$ be such that $A^T \equiv \mathrm{id} \pmod{p}$. For each residue $0 \le r < T$, the function $f(n) = x_{nT+r}$ can be written in Mahler form with $a_n \in p^n \mathbb{Z}$. So $a_n \to 0$, and by Mahler's theorem $f$ extends to an analytic function $\ZZ_p \to \QQ_p$. By <Term k="strassmann">Strassmann's theorem</Term>, either $f \equiv 0$ or $f$ has finitely many zeros. This holds for each residue class mod $T$, giving the result.
+
+</SlideLayout>

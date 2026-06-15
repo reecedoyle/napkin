@@ -1,0 +1,26 @@
+---
+title: "Analytic functions and Strassmann's theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Analytic functions and Strassmann's theorem">
+
+Among continuous functions, the analytic ones are special.
+
+<Callout kind="definition" title="Analytic function ℤₚ → ℚₚ">
+A function $f \colon \ZZ_p \to \QQ_p$ is **analytic** if it has a convergent power series expansion: $f(x) = \sum_{n \ge 0} c_n x^n$ for $x \in \ZZ_p$.
+</Callout>
+
+<Callout kind="theorem" title="Mahler criterion for analyticity">
+If $f(x) = \sum_{n \ge 0} a_n \binom{x}{n}$ is the Mahler expansion, then $f$ is analytic if and only if $a_n / n! \to 0$.
+</Callout>
+
+<Callout kind="theorem" title="Strassmann's theorem">
+Let $f \colon \ZZ_p \to \QQ_p$ be analytic. Then $f$ has **finitely many zeros** in $\ZZ_p$.
+</Callout>
+
+Contrast with the real case: the analytic function $\sin(x)$ has infinitely many zeros. The ultrametric structure of $\QQ_p$ makes $\ZZ_p$ "small" enough that analytic functions can't oscillate indefinitely.
+
+</SlideLayout>

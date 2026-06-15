@@ -1,0 +1,21 @@
+---
+title: "Mahler coefficients as finite differences"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Mahler coefficients as finite differences">
+
+The <Term k="mahlerCoeff">Mahler coefficients</Term> $a_n$ are exactly the **finite differences** familiar from combinatorics:
+$$a_0 = f(0), \quad a_1 = f(1) - f(0), \quad a_2 = f(2) - 2f(1) + f(0), \quad \ldots$$
+
+In general $a_n = \Delta^n f(0)$ where $\Delta$ is the forward-difference operator $\Delta f(x) = f(x+1) - f(x)$.
+
+<Callout kind="remark" title="Polynomial interpretation">
+If $f$ is a polynomial of degree $d$, the differences stabilize: $a_n = 0$ for $n > d$. The condition $a_n \to 0$ is the $p$-adic analog of "behaves like a polynomial modulo $p^e$ for every $e$."
+</Callout>
+
+This is why the $a_n$ are called "Mahler differences" — they were used on polynomials in math olympiad contexts long before $p$-adics came into the picture.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: "Problems — USA TST 2011 (p-pods)"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — USA TST 2011 (p-pods)">
+
+<Problem
+  client:load
+  id="pad-prob-p-pod"
+  difficulty="standard"
+  prompt="Let p be a prime. Say a sequence of integers {zₙ}ₙ≥₀ is a p-pod if for each e ≥ 0, there exists N ≥ 0 such that whenever m ≥ N, pᵉ divides ∑_{k=0}^{m} (−1)ᵏ C(m,k) zₖ. Prove that if {xₙ} and {yₙ} are both p-pods, then so is {xₙyₙ}. (USA TST 2011.)"
+  hint="Translate the p-pod condition into Mahler coefficients: {zₙ} is a p-pod exactly when the Mahler coefficients aₙ = ∑ C(n,k)(−1)^{n−k}zₖ satisfy aₙ → 0 in ℚₚ. Then the product xₙyₙ corresponds to... what operation on Mahler coefficients?"
+  solution="Translate: {zₙ} is a p-pod iff the Mahler coefficients aₙ(z) = Δⁿz(0) satisfy νₚ(aₙ(z)) → ∞, i.e., aₙ(z) → 0 in ℚₚ. By Mahler's theorem this is equivalent to the extension f_z(t) = ∑ aₙ(z) C(t,n) being a well-defined continuous function ℤₚ → ℚₚ. If {xₙ} and {yₙ} are p-pods, then f_x, f_y: ℤₚ → ℚₚ are continuous. Their pointwise product f_x · f_y is also continuous and agrees with xₙyₙ at non-negative integers. Since ℤ≥0 is dense in ℤₚ and the product is continuous, its Mahler coefficients converge to 0, making {xₙyₙ} a p-pod."
+/>
+
+</SlideLayout>
