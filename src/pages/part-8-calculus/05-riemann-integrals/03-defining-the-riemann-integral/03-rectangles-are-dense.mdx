@@ -1,0 +1,22 @@
+---
+title: Rectangle functions are dense in continuous functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Rectangle functions are dense in continuous functions">
+
+We need one more ingredient before we can apply the extension theorem: $R([a,b])$ must be <Term k="denseSubset">dense</Term> in $M([a,b])$.
+
+<Callout kind="proposition" title="Dense inclusion">
+$R([a,b])$ is dense in $M([a,b])$ under the sup-norm metric. That is: for every continuous $f \colon [a,b] \to \mathbb{R}$ and every $\eps > 0$, there exists a rectangle function $g \in R([a,b])$ with $d(f, g) < \eps$.
+</Callout>
+
+The proof uses the <Term k="uniformlyContinuous">uniform continuity</Term> of $f$ (guaranteed because $[a,b]$ is <Term k="compact">compact</Term>). Given $\eps$, find $\delta$ from uniform continuity. Then choose breakpoints $t_0 < t_1 < \cdots < t_n$ with each gap $t_i - t_{i-1} < \delta$. Define the rectangle function $g$ that on each interval $[t_{i-1}, t_i)$ takes the value $f(t_{i-1})$.
+
+Because $f$ doesn't change by more than $\eps$ across any gap of width $< \delta$, the rectangle function approximates $f$ within $\eps$ everywhere.
+
+Picture: a smooth curve approximated by thin rectangles whose tops just touch the curve from the left. As the rectangles get thinner (mesh $\to 0$), the sup-norm error vanishes.
+
+</SlideLayout>

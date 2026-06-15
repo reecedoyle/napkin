@@ -1,0 +1,22 @@
+---
+title: Riemann sums converge as mesh goes to zero
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Riemann sums converge as mesh goes to zero">
+
+The extension-theorem definition and the limit-of-sums definition agree. Here is the precise statement.
+
+<Callout kind="theorem" title="Riemann integral via mesh">
+Let $f \colon [a,b] \to \mathbb{R}$ be continuous. Then
+$$\int_a^b f(x)\,dx = \lim_{\operatorname{mesh}(P) \to 0} S(f, P)$$
+where the limit is taken over all <Term k="taggedPartition">tagged partitions</Term> $P$ whose <Term k="meshPartition">mesh</Term> approaches zero.
+</Callout>
+
+The reason: as mesh$(P) \to 0$, the rectangle function $g_P$ whose heights are $f(\xi_i)$ on each $[t_{i-1}, t_i)$ approaches $f$ in the sup-norm. Precisely: by <Term k="uniformlyContinuous">uniform continuity</Term> of $f$, as soon as mesh$(P) < \delta$ we get $d(f, g_P) < \eps$. So $\Sigma(g_P) \to \int_a^b f$.
+
+This shows the two definitions are equivalent: the abstract "unique continuous extension" is the same as the concrete "limit of sums." You can use whichever is more convenient.
+
+</SlideLayout>

@@ -1966,6 +1966,50 @@ export const glossary = {
     definition: 'If f: ℤₚ → ℚₚ is analytic (has a convergent power series expansion on ℤₚ), then f has only finitely many zeros. This is the p-adic analogue of the statement that a nonzero analytic function on a compact complex domain has finitely many zeros.',
     example: 'Applied in the proof of the Skolem–Mahler–Lech theorem: the function f(n) = x_{nT+r} coming from a linear recurrence is analytic, so it either vanishes identically or has finitely many zeros.',
   },
+
+
+  // ────────────── Chapter 30 — Riemann integrals ──────────────
+  rectangleFunction: {
+    term: 'Rectangle function',
+    symbol: 'R([a,b])',
+    definition: 'A function f: [a,b] → ℝ that is piecewise-constant: there exist breakpoints a = t₀ < t₁ < ⋯ < tₙ = b such that f is constant on each half-open interval [t_{i-1}, t_i) (and also constant on the closed final interval [t_{n-1}, tₙ]). Rectangle functions are the building blocks of Riemann integration.',
+    example: 'Any step function on [0,1] that takes the value 1 on [0, 1/2) and 2 on [1/2, 1] is a rectangle function.',
+  },
+  supNorm: {
+    term: 'Sup-norm metric',
+    symbol: 'd(f,g) = \\sup_{x} |f(x)-g(x)|',
+    definition: 'A metric on spaces of bounded functions: the distance between f and g is the supremum of |f(x) − g(x)| over all x in the domain. Also called the uniform norm or ∞-norm. Convergence in this metric is exactly uniform convergence.',
+    example: 'On [0,1], d(x², x³) = sup_{x∈[0,1]}|x²−x³| = 4/27 ≈ 0.148, attained near x = 2/3.',
+  },
+  riemannIntegral: {
+    term: 'Riemann integral',
+    symbol: '\\int_a^b f(x)\\,dx',
+    definition: 'For a continuous function f: [a,b] → ℝ, the Riemann integral is the unique continuous extension of the rectangle-sum map Σ from R([a,b]) to M([a,b]). Equivalently, it equals the limit of Riemann sums as the mesh of the tagged partition goes to zero.',
+    example: '∫₁⁴ x² dx = [x³/3]₁⁴ = 64/3 − 1/3 = 21.',
+  },
+  taggedPartition: {
+    term: 'Tagged partition',
+    symbol: 'P = (t_0,\\ldots,t_n;\\,\\xi_1,\\ldots,\\xi_n)',
+    definition: 'A partition a = t₀ < t₁ < ⋯ < tₙ = b of [a,b] together with sample points ξᵢ ∈ [t_{i-1}, tᵢ] for each subinterval. Used to form Riemann sums Σ f(ξᵢ)(tᵢ − t_{i-1}). The mesh of P is max(tᵢ − t_{i-1}).',
+    example: 'A tagged partition of [0,1] into four equal subintervals, with each ξᵢ at the left endpoint, gives the left Riemann sum.',
+  },
+  meshPartition: {
+    term: 'Mesh of a partition',
+    symbol: '\\operatorname{mesh}(P)',
+    definition: 'The width of the widest subinterval in a partition P of [a,b]: mesh(P) = max(t_i − t_{i-1}). As mesh(P) → 0, Riemann sums for a continuous function converge to the Riemann integral.',
+    example: 'The uniform partition of [0,1] into n equal parts has mesh 1/n.',
+  },
+  riemannSum: {
+    term: 'Riemann sum',
+    symbol: '\\sum_{i=1}^n f(\\xi_i)(t_i - t_{i-1})',
+    definition: 'Given a tagged partition P of [a,b] and a function f: [a,b] → ℝ, the Riemann sum is Σᵢ f(ξᵢ)(tᵢ − t_{i-1}). It approximates ∫_a^b f(x) dx by summing the areas of rectangles of width tᵢ − t_{i-1} and height f(ξᵢ).',
+    example: 'For f(x) = x on [0,1] with the uniform partition and right endpoints, the Riemann sum equals (1/n) · Σₖ₌₁ⁿ (k/n) = (n+1)/(2n) → 1/2.',
+  },
+  riemannIntegrable: {
+    term: 'Riemann integrable',
+    definition: 'A bounded function f: [a,b] → ℝ is Riemann integrable if the limit of Riemann sums S(f,P) exists as mesh(P) → 0, independently of the choice of sample points. Every continuous function is Riemann integrable. The Dirichlet function (1 on ℚ, 0 on irrationals) is not.',
+    example: 'Every monotone bounded function on [a,b] is Riemann integrable. A function with one jump discontinuity (e.g. a step function) is also Riemann integrable.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

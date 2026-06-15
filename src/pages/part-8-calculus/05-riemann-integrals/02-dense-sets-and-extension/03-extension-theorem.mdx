@@ -1,0 +1,28 @@
+---
+title: The extension theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The extension theorem">
+
+Here is the precise statement that makes our definition of the integral possible.
+
+<Callout kind="theorem" title="Extending uniformly continuous functions">
+Let $M$ be a <Term k="metricSpace">metric space</Term>, $N$ a <Term k="completeSpace">complete</Term> metric space, and $S$ a <Term k="denseSubset">dense</Term> subspace of $M$. If $\psi \colon S \to N$ is <Term k="uniformlyContinuous">uniformly continuous</Term>, then there exists a **unique** continuous $\widetilde{\psi} \colon M \to N$ extending $\psi$.
+</Callout>
+
+The proof outline is clean: for any $x \in M$, pick a sequence $x_1, x_2, \ldots \in S$ with $x_i \to x$. Use uniform continuity to show $\psi(x_1), \psi(x_2), \ldots$ is <Term k="cauchySeq">Cauchy</Term>, then use completeness of $N$ to get a limit. Define $\widetilde{\psi}(x)$ to be that limit.
+
+<ProofReveal
+  client:load
+  id="ri-dense-proof-cauchy"
+  prompt="Why does uniform continuity guarantee that ψ(x₁), ψ(x₂), … is a Cauchy sequence in N?"
+  solution="Given ε > 0, use uniform continuity of ψ to find δ > 0 so that d_S(a,b) < δ implies d_N(ψ(a),ψ(b)) < ε. Since x_i → x in M, the terms x_i are eventually within δ of each other (they all get close to x). So for large enough m, n we have d_M(x_m, x_n) < δ, which gives d_N(ψ(x_m), ψ(x_n)) < ε. That's exactly the Cauchy condition."
+/>
+
+We will apply this theorem twice in the next section: once with $S = R([a,b])$ the rectangle functions, $M = M([a,b])$ all functions on $[a,b]$, and $N = \mathbb{R}$.
+
+</SlideLayout>

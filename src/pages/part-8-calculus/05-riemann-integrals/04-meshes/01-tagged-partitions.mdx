@@ -1,0 +1,26 @@
+---
+title: Tagged partitions and Riemann sums
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tagged partitions and Riemann sums">
+
+The extension-theorem definition of the integral is elegant but abstract. Let's connect it to the familiar picture of adding up thin rectangles.
+
+<Callout kind="definition" title="Tagged partition">
+A **tagged partition** $P$ of $[a,b]$ consists of:
+- A partition $a = t_0 < t_1 < \cdots < t_n = b$, and
+- a **sample point** $\xi_i \in [t_{i-1}, t_i]$ in each subinterval.
+
+The <Term k="meshPartition">**mesh**</Term> of $P$ is $\max_i(t_i - t_{i-1})$ — the width of the widest subinterval.
+</Callout>
+
+The <Term k="riemannSum">**Riemann sum**</Term> of $f$ over $P$ is
+$$S(f, P) = \sum_{i=1}^n f(\xi_i)(t_i - t_{i-1}).$$
+Each term $f(\xi_i)(t_i - t_{i-1})$ is the area of a rectangle with base $[t_{i-1}, t_i]$ and height $f(\xi_i)$.
+
+Notice that the choice of sample points $\xi_i$ matters: left-endpoint, right-endpoint, and midpoint Riemann sums all give different values for a given partition. As the mesh shrinks to zero, these differences vanish.
+
+</SlideLayout>

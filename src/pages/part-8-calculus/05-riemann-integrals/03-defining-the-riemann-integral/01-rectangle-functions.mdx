@@ -1,0 +1,32 @@
+---
+title: Rectangle functions and the sup-norm metric
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Rectangle functions and the sup-norm metric">
+
+We want to define $\int_a^b f(x)\,dx$ for continuous functions $f \colon [a,b] \to \mathbb{R}$. Evan Chen's approach: put functions into a metric space, and extend the "easy" integral (for staircase functions) to all of $C^0([a,b])$ using the extension theorem.
+
+<Callout kind="definition" title="Function spaces on [a,b]">
+Fix a closed interval $[a,b]$. We define:
+
+- $C^0([a,b])$: the set of <Term k="continuous">continuous</Term> functions $[a,b] \to \mathbb{R}$.
+- $R([a,b])$: the set of <Term k="rectangleFunction">rectangle functions</Term> — piecewise-constant functions that are constant on each interval $[t_{i-1}, t_i)$ (with the last interval closed on the right). We write $a = t_0 < t_1 < \cdots < t_n = b$.
+- $M([a,b]) = C^0([a,b]) \cup R([a,b])$: all functions that are either continuous or piecewise-constant.
+</Callout>
+
+We give $M([a,b])$ a metric by measuring the worst-case difference:
+$$d(f, g) = \sup_{x \in [a,b]} |f(x) - g(x)|.$$
+This is the <Term k="supNorm">sup-norm metric</Term> (also called the uniform norm).
+
+<NumericInput
+  client:load
+  id="ri-def-num-supnorm"
+  prompt="If f(x) = x and g(x) = 0 on [0, 3], what is d(f, g) under the sup-norm metric?"
+  expected="3"
+/>
+
+</SlideLayout>

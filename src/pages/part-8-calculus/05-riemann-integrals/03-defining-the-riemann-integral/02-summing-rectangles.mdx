@@ -1,0 +1,23 @@
+---
+title: Summing rectangle areas
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Summing rectangle areas">
+
+For a <Term k="rectangleFunction">rectangle function</Term> $f \in R([a,b])$ that takes value $c_i$ on the interval $[t_{i-1}, t_i)$, the integral is just the total area of the rectangles — no limits, no approximations needed.
+
+<Callout kind="definition" title="The summation map Σ">
+For $f \in R([a,b])$ with breakpoints $a = t_0 < t_1 < \cdots < t_n = b$, define
+$$\Sigma(f) = \sum_{i=1}^n f(t_{i-1})(t_i - t_{i-1}).$$
+This map $\Sigma \colon R([a,b]) \to \mathbb{R}$ is the integral for rectangle functions.
+</Callout>
+
+Key fact: $\Sigma$ is <Term k="uniformlyContinuous">uniformly continuous</Term> on $R([a,b])$ with respect to the sup-norm. Concretely, if $d(f, g) < \eps$ then each rectangle height differs by less than $\eps$, so
+$$|\Sigma(f) - \Sigma(g)| \le \eps \cdot (b - a).$$
+
+This is precisely the hypothesis we need to apply the extension theorem. The summation map doesn't blow up — it can't, because the interval $[a,b]$ has finite length.
+
+</SlideLayout>

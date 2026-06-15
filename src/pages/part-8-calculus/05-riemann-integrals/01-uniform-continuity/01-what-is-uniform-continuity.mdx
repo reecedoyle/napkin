@@ -1,0 +1,37 @@
+---
+title: What is uniform continuity?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="What is uniform continuity?">
+
+We already know what it means for a function to be continuous: at every point $p$, we can make $f(p)$ and $f(q)$ close by making $p$ and $q$ close. The catch is that "how close" depends on *where we are* — near $p$.
+
+<Term k="uniformlyContinuous">**Uniform continuity**</Term> demands more: a single $\delta$ must work for *all* points simultaneously.
+
+<Callout kind="definition" title="Uniformly continuous">
+A map $f \colon M \to N$ between <Term k="metricSpace">metric spaces</Term> is **uniformly continuous** if for every $\eps > 0$ there exists $\delta > 0$ such that
+$$d_M(p, q) < \delta \implies d_N(f(p), f(q)) < \eps$$
+for **every** pair of inputs $p, q \in M$.
+</Callout>
+
+In ordinary continuity, $\delta$ is allowed to depend on the point $p$ (so steep parts of the curve demand a smaller $\delta$). Uniform continuity insists the same $\delta$ serves the whole domain at once.
+
+<MCQ
+  client:load
+  id="ri-uc-mcq-which-uniform"
+  prompt="Which function is NOT uniformly continuous on ℝ?"
+  options={[
+    { id: "a", label: "f(x) = 2x" },
+    { id: "b", label: "f(x) = sin x" },
+    { id: "c", label: "f(x) = x²" },
+    { id: "d", label: "f(x) = x + 5" },
+  ]}
+  correct="c"
+  explanation="f(x) = x² is not uniformly continuous on ℝ: near large x, the slope is 2x, so a fixed δ is never small enough. The others — linear maps and sin — are uniformly continuous on ℝ."
+/>
+
+</SlideLayout>

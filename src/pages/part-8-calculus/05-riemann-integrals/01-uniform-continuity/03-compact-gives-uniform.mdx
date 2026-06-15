@@ -1,0 +1,28 @@
+---
+title: Compact spaces give uniform continuity for free
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Compact spaces give uniform continuity for free">
+
+Both failures above happened on unbounded domains or near boundary explosions. <Term k="compact">Compactness</Term> rules both out.
+
+<Callout kind="theorem" title="Uniform continuity on compact spaces">
+Let $M$ be a <Term k="compact">compact</Term> <Term k="metricSpace">metric space</Term>. Then every continuous map $f \colon M \to N$ is also <Term k="uniformlyContinuous">uniformly continuous</Term>.
+</Callout>
+
+The idea: suppose no single $\delta$ worked. Then for every $\delta = 1/n$ we could find a "bad pair" $p_n$, $q_n$ with $d(p_n, q_n) \le 1/n$ but $d(f(p_n), f(q_n)) > \eps$. Compactness of $M$ gives a convergent subsequence; the bad pairs collapse to the same limit point, contradicting continuity there.
+
+<ProofReveal
+  client:load
+  id="ri-uc-proof-compact-uniform"
+  prompt="Carry out the argument: what goes wrong for the sequences f(p_{i_n}) and f(q_{i_n})?"
+  solution="Both subsequences p_{i_n} and q_{i_n} converge to the same limit x ∈ M (since d(p_n, q_n) ≤ 1/n → 0 and p_{i_n} → x, so q_{i_n} → x as well). By continuity of f, both f(p_{i_n}) and f(q_{i_n}) must converge to f(x). But they were constructed to always be more than ε apart — a contradiction."
+/>
+
+This is why $x^2$ on $[0, 1]$ **is** uniformly continuous (the domain is compact), while $x^2$ on all of $\mathbb{R}$ is not.
+
+</SlideLayout>

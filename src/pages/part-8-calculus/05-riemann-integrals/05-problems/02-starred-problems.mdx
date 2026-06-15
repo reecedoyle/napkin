@@ -1,0 +1,35 @@
+---
+title: Problems — starred
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred">
+
+<Problem
+  client:load
+  id="ri-prob-ftc"
+  difficulty="starred"
+  prompt="Let f : [a,b] → ℝ be continuous, differentiable on (a,b), and assume f′ extends to a continuous function on [a,b]. Prove that ∫_a^b f′(x) dx = f(b) − f(a). (Fundamental theorem of calculus.)"
+  hint="For each n, take the uniform partition with width w = (b−a)/n. Apply the mean value theorem on each subinterval to choose sample points ξᵢ such that f′(ξᵢ) · w = f(tᵢ) − f(t_{i-1}). Then the Riemann sum telescopes."
+  solution="Fix n and let w = (b−a)/n. Partition [a,b] into intervals [t_{i-1}, tᵢ] = [a+(i-1)w, a+iw]. By the mean value theorem applied to f on each [t_{i-1}, tᵢ], there exists ξᵢ ∈ (t_{i-1}, tᵢ) with f(tᵢ) − f(t_{i-1}) = f′(ξᵢ)(tᵢ − t_{i-1}) = f′(ξᵢ) · w. Summing over i = 1, …, n: Σᵢ f′(ξᵢ) · w = Σᵢ [f(tᵢ) − f(t_{i-1})] = f(b) − f(a). This is a Riemann sum for f′ over the uniform partition with the chosen sample points ξᵢ, with mesh w = (b−a)/n → 0. Since f′ is continuous on [a,b], the Riemann sums converge to ∫_a^b f′(x) dx. So ∫_a^b f′(x) dx = f(b) − f(a)."
+/>
+
+<Problem
+  client:load
+  id="ri-prob-improper"
+  difficulty="starred"
+  prompt="For each r > 0, evaluate lim_{ε→0⁺} ∫_ε^1 (1/xʳ) dx, or show the limit does not exist. (This is the improper integral ∫₀¹ x^{−r} dx.)"
+  hint="Compute ∫_ε^1 x^{−r} dx explicitly using the FTC (antiderivative of x^{−r} is x^{1−r}/(1−r) for r ≠ 1, and log x for r = 1), then take ε → 0⁺."
+  solution="Case 1: r = 1. Then ∫_ε^1 (1/x) dx = [log x]_ε^1 = 0 − log ε = −log ε → +∞ as ε → 0⁺. So the limit does not exist (diverges to +∞).
+
+Case 2: r ≠ 1. The antiderivative of x^{−r} is x^{1−r}/(1−r). So ∫_ε^1 x^{−r} dx = [x^{1−r}/(1−r)]_ε^1 = 1/(1−r) − ε^{1−r}/(1−r).
+
+If 0 < r < 1, then 1 − r > 0, so ε^{1−r} → 0 as ε → 0⁺. The limit is 1/(1−r).
+
+If r > 1, then 1 − r < 0, so ε^{1−r} = ε^{negative} → +∞ as ε → 0⁺. The limit diverges to +∞.
+
+Summary: the limit equals 1/(1−r) if 0 < r < 1, and does not exist (diverges) if r ≥ 1."
+/>
+
+</SlideLayout>
