@@ -1,0 +1,37 @@
+---
+title: Analytic at a point implies analytic on an interval
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Analytic at a point implies analytic on an interval">
+
+<Callout kind="proposition" title="Local analyticity extends to an interval">
+Let $f \colon \mathbb{R} \to \mathbb{R}$ be <Term k="smoothFunction">smooth</Term>, and let $p \in \mathbb{R}$. Suppose:
+1. the <Term k="taylorSeries">Taylor series</Term> of $f$ at $p$ has <Term k="radiusOfConvergence">radius of convergence</Term> $R > 0$, and
+2. that series actually converges to $f(x)$ for every $x \in (p - R, p + R)$.
+
+Then $f$ is <Term k="analyticFunction">analytic</Term> on the entire interval $(p - R, p + R)$.
+</Callout>
+
+This is not obvious: condition 2 says the Taylor series at $p$ agrees with $f$ throughout the disk; but analyticity at a different point $q \in (p-R, p+R)$ needs a separate series centered at $q$. The proposition says we can re-expand and still get a convergent series.
+
+We will use this for $\exp$ on the next slide.
+
+<MCQ
+  client:load
+  id="pts-anal-mcq-analytic-check"
+  prompt="Which of the following is NOT analytic on all of ℝ?"
+  options={[
+    { id: "a", label: "sin(x)" },
+    { id: "b", label: "eˣ" },
+    { id: "c", label: "x² + 3x + 1" },
+    { id: "d", label: "The function f(x) = e^{-1/x} for x > 0 and 0 for x ≤ 0" },
+  ]}
+  correct="d"
+  explanation="The piecewise function e^{-1/x} (for x > 0) and 0 (for x ≤ 0) is smooth everywhere but not analytic at x = 0 — its Taylor series there is identically 0, which doesn't equal the function for x > 0. The other three are analytic on all of ℝ."
+/>
+
+</SlideLayout>

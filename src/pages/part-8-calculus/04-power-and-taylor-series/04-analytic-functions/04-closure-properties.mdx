@@ -1,0 +1,22 @@
+---
+title: Closure properties of analytic functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Closure properties of analytic functions">
+
+<Callout kind="proposition" title="Analytic functions are closed under the usual operations">
+Sums, products, compositions, and nonzero quotients of <Term k="analyticFunction">analytic</Term> functions are analytic.
+</Callout>
+
+In practice this means: if you build a function out of $e^x$, $\sin x$, $\cos x$, polynomials, and the like — using $+$, $\times$, $\circ$, or $/$  — the result is analytic wherever it is defined.
+
+For example, $f(x) = e^x + x \sin(x^2)$ is analytic on all of $\mathbb{R}$. The rational function $g(x) = \frac{x^3 - 1}{x^2 + 1}$ is analytic on $\mathbb{R}$ (the denominator is never 0 over $\mathbb{R}$).
+
+<Callout kind="remark">
+The upshot: for the vast majority of functions you'll encounter, analyticity is free. The non-analytic smooth functions are the curiosities, not the norm.
+</Callout>
+
+</SlideLayout>

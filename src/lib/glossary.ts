@@ -1619,6 +1619,12 @@ export const glossary = {
   },
 
   // ────────────── Chapter 29 — Power series and Taylor series ──────────────
+  analyticFunction: {
+    term: 'Analytic function',
+    symbol: 'C^\\omega',
+    definition: 'A function f: U → ℝ is analytic at a point p if it equals a convergent power series ∑ aₙ(x − p)ⁿ in some open neighborhood of p. Analytic is strictly stronger than smooth (infinitely differentiable): every analytic function is smooth, but not vice versa.',
+    example: 'sin, cos, eˣ, log x, and all polynomials are analytic. The function e^{−1/x} (for x > 0) extended by 0 is smooth but not analytic at 0.',
+  },
   smoothFunction: {
     term: 'Smooth function',
     symbol: 'C^\\infty',

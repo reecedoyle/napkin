@@ -1,0 +1,24 @@
+---
+title: A smooth function that is not analytic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A smooth function that is not analytic">
+
+Being <Term k="smoothFunction">smooth</Term> (infinitely differentiable) is weaker than being <Term k="analyticFunction">analytic</Term>. The classic example:
+
+<Callout kind="example" title="Smooth but not analytic">
+Define
+
+$$f(x) = \begin{cases} e^{-1/x} & x > 0 \\ 0 & x \le 0. \end{cases}$$
+
+One can show that $f^{(n)}(0) = 0$ for every $n$. So its <Term k="taylorSeries">Taylor series</Term> at $0$ is identically $0 + 0 \cdot x + 0 \cdot x^2 + \cdots$.
+
+That series *does* converge everywhere — but it converges to $0$, not to $f$. Since $f(\varepsilon) = e^{-1/\varepsilon} > 0$ for any $\varepsilon > 0$, the Taylor series fails to represent $f$ near $0$.
+</Callout>
+
+The lesson: knowing a function is smooth and knowing all its derivatives at one point is *not enough* to recover the function's values elsewhere. Analytic functions are the special ones where it *is* enough.
+
+</SlideLayout>
