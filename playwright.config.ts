@@ -2,10 +2,16 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
-  fullyParallel: false,
+  // Tests are independent: each Playwright test runs in its own browser
+  // context with isolated localStorage, and the preview server is static,
+  // so there is no shared state to serialize on. Run them in parallel —
+  // ~60% of the suite is trivial "slide URL loads" checks that fan out
+  // cleanly. CI gets a fixed worker count for reproducibility; locally we
+  // use half the cores (Playwright's `'50%'`).
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
-  workers: 1,
+  workers: process.env.CI ? 4 : '50%',
   reporter: process.env.CI ? 'list' : [['list'], ['html', { open: 'never' }]],
   use: {
     baseURL: 'http://127.0.0.1:4323',
@@ -19,13 +25,19 @@ export default defineConfig({
     },
   ],
   // Dedicated port (4323) for tests, leaving 4321/4322 free for `npm run dev`
-  // and incidental processes. `reuseExistingServer: false` means a fresh
-  // build + preview every time — costs ~3s, buys us confidence that we're
-  // never running against an old build.
+  // and incidental processes.
+  //
+  // CI always does a fresh `build && preview` so it never tests a stale
+  // build. Locally, `reuseExistingServer: true` lets you skip the ~38s
+  // rebuild on every run: start one persistent server once with
+  //   npm run build && npm run preview -- --host 127.0.0.1 --port 4323
+  // in a side terminal, then re-run `npm run test:e2e` as many times as
+  // you like against it (rebuild manually when you change a slide). If no
+  // server is running, Playwright falls back to building one for the run.
   webServer: {
     command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4323',
     url: 'http://127.0.0.1:4323',
-    reuseExistingServer: false,
+    reuseExistingServer: !process.env.CI,
     timeout: 180_000,
     stdout: 'pipe',
     stderr: 'pipe',
