@@ -1,0 +1,29 @@
+---
+title: Completeness — checking your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Completeness — checking your understanding">
+
+Let's consolidate. We have two big facts about $\RR$:
+
+1. **Sup/inf existence**: every nonempty bounded subset of $\RR$ has a sup and an inf.
+2. **Completeness**: every <Term k="cauchySequence">Cauchy sequence</Term> in $\RR$ converges.
+
+Fact 1 is built into the *definition* of $\RR$ via <Term k="dedekindCut">Dedekind cuts</Term>. Fact 2 then follows from fact 1, as we showed with the knife argument.
+
+<Callout kind="question" title="A quick sanity check">
+The set $\QQ \cap [0, 2]$ (rationals between 0 and 2) is bounded. Does it have a sup in $\QQ$? Does it have a sup in $\RR$?
+</Callout>
+
+<ProofReveal
+  client:load
+  id="lim-s2-proof-Q-sup"
+  prompt="Does ℚ ∩ [0, 2] have a supremum in ℚ? What about in ℝ?"
+  solution="In ℝ: yes, sup(ℚ ∩ [0, 2]) = 2, and 2 ∈ ℝ. In ℚ: the set 2 ∈ ℚ, so the sup is also 2 in ℚ. This example doesn't illustrate the gap; a better example is ℚ ∩ [0, √2) — its sup in ℝ is √2, which is not rational, so ℚ fails to contain it."
+/>
+
+</SlideLayout>

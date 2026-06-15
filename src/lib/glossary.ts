@@ -1636,6 +1636,11 @@ export const glossary = {
     definition: 'The infimum (greatest lower bound) of a nonempty set S of real numbers is the largest real number m such that m ≤ x for all x ∈ S. Written inf S. It may or may not belong to S. If S is unbounded below we write inf S = −∞.',
     example: 'inf{1/n : n ≥ 1} = 0, even though 0 is never a term of the sequence.',
   },
+  dedekindCut: {
+    term: 'Dedekind cut',
+    definition: 'A Dedekind cut is a partition of ℚ into two nonempty sets A and B such that every element of A is less than every element of B and A has no largest element. Each cut represents a real number — rational or irrational. Taking the real numbers to be Dedekind cuts makes the existence of sup and inf a built-in property of ℝ.',
+    example: 'The cut A = {q ∈ ℚ : q < √2}, B = {q ∈ ℚ : q ≥ √2 or q is negative} defines the real number √2.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

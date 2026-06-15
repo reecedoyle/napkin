@@ -1,0 +1,28 @@
+---
+title: Dedekind cuts — where the real numbers come from
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Dedekind cuts — where the real numbers come from">
+
+We've shown sup's imply completeness. But why does $\RR$ *have* sup's? Because we've never actually given a rigorous construction of $\RR$.
+
+The slickest approach uses <Term k="dedekindCut">Dedekind cuts</Term>.
+
+<Callout kind="definition" title="Dedekind cut">
+A **Dedekind cut** is a pair $A \mid B$ of subsets of $\QQ$ satisfying:
+- $\QQ = A \sqcup B$ (they partition $\QQ$);
+- both $A$ and $B$ are nonempty;
+- $a < b$ for every $a \in A$ and $b \in B$; and
+- $A$ has no largest element (i.e. $\sup A \notin A$).
+
+We *define* a real number to be a Dedekind cut.
+</Callout>
+
+Picture a knife slicing the rational number line: everything to the left is $A$, everything to the right is $B$. If the knife lands at a rational, we put that rational in $B$ by the last condition.
+
+With this definition, sup's are easy: to take $\sup$ of a set of real numbers, take the union of all their left halves $A$. The tricky part is defining $+$, $\times$, etc. on these awkward pairs — but it works.
+
+</SlideLayout>
