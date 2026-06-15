@@ -2090,12 +2090,6 @@ export const glossary = {
     definition: 'A function f: U → ℝ is analytic at a point p if it equals a convergent power series ∑ aₙ(x − p)ⁿ in some open neighborhood of p. Analytic is strictly stronger than smooth (infinitely differentiable): every analytic function is smooth, but not vice versa.',
     example: 'sin, cos, eˣ, log x, and all polynomials are analytic. The function e^{−1/x} (for x > 0) extended by 0 is smooth but not analytic at 0.',
   },
-  smoothFunction: {
-    term: 'Smooth function',
-    symbol: 'C^\\infty',
-    definition: 'A function that is infinitely differentiable — all derivatives of every order exist. Also written C∞. Every power series with positive radius of convergence defines a smooth function on its interval of convergence.',
-    example: 'Polynomials, sin, cos, and eˣ are smooth. The function |x| is not smooth at 0 (its derivative is not differentiable there).',
-  },
   taylorSeries: {
     term: 'Taylor series',
     symbol: '\\sum_{n=0}^\\infty \\frac{f^{(n)}(p)}{n!}(x-p)^n',
