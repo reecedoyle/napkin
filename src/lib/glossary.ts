@@ -1619,6 +1619,12 @@ export const glossary = {
   },
 
   // ────────────── Chapter 29 — Power series and Taylor series ──────────────
+  eulersConstant: {
+    term: "Euler's constant e",
+    symbol: 'e',
+    definition: "The base of the natural logarithm, defined as exp(1) where exp(x) = ∑ xⁿ/n!. Approximately 2.71828. Using the power series definition, one proves exp(x+y) = exp(x)·exp(y) and exp'= exp rigorously.",
+    example: 'e ≈ 2.71828. e² = exp(2), eˣ = exp(x) for all real x.',
+  },
   analyticFunction: {
     term: 'Analytic function',
     symbol: 'C^\\omega',

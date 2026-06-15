@@ -1,0 +1,33 @@
+---
+title: log and general exponentiation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="log and general exponentiation">
+
+Since $\exp \colon \mathbb{R} \to \mathbb{R}_{>0}$ is continuous, strictly increasing, and surjective onto the positive reals, it has an inverse.
+
+<Callout kind="definition" title="Natural logarithm">
+Define $\log \colon \mathbb{R}_{>0} \to \mathbb{R}$ to be the inverse function of $\exp$. Its derivative is $1/x$, and a direct computation of its Taylor coefficients shows it is <Term k="analyticFunction">analytic</Term>.
+</Callout>
+
+<Callout kind="definition" title="General real exponentiation">
+For any $a > 0$ and $r \in \mathbb{R}$, we define
+
+$$a^r \coloneqq \exp(r \log a).$$
+</Callout>
+
+This definition is *rigorous*: it relies only on $\exp$ and $\log$, which we have built from power series. It recovers all the familiar laws ($a^{r+s} = a^r a^s$, etc.) from the functional equation of $\exp$.
+
+<NumericInput
+  client:load
+  id="pts-euler-num-exp-sum"
+  prompt="Using exp(x+y) = exp(x)·exp(y), simplify: exp(3)·exp(−3). Enter your answer."
+  expected="1"
+  hint="exp(3)·exp(−3) = exp(3 + (−3)) = exp(0) = 1."
+/>
+
+</SlideLayout>
