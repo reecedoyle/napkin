@@ -1617,6 +1617,29 @@ export const glossary = {
     definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
+  // ────────────── Chapter 28 — Differentiation ──────────────
+  openInterval: {
+    term: 'Open interval',
+    symbol: '(a, b)',
+    definition: 'The set of real numbers strictly between a and b: {x ∈ ℝ : a < x < b}. Open intervals are the standard domains for derivatives because every interior point has a full neighbourhood within the set.',
+    example: '(0, 1) contains all reals between 0 and 1, not including the endpoints.',
+  },
+  differentiable: {
+    term: 'Differentiable function',
+    definition: 'A function f : U → ℝ on an open set U ⊆ ℝ is differentiable at a point p ∈ U if the limit lim_{h→0} (f(p+h) − f(p))/h exists. It is differentiable (on U) if this holds at every point.',
+    example: 'f(x) = x³ is differentiable everywhere; f(x) = |x| is continuous everywhere but not differentiable at x = 0.',
+  },
+  derivative: {
+    term: 'Derivative',
+    symbol: "f'(p)",
+    definition: "The derivative of f at p is the value of the limit lim_{h→0} (f(p+h) − f(p))/h, denoted f′(p). Geometrically it is the slope of the tangent line to the graph of f at the point (p, f(p)).",
+    example: "If f(x) = x², then f′(p) = 2p for every p.",
+  },
+  continuousFunction: {
+    term: 'Continuous function',
+    definition: 'A function f : U → ℝ is continuous at p if lim_{x→p} f(x) = f(p). Equivalently, for every ε > 0 there exists δ > 0 such that |x − p| < δ implies |f(x) − f(p)| < ε. Every differentiable function is continuous, but not vice versa.',
+    example: 'f(x) = |x| is continuous at 0 (the limit from both sides equals 0 = f(0)) but not differentiable there.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

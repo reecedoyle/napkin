@@ -1,0 +1,33 @@
+---
+title: The standard abuse of notation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The standard abuse of notation">
+
+You will see the notation $(x^3)' = 3x^2$ everywhere. This is intentionally sloppy. Strictly, $f'$ is a function $U \to \RR$, defined point-by-point as a slope. But we treat it as just another function and write $f'(x)$ using the same variable $x$.
+
+<Callout kind="remark" title="Why the sloppiness matters">
+The derivative $f'(p)$ records a **slope** (units: output-units / input-units). The function value $f(p)$ records a **quantity** (units: output-units). They are different kinds of objects. In one variable this distinction is harmless; in multivariable calculus the derivative becomes a **linear map** rather than a number, and the sloppy notation breaks down.
+</Callout>
+
+For now: writing $f'(x) = 3x^2$ is fine and universal.
+
+<MCQ
+  client:load
+  id="diff-def-mcq-notation"
+  prompt="Which statement is most accurate about f′(p)?"
+  options={[
+    { id: "a", label: "f′(p) is the value of f at the point p" },
+    { id: "b", label: "f′(p) is the slope of the tangent to the graph of f at (p, f(p))" },
+    { id: "c", label: "f′(p) equals f(p+1) − f(p)" },
+    { id: "d", label: "f′(p) only exists when f(p) = 0" },
+  ]}
+  correct="b"
+  explanation="f′(p) is the limit of the difference quotient, which geometrically equals the slope of the tangent line at the point (p, f(p)). It is not the function value, not a finite difference, and exists regardless of whether f(p) = 0."
+/>
+
+</SlideLayout>

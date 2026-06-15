@@ -1,0 +1,26 @@
+---
+title: Differentiable implies continuous
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Differentiable implies continuous">
+
+Before we move to rules, here is a fundamental relationship between differentiability and continuity.
+
+<Callout kind="theorem" title="Differentiable ⟹ continuous">
+If $f$ is <Term k="differentiable">differentiable</Term> at $p$, then $f$ is <Term k="continuousFunction">continuous</Term> at $p$.
+</Callout>
+
+The converse is **false**: $f(x) = |x|$ is continuous everywhere but not differentiable at $x = 0$ (the left- and right-hand slopes disagree).
+
+<ProofReveal
+  client:load
+  id="diff-def-proof-diff-implies-cont"
+  prompt="Show that differentiability at p implies continuity at p."
+  solution="We need to show f(p+h) → f(p) as h → 0. Write f(p+h) − f(p) = h · [(f(p+h) − f(p))/h]. As h → 0, the first factor h → 0 and the second factor → f′(p) (which is finite). So the product → 0, giving f(p+h) → f(p)."
+/>
+
+</SlideLayout>

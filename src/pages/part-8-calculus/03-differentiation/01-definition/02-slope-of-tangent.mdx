@@ -1,0 +1,20 @@
+---
+title: Slope of the tangent line
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Slope of the tangent line">
+
+Here is the geometric picture. For any nonzero $h$, the fraction
+$$\frac{f(p+h) - f(p)}{h}$$
+is the slope of the **secant line** joining $(p, f(p))$ to $(p+h, f(p+h))$. As $h \to 0$, that secant rotates toward the **tangent** at $p$.
+
+<Callout kind="remark" title="Geometric moral">
+$f'(p)$ is the slope of the tangent line to the graph of $f$ at the point $(p, f(p))$.
+</Callout>
+
+One important restriction: the definition requires $U$ to be an **open** interval. If $f \colon [a,b] \to \RR$, then $f'(a)$ does not make sense — $f$ is not defined on any open neighborhood of the endpoint $a$. So derivatives live on open domains.
+
+</SlideLayout>
