@@ -1,0 +1,22 @@
+---
+title: Everything carries over to ℂ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Everything carries over to ℂ">
+
+Every theorem in this chapter stated for $\mathbb{R}$ holds equally over <Term k="CC">$\mathbb{C}$</Term>, with no modifications to the definitions.
+
+<Callout kind="remark" title="Complex power series">
+A power series $\sum_n a_n z^n$ with $a_n \in \mathbb{C}$ has a <Term k="radiusOfConvergence">radius of convergence</Term> $R$ given by the same Cauchy–Hadamard formula. It converges absolutely for $|z| < R$ (now a disk in $\mathbb{C}$, not just an interval in $\mathbb{R}$) and diverges for $|z| > R$. Differentiation still works term by term.
+</Callout>
+
+In particular, $\exp \colon \mathbb{C} \to \mathbb{C}$ is well-defined (still has $R = \infty$), and for any $a > 0$ and $z \in \mathbb{C}$ we define
+
+$$a^z \coloneqq \exp(z \log a).$$
+
+(The base $a$ must be a positive real so $\log a$ is defined. So $i^i$ still requires extra care.)
+
+</SlideLayout>
