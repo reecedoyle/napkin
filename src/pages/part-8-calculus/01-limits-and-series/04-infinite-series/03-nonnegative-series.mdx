@@ -1,0 +1,24 @@
+---
+title: Nonnegative series — bounded means convergent
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Nonnegative series — bounded means convergent">
+
+For series with nonnegative terms, checking convergence is especially clean.
+
+<Callout kind="proposition" title="Nonnegatives: bounded iff convergent">
+Let $\sum_k a_k$ be a series of **nonneg­ative** real numbers. Then $\sum_k a_k$ converges if and only if there is a constant $M$ with
+
+$$a_1 + a_2 + \cdots + a_n < M \quad \text{for every } n.$$
+</Callout>
+
+The proof is just monotone convergence in disguise: when all $a_k \ge 0$, the partial sums $s_1 \le s_2 \le s_3 \le \cdots$ are non-decreasing. If they are bounded above, they converge to their sup; if not, they diverge to $+\infty$.
+
+<Callout kind="remark" title="Shorthand">
+Because of this, for nonnegative series one writes $\sum_k a_k < \infty$ to mean "converges to a finite limit" — it's equivalent to the partial sums being bounded.
+</Callout>
+
+</SlideLayout>

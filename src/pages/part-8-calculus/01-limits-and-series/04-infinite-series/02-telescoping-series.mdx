@@ -1,0 +1,30 @@
+---
+title: Telescoping series — a worked example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Telescoping series — a worked example">
+
+Let's compute a sum rigorously, using the partial-sum definition.
+
+<Callout kind="example" title="Telescoping series">
+We claim
+
+$$\sum_{k=1}^\infty \frac{1}{k(k+1)} = 1.$$
+
+The $n$th partial sum telescopes:
+
+$$s_n = \sum_{k=1}^n \frac{1}{k(k+1)} = \sum_{k=1}^n \left(\frac{1}{k} - \frac{1}{k+1}\right) = 1 - \frac{1}{n+1}.$$
+
+Then $\lim_{n\to\infty} s_n = \lim_{n\to\infty} \left(1 - \frac{1}{n+1}\right) = 1$.
+</Callout>
+
+The key move was computing *closed forms* for the partial sums. Once we know $s_n = 1 - \frac{1}{n+1}$, taking the limit is trivial.
+
+<Callout kind="example" title="Harmonic series diverges">
+By contrast, the harmonic series $\sum_{k=1}^\infty \frac{1}{k}$ diverges. One can show the $2^n$th partial sum satisfies $s_{2^n} \ge 1 + \frac{n-1}{2}$, which grows without bound.
+</Callout>
+
+</SlideLayout>

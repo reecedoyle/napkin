@@ -1658,6 +1658,12 @@ export const glossary = {
     definition: 'The liminf of a sequence (aₙ) is the limit of the "tail infima": lim_{N→∞} inf{aₙ : n ≥ N}. It equals the smallest value that (aₙ) approaches infinitely often. A sequence converges iff liminf = limsup.',
     example: 'For aₙ = (−1)ⁿ the liminf is −1. Since liminf ≠ limsup, the sequence diverges.',
   },
+  series: {
+    term: 'Infinite series',
+    symbol: '\\sum_{k=1}^\\infty a_k',
+    definition: 'An infinite series ∑ aₖ is defined as the limit of its partial sums sₙ = a₁ + a₂ + ⋯ + aₙ. If this limit exists and is finite, the series converges; otherwise it diverges. There is no actual "infinite addition" — only a limit.',
+    example: '∑_{k=1}^∞ 1/(k(k+1)) = 1, because the partial sums telescope to 1 − 1/(n+1) → 1.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

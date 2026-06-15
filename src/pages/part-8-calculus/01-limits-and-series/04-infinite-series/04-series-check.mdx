@@ -1,0 +1,29 @@
+---
+title: Series — checking your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Series — checking your understanding">
+
+The "partial sums" framework also answers a long-standing philosophical complaint: how can a sum of rationals be irrational?
+
+The point is that $\sum_{n=1}^\infty \frac{1}{n^2}$ is the *limit* of the partial sums $\frac{1}{1}, \frac{1}{1}+\frac{1}{4}, \ldots$, and we know sequences of rationals can converge to irrationals. No mystery.
+
+<MCQ
+  client:load
+  id="lim-s4-mcq-diverge"
+  prompt="Which of the following series diverges?"
+  options={[
+    { id: "a", label: "∑ 1/(k(k+1)) — telescoping sum" },
+    { id: "b", label: "∑ 1/k (harmonic series)" },
+    { id: "c", label: "∑ 1/k² (Basel sum)" },
+    { id: "d", label: "∑ (1/2)^k (geometric series, r = 1/2)" },
+  ]}
+  correct="b"
+  explanation="The harmonic series ∑ 1/k diverges: its partial sums grow without bound (the 2ⁿ-th partial sum exceeds 1 + (n−1)/2). All the others converge."
+/>
+
+</SlideLayout>
