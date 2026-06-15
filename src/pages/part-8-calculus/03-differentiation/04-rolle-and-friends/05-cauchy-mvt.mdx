@@ -1,0 +1,27 @@
+---
+title: The ratio (Cauchy) mean value theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The ratio (Cauchy) mean value theorem">
+
+There is a two-function generalization of the MVT that is useful when the two functions cannot be easily decoupled.
+
+<Callout kind="theorem" title="Ratio mean value theorem (Cauchy's MVT)">
+Let $f, g \colon [a,b] \to \RR$ be <Term k="continuousFunction">continuous</Term> on $[a,b]$ and <Term k="differentiable">differentiable</Term> on $(a,b)$, with $g(a) \neq g(b)$.
+
+Then there exists $c \in (a,b)$ such that
+$$f'(c)\,(g(b) - g(a)) = g'(c)\,(f(b) - f(a)).$$
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Apply <Term k="rollesTheorem">Rolle's theorem</Term> to the function
+$$h(x) = [f(x) - f(a)][g(b) - g(a)] - [g(x) - g(a)][f(b) - f(a)].$$
+One checks $h(a) = h(b) = 0$, so Rolle gives $c$ with $h'(c) = 0$, which is exactly the equation above.
+</Callout>
+
+This is also called the **extended mean value theorem**. It is the key lemma behind L'Hôpital's rule.
+
+</SlideLayout>

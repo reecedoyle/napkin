@@ -1636,6 +1636,16 @@ export const glossary = {
     definition: 'For any real r, the function x ↦ xʳ has derivative rxʳ⁻¹. For integer r this follows from the limit definition; for all real r it follows from writing xʳ = e^{r log x} and applying the chain rule.',
     example: "(x^{1/2})′ = (1/2)x^{-1/2} = 1/(2√x).",
   },
+  rollesTheorem: {
+    term: "Rolle's theorem",
+    definition: "If f : [a,b] → ℝ is continuous, differentiable on (a,b), and f(a) = f(b), then there exists c ∈ (a,b) with f′(c) = 0. Proved by compactness: a non-constant function on [a,b] must achieve an interior extremum, which Fermat's theorem forces to be a stationary point.",
+    example: 'f(x) = x² − 1 on [−1, 1]: f(−1) = f(1) = 0, and f′(0) = 0.',
+  },
+  meanValueThm: {
+    term: 'Mean value theorem',
+    definition: "If f : [a,b] → ℝ is continuous and differentiable on (a,b), then there exists c ∈ (a,b) such that f′(c) = (f(b) − f(a))/(b − a). Proved by applying Rolle's theorem to g(x) = f(x) − sx where s is the secant slope.",
+    example: 'If a car travels 900 km in 5 hours, at some instant the speedometer reads exactly 180 km/h.',
+  },
   localMaximum: {
     term: 'Local maximum',
     definition: 'A point p in the domain of f : U → ℝ is a local maximum if there is an open neighbourhood V of p (with V ⊆ U) such that f(p) ≥ f(x) for all x ∈ V. The value f(p) need not be the global maximum.',

@@ -1,0 +1,30 @@
+---
+title: The racetrack principle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The racetrack principle">
+
+Here is a direct application of the <Term k="meanValueThm">MVT</Term> that captures intuition about "faster means further ahead."
+
+<Callout kind="proposition" title="Racetrack principle">
+Let $f, g \colon \RR \to \RR$ be differentiable with $f(0) = g(0)$.
+
+**(a)** If $f'(x) \ge g'(x)$ for every $x > 0$, then $f(x) \ge g(x)$ for every $x > 0$.
+
+**(b)** If $f'(x) > g'(x)$ for every $x > 0$, then $f(x) > g(x)$ for every $x > 0$.
+</Callout>
+
+Think of it as two runners starting at the same position: if one is always at least as fast, they end up at least as far ahead.
+
+<ProofReveal
+  client:load
+  id="diff-rolle-proof-racetrack"
+  prompt="Prove part (a) of the racetrack principle using the MVT."
+  solution="Let h = f − g, so h(0) = 0. Suppose for contradiction h(p) < 0 for some p > 0. The secant joining (0, h(0)) = (0, 0) to (p, h(p)) has slope h(p)/p < 0. By the MVT, there is some 0 < c < p with h′(c) = h(p)/p < 0. But h′(c) = f′(c) − g′(c) ≥ 0 by assumption — contradiction. So h(x) ≥ 0 for all x > 0."
+/>
+
+</SlideLayout>

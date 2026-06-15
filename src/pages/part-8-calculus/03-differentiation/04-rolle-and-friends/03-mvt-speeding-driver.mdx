@@ -1,0 +1,35 @@
+---
+title: The MVT and the speeding driver
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The MVT and the speeding driver">
+
+The <Term k="meanValueThm">mean value theorem</Term> has a vivid real-world interpretation.
+
+<Callout kind="remark" title="For people with driver's licenses">
+A car travels along a road with position $f(t)$ at time $t$. Suppose you cover 900 km in 5 hours: $f(0) = 0$, $f(5) = 900$.
+
+The MVT guarantees there exists some moment $c \in (0, 5)$ where the **instantaneous speed** was exactly $\frac{900}{5} = 180$ km/h. You cannot claim you were never speeding if the speed limit is below 180 km/h.
+</Callout>
+
+The deeper point: the MVT lets us convert **derivative information** (bounds on $f'$) into **information about $f$ itself**. This is something that is genuinely hard to do without it — even though the statement seems "obvious", the proof requires the full machinery of compactness.
+
+<MCQ
+  client:load
+  id="diff-rolle-mcq-mvt-conclusion"
+  prompt="A car drives 60 km in 1 hour. What does the MVT guarantee?"
+  options={[
+    { id: "a", label: "The car's speed was always exactly 60 km/h" },
+    { id: "b", label: "At some instant the car's speed was exactly 60 km/h" },
+    { id: "c", label: "The car never exceeded 60 km/h" },
+    { id: "d", label: "The car's acceleration was zero at some point" },
+  ]}
+  correct="b"
+  explanation="The MVT says the instantaneous speed equals the average speed (60 km/h) at some moment c in the journey. It does not say this holds always, nor does it say anything about whether the car exceeded that speed at other times."
+/>
+
+</SlideLayout>
