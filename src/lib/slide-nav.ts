@@ -87,6 +87,7 @@ export const partTitles: Record<string, string> = {
   'part-5-more-on-groups': 'Part V — More on Groups',
   'part-6-representation-theory': 'Part VI — Representation Theory',
   'part-7-quantum-algorithms': 'Part VII — Quantum Algorithms',
+  'part-8-calculus': 'Part VIII — Calculus 101',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -115,6 +116,11 @@ export const chapterTitles: Record<string, string> = {
   'part-7-quantum-algorithms/01-quantum-states': 'Chapter 23 — Quantum states and measurements',
   'part-7-quantum-algorithms/02-quantum-circuits': 'Chapter 24 — Quantum circuits',
   'part-7-quantum-algorithms/03-shors-algorithm': "Chapter 25 — Shor's algorithm",
+  'part-8-calculus/01-limits-and-series': 'Chapter 26 — Limits and series',
+  'part-8-calculus/02-p-adic-numbers': 'Chapter 27 — Bonus: A hint of p-adic numbers',
+  'part-8-calculus/03-differentiation': 'Chapter 28 — Differentiation',
+  'part-8-calculus/04-power-and-taylor-series': 'Chapter 29 — Power series and Taylor series',
+  'part-8-calculus/05-riemann-integrals': 'Chapter 30 — Riemann integrals',
 };
 
 export const sectionTitles: Record<string, string> = {
