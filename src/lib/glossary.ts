@@ -1618,6 +1618,24 @@ export const glossary = {
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
   // ────────────── Chapter 28 — Differentiation ──────────────
+  productRule: {
+    term: 'Product rule',
+    symbol: "(fg)'",
+    definition: 'For differentiable functions f and g, (f·g)′(x) = f′(x)g(x) + f(x)g′(x). Proved by splitting the difference quotient into two terms, then taking the limit.',
+    example: '(x² · sin x)′ = 2x sin x + x² cos x.',
+  },
+  chainRule: {
+    term: 'Chain rule',
+    symbol: "(g∘f)'",
+    definition: 'If f : U → V and g : V → ℝ are differentiable, then (g∘f)′(x) = g′(f(x)) · f′(x). Geometrically: the rate of change of the composition equals the outer rate times the inner rate.',
+    example: "(sin(x²))′ = cos(x²) · 2x.",
+  },
+  powerRule: {
+    term: 'Power rule',
+    symbol: "(x^r)'",
+    definition: 'For any real r, the function x ↦ xʳ has derivative rxʳ⁻¹. For integer r this follows from the limit definition; for all real r it follows from writing xʳ = e^{r log x} and applying the chain rule.',
+    example: "(x^{1/2})′ = (1/2)x^{-1/2} = 1/(2√x).",
+  },
   openInterval: {
     term: 'Open interval',
     symbol: '(a, b)',

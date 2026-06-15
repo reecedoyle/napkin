@@ -1,0 +1,31 @@
+---
+title: Mechanical computation in practice
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Mechanical computation in practice">
+
+Combining the rules and the library, any "artificial" function built from polynomials, exponentials, and trig functions can be differentiated step by step.
+
+<Callout kind="example" title="Differentiating e^x + x sin(x²)">
+$$f(x) = e^x + x \sin(x^2).$$
+
+Applying the rules in sequence:
+$$f'(x) = e^x + \sin(x^2) + x \cdot 2x \cos(x^2) = e^x + \sin(x^2) + 2x^2 \cos(x^2).$$
+
+(Sum rule, then product rule on $x\sin(x^2)$, then chain rule on $\sin(x^2)$.)
+</Callout>
+
+The rules reduce differentiation to pattern matching. The deeper theorems in later sections are what make the rules *useful* — they let us extract information about $f$ from information about $f'$.
+
+<NumericInput
+  client:load
+  id="diff-comp-num-poly-deriv"
+  prompt="What is the derivative of f(x) = x³ + 10x² + 2019 evaluated at x = 1? (Use the sum and power rules.)"
+  expected="23"
+/>
+
+</SlideLayout>

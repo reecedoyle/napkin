@@ -1,0 +1,24 @@
+---
+title: Proof of the chain rule
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of the chain rule">
+
+The chain rule proof has one subtle point: the denominator $f(p+h) - f(p)$ might be zero even for small nonzero $h$, so we cannot naively divide by it.
+
+<Callout kind="remark" title="Proof">
+Let $p \in U$, $q = f(p)$. Define the auxiliary function
+$$Q(y) = \begin{cases} \dfrac{g(y) - g(q)}{y - q} & y \neq q \\ g'(q) & y = q. \end{cases}$$
+Since $g$ is differentiable at $q$, $Q$ is continuous at $q$.
+
+Now for any $h$, whether or not $f(p+h) = q$:
+$$\frac{g(f(p+h)) - g(q)}{h} = Q(f(p+h)) \cdot \frac{f(p+h) - f(p)}{h}.$$
+(If $f(p+h) = q$ the left side is $0$, and the right side is $Q(q) \cdot 0 = 0$.)
+
+As $h \to 0$: the second factor $\to f'(p)$, and $Q(f(p+h)) \to Q(q) = g'(q)$ by continuity of $Q$ and continuity of $f$ at $p$. So $(g \circ f)'(p) = g'(q) \cdot f'(p) = g'(f(p)) \cdot f'(p)$.
+</Callout>
+
+</SlideLayout>
