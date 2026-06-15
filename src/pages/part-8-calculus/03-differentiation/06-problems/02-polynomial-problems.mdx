@@ -1,0 +1,27 @@
+---
+title: Problems — polynomials and exponentials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — polynomials and exponentials">
+
+<Problem
+  client:load
+  id="diff-prob-rmm2018"
+  difficulty="starred"
+  prompt="[RMM 2018] Determine whether there exist nonconstant polynomials P(x) and Q(x) with real coefficients satisfying P(x)¹⁰ + P(x)⁹ = Q(x)²¹ + Q(x)²⁰."
+  solution="No such polynomials exist. Factor: P(x)⁹(P(x) + 1) = Q(x)²⁰(Q(x) + 1). The left side has degree 9 deg P and the right has degree 20 deg Q + deg Q = 21 deg Q. So 9 deg P = 21 deg Q, meaning 3 deg P = 7 deg Q. Any common root r of P and P+1 would satisfy P(r) = 0 and P(r) = −1, a contradiction, so gcd(P⁹, (P+1)) = 1. Similarly gcd(Q²⁰, Q+1) = 1. By unique factorization of polynomials, P⁹ | Q²⁰ so P | Q²⁰, meaning every root of P is a root of Q²⁰ hence of Q. Similarly Q | P. But then deg P = deg Q and 3 deg P = 7 deg Q forces deg P = 0, contradiction."
+/>
+
+<Problem
+  client:load
+  id="diff-prob-exp-poly-solutions"
+  difficulty="starred"
+  prompt="Let P(x) be a degree n polynomial with real coefficients. Prove that e^x = P(x) has at most n+1 real solutions."
+  solution="Define f(x) = e^x − P(x). We need to show f has at most n+1 zeros. Since f is smooth, between any two zeros of f there is (by Rolle's theorem) at least one zero of f′. Since f′(x) = e^x − P′(x) and deg P′ = n−1, by induction f′ has at most n zeros. Rolle then forces f to have at most n+1 zeros. (Formally: if f had n+2 zeros, f′ would have at least n+1 zeros, but f′ = e^x − P′ with deg P′ = n−1, which by the same argument has at most n zeros, contradiction.)"
+/>
+
+</SlideLayout>
