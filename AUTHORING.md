@@ -221,9 +221,17 @@ exercises) does the heavy lifting. Evan Chen is conversational and uses
 ## Tests
 
 One spec at `tests/e2e/<chapter-slug>.spec.ts`. Copy the structure of
-`tests/e2e/ring-flavors.spec.ts` — replace the URL list, retitle the
-describes, but keep the four exercise-flow blocks (MCQ, NumericInput,
-ProofReveal, Problem). Pick one slide per exercise type to cover.
+`tests/e2e/ring-flavors.spec.ts` — retitle the describes for your
+chapter, but keep the exercise-flow blocks (KaTeX, MCQ, NumericInput,
+ProofReveal, Problem). Pick one slide per exercise type to cover. Your
+spec ONLY covers interactive behaviour — the islands, localStorage
+persistence, and KaTeX rendering that the build can't verify.
+
+**Do NOT write per-slide "loads URL + heading" tests.** A single shared
+spec, `tests/e2e/slides-smoke.spec.ts`, already crawls every slide page
+and asserts it renders (200 + non-empty `<h1>`) — it auto-covers your
+new slides with no work from you. Don't add a `SLIDES` URL list or an
+"all slide URLs load" block; that duplication was removed on purpose.
 
 When asserting on slide text, the assertion string must be a **verbatim
 substring of your own slide prose**, copy-pasted — never a paraphrase
