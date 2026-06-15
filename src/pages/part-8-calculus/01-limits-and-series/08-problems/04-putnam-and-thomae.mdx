@@ -1,0 +1,27 @@
+---
+title: Problems — Putnam and the Thomae function
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Putnam and the Thomae function">
+
+<Problem
+  client:load
+  id="lim-prob-putnam-2016"
+  difficulty="standard"
+  statement="(Putnam 2016 B1) Let $x_0 = 1$ and $x_{n+1} = \log(e^{x_n} - x_n)$ for $n \ge 0$. Prove that $\sum_{n=0}^\infty x_n$ converges and find its value."
+  hint="Use eᵗ ≥ t + 1 to show all xₙ are nonneg­ative. Show xₙ is decreasing. Note xₙ = eˣₙ − eˣₙ⁺¹ is a telescoping identity."
+  solution="The answer is e − 1. Step 1: eᵗ ≥ t + 1 implies e^{xₙ} − xₙ ≥ 1, so x_{n+1} = log(e^{xₙ} − xₙ) ≥ 0; all terms are nonneg­ative. Step 2: x_{n+1} = log(e^{xₙ} − xₙ) < log(e^{xₙ}) = xₙ; the sequence is strictly decreasing. Being nonneg­ative and decreasing, it converges to some limit L. Step 3: xₙ = e^{xₙ} − e^{x_{n+1}}, so partial sums telescope: x₀ + x₁ + ⋯ + xₙ = e^{x₀} − e^{x_{n+1}} = e − e^{x_{n+1}}. Since xₙ → L and the partial sums are bounded by e, we get L = 0. Hence the series converges to lim (e − e^{x_{n+1}}) = e − e⁰ = e − 1."
+/>
+
+<Problem
+  client:load
+  id="lim-prob-thomae"
+  difficulty="standard"
+  statement="Consider $f : \RR \to \RR$ defined by $f(x) = 1/q$ if $x = p/q$ in lowest terms ($q > 0$), $f(x) = 0$ if $x$ is irrational, and $f(0) = 1$. For every real $c$, compute $\lim_{x \to c} f(x)$. At which points is $f$ continuous?"
+  hint="The limit always exists and equals zero. Near any point, only finitely many rationals p/q have small q."
+  solution="Claim: lim_{x→c} f(x) = 0 for every real c. Proof: given ε > 0, there are only finitely many rationals p/q in [c−1, c+1] with 1/q ≥ ε (finitely many choices of q with q ≤ 1/ε, finitely many p for each). Let δ be the minimum distance from c to any of these finitely many rationals (and to c itself if c is rational with f(c) ≥ ε). For |x − c| < δ and x ≠ c: if x is irrational then f(x) = 0 < ε; if x is rational with denominator q then 1/q < ε. So the limit is 0 everywhere. Continuity: f is continuous at c iff f(c) = 0, i.e. iff c is irrational."
+/>
+
+</SlideLayout>
