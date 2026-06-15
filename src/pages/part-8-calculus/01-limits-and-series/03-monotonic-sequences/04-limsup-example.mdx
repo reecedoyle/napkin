@@ -1,0 +1,33 @@
+---
+title: Limsup example — an oscillating sequence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Limsup example — an oscillating sequence">
+
+<Callout kind="example" title="Limsup of an oscillating sequence">
+Consider $a_n = (-1)^n$: the sequence $-1, 1, -1, 1, -1, \ldots$
+
+For any $N$, $\sup\{a_N, a_{N+1}, \ldots\} = 1$ (there are always later even terms). So
+
+$$\limsup_{n\to\infty} (-1)^n = 1.$$
+
+Similarly, $\inf\{a_N, a_{N+1}, \ldots\} = -1$ for all $N$, so $\liminf_{n\to\infty} (-1)^n = -1$.
+
+The sequence does not converge, and $\limsup \ne \liminf$.
+</Callout>
+
+In fact, a sequence converges to $L$ if and only if $\limsup_n a_n = \liminf_n a_n = L$. When the two values agree, the sequence is being "squeezed" to a single limit.
+
+<NumericInput
+  client:load
+  id="lim-s3-num-limsup"
+  prompt="For the sequence aₙ = 1/n, what is limsup aₙ?"
+  expected="0"
+  hint="Since 1/n → 0, for large N every tail sup{aₙ : n ≥ N} is 1/N, which tends to 0."
+/>
+
+</SlideLayout>

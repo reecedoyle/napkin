@@ -1,0 +1,29 @@
+---
+title: Limits at infinity — checking your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Limits at infinity — checking your understanding">
+
+Arithmetic works for limits at infinity in the same way as for limits at a point:
+
+$$\lim_{x\to\infty}(f(x) \pm g(x)) = \lim_{x\to\infty} f(x) \pm \lim_{x\to\infty} g(x),$$
+
+and similarly for products and quotients (when the denominator limit is nonzero). This is essentially the same proof as for sequences, adapted to the "large $x$" setup.
+
+<NumericInput
+  client:load
+  id="lim-s7-num-limit-inf"
+  prompt="What is lim_{x→∞} (3x + 1)/(x + 2)? (Enter the numerical value.)"
+  expected="3"
+  hint="Divide numerator and denominator by x: (3 + 1/x)/(1 + 2/x). As x → ∞, the 1/x terms vanish."
+/>
+
+<Callout kind="remark" title="The full picture">
+We now have all the limit machinery in place: limits of sequences, series as limits of partial sums, limits of functions at a point, and limits at infinity. The next chapters will use all of this to build derivatives and integrals.
+</Callout>
+
+</SlideLayout>

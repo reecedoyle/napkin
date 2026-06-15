@@ -1,0 +1,26 @@
+---
+title: Limsup and liminf
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Limsup and liminf">
+
+Not every sequence converges, but every bounded sequence has a <Term k="limsup">limit supremum</Term> and <Term k="liminf">limit infimum</Term> — limits of the "eventual extremes".
+
+<Callout kind="definition" title="Limsup and liminf">
+For a sequence $(a_n)$ bounded above, define
+
+$$
+\limsup_{n \to \infty} a_n \defeq \lim_{N \to \infty} \sup_{n \ge N} a_n.
+$$
+
+The quantities $\sup\{a_N, a_{N+1}, \ldots\}$ form a non-increasing sequence bounded below, so by monotone convergence this limit exists. We set $\limsup = +\infty$ if $(a_n)$ is unbounded above.
+
+The **limit infimum** $\liminf_{n\to\infty} a_n$ is defined similarly with $\inf$.
+</Callout>
+
+Think of $\limsup_n a_n$ as: "the supremum, but you're allowed to throw away any finite number of terms first." Equivalently, it's the largest value that $(a_n)$ comes arbitrarily close to infinitely often.
+
+</SlideLayout>

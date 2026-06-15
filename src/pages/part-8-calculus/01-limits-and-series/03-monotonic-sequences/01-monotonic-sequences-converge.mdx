@@ -1,0 +1,24 @@
+---
+title: Monotonic bounded sequences converge
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Monotonic bounded sequences converge">
+
+A sequence is <Term k="monotonicSequence">monotonic</Term> if it is always non-increasing or always non-decreasing. If it is also bounded, it must converge — it can't just wander forever.
+
+<Callout kind="definition" title="Monotonic sequence">
+A sequence $(a_n)$ is **monotonic** if either $a_1 \ge a_2 \ge a_3 \ge \cdots$ (non-increasing) or $a_1 \le a_2 \le a_3 \le \cdots$ (non-decreasing).
+</Callout>
+
+<Callout kind="theorem" title="Monotonic bounded sequences converge">
+If $(a_n)$ is monotonic and bounded, then $\lim_{n \to \infty} a_n$ exists.
+</Callout>
+
+The proof mirrors the completeness argument: a non-decreasing bounded sequence has partial sums that form an increasing chain with an upper bound, so $\sup_n a_n$ is finite. One checks that the sequence converges to this sup.
+
+The converse fails: $0, 1, 0, 1, 0, 1, \ldots$ is bounded but not monotonic, and it diverges.
+
+</SlideLayout>

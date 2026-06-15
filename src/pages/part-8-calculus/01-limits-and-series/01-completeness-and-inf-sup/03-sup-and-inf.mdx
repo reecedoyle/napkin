@@ -1,0 +1,33 @@
+---
+title: Supremum and infimum
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Supremum and infimum">
+
+Think of <Term k="supremum">$\sup$</Term> as "$\max$ adjusted for infinite sets." The issue with $\max$ is that an infinite set might not *have* a maximum — the open interval $(0,1)$ has elements approaching $1$ arbitrarily closely, but $1$ itself isn't in the set.
+
+<Callout kind="theorem" title="ℝ has inf's and sup's">
+Let $S$ be a nonempty set of real numbers.
+
+- If $S$ is bounded above, it has a **least** upper bound, written $\sup S$, called the **supremum** of $S$.
+- If $S$ is bounded below, it has a **greatest** lower bound, written $\inf S$, called the **infimum** of $S$.
+
+If $S$ is not bounded above we write $\sup S = +\infty$; if not bounded below, $\inf S = -\infty$.
+</Callout>
+
+Some examples to build intuition:
+
+| Set $S$ | $\sup S$ | Note |
+|---|---|---|
+| $[0,1]$ | $1$ | max exists, $1 \in S$ |
+| $(0,1)$ | $1$ | max doesn't exist, $1 \notin S$ |
+| $\QQ \cap (0,1)$ | $1$ | rationals in $(0,1)$, same answer |
+| $\{-2,-1\}$ | $-1$ | finite set: $\sup = \max$ |
+| $\{1,2,3,\ldots\}$ | $+\infty$ | unbounded above |
+
+The key point: $\sup S$ may or may not be an element of $S$ itself.
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Inf/sup implies completeness — the knife picture
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Inf/sup implies completeness — the knife picture">
+
+We claimed two facts: $\RR$ has <Term k="supremum">sup's and inf's</Term>, and $\RR$ is <Term k="cauchySequence">complete</Term>. The surprising thing is that the first implies the second.
+
+Here is the idea. Suppose $(a_n)$ is a Cauchy sequence. By discarding finitely many terms we can assume $|a_i - a_j| \le 100$ for all $i, j$, so the sequence is bounded. Now define
+
+$$
+S = \{ x \in \RR \mid a_n \ge x \text{ for infinitely many } n \}.
+$$
+
+Think of $S$ as the set of "valid knife positions" on the real line: if you cut at $x$, only finitely many sequence terms are to your left. The set $S$ is nonempty (it contains $a_1 - 100$) and bounded above (by $a_1 + 100$), so we can form $M = \sup S$.
+
+<Callout kind="remark" title="The convergence target">
+The sequence converges to $M$. The key step: for any $\eps > 0$, the Cauchy condition gives $N$ such that $|a_m - a_n| < \tfrac{\eps}{2}$ for $m,n \ge N$. Since $M - \tfrac{\eps}{2}$ is a valid knife position, we can find $m \ge N$ with $a_m \ge M - \tfrac{\eps}{2}$. Then
+$$|a_n - M| \le |a_n - a_m| + |a_m - M| < \tfrac{\eps}{2} + \tfrac{\eps}{2} = \eps.$$
+</Callout>
+
+So: the existence of sup's and inf's is the *real* reason $\RR$ is complete. This is what $\QQ$ is missing.
+
+</SlideLayout>

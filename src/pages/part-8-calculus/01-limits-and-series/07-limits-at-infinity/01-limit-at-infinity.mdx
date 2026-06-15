@@ -1,0 +1,28 @@
+---
+title: Limits of functions as x → ∞
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Limits of functions as x → ∞">
+
+We need a separate definition for $\lim_{x\to\infty} f(x)$, because $\infty$ is not a point in $\RR$ — we can't just plug it into the previous definition.
+
+<Callout kind="definition" title="Limit at infinity">
+Let $f : \RR \to \RR$. We say $\lim_{x \to \infty} f(x) = L$ if:
+
+For every $\eps > 0$ there exists a constant $M$ such that if $x > M$ then $|f(x) - L| < \eps$.
+
+Similarly, $\lim_{x \to -\infty} f(x) = L$ replaces $x > M$ with $x < M$.
+</Callout>
+
+Since $\infty \notin \RR$, there is no "$f(\infty)$" to worry about — no analog of the "$f(p)$ is irrelevant" subtlety.
+
+<Callout kind="example" title="Standard example">
+$$\lim_{x \to \infty} \frac{1}{x} = 0.$$
+
+*Proof*: For any $\eps > 0$, take $M = 1/\eps$. If $x > M$ then $\left|\frac{1}{x} - 0\right| = \frac{1}{x} < \frac{1}{M} = \eps$.
+</Callout>
+
+</SlideLayout>

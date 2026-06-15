@@ -2010,6 +2010,71 @@ export const glossary = {
     definition: 'A bounded function f: [a,b] → ℝ is Riemann integrable if the limit of Riemann sums S(f,P) exists as mesh(P) → 0, independently of the choice of sample points. Every continuous function is Riemann integrable. The Dirichlet function (1 on ℚ, 0 on irrationals) is not.',
     example: 'Every monotone bounded function on [a,b] is Riemann integrable. A function with one jump discontinuity (e.g. a step function) is also Riemann integrable.',
   },
+
+
+  // ────────────── Chapter 26 — Limits and series ──────────────
+  cauchySequence: {
+    term: 'Cauchy sequence',
+    definition: 'A sequence (aₙ) in a metric space is Cauchy if for every ε > 0 there exists N such that d(aₘ, aₙ) < ε for all m, n ≥ N. Intuitively, the terms become arbitrarily close to each other. In ℝ, every Cauchy sequence converges.',
+    example: 'The decimal approximations 1, 1.4, 1.41, 1.414, … of √2 form a Cauchy sequence in ℚ, but their limit √2 is not rational.',
+  },
+  supremum: {
+    term: 'Supremum',
+    symbol: '\\sup S',
+    definition: 'The supremum (least upper bound) of a nonempty set S of real numbers is the smallest real number M such that x ≤ M for all x ∈ S. Written sup S. It may or may not belong to S. If S is unbounded above we write sup S = +∞.',
+    example: 'sup(0,1) = 1, even though 1 ∉ (0,1). For any finite nonempty set, sup S = max S.',
+  },
+  infimum: {
+    term: 'Infimum',
+    symbol: '\\inf S',
+    definition: 'The infimum (greatest lower bound) of a nonempty set S of real numbers is the largest real number m such that m ≤ x for all x ∈ S. Written inf S. It may or may not belong to S. If S is unbounded below we write inf S = −∞.',
+    example: 'inf{1/n : n ≥ 1} = 0, even though 0 is never a term of the sequence.',
+  },
+  dedekindCut: {
+    term: 'Dedekind cut',
+    definition: 'A Dedekind cut is a partition of ℚ into two nonempty sets A and B such that every element of A is less than every element of B and A has no largest element. Each cut represents a real number — rational or irrational. Taking the real numbers to be Dedekind cuts makes the existence of sup and inf a built-in property of ℝ.',
+    example: 'The cut A = {q ∈ ℚ : q < √2}, B = {q ∈ ℚ : q ≥ √2 or q is negative} defines the real number √2.',
+  },
+  monotonicSequence: {
+    term: 'Monotonic sequence',
+    definition: 'A sequence (aₙ) is monotonic if it is non-decreasing (a₁ ≤ a₂ ≤ a₃ ≤ …) or non-increasing (a₁ ≥ a₂ ≥ a₃ ≥ …). A monotonic sequence that is also bounded must converge.',
+    example: 'The sequence 1, 1/2, 1/3, 1/4, … is non-increasing and bounded below by 0, so it converges (to 0).',
+  },
+  limsup: {
+    term: 'Limit supremum',
+    symbol: '\\limsup_{n\\to\\infty} a_n',
+    definition: 'The limsup of a sequence (aₙ) is the limit of the "tail suprema": lim_{N→∞} sup{aₙ : n ≥ N}. It equals the largest value that (aₙ) approaches infinitely often. If (aₙ) is unbounded above, limsup = +∞.',
+    example: 'For aₙ = (−1)ⁿ the limsup is 1, because the sequence keeps returning to 1 but never exceeds it.',
+  },
+  liminf: {
+    term: 'Limit infimum',
+    symbol: '\\liminf_{n\\to\\infty} a_n',
+    definition: 'The liminf of a sequence (aₙ) is the limit of the "tail infima": lim_{N→∞} inf{aₙ : n ≥ N}. It equals the smallest value that (aₙ) approaches infinitely often. A sequence converges iff liminf = limsup.',
+    example: 'For aₙ = (−1)ⁿ the liminf is −1. Since liminf ≠ limsup, the sequence diverges.',
+  },
+  series: {
+    term: 'Infinite series',
+    symbol: '\\sum_{k=1}^\\infty a_k',
+    definition: 'An infinite series ∑ aₖ is defined as the limit of its partial sums sₙ = a₁ + a₂ + ⋯ + aₙ. If this limit exists and is finite, the series converges; otherwise it diverges. There is no actual "infinite addition" — only a limit.',
+    example: '∑_{k=1}^∞ 1/(k(k+1)) = 1, because the partial sums telescope to 1 − 1/(n+1) → 1.',
+  },
+  absoluteConvergence: {
+    term: 'Absolute convergence',
+    symbol: '\\sum_k |a_k| < \\infty',
+    definition: 'A series ∑ aₖ converges absolutely if the series of absolute values ∑ |aₖ| converges. Absolute convergence is stronger than ordinary convergence and implies that the series can be rearranged in any order without changing its sum.',
+    example: '∑ 1/n² converges absolutely (all terms positive). The alternating harmonic series 1 − 1/2 + 1/3 − … converges but NOT absolutely.',
+  },
+  conditionalConvergence: {
+    term: 'Conditional convergence',
+    definition: 'A series ∑ aₖ converges conditionally if it converges but does NOT converge absolutely — i.e. ∑ |aₖ| diverges. Conditionally convergent series are dangerous: by the Riemann rearrangement theorem, their terms can be permuted to converge to any value.',
+    example: 'The alternating harmonic series 1 − 1/2 + 1/3 − 1/4 + … converges (to ln 2) but ∑ 1/n diverges, so convergence is only conditional.',
+  },
+  epsilonDelta: {
+    term: 'Epsilon-delta definition',
+    symbol: '\\lim_{x \\to p} f(x) = L',
+    definition: 'The epsilon-delta definition says lim_{x→p} f(x) = L means: for every ε > 0 there exists δ > 0 such that 0 < |x − p| < δ implies |f(x) − L| < ε. The x ≠ p condition is essential: the limit ignores the value of f at p.',
+    example: 'lim_{x→2} 3x = 6: given ε > 0, take δ = ε/3. If |x − 2| < δ then |3x − 6| = 3|x − 2| < ε.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

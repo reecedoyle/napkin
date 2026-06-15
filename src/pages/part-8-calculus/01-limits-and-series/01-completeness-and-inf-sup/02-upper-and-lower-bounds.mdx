@@ -1,0 +1,24 @@
+---
+title: Upper and lower bounds
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Upper and lower bounds">
+
+The second key fact about $\RR$ is about <Term k="supremum">suprema</Term> and <Term k="infimum">infima</Term>. Before stating it, let's nail down "upper bound".
+
+<Callout kind="definition" title="Bounded sets">
+Let $S$ be a set of real numbers.
+
+- An **upper bound** for $S$ is a real number $M$ with $x \le M$ for all $x \in S$. If one exists, $S$ is **bounded above**.
+- A **lower bound** for $S$ is a real number $m$ with $m \le x$ for all $x \in S$. If one exists, $S$ is **bounded below**.
+- $S$ is **bounded** if it has both an upper and a lower bound.
+</Callout>
+
+The prototype is $S = (0,1)$. Both $1$ and $5$ are upper bounds. Both $0$ and $-7$ are lower bounds. So $(0,1)$ is bounded.
+
+The integers $\ZZ$ are bounded below by no real number (you can always go more negative), so $\ZZ$ is not bounded below. The natural numbers $\NN = \{0,1,2,\ldots\}$ are bounded below by $0$ but not above.
+
+</SlideLayout>

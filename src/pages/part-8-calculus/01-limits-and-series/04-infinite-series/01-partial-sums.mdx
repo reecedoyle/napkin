@@ -1,0 +1,26 @@
+---
+title: Infinite series are limits of partial sums
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Infinite series are limits of partial sums">
+
+How do we "add infinitely many numbers"? We don't. Instead, we take a limit.
+
+<Callout kind="definition" title="Convergent series">
+Given a sequence $a_1, a_2, \ldots$, the **partial sums** are
+
+$$s_n = a_1 + a_2 + \cdots + a_n.$$
+
+The <Term k="series">series</Term> $\sum_{k=1}^\infty a_k$ **converges** to $L$ if $\lim_{n\to\infty} s_n = L$. Otherwise, it **diverges**.
+</Callout>
+
+There is no actual infinite addition. The infinite sum is *defined* to be the limit of the finite partial sums. This lets us write, for example,
+
+$$\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}$$
+
+without any mystery — the partial sums $\frac{1}{1} + \frac{1}{4} + \frac{1}{9} + \cdots$ converge to a real number, and that number happens to be $\frac{\pi^2}{6}$. (We won't prove that here; just note that it's a statement about a sequence of partial sums.)
+
+</SlideLayout>

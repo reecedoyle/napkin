@@ -1,0 +1,22 @@
+---
+title: Infinite decimals as limits
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Infinite decimals as limits">
+
+Monotone convergence makes "infinite decimals" rigorous. The sequence of finite truncations $0.9$, $0.99$, $0.999$, $\ldots$ is non-decreasing and bounded above by $1$. So it converges — and its limit is obviously $1$.
+
+<Callout kind="example" title="0.999… = 1">
+We *define* the repeating decimal $0.9999\ldots$ to be the limit of the sequence $0.9,\ 0.99,\ 0.999,\ \ldots$. Each term is $1 - 10^{-n}$, and
+
+$$\lim_{n \to \infty} \left(1 - 10^{-n}\right) = 1.$$
+
+So $0.9999\ldots = 1$. This is not a trick — it is a definition.
+</Callout>
+
+More generally, any infinite decimal is a limit of its finite truncations. The truncations form a non-decreasing bounded sequence, so monotone convergence guarantees the limit exists. Real numbers *are* infinite decimals, and now we know why that makes sense.
+
+</SlideLayout>
