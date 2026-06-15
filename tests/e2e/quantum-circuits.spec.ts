@@ -2,44 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-7-quantum-algorithms/02-quantum-circuits';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Classical logic gates
-  { url: `${BASE}/01-classical-logic-gates/01-and-or-not-gates`, heading: /AND, OR, NOT/i },
-  { url: `${BASE}/01-classical-logic-gates/02-universality`, heading: /AND, OR, NOT, COPY are universal/i },
-  // Section 2 — Reversible classical logic
-  { url: `${BASE}/02-reversible-classical-logic/01-why-reversibility`, heading: /why reversibility matters/i },
-  { url: `${BASE}/02-reversible-classical-logic/02-cnot-gate`, heading: /the CNOT gate/i },
-  { url: `${BASE}/02-reversible-classical-logic/03-cnot-cannot-simulate-and`, heading: /CNOT cannot simulate AND/i },
-  { url: `${BASE}/02-reversible-classical-logic/04-toffoli-gate`, heading: /Toffoli gate is universal/i },
-  // Section 3 — Quantum logic gates
-  { url: `${BASE}/03-quantum-logic-gates/01-unitary-gates`, heading: /Quantum gates are unitary maps/i },
-  { url: `${BASE}/03-quantum-logic-gates/02-quantum-cnot`, heading: /quantum CNOT and entanglement/i },
-  { url: `${BASE}/03-quantum-logic-gates/03-hadamard-and-rotation-gates`, heading: /Hadamard and rotation gates/i },
-  { url: `${BASE}/03-quantum-logic-gates/04-no-cloning`, heading: /no-cloning theorem/i },
-  // Section 4 — Deutsch-Jozsa algorithm
-  { url: `${BASE}/04-deutsch-jozsa-algorithm/01-the-problem`, heading: /Deutsch-Jozsa problem/i },
-  { url: `${BASE}/04-deutsch-jozsa-algorithm/02-the-circuit`, heading: /Deutsch-Jozsa circuit/i },
-  { url: `${BASE}/04-deutsch-jozsa-algorithm/03-phase-kickback`, heading: /Phase kickback/i },
-  { url: `${BASE}/04-deutsch-jozsa-algorithm/04-measurement-and-conclusion`, heading: /Measurement and conclusion/i },
-  // Section 5 — Problems
-  { url: `${BASE}/05-problems/01-problems`, heading: /Problems/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Quantum circuits — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

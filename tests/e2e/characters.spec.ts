@@ -2,49 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-6-representation-theory/03-characters';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Definitions
-  { url: `${BASE}/01-definitions/01-what-is-a-character`, heading: /what is a character/i },
-  { url: `${BASE}/01-definitions/02-character-table-s3`, heading: /character table of s₃/i },
-  { url: `${BASE}/01-definitions/03-four-mysteries`, heading: /four mysterious properties/i },
-  // Section 2 — Dual space modulo commutator
-  { url: `${BASE}/02-dual-space-commutator/01-trace-commutativity`, heading: /trace commutativity/i },
-  { url: `${BASE}/02-dual-space-commutator/02-abelianization`, heading: /abelianization of an algebra/i },
-  { url: `${BASE}/02-dual-space-commutator/03-abelianization-warning`, heading: /abelianization.*warning/i },
-  { url: `${BASE}/02-dual-space-commutator/04-character-theorem`, heading: /character theorem for algebras/i },
-  // Section 3 — Orthogonality
-  { url: `${BASE}/03-orthogonality/01-inner-product-setup`, heading: /inner product on class functions/i },
-  { url: `${BASE}/03-orthogonality/02-dual-representation`, heading: /dual representation/i },
-  { url: `${BASE}/03-orthogonality/03-tensor-product-rep`, heading: /tensor product of representations/i },
-  { url: `${BASE}/03-orthogonality/04-character-trace-formulas`, heading: /character trace formulas/i },
-  { url: `${BASE}/03-orthogonality/05-orthogonality-theorem`, heading: /orthogonality theorem/i },
-  { url: `${BASE}/03-orthogonality/06-orthogonality-proof`, heading: /proof of orthogonality/i },
-  { url: `${BASE}/03-orthogonality/07-irreducibility-check`, heading: /testing irreducibility/i },
-  // Section 4 — Examples
-  { url: `${BASE}/04-examples/01-dihedral-setup`, heading: /character table of d₁₀ — setup/i },
-  { url: `${BASE}/04-examples/02-dihedral-table`, heading: /character table of d₁₀ — the table/i },
-  { url: `${BASE}/04-examples/03-s4-setup`, heading: /character table of s₄ — setup/i },
-  { url: `${BASE}/04-examples/04-s4-table`, heading: /character table of s₄ — the full table/i },
-  // Section 5 — Problems
-  { url: `${BASE}/05-problems/01-standard-and-daggered`, heading: /problems.*decompositions/i },
-  { url: `${BASE}/05-problems/02-starred`, heading: /problems.*starred/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Characters — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

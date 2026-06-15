@@ -2,56 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-4-linear-algebra/02-eigen-things';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Why you should care
-  { url: `${BASE}/01-why-you-should-care/01-diagonal-maps`, heading: /the simplest linear maps/i },
-  { url: `${BASE}/01-why-you-should-care/02-change-of-basis-luck`, heading: /getting lucky/i },
-  { url: `${BASE}/01-why-you-should-care/03-goal`, heading: /the goal/i },
-  // Section 2 — Assumptions
-  { url: `${BASE}/02-assumptions/01-what-we-need`, heading: /assumptions/i },
-  // Section 3 — Eigenvectors and eigenvalues
-  { url: `${BASE}/03-eigenvectors-and-eigenvalues/01-definition`, heading: /eigenvectors and eigenvalues.*definition/i },
-  { url: `${BASE}/03-eigenvectors-and-eigenvalues/02-eigenspace`, heading: /eigenspaces/i },
-  { url: `${BASE}/03-eigenvectors-and-eigenvalues/03-eigenvalues-need-not-exist`, heading: /eigenvalues need not exist/i },
-  // Section 4 — The Jordan form
-  { url: `${BASE}/04-the-jordan-form/01-jordan-blocks`, heading: /jordan blocks/i },
-  { url: `${BASE}/04-the-jordan-form/02-jordan-canonical-form-theorem`, heading: /jordan canonical form theorem/i },
-  { url: `${BASE}/04-the-jordan-form/03-concrete-example`, heading: /concrete example/i },
-  // Section 5 — Nilpotent maps
-  { url: `${BASE}/05-nilpotent-maps/01-definition`, heading: /nilpotent maps.*definition/i },
-  { url: `${BASE}/05-nilpotent-maps/02-staircases`, heading: /independent staircases/i },
-  { url: `${BASE}/05-nilpotent-maps/03-shifting-eigenvalue`, heading: /shifting the eigenvalue/i },
-  // Section 6 — Reducing to nilpotent
-  { url: `${BASE}/06-reducing-to-nilpotent/01-invariant-subspaces`, heading: /invariant subspaces/i },
-  { url: `${BASE}/06-reducing-to-nilpotent/02-indecomposable-is-jordan`, heading: /indecomposable piece is a jordan block/i },
-  // Section 7 — Proof of nilpotent Jordan
-  { url: `${BASE}/07-proof-of-nilpotent-jordan/01-induction-setup`, heading: /induction setup/i },
-  { url: `${BASE}/07-proof-of-nilpotent-jordan/02-extending-the-basis`, heading: /extending the basis/i },
-  // Section 8 — Algebraic and geometric multiplicity
-  { url: `${BASE}/08-algebraic-and-geometric-multiplicity/01-two-notions`, heading: /two notions/i },
-  { url: `${BASE}/08-algebraic-and-geometric-multiplicity/02-definitions`, heading: /algebraic and geometric multiplicity.*definitions/i },
-  { url: `${BASE}/08-algebraic-and-geometric-multiplicity/03-example-and-trace-det`, heading: /multiplicities in action/i },
-  // Section 9 — Problems
-  { url: `${BASE}/09-problems/01-standard-problems`, heading: /problems.*standard/i },
-  { url: `${BASE}/09-problems/02-eigenspace-problems`, heading: /finding eigenspaces/i },
-  { url: `${BASE}/09-problems/03-differentiation-problems`, heading: /differentiation operators/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Eigen-things — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

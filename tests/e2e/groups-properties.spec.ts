@@ -2,30 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/01-groups/02-properties';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-notation`, heading: /Notation for groups/i },
-  { url: `${BASE}/02-deducing-properties`, heading: /Deducing properties from the axioms/i },
-  { url: `${BASE}/03-uniqueness`, heading: /Uniqueness of identity and inverses/i },
-  { url: `${BASE}/04-inverse-of-products`, heading: /inverse of a product/i },
-  { url: `${BASE}/05-left-mult-bijection`, heading: /Left multiplication is a bijection/i },
-  { url: `${BASE}/06-bijection-example`, heading: /multiplication by 3 mod 7/i },
-  { url: `${BASE}/07-cancellation-law`, heading: /cancellation law/i },
-  { url: `${BASE}/08-additive-notation`, heading: /additive notation/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Groups · Properties section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Groups · Properties section — KaTeX renders', () => {

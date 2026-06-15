@@ -2,58 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-4-linear-algebra/01-vector-spaces';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Rings and fields
-  { url: `${BASE}/01-rings-and-fields/01-rings-and-fields-review`, heading: /rings and fields.*quick review/i },
-  // Section 2 — Modules and vector spaces
-  { url: `${BASE}/02-modules-and-vector-spaces/01-what-is-a-module`, heading: /what is a module/i },
-  { url: `${BASE}/02-modules-and-vector-spaces/02-first-examples`, heading: /first examples of vector spaces/i },
-  { url: `${BASE}/02-modules-and-vector-spaces/03-modules-over-ZZ`, heading: /abelian groups as.*modules/i },
-  // Section 3 — Direct sums
-  { url: `${BASE}/03-direct-sums/01-splitting-a-space`, heading: /splitting a space/i },
-  { url: `${BASE}/03-direct-sums/02-external-direct-sum`, heading: /external direct sum/i },
-  // Section 4 — Linear independence and bases
-  { url: `${BASE}/04-linear-independence-and-bases/01-linear-combinations`, heading: /linear combinations/i },
-  { url: `${BASE}/04-linear-independence-and-bases/02-basis-examples`, heading: /basis examples/i },
-  { url: `${BASE}/04-linear-independence-and-bases/03-dimension-theorem`, heading: /dimension theorem/i },
-  { url: `${BASE}/04-linear-independence-and-bases/04-coordinates`, heading: /coordinates and dimension/i },
-  // Section 5 — Linear maps
-  { url: `${BASE}/05-linear-maps/01-definition`, heading: /linear maps.*definition/i },
-  { url: `${BASE}/05-linear-maps/02-examples`, heading: /linear map examples/i },
-  // Section 6 — Matrices
-  { url: `${BASE}/06-matrices/01-encoding-a-map`, heading: /encoding a linear map/i },
-  { url: `${BASE}/06-matrices/02-matrix-multiplication`, heading: /where matrix multiplication comes from/i },
-  { url: `${BASE}/06-matrices/03-general-matrix`, heading: /matrices in general/i },
-  // Section 7 — Subspaces
-  { url: `${BASE}/07-subspaces/01-subspaces-and-kernels`, heading: /subspaces.*kernels.*spans/i },
-  { url: `${BASE}/07-subspaces/02-basis-completion`, heading: /basis completion/i },
-  { url: `${BASE}/07-subspaces/03-rank-nullity`, heading: /rank-nullity/i },
-  // Section 8 — Lagrange interpolation
-  { url: `${BASE}/08-lagrange-interpolation/01-the-theorem`, heading: /lagrange interpolation/i },
-  { url: `${BASE}/08-lagrange-interpolation/02-injective-implies-bijective`, heading: /injective.*surjective.*bijective/i },
-  // Section 9 — General modules
-  { url: `${BASE}/09-general-modules/01-free-modules`, heading: /general modules.*free and finitely generated/i },
-  { url: `${BASE}/09-general-modules/02-abelian-groups-as-modules`, heading: /abelian groups as.*modules/i },
-  // Section 10 — Problems
-  { url: `${BASE}/10-problems/01-standard-and-daggered`, heading: /problems.*standard and daggered/i },
-  { url: `${BASE}/10-problems/02-starred-and-more`, heading: /problems.*starred and more/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Vector spaces — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

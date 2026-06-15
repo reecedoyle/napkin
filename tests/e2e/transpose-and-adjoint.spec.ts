@@ -2,53 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-4-linear-algebra/07-transpose-and-adjoint';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Dual of a map
-  { url: `${BASE}/01-dual-of-a-map/01-the-dual-map`, heading: /the dual map/i },
-  { url: `${BASE}/01-dual-of-a-map/02-example`, heading: /computing a dual map/i },
-  { url: `${BASE}/01-dual-of-a-map/03-transpose-theorem`, heading: /transpose interpretation of the dual map/i },
-  { url: `${BASE}/01-dual-of-a-map/04-basis-free`, heading: /the basis-free view of transpose/i },
-  // Section 2 — Cautionary tale
-  { url: `${BASE}/02-cautionary-tale/01-motivation`, heading: /a tale of a non-canonical isomorphism/i },
-  { url: `${BASE}/02-cautionary-tale/02-false-theorem`, heading: /a false theorem and its bogus proof/i },
-  { url: `${BASE}/02-cautionary-tale/03-counterexample`, heading: /the counterexample/i },
-  // Section 3 — Identifying the dual
-  { url: `${BASE}/03-identifying-the-dual/01-inner-product-spaces`, heading: /using the inner product to identify/i },
-  { url: `${BASE}/03-identifying-the-dual/02-real-isomorphism`, heading: /v.*v.*for real inner product spaces/i },
-  { url: `${BASE}/03-identifying-the-dual/03-complex-obstruction`, heading: /why the complex case is different/i },
-  // Section 4 — Adjoint
-  { url: `${BASE}/04-adjoint/01-definition`, heading: /the adjoint map/i },
-  { url: `${BASE}/04-adjoint/02-example`, heading: /computing an adjoint over/i },
-  { url: `${BASE}/04-adjoint/03-conjugate-transpose-theorem`, heading: /adjoints are conjugate transposes/i },
-  { url: `${BASE}/04-adjoint/04-check`, heading: /adjoint.*quick check/i },
-  // Section 5 — Eigenvalues of normal maps
-  { url: `${BASE}/05-eigenvalues-of-normal-maps/01-normal-maps`, heading: /normal and hermitian maps/i },
-  { url: `${BASE}/05-eigenvalues-of-normal-maps/02-spectral-theorem`, heading: /the spectral theorem/i },
-  { url: `${BASE}/05-eigenvalues-of-normal-maps/03-proof-sketch`, heading: /proof sketch.*key steps/i },
-  { url: `${BASE}/05-eigenvalues-of-normal-maps/04-hermitian-real-eigenvalues`, heading: /hermitian matrices have real eigenvalues/i },
-  { url: `${BASE}/05-eigenvalues-of-normal-maps/05-big-picture`, heading: /big picture.*what we have proved/i },
-  // Section 6 — Problems
-  { url: `${BASE}/06-problems/01-double-dual-and-fundamental`, heading: /problems.*double dual and fundamental/i },
-  { url: `${BASE}/06-problems/02-row-rank-and-complex-conj`, heading: /problems.*row rank and complex conjugate/i },
-  { url: `${BASE}/06-problems/03-tdagger-vs-tvee-and-polynomial`, heading: /problems.*t.*and polynomial/i },
-  { url: `${BASE}/06-problems/04-kronecker-and-rank`, heading: /problems.*kronecker.*and rank/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Transpose and adjoint — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

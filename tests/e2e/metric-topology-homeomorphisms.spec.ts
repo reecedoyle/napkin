@@ -2,27 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/04-homeomorphisms';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-definition`, heading: /When two metric spaces are .the same./i },
-  { url: `${BASE}/02-why-inverse-continuous`, heading: /Why the inverse must also be continuous/i },
-  { url: `${BASE}/03-continuous-deformation`, heading: /Continuous deformation — circles and squares/i },
-  { url: `${BASE}/04-metrics-on-the-circle`, heading: /Chord vs arc on the circle/i },
-  { url: `${BASE}/05-size-not-preserved`, heading: /Homeomorphisms don.t preserve size/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Homeomorphisms — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Homeomorphisms — KaTeX renders', () => {

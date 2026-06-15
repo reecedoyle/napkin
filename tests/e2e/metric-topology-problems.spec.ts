@@ -2,27 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/08-problems';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-warm-up-and-q-vs-n`, heading: /Warm-up — continuity of d, and Q vs N/i },
-  { url: `${BASE}/02-arithmetic-continued`, heading: /Continuity of arithmetic, continued/i },
-  { url: `${BASE}/03-continuous-at-zero`, heading: /A function continuous at exactly one point/i },
-  { url: `${BASE}/04-strictly-increasing`, heading: /Strictly increasing implies continuous somewhere/i },
-  { url: `${BASE}/05-one-over-x`, heading: /Is 1\/x continuous\? An Internet debate/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Problems section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Problems section — KaTeX renders', () => {

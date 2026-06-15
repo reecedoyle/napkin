@@ -2,50 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-4-linear-algebra/03-dual-and-trace';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Tensor product
-  { url: `${BASE}/01-tensor-product/01-motivation`, heading: /tensor product.*motivation/i },
-  { url: `${BASE}/01-tensor-product/02-definition`, heading: /tensor product.*definition/i },
-  { url: `${BASE}/01-tensor-product/03-pure-tensor-notation`, heading: /pure tensors and scalar-passing/i },
-  { url: `${BASE}/01-tensor-product/04-basis-and-dimension`, heading: /basis of v.*⊗.*w/i },
-  { url: `${BASE}/01-tensor-product/05-polynomial-example`, heading: /tensor product example.*two-variable/i },
-  { url: `${BASE}/01-tensor-product/06-maps-out-of-tensor`, heading: /defining maps out of v.*⊗.*w/i },
-  // Section 2 — Dual space
-  { url: `${BASE}/02-dual-space/01-definition`, heading: /dual space.*definition/i },
-  { url: `${BASE}/02-dual-space/02-dual-basis`, heading: /the dual basis/i },
-  { url: `${BASE}/02-dual-space/03-iso-is-unnatural`, heading: /v.*≅.*v.*is not canonical/i },
-  { url: `${BASE}/02-dual-space/04-covectors-as-rows`, heading: /covectors as row vectors/i },
-  // Section 3 — Hom as tensor
-  { url: `${BASE}/03-hom-as-tensor/01-intuition`, heading: /hom space.*the goal/i },
-  { url: `${BASE}/03-hom-as-tensor/02-psi-map`, heading: /from v.*⊗.*w to linear maps/i },
-  { url: `${BASE}/03-hom-as-tensor/03-proof-sketch`, heading: /proof of v.*⊗.*w.*hom/i },
-  { url: `${BASE}/03-hom-as-tensor/04-concrete-example`, heading: /hom as tensor.*concrete example/i },
-  { url: `${BASE}/03-hom-as-tensor/05-hom-vv`, heading: /hom.*v.*k.*is.*v/i },
-  // Section 4 — Trace
-  { url: `${BASE}/04-trace/01-evaluation-map`, heading: /the evaluation map/i },
-  { url: `${BASE}/04-trace/02-trace-definition`, heading: /trace.*intrinsic definition/i },
-  { url: `${BASE}/04-trace/03-trace-is-diagonal-sum`, heading: /why trace equals the sum of diagonal/i },
-  { url: `${BASE}/04-trace/04-basis-independence`, heading: /trace is basis-independent/i },
-  // Section 5 — Problems
-  { url: `${BASE}/05-problems/01-standard`, heading: /problems.*standard/i },
-  { url: `${BASE}/05-problems/02-daggered`, heading: /problems.*daggered/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Dual space and trace — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

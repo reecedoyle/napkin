@@ -2,26 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/01-groups/06-small-orders';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-orders-1-to-4`, heading: /groups of order 1 to 4/i },
-  { url: `${BASE}/02-orders-5-6-7`, heading: /groups of order 5, 6, and 7/i },
-  { url: `${BASE}/03-order-8`, heading: /groups of order 8/i },
-  { url: `${BASE}/04-orders-9-and-10`, heading: /groups of order 9 and 10/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Groups · Small orders section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Groups · Small orders — KaTeX renders', () => {

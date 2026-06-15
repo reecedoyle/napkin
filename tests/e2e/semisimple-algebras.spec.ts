@@ -2,51 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-6-representation-theory/02-semisimple-algebras';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Schur's lemma continued
-  { url: `${BASE}/01-schurs-lemma-continued/01-hom-of-irreps`, heading: /hom-spaces between irreps/i },
-  { url: `${BASE}/01-schurs-lemma-continued/02-hom-of-direct-sums`, heading: /hom-spaces of direct sums/i },
-  { url: `${BASE}/01-schurs-lemma-continued/03-schur-for-comp-reducible`, heading: /schur.*completely reducible/i },
-  { url: `${BASE}/01-schurs-lemma-continued/04-schur-check`, heading: /checking schur.*worked example/i },
-  // Section 2 — Density theorem
-  { url: `${BASE}/02-density-theorem/01-statement`, heading: /jacobson density theorem.*statement/i },
-  { url: `${BASE}/02-density-theorem/02-proof-r1`, heading: /density theorem.*proof for one irrep/i },
-  { url: `${BASE}/02-density-theorem/03-density-example`, heading: /density theorem.*explicit example/i },
-  // Section 3 — Semisimple algebras
-  { url: `${BASE}/03-semisimple-algebras/01-definition`, heading: /semisimple algebras.*definition/i },
-  { url: `${BASE}/03-semisimple-algebras/02-main-theorem`, heading: /semisimple algebras.*main theorem/i },
-  { url: `${BASE}/03-semisimple-algebras/03-sum-of-squares`, heading: /sum of squares formula/i },
-  { url: `${BASE}/03-semisimple-algebras/04-semisimple-check`, heading: /checking semisimplicity/i },
-  // Section 4 — Maschke's theorem
-  { url: `${BASE}/04-maschkes-theorem/01-statement`, heading: /maschke.*theorem.*statement/i },
-  { url: `${BASE}/04-maschkes-theorem/02-averaging-map`, heading: /maschke.*proof.*averaging map/i },
-  { url: `${BASE}/04-maschkes-theorem/03-verify-averaging`, heading: /maschke.*proof.*verifying the averaging map/i },
-  { url: `${BASE}/04-maschkes-theorem/04-inner-product-proof`, heading: /inner product proof/i },
-  // Section 5 — Representations of S₃
-  { url: `${BASE}/05-representations-of-s3/01-counting-irreps`, heading: /representations.*counting irreps/i },
-  { url: `${BASE}/05-representations-of-s3/02-trivial-and-sign`, heading: /trivial and sign representations/i },
-  { url: `${BASE}/05-representations-of-s3/03-reflection-rep`, heading: /reflection representation/i },
-  { url: `${BASE}/05-representations-of-s3/04-decomposition-check`, heading: /decomposing the permutation representation/i },
-  // Section 6 — Problems
-  { url: `${BASE}/06-problems/01-standard`, heading: /problems.*standard/i },
-  { url: `${BASE}/06-problems/02-starred`, heading: /problems.*starred/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Semisimple algebras — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

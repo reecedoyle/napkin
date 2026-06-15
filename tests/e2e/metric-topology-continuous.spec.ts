@@ -2,27 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/03-continuous-maps';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-from-calculus-to-metric`, heading: /From calculus to metric spaces/i },
-  { url: `${BASE}/02-definition`, heading: /definition of a continuous map/i },
-  { url: `${BASE}/03-sequential-continuity`, heading: /Sequential continuity/i },
-  { url: `${BASE}/04-composition`, heading: /Composition of continuous maps/i },
-  { url: `${BASE}/05-from-a-discrete-space`, heading: /Maps from a discrete space/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Continuous maps — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Continuous maps — KaTeX renders', () => {

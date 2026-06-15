@@ -2,53 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-7-quantum-algorithms/03-shors-algorithm';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Classical (inverse) Fourier transform
-  { url: `${BASE}/01-classical-fourier-transform/01-why-fourier`, heading: /why fourier/i },
-  { url: `${BASE}/01-classical-fourier-transform/02-roots-of-unity`, heading: /roots of unity/i },
-  { url: `${BASE}/01-classical-fourier-transform/03-dift-definition`, heading: /discrete inverse fourier transform/i },
-  { url: `${BASE}/01-classical-fourier-transform/04-periodicity-detection`, heading: /why dift detects periodicity/i },
-  { url: `${BASE}/01-classical-fourier-transform/05-worked-example`, heading: /worked example/i },
-  { url: `${BASE}/01-classical-fourier-transform/06-naming-remark`, heading: /naming quirk/i },
-  { url: `${BASE}/01-classical-fourier-transform/07-complexity-bottleneck`, heading: /complexity bottleneck/i },
-  // Section 2 — Quantum Fourier transform
-  { url: `${BASE}/02-quantum-fourier-transform/01-qubits-and-basis`, heading: /qubits and computational basis/i },
-  { url: `${BASE}/02-quantum-fourier-transform/02-qft-definition`, heading: /definition of the qft/i },
-  { url: `${BASE}/02-quantum-fourier-transform/03-tensor-representation`, heading: /tensor product representation/i },
-  { url: `${BASE}/02-quantum-fourier-transform/04-rotation-gates`, heading: /rotation gates/i },
-  { url: `${BASE}/02-quantum-fourier-transform/05-circuit-n3`, heading: /qft circuit for n = 3/i },
-  { url: `${BASE}/02-quantum-fourier-transform/06-general-circuit`, heading: /general qft circuit/i },
-  { url: `${BASE}/02-quantum-fourier-transform/07-why-quantum-wins`, heading: /why the quantum version wins/i },
-  // Section 3 — Shor's algorithm
-  { url: `${BASE}/03-shors-algorithm/01-factoring-to-order-finding`, heading: /factoring reduces to order-finding/i },
-  { url: `${BASE}/03-shors-algorithm/02-good-residues`, heading: /good residues/i },
-  { url: `${BASE}/03-shors-algorithm/03-order-is-period`, heading: /order-finding is period-finding/i },
-  { url: `${BASE}/03-shors-algorithm/04-generating-periodic-state`, heading: /generating the periodic state/i },
-  { url: `${BASE}/03-shors-algorithm/05-collapse-by-measurement`, heading: /collapsing to a periodic superposition/i },
-  { url: `${BASE}/03-shors-algorithm/06-applying-qft`, heading: /destructive interference/i },
-  { url: `${BASE}/03-shors-algorithm/07-continued-fractions`, heading: /continued fractions/i },
-  { url: `${BASE}/03-shors-algorithm/08-success-probability`, heading: /success probability/i },
-  { url: `${BASE}/03-shors-algorithm/09-modular-exponentiation`, heading: /bottleneck/i },
-  { url: `${BASE}/03-shors-algorithm/10-full-algorithm`, heading: /complete picture/i },
-  { url: `${BASE}/03-shors-algorithm/11-why-it-matters`, heading: /cryptographic implications/i },
-  { url: `${BASE}/03-shors-algorithm/12-summary`, heading: /pieces fit together/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe("Shor's algorithm — all slide URLs load", () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

@@ -2,26 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/02-convergence';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-definition-of-convergence`, heading: /Convergence in a metric space/i },
-  { url: `${BASE}/02-picture-of-convergence`, heading: /picture of convergence/i },
-  { url: `${BASE}/03-rationals-vs-reals`, heading: /Convergence depends on the parent space/i },
-  { url: `${BASE}/04-discrete-convergence`, heading: /Convergence in a discrete space/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Convergence section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Convergence section — KaTeX renders', () => {

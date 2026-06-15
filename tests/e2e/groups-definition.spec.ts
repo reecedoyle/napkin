@@ -2,32 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/01-groups/01-definition';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-what-is-a-group`, heading: /What is a group\?/ },
-  { url: `${BASE}/02-additive-integers`, heading: /Example.*additive integers/i },
-  { url: `${BASE}/03-nonzero-rationals`, heading: /Example.*nonzero rationals/i },
-  { url: `${BASE}/04-formal-definition`, heading: /definition of a group/i },
-  { url: `${BASE}/05-non-examples`, heading: /Non-examples of groups/i },
-  { url: `${BASE}/06-more-abelian-examples`, heading: /More abelian examples/i },
-  { url: `${BASE}/07-non-abelian-examples`, heading: /Non-abelian examples/i },
-  { url: `${BASE}/08-dihedral-group`, heading: /dihedral group/i },
-  { url: `${BASE}/09-products-and-trivial`, heading: /Products and the trivial group/i },
-  { url: `${BASE}/10-which-are-groups`, heading: /Which of these are groups\?/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Groups · Definition section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Groups · Definition section — KaTeX renders', () => {

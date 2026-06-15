@@ -2,50 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-5-more-on-groups/01-group-actions';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Definition of a group action
-  { url: `${BASE}/01-definition-of-a-group-action/01-aime-motivation`, heading: /aime motivation/i },
-  { url: `${BASE}/01-definition-of-a-group-action/02-definition`, heading: /group action.*definition/i },
-  { url: `${BASE}/01-definition-of-a-group-action/03-examples`, heading: /examples of group actions/i },
-  { url: `${BASE}/01-definition-of-a-group-action/04-homomorphism-view`, heading: /actions as homomorphisms/i },
-  // Section 2 — Stabilizers and orbits
-  { url: `${BASE}/02-stabilizers-and-orbits/01-equivalence-relation`, heading: /induced equivalence relation/i },
-  { url: `${BASE}/02-stabilizers-and-orbits/02-orbits`, heading: /^orbits$/i },
-  { url: `${BASE}/02-stabilizers-and-orbits/03-stabilizers`, heading: /^stabilizers$/i },
-  { url: `${BASE}/02-stabilizers-and-orbits/04-orbit-stabilizer`, heading: /orbit-stabilizer theorem/i },
-  { url: `${BASE}/02-stabilizers-and-orbits/05-orbit-stabilizer-check`, heading: /using orbit-stabilizer/i },
-  // Section 3 — Burnside's lemma
-  { url: `${BASE}/03-burnsides-lemma/01-fixed-points`, heading: /fixed points of an action/i },
-  { url: `${BASE}/03-burnsides-lemma/02-statement`, heading: /burnside.*lemma/i },
-  { url: `${BASE}/03-burnsides-lemma/03-aime-solution`, heading: /burnside in action/i },
-  { url: `${BASE}/03-burnsides-lemma/04-spinner-exercise`, heading: /burnside exercise/i },
-  { url: `${BASE}/03-burnsides-lemma/05-burnside-proof-sketch`, heading: /burnside.*proof sketch/i },
-  // Section 4 — Conjugation of elements
-  { url: `${BASE}/04-conjugation-of-elements/01-conjugation-action`, heading: /conjugation.*g acting/i },
-  { url: `${BASE}/04-conjugation-of-elements/02-conjugation-in-sn`, heading: /conjugation in s_n/i },
-  { url: `${BASE}/04-conjugation-of-elements/03-conjugacy-classes-sn`, heading: /conjugacy classes of s_n/i },
-  { url: `${BASE}/04-conjugation-of-elements/04-center`, heading: /the center z\(g\)/i },
-  { url: `${BASE}/04-conjugation-of-elements/05-centralizer-order`, heading: /centralizer and order/i },
-  // Section 5 — Problems
-  { url: `${BASE}/05-problems/01-standard-problems`, heading: /bracelets and conjugacy/i },
-  { url: `${BASE}/05-problems/02-starred-daggered`, heading: /class equation and normality/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Group actions — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

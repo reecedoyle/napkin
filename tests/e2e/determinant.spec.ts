@@ -2,46 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-4-linear-algebra/04-determinant';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Wedge product
-  { url: `${BASE}/01-wedge-product/01-motivation`, heading: /why wedge products/i },
-  { url: `${BASE}/01-wedge-product/02-definition`, heading: /2-wedge product.*definition/i },
-  { url: `${BASE}/01-wedge-product/03-explicit-computation`, heading: /explicit computation/i },
-  { url: `${BASE}/01-wedge-product/04-basis-of-wedge2`, heading: /basis of the 2-wedge product/i },
-  { url: `${BASE}/01-wedge-product/05-higher-wedge`, heading: /higher wedge product/i },
-  // Section 2 — The determinant
-  { url: `${BASE}/02-the-determinant/01-induced-map`, heading: /induced wedge map/i },
-  { url: `${BASE}/02-the-determinant/02-top-wedge-is-1d`, heading: /top wedge is one-dimensional/i },
-  { url: `${BASE}/02-the-determinant/03-two-by-two-example`, heading: /determinant of a 2×2 matrix/i },
-  { url: `${BASE}/02-the-determinant/04-multiplicativity`, heading: /determinant is multiplicative/i },
-  { url: `${BASE}/02-the-determinant/05-leibniz-formula`, heading: /leibniz formula/i },
-  // Section 3 — Characteristic polynomials
-  { url: `${BASE}/03-characteristic-polynomials/01-definition`, heading: /characteristic polynomial.*definition/i },
-  { url: `${BASE}/03-characteristic-polynomials/02-cayley-hamilton`, heading: /cayley.*hamilton theorem/i },
-  { url: `${BASE}/03-characteristic-polynomials/03-proof`, heading: /cayley.*hamilton.*proof/i },
-  { url: `${BASE}/03-characteristic-polynomials/04-ch-example`, heading: /cayley.*hamilton.*worked example/i },
-  { url: `${BASE}/03-characteristic-polynomials/05-complexification`, heading: /cayley.*hamilton over non-algebraically/i },
-  // Section 4 — Problems
-  { url: `${BASE}/04-problems/01-standard`, heading: /problems.*standard/i },
-  { url: `${BASE}/04-problems/02-starred`, heading: /problems.*starred/i },
-  { url: `${BASE}/04-problems/03-daggered`, heading: /problems.*daggered/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Determinant — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

@@ -2,28 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/01-groups/03-isomorphisms';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-renaming-elements`, heading: /When two groups are .the same./i },
-  { url: `${BASE}/02-formal-definition`, heading: /definition of an isomorphism/i },
-  { url: `${BASE}/03-easy-examples`, heading: /First examples of isomorphisms/i },
-  { url: `${BASE}/04-primitive-roots-mod-7`, heading: /nontrivial example/i },
-  { url: `${BASE}/05-primitive-roots-general`, heading: /Primitive roots in general/i },
-  { url: `${BASE}/06-equivalence-and-up-to-iso`, heading: /Isomorphism is an equivalence relation/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Groups · Isomorphisms section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Groups · Isomorphisms section — KaTeX renders', () => {

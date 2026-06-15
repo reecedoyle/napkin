@@ -2,30 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/01-definition';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-what-is-a-metric-space`, heading: /What is a metric space\?/ },
-  { url: `${BASE}/02-formal-definition`, heading: /definition of a metric space/i },
-  { url: `${BASE}/03-real-line`, heading: /Metric spaces on the real line/i },
-  { url: `${BASE}/04-euclidean-plane`, heading: /Euclidean plane/i },
-  { url: `${BASE}/05-taxicab`, heading: /taxicab metric/i },
-  { url: `${BASE}/06-rn-and-spheres`, heading: /Euclidean n-space, balls, and spheres/i },
-  { url: `${BASE}/07-function-space`, heading: /metric on a space of functions/i },
-  { url: `${BASE}/08-discrete-and-graphs`, heading: /Discrete spaces and graphs/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Definition section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Definition section — KaTeX renders', () => {

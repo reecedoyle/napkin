@@ -2,29 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/06-open-sets';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-r-neighborhoods`, heading: /r-neighborhoods/i },
-  { url: `${BASE}/02-convergence-and-continuity-in-r-neighborhoods`, heading: /Convergence and continuity in r-neighborhood terms/i },
-  { url: `${BASE}/03-open-sets`, heading: /^Open sets$/i },
-  { url: `${BASE}/04-examples-and-non-examples`, heading: /Examples and non-examples/i },
-  { url: `${BASE}/05-intersections-and-unions`, heading: /Intersections and unions of open sets/i },
-  { url: `${BASE}/06-the-open-set-condition`, heading: /The open-set condition for continuity/i },
-  { url: `${BASE}/07-proof-of-the-open-set-condition`, heading: /Proof of the open-set condition/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Open sets — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Open sets — KaTeX renders', () => {

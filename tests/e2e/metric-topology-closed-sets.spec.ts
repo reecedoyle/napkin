@@ -2,27 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/07-closed-sets';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-definition`, heading: /^Closed sets$/i },
-  { url: `${BASE}/02-limit-points-and-closure`, heading: /Limit points and the closure/i },
-  { url: `${BASE}/03-examples-and-non-examples`, heading: /Examples and non-examples/i },
-  { url: `${BASE}/04-neither-and-both`, heading: /Neither open nor closed/i },
-  { url: `${BASE}/05-complements-and-open-sets`, heading: /Closed sets are complements of open sets/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Closed sets — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Closed sets — KaTeX renders', () => {

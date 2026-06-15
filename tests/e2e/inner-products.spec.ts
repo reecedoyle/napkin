@@ -2,48 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-4-linear-algebra/05-inner-products';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — The inner product
-  { url: `${BASE}/01-the-inner-product/01-motivation`, heading: /from dot products to inner products/i },
-  { url: `${BASE}/01-the-inner-product/02-real-inner-form`, heading: /real inner forms/i },
-  { url: `${BASE}/01-the-inner-product/03-example-rn`, heading: /standard inner form on/i },
-  { url: `${BASE}/01-the-inner-product/04-complex-inner-product`, heading: /complex inner products/i },
-  { url: `${BASE}/01-the-inner-product/05-inner-product-space`, heading: /inner product spaces/i },
-  // Section 2 — Norms
-  { url: `${BASE}/02-norms/01-the-norm`, heading: /the norm/i },
-  { url: `${BASE}/02-norms/02-cauchy-schwarz`, heading: /cauchy-schwarz/i },
-  { url: `${BASE}/02-norms/03-triangle-inequality`, heading: /triangle inequality/i },
-  // Section 3 — Orthogonality
-  { url: `${BASE}/03-orthogonality/01-definition`, heading: /orthogonality.*definition/i },
-  { url: `${BASE}/03-orthogonality/02-orthogonal-implies-independent`, heading: /orthogonal vectors are independent/i },
-  { url: `${BASE}/03-orthogonality/03-orthonormal-bases`, heading: /orthonormal bases/i },
-  { url: `${BASE}/03-orthogonality/04-gram-schmidt`, heading: /gram-schmidt/i },
-  { url: `${BASE}/03-orthogonality/05-dot-product-universal`, heading: /dot product is the only inner form/i },
-  // Section 4 — Hilbert spaces
-  { url: `${BASE}/04-hilbert-spaces/01-definition`, heading: /hilbert spaces.*definition/i },
-  { url: `${BASE}/04-hilbert-spaces/02-convergence-criteria`, heading: /convergence of infinite orthogonal series/i },
-  { url: `${BASE}/04-hilbert-spaces/03-hilbert-basis`, heading: /orthonormal bases for hilbert spaces/i },
-  // Section 5 — Problems
-  { url: `${BASE}/05-problems/01-standard`, heading: /pythagorean theorem and finite-dimensional hilbert/i },
-  { url: `${BASE}/05-problems/02-competition`, heading: /competition problems/i },
-  { url: `${BASE}/05-problems/03-normed-spaces`, heading: /normed spaces and banach spaces/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('Inner products — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────

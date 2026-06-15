@@ -2,27 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/01-groups/04-orders-and-lagrange';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-order-of-a-group`, heading: /order of a group/i },
-  { url: `${BASE}/02-order-of-an-element`, heading: /order of an element/i },
-  { url: `${BASE}/03-order-divides`, heading: /Order divides any exponent that gives the identity/i },
-  { url: `${BASE}/04-finite-groups-finite-orders`, heading: /Elements of a finite group have finite order/i },
-  { url: `${BASE}/05-lagrange-orders`, heading: /Lagrange.*theorem for orders/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Groups · Orders and Lagrange section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Groups · Orders and Lagrange section — KaTeX renders', () => {

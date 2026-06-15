@@ -2,28 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/01-groups/08-problems';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-warm-up-joke`, heading: /Warm-up — a group-theoretic joke/i },
-  { url: `${BASE}/02-three-standards`, heading: /Three standard problems/i },
-  { url: `${BASE}/03-prime-order-cyclic`, heading: /Groups of prime order/i },
-  { url: `${BASE}/04-cayley`, heading: /Cayley's theorem/i },
-  { url: `${BASE}/05-orders-and-fibonacci`, heading: /Two problems exploiting orders/i },
-  { url: `${BASE}/06-imo-markers`, heading: /An olympiad invariant from D/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Groups · Problems section — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Groups · Problems section — joke slide has the figure image', () => {

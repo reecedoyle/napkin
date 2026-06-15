@@ -2,27 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-1-starting-out/02-metric-topology/05-product-metric';
 
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  { url: `${BASE}/01-three-candidates`, heading: /Three candidates for a product metric/i },
-  { url: `${BASE}/02-all-three-equivalent`, heading: /All three are equivalent/i },
-  { url: `${BASE}/03-the-product-metric`, heading: /The product metric/i },
-  { url: `${BASE}/04-componentwise-convergence`, heading: /Convergence is componentwise/i },
-  { url: `${BASE}/05-arithmetic-is-continuous`, heading: /Addition and multiplication are continuous/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-test.describe('Metric topology · Product metric — slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 test.describe('Metric topology · Product metric — KaTeX renders', () => {

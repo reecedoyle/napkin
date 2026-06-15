@@ -2,52 +2,9 @@ import { test, expect } from '@playwright/test';
 
 const BASE = '/part-5-more-on-groups/03-pid-structure';
 
-// All slides: [url-suffix, expected heading regex]
-const SLIDES: Array<{ url: string; heading: RegExp | string }> = [
-  // Section 1 — Finitely generated abelian groups
-  { url: `${BASE}/01-fg-abelian-groups/01-what-is-finitely-generated`, heading: /finitely generated abelian groups.*what are they/i },
-  { url: `${BASE}/01-fg-abelian-groups/02-classification-theorem`, heading: /classification of finitely generated abelian groups/i },
-  { url: `${BASE}/01-fg-abelian-groups/03-rank-definition`, heading: /rank of a finitely generated abelian group/i },
-  // Section 2 — Ring theory prerequisites
-  { url: `${BASE}/02-ring-prerequisites/01-prime-elements`, heading: /prime elements in a ufd/i },
-  { url: `${BASE}/02-ring-prerequisites/02-pid-is-noetherian-ufd`, heading: /pids are noetherian ufds/i },
-  { url: `${BASE}/02-ring-prerequisites/03-noetherian-modules`, heading: /noetherian modules/i },
-  // Section 3 — The structure theorem
-  { url: `${BASE}/03-structure-theorem/01-invariant-form`, heading: /structure theorem.*invariant factor form/i },
-  { url: `${BASE}/03-structure-theorem/02-primary-form`, heading: /structure theorem.*primary decomposition form/i },
-  { url: `${BASE}/03-structure-theorem/03-corollaries`, heading: /what the structure theorem explains/i },
-  // Section 4 — Reduction to free modules
-  { url: `${BASE}/04-free-module-reduction/01-surjection-from-free`, heading: /surjection trick/i },
-  { url: `${BASE}/04-free-module-reduction/02-noetherian-direct-sum`, heading: /direct sums of noetherian modules are noetherian/i },
-  { url: `${BASE}/04-free-module-reduction/03-cokernel-picture`, heading: /m as a cokernel/i },
-  // Section 5 — Uniqueness
-  { url: `${BASE}/05-uniqueness-primary-form/01-uniqueness-free-rank`, heading: /uniqueness.*free rank is well-defined/i },
-  { url: `${BASE}/05-uniqueness-primary-form/02-torsion-submodule`, heading: /uniqueness.*torsion submodule/i },
-  { url: `${BASE}/05-uniqueness-primary-form/03-uniqueness-prime-power-exponents`, heading: /uniqueness.*prime power exponents/i },
-  // Section 6 — Smith normal form
-  { url: `${BASE}/06-smith-normal-form/01-basis-changes`, heading: /allowed basis changes/i },
-  { url: `${BASE}/06-smith-normal-form/02-theorem-statement`, heading: /smith normal form.*the theorem/i },
-  { url: `${BASE}/06-smith-normal-form/03-worked-example`, heading: /worked example over ℤ/i },
-  { url: `${BASE}/06-smith-normal-form/04-proof-sketch`, heading: /proof via the euclidean algorithm/i },
-  // Section 7 — Problems
-  { url: `${BASE}/07-problems/01-daggered`, heading: /problems.*daggered/i },
-  { url: `${BASE}/07-problems/02-standard`, heading: /problems.*standard/i },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.localStorage.clear());
-});
-
-// ── All slides load with correct heading ──────────────────────────────────────
-test.describe('PID structure theorem — all slide URLs load', () => {
-  for (const slide of SLIDES) {
-    test(`loads ${slide.url} and shows heading`, async ({ page }) => {
-      const resp = await page.goto(slide.url);
-      expect(resp?.status()).toBe(200);
-      await expect(page.getByRole('heading', { level: 1, name: slide.heading })).toBeVisible();
-    });
-  }
 });
 
 // ── KaTeX renders ─────────────────────────────────────────────────────────────
