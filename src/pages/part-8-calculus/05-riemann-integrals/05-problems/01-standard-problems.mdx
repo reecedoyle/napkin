@@ -1,0 +1,27 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+<Problem
+  client:load
+  id="ri-prob-bounded-deriv-uniform"
+  difficulty="standard"
+  prompt="Let f : (a,b) → ℝ be differentiable and assume f′ is bounded. Show that f is uniformly continuous."
+  hint="Assume for contradiction that f is not uniformly continuous, and apply the mean value theorem."
+  solution="Suppose f is not uniformly continuous. Then there exists ε > 0 and sequences xₙ, yₙ in (a,b) with |xₙ − yₙ| < 1/n but |f(xₙ) − f(yₙ)| ≥ ε. By the mean value theorem, for each n there exists cₙ between xₙ and yₙ with f(xₙ) − f(yₙ) = f′(cₙ)(xₙ − yₙ). So ε ≤ |f(xₙ) − f(yₙ)| = |f′(cₙ)| · |xₙ − yₙ| ≤ M · (1/n), where M bounds |f′|. For large n this gives ε ≤ M/n → 0, a contradiction. Hence f is uniformly continuous."
+/>
+
+<Problem
+  client:load
+  id="ri-prob-harmonic-log2"
+  difficulty="standard"
+  prompt="Show that lim_{n→∞} (1/(n+1) + 1/(n+2) + ⋯ + 1/(2n)) = log 2."
+  hint="Write the sum as (1/n) Σ_{k=1}^{n} 1/(1 + k/n) and interpret it as a Riemann sum."
+  solution="Write the sum as (1/n) Σ_{k=1}^{n} 1/(1 + k/n). This is a right-endpoint Riemann sum for f(x) = 1/(1+x) on [0,1] with mesh 1/n. Since f is continuous on [0,1], by the Riemann integral theorem this converges to ∫₀¹ 1/(1+x) dx = [log(1+x)]₀¹ = log 2 − log 1 = log 2."
+/>
+
+</SlideLayout>
