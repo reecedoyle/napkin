@@ -1641,6 +1641,23 @@ export const glossary = {
     definition: 'A Dedekind cut is a partition of ℚ into two nonempty sets A and B such that every element of A is less than every element of B and A has no largest element. Each cut represents a real number — rational or irrational. Taking the real numbers to be Dedekind cuts makes the existence of sup and inf a built-in property of ℝ.',
     example: 'The cut A = {q ∈ ℚ : q < √2}, B = {q ∈ ℚ : q ≥ √2 or q is negative} defines the real number √2.',
   },
+  monotonicSequence: {
+    term: 'Monotonic sequence',
+    definition: 'A sequence (aₙ) is monotonic if it is non-decreasing (a₁ ≤ a₂ ≤ a₃ ≤ …) or non-increasing (a₁ ≥ a₂ ≥ a₃ ≥ …). A monotonic sequence that is also bounded must converge.',
+    example: 'The sequence 1, 1/2, 1/3, 1/4, … is non-increasing and bounded below by 0, so it converges (to 0).',
+  },
+  limsup: {
+    term: 'Limit supremum',
+    symbol: '\\limsup_{n\\to\\infty} a_n',
+    definition: 'The limsup of a sequence (aₙ) is the limit of the "tail suprema": lim_{N→∞} sup{aₙ : n ≥ N}. It equals the largest value that (aₙ) approaches infinitely often. If (aₙ) is unbounded above, limsup = +∞.',
+    example: 'For aₙ = (−1)ⁿ the limsup is 1, because the sequence keeps returning to 1 but never exceeds it.',
+  },
+  liminf: {
+    term: 'Limit infimum',
+    symbol: '\\liminf_{n\\to\\infty} a_n',
+    definition: 'The liminf of a sequence (aₙ) is the limit of the "tail infima": lim_{N→∞} inf{aₙ : n ≥ N}. It equals the smallest value that (aₙ) approaches infinitely often. A sequence converges iff liminf = limsup.',
+    example: 'For aₙ = (−1)ⁿ the liminf is −1. Since liminf ≠ limsup, the sequence diverges.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
