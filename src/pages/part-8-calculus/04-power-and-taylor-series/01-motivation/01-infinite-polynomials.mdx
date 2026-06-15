@@ -1,0 +1,22 @@
+---
+title: Infinite polynomials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Infinite polynomials">
+
+Polynomials are the friendliest functions we know. They are smooth, easy to differentiate, and their behaviour is completely determined by finitely many coefficients.
+
+What if we allowed *infinitely many* coefficients?
+
+$$\sum_{n=0}^\infty a_n x^n = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots$$
+
+Such a thing is called a <Term k="powerSeries">power series</Term>. This chapter is about three remarkable facts that make them almost as well-behaved as ordinary polynomials:
+
+1. We can read off exactly which inputs $x$ make the series converge — there is always a <Term k="radiusOfConvergence">radius of convergence</Term> $R$.
+2. We can differentiate term by term, just like polynomials.
+3. Many functions you already know — $e^x$, $\sin x$, $\log x$ — **are** power series in disguise.
+
+</SlideLayout>

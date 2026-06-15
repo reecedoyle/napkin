@@ -1,0 +1,24 @@
+---
+title: Analytic functions — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Analytic functions — definition">
+
+We know that every power series with $R > 0$ defines a <Term k="smoothFunction">smooth</Term> function. We now ask the converse: which smooth functions *are* power series?
+
+<Callout kind="definition" title="Analytic function">
+A function $f \colon U \to \mathbb{R}$ is <Term k="analyticFunction">analytic</Term> at the point $p \in U$ if there exists an open neighborhood $V$ of $p$ and a power series $\sum_n a_n z^n$ such that
+
+$$f(x) = \sum_{n=0}^\infty a_n (x - p)^n \quad \text{for all } x \in V.$$
+
+The function is analytic (on $U$) if it is analytic at every point.
+</Callout>
+
+If $f$ is analytic at $p$, the corollary from §3 forces the coefficients: $a_n = f^{(n)}(p)/n!$. So the series is uniquely determined — the <Term k="taylorSeries">Taylor series</Term> of $f$ at $p$.
+
+**Analytic implies smooth** (exercise), but the converse is false — see the next slide.
+
+</SlideLayout>

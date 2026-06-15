@@ -1,0 +1,20 @@
+---
+title: Complex analysis — a preview
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Complex analysis — a preview">
+
+When we move to $\mathbb{C}$, something remarkable happens that has no real analogue.
+
+<Callout kind="theorem" title="Differentiable implies analytic (over ℂ)">
+If $f \colon \mathbb{C} \to \mathbb{C}$ is complex-differentiable (in the sense that $\lim_{h \to 0} (f(z+h) - f(z))/h$ exists for all $z$), then $f$ is automatically <Term k="analyticFunction">analytic</Term>.
+</Callout>
+
+This is one of the most surprising results in mathematics. Over $\mathbb{R}$, differentiability and analyticity are completely different beasts. Over $\mathbb{C}$, one derivative is enough to guarantee a convergent power series representation everywhere.
+
+This is just the beginning of complex analysis — a subject where nearly every result seems too good to be true. But we are in the real-analysis part of Napkin, so we leave this door open for now.
+
+</SlideLayout>

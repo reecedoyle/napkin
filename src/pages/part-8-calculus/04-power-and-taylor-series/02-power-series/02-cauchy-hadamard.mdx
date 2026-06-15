@@ -1,0 +1,30 @@
+---
+title: Cauchy–Hadamard theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy–Hadamard theorem">
+
+<Callout kind="definition" title="Radius of convergence">
+The <Term k="radiusOfConvergence">radius of convergence</Term> of $\sum_{n=0}^\infty a_n z^n$ is the value $R \ge 0$ (or $R = \infty$) defined by
+
+$$\frac{1}{R} = \limsup_{n \to \infty} |a_n|^{1/n}.$$
+
+Convention: $R = 0$ if the right side is $\infty$; $R = \infty$ if the right side is $0$.
+</Callout>
+
+<Callout kind="theorem" title="Cauchy–Hadamard">
+Let $\sum_{n=0}^\infty a_n z^n$ have radius of convergence $R$, and let $h \in \mathbb{R}$. Then:
+- The series **converges absolutely** if $|h| < R$.
+- The series **diverges** if $|h| > R$.
+
+At $|h| = R$, behaviour can go either way.
+</Callout>
+
+<Callout kind="example" title="Geometric series">
+For $\sum z^n$ we have $a_n = 1$ for all $n$, so $\limsup |a_n|^{1/n} = 1$, giving $R = 1$. This confirms the familiar fact that $1 + z + z^2 + \cdots$ converges exactly when $|z| < 1$.
+</Callout>
+
+</SlideLayout>

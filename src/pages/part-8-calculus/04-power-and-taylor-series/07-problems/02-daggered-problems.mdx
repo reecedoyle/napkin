@@ -1,0 +1,27 @@
+---
+title: Problems — daggered
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — daggered">
+
+<Problem
+  difficulty="daggered"
+  id="pts-prob-euler-formula"
+  prompt="(Euler's formula) Show that exp(iθ) = cos θ + i sin θ for any real number θ."
+  hint="You know all derivatives of sin and cos, so you can compute their Taylor series — and both converge everywhere on ℝ. At the same time, exp is defined as a Taylor series. Write all three out and compare coefficients."
+  solution="The Taylor series of cos θ at 0 is 1 − θ²/2! + θ⁴/4! − ⋯ (all even-powered terms, alternating). The Taylor series of sin θ at 0 is θ − θ³/3! + θ⁵/5! − ⋯ (all odd-powered terms, alternating). So cos θ + i sin θ = ∑_{k even} (−1)^{k/2} θᵏ/k! + i ∑_{k odd} (−1)^{(k−1)/2} θᵏ/k!. On the other hand, exp(iθ) = ∑_{n≥0} (iθ)ⁿ/n! = ∑_{n≥0} iⁿ θⁿ/n!. Since i⁰=1, i¹=i, i²=−1, i³=−i, i⁴=1, … the real parts give 1 − θ²/2! + θ⁴/4! − ⋯ = cos θ, and the imaginary parts give θ − θ³/3! + θ⁵/5! − ⋯ = sin θ. So exp(iθ) = cos θ + i sin θ."
+/>
+
+<Problem
+  difficulty="daggered"
+  id="pts-prob-lagrange-remainder"
+  prompt="(Taylor's theorem, Lagrange form) Let f : [a,b] → ℝ be continuous and (n+1) times differentiable on (a,b). Define Pₙ = ∑_{k=0}^n f⁽ᵏ⁾(a)/k! · (b−a)^k. Prove that there exists ξ ∈ (a,b) with f⁽ⁿ⁺¹⁾(ξ) = (n+1)! · (f(b) − Pₙ)/(b−a)^{n+1}."
+  hint="Use repeated Rolle's theorem. You do not need any power series theory — this could have been stated earlier, but it would have been unmotivated."
+  solution="Define g(t) = f(b) − ∑_{k=0}^n f⁽ᵏ⁾(t)/k! · (b−t)^k. Then g(b) = 0 and g'(t) = −f⁽ⁿ⁺¹⁾(t)/n! · (b−t)^n (everything else telescopes). Also define h(t) = (b−t)^{n+1}. Then h(b) = 0. Both g and h vanish at b. Define F(t) = g(t)/h(t) for t ≠ b (and extend continuously); we need F'(ξ) = 0 for some ξ ∈ (a,b). By the mean value theorem applied to g and h, there exists ξ ∈ (a,b) with g'(ξ)/h'(ξ) = (g(b)−g(a))/(h(b)−h(a)) = (0−g(a))/(0−(b−a)^{n+1}). This gives f⁽ⁿ⁺¹⁾(ξ)/n! · (b−ξ)^n / ((n+1)(b−ξ)^n) = g(a)/(b−a)^{n+1}, which simplifies to the desired identity."
+/>
+
+</SlideLayout>

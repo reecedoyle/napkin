@@ -2075,6 +2075,45 @@ export const glossary = {
     definition: 'The epsilon-delta definition says lim_{x→p} f(x) = L means: for every ε > 0 there exists δ > 0 such that 0 < |x − p| < δ implies |f(x) − L| < ε. The x ≠ p condition is essential: the limit ignores the value of f at p.',
     example: 'lim_{x→2} 3x = 6: given ε > 0, take δ = ε/3. If |x − 2| < δ then |3x − 6| = 3|x − 2| < ε.',
   },
+
+
+  // ────────────── Chapter 29 — Power series and Taylor series ──────────────
+  eulersConstant: {
+    term: "Euler's constant e",
+    symbol: 'e',
+    definition: "The base of the natural logarithm, defined as exp(1) where exp(x) = ∑ xⁿ/n!. Approximately 2.71828. Using the power series definition, one proves exp(x+y) = exp(x)·exp(y) and exp'= exp rigorously.",
+    example: 'e ≈ 2.71828. e² = exp(2), eˣ = exp(x) for all real x.',
+  },
+  analyticFunction: {
+    term: 'Analytic function',
+    symbol: 'C^\\omega',
+    definition: 'A function f: U → ℝ is analytic at a point p if it equals a convergent power series ∑ aₙ(x − p)ⁿ in some open neighborhood of p. Analytic is strictly stronger than smooth (infinitely differentiable): every analytic function is smooth, but not vice versa.',
+    example: 'sin, cos, eˣ, log x, and all polynomials are analytic. The function e^{−1/x} (for x > 0) extended by 0 is smooth but not analytic at 0.',
+  },
+  smoothFunction: {
+    term: 'Smooth function',
+    symbol: 'C^\\infty',
+    definition: 'A function that is infinitely differentiable — all derivatives of every order exist. Also written C∞. Every power series with positive radius of convergence defines a smooth function on its interval of convergence.',
+    example: 'Polynomials, sin, cos, and eˣ are smooth. The function |x| is not smooth at 0 (its derivative is not differentiable there).',
+  },
+  taylorSeries: {
+    term: 'Taylor series',
+    symbol: '\\sum_{n=0}^\\infty \\frac{f^{(n)}(p)}{n!}(x-p)^n',
+    definition: 'For a smooth function f and a point p, the Taylor series of f at p is the power series whose n-th coefficient is f⁽ⁿ⁾(p)/n!. It is always well-defined, but need not converge to f.',
+    example: 'The Taylor series of eˣ at p = 0 is 1 + x + x²/2! + x³/3! + ⋯, which does converge to eˣ everywhere.',
+  },
+  powerSeries: {
+    term: 'Power series',
+    symbol: '\\sum_{n=0}^\\infty a_n z^n',
+    definition: 'An "infinite polynomial" of the form a₀ + a₁z + a₂z² + ⋯ with fixed coefficients a₀, a₁, …. When the variable z is replaced by a real or complex number h, we get an ordinary infinite series that may or may not converge.',
+    example: '1 + z + z² + z³ + ⋯ is a power series with every coefficient equal to 1.',
+  },
+  radiusOfConvergence: {
+    term: 'Radius of convergence',
+    symbol: 'R',
+    definition: 'The radius R ≥ 0 (possibly ∞) such that a power series ∑ aₙzⁿ converges absolutely for |z| < R and diverges for |z| > R. Given by 1/R = lim sup |aₙ|^{1/n} (Cauchy–Hadamard formula).',
+    example: 'The geometric series ∑ zⁿ has R = 1: it converges for |z| < 1 and diverges for |z| > 1.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

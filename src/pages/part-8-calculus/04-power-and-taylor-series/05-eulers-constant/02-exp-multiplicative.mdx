@@ -1,0 +1,26 @@
+---
+title: exp is multiplicative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="exp is multiplicative">
+
+<Callout kind="proposition" title="Functional equation">
+For all $x, y \in \mathbb{R}$,
+
+$$\exp(x + y) = \exp(x) \cdot \exp(y).$$
+</Callout>
+
+The idea: multiply the two series $\sum \frac{x^n}{n!}$ and $\sum \frac{y^m}{m!}$ together. Collecting all terms with $m + n = k$ and using the binomial theorem:
+
+$$\exp(x)\exp(y) = \sum_{k=0}^\infty \sum_{\substack{m+n=k \\ m,n \ge 0}} \frac{x^n}{n!}\frac{y^m}{m!} = \sum_{k=0}^\infty \frac{(x+y)^k}{k!} = \exp(x+y).$$
+
+(There are technicalities about swapping the order of summation that we wave through.)
+
+<Callout kind="corollary" title="exp is always positive">
+Since $\exp(x) = \exp(x/2)^2 \ge 0$, and $\exp(x)\exp(-x) = \exp(0) = 1$ rules out zero, we get $\exp(x) > 0$ for all $x$. In particular $\exp$ is strictly increasing.
+</Callout>
+
+</SlideLayout>

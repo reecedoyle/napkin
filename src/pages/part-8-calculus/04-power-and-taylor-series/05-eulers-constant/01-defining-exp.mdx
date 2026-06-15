@@ -1,0 +1,26 @@
+---
+title: Defining exp via a power series
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining exp via a power series">
+
+Armed with power series, we can give a rigorous definition of $e^x$ — one that doesn't rely on "repeated multiplication" or an informal limit.
+
+<Callout kind="definition" title="The exponential function">
+Define $\exp \colon \mathbb{R} \to \mathbb{R}$ by the power series
+
+$$\exp(x) = \sum_{n=0}^\infty \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$$
+
+The Cauchy–Hadamard formula gives $R = \infty$ (since $|1/n!|^{1/n} \to 0$), so this converges for every $x \in \mathbb{R}$.
+
+We then define <Term k="eulersConstant">Euler's constant</Term> as $e \coloneqq \exp(1)$.
+</Callout>
+
+Differentiating term by term: $\exp'(x) = \sum_{n=1}^\infty \frac{n x^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \exp(x)$.
+
+So $\exp' = \exp$. By the proposition from §4, $\exp$ is <Term k="analyticFunction">analytic</Term> on all of $\mathbb{R}$.
+
+</SlideLayout>
