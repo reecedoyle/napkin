@@ -1636,6 +1636,12 @@ export const glossary = {
     definition: 'For any real r, the function x ↦ xʳ has derivative rxʳ⁻¹. For integer r this follows from the limit definition; for all real r it follows from writing xʳ = e^{r log x} and applying the chain rule.',
     example: "(x^{1/2})′ = (1/2)x^{-1/2} = 1/(2√x).",
   },
+  smoothFunction: {
+    term: 'Smooth function (C∞)',
+    symbol: 'C^\\infty',
+    definition: 'A function f : U → ℝ is smooth if it is infinitely differentiable: the n-th derivative f^(n) exists for every n ≥ 0. Polynomials, eˣ, log, sin, and cos are all smooth, as are their compositions.',
+    example: 'The function f(x) = e^{−1/x} for x > 0 and 0 for x ≤ 0 is smooth, but not analytic at 0 (all its derivatives at 0 are 0 yet f is nonzero for x > 0).',
+  },
   rollesTheorem: {
     term: "Rolle's theorem",
     definition: "If f : [a,b] → ℝ is continuous, differentiable on (a,b), and f(a) = f(b), then there exists c ∈ (a,b) with f′(c) = 0. Proved by compactness: a non-constant function on [a,b] must achieve an interior extremum, which Fermat's theorem forces to be a stationary point.",
