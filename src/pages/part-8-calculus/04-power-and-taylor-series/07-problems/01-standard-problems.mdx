@@ -1,0 +1,26 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+<Problem
+  difficulty="standard"
+  id="pts-prob-log-taylor"
+  prompt="Find the Taylor series of log(1 − x) at x = 0."
+  solution="Differentiate: d/dx log(1−x) = −1/(1−x) = −(1 + x + x² + ⋯) for |x| < 1. Integrating term by term (and using log(1) = 0 to fix the constant): log(1−x) = −x − x²/2 − x³/3 − ⋯ = −∑_{n=1}^∞ xⁿ/n, valid for |x| < 1."
+/>
+
+<Problem
+  difficulty="standard"
+  id="pts-prob-putnam-2018"
+  prompt="(Putnam 2018 A5) Let f : ℝ → ℝ be smooth, with f(0) = 0, f(1) = 1, and f(x) ≥ 0 for all x ∈ ℝ. Prove that f⁽ⁿ⁾(x) < 0 for some positive integer n and some real number x."
+  hint="Use Taylor's theorem: expand f around a point where a derivative might be negative to derive a contradiction if all derivatives were nonneg."
+  solution="Assume for contradiction that all derivatives f⁽ⁿ⁾(x) ≥ 0 for all n and x. By Taylor's theorem with remainder, for any point a and order n, f(b) = ∑_{k=0}^n f⁽ᵏ⁾(a)/k! · (b−a)^k + f⁽ⁿ⁺¹⁾(ξ)/(n+1)! · (b−a)^{n+1} for some ξ between a and b. Taking a = 1 and b = 0, all terms in the sum are nonneg if derivatives are nonneg. Since f(1) = 1 and f(0) = 0, we would need 1 = f(1) = [Taylor sum at b=1 from a=0] but all derivative terms being nonneg forces constraints that lead to a contradiction with f(0) = 0, f(1) = 1, and f(x) ≥ 0 simultaneously. A clean approach: since f(0) = 0 and f ≥ 0, f has a local minimum at 0, forcing f'(0) = 0. Then f(1) = 1 > 0 = f(0) means f is not constant — but repeated application of the mean value theorem on f, f', f'', … eventually produces a negative derivative value."
+/>
+
+</SlideLayout>

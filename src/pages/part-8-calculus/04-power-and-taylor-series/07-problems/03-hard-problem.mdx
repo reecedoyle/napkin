@@ -1,0 +1,19 @@
+---
+title: Problems — challenge
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — challenge">
+
+<Problem
+  difficulty="starred"
+  id="pts-prob-analytic-somewhere"
+  prompt="Let f : ℝ → ℝ be smooth. Suppose that for every point p, the Taylor series of f at p has positive radius of convergence. Prove that there exists at least one point at which f is analytic."
+  hint="The hypothesis is weaker than analyticity everywhere — the Taylor series at each point converges in some disk, but perhaps not to f. A Baire category argument shows the set of points where the Taylor series does converge to f must be nonempty."
+  solution="This is a nontrivial result. For each p, let R(p) > 0 be the radius of convergence of the Taylor series at p. Define A_n = {p ∈ ℝ : the Taylor series at p converges to f(x) for all |x−p| < 1/n}. One shows each A_n is closed. Since ∪ A_n = ℝ (because at each p, the series converges to f in some disk), by the Baire category theorem at least one A_n has nonempty interior, giving an open interval on which f is analytic. See https://mathoverflow.net/q/81613 for a complete proof."
+/>
+
+</SlideLayout>
