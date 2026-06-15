@@ -1655,6 +1655,11 @@ export const glossary = {
     definition: 'Given a tagged partition P of [a,b] and a function f: [a,b] → ℝ, the Riemann sum is Σᵢ f(ξᵢ)(tᵢ − t_{i-1}). It approximates ∫_a^b f(x) dx by summing the areas of rectangles of width tᵢ − t_{i-1} and height f(ξᵢ).',
     example: 'For f(x) = x on [0,1] with the uniform partition and right endpoints, the Riemann sum equals (1/n) · Σₖ₌₁ⁿ (k/n) = (n+1)/(2n) → 1/2.',
   },
+  riemannIntegrable: {
+    term: 'Riemann integrable',
+    definition: 'A bounded function f: [a,b] → ℝ is Riemann integrable if the limit of Riemann sums S(f,P) exists as mesh(P) → 0, independently of the choice of sample points. Every continuous function is Riemann integrable. The Dirichlet function (1 on ℚ, 0 on irrationals) is not.',
+    example: 'Every monotone bounded function on [a,b] is Riemann integrable. A function with one jump discontinuity (e.g. a step function) is also Riemann integrable.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
