@@ -1675,6 +1675,12 @@ export const glossary = {
     definition: 'A series ∑ aₖ converges conditionally if it converges but does NOT converge absolutely — i.e. ∑ |aₖ| diverges. Conditionally convergent series are dangerous: by the Riemann rearrangement theorem, their terms can be permuted to converge to any value.',
     example: 'The alternating harmonic series 1 − 1/2 + 1/3 − 1/4 + … converges (to ln 2) but ∑ 1/n diverges, so convergence is only conditional.',
   },
+  epsilonDelta: {
+    term: 'Epsilon-delta definition',
+    symbol: '\\lim_{x \\to p} f(x) = L',
+    definition: 'The epsilon-delta definition says lim_{x→p} f(x) = L means: for every ε > 0 there exists δ > 0 such that 0 < |x − p| < δ implies |f(x) − L| < ε. The x ≠ p condition is essential: the limit ignores the value of f at p.',
+    example: 'lim_{x→2} 3x = 6: given ε > 0, take δ = ε/3. If |x − 2| < δ then |3x − 6| = 3|x − 2| < ε.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

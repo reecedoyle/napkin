@@ -1,0 +1,24 @@
+---
+title: Classic limit examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Classic limit examples">
+
+<Callout kind="example" title="sin(x)/x as x → 0">
+Let $f(x) = \frac{\sin x}{x}$ (with $f(0)$ assigned any value). Then
+
+$$\lim_{x \to 0} \frac{\sin x}{x} = 1.$$
+
+We won't prove this here — it requires more trig than we want to set up. It's quoted as a fact. Note the notation is a slight abuse: we're feeding the expression "$\sin x / x$" to the limit rather than a proper function $f$, but since the value at $0$ doesn't matter, this is harmless.
+</Callout>
+
+<Callout kind="example" title="A wilder example: the Thomae function">
+Define $f(x) = \frac{1}{q}$ if $x = \frac{p}{q}$ in lowest terms ($q > 0$), $f(x) = 0$ if $x$ is irrational, and $f(0) = 1$. Then $\lim_{x \to 0} f(x) = 0$, even though $f(0) = 1$. For any $\eps > 0$, only finitely many fractions near $0$ have $\frac{1}{q} \ge \eps$, so we can choose $\delta$ small enough to avoid them all.
+</Callout>
+
+Arithmetic of limits behaves as expected: $\lim_{x\to p}(f \pm g)(x) = \lim_{x\to p} f(x) \pm \lim_{x\to p} g(x)$, and so on. This is essentially the same proof as for sequences.
+
+</SlideLayout>

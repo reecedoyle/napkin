@@ -1,0 +1,26 @@
+---
+title: Limits at points — checking your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Limits at points — checking your understanding">
+
+<Callout kind="question" title="Epsilon-delta for a linear function">
+Using the epsilon-delta definition, prove that $\lim_{x \to 2} 3x = 6$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="lim-s6-proof-linear"
+  prompt="Give an epsilon-delta proof that lim_{x→2} 3x = 6."
+  solution="Given ε > 0, choose δ = ε/3. If |x − 2| < δ then |3x − 6| = 3|x − 2| < 3·(ε/3) = ε. So for any positive ε, the choice δ = ε/3 witnesses the limit."
+/>
+
+<Callout kind="remark" title="Connection to metric spaces">
+For functions between metric spaces $f: M \to N$, the same definition works, provided $p$ is not an isolated point of $M$ (otherwise there are no points near $p$ to test, and the limit is undefined).
+</Callout>
+
+</SlideLayout>

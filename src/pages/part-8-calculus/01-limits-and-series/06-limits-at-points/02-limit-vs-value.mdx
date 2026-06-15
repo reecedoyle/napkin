@@ -1,0 +1,26 @@
+---
+title: The limit ignores f(p)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The limit ignores f(p)">
+
+The most important feature of the <Term k="epsilonDelta">epsilon-delta</Term> definition is the $x \ne p$ condition.
+
+<Callout kind="example" title="A function with a hole">
+Define
+
+$$f(x) = \begin{cases} 3x & \text{if } x \ne 0 \\ 2019 & \text{if } x = 0. \end{cases}$$
+
+Then $\lim_{x \to 0} f(x) = 0$. The artificial value $f(0) = 2019$ is completely irrelevant to the limit. Because $f(0) \ne \lim_{x\to 0} f(x)$, the function is discontinuous at $0$.
+</Callout>
+
+<Callout kind="remark" title="Continuity vs limits">
+A function $f$ is **continuous at $p$** if and only if the limit exists and equals the function value: $\lim_{x \to p} f(x)$ exists and $= f(p)$.
+
+Limits and continuity are almost the same concept — continuity is just limits with the extra requirement that $f(p)$ matches the limit.
+</Callout>
+
+</SlideLayout>

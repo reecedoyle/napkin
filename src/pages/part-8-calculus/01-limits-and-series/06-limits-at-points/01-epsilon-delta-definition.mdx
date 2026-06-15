@@ -1,0 +1,22 @@
+---
+title: Limits of functions — epsilon-delta
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Limits of functions — epsilon-delta">
+
+We've talked about limits of sequences. Now we need limits of functions — statements like $\lim_{x \to 0} \sin(x)/x = 1$.
+
+<Callout kind="definition" title="Limit of a function at a point">
+Let $f : \RR \to \RR$ and $p \in \RR$. We say $\lim_{x \to p} f(x) = L$ if:
+
+For every $\eps > 0$ there exists $\delta > 0$ such that whenever $|x - p| < \delta$ and $x \ne p$, we have $|f(x) - L| < \eps$.
+</Callout>
+
+The $x \ne p$ clause is deliberate: the limit as $x \to p$ says nothing about the value $f(p)$. In fact, $f$ need not even be defined at $p$.
+
+This is the celebrated <Term k="epsilonDelta">epsilon-delta</Term> definition. The logical structure is: "I challenge you with any target tolerance $\eps$. You respond with a zone of width $\delta$ around $p$. I promise: anywhere in that zone (except $p$ itself), $f$ hits within $\eps$ of $L$."
+
+</SlideLayout>
