@@ -1667,6 +1667,23 @@ export const glossary = {
     definition: 'A strengthening of the triangle inequality satisfied by the p-adic absolute value: |x + y|ₚ ≤ max{|x|ₚ, |y|ₚ}. Equality holds when |x|ₚ ≠ |y|ₚ. As a consequence every triangle in a p-adic metric space is isosceles, and series converge if and only if their terms go to zero.',
     example: 'In ℚ₃: |3 + 9|₃ = |12|₃ = 1/3 = max{1/3, 1/9}, achieving equality since |3|₃ ≠ |9|₃.',
   },
+  mahlerBasis: {
+    term: 'Binomial coefficient functions (Mahler basis)',
+    symbol: '\\binom{x}{n}',
+    definition: 'The functions C(x,n) = x(x−1)⋯(x−(n−1))/n! for n = 0, 1, 2, … These are integer-valued polynomials that form an orthonormal basis for the space of continuous functions ℤₚ → ℚₚ via Mahler\'s theorem.',
+    example: 'C(x,0) = 1, C(x,1) = x, C(x,2) = x(x−1)/2. For integer x ≥ n, C(x,n) is the usual binomial coefficient.',
+  },
+  mahlerCoeff: {
+    term: 'Mahler coefficients',
+    symbol: 'a_n = \\sum_{k=0}^n \\binom{n}{k}(-1)^{n-k}f(k)',
+    definition: 'For a function f: ℤₚ → ℚₚ, the nth Mahler coefficient is the nth finite difference Δⁿf(0) = ∑_{k=0}^n C(n,k)(−1)^{n−k}f(k). By Mahler\'s theorem, f is continuous if and only if aₙ → 0, in which case f(x) = ∑ aₙ C(x,n).',
+    example: 'For f(n) = n²: a₀ = 0, a₁ = 1, a₂ = 2, aₙ = 0 for n ≥ 3 (since x² = C(x,1) + 2C(x,2) in the binomial basis).',
+  },
+  strassmann: {
+    term: "Strassmann's theorem",
+    definition: 'If f: ℤₚ → ℚₚ is analytic (has a convergent power series expansion on ℤₚ), then f has only finitely many zeros. This is the p-adic analogue of the statement that a nonzero analytic function on a compact complex domain has finitely many zeros.',
+    example: 'Applied in the proof of the Skolem–Mahler–Lech theorem: the function f(n) = x_{nT+r} coming from a linear recurrence is analytic, so it either vanishes identically or has finitely many zeros.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;
