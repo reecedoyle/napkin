@@ -1617,6 +1617,32 @@ export const glossary = {
     definition: 'The vector space of functions G → ℂ that are constant on conjugacy classes, i.e. functions f with f(ghg⁻¹) = f(g) for all g, h ∈ G. Equipped with the inner product ⟨f₁, f₂⟩ = (1/|G|) Σ_{g∈G} f₁(g) · conjugate(f₂(g)), the irreducible characters form an orthonormal basis.',
     example: 'For G = S₃ with 3 conjugacy classes, Fun_class(G) is 3-dimensional, with basis given by the three irreducible characters.',
   },
+
+  // ────────────── Chapter 27 — Bonus: A hint of p-adic numbers ──────────────
+  surjtoZp: {
+    term: 'Reduction map ℤ → ℤ/p',
+    symbol: '\\mathbb{Z} \\twoheadrightarrow \\mathbb{Z}/p',
+    definition: 'The surjective ring homomorphism sending an integer n to its residue class n mod p. It is far from injective: every residue class has infinitely many preimages. Much information about n is lost when we only keep n mod p.',
+    example: 'Under ℤ → ℤ/3, the integers 0, 3, 6, 9, … all map to the same element 0.',
+  },
+  Qp: {
+    term: 'p-adic numbers ℚₚ',
+    symbol: '\\mathbb{Q}_p',
+    definition: 'The field of p-adic numbers, where p is a prime. It is the completion of ℚ with respect to the p-adic absolute value |·|ₚ. Elements can be thought of as "Laurent series with base p" — infinite to the left, possibly finite to the right.',
+    example: 'ℚ₃ contains elements like −1/2 = 1 + 3 + 3² + 3³ + … (an infinite series convergent in the 3-adic metric).',
+  },
+  ZinjZp: {
+    term: 'Embedding ℤ ↪ ℤₚ',
+    symbol: '\\mathbb{Z} \\hookrightarrow \\mathbb{Z}_p',
+    definition: 'The injective ring homomorphism sending an integer n to the compatible sequence (n mod p, n mod p², n mod p³, …). Unlike the reduction map ℤ → ℤ/p, this map loses no information about n.',
+    example: 'The integer 50 embeds as (2 mod 3, 5 mod 9, 23 mod 27, 50 mod 81, 50 mod 243, …) in ℤ₃.',
+  },
+  genBinomThm: {
+    term: 'Generalized binomial theorem (p-adic)',
+    symbol: '(1+x)^r = \\sum_{n \\ge 0} \\binom{r}{n} x^n',
+    definition: 'For x ∈ ℤₚ with |x|ₚ < 1 and any rational r, the series ∑ C(r,n) xⁿ converges in ℚₚ to (1+x)^r. This extends the usual binomial theorem to non-integer exponents in the p-adic setting.',
+    example: 'For r = −2: (1+x)⁻² = 1 − 2x + 3x² − 4x³ + … converges in ℚₚ whenever |x|ₚ < 1.',
+  },
 } as const satisfies Record<string, GlossaryEntry>;
 
 export type GlossaryKey = keyof typeof glossary;

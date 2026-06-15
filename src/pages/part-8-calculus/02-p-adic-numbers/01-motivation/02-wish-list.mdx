@@ -1,0 +1,32 @@
+---
+title: "The p-adic wish-list"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The p-adic wish-list">
+
+Here is what we want from the $p$-adic numbers:
+
+1. **Take mod $p^e$ for all $e$ at once.** No need to pick a modulus — a $p$-adic equation carries enough information to reduce mod $p^e$ for any $e$.
+2. **Form a field.** The $p$-adic numbers <Term k="Qp">$\QQ_p$</Term> are a field, so $1/p$ makes sense. Contrast with $\mathbb{Z}/p^2\mathbb{Z}$, which isn't even an integral domain.
+3. **Embed $\mathbb{Z}$ injectively.** Rather than the surjective collapse $\mathbb{Z} \twoheadrightarrow \mathbb{Z}/p$, we get an injective map <Term k="ZinjZp">$\mathbb{Z} \hookrightarrow \mathbb{Z}_p$</Term>. No information is discarded from $\mathbb{Z}$.
+4. **Still ignore "irrelevant" data.** Just as mod $p$ focuses on one type of information, $\QQ_p$ zooms in on $p$-adic structure while becoming blind to others (e.g., the sign of a real number).
+
+<MCQ
+  client:load
+  id="pad-mot-mcq-z-p2-field"
+  prompt="Why is ℤ/p²ℤ not a field?"
+  options={[
+    { id: "a", label: "It has characteristic 0" },
+    { id: "b", label: "p · p = p² = 0, so p is a zero-divisor — not invertible" },
+    { id: "c", label: "It is not closed under addition" },
+    { id: "d", label: "It has too many elements" },
+  ]}
+  correct="b"
+  explanation="In ℤ/p²ℤ, the element p satisfies p · p ≡ 0 (mod p²), making p a zero-divisor. A field has no zero-divisors (it's an integral domain), so ℤ/p²ℤ cannot be a field."
+/>
+
+</SlideLayout>
