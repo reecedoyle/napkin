@@ -39,8 +39,13 @@ const ROOT = resolve(import.meta.dirname, '..');
 // shape: how to identify entry boundaries during dedupe.
 //   - 'multiline': entry starts with `  <camelKey>: {` and ends with `  },`
 //   - 'oneline'  : entry is a single `  'key': value,` line
+// glossary.ts is no longer here: chapters now add their entries as separate
+// files under src/lib/glossary-chapters/, so parallel branches never touch a
+// shared glossary file and there's nothing to merge or dedup. Only
+// katex-macros.ts is still a single appended file, and it uses the safe
+// one-line path (no glue line — that's what produced the old stray-brace bug
+// on the multiline glossary).
 const ADDITIVE_FILES = {
-  'src/lib/glossary.ts': { glueLine: '  },', shape: 'multiline' },
   'src/lib/katex-macros.ts': { glueLine: null, shape: 'oneline' },
 };
 

@@ -70,14 +70,20 @@ function readSafe(path) {
 
 // ─── load glossary keys ────────────────────────────────────────────────
 
-const glossarySrc = readSafe(resolve(ROOT, 'src/lib/glossary.ts'));
-const glossaryKeys = new Set(
-  // matches `<identifier>: { … term: …` at the start of an entry
-  [...glossarySrc.matchAll(/^\s+([a-zA-Z_][a-zA-Z0-9_]*):\s*\{\s*$/gm)]
+// Keys live in the base map (src/lib/glossary.ts) plus one file per chapter
+// under src/lib/glossary-chapters/*.ts (merged at build via import.meta.glob).
+function keysFrom(src) {
+  return [...src.matchAll(/^\s+([a-zA-Z_][a-zA-Z0-9_]*):\s*\{\s*$/gm)]
     .map((m) => m[1])
-    // drop the GlossaryEntry interface field names that look like entries
-    .filter((k) => !['term', 'symbol', 'definition', 'example'].includes(k)),
-);
+    .filter((k) => !['term', 'symbol', 'definition', 'example'].includes(k));
+}
+const glossaryKeys = new Set(keysFrom(readSafe(resolve(ROOT, 'src/lib/glossary.ts'))));
+const chaptersDir = resolve(ROOT, 'src/lib/glossary-chapters');
+try {
+  for (const name of readdirSync(chaptersDir)) {
+    if (name.endsWith('.ts')) for (const k of keysFrom(readSafe(join(chaptersDir, name)))) glossaryKeys.add(k);
+  }
+} catch { /* dir may not exist yet */ }
 
 // ─── scan chapter MDX ──────────────────────────────────────────────────
 

@@ -204,22 +204,33 @@ slide in the chapter's problems section. The verifier checks this.
 
 ## Glossary
 
-Add new entries at the bottom of `src/lib/glossary.ts` under a new
-section block:
+Create **one new file for your chapter** at
+`src/lib/glossary-chapters/<your-chapter-dir-slug>.ts` (e.g.
+`part-9-complex-analysis-01-holomorphic-functions.ts`). Do **not** edit the
+shared `src/lib/glossary.ts` — per-chapter files are how parallel chapter
+agents avoid merge conflicts. The file default-exports a record:
 
 ```ts
-// ────────────── Chapter N — <Chapter name> ──────────────
-mySymbol: {
-  term: '<plain-text name>',                    // appears in tooltip
-  symbol: '\\mySymbolLatex',                    // optional, /glossary page only
-  definition: '<1–3 plain-text sentences>.',    // tooltip + page. Use Unicode (ℤ, ℝ) — no LaTeX.
-  example: '<optional plain-text example>.',
-},
+import type { GlossaryEntry } from '../glossary';
+
+const entries: Record<string, GlossaryEntry> = {
+  mySymbol: {
+    term: '<plain-text name>',                  // appears in tooltip
+    symbol: '\\mySymbolLatex',                  // optional, /glossary page only
+    definition: '<1–3 plain-text sentences>.',  // tooltip + page. Use Unicode (ℤ, ℝ) — no LaTeX.
+    example: '<optional plain-text example>.',
+  },
+};
+
+export default entries;
 ```
 
-Keys are short camelCase. Read existing entries first — match the depth
-and Unicode conventions. The verifier checks every `<Term k="X">` against
-this file.
+Keys are short camelCase and must be **unique across the whole portal**
+(a duplicate silently overrides the other entry — read `glossary.ts` and
+existing chapter files to avoid clashes; if a concept already has a key,
+reuse it rather than redefining). `glossary.ts` merges every file under
+`glossary-chapters/` automatically. The verifier checks every
+`<Term k="X">` against the base map + all chapter files.
 
 ## Voice
 

@@ -24,7 +24,7 @@ export interface GlossaryEntry {
   example?: string;
 }
 
-export const glossary = {
+const baseGlossary = {
   // ────────────── Number sets ──────────────
   ZZ: {
     term: 'Integers',
@@ -2110,8 +2110,28 @@ export const glossary = {
   },
 } as const satisfies Record<string, GlossaryEntry>;
 
-export type GlossaryKey = keyof typeof glossary;
+// Per-chapter additions live one file per chapter in ./glossary-chapters/
+// (each default-exports a Record<string, GlossaryEntry>). Authoring a new
+// chapter creates a NEW file there, so parallel chapter agents never edit a
+// shared file — no merge conflicts and no dedup heuristics at finalize time.
+// A key defined in a chapter file overrides the same key in the base map or
+// an earlier-loaded chapter file (last spread wins).
+const chapterModules = import.meta.glob('./glossary-chapters/*.ts', {
+  eager: true,
+  import: 'default',
+}) as Record<string, Record<string, GlossaryEntry>>;
+const chapterGlossary: Record<string, GlossaryEntry> = Object.assign(
+  {},
+  ...Object.values(chapterModules),
+);
+
+export const glossary: Record<string, GlossaryEntry> = {
+  ...baseGlossary,
+  ...chapterGlossary,
+};
+
+export type GlossaryKey = string;
 
 export function getEntry(key: string): GlossaryEntry | undefined {
-  return (glossary as Record<string, GlossaryEntry>)[key];
+  return glossary[key];
 }
