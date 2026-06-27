@@ -9,6 +9,7 @@ import Problem from '@/components/Problem';
 <SlideLayout title="Problems — daggered">
 
 <Problem
+  client:load
   difficulty="daggered"
   id="pts-prob-euler-formula"
   prompt="(Euler's formula) Show that exp(iθ) = cos θ + i sin θ for any real number θ."
@@ -17,6 +18,7 @@ import Problem from '@/components/Problem';
 />
 
 <Problem
+  client:load
   difficulty="daggered"
   id="pts-prob-lagrange-remainder"
   prompt="(Taylor's theorem, Lagrange form) Let f : [a,b] → ℝ be continuous and (n+1) times differentiable on (a,b). Define Pₙ = ∑_{k=0}^n f⁽ᵏ⁾(a)/k! · (b−a)^k. Prove that there exists ξ ∈ (a,b) with f⁽ⁿ⁺¹⁾(ξ) = (n+1)! · (f(b) − Pₙ)/(b−a)^{n+1}."

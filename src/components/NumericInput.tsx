@@ -46,7 +46,7 @@ export default function NumericInput({ id, prompt, expected, placeholder, explan
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder={placeholder ?? 'Your answer'}
+          placeholder={placeholder ?? 'a number'}
           className="flex-1 rounded-md border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 px-3 py-2 font-mono"
           spellCheck={false}
           autoComplete="off"

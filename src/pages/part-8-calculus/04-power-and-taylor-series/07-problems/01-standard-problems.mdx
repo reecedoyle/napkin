@@ -9,6 +9,7 @@ import Problem from '@/components/Problem';
 <SlideLayout title="Problems — standard">
 
 <Problem
+  client:load
   difficulty="standard"
   id="pts-prob-log-taylor"
   prompt="Find the Taylor series of log(1 − x) at x = 0."
@@ -16,6 +17,7 @@ import Problem from '@/components/Problem';
 />
 
 <Problem
+  client:load
   difficulty="standard"
   id="pts-prob-putnam-2018"
   prompt="(Putnam 2018 A5) Let f : ℝ → ℝ be smooth, with f(0) = 0, f(1) = 1, and f(x) ≥ 0 for all x ∈ ℝ. Prove that f⁽ⁿ⁾(x) < 0 for some positive integer n and some real number x."
