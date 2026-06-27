@@ -17,7 +17,7 @@ At least one sub-rectangle, say $\gamma_1$, satisfies $|\oint_{\gamma_1} f\,dz| 
 Repeat: subdivide $\gamma_1$ into 4 parts, find one with integral $\geq c/16$, and so on. The rectangles $\gamma_j$ shrink to a single point $p$, with $|\oint_{\gamma_j} f\,dz| \geq c/4^j$ while the perimeter shrinks as $L/2^j$.
 
 <Callout kind="remark" title="Why this reaches a contradiction">
-At $p$, holomorphicity says $f(p+h) = f(p) + f'(p)\cdot h + \eps(h)\cdot h$ where $\eps(h) \to 0$. The polynomial part $f(p) + f'(p)(z-p)$ integrates to $0$ around any rectangle. The error term contributes $O(\eps \cdot \text{perimeter}^2)$. But $|\oint_{\gamma_j} f\,dz| \geq c/4^j$ is much larger than $O(\text{perimeter}^2/4^j)$ — contradiction.
+At $p$, holomorphicity says $f(p+h) = f(p) + f'(p)\cdot h + \eps(h)\cdot h$ where $\eps(h) \to 0$. The polynomial part $f(p) + f'(p)(z-p)$ integrates to $0$ around any rectangle. The error term is bounded by the ML lemma as $O(\eps_j \cdot P_j^2)$, where $P_j = L/2^j$ is the perimeter and $\eps_j \to 0$ as the rectangles shrink to $p$. So the lower bound forces $c/4^j \leq O(\eps_j \cdot L^2/4^j)$, i.e. $c \leq O(\eps_j \cdot L^2) \to 0$ — contradiction.
 </Callout>
 
 </SlideLayout>
