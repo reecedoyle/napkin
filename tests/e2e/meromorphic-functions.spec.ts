@@ -22,8 +22,9 @@ test.describe('Meromorphic functions — MCQ flow (residue of e^z/z²)', () => {
 
   test('correct answer persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
-    // The correct answer is "1" (option b)
-    await page.getByRole('button', { name: '1' }).click();
+    // The correct answer is "1" (option b). exact: true so it doesn't also
+    // match the "1/2" option button.
+    await page.getByRole('button', { name: '1', exact: true }).click();
     await expect(page.getByText('Why:').first()).toBeVisible();
     expect(await page.evaluate((k) => window.localStorage.getItem(k), MCQ_KEY)).toContain(
       '"outcome":"correct"',

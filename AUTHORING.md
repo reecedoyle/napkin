@@ -269,6 +269,12 @@ file, and (c) NOT inside a KaTeX block (math is split into many small
 DOM nodes — text matchers can't find it). Plain English from the
 prose immediately around a Callout is the safest target.
 
+For an MCQ flow, click the option with an **exact** name match —
+`getByRole('button', { name: '1', exact: true })` — otherwise a short
+label like `"1"` also matches another option such as `"1/2"` and Playwright
+throws a strict-mode violation (two elements). The verifier can't catch
+this; default to `exact: true` for every MCQ option click.
+
 For a ProofReveal/Problem reveal test, the fragment must appear **only
 inside the hidden solution** — not in any visible prose elsewhere on the
 slide. The test asserts the fragment is `toBeHidden()` before the click,
