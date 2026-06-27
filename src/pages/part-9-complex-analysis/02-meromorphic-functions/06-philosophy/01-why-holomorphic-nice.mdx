@@ -1,0 +1,22 @@
+---
+title: Why are holomorphic functions so nice?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why are holomorphic functions so nice?">
+
+All the richness we have seen — the residue theorem, the argument principle, the Cauchy integral formula — comes from one source: complex differentiability is an **extremely strong** requirement.
+
+<Callout kind="remark" title="Two miracles of ℂ">
+First miracle: $\mathbb{C}$, which on the surface looks like just $\mathbb{R}^2$, is actually a **field** — multiplication is defined, invertible (except at $0$), and interacts beautifully with geometry. This makes the chain rule for complex functions carry far more information than its real counterpart.
+
+Second miracle: $\mathbb{R}^2$ supports **nontrivial loops**. The winding number is interesting precisely because loops can go around holes. Over $\mathbb{R}$ (or over the quaternions), there are no such loops, and the theory collapses.
+</Callout>
+
+<Callout kind="remark" title="Quaternions: a cautionary tale">
+If you try to define differentiability over the quaternions $\mathbb{H}$ (which are not a commutative field), the only "left-differentiable" functions are **linear**. The rich theory of holomorphic functions evaporates. The commutativity of $\mathbb{C}$ is not incidental — it is the source of everything.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,41 @@
+---
+title: Checking holomorphicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Checking holomorphicity">
+
+Differentiation rules for <Term k="holomorphic">holomorphic functions</Term> match the real calculus rules: sum rule, product rule, chain rule, quotient rule (away from zeros of the denominator). So in practice we rarely compute limits directly.
+
+<Callout kind="example" title="What IS holomorphic">
+- $f(z) = z^3 - 2z + 1$ — polynomial, holomorphic everywhere.
+- $f(z) = e^{z^2}$ — composition of holomorphic functions, holomorphic everywhere.
+- $f(z) = 1/(z-3)$ — holomorphic on $\CC \setminus \{3\}$.
+</Callout>
+
+<Callout kind="example" title="What is NOT holomorphic">
+- $f(z) = \ol z$ — conjugation, not holomorphic anywhere.
+- $f(z) = |z|^2 = z\ol z$ — not holomorphic (it involves $\ol z$).
+- $f(z) = \Re[z]$ — real part, not holomorphic.
+</Callout>
+
+The pattern: any formula that uses only $z$ (and not $\ol z$, $\Re z$, or $|z|$) tends to be holomorphic, because it respects the complex multiplication structure.
+
+<MCQ
+  client:load
+  id="holo-s2-mcq-which-holo"
+  prompt="Which of the following functions is holomorphic on all of ℂ?"
+  options={[
+    { id: "a", label: "f(z) = |z|" },
+    { id: "b", label: "f(z) = Re[z]" },
+    { id: "c", label: "f(z) = z² + 3z − 1" },
+    { id: "d", label: "f(z) = z̄ + 1" },
+  ]}
+  correct="c"
+  explanation="The polynomial z² + 3z − 1 is holomorphic everywhere: polynomials satisfy all the differentiation rules. The other three all involve |z|, Re[z], or the conjugate z̄ — none of which respects the complex structure needed for holomorphicity."
+/>
+
+</SlideLayout>

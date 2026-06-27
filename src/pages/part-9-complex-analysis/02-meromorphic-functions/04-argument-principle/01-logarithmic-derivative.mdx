@@ -1,0 +1,26 @@
+---
+title: The logarithmic derivative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The logarithmic derivative">
+
+Given a polynomial $P(x) = (x-a_1)^{e_1}\cdots(x-a_n)^{e_n}$, a classical identity gives:
+
+$$\frac{P'(x)}{P(x)} = \frac{e_1}{x-a_1} + \frac{e_2}{x-a_2} + \cdots + \frac{e_n}{x-a_n}$$
+
+This is the <Term k="logarithmicDerivative">**logarithmic derivative**</Term> $P'/P = \frac{d}{dx}\log P$. It converts zeros into simple poles whose residues are the multiplicities.
+
+<Callout kind="proposition" title="Logarithmic derivative of a meromorphic function">
+Let $f \colon U \to \mathbb{C}$ be meromorphic. Then $f'/f$ is also meromorphic, with:
+- A simple pole at each **zero** of $f$, with residue equal to the zero's multiplicity.
+- A simple pole at each **pole** of $f$, with residue equal to **minus** the pole's order.
+</Callout>
+
+**Proof idea:** Near a zero/pole at $p = 0$, write $f(z) = c_k z^k + c_{k+1}z^{k+1} + \cdots$ with $k > 0$ (zero) or $k < 0$ (pole). Then $f'(z)/f(z) = k/z + \text{(holomorphic)}$, giving a simple pole with residue $k$.
+
+Poles of $f$ contribute *negative* residues to $f'/f$. Think of a pole of order $m$ as a "zero of multiplicity $-m$."
+
+</SlideLayout>

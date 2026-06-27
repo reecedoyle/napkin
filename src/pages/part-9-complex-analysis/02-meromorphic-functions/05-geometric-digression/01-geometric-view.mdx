@@ -1,0 +1,20 @@
+---
+title: The argument principle — geometric view
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The argument principle — geometric view">
+
+There is a second, more geometric way to see the <Term k="argumentPrinciple">argument principle</Term>. Formally manipulating the logarithm (ignoring its branch cut for now):
+
+$$\frac{1}{2\pi i} \oint_\gamma \frac{f'(z)}{f(z)} \, dz = \frac{1}{2\pi i} \oint_\gamma d(\log f(z)) = \frac{1}{2\pi i} \cdot (\log f(b) - \log f(a))$$
+
+where $a = \gamma(0)$ and $b = \gamma(2\pi)$. If $\gamma$ is a closed loop then $a = b$, so this appears to give $0$ — but the logarithm is multivalued! Each time $f(\gamma(t))$ winds around the origin, $\log f$ picks up an extra $2\pi i$.
+
+<Callout kind="remark" title="The robot analogy">
+Imagine a mouse tracing $\gamma$, a first robot tracing $f \circ \gamma$, and a second robot tracking $\log f$. The quantity $(1/2\pi i) \oint f'/f \, dz$ equals the number of times the **first robot** (on the $f \circ \gamma$ curve) winds around the origin — that is, $\operatorname{Wind}(f \circ \gamma, 0)$.
+</Callout>
+
+</SlideLayout>

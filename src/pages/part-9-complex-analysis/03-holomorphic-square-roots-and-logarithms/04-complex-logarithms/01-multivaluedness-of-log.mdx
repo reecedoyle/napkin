@@ -1,0 +1,22 @@
+---
+title: "Why the complex logarithm is multivalued"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the complex logarithm is multivalued">
+
+We want to define $\log z$ so that $e^{\log z} = z$. The trouble is that the <Term k="complexExp">complex exponential</Term> $e^w$ is **periodic** with period $2\pi i$:
+
+$$e^{w + 2\pi i} = e^w.$$
+
+So if $e^w = z$, then $e^{w + 2\pi ik} = z$ for every integer $k$. The logarithm of $z$ is not a single value — it is a whole infinite family $\{ w + 2\pi ik : k \in \ZZ \}$.
+
+<Callout kind="remark" title="Comparison with the square root">
+For the square root, there were exactly two choices at each point (differing by $-1$). For the logarithm, there are **infinitely many** choices at each point, because the exponential has infinite period.
+</Callout>
+
+This means the <Term k="universalCover">universal cover</Term> of the punctured plane enters the picture. The exponential $\exp \colon \CC \to \CC \setminus \{0\}$ is a covering projection — in fact, the **universal** cover — with fiber $2\pi i \ZZ$. Defining a <Term k="holomorphicLog">holomorphic logarithm</Term> of $f$ is exactly the problem of lifting $f$ through this covering.
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: What is a formula?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a formula?">
+
+You know the quadratic formula. A degree-2 polynomial always has roots expressible by a combination of $+$, $-$, $\times$, $\div$, and one square root. There are also formulas for cubics and quartics. The question is: does degree 5 have one?
+
+<Callout kind="definition" title="Quintic formula">
+A <Term k="quinticFormula">quintic formula</Term> would be a formula taking the coefficients $(a_0, \dots, a_5)$ of a degree-5 polynomial $P$ and — using only the operations $+$, $-$, $\times$, $\div$, and $\sqrt[n]{\,}$ applied finitely many times — mapping them to the five roots $(z_1, \dots, z_5)$ of $P$.
+</Callout>
+
+Such a formula would be a <Term k="radicalExpression">radical expression</Term> in the coefficients — no infinite series, no transcendental functions, just nested arithmetic and roots.
+
+The Abel-Ruffini theorem says: **no such formula exists**. The proof we give here is topological — we use the geometry of how roots move in the complex plane, not abstract Galois theory.
+
+</SlideLayout>

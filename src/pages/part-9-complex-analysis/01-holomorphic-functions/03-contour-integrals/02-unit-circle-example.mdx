@@ -1,0 +1,23 @@
+---
+title: The unit circle integral
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The unit circle integral">
+
+Let $\gamma \colon [0, 2\pi] \to \CC$ be the unit circle $t \mapsto e^{it}$. A central computation:
+
+<Callout kind="theorem" title="Contour integral of zᵐ around the unit circle">
+For any integer $m$,
+$$\oint_\gamma z^m \; dz = \begin{cases} 2\pi i & m = -1 \\ 0 & \text{otherwise.} \end{cases}$$
+</Callout>
+
+**Proof sketch.** Since $\gamma(t) = e^{it}$, we have $\gamma'(t) = ie^{it}$, so
+$$\oint_\gamma z^m \; dz = \int_0^{2\pi} e^{imt} \cdot ie^{it} \; dt = i\int_0^{2\pi} e^{i(m+1)t} \; dt.$$
+This is a standard real integral. When $m \neq -1$, the exponent $m+1 \neq 0$ and the integral of a complete oscillation is $0$. When $m = -1$, the integrand is $i \cdot 1 = i$, and integrating over $[0, 2\pi]$ gives $2\pi i$.
+
+**Intuition for $m=0$:** We're summing the tangent vectors to the circle as we walk around it. By the circle's symmetry, they all cancel out. The same cancellation happens for $m \geq 1$. But $m=-1$ (the function $1/z$) is special — the pole at $0$ creates an asymmetry that survives.
+
+</SlideLayout>

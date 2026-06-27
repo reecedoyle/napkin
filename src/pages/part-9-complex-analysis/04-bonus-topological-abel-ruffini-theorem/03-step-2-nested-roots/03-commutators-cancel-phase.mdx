@@ -1,0 +1,27 @@
+---
+title: Commutators cancel phase
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Commutators cancel phase">
+
+Here is the crucial move. Consider two root-swapping operations:
+- $\alpha$: swap $z_1$ and $z_2$ along arcs, accumulating some phase $\phi_\alpha$ in $\sqrt[n]{R}$.
+- $\beta$: swap $z_2$ and $z_3$ along arcs, accumulating phase $\phi_\beta$ in $\sqrt[n]{R}$.
+
+Now form the **commutator** loop: do $\alpha$, then $\beta$, then $\alpha^{-1}$ (undo the first swap), then $\beta^{-1}$ (undo the second swap).
+
+The total phase accumulated is:
+$$\phi_\alpha + \phi_\beta + (-\phi_\alpha) + (-\phi_\beta) = 0.$$
+
+The phases cancel! The <Term k="liftingPath">lifting</Term> of $\sqrt[n]{R}$ returns to exactly where it started.
+
+<Callout kind="theorem" title="Commutators fix the phase">
+The commutator $\alpha \beta \alpha^{-1} \beta^{-1}$ accumulates zero net phase in any $\sqrt[n]{R}$ — because phases are abelian and so cancel.
+</Callout>
+
+But what permutation of the roots does this commutator induce? Swapping $(12)$, then $(23)$, then undoing $(12)$, then undoing $(23)$ gives the permutation $(12)(23)(12)^{-1}(23)^{-1}$ in <Term k="S5">$S_5$</Term>. Since permutations are **non-abelian**, this <Term k="commutatorGroup">commutator</Term> is generally non-trivial!
+
+</SlideLayout>

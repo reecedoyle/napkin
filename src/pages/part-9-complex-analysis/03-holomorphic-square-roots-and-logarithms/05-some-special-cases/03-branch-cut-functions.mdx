@@ -1,0 +1,24 @@
+---
+title: "Branch cut functions"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Branch cut functions">
+
+<Callout kind="theorem" title="Branch cut functions">
+There exist holomorphic functions
+$$\log \colon \CC \setminus (-\infty, 0] \to \CC, \qquad \sqrt[n]{-} \colon \CC \setminus (-\infty, 0] \to \CC$$
+satisfying the obvious properties ($e^{\log z} = z$ and $(\sqrt[n]{z})^n = z$).
+</Callout>
+
+There are many possible choices: for the $n$th root, there are $n$ distinct branches (differing by multiplication by $n$th roots of unity); for $\log$, there are infinitely many branches (differing by integer multiples of $2\pi i$). A choice of such a function is called a **<Term k="branch">branch</Term>**.
+
+<Callout kind="remark" title="The principal branch">
+The <Term k="principalBranch">principal branch</Term> is the canonical choice, analogous to picking the positive real square root. For $\log$, we take the unique $w$ with $e^w = z$ and $\operatorname{Im}(w) \in (-\pi, \pi]$. This is often written $\operatorname{Log} z$ (capital L) to emphasize the choice.
+</Callout>
+
+On the branch cut itself (the negative real axis), $\operatorname{Log}$ is defined by continuity from above — this accounts for the $\pi$ endpoint being included in $(-\pi, \pi]$. Approaching from below would give $-\pi$ instead, creating the jump that defines the cut.
+
+</SlideLayout>

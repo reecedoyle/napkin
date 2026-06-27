@@ -1,0 +1,24 @@
+---
+title: The derived series
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The derived series">
+
+We have reduced the problem to pure group theory. The question is whether repeatedly taking commutator subgroups of <Term k="S5">$S_5$</Term> ever kills the group.
+
+<Callout kind="definition" title="Derived series">
+For a group $G$, define the <Term k="derivedSeries">derived series</Term>:
+$$G = G^{(0)} \supseteq G^{(1)} \supseteq G^{(2)} \supseteq \cdots$$
+where $G^{(1)} = [G, G]$ is the <Term k="commutatorSubgroup">commutator subgroup</Term>, $G^{(2)} = [G^{(1)}, G^{(1)}]$, and so on.
+</Callout>
+
+Each $G^{(k+1)}$ is normal in $G^{(k)}$, and the quotient $G^{(k)} / G^{(k+1)}$ is abelian (it's the abelianization of $G^{(k)}$).
+
+The topological argument tells us: if a quintic formula of nesting depth $d$ existed, then after $d$ steps of the derived series of $S_5$ we'd reach the trivial group. We need a permutation to survive all $d$ levels of commutators; if $S_5$ were solvable, there'd be no such permutation left at depth $d$, and the argument would fail to produce a contradiction.
+
+But our goal is to show a contradiction **does** persist, meaning $S_5$ is **not** solvable — the derived series never reaches $\{e\}$.
+
+</SlideLayout>

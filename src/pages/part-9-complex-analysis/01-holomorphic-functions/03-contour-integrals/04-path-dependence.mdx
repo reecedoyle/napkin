@@ -1,0 +1,23 @@
+---
+title: Path dependence for non-holomorphic functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Path dependence for non-holomorphic functions">
+
+For a general complex function, two paths with the same endpoints can give very different integrals. This makes <Term k="contourIntegral">contour integrals</Term> path-dependent — just like a 2D vector field with nonzero curl.
+
+<Callout kind="example" title="A path-dependent integral">
+Consider $\Psi(z) = z - \Re[z]$ (which extracts the imaginary part). Let $\beta$ be the segment from $-1$ to $1$ along the real axis, and $\alpha$ the upper semicircle.
+
+- Along $\beta$: $\Psi(z) = 0$ (the imaginary part of real numbers is $0$), so $\oint_\beta \Psi(z)\,dz = 0$.
+- Along $\alpha$: a direct computation gives $\oint_\alpha \Psi(z)\,dz = \tfrac\pi 2 i \neq 0$.
+
+The two paths give different results because $\Psi$ is not holomorphic — it involves $\Re[z]$, violating the complex structure.
+</Callout>
+
+This is the setup for the big theorem coming next: if $f$ *is* holomorphic, then all paths between two fixed points give the same integral. Equivalently, loop integrals are zero. That's the <Term k="cauchyGoursat">Cauchy-Goursat theorem</Term>.
+
+</SlideLayout>

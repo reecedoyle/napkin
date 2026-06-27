@@ -1,0 +1,26 @@
+---
+title: Surprising consequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Surprising consequences">
+
+Once we establish the two headline theorems, many striking results follow as corollaries.
+
+<Callout kind="remark" title="What falls out for free">
+
+- **Boundary determines interior.** Knowing $f$ on the boundary circle of a disk tells you $f$ everywhere inside.
+- **Isolated values determine everything.** Knowing $f(1)$, $f(1/2)$, $f(1/3)$, … is enough to pin down the entire function on its domain.
+- **Bounded entire functions are constant.** A <Term k="entireFunction">holomorphic function</Term> $f \colon \CC \to \CC$ that stays bounded must be constant (Liouville's theorem).
+
+</Callout>
+
+All of this flows from the Taylor series representation, which itself follows from the <Term k="cauchyIntegralFormula">Cauchy integral formula</Term>. The path through this chapter:
+
+$$\text{holomorphic} \;\Rightarrow\; \text{Cauchy-Goursat} \;\Rightarrow\; \text{Cauchy integral formula} \;\Rightarrow\; \text{analytic (= Taylor series)}$$
+
+Each arrow is a nontrivial theorem; each is surprisingly tractable once we have the right setup.
+
+</SlideLayout>

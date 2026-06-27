@@ -1,0 +1,24 @@
+---
+title: The contradiction
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The contradiction">
+
+Here is the trap.
+
+After we swap $z_1$ and $z_2$:
+- The **coefficients** of $P$ are unchanged (swapping two roots doesn't change any elementary symmetric polynomial).
+- The formula $R$ was tracking $z_1$ throughout the swap, so now it outputs the value that $z_1$ moved to — which is the original position of $z_2$.
+
+So $R$ now outputs $z_2$ (the root that started where $z_1$ is now sitting). But since the coefficients are unchanged, $R$ must give the **same output** it gave at the start — namely $z_1$.
+
+<Callout kind="theorem" title="Rational formulas can't work">
+No continuous rational function $R$ of the coefficients of a quintic can always pick out a specific root. Any such $R$ is "tricked" by smoothly swapping two roots: the coefficients return to their original values, but $R$ is forced to output a different root.
+</Callout>
+
+The bigger picture: we found a smooth loop in coefficient space — swap $z_1$ and $z_2$, swap them back — that returns the coefficients to their start while inducing a non-trivial <Term k="rootPermutation">root permutation</Term> $(12) \in$ <Term k="S5">$S_5$</Term>.
+
+</SlideLayout>

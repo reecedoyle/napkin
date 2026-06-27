@@ -1,0 +1,33 @@
+---
+title: What makes ℂ special?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="What makes ℂ special?">
+
+Viewed as functions $\RR^2 \to \RR^2$, complex-valued functions already let us integrate over curves instead of just line segments. But $\CC$ has more: it is a <Term k="field">field</Term>, so we can multiply and divide complex numbers.
+
+This multiplicative structure is what separates <Term k="complexDifferentiable">complex differentiability</Term> from ordinary two-variable calculus. A function $f \colon U \to \CC$ on an <Term k="openSubset">open subset</Term> $U \subseteq \CC$ is holomorphic only if its derivative is a genuine complex number — not just a 2×2 real matrix.
+
+The two headline theorems flowing from this:
+1. **Loop integrals vanish.** For a holomorphic function, the contour integral around any closed loop is zero.
+2. **Holomorphic = analytic.** Being once complex-differentiable forces $f$ to equal its Taylor series everywhere on its domain.
+
+<MCQ
+  client:load
+  id="holo-s1-mcq-cc-special"
+  prompt="Which property of ℂ is the key ingredient that makes holomorphic functions so rigid?"
+  options={[
+    { id: "a", label: "ℂ has two real dimensions, so we can draw curves in it" },
+    { id: "b", label: "ℂ is a field, so we can divide complex numbers" },
+    { id: "c", label: "ℂ contains ℝ as a subfield" },
+    { id: "d", label: "ℂ is complete under the standard metric" },
+  ]}
+  correct="b"
+  explanation="The field structure — specifically multiplication and division — is what makes complex differentiability much stronger than real two-variable differentiability. The derivative must be a single complex number, not just any 2×2 matrix."
+/>
+
+</SlideLayout>

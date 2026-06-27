@@ -1,0 +1,24 @@
+---
+title: Pros and cons of the topological proof
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pros and cons of the topological proof">
+
+This topological approach has real virtues and real limitations compared to the classical Galois-theoretic proof.
+
+<Callout kind="remark" title="Pros">
+**Extensibility.** The topological argument extends gracefully to larger toolboxes. Want to add $\exp$, $\sin$, and $\cos$ to the list of allowed operations? Each of these is still a continuous function. The commutator argument still applies — and still concludes that no formula exists. This would require a much more careful treatment in the Galois framework.
+
+**Geometric intuition.** The proof explains *why* the obstruction exists in terms of loops and winding — the same geometry behind the Fundamental Theorem of Algebra. It's a coherent story rather than an algebraic calculation.
+</Callout>
+
+<Callout kind="remark" title="Con">
+**We only ruled out formulas for all quintics.** We haven't characterized which specific quintic polynomials have roots expressible by radicals. For that, you need Galois theory: the Galois group of the polynomial must be solvable. The topological proof can't detect this polynomial-by-polynomial solvability.
+</Callout>
+
+Despite the limitation, the topological proof is one of the most conceptually transparent routes to Abel-Ruffini — a fitting application of complex analysis.
+
+</SlideLayout>

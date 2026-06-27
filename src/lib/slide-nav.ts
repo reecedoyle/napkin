@@ -88,6 +88,7 @@ export const partTitles: Record<string, string> = {
   'part-6-representation-theory': 'Part VI — Representation Theory',
   'part-7-quantum-algorithms': 'Part VII — Quantum Algorithms',
   'part-8-calculus': 'Part VIII — Calculus 101',
+  'part-9-complex-analysis': 'Part IX — Complex Analysis',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -121,6 +122,10 @@ export const chapterTitles: Record<string, string> = {
   'part-8-calculus/03-differentiation': 'Chapter 28 — Differentiation',
   'part-8-calculus/04-power-and-taylor-series': 'Chapter 29 — Power series and Taylor series',
   'part-8-calculus/05-riemann-integrals': 'Chapter 30 — Riemann integrals',
+  'part-9-complex-analysis/01-holomorphic-functions': 'Chapter 31 — Holomorphic functions',
+  'part-9-complex-analysis/02-meromorphic-functions': 'Chapter 32 — Meromorphic functions',
+  'part-9-complex-analysis/03-holomorphic-square-roots-and-logarithms': 'Chapter 33 — Holomorphic square roots and logarithms',
+  'part-9-complex-analysis/04-bonus-topological-abel-ruffini-theorem': 'Chapter 34 — Bonus: Topological Abel-Ruffini Theorem',
 };
 
 export const sectionTitles: Record<string, string> = {

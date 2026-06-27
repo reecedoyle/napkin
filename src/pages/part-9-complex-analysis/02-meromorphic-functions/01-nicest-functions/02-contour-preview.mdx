@@ -1,0 +1,22 @@
+---
+title: Contour integrals and poles
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Contour integrals and poles">
+
+Recall the result for the unit circle $\gamma(t) = e^{it}$:
+
+$$\frac{1}{2\pi i} \oint_{\gamma} \frac{1}{z} \, dz = 1$$
+
+This was surprising: an integral over a closed loop gave a nonzero result. For holomorphic functions, every contour integral over a closed loop is zero (Cauchy–Goursat). So what happened here?
+
+The answer: $\frac{1}{z}$ has a **pole** at the origin, and the loop winds around it. The contour integral is *counting* how many poles are inside the loop, weighted by how severely the function blows up.
+
+<Callout kind="remark" title="The punchline">
+For meromorphic functions, the contour integral $\frac{1}{2\pi i} \oint_\gamma f \, dz$ is not zero in general. It equals the sum of the **residues** of $f$ at the poles inside $\gamma$. This is Cauchy's residue theorem, and it is the engine behind most of complex analysis.
+</Callout>
+
+</SlideLayout>

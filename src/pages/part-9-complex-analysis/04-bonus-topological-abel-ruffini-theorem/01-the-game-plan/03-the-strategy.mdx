@@ -1,0 +1,22 @@
+---
+title: The strategy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The strategy">
+
+Here is the proof blueprint. Suppose a quintic formula $F$ exists. We will derive a contradiction in three steps:
+
+1. **Step 1 (simplest case):** If $F$ uses only rational operations (no $\sqrt[n]{\,}$), we can move the roots in a loop that returns the coefficients to their starting values, yet forces $F$ to output a different root than it started with. Contradiction.
+
+2. **Step 2 (nested roots):** Adding $\sqrt[n]{\,}$ breaks Step 1 directly, but we can repair it by using **commutators** of root-swapping operations. A commutator of two swaps cancels phase shifts while keeping a non-trivial <Term k="rootPermutation">root permutation</Term>. Nesting radicals requires taking commutators of commutators — but we can always do this.
+
+3. **Step 3 (group theory):** The above reduces to asking whether the **derived series** of <Term k="S5">$S_5$</Term> ever reaches the trivial group. It does not — so no formula exists.
+
+<Callout kind="remark" title="This is a bonus chapter">
+This proof is self-contained but optional. It uses topology (continuous paths, fundamental groups) and just enough group theory (commutators, solvable groups) to close the argument. The Galois-theoretic proof, which gives more information, is covered in the algebra part of Napkin.
+</Callout>
+
+</SlideLayout>

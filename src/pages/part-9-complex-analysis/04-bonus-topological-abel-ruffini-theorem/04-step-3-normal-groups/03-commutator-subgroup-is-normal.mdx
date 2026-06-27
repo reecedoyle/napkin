@@ -1,0 +1,28 @@
+---
+title: The commutator subgroup is normal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The commutator subgroup is normal">
+
+A key structural fact underlies the derived series.
+
+<Callout kind="theorem" title="Commutator subgroup facts">
+For any group $G$, the commutator subgroup $[G, G]$ is normal in $G$, and the quotient $G / [G, G]$ is abelian. Moreover, $[G, G]$ is the **smallest** normal subgroup with abelian quotient.
+</Callout>
+
+The normality is easy: for any $g \in G$ and commutator $[a, b] = aba^{-1}b^{-1}$, we have
+$$g[a, b]g^{-1} = (gag^{-1})(gbg^{-1})(gag^{-1})^{-1}(gbg^{-1})^{-1} = [gag^{-1}, gbg^{-1}],$$
+which is again a commutator (with conjugated elements). So conjugation preserves the set of commutators, meaning $[G, G]$ is closed under conjugation — it's normal.
+
+<ProofReveal
+  client:load
+  id="ar-s3-proof-quotient-abelian"
+  prompt="Show that G/[G,G] is abelian: for cosets aH and bH (where H = [G,G]), verify that (aH)(bH) = (bH)(aH)."
+  solution="We need to show abH = baH, i.e. that (ba)⁻¹(ab) ∈ H. Now (ba)⁻¹(ab) = a⁻¹b⁻¹ab = [a,b]⁻¹ ... wait: [a,b] = aba⁻¹b⁻¹ so [a,b]⁻¹ = ba⁻¹? Let's recompute: (ba)⁻¹(ab) = a⁻¹b⁻¹ · ab. And [a⁻¹, b⁻¹] = a⁻¹b⁻¹(a⁻¹)⁻¹(b⁻¹)⁻¹ = a⁻¹b⁻¹ab. So (ba)⁻¹(ab) = [a⁻¹, b⁻¹] ∈ [G,G] = H. Therefore abH = baH, and G/H is abelian."
+/>
+
+</SlideLayout>

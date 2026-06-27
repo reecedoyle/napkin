@@ -1,0 +1,35 @@
+---
+title: Connection to Galois theory
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Connection to Galois theory">
+
+The topological and algebraic proofs of Abel-Ruffini say the same thing in different languages.
+
+In Galois theory, a polynomial is solvable by radicals if and only if its Galois group is a <Term k="solvableGroup">solvable group</Term>. The Galois group of the general quintic is $S_5$, which is not solvable. Hence no formula exists.
+
+The topological proof makes the same claim but grounds it in geometry: the fundamental group of the space of quintic polynomials with labeled roots captures the root permutations achievable by continuous paths. The condition for a formula to exist is precisely that the appropriate quotient of this fundamental group is solvable — and it isn't.
+
+<Callout kind="remark" title="The derived series connection">
+The <Term k="derivedSeries">derived series</Term> in both proofs is the same object: $S_5 \supset A_5 \supset A_5 \supset \cdots$. The topological proof says "commutators correspond to nesting depth"; Galois theory says "radical extensions correspond to steps in the derived series." Same obstruction, different words.
+</Callout>
+
+<MCQ
+  client:load
+  id="ar-summary-mcq-galois"
+  prompt="Which of the following best describes why S₄ is solvable but S₅ is not?"
+  options={[
+    { id: "a", label: "S₄ has fewer elements than S₅" },
+    { id: "b", label: "The derived series of S₄ reaches {e}, but the derived series of S₅ gets stuck at A₅ forever" },
+    { id: "c", label: "A₄ is abelian but A₅ is not" },
+    { id: "d", label: "S₄ is a subgroup of S₅" },
+  ]}
+  correct="b"
+  explanation="The derived series of S₄ is S₄ ⊃ A₄ ⊃ V₄ ⊃ {e}, which terminates. For S₅, the derived series is S₅ ⊃ A₅ ⊃ A₅ ⊃ ···: it never terminates because A₅ is a simple non-abelian group, so [A₅, A₅] = A₅. Size (a) and subgroup (d) are irrelevant; A₄ is not abelian either (c)."
+/>
+
+</SlideLayout>

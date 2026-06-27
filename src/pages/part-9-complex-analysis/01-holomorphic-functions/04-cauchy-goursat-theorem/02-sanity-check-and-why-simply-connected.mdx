@@ -1,0 +1,24 @@
+---
+title: Why simply connected matters
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why simply connected matters">
+
+Earlier we computed $\oint_\gamma z^{-1}\,dz = 2\pi i$ around the unit circle. Doesn't this contradict <Term k="cauchyGoursat">Cauchy-Goursat</Term>?
+
+No — the theorem requires the domain to be <Term k="simplyConnectedOpen">simply connected</Term>.
+
+<Callout kind="remark" title="Sanity check">
+The function $1/z$ is holomorphic on $\CC \setminus \{0\}$. But $\CC \setminus \{0\}$ has a hole at the origin — it is **not** simply connected. A loop around the origin cannot be shrunk to a point inside $\CC \setminus \{0\}$ (it would have to cross the missing origin). So the theorem does not apply, and the nonzero integral is consistent.
+</Callout>
+
+<Callout kind="remark" title="Intuition">
+Simply connected means "no holes". A hole in the domain allows a loop to encircle a singularity of $f$, which is why the integral can be nonzero. Remove all singularities from the domain, or restrict to a region that cannot surround them, and the loop integrals vanish.
+</Callout>
+
+The theorem applies when $\Omega = \CC$ (entire functions), or $\Omega$ is any disk, half-plane, or other contractible region.
+
+</SlideLayout>

@@ -1,0 +1,35 @@
+---
+title: What Cauchy's formula means
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="What Cauchy's formula means">
+
+<Term k="cauchyIntegralFormula">Cauchy's integral formula</Term> says: knowing $f$ on a circle determines $f$ at every interior point. This is a fundamental rigidity property.
+
+<Callout kind="remark" title="Consequences">
+- **Boundary determines interior.** To find $f(a)$, you integrate $f(z)/(z-a)$ around a boundary circle.
+- **No freedom inside.** Unlike real functions, a holomorphic $f$ cannot be freely modified inside a disk while keeping the boundary values fixed.
+- **Higher derivatives too.** Differentiating the formula with respect to $a$ gives formulas for all derivatives $f^{(k)}(a)$ in terms of a contour integral — these form Cauchy's differentiation formula.
+</Callout>
+
+The formula generalizes: the circle can be any curve bounding a simply connected region. It does not require the domain $U$ to be simply connected — only the disk $D$ used needs to fit inside $U$.
+
+<MCQ
+  client:load
+  id="holo-s5-mcq-cauchy-formula"
+  prompt="Cauchy's integral formula f(a) = (1/2πi)∮ f(z)/(z−a) dz says:"
+  options={[
+    { id: "a", label: "f(a) depends on all values of f in the interior of the disk" },
+    { id: "b", label: "f(a) is determined by the values of f on the boundary circle" },
+    { id: "c", label: "f must be zero at the center of any disk" },
+    { id: "d", label: "the integral of f around any circle is 2πi" },
+  ]}
+  correct="b"
+  explanation="The formula expresses f(a) as an integral over the boundary circle — so boundary values alone determine all interior values. This is the key representation theorem: boundary determines interior."
+/>
+
+</SlideLayout>

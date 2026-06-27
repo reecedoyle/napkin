@@ -1,0 +1,26 @@
+---
+title: Holomorphic and entire functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Holomorphic and entire functions">
+
+<Callout kind="definition" title="Holomorphic function">
+A function $f \colon U \to \CC$ is <Term k="holomorphic">holomorphic</Term> if it is complex differentiable at every point of its domain $U$.
+
+In the special case $U = \CC$, we call $f$ an <Term k="entireFunction">entire function</Term>.
+</Callout>
+
+The word "holomorphic" comes from Greek: *holos* (whole) + *morphe* (form) — roughly "well-formed everywhere". Some authors say "analytic" or "regular" instead; we'll see shortly that these are equivalent for complex functions.
+
+**Examples of holomorphic functions** (all with the same derivative rules as their real counterparts):
+- Any polynomial $z \mapsto z^n + c_{n-1}z^{n-1} + \cdots + c_0$ is holomorphic.
+- The complex exponential $\exp(x+yi) = e^x(\cos y + i \sin y)$ is entire.
+- $\sin z = (e^{iz} - e^{-iz})/(2i)$ and $\cos z = (e^{iz}+e^{-iz})/2$ are entire.
+- Sums, products, nonzero quotients, and compositions of holomorphic functions are holomorphic.
+
+**Non-example:** $z \mapsto \ol z$ (complex conjugation) is not holomorphic at any point.
+
+</SlideLayout>

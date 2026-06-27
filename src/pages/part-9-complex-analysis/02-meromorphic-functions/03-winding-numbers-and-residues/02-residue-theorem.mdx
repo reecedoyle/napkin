@@ -1,0 +1,22 @@
+---
+title: Cauchy's residue theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy's residue theorem">
+
+A loop $\gamma$ is <Term k="regularCurve">**regular**</Term> if $\operatorname{Wind}(\gamma, p) = 1$ for every interior point $p$ — a counterclockwise simple closed curve, like a circle traversed once.
+
+<Callout kind="theorem" title="Cauchy's residue theorem">
+Let $f \colon \Omega \to \mathbb{C}$ be <Term k="meromorphic">meromorphic</Term>, where $\Omega$ is <Term k="simplyConnected">simply connected</Term>. For any loop $\gamma$ not passing through any pole:
+
+$$\frac{1}{2\pi i} \oint_{\gamma} f(z) \, dz = \sum_{\text{pole } p} \operatorname{Wind}(\gamma, p) \cdot \operatorname{Res}(f; p)$$
+
+In particular, if $\gamma$ is regular, this equals the sum of <Term k="residue">residues</Term> at all poles **inside** $\gamma$.
+</Callout>
+
+This is the engine of complex analysis. A closed contour integral — which looks like it should sum to zero — actually extracts the residues at every enclosed pole, weighted by how many times the loop winds around each one.
+
+</SlideLayout>

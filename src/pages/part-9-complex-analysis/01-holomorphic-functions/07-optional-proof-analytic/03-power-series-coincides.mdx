@@ -1,0 +1,22 @@
+---
+title: The power series coincides with f
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The power series coincides with f">
+
+The final step: we have a power series $\sum c_k z^k$ built from the contour integrals, and we need to verify it equals $f$.
+
+<Callout kind="remark" title="How it follows">
+Starting from Cauchy's integral formula, write $f(z) = \frac{1}{2\pi i}\oint_\gamma f(t)/(t-z)\,dt$ (for $t$ on $\gamma$, $z$ inside). Expand $1/(t-z)$ as a geometric series in $z/t$:
+$$\frac{1}{t - z} = \frac{1}{t} \cdot \frac{1}{1 - z/t} = \sum_{k \geq 0} \frac{z^k}{t^{k+1}}.$$
+Interchange sum and integral (Weierstraß M-test: the series converges uniformly on $\gamma$ for $|z|$ bounded away from $|t|$). The result is $f(z) = \sum_{k\geq 0} c_k z^k$ with $c_k = \frac{1}{2\pi i}\oint_\gamma \frac{f(t)}{t^{k+1}}\,dt$.
+</Callout>
+
+Once $f$ equals a power series in every disk inside its domain, we can differentiate term by term, showing all higher derivatives exist. This is the full content of "$f$ is <Term k="analyticFunction">analytic</Term>".
+
+The role of <Term k="cauchyGoursat">Cauchy-Goursat</Term> was used inside the proof of Cauchy's integral formula, which powered every step above.
+
+</SlideLayout>

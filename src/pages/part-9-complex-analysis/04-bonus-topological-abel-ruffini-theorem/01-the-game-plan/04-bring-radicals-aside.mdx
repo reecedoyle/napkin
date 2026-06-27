@@ -1,0 +1,20 @@
+---
+title: A note on Bring radicals
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A note on Bring radicals">
+
+What if we extend our toolbox further? There exist exotic functions called <Term k="bringRadical">Bring radicals</Term> that, when added to $+$, $-$, $\times$, $\div$, $\sqrt[n]{\,}$, do allow you to express the roots of the general quintic.
+
+<Callout kind="remark" title="Why Bring radicals don't count">
+The Abel-Ruffini theorem is specifically about formulas using the **standard** operations. Bring radicals are a valid mathematical object, but they weren't considered "fair game" — the theorem says there is no formula within the classical operations, not that the roots can't be computed at all.
+</Callout>
+
+This is an important subtlety: the theorem is a statement about what the **standard arithmetic + radicals** toolbox can do, not a statement that quintic roots are mysterious or uncomputable. Numerically we can find roots to any precision; the obstruction is purely about closed-form expressions using specific operations.
+
+So our target is clear: we want to show that even using every nested combination of $+$, $-$, $\times$, $\div$, and $\sqrt[n]{\,}$, we cannot always find the roots of a degree-5 polynomial.
+
+</SlideLayout>

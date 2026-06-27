@@ -1,0 +1,22 @@
+---
+title: Rational formulas
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Rational formulas">
+
+Let's start by completely ignoring the $\sqrt[n]{\,}$ operator and ask: could a **rational function** $R$ of the coefficients always find a root of a quintic?
+
+Consider the polynomial $P(z) = (z - z_1)(z - z_2)(z - z_3)(z - z_4)(z - z_5)$ with five distinct roots. Any rational function of the elementary symmetric polynomials in $z_1, \dots, z_5$ (i.e., the coefficients of $P$) gives a rational function of the roots.
+
+<Callout kind="question" title="Setup">
+Suppose $R$ is a continuous formula (rational function of coefficients) that always outputs one of the five roots. Initially it outputs $z_1$. What happens if we smoothly swap $z_1$ and $z_2$ along two non-intersecting arcs in $\CC$?
+</Callout>
+
+Since the swap is a smooth path in coefficient space and $R$ is continuous, $R$ continuously tracks one root. It starts tracking $z_1$ and must continuously follow it as $z_1$ moves to where $z_2$ started.
+
+At the end of the swap, the coefficients are **exactly the same** as they started (swapping two roots of a polynomial returns you to the same polynomial up to relabeling — and the coefficients are symmetric in the roots, so swapping any two roots leaves the coefficients unchanged).
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Problems — identity theorem and maximum principle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — identity theorem and maximum principle">
+
+<Problem
+  client:load
+  id="holo-prob-identity-thm"
+  difficulty="starred"
+  prompt="(Identity theorem) Let f, g : U → ℂ be holomorphic, and assume that U is connected. Prove that if f and g agree on some open neighbourhood, then f = g everywhere on U."
+  hint="Let S be the interior of the set of points where f = g. Show S is both open and closed in U, then use connectedness."
+  solution="Let S be the interior of the set {z ∈ U : f(z) = g(z)}. By definition S is open. We show S is also closed in U: if z₁, z₂, … → z with zᵢ ∈ S, then f = g in some neighbourhood of each zᵢ. By the zeros-are-isolated theorem applied to f − g, either f − g ≡ 0 in a neighbourhood of z (so z ∈ S), or z is an isolated zero of f − g — but a limit of points in S cannot be isolated. So z ∈ S. Since S is clopen and nonempty (it contains the given open neighbourhood), and U is connected, S = U."
+/>
+
+<Problem
+  client:load
+  id="holo-prob-max-principle"
+  difficulty="daggered"
+  prompt="(Maximums occur on boundaries) Let f : U → ℂ be holomorphic, let Y ⊆ U be compact, and let ∂Y be its boundary. Show that max_{z ∈ Y} |f(z)| = max_{z ∈ ∂Y} |f(z)|. In other words, |f| attains its maximum on the boundary."
+  hint="Use Cauchy's integral formula: if |f(a)| were strictly greater than all boundary values, derive a contradiction by estimating |f(a)| using the formula."
+  solution="Suppose |f(a)| > max_{∂Y} |f| for some interior point a. By Cauchy's integral formula applied to a small circle γ centred at a: f(a) = (1/2πi)∮_γ f(z)/(z−a) dz. Taking absolute values: |f(a)| ≤ max_γ |f(z)|. If we could always shrink γ toward the boundary, then max_γ |f| ≤ max_{∂Y} |f| < |f(a)|, contradiction. More carefully: a holomorphic function satisfies the mean value property — f(a) is the average of f on any circle around a inside the domain. If |f(a)| ≥ |f(z)| for all z near a, with equality somewhere, the mean value property forces |f| to be constant in a neighbourhood, which by the identity theorem forces f constant on U."
+/>
+
+</SlideLayout>

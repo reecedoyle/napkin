@@ -1,0 +1,25 @@
+---
+title: Examples of meromorphic functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of meromorphic functions">
+
+<Callout kind="example" title="A gallery of meromorphic functions">
+- Any <Term k="holomorphicFn">holomorphic</Term> function is trivially meromorphic (zero poles).
+- $z \mapsto 100z^{-1}$: one <Term k="pole">pole</Term> at $z=0$, order 1, <Term k="residue">residue</Term> $100$.
+- $z \mapsto z^{-3} + z^2 + z^9$: pole at $z=0$ of order 3, residue $0$.
+- $z \mapsto e^z/z^2$: pole at $z=0$ of order 2, residue $1$ (from the $1/z$ term in the Laurent expansion).
+- $z \mapsto (z^4+1)/(z^2-1)$: simple poles at $z = \pm 1$, each with residue $1$.
+- $z \mapsto 1/\sin(z)$: infinitely many poles at $z = \pi k$ for $k \in \mathbb{Z}$, each simple.
+</Callout>
+
+<Callout kind="example" title="A non-example: 1/sin(1/z)">
+The function $1/\sin(1/z)$ has poles at $z = 1/(\pi k)$ for each nonzero integer $k$. These poles accumulate at $z = 0$, so $z = 0$ is **not** an isolated singularity — it has no Laurent series there. This function is **not** meromorphic on all of $\mathbb{C}$, though it is meromorphic on $\mathbb{C} \setminus \{0\}$.
+</Callout>
+
+The key requirement: poles must be **isolated** — each pole has a neighbourhood containing no other poles.
+
+</SlideLayout>

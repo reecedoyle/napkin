@@ -1,0 +1,26 @@
+---
+title: What the symmetry group sees
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="What the symmetry group sees">
+
+The swap argument shows something more general. Every smooth loop in coefficient-space that returns the coefficients to their starting values induces a <Term k="rootPermutation">root permutation</Term> — an element of <Term k="S5">$S_5$</Term>.
+
+For the rational-function case, any such permutation immediately breaks the formula: the formula's output at the end of the loop must equal its output at the start (same coefficients), but it has been dragged to a different root. So the only permutation consistent with a rational formula is the identity. But we found a non-identity permutation (the transposition $(12)$). Hence no rational formula.
+
+<Callout kind="remark" title="Why we need to go further">
+Adding $\sqrt[n]{\,}$ gives the formula some extra "room to maneuver." The formula's output is no longer uniquely determined by the coefficients — there are multiple branches. This means the same loop in coefficient space might not contradict the formula after all: the formula could return to a different branch. We need a more refined argument.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="ar-s1-proof-rational-fail"
+  prompt="Convince yourself: if F is a rational function of the coefficients, and swapping z₁ and z₂ returns the coefficients to their starting values, why must F give the same output before and after the swap?"
+  solution="F is a rational function of the coefficients. After the swap, the coefficients are identical to what they were before the swap began. Since F is a deterministic function of its inputs, equal inputs must give equal outputs. So F must return the same value — but it was tracking z₁ and ended up at z₂'s original position. This is a contradiction unless z₁ = z₂, which we excluded by assuming distinct roots."
+/>
+
+</SlideLayout>

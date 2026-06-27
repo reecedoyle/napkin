@@ -1,0 +1,26 @@
+---
+title: Problem — A₅ is not solvable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — A₅ is not solvable">
+
+The group-theory core of the Abel-Ruffini theorem is the statement that <Term k="A5">$A_5$</Term> is simple — and therefore that <Term k="S5">$S_5$</Term> is not <Term k="solvableGroup">solvable</Term>.
+
+<Callout kind="remark" title="Why this suffices">
+If $A_5$ is simple and non-abelian, then $[A_5, A_5]$ is a normal subgroup of $A_5$ that is not $\{e\}$ (since $A_5$ is non-abelian), so it must be all of $A_5$. Thus the <Term k="derivedSeries">derived series</Term> $S_5 \supset A_5 \supset A_5 \supset \cdots$ never terminates, and $S_5$ is not solvable.
+</Callout>
+
+<Problem
+  client:load
+  id="ar-prob-a5-not-solvable"
+  difficulty="standard"
+  statement="Show that A₅ is not solvable."
+  hint="It suffices to show A₅ is simple (has no proper nontrivial normal subgroups). Count the conjugacy classes of A₅: there are five of them, with sizes 1, 12, 12, 15, 20. A normal subgroup must be a union of conjugacy classes including {e}. Show no such union has size dividing 60 other than {1} and 60."
+  solution="A₅ has five conjugacy classes with sizes 1, 12, 12, 15, 20 (summing to 60). A normal subgroup N of A₅ must be a union of conjugacy classes containing {e}, so |N| ≡ 1 + (sum of some subset of {12, 12, 15, 20}) must divide 60. The possible sums of subsets of {12, 12, 15, 20} are 0, 12, 12, 15, 20, 24, 27, 32, 35, 47, 39, 44, 47, 59. Adding 1: 1, 13, 13, 16, 21, 25, 28, 33, 36, 40, 48, 45, 48, 60. Of these, only 1 and 60 divide 60. So N = {e} or N = A₅ — hence A₅ is simple. Since A₅ is non-abelian and simple, [A₅, A₅] = A₅, so the derived series of S₅ never reaches {e}, and S₅ is not solvable."
+/>
+
+</SlideLayout>

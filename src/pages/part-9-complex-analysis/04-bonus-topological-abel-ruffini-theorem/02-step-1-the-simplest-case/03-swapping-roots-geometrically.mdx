@@ -1,0 +1,26 @@
+---
+title: Swapping roots geometrically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Swapping roots geometrically">
+
+Let's visualize the root swap. We have five roots scattered in $\CC$. We pick two of them — say $z_1$ and $z_2$ — and slide them along two non-intersecting arcs until they have exchanged positions.
+
+The arcs must not pass through any other root (otherwise the polynomial would have a repeated root at that instant, and the coefficients would become singular). We also require the arcs not to intersect each other (otherwise $z_1$ and $z_2$ would collide).
+
+<Callout kind="example" title="Concrete swap">
+Take $z_1 = 1.5$ and $z_2 = -1.5 + 1.3i$ (roughly). The arc for $z_1$ goes counterclockwise through the upper half-plane to reach $z_2$'s starting position. The arc for $z_2$ goes clockwise through the lower half-plane to reach $z_1$'s starting position. The two arcs don't intersect.
+</Callout>
+
+At the start: coefficients are $(a_0, \dots, a_5)$, formula outputs $z_1$.
+
+During the swap: coefficients change continuously, formula tracks $z_1$ continuously.
+
+At the end: coefficients return to $(a_0, \dots, a_5)$, but formula now outputs the value at $z_2$'s original position.
+
+Since the formula depends only on the coefficients (which are back where they started), it must give the same output as the start. **Contradiction.** So no rational formula can track a specific root.
+
+</SlideLayout>

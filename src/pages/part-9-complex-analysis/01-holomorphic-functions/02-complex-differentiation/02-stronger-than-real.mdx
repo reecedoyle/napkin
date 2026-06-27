@@ -1,0 +1,30 @@
+---
+title: Stronger than real differentiability
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Stronger than real differentiability">
+
+For a real function $f \colon \RR \to \RR$, the limit $\lim_{h \to 0} (f(x_0+h)-f(x_0))/h$ only needs to agree from two directions: $h \to 0^+$ and $h \to 0^-$ (left and right).
+
+For a <Term k="complexDifferentiable">complex derivative</Term>, $h$ approaches zero as a complex number — from infinitely many directions simultaneously. All must give the same limit.
+
+<Callout kind="example" title="Conjugation is NOT holomorphic">
+Let $f(z) = \ol z$ (complex conjugation). At $z_0 = 0$:
+$$\frac{f(h) - f(0)}{h} = \frac{\ol h}{h}.$$
+If $h = r \in \RR^+$, this ratio equals $r/r = 1$.
+If $h = ri$ (purely imaginary), this ratio equals $\overline{ri}/(ri) = -ri/(ri) = -1$.
+Two different directions give two different limits — the derivative does not exist.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="holo-s2-proof-conj-not-holo"
+  prompt="Why does the direction of approach matter so much for complex differentiation?"
+  solution="In ℝ, a limit needs left = right. In ℂ, the limit must be the same from every direction (north, south, east, west, and every angle in between). For the conjugate f(z) = z̄, the ratio (f(0+h)−f(0))/h = h̄/h lies on the unit circle and depends entirely on the direction of h — it equals e^{−2iθ} when h = re^{iθ}. No single limit exists."
+/>
+
+</SlideLayout>

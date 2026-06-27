@@ -1,0 +1,20 @@
+---
+title: Why nth roots fix the problem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why nth roots fix the problem">
+
+Adding $\sqrt[n]{\,}$ to our toolkit breaks the rational-function argument. Here's why.
+
+The $n$th root $\sqrt[n]{R}$ is **multi-valued**: for any nonzero $w$, there are $n$ values $v$ with $v^n = w$. When we pick a branch and move continuously, the branch might not return to where it started after a loop.
+
+<Callout kind="example" title="Quadratic formula">
+The quadratic formula gives $z_1, z_2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. When we swap $z_1$ and $z_2$ smoothly, the coefficients $a, b, c$ return to their starting values — but the value of $\sqrt{b^2 - 4ac}$ might travel along a path that ends at $-\sqrt{b^2 - 4ac}$. That sign flip is exactly what causes the $+$ branch to become the $-$ branch, explaining why the formula can track the swap rather than being contradicted by it.
+</Callout>
+
+More precisely: as we move the roots, the expression $b^2 - 4ac$ (the discriminant) traces a path in $\CC$. If that path winds once around the origin, the <Term k="liftingPath">lifting</Term> of $\sqrt{\,}$ picks up a <Term k="phaseAccumulation">phase</Term> of $e^{i\pi} = -1$, swapping the two branches. The formula accommodates the root swap by switching branches.
+
+</SlideLayout>

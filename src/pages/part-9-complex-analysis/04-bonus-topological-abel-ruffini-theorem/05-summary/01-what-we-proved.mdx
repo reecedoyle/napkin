@@ -1,0 +1,20 @@
+---
+title: What we proved
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What we proved">
+
+We showed that no <Term k="quinticFormula">quintic formula</Term> — no finite combination of $+$, $-$, $\times$, $\div$, and $\sqrt[n]{\,}$ — can always find the roots of a degree-5 polynomial.
+
+The proof was topological: we used continuous paths in the space of polynomials to induce <Term k="rootPermutation">root permutations</Term> that any formula must respect, then showed that the group-theoretic structure of those permutations (the derived series of <Term k="S5">$S_5$</Term>) guarantees a contradiction at every nesting depth.
+
+<Callout kind="remark" title="What we did NOT prove">
+We did not show that any specific polynomial — say $z^5 - z - 1$ — has a root that can't be expressed by radicals. The topological proof shows there is no **uniform formula** for all quintics. For specific polynomials, the question of whether their roots are expressible by radicals is more delicate (and yes, many quintics do have roots expressible by radicals — it's only the general quintic that fails).
+</Callout>
+
+This is a genuine distinction. The quadratic formula works for **every** quadratic; the non-existence result says we can't have such a universal formula for quintics.
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: "Fudging the square root"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fudging the square root">
+
+Here is a natural attempt to construct a holomorphic square root. Start at a base point $z_0 \in U$ where $f(z_0) \neq 0$, and pick one of the two roots $w_0$ with $w_0^2 = f(z_0)$.
+
+For any nearby point $z_1 \approx z_0$, there are still two choices of $w_1$ with $w_1^2 = f(z_1)$. But only one of them is close to $w_0$ — so we pick that one. We keep extending this "local choice" as we move $z$ continuously through $U$.
+
+<Callout kind="remark" title="Two ways to get unlucky">
+This local-extension strategy can fail in two ways:
+1. **Zero crossing**: if $f(z) = 0$ for some $z$, then $g(z) = 0$ and nearby the two choices collapse.
+2. **Monodromy**: after going around a loop in $U$, we might arrive back at $z_0$ but with a different root $-w_0$ instead of $w_0$.
+</Callout>
+
+The monodromy failure is the fundamental obstruction. Take $f = \text{id}$ on $U = \CC \setminus \{0\}$ and let the loop be a circle around the origin. Starting at $z_0 = 1$ with $w_0 = 1$, travelling counterclockwise once around the origin, we arrive back at $z_0 = 1$ — but now with $w = -1$.
+
+This monodromy failure is precisely what topology helps us detect.
+
+</SlideLayout>

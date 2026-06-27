@@ -1,0 +1,30 @@
+---
+title: Principal and analytic parts
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Principal and analytic parts">
+
+The Laurent series splits into two pieces at a pole $p$:
+
+$$f(z) = \underbrace{\frac{c_{-m}}{(z-p)^m} + \cdots + \frac{c_{-1}}{z-p}}_{\text{principal part}} + \underbrace{c_0 + c_1(z-p) + \cdots}_{\text{analytic part}}$$
+
+<Callout kind="definition" title="Principal and analytic parts">
+The <Term k="principalPart">**principal part**</Term> carries all the singular behaviour. The **analytic part** is a regular power series (Taylor series) and is holomorphic near $p$.
+
+The Laurent series is unique and converges in any punctured disk centred at $p$ that contains no other poles.
+</Callout>
+
+**Why this matters:** when we integrate $f$ around a loop, the analytic part contributes $0$ (Cauchy–Goursat). Only the principal part — and specifically the $c_{-1}/(z-p)$ term — contributes to the integral. That coefficient is the residue.
+
+<NumericInput
+  client:load
+  id="mero-principal-num-order"
+  prompt="The function f(z) = 1/z⁵ + 8/z³ − 2/z² + 4/z + 9 − 3z + ⋯ has a pole at z = 0. What is its order?"
+  expected="5"
+/>
+
+</SlideLayout>

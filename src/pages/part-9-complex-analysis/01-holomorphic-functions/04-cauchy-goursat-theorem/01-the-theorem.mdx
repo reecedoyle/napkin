@@ -1,0 +1,21 @@
+---
+title: Cauchy-Goursat theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy-Goursat theorem">
+
+We saw that the non-holomorphic function $\Psi(z) = z - \Re[z]$ gives path-dependent integrals. The miracle is that <Term k="holomorphic">holomorphic functions</Term> never have this problem.
+
+<Callout kind="theorem" title="Cauchy-Goursat theorem">
+Let $f \colon \Omega \to \CC$ be holomorphic, where $\Omega$ is an open, <Term k="simplyConnectedOpen">simply connected</Term> subset of $\CC$. Then for any loop $\gamma$ in $\Omega$,
+$$\oint_\gamma f(z) \; dz = 0.$$
+</Callout>
+
+Equivalently: if $\alpha$ and $\beta$ are any two paths from $A$ to $B$ inside $\Omega$, then $\oint_\alpha f\,dz = \oint_\beta f\,dz$.
+
+The proof goes via Green's theorem (assuming continuous partials on $f$); Goursat's contribution was removing that extra assumption, proving the full theorem from holomorphicity alone.
+
+</SlideLayout>

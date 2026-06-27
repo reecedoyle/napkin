@@ -1,0 +1,33 @@
+---
+title: "Monodromy and winding numbers"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Monodromy and winding numbers">
+
+When we transport a square root around a loop $\gamma$ in $U$, the root either returns to itself (success) or picks up a sign flip (failure). The loop succeeds if and only if $f \circ \gamma$ winds around $0 \in \CC$ an **even** number of times.
+
+The <Term k="windingNumber">winding number</Term> of $f$ around $0$ along $\gamma$ is measured by the contour integral
+
+$$\frac{1}{2\pi i} \oint_\gamma \frac{f'}{f}\,dz.$$
+
+<Callout kind="theorem" title="Existence of holomorphic nth roots">
+Let $f \colon U \to \CC$ be holomorphic. Then $f$ has a <Term k="holomorphicNthRoot">holomorphic $n$th root</Term> if and only if
+$$\frac{1}{2\pi i} \oint_\gamma \frac{f'}{f}\,dz \in n\ZZ$$
+for every closed <Term k="contour">contour</Term> $\gamma$ in $U$.
+</Callout>
+
+In other words: $f$ has an $n$th root exactly when every loop in $U$ sends the winding of $f$ around $0$ to a multiple of $n$.
+
+<NumericInput
+  client:load
+  id="hsl-sqr-num-winding-circle"
+  prompt="The identity function f(z) = z is integrated around a circle enclosing the origin once counterclockwise. What is the value of (1/2πi)∮ f'/f dz?"
+  expected="1"
+  hint="f'/f = 1/z for f = z, so the integral is (1/2πi)·2πi = 1."
+/>
+
+</SlideLayout>

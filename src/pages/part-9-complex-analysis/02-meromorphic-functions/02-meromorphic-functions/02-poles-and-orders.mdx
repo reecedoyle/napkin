@@ -1,0 +1,37 @@
+---
+title: Poles, orders, and residues
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Poles, orders, and residues">
+
+Given the Laurent series at a pole $p$:
+
+$$f(z) = \frac{c_{-m}}{(z-p)^m} + \cdots + \frac{c_{-1}}{z-p} + c_0 + c_1(z-p) + \cdots$$
+
+<Callout kind="definition" title="Order and residue">
+The integer $m$ is the <Term k="poleOrder">**order**</Term> of the pole. A pole of order 1 is called a <Term k="simplePole">**simple pole**</Term>.
+
+The coefficient $c_{-1}$ is the <Term k="residue">**residue**</Term> of $f$ at $p$, written $\operatorname{Res}(f; p)$.
+</Callout>
+
+Poles are the "opposite" of <Term k="zeroMultiplicity">zeros</Term>. A zero of multiplicity $k$ at $p$ means $f$ looks like $c_k(z-p)^k + \cdots$. A pole of order $m$ means $f$ looks like $c_{-m}(z-p)^{-m} + \cdots$. Orders are **additive**: if $f$ has a pole of order 5 and $g$ has a zero of multiplicity 3, then $fg$ has a pole of order $5-3=2$.
+
+<MCQ
+  client:load
+  id="mero-poles-mcq-residue"
+  prompt="What is the residue of f(z) = e^z / z² at z = 0?"
+  options={[
+    { id: "a", label: "0" },
+    { id: "b", label: "1" },
+    { id: "c", label: "2" },
+    { id: "d", label: "1/2" },
+  ]}
+  correct="b"
+  explanation="Expand e^z/z² = (1 + z + z²/2 + ···)/z² = 1/z² + 1/z + 1/2 + z/6 + ···. The coefficient of 1/z is 1, so Res(f; 0) = 1."
+/>
+
+</SlideLayout>

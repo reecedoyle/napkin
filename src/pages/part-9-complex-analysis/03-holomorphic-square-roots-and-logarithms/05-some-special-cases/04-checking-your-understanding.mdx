@@ -1,0 +1,33 @@
+---
+title: "Checking your understanding"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Checking your understanding">
+
+Let us consolidate the chapter's main ideas with a concrete example.
+
+<Callout kind="example" title="Square root of z(z−1)">
+Consider $f(z) = z(z-1)$ on the domain $U = \CC \setminus [0,1]$, where $[0,1]$ is the closed unit interval on the real axis.
+
+The zeros of $f$ are $0$ and $1$. Both are removed from $U$ by the cut $[0,1]$. On $U$, the image of any loop has winding number $0$ around both zeros simultaneously — the interval $[0,1]$ prevents any loop from separating them. So $f$ has a holomorphic square root on $U$.
+</Callout>
+
+<MCQ
+  client:load
+  id="hsl-spec-mcq-log-on-slit"
+  prompt="On which domain does the principal logarithm Log z fail to be holomorphic?"
+  options={[
+    { id: "a", label: "The upper half-plane {Im z > 0}" },
+    { id: "b", label: "The negative real axis (−∞, 0]" },
+    { id: "c", label: "Any disk centered at a nonzero real number" },
+    { id: "d", label: "The right half-plane {Re z > 0}" },
+  ]}
+  correct="b"
+  explanation="The principal branch Log z is defined by cutting along the negative real axis. On that cut the function jumps discontinuously (the imaginary part jumps from π to −π as we cross). Everywhere else in ℂ \ (−∞, 0] it is holomorphic."
+/>
+
+</SlideLayout>

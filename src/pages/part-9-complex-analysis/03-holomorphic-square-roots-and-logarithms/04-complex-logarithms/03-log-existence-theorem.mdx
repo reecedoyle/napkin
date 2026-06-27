@@ -1,0 +1,26 @@
+---
+title: "The logarithm existence theorem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The logarithm existence theorem">
+
+The analysis from the previous slide yields the second main theorem.
+
+<Callout kind="theorem" title="Existence of holomorphic logarithms">
+Let $f \colon U \to \CC$ be holomorphic. Then $f$ has a <Term k="holomorphicLog">holomorphic logarithm</Term> if and only if
+$$\frac{1}{2\pi i}\oint_\gamma \frac{f'}{f}\,dz = 0$$
+for every closed <Term k="contour">contour</Term> $\gamma$ in $U$.
+</Callout>
+
+Note the parallel with the $n$th root theorem: the $n$th root requires the integral to be in $n\ZZ$; the logarithm requires it to be in $\{0\}$ — the intersection $\bigcap_{n \ge 1} n\ZZ$.
+
+<Callout kind="remark" title="Zero-free is necessary but not sufficient">
+A function with a zero clearly cannot have a logarithm (take a small loop around the zero). But being zero-free is not enough on its own: on $U = \CC \setminus \{0\}$ the function $f(z) = z$ is zero-free, yet has no logarithm — a loop around the origin gives winding number $1 \neq 0$.
+</Callout>
+
+This theorem also implies: a function has a <Term k="holomorphicLog">holomorphic logarithm</Term> if and only if it has a holomorphic $n$th root for every positive integer $n$. (One direction: $f = e^g \Rightarrow e^{g/n}$ is an $n$th root. Other direction: see the problems.)
+
+</SlideLayout>

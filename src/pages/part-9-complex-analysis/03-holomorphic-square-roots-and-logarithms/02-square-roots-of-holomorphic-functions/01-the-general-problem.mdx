@@ -1,0 +1,22 @@
+---
+title: "The general square root problem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The general square root problem">
+
+We now consider a more general problem. Let $f \colon U \to \CC$ be a <Term k="holomorphic">holomorphic</Term> function. We ask: does there exist a holomorphic $g \colon U \to \CC$ with
+
+$$f(z) = g(z)^2 \quad \text{for all } z \in U?$$
+
+<Callout kind="remark" title="Simplest non-example">
+Taking $f = \text{id}$ (so $f(z) = z$) on $U = \CC \setminus \{0\}$: the motivation section showed this has no holomorphic square root, because any root must be discontinuous on some ray from the origin.
+</Callout>
+
+On the other hand, $f(z) = z^2$ definitely has a square root — namely $g(z) = z$. The question is: what exactly distinguishes these two cases?
+
+The key is the behavior of $f$ near **zero**. If $f(z_0) = 0$, we must have $g(z_0) = 0$ too, and the situation near a zero can be controlled. The hard part is when $f$ is **nonvanishing**: does a consistent choice of $\pm\sqrt{f(z)}$ exist that varies holomorphically?
+
+</SlideLayout>

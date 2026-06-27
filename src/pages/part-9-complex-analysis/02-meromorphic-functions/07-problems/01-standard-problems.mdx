@@ -1,0 +1,29 @@
+---
+title: Problems — standard
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — standard">
+
+<Problem
+  client:load
+  id="mero-prob-fta"
+  difficulty="standard"
+  statement="(Fundamental theorem of algebra) Prove that if $f$ is a nonzero polynomial of degree $n$, then it has exactly $n$ roots (counted with multiplicity)."
+  hint="Apply the argument principle to f on a very large circle. Show that Z = n (using the leading term) and P = 0 (polynomials have no poles). Conclude that f has exactly n zeros."
+  solution="A polynomial of degree n has no poles (it is entire), so P = 0. For a large circle γ of radius R, the argument principle gives Z = (1/2πi) ∮_γ f′/f dz. As R → ∞, the leading term a_n z^n dominates f, so f(z) ≈ a_n z^n on γ and f′(z)/f(z) ≈ n/z. Thus the integral approaches n. Since Z is an integer and the integrand varies continuously with R, we conclude Z = n for all sufficiently large R."
+/>
+
+<Problem
+  client:load
+  id="mero-prob-wedge"
+  difficulty="standard"
+  statement="For each odd integer $n \geq 3$, evaluate the improper integral $\displaystyle\int_0^\infty \frac{1}{1+x^n} \, dx$."
+  hint="Use a wedge contour: integrate over the sector of a circle of radius $R$ with central angle $2\pi/n$, then take $R \to \infty$. The function $1/(1+z^n)$ has a simple pole at $z = e^{i\pi/n}$ inside the wedge."
+  solution="The wedge contour consists of the segment [0, R], the arc of angle 2π/n, and the segment back along the ray at angle 2π/n. As R → ∞ the arc contributes 0. The return segment contributes −e^{2πi/n} times the original integral. The residue theorem gives (1 − e^{2πi/n}) ∫_0^∞ 1/(1+x^n) dx = 2πi · Res(1/(1+z^n); e^{iπ/n}). Computing the residue at the simple pole e^{iπ/n} using Res = 1/g′ where g = 1+z^n gives Res = e^{iπ/n}/(n·(−1)) = −e^{iπ/n}/n. Solving gives ∫_0^∞ 1/(1+x^n) dx = π/(n sin(π/n))."
+/>
+
+</SlideLayout>

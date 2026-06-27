@@ -1,0 +1,26 @@
+---
+title: "The covering space picture"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The covering space picture">
+
+The "fudging" construction from §2 is exactly the topological notion of **lifting through a covering projection**. Let us make this precise.
+
+Consider the squaring map
+
+$$p = (-)^2 \colon \CC \setminus \{0\} \to \CC \setminus \{0\}.$$
+
+This is a <Term k="coveringProjection">covering projection</Term>: every nonzero $w$ has a neighborhood $V$ such that $p^{-1}(V)$ consists of two disjoint copies of $V$, each mapped homeomorphically to $V$ by $p$. In other words, $p$ "wraps the punctured plane twice around itself."
+
+<Callout kind="remark" title="The lifting problem">
+Given $f \colon V \to \CC \setminus \{0\}$, a holomorphic square root $g$ is exactly a **lifting** of $f$ through $p$:
+$$g \colon V \to \CC \setminus \{0\}, \quad p \circ g = f.$$
+The lifting theorem tells us precisely when this is possible.
+</Callout>
+
+By the <Term k="liftingThm">lifting theorem</Term> (from algebraic topology), the lifting exists for a connected $V$ if and only if the image of $\pi_1(V)$ under $f$ lands inside $p_*(\pi_1(E))$, where $E = \CC \setminus \{0\}$.
+
+</SlideLayout>

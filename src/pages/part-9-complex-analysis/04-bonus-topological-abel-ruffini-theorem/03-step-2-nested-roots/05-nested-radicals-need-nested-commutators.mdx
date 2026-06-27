@@ -1,0 +1,24 @@
+---
+title: Nested radicals need nested commutators
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Nested radicals need nested commutators">
+
+Now consider a <Term k="nestedRadical">nested radical</Term> of degree 2, like $\sqrt[3]{\sqrt{ab + c} - \sqrt{d}}$.
+
+The inner expressions $\sqrt{ab + c}$ and $\sqrt{d}$ are degree-1 radicals. We can find commutators $\sigma$ and $\rho$ in $S_5$ that fix them (leaving their lifting unchanged). But when we look at the outer cube root $\sqrt[3]{\,}$, moving the roots via $\sigma$ or $\rho$ individually might still cause a phase shift in the cube root.
+
+The fix: take the commutator of the **commutators** — i.e., $[\sigma, \rho] = \sigma \rho \sigma^{-1} \rho^{-1}$.
+
+Since $\sigma$ and $\rho$ each fix the inner radicals, they don't accumulate any phase there. Now we need them to cancel phase in the outer cube root too. By the same abelian-phase argument, the commutator $[\sigma, \rho]$ accumulates zero net phase in the outer cube root as well.
+
+<Callout kind="remark" title="Induction on nesting depth">
+For a radical of nesting depth $d$, we need to take commutators $d$ times. At each level, the commutator operation cancels the phase at that depth. The key is that at each step we can still find non-trivial commutators — as long as the group we're working in is non-abelian.
+</Callout>
+
+This reduces the problem entirely to group theory: does the process of repeatedly taking <Term k="commutatorSubgroup">commutator subgroups</Term> of <Term k="S5">$S_5$</Term> eventually reach the trivial group?
+
+</SlideLayout>

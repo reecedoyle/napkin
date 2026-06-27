@@ -1,0 +1,27 @@
+---
+title: Solvable groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Solvable groups">
+
+<Callout kind="definition" title="Solvable group">
+A group $G$ is <Term k="solvableGroup">solvable</Term> if its derived series eventually reaches the trivial group: $G^{(n)} = \{e\}$ for some $n$.
+</Callout>
+
+Solvable groups are exactly the groups corresponding to polynomials solvable by radicals (this is the content of Galois theory). Small examples:
+- $S_2$: derived series $S_2 \supset \{e\}$. Solvable. Corresponds to the linear formula.
+- $S_3$: derived series $S_3 \supset A_3 \supset \{e\}$. Solvable. Corresponds to the cubic formula.
+- $S_4$: derived series $S_4 \supset A_4 \supset V_4 \supset \{e\}$. Solvable. Corresponds to the quartic formula.
+
+For $S_5$, the derived series is $S_5 \supset A_5 \supset \cdots$. The question is: what is $[A_5, A_5]$?
+
+<Callout kind="remark" title="The key fact">
+$A_5$ is a **simple group** — its only normal subgroups are $\{e\}$ and $A_5$ itself. And $A_5$ is non-abelian. So $[A_5, A_5] = A_5$. The derived series gets stuck: $S_5 \supset A_5 \supset A_5 \supset A_5 \supset \cdots$. It never reaches $\{e\}$.
+</Callout>
+
+Therefore $S_5$ is not solvable — and the topological argument produces a contradiction at every nesting depth.
+
+</SlideLayout>

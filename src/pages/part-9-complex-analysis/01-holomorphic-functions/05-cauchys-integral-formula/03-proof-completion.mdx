@@ -1,0 +1,26 @@
+---
+title: Proof completion — the ML lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof completion — the ML lemma">
+
+We have reduced to showing $\oint_{\gamma_\eps} f(z)/(z-a)\,dz = 2\pi i \cdot f(a)$.
+
+Split the integrand:
+$$\oint_{\gamma_\eps} \frac{f(z)}{z-a}\,dz = \oint_{\gamma_\eps} \frac{f(z)-f(a)}{z-a}\,dz + f(a)\oint_{\gamma_\eps} \frac{1}{z-a}\,dz.$$
+
+The second integral equals $2\pi i$ (by our unit-circle computation, shifted to center $a$). So we need the first integral to vanish as $\eps \to 0$.
+
+<Callout kind="lemma" title="ML estimation lemma">
+If $|f(z)| \leq M$ on a contour of length $L$, then $\left|\oint f(z)\,dz\right| \leq ML$.
+</Callout>
+
+As $\eps \to 0$, the quotient $(f(z)-f(a))/(z-a)$ approaches $f'(a)$ — so it is bounded by some $M$ for small $\eps$. But the length of $\gamma_\eps$ is $2\pi\eps$, so:
+$$\left|\oint_{\gamma_\eps} \frac{f(z)-f(a)}{z-a}\,dz\right| \leq M \cdot 2\pi\eps \to 0.$$
+
+Therefore $\oint_\gamma f(z)/(z-a)\,dz = 2\pi i \cdot f(a)$, which is <Term k="cauchyIntegralFormula">Cauchy's integral formula</Term>.
+
+</SlideLayout>

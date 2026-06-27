@@ -1,0 +1,36 @@
+---
+title: Winding and zero multiplicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Winding and zero multiplicity">
+
+Consider the simplest case: $f(z) = z^n$. If $z$ traces a circle once counterclockwise, then $z^n$ traces the **same** circle $n$ times — so $\operatorname{Wind}(f \circ \gamma, 0) = n$.
+
+<Callout kind="remark" title="The multiplicity–winding connection">
+If $z$ moves around the origin once, $z^n$ winds around the origin $n$ times. Similarly, $z^{-n}$ winds $n$ times in the **opposite** direction. This is the geometric heart of the argument principle:
+
+- A zero of multiplicity $k$ at a point contributes $+k$ to $\operatorname{Wind}(f \circ \gamma, 0)$.
+- A pole of order $m$ contributes $-m$.
+</Callout>
+
+So $\frac{1}{2\pi i}\oint_\gamma f'/f \, dz = \operatorname{Wind}(f \circ \gamma, 0) = Z - P$. The algebraic count of zeros minus poles equals the geometric winding of the image curve.
+
+<MCQ
+  client:load
+  id="mero-geom-mcq-winding"
+  prompt="If f(z) = z³ and γ traces the unit circle once counterclockwise, what is Wind(f∘γ, 0)?"
+  options={[
+    { id: "a", label: "1" },
+    { id: "b", label: "2" },
+    { id: "c", label: "3" },
+    { id: "d", label: "0" },
+  ]}
+  correct="c"
+  explanation="f(z) = z³ maps the unit circle (traversed once) to the unit circle traversed 3 times. So Wind(f∘γ, 0) = 3, matching the zero of multiplicity 3 that z³ has at the origin."
+/>
+
+</SlideLayout>

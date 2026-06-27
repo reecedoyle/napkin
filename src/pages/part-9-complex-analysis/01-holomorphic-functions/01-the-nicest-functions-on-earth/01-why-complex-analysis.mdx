@@ -1,0 +1,24 @@
+---
+title: Why complex analysis?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why complex analysis?">
+
+You already know how to differentiate and integrate real-valued functions. Complex analysis does the same for <Term k="complexFunction">complex-valued functions</Term> — and the result is dramatically better behaved.
+
+Real analysis on $\RR$ lets you construct pathological functions:
+
+- The **Devil's Staircase** is continuous with derivative zero almost everywhere, yet it rises from 0 to 1.
+- The **Weierstraß function** is continuous *everywhere* but differentiable *nowhere*.
+- There exist smooth functions whose Taylor series converge to the *wrong* value.
+
+Complex analysis, by contrast, is "the good twin". The multiplication structure of <Term k="CC">$\CC$</Term> as a <Term k="field">field</Term> imposes a discipline on differentiable functions that rules out all of this pathology at once.
+
+<Callout kind="remark" title="The punchline">
+A complex function that is differentiable even once is automatically infinitely differentiable, equal to its Taylor series, and determined globally by its values on any tiny open set. Real analysis has no analogue.
+</Callout>
+
+</SlideLayout>

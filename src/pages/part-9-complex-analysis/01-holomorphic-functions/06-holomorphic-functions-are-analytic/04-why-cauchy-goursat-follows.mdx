@@ -1,0 +1,29 @@
+---
+title: Why Cauchy-Goursat is plausible from Taylor series
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Why Cauchy-Goursat is plausible from Taylor series">
+
+Now that we know holomorphic functions equal their <Term k="taylorSeries">Taylor series</Term>, we can see why <Term k="cauchyGoursat">Cauchy-Goursat</Term> should hold.
+
+Assuming $f(z) = c_0 + c_1 z + c_2 z^2 + \cdots$, integrate around the unit circle $\gamma$:
+$$\oint_\gamma f(z)\,dz = \oint_\gamma c_0\,dz + \oint_\gamma c_1 z\,dz + \oint_\gamma c_2 z^2\,dz + \cdots$$
+
+We already know $\oint_\gamma z^m\,dz = 0$ for every integer $m \geq 0$. So every term in the series contributes $0$, giving the total integral $0$.
+
+<Callout kind="remark" title="Caveat">
+This argument is not fully rigorous: it swaps the infinite sum and the integral without justification. Making that swap precise requires the Weierstraß M-test. But the heuristic captures why the theorem is true: term-by-term the integrals all vanish.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="holo-s6-proof-goursat-heuristic"
+  prompt="If f is entire and equals its Taylor series, sketch why ∮_γ f(z) dz = 0."
+  solution="Write f(z) = c₀ + c₁z + c₂z² + ··· and integrate term by term around the unit circle. Each term gives ∮_γ cₖzᵏ dz = cₖ · ∮_γ zᵏ dz. For k ≥ 0, we computed ∮_γ zᵏ dz = 0 (the tangent vectors cancel). So every term is 0, and the total integral is 0."
+/>
+
+</SlideLayout>

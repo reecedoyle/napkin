@@ -1,0 +1,35 @@
+---
+title: The formula must track roots
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The formula must track roots">
+
+Any proposed quintic formula $F$ is a function of the coefficients. When two polynomials share the same coefficients, $F$ gives the same output — it can't tell them apart.
+
+Now suppose we **continuously move** the roots $z_1, \dots, z_5$ along smooth paths in $\CC$. As the roots move, the coefficients (which are symmetric functions of the roots) also move. Since $F$ is continuous and depends only on the coefficients, it must continuously track one of the roots.
+
+<Callout kind="remark" title="The key constraint">
+Any continuous formula $F$ must maintain a consistent labeling of the roots as they move. Moving the roots along a smooth path forces $F$ to follow one root along that path — it cannot spontaneously jump to a different root.
+</Callout>
+
+This means $F$ induces a <Term k="rootPermutation">root permutation</Term>: as we rearrange the roots via smooth paths, $F$ must keep track of which root is which, giving a well-defined element of <Term k="S5">$S_5$</Term>.
+
+<MCQ
+  client:load
+  id="ar-gp-mcq-continuity"
+  prompt="Why does a continuous formula F induce a root permutation?"
+  options={[
+    { id: "a", label: "Because F is a polynomial in the coefficients" },
+    { id: "b", label: "Because F is continuous, so moving the inputs continuously forces the output to move continuously too" },
+    { id: "c", label: "Because all five roots are always distinct" },
+    { id: "d", label: "Because the formula uses only rational operations" },
+  ]}
+  correct="b"
+  explanation="Continuity is the key: if the roots (hence the coefficients) move continuously, then F's output must also move continuously. Since F always outputs one of the five roots, it is forced to track a single root along its path — it cannot jump."
+/>
+
+</SlideLayout>

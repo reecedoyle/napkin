@@ -1,0 +1,24 @@
+---
+title: "Picking an angle"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Picking an angle">
+
+Write $z = r(\cos\theta + i\sin\theta)$ in polar form. Then a square root of $z$ is
+
+$$w = \sqrt{r}\,(\cos\alpha + i\sin\alpha), \quad 2\alpha \equiv \theta \pmod{2\pi}.$$
+
+There are exactly two choices of $\alpha$ modulo $2\pi$, differing by $\pi$. One idea: restrict to $-\tfrac{\pi}{2} < \alpha \le \tfrac{\pi}{2}$, forcing the root to land in the **right half-plane**.
+
+<Callout kind="example" title="The upper-half square root">
+With $\alpha \in (-\tfrac{\pi}{2}, \tfrac{\pi}{2}]$, the map $z \mapsto w$ sends every nonzero complex number to a root with non-negative real part. But there is a catch: the map is **discontinuous** along the negative real axis.
+</Callout>
+
+Near $z = -4$ (where $\alpha = \pm\tfrac{\pi}{2}$), points on either side of the negative real axis have their roots mapped to opposite sides of the imaginary axis — a jump of $4i$. This discontinuity is unavoidable for this choice of interval.
+
+The negative real axis, where the function breaks down, is called a **<Term k="branchCut">branch cut</Term>**. Moving the cut to a different ray fixes the problem for some inputs and creates it for others. There is no cut-free solution on all of $\CC\setminus\{0\}$.
+
+</SlideLayout>

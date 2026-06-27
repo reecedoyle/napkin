@@ -1,0 +1,21 @@
+---
+title: Proof strategy — the keyhole contour
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof strategy — the keyhole contour">
+
+The proof of Cauchy's integral formula is a clever application of Cauchy-Goursat. The idea: replace the big circle $\gamma$ around $a$ with a tiny circle $\gamma_\eps$ centered at $a$, then compute the small integral directly.
+
+**Step 1: Construct a <Term k="keyholeContour">keyhole contour</Term> $\Gamma_{\delta,\eps}$.** This consists of the outer circle $\gamma$, an inner circle $\ol{\gamma_\eps}$ (centered at $a$, radius $\eps$, run clockwise), and two narrow corridors connecting them.
+
+**Step 2:** The function $f(z)/(z-a)$ is holomorphic on $\Gamma_{\delta,\eps}$ (the point $a$ is in the inner hole, not on the contour). By Cauchy-Goursat, the integral over the entire keyhole is $0$.
+
+**Step 3:** As the corridor width $\delta \to 0$, the two walls cancel (they run in opposite directions and $f$ is continuous). We're left with:
+$$\oint_\gamma \frac{f(z)}{z-a}\,dz = \oint_{\gamma_\eps} \frac{f(z)}{z-a}\,dz.$$
+
+We've replaced the big circle with a tiny one — and now the tiny integral is easy to control.
+
+</SlideLayout>

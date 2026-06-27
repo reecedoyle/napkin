@@ -1,0 +1,24 @@
+---
+title: The complex derivative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The complex derivative">
+
+Let $f \colon U \to \CC$ be a <Term k="complexFunction">complex-valued function</Term> on an <Term k="openSubset">open set</Term> $U \subseteq \CC$. For $z_0 \in U$, we define the **derivative** of $f$ at $z_0$ to be
+
+$$\lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}$$
+
+where $h \in \CC$, $h \neq 0$. When this limit exists we say $f$ is <Term k="complexDifferentiable">complex differentiable</Term> at $z_0$.
+
+<Callout kind="remark" title="What 'limit' means here">
+For every $\eps > 0$ there must be a $\delta > 0$ such that whenever $0 < |h| < \delta$:
+$$\left| \frac{f(z_0 + h) - f(z_0)}{h} - L \right| < \eps.$$
+Crucially, $h$ is a complex number — it can approach $0$ from any direction in the plane, and all those limits must agree.
+</Callout>
+
+This is why we need $U$ to be open: at any $z_0 \in U$, there is a small disk around $z_0$ still inside $U$, giving room to let $h \to 0$ from all directions.
+
+</SlideLayout>

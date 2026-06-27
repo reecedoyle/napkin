@@ -1,0 +1,29 @@
+---
+title: Problems — dense image and removable singularity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — dense image and removable singularity">
+
+<Problem
+  client:load
+  id="holo-prob-dense-image"
+  difficulty="standard"
+  prompt="(Harvard quals) Let f : ℂ → ℂ be a nonconstant entire function. Prove that f(ℂ) is dense in ℂ."
+  hint="Apply Liouville's theorem to 1/(f(z) − w) for a point w not in the closure of f(ℂ)."
+  solution="Suppose there is a point w ∈ ℂ with |f(z) − w| ≥ ε for all z ∈ ℂ. Then g(z) = 1/(f(z) − w) is an entire function with |g(z)| ≤ 1/ε. By Liouville's theorem, g is constant, so f(z) − w is constant, so f is constant — contradicting the assumption that f is nonconstant. Therefore no such w exists, and f(ℂ) is dense."
+/>
+
+<Problem
+  client:load
+  id="holo-prob-removable-sing"
+  difficulty="standard"
+  prompt="(Removable singularity theorem) Let U be open, p ∈ U, and f : U \\ {p} → ℂ be holomorphic. Suppose f is bounded near p. Show that lim_{z→p} f(z) exists, and the extension f : U → ℂ is holomorphic at p."
+  hint="Adapt part of the proof of Cauchy-Goursat: apply the ML lemma to show ∮_γ f(z) dz = 0 for small loops around p. Then use the Cauchy integral formula to define f(p) and check holomorphicity."
+  solution="Since f is bounded (|f(z)| ≤ M near p), for a small circle γ_ε around p: |∮_{γ_ε} f(z)/(z−a) dz| ≤ M · 2πε/(|a−p| − ε) → 0 as ε → 0. So p contributes nothing to the integral, and f satisfies Cauchy's formula on U as if f were holomorphic at p. Define f(p) = (1/2πi)∮_γ f(z)/(z−p) dz for a circle γ in U around p. This extends f holomorphically to all of U."
+/>
+
+</SlideLayout>

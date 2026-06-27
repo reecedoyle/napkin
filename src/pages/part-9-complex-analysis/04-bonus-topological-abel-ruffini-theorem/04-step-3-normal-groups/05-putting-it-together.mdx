@@ -1,0 +1,28 @@
+---
+title: Putting it all together
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Putting it all together">
+
+Let's assemble the full proof.
+
+**Suppose** a quintic formula $F$ of nesting depth $d$ exists. Then:
+
+1. For each nesting level $k = 1, \dots, d$, we can construct a smooth operation $\sigma_k$ on the roots that fixes all radicals at depth $< k$ (by canceling their phases via commutators).
+
+2. By induction, $\sigma_k$ lives in the $k$-th derived subgroup $G^{(k)}$ of $S_5$.
+
+3. At depth $d$, $\sigma_d$ is a permutation in $G^{(d)}$ that fixes the entire formula $F$ — meaning $F$ returns to the same value before and after $\sigma_d$.
+
+4. But $\sigma_d$ also induces a non-trivial rearrangement of the roots, so $F$ must return to a different root — **contradiction**.
+
+<Callout kind="corollary" title="Abel-Ruffini theorem (topological version)">
+The general quintic polynomial has no formula using $+$, $-$, $\times$, $\div$, and $\sqrt[n]{\,}$ because <Term k="S5">$S_5$</Term> is not <Term k="solvableGroup">solvable</Term>: its <Term k="derivedSeries">derived series</Term> never reaches $\{e\}$.
+</Callout>
+
+The same argument shows: for $n \geq 5$, the general degree-$n$ polynomial has no radical formula. For $n \leq 4$, the corresponding symmetric groups are solvable, and explicit formulas exist.
+
+</SlideLayout>

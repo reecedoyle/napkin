@@ -1,0 +1,23 @@
+---
+title: Deriving the Taylor series
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Deriving the Taylor series">
+
+Start from <Term k="cauchyIntegralFormula">Cauchy's integral formula</Term> with circle $\gamma$ centered at $0$:
+$$f(a) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - a}\,dz = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)/z}{1 - a/z}\,dz.$$
+
+Now expand the geometric series (valid when $|a| < |z|$, i.e. $a$ is inside the circle):
+$$\frac{1}{1 - a/z} = \sum_{k \geq 0} \left(\frac{a}{z}\right)^k.$$
+
+Substituting and swapping the sum with the integral (justified by the Weierstraß M-test):
+$$f(a) = \frac{1}{2\pi i} \sum_{k \geq 0} \oint_\gamma \frac{f(z)}{z^{k+1}}\,dz \cdot a^k = \sum_{k \geq 0} c_k \, a^k,$$
+
+where $c_k = \dfrac{1}{2\pi i} \oint_\gamma \dfrac{f(z)}{z^{k+1}}\,dz$ is a constant (independent of $a$).
+
+This is the <Term k="taylorSeries">Taylor series</Term> of $f$ centered at $0$.
+
+</SlideLayout>

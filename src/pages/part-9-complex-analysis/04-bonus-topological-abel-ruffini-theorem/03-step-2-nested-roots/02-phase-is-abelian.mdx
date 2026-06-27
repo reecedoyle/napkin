@@ -1,0 +1,22 @@
+---
+title: Phase accumulation is abelian
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Phase accumulation is abelian">
+
+The saving grace for our argument is that **phase shifts commute**. This might sound abstract, but the key point is:
+
+When we take an $n$th root $\sqrt[n]{R}$ and move through a loop, the value picks up a phase of $e^{2\pi i k/n}$ for some integer $k$ (depending on how many times the loop winds around the branch point of $R$). These phases are elements of $\ZZ/n\ZZ$ under addition — a **commutative** (abelian) group.
+
+<Callout kind="remark" title="Phases add">
+If operation $\alpha$ causes a phase shift of $\phi_\alpha$ and operation $\beta$ causes a phase shift of $\phi_\beta$, then doing $\alpha$ then $\beta$ causes a total phase of $\phi_\alpha + \phi_\beta = \phi_\beta + \phi_\alpha$. Order doesn't matter.
+</Callout>
+
+Now here is the key idea: while <Term k="phaseAccumulation">phase accumulation</Term> is abelian, **root permutations are not**. The symmetric group $S_5$ is non-abelian: $(12)(23) \neq (23)(12)$.
+
+We will exploit this mismatch. By taking a **commutator** of two root-swapping operations, we can cancel all <Term k="phaseAccumulation">phase</Term> effects while still producing a non-trivial permutation of the roots.
+
+</SlideLayout>

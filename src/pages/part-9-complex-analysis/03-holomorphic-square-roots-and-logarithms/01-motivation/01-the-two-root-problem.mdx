@@ -1,0 +1,35 @@
+---
+title: "The two-root problem"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The two-root problem">
+
+Over the reals, $\sqrt{x}$ is unambiguous for $x \ge 0$: we just take the **positive** root. But over <Term k="CC">$\CC$</Term>, there is no notion of "positive," so we need a different strategy.
+
+Every nonzero complex number $z$ has **exactly two** square roots: if $w^2 = z$ then $(-w)^2 = z$ as well. Picking one of the two consistently — so that the choice varies smoothly as $z$ moves — turns out to be surprisingly subtle.
+
+<Callout kind="question" title="The central question">
+Given a <Term k="holomorphic">holomorphic</Term> function $f \colon U \to \CC$, when does a holomorphic $g \colon U \to \CC$ exist with $f(z) = g(z)^2$ for all $z \in U$? More generally, when does an $n$th root exist?
+</Callout>
+
+The answer involves a beautiful mix of complex analysis and topology — specifically, the idea of a <Term k="liftingThm">lifting</Term> through a <Term k="coveringProjection">covering projection</Term>.
+
+<MCQ
+  client:load
+  id="hsl-mot-mcq-two-roots"
+  prompt="Over the reals we define √4 = 2, not −2, because reals have a notion of sign. What goes wrong if we try the same trick for complex numbers?"
+  options={[
+    { id: "a", label: "Complex numbers have no natural ordering, so 'positive' is undefined." },
+    { id: "b", label: "Complex numbers have more than two square roots." },
+    { id: "c", label: "The square root function is not a polynomial." },
+    { id: "d", label: "Complex numbers are uncountable, so no square root exists." },
+  ]}
+  correct="a"
+  explanation="The real square root picks the positive root because ℝ has a total order. ℂ has no such ordering — the complex numbers form a plane, not a line, so 'positive' has no meaning."
+/>
+
+</SlideLayout>

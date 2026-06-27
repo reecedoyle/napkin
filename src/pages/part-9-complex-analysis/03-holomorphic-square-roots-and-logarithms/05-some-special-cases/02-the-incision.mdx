@@ -1,0 +1,22 @@
+---
+title: "Making an incision"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Making an incision">
+
+We started the chapter asking: for what domain $U$ does $\sqrt{z}$ exist as a holomorphic function? We have now answered the question in full generality. Let us return to this concrete case.
+
+The function $f(z) = z$ (the identity) has a single zero at $0$ and winding number $1$ around it. So no holomorphic square root exists on any domain $U$ that allows a loop around the origin.
+
+**The fix:** remove a ray from $0$ to infinity — this "cuts" the plane so that no loop around the origin is possible in what remains.
+
+<Callout kind="remark" title="The branch cut as incision">
+Deleting the negative real axis $(-\infty, 0]$ from $\CC$ gives a domain on which no loop can wind around $0$. The resulting domain is simply connected, and $\sqrt{z}$ exists as a holomorphic function there.
+</Callout>
+
+The negative real axis is the classical <Term k="branchCut">branch cut</Term> for $\sqrt{z}$. The origin $0$ is the <Term k="branchPoint">branch point</Term> — the only obstacle. Any ray from $0$ to $\infty$ would serve equally well as a cut; we just choose the negative real axis by convention.
+
+</SlideLayout>

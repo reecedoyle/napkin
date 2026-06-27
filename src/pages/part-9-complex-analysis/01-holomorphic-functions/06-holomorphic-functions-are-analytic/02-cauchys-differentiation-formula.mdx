@@ -1,0 +1,24 @@
+---
+title: Cauchy's differentiation formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy's differentiation formula">
+
+The Taylor series argument works for any center $p$, not just $p = 0$. The full theorem:
+
+<Callout kind="theorem" title="Cauchy's differentiation formula">
+Let $f \colon U \to \CC$ be <Term k="holomorphic">holomorphic</Term> and let $D$ be a disk centered at $p$ bounded by a circle $\gamma$, with $D \subseteq U$. Then on all of $D$,
+$$f(z) = \sum_{k \geq 0} c_k (z-p)^k$$
+where
+$$c_k = \frac{f^{(k)}(p)}{k!} = \frac{1}{2\pi i} \oint_\gamma \frac{f(w)}{(w-p)^{k+1}} \; dw.$$
+In particular, all derivatives $f^{(k)}(p)$ exist and equal $k! \cdot c_k$.
+</Callout>
+
+The punchline: **complex differentiable once $\Rightarrow$ equal to Taylor series $\Rightarrow$ infinitely differentiable**.
+
+This has no real analogue: a real function can be once differentiable without being twice differentiable, and can be infinitely differentiable without being equal to its Taylor series.
+
+</SlideLayout>

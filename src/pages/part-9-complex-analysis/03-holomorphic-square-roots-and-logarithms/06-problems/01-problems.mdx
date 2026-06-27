@@ -1,0 +1,39 @@
+---
+title: "Problems"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems">
+
+<Callout kind="remark" title="What to practice">
+These problems ask you to connect the two main theorems of the chapter. The first problem reveals the deep equivalence between logarithms and $n$th roots. The second gives a hands-on example where you verify the winding-number condition directly.
+</Callout>
+
+<Problem
+  client:load
+  id="hsl-prob-log-iff-nth-roots"
+  difficulty="standard"
+  prompt="Show that a holomorphic function $f \colon U \to \CC$ has a holomorphic logarithm if and only if it has a holomorphic $n$th root for every positive integer $n$."
+  hint="For one direction, use the log to construct an nth root. For the other, show the winding number must be 0 by the divisibility condition."
+  solution="(⇒) If f = eᵍ for a holomorphic g, then e^{g/n} is a holomorphic nth root of f for each n.
+
+(⇐) Suppose f has a holomorphic nth root for every n. By the nth root theorem, for every closed contour γ in U and every positive integer n, the winding number w = (1/2πi)∮_γ f'/f dz lies in nℤ. An integer divisible by every positive integer must be 0. So (1/2πi)∮_γ f'/f dz = 0 for every γ. By the logarithm existence theorem, f has a holomorphic logarithm."
+/>
+
+<Problem
+  client:load
+  id="hsl-prob-slit-sqrt"
+  difficulty="standard"
+  prompt="Show that the function $f(z) = z(z-1)$ has a holomorphic square root on $U = \CC \setminus [0,1]$, where $[0,1]$ is the closed interval on the real axis."
+  hint="Check that for any closed contour γ in U, the winding number of f around 0 is even. The key is that the cut [0,1] prevents loops from separating the two zeros."
+  solution="The zeros of f are 0 and 1, both removed from U by the cut [0,1]. By the nth root theorem (n=2), we need to show (1/2πi)∮_γ f'/f dz ∈ 2ℤ for every closed γ in U.
+
+Since f'/f = 1/z + 1/(z−1), the integral equals w₀ + w₁, where w₀ is the winding number of γ around 0 and w₁ is the winding number of γ around 1.
+
+In U = ℂ \ [0,1], any loop γ cannot separate 0 from 1: a loop that winds once around 0 must also wind once around 1 (the cut [0,1] forces them to be enclosed together or both excluded). So w₀ = w₁ for every γ in U, and w₀ + w₁ = 2w₀ ∈ 2ℤ. The square root exists."
+/>
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: Cauchy-Goursat for rectangles — the binary search
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy-Goursat for rectangles — the binary search">
+
+How do we prove $\oint_\gamma f\,dz = 0$ for a <Term k="holomorphic">holomorphic</Term> $f$ and a rectangular loop $\gamma$? The key idea is a **bisection argument**.
+
+Suppose for contradiction that $|\oint_\gamma f\,dz| = c > 0$. Subdivide $\gamma$ into 4 sub-rectangles $\gamma_a, \gamma_b, \gamma_c, \gamma_d$. Since their inner edges cancel:
+$$\oint_\gamma f\,dz = \oint_{\gamma_a} f\,dz + \oint_{\gamma_b} f\,dz + \oint_{\gamma_c} f\,dz + \oint_{\gamma_d} f\,dz.$$
+
+At least one sub-rectangle, say $\gamma_1$, satisfies $|\oint_{\gamma_1} f\,dz| \geq c/4$.
+
+Repeat: subdivide $\gamma_1$ into 4 parts, find one with integral $\geq c/16$, and so on. The rectangles $\gamma_j$ shrink to a single point $p$, with $|\oint_{\gamma_j} f\,dz| \geq c/4^j$ while the perimeter shrinks as $L/2^j$.
+
+<Callout kind="remark" title="Why this reaches a contradiction">
+At $p$, holomorphicity says $f(p+h) = f(p) + f'(p)\cdot h + \eps(h)\cdot h$ where $\eps(h) \to 0$. The polynomial part $f(p) + f'(p)(z-p)$ integrates to $0$ around any rectangle. The error term contributes $O(\eps \cdot \text{perimeter}^2)$. But $|\oint_{\gamma_j} f\,dz| \geq c/4^j$ is much larger than $O(\text{perimeter}^2/4^j)$ — contradiction.
+</Callout>
+
+</SlideLayout>

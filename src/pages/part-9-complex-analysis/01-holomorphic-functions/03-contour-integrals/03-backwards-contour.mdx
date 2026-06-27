@@ -1,0 +1,32 @@
+---
+title: Backwards contours
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Backwards contours">
+
+<Callout kind="definition" title="Backwards contour">
+For a contour $\alpha \colon [0,1] \to \CC$, the **<Term k="backwardsContour">backwards contour</Term>** $\ol\alpha$ is defined by $\ol\alpha(t) = \alpha(1-t)$. It traces the same path in the reverse direction.
+</Callout>
+
+The key relationship: reversing a contour negates the integral.
+
+$$\oint_{\ol\alpha} f(z) \; dz = -\oint_\alpha f(z) \; dz.$$
+
+This follows directly from the definition (substitute $s = 1-t$, noting the limits of integration swap and the derivative changes sign by the chain rule).
+
+<Callout kind="remark" title="Why this matters">
+If $\alpha$ and $\beta$ are two paths from $A$ to $B$, then following $\alpha$ and then the backwards path $\ol\beta$ forms a **loop**. If the loop integral is zero (as Cauchy-Goursat will tell us for holomorphic functions), then $\oint_\alpha f\, dz = \oint_\beta f\, dz$. Path-independence is equivalent to zero loop integrals.
+</Callout>
+
+<NumericInput
+  client:load
+  id="holo-s3-num-backwards"
+  prompt="If ∮_α f(z) dz = 7, what is ∮_{ᾱ} f(z) dz?"
+  expected="-7"
+/>
+
+</SlideLayout>

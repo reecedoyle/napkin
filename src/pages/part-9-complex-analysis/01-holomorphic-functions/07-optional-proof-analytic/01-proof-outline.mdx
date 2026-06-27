@@ -1,0 +1,22 @@
+---
+title: Proof outline — holomorphic implies analytic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof outline — holomorphic implies analytic">
+
+This section is optional — it sketches the proof that holomorphic functions equal their Taylor series. The steps are each intuitive.
+
+<Callout kind="remark" title="Proof outline">
+1. **Write down a power series.** Using Cauchy's differentiation formula, define $c_k = \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{z^{k+1}}\,dz$. This gives a formal series $\sum c_k z^k$.
+2. **Show the series equals $f$.** Use the Cauchy integral formula plus the geometric series to verify that $\sum c_k a^k = f(a)$ for $|a|$ inside the disk.
+3. **Prove $f$ is analytic.** Knowing $f$ equals a power series in each disk, differentiate term-by-term to show all derivatives exist — completing the definition of "analytic".
+</Callout>
+
+Step 2 is the non-trivial step: we interchange an integral and an infinite sum, justified by the Weierstraß M-test (uniform convergence of the geometric series on the circle).
+
+The hard part of Cauchy-Goursat is handled by first proving it for rectangles (via a "binary search" argument), then building an antiderivative $F$ with $F' = f$, and using the fundamental theorem of calculus for loops.
+
+</SlideLayout>

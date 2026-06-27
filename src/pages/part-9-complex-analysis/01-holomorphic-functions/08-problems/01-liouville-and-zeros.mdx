@@ -1,0 +1,31 @@
+---
+title: Problems — Liouville and zeros
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Liouville and zeros">
+
+These problems explore the consequences of holomorphic functions equaling their Taylor series.
+
+<Problem
+  client:load
+  id="holo-prob-liouville"
+  difficulty="starred"
+  prompt="(Liouville's theorem) Let f : ℂ → ℂ be an entire function. Suppose |f(z)| < 1000 for all z ∈ ℂ. Prove that f is a constant function."
+  hint="Look at the Taylor series of f, and use Cauchy's differentiation formula to show that each coefficient cₖ for k ≥ 1 must be zero."
+  solution="Write f(z) = c₀ + c₁z + c₂z² + ··· . By Cauchy's differentiation formula, cₖ = (1/2πi)∮_γ f(z)/z^{k+1} dz for a circle γ of radius R. By the ML lemma, |cₖ| ≤ (1000/Rᵏ) · (1/(2π)) · 2πR = 1000/Rᵏ. Since R is arbitrary and k ≥ 1, letting R → ∞ forces cₖ = 0. So f = c₀ is constant."
+/>
+
+<Problem
+  client:load
+  id="holo-prob-zeros-isolated"
+  difficulty="starred"
+  prompt="(Zeros are isolated) Show that the zero set of any nonzero holomorphic function f : U → ℂ is an isolated set, unless there is a nonempty open subset of U on which f is identically zero."
+  hint="Proceed by contradiction: suppose there is a sequence z₁, z₂, … → z of distinct zeros. Look at the Taylor series of f around z and pull out factors of (z − zₙ)."
+  solution="Assume f is not identically zero on any open set. Suppose z₁, z₂, … → z are distinct zeros. WLOG z = 0. Write the Taylor series as aₙzⁿ + aₙ₊₁zⁿ⁺¹ + ··· with aₙ ≠ 0. Factor out zⁿ: f(z) = zⁿ h(z) where h(z) = aₙ + aₙ₊₁z + ··· is holomorphic with h(0) = aₙ ≠ 0. By continuity of h, there is a neighborhood of 0 where h(z) ≠ 0, so the only zero of f there is z = 0. This contradicts the existence of the sequence of distinct zeros converging to 0."
+/>
+
+</SlideLayout>

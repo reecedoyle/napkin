@@ -1,0 +1,25 @@
+---
+title: Winding numbers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Winding numbers">
+
+For any integer $m \neq -1$ and a counterclockwise circle $\gamma$, the integral $\oint_\gamma (z-p)^m \, dz = 0$. The only exception is $m = -1$, which gives $2\pi i$. We name this special value.
+
+<Callout kind="definition" title="Winding number">
+For a point $p \in \mathbb{C}$ and a loop $\gamma$ not passing through $p$, the <Term k="windingNumber">**winding number**</Term> is:
+
+$$\operatorname{Wind}(\gamma, p) = \frac{1}{2\pi i} \oint_{\gamma} \frac{1}{z-p} \, dz$$
+</Callout>
+
+The winding number is always an **integer**. It counts how many times $\gamma$ goes around $p$: positive for counterclockwise, negative for clockwise, zero if $p$ is outside.
+
+For a circle $\gamma$:
+$$\operatorname{Wind}(\text{circle}, p) = \begin{cases} 1 & p \text{ inside the circle} \\ 0 & p \text{ outside} \end{cases}$$
+
+If you know the fundamental group: $\operatorname{Wind}(\gamma, p)$ is exactly the element of $\pi_1(\mathbb{C} \setminus \{p\}) \cong \mathbb{Z}$ that $\gamma$ represents.
+
+</SlideLayout>

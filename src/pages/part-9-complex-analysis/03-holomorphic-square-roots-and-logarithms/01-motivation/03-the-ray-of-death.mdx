@@ -1,0 +1,22 @@
+---
+title: "The ray of death"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The ray of death">
+
+The broken region — the negative real axis when we restrict $\alpha \in (-\tfrac{\pi}{2}, \tfrac{\pi}{2}]$ — is what Evan Chen playfully calls a **ray of death**. Cross it, and your square root function jumps discontinuously.
+
+<Callout kind="remark" title="The key observation">
+The ray of death is not intrinsic; it is an artifact of our choice of $\alpha$-interval. If we instead use $\alpha \in [0, \pi)$, the ray of death becomes the **positive** real axis. Different cuts, same starting point: the origin.
+</Callout>
+
+What all these rays have in common is that they originate at $0$ — the only zero of the function $f = \text{id}$. The origin is the **<Term k="branchPoint">branch point</Term>**, the spot we can never circle around.
+
+Here is the upshot: if our input curve avoids both $0$ and whichever ray of death we have chosen, the square root is perfectly well-defined and holomorphic along that curve. The problem only arises when we try to go all the way around the origin.
+
+This suggests the real question is topological: **can we loop around $0$?** If not, the square root exists.
+
+</SlideLayout>

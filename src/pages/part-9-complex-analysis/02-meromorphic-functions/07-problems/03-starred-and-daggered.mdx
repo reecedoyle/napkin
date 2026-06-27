@@ -1,0 +1,27 @@
+---
+title: Problems — starred and daggered
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — starred and daggered">
+
+<Problem
+  client:load
+  id="mero-prob-open-mapping"
+  difficulty="starred"
+  statement="Let $f \colon U \to \mathbb{C}$ be a nonconstant holomorphic function. (a) (Open mapping theorem) Prove that $f(U)$ is open in $\mathbb{C}$. (b) (Maximum modulus principle) Show that $|f|$ cannot have a maximum over $U$: for every $z \in U$, there exists $z' \in U$ with $|f(z)| < |f(z')|$."
+  hint="For (a): fix w₀ = f(z₀) and consider g(z) = f(z) − w₀. Use the argument principle on a small circle around z₀ to show that g has a zero inside the circle, then vary w near w₀. For (b): assume |f| has a maximum at z₀ and derive a contradiction using the mean value property."
+  solution="(a) Fix z₀ with f(z₀) = w₀. Since f is nonconstant, g(z) = f(z) − w₀ has an isolated zero at z₀ of some multiplicity m ≥ 1. By the argument principle, for a small circle γ around z₀, (1/2πi) ∮_γ g′/g dz = m > 0. This count is stable under small perturbation of the contour or of w₀, so for w near w₀ the function f(z) − w also has m zeros (counted with multiplicity) inside γ. In particular f takes the value w inside γ, so every neighbourhood of w₀ is hit. Thus f(U) is open. (b) If |f(z₀)| were a maximum, consider the mean value property for the harmonic function log|f|: its value at z₀ equals the average over a circle around z₀. But if it is a maximum, the average can equal the value only if log|f| is constant on the circle — and hence constant on U by the identity theorem. That forces f to be constant, a contradiction."
+/>
+
+<Problem
+  client:load
+  id="mero-prob-rouche"
+  difficulty="daggered"
+  statement="(Rouché's theorem) Let $f, g \colon U \to \mathbb{C}$ be holomorphic, where $U$ contains the closed unit disk. Suppose $|f(z)| > |g(z)|$ for all $z$ on the unit circle. Prove that $f$ and $f+g$ have the same number of zeros strictly inside the unit disk (counting multiplicities)."
+  hint="Apply the argument principle to both f and f+g. Consider the family h_t(z) = f(z) + t·g(z) for t ∈ [0,1] and show the zero count (1/2πi) ∮ h_t′/h_t dz is continuous and integer-valued, hence constant."
+  solution="Since |f(z)| > |g(z)| on the unit circle, f is nowhere zero on the unit circle, and neither is h_t(z) = f(z) + t·g(z) for any t ∈ [0,1] (because |h_t(z)| ≥ |f(z)| − |t||g(z)| ≥ |f(z)| − |g(z)| > 0). The zero-count N(t) = (1/2πi) ∮_{|z|=1} h_t′(z)/h_t(z) dz is a continuous function of t (h_t varies continuously and stays away from zero on the contour), and it is always an integer by the argument principle. A continuous integer-valued function on [0,1] is constant. Therefore N(0) = N(1), i.e., f and f+g have the same number of zeros inside the unit disk."
+/>
+
+</SlideLayout>

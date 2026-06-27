@@ -1,0 +1,23 @@
+---
+title: Integrating along curves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Integrating along curves">
+
+On the real line we integrate functions over intervals $[a,b]$. The complex plane has a richer structure: we can integrate over arbitrary curves, not just straight segments.
+
+A **<Term k="contour">contour</Term>** is a piecewise smooth path $\alpha \colon [a,b] \to \CC$ — think of it as a curve drawn in the plane.
+
+<Callout kind="definition" title="Contour integral">
+Given a <Term k="complexFunction">complex function</Term> $f$ and a contour $\alpha \colon [a,b] \to \CC$, the **<Term k="contourIntegral">contour integral</Term>** is
+$$\oint_\alpha f(z) \; dz = \int_a^b f(\alpha(t)) \cdot \alpha'(t) \; dt.$$
+</Callout>
+
+This looks like a $u$-substitution from calculus: replace $z$ by $\alpha(t)$ and $dz$ by $\alpha'(t) \, dt$.
+
+A key fact: the value does not depend on how $\alpha$ is parametrised. Three different parametrisations of "go counterclockwise around the unit circle once" all give the same integral.
+
+</SlideLayout>

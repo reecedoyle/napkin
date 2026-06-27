@@ -1,0 +1,21 @@
+---
+title: Cauchy's integral formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cauchy's integral formula">
+
+<Term k="cauchyGoursat">Cauchy-Goursat</Term> is powerful but negative: loop integrals are zero. Now we get something positive: a formula that *recovers* the value of a function from an integral.
+
+<Callout kind="theorem" title="Cauchy's integral formula">
+Let $\gamma \colon [0,2\pi] \to \CC$ be a circle $t \mapsto Re^{it}$ bounding a disk $D$. Suppose $f \colon U \to \CC$ is <Term k="holomorphic">holomorphic</Term> and $U$ contains the closed disk. Then for any $a$ in the interior of $D$,
+$$f(a) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z-a} \; dz.$$
+</Callout>
+
+This is a **representation theorem**: the values of $f$ inside the disk are completely determined by its values on the boundary circle. Knowing $f$ on the boundary is enough to compute $f$ at every interior point.
+
+The $2\pi i$ in the denominator is no accident — it is exactly $\oint_\gamma z^{-1}\,dz$ that we computed earlier. The proof will use that computation directly.
+
+</SlideLayout>

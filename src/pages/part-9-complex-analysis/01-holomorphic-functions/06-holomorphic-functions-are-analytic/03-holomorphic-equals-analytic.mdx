@@ -1,0 +1,24 @@
+---
+title: Holomorphic equals analytic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Holomorphic equals analytic">
+
+We have now established one of the biggest results in complex analysis:
+
+<Callout kind="theorem" title="Holomorphic ⟺ analytic">
+A function $f \colon U \to \CC$ is <Term k="holomorphic">holomorphic</Term> on $U$ if and only if it is <Term k="analyticFunction">analytic</Term> on $U$ — that is, equal to a convergent power series in some neighborhood of every point.
+</Callout>
+
+The Taylor series centered at $p$ is valid throughout the largest open disk centered at $p$ that fits inside $U$. If $U = \CC$ (entire functions), there is no restriction.
+
+<Callout kind="remark" title="Subtlety: disk vs. domain">
+The series centered at $p$ converges in a disk — it cannot generally cover all of $U$ if $U$ is not a disk. But since $U$ is open, we can always find some disk around $p$ inside $U$. So even for complicated domains, holomorphic functions locally equal their Taylor series.
+</Callout>
+
+This is the key reason "holomorphic" and "analytic" are used interchangeably in complex analysis, unlike in real analysis where they are very different.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: Problems — cosine contour
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — cosine contour">
+
+<Problem
+  client:load
+  id="mero-prob-cosine"
+  difficulty="standard"
+  statement="Prove that $\displaystyle\int_{-\infty}^{\infty} \frac{\cos x}{x^2+1} \, dx$ converges and determine its value."
+  hint="Interpret the integral as $\lim_{a\to\infty} \int_{-a}^{a} \frac{\cos x}{x^2+1} \, dx$. For each $a$, close the contour with a semicircle in the upper half-plane. Use $\cos x = \operatorname{Re}(e^{ix})$ and the residue theorem."
+  solution="Replace cos x with Re(e^{ix}) and integrate f(z) = e^{iz}/(z²+1) over the contour consisting of the real segment [−a, a] and the upper semicircle of radius a. The function f has poles at z = ±i; only z = i is in the upper half-plane. The residue there is e^{i·i}/(2i) = e^{−1}/(2i). By Jordan's lemma the semicircular arc contributes 0 as a → ∞. The residue theorem gives ∫_{−∞}^{∞} e^{ix}/(x²+1) dx = 2πi · e^{−1}/(2i) = π/e. Taking the real part: ∫_{−∞}^{∞} cos(x)/(x²+1) dx = π/e."
+/>
+
+</SlideLayout>

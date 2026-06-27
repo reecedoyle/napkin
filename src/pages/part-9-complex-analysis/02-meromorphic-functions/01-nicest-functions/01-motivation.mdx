@@ -1,0 +1,20 @@
+---
+title: The second nicest functions on earth
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The second nicest functions on earth">
+
+If <Term k="holomorphicFn">holomorphic functions</Term> are like polynomials, then **meromorphic** functions are like rational functions — quotients $A(z)/B(z)$ where $A$ and $B$ are holomorphic and $B$ is not identically zero.
+
+The prototype is $\frac{1}{z}$. It is holomorphic everywhere except the origin, where it blows up. But that blow-up is *controlled* — the function has a single, isolated bad point.
+
+<Callout kind="remark" title="Why 'second nicest'?">
+Holomorphic functions are the gold standard: no bad points at all. Meromorphic functions earn silver: holomorphic *almost* everywhere, with only isolated, well-understood singularities called **poles**.
+</Callout>
+
+The key insight: by the identity theorem, $B(z)$ can vanish at only isolated points (it cannot be zero on any open set without being identically zero). So a meromorphic function is holomorphic on all but a **discrete** set of points — almost the whole plane.
+
+</SlideLayout>

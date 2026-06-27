@@ -1,0 +1,22 @@
+---
+title: "The universal cover and trivial π₁"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The universal cover and trivial π₁">
+
+For the $n$th root, the covering space was $p = (-)^n : \CC \setminus \{0\} \to \CC \setminus \{0\}$ and we needed loops to wind in multiples of $n$. For the logarithm, the covering is different:
+
+$$\exp \colon \CC \longrightarrow \CC \setminus \{0\}.$$
+
+Since $\CC$ is simply connected — it has trivial <Term k="fundamentalGroup">fundamental group</Term> — this is the <Term k="universalCover">universal cover</Term> of the punctured plane. So $p_*(\pi_1(\CC))$ is the trivial group $\{0\} \subseteq \ZZ = \pi_1(\CC \setminus \{0\})$.
+
+<Callout kind="remark" title="The condition tightens">
+For the square root, we needed winding numbers divisible by $2$. For the logarithm, we need winding numbers to be zero — **no winding at all** is allowed. This is a strictly stronger condition.
+</Callout>
+
+Concretely: if $f$ has any zero, a logarithm cannot exist (since $f \circ \gamma$ would wind around $0$ for a small loop around the zero). And even among zero-free functions, the image curve must wind zero times around the origin for every loop.
+
+</SlideLayout>

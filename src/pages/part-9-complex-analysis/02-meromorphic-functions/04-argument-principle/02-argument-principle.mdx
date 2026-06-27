@@ -1,0 +1,26 @@
+---
+title: The argument principle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The argument principle">
+
+<Callout kind="theorem" title="Argument principle">
+Let $\gamma$ be a <Term k="regularCurve">regular curve</Term>. Suppose $f \colon U \to \mathbb{C}$ is <Term k="meromorphic">meromorphic</Term> inside and on $\gamma$, with no zeros or poles on $\gamma$. Then:
+
+$$\frac{1}{2\pi i} \oint_\gamma \frac{f'}{f} \, dz = \frac{1}{2\pi i} \oint_{f \circ \gamma} \frac{1}{z} \, dz = Z - P$$
+
+where $Z$ = number of zeros inside $\gamma$ (counted with multiplicity) and $P$ = number of poles inside $\gamma$ (counted with order).
+</Callout>
+
+**Proof:** Immediate from the residue theorem: each zero of $f$ at $z_0$ contributes $+\operatorname{mult}(z_0)$ to the integral (from the residue of $f'/f$ there), and each pole $p_0$ contributes $-\operatorname{ord}(p_0)$. Summing gives $Z - P$.
+
+For a general (non-regular) loop, replace the sum with $\sum_{\text{zeros}} \operatorname{Wind}(\gamma, z) - \sum_{\text{poles}} \operatorname{Wind}(\gamma, p)$, each with multiplicity.
+
+<Callout kind="remark" title="Practical application">
+Fix a meromorphic $f$ and start picking circles $\gamma$. Compute $\frac{1}{2\pi i}\oint_\gamma f'/f \, dz$ numerically — even with rounding errors the result is close enough to an integer that you can read off $Z - P$ for that circle. This is how computers locate zeros of functions like the Riemann zeta function.
+</Callout>
+
+</SlideLayout>

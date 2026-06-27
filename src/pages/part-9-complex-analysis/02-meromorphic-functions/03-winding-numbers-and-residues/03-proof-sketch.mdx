@@ -1,0 +1,24 @@
+---
+title: Why the residue theorem works
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Why the residue theorem works">
+
+The proof of the <Term k="residueTheorem">residue theorem</Term> is cleaner than you might expect. The key move is to split $f$ into its holomorphic part and its <Term k="principalPart">principal parts</Term>.
+
+<ProofReveal
+  client:load
+  id="mero-winding-proof-residue"
+  prompt="Sketch: why does the residue theorem hold? (Think: split f into a holomorphic piece plus one principal-part piece per pole, then integrate each piece.)"
+  solution="Write f(z) = g(z) + Σ P_i(1/(z − p_i)), where each P_i is the principal part at the pole p_i, and g is the remainder (which is holomorphic). Since g is holomorphic, ∮_γ g(z) dz = 0 by Cauchy–Goursat. For each principal part P_i(x) = c₁x + c₂x² + ··· + c_d x^d, integrating term by term gives ∮_γ (z − p_i)^{−k} dz = 0 for k ≥ 2 (since these are not the 1/(z−p) term). Only the k = 1 term survives: ∮_γ c₁/(z − p_i) dz = c₁ · Wind(γ, p_i) · 2πi. So the full integral is Σ c₁_i · Wind(γ, p_i) · 2πi = 2πi Σ Res(f; p_i) · Wind(γ, p_i), and dividing by 2πi gives the result."
+/>
+
+<Callout kind="remark" title="Cauchy's integral formula via residues">
+If $f$ is holomorphic at $a$, we want to recover $f(a)$. Divide: $f(z)/(z-a)$ has a simple pole at $a$ with residue $f(a)$ (the constant term in the Laurent expansion of $f/(z-a)$). The residue theorem then gives $(1/2\pi i) \oint f(z)/(z-a) \, dz = f(a)$ — that is Cauchy's integral formula.
+</Callout>
+
+</SlideLayout>
