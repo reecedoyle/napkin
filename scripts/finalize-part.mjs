@@ -49,6 +49,41 @@ const ADDITIVE_FILES = {
   'src/lib/katex-macros.ts': { glueLine: null, shape: 'oneline' },
 };
 
+// Append any one-line KaTeX macro entries a branch added (between `base` and
+// `branch`) that main's katex-macros.ts doesn't already have, inserting them
+// before the closing `};`. Returns how many were added. Used instead of
+// merging the shared macros file, so a stale worktree base can't conflict.
+function applyNewMacros(base, branch) {
+  const rel = 'src/lib/katex-macros.ts';
+  const diff = sh(`git diff ${base} ${branch} -- ${rel}`).trim();
+  if (!diff) return 0;
+  const macroLineRe = /^\+(\s*'[^']+'\s*:\s*'[^']*'\s*,?)\s*$/;
+  const addedKeys = diff.split('\n')
+    .map((l) => l.match(macroLineRe))
+    .filter(Boolean)
+    .map((m) => '  ' + m[1].trim());
+  if (addedKeys.length === 0) return 0;
+
+  const full = resolve(ROOT, rel);
+  const content = readFileSync(full, 'utf8');
+  const present = new Set([...content.matchAll(/^\s*'([^']+)'\s*:/gm)].map((m) => m[1]));
+  const fresh = addedKeys.filter((line) => {
+    const key = line.match(/'([^']+)'/)[1];
+    if (present.has(key)) return false;
+    present.add(key);
+    return true;
+  });
+  if (fresh.length === 0) return 0;
+
+  const lines = content.split('\n');
+  let close = lines.length - 1;
+  while (close >= 0 && lines[close].trim() !== '};') close--;
+  if (close < 0) return 0;
+  lines.splice(close, 0, ...fresh);
+  writeFileSync(full, lines.join('\n'));
+  return fresh.length;
+}
+
 function sh(cmd, opts = {}) {
   return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], ...opts });
 }
@@ -116,48 +151,47 @@ for (const wt of agentTrees) {
   sh(`git commit -m "Finalize: ${wt.branch}"`, { cwd: wt.path });
 }
 
-// ─── 3. merge each branch into main, auto-resolving glossary ──────────
+// ─── 3. extract each branch's additive files onto main ────────────────
+//
+// Chapters produce only NEW files — slides, one glossary-chapters/*.ts, and
+// one e2e spec — plus the occasional katex-macros.ts addition. We extract
+// those instead of 3-way merging the branch, so it doesn't matter what
+// commit the worktree was based on. (Agent worktrees have branched from a
+// stale base, which turned a should-be-trivial merge into conflicts on
+// shared files like glossary.ts.) No shared file except katex-macros is
+// ever touched.
 
+const ADDITIVE_GLOBS = ['src/pages/part-*/**', 'src/lib/glossary-chapters/*.ts', 'tests/e2e/*.spec.ts'];
+
+let extractedAny = false;
 for (const wt of agentTrees) {
-  // Skip branches with no commits ahead of main.
-  const ahead = sh(`git rev-list --count main..${wt.branch}`).trim();
-  if (ahead === '0') {
-    console.log(`Skipping ${wt.branch} — no commits ahead of main.`);
-    continue;
-  }
+  const base = sh(`git merge-base main ${wt.branch}`).trim();
+  const files = sh(
+    `git diff --name-only --diff-filter=ACMR ${base} ${wt.branch} -- ${ADDITIVE_GLOBS.join(' ')}`,
+  ).trim().split('\n').filter(Boolean);
 
-  console.log(`Merging ${wt.branch} (${ahead} commit(s))…`);
-  const result = tryMerge(wt.branch);
-
-  if (result === 'clean') continue;
-  if (result === 'error') {
-    console.error(`Merge of ${wt.branch} failed for an unexpected reason — resolve manually and re-run.`);
-    process.exit(1);
-  }
-
-  // result === 'conflict'
-  const conflicted = sh('git diff --name-only --diff-filter=U').trim().split('\n').filter(Boolean);
-  const unsupported = conflicted.filter((f) => !ADDITIVE_FILES[f]);
-  if (unsupported.length > 0) {
-    console.error(`Merge of ${wt.branch} produced conflicts in unsupported files:`);
-    for (const f of unsupported) console.error(`  ${f}`);
-    console.error('Resolve manually, commit, then re-run.');
-    process.exit(1);
-  }
-
-  for (const f of conflicted) {
-    console.log(`  Auto-resolving ${f} (additive section blocks)…`);
-    const full = resolve(ROOT, f);
-    const resolved = resolveAdditiveConflict(readFileSync(full, 'utf8'), ADDITIVE_FILES[f].glueLine);
-    if (!resolved) {
-      console.error(`  Conflict in ${f} didn't match the expected additive pattern.`);
-      console.error('  Resolve manually, commit, then re-run.');
-      process.exit(1);
+  if (files.length === 0) {
+    console.log(`${wt.branch}: no additive chapter files — skipping.`);
+  } else {
+    console.log(`Extracting ${files.length} file(s) from ${wt.branch}…`);
+    for (let i = 0; i < files.length; i += 50) {
+      const chunk = files.slice(i, i + 50).map((f) => `'${f}'`).join(' ');
+      sh(`git checkout ${wt.branch} -- ${chunk}`);
     }
-    writeFileSync(full, resolved);
-    sh(`git add ${f}`);
+    extractedAny = true;
   }
-  sh(`git commit -m "Merge ${wt.branch}"`);
+
+  // Append any KaTeX macros the branch added that main doesn't have.
+  const added = applyNewMacros(base, wt.branch);
+  if (added > 0) {
+    console.log(`  + ${added} new KaTeX macro(s) from ${wt.branch}`);
+    extractedAny = true;
+  }
+}
+
+if (extractedAny) {
+  sh('git add -A');
+  sh('git commit -m "Land authored chapters from agent worktrees"');
 }
 
 // ─── 4. clean up worktrees ────────────────────────────────────────────

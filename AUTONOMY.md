@@ -65,10 +65,19 @@ node scripts/wire-part.mjs        # inserts partTitles + chapterTitles
 npm run test:e2e                  # full regression (the final gate)
 ```
 
-`finalize-part` refuses unless on `main` with a clean tree. It auto-resolves
-the only remaining shared file (`katex-macros.ts`, one-line entries).
+`finalize-part` refuses unless on `main` with a clean tree. It **extracts
+each branch's additive files** (slides, `glossary-chapters/*.ts`, the e2e
+spec) onto main rather than 3-way merging the branch, and appends any new
+`katex-macros.ts` entries. This is deliberate: agent worktrees have branched
+from a *stale* base commit (not current main), which makes a real branch
+merge conflict on shared files like `glossary.ts`. Extraction only ever
+touches new files + macro additions, so the worktree's base doesn't matter.
 `verify-chapter`, `check`, and `build` were already run by each agent, so
 e2e is the main thing left to surface.
+
+(If `finalize-part` reports it extracted nothing, the worktrees were cleaned
+up already — fall back to `git checkout <branch> -- <chapter paths>` per
+branch, which is exactly what extraction does.)
 
 ## 5. Residual e2e failures
 
