@@ -11,9 +11,12 @@ import { napkinKatexMacros } from '../lib/katex-macros';
 
 interface Props {
   keys?: string[];
+  /** Map of term key → footnote marker (e.g. "†", "‡") assigned by the
+   *  slide layout, so each entry shows the same symbol used in the prose. */
+  symbols?: Record<string, string>;
 }
 
-const { keys = [] } = Astro.props;
+const { keys = [], symbols = {} } = Astro.props;
 // `as const satisfies ...` narrows each entry to a literal type, which
 // makes the union value lose any optional field. Widen back to the
 // declared interface for the consumer.
@@ -49,6 +52,9 @@ function renderInlineKatex(src: string): string {
       {entries.map(([key, entry]) => (
         <div id={`g-${key}`} class="napkin-glossary-item">
           <dt class="napkin-glossary-dt">
+            {symbols[key] && (
+              <span class="napkin-glossary-fnmark" aria-hidden="true">{symbols[key]}</span>
+            )}
             <span class="napkin-glossary-name">{entry.term}</span>
             {entry.symbol && (
               <span class="napkin-glossary-symbol" set:html={renderInlineKatex(entry.symbol)} />
@@ -163,6 +169,19 @@ function renderInlineKatex(src: string): string {
   }
   @media (prefers-color-scheme: dark) {
     .napkin-glossary-name { color: rgb(245 245 244); }
+  }
+  /* Same marker (and colour) as the in-text <Term> superscript, so a
+     reader can match the dagger/double-dagger/etc. in the prose to its
+     entry here. */
+  .napkin-glossary-fnmark {
+    flex: none;
+    min-width: 1.1em;
+    color: rgb(180 83 9);
+    font-weight: 600;
+    font-size: 0.9em;
+  }
+  @media (prefers-color-scheme: dark) {
+    .napkin-glossary-fnmark { color: rgb(245 158 11); }
   }
   .napkin-glossary-symbol {
     color: rgb(120 113 108);

@@ -1,8 +1,12 @@
 ---
 /**
  * Marks a notation term in slide prose. Renders as a quiet anchor with a
- * small footnote-style dagger superscript (†) appended after the term;
+ * small footnote-style superscript marker appended after the term;
  * clicking jumps to the matching entry in the GlossarySidebar.
+ *
+ * The marker emitted here is always "†"; SlideLayout rewrites it at build
+ * time so each distinct term on a slide gets its own symbol (†, ‡, §, …)
+ * and the sidebar shows the matching symbol. See SlideLayout.astro.
  *
  * No JS, no hover tooltip — the sidebar is always visible alongside the
  * slide on wide screens.

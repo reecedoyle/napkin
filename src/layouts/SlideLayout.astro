@@ -45,6 +45,31 @@ const termKeys = isSlide
       [...slotHtml.matchAll(/data-term-key="([^"]+)"/g)].map((m) => m[1]),
     )]
   : [];
+
+// Give each distinct term on the slide its own footnote-style marker so a
+// reader can tell which superscript belongs to which glossary entry,
+// instead of every <Term> showing the same dagger. Symbols follow the
+// traditional typographic sequence, in order of first appearance; if a
+// slide has more terms than symbols they double (††, ‡‡, …). The same key
+// always gets the same symbol on a given slide. The matching symbol is
+// shown beside the entry in the glossary sidebar.
+const FN_SYMBOLS = ['†', '‡', '§', '¶', '‖', '*'];
+function footnoteSymbol(i: number): string {
+  const base = FN_SYMBOLS[i % FN_SYMBOLS.length];
+  return base.repeat(Math.floor(i / FN_SYMBOLS.length) + 1);
+}
+const termSymbols: Record<string, string> = Object.fromEntries(
+  termKeys.map((k, i) => [k, footnoteSymbol(i)]),
+);
+// Rewrite each <Term> marker's default "†" to its assigned symbol. The
+// regex spans one .napkin-term anchor (anchors can't nest) up to its
+// single marker span.
+const bodyHtml = termKeys.length > 0
+  ? slotHtml.replace(
+      /(<a class="napkin-term"[^>]*data-term-key="([^"]+)"[^>]*>[\s\S]*?<span class="napkin-term-marker"[^>]*>)†(<\/span>)/g,
+      (_full, pre, key, post) => pre + (termSymbols[key] ?? '†') + post,
+    )
+  : slotHtml;
 ---
 <!doctype html>
 <html lang="en">
@@ -114,7 +139,7 @@ const termKeys = isSlide
 
     <main class="mx-auto max-w-[760px] px-6 py-12">
       <h1 class="text-3xl font-semibold mb-8 font-serif">{title}</h1>
-      <article class="prose prose-stone dark:prose-invert prose-headings:font-serif max-w-none" set:html={slotHtml} />
+      <article class="prose prose-stone dark:prose-invert prose-headings:font-serif max-w-none" set:html={bodyHtml} />
 
       {showNav && (
         <nav
@@ -157,7 +182,7 @@ const termKeys = isSlide
     </main>
 
     {isSlide && <TocSidebar />}
-    {isSlide && <GlossarySidebar keys={termKeys} />}
+    {isSlide && <GlossarySidebar keys={termKeys} symbols={termSymbols} />}
     {isSlide && (
       <div class="napkin-drawer-backdrop" data-backdrop data-open="false" aria-hidden="true"></div>
     )}
