@@ -148,6 +148,18 @@ for (const file of realSlides) {
     }
   }
 
+  // ── interactive islands must hydrate ──────────────────────────────
+  // MCQ / NumericInput / ProofReveal / Problem are React islands; without
+  // a `client:load` directive Astro renders them statically and the
+  // reveal/answer buttons never wire up. astro check and npm run build
+  // both pass on this — only an e2e click catches it, and agents don't
+  // run e2e. So gate it here.
+  for (const m of src.matchAll(/<(MCQ|NumericInput|ProofReveal|Problem)\b[\s\S]*?\/>/g)) {
+    if (!/\bclient:load\b/.test(m[0])) {
+      err(`${rel}: <${m[1]}> is missing the client:load directive — it will render but never hydrate (buttons dead).`);
+    }
+  }
+
   // ── Term keys ──────────────────────────────────────────────────────
   for (const m of src.matchAll(/<Term\s+k="([^"]+)"/g)) {
     const key = m[1];

@@ -167,10 +167,21 @@ component now ignores — don't copy that).
 called on the number, and the test will silently see no
 "Not quite" / "Correct" feedback.
 
-**Always give NumericInput `placeholder="a number"`.** The component
-defaults to `'Your answer'`, but the e2e template locates the field with
-`getByPlaceholder('a number')`. Omit it and the NumericInput test hangs
-until timeout.
+**Every exercise island needs `client:load`.** `<MCQ>`, `<NumericInput>`,
+`<ProofReveal>`, and `<Problem>` are React islands — without the
+`client:load` directive on the tag they render but never hydrate, so the
+answer/reveal buttons are dead. `astro check` and `npm run build` both
+pass on this; only an e2e click catches it — so `verify-chapter` now
+gates it. Copy the directive from the exemplar:
+
+```mdx
+<Problem client:load id="…" difficulty="standard" prompt="…" solution="…" />
+```
+
+**NumericInput placeholder** defaults to `"a number"` (which is also what
+the e2e template's `getByPlaceholder('a number')` looks for), so you
+don't need to set it. Only pass `placeholder=` if you want a different
+hint.
 
 **`<Callout kind="…">` must be one of the nine allowed kinds**:
 definition, theorem, proposition, lemma, corollary, example,
