@@ -1,0 +1,100 @@
+# Authoring a whole Part, unsupervised
+
+The deterministic runbook for taking the next Napkin part from nothing to
+merged-and-green without user supervision. Every step is scripted or a
+fixed agent fan-out; `AUTHORING.md` is the per-chapter spec the agents read.
+
+## 0. Plan
+
+```sh
+node scripts/plan-part.mjs --human
+```
+
+Shows the next unwired part: its chapters, source `.tex` paths, portal
+chapter numbers, dir slugs, and **incompleteness flags**. Decide the
+policy for any flagged chapter before proceeding:
+
+- **Part marked `(TO DO)`** (e.g. Probability) or a chapter `% To be written`
+  → the source is a stub. **Stop and ask the user** — there's nothing
+  faithful to author. Don't invent material.
+- **`% missing sols` / `% missing probs`** → author normally; the chapter
+  just has fewer problems. The brief tells the agent not to invent them.
+
+## 1. Generate briefs
+
+```sh
+node scripts/author-part-brief.mjs > /tmp/briefs.txt
+```
+
+One complete brief per chapter (sections, problem count, per-chapter
+glossary file, all guardrails baked in).
+
+## 2. Fan out chapter agents
+
+Launch **one agent per chapter in a single message** (so they run
+concurrently), each with the generated brief:
+
+- `subagent_type: general-purpose`, `model: sonnet`, `isolation: "worktree"`.
+
+Sonnet is sufficient (see memory). The worktree isolation gives each its
+own checkout; glossary edits no longer collide because each chapter writes
+its own `glossary-chapters/*.ts` file.
+
+## 3. Review pass (quality gate the build can't give)
+
+When all authoring agents report done, fan out **one reviewer per chapter**
+(parallel, can be sonnet or a stronger model for proof-heavy chapters).
+Reviewer brief:
+
+> Read every slide under `src/pages/<chapterDir>/` and the source
+> `vendor/napkin/tex/<area>/<file>.tex`. Report, as a list: (a) any
+> mathematically wrong or misleading statement, (b) any key theorem/idea in
+> the source that the slides omit, (c) any exercise whose stated answer is
+> wrong. Quote the slide file + line. Do NOT edit anything; just report.
+> If the chapter is faithful and correct, say so.
+
+Triage the findings: fix material errors (wrong math, wrong answers) and
+genuine omissions; ignore stylistic nits. Dispatch fixes to a quick agent
+or do them inline, then re-run that chapter's `verify-chapter` + `check`.
+
+## 4. Merge, wire, verify
+
+```sh
+node scripts/finalize-part.mjs    # merges worktree branches; runs check + unit
+node scripts/wire-part.mjs        # inserts partTitles + chapterTitles
+npm run test:e2e                  # full regression (the final gate)
+```
+
+`finalize-part` refuses unless on `main` with a clean tree. It auto-resolves
+the only remaining shared file (`katex-macros.ts`, one-line entries).
+`verify-chapter`, `check`, and `build` were already run by each agent, so
+e2e is the main thing left to surface.
+
+## 5. Residual e2e failures
+
+The verifier now catches the historical offenders at authoring time
+(missing `client:load`, paraphrased `article.getByText` assertions). What's
+left is rare and usually one of:
+
+- A reveal-flow phrase that's also in visible prose (so `toBeHidden` fails)
+  → change the assertion to text unique to the solution.
+- An MCQ/button label mismatch → align the spec's `name:` to the rendered
+  option text.
+
+Read the failing spec + slide, fix, re-run the one spec
+(`npx playwright test <slug>`), then the full suite.
+
+## 6. Commit
+
+`finalize-part` and `wire-part` leave their changes committed/staged;
+commit the metadata wiring and any review fixes. **Do not push** unless the
+user asks.
+
+## What still needs a human
+
+- A `(TO DO)` / "to be written" source chapter (nothing to author faithfully).
+- A reviewer finding that's a genuine math judgment call, not a clear error.
+- The decision to `git push` / deploy.
+
+Everything else — planning, briefs, authoring, glossary, metadata, merge,
+and the common failure modes — is scripted or gated.
