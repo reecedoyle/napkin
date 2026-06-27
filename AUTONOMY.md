@@ -4,6 +4,23 @@ The deterministic runbook for taking the next Napkin part from nothing to
 merged-and-green without user supervision. Every step is scripted or a
 fixed agent fan-out; `AUTHORING.md` is the per-chapter spec the agents read.
 
+## Operating mode (default — minimise user involvement)
+
+When the user says "next part" / "carry on" / "do the rest", run the whole
+flow below **without pausing to ask**. Use sensible defaults; don't open
+AskUserQuestion for scope, slugs, or style. Run parts **back-to-back** when
+asked for more than one — finish a part fully (green e2e + committed),
+then start the next — and only return to the user for a genuine **blocker**:
+
+- a source chapter that's a stub (`(TO DO)` / "to be written") — nothing
+  faithful to author;
+- a reviewer finding that's a real math judgment call, not a clear fix;
+- a failure you can't resolve after a reasonable attempt.
+
+Keep progress terse: a one-line status per phase, and a short final summary
+per part (chapters, slide count, e2e result, any review fixes). Don't
+narrate every tool call. Never push or deploy unless asked.
+
 ## 0. Plan
 
 ```sh
@@ -57,27 +74,24 @@ Triage the findings: fix material errors (wrong math, wrong answers) and
 genuine omissions; ignore stylistic nits. Dispatch fixes to a quick agent
 or do them inline, then re-run that chapter's `verify-chapter` + `check`.
 
-## 4. Merge, wire, verify
+## 4. Land it (one command)
 
 ```sh
-node scripts/finalize-part.mjs    # merges worktree branches; runs check + unit
-node scripts/wire-part.mjs        # inserts partTitles + chapterTitles
-npm run test:e2e                  # full regression (the final gate)
+node scripts/land-part.mjs        # extract → wire → commit metadata → build → e2e
 ```
 
-`finalize-part` refuses unless on `main` with a clean tree. It **extracts
-each branch's additive files** (slides, `glossary-chapters/*.ts`, the e2e
-spec) onto main rather than 3-way merging the branch, and appends any new
-`katex-macros.ts` entries. This is deliberate: agent worktrees have branched
-from a *stale* base commit (not current main), which makes a real branch
-merge conflict on shared files like `glossary.ts`. Extraction only ever
-touches new files + macro additions, so the worktree's base doesn't matter.
-`verify-chapter`, `check`, and `build` were already run by each agent, so
-e2e is the main thing left to surface.
+This collapses the whole deterministic tail. Under the hood it
+**extracts each branch's additive files** (slides, `glossary-chapters/*.ts`,
+the e2e spec) onto main rather than 3-way merging — agent worktrees have
+branched from a *stale* base commit, which would make a real merge conflict
+on shared files like `glossary.ts`; extraction only touches new files +
+macro additions, so the base doesn't matter. It then wires slide-nav,
+commits that, builds, and runs the full e2e. It stops at the first failure
+with a clear message. Re-run it after fixing a failure (it's idempotent —
+finalize finds no worktrees the second time and skips).
 
-(If `finalize-part` reports it extracted nothing, the worktrees were cleaned
-up already — fall back to `git checkout <branch> -- <chapter paths>` per
-branch, which is exactly what extraction does.)
+(If the worktrees were already cleaned up, `git checkout <branch> -- <chapter
+paths>` per branch does the same extraction by hand.)
 
 ## 5. Residual e2e failures
 
