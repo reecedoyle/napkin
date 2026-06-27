@@ -95,19 +95,6 @@ function run(cmd, opts = {}) {
   if (r.status !== 0) throw new Error(`${cmd} exited ${r.status}`);
 }
 
-function tryMerge(branch) {
-  // Returns 'clean' | 'conflict' | 'error'.
-  const r = spawnSync('git', ['merge', '--no-ff', branch, '-m', `Merge ${branch}`], {
-    cwd: ROOT,
-    stdio: 'pipe',
-    encoding: 'utf8',
-  });
-  if (r.status === 0) return 'clean';
-  const stderr = (r.stderr ?? '') + (r.stdout ?? '');
-  if (/CONFLICT/.test(stderr)) return 'conflict';
-  console.error(stderr);
-  return 'error';
-}
 
 // ─── pre-flight ────────────────────────────────────────────────────────
 
@@ -310,55 +297,4 @@ function dedupeOnelineEntries(content) {
     out.push(line);
   }
   return { content: out.join('\n'), dropped };
-}
-
-function resolveAdditiveConflict(content, glueLine) {
-  // Expected shape (single conflict in the entire file):
-  //
-  //     <<<<<<< HEAD
-  //       // ────── Chapter X header ──────
-  //       entryX1: { … },
-  //       …
-  //       entryXn: {
-  //         … definition: '…',
-  //     =======
-  //       // ────── Chapter Y header ──────
-  //       entryY1: { … },
-  //       …
-  //       entryYm: {
-  //         … definition: '…',
-  //     >>>>>>> branch
-  //       },
-  //     } as const satisfies …
-  //
-  // Both blocks are additive (chapter-N section header + entries). The
-  // closing `},` for the last entry on each side has been swallowed by
-  // the conflict markers — the one closing brace that survives outside
-  // the markers belongs to whichever side ended up last. We rebuild
-  // with both blocks separated by a `},` so both last entries close.
-
-  const re = /^<<<<<<<[^\n]*\n([\s\S]*?)^=======[^\n]*\n([\s\S]*?)^>>>>>>>[^\n]*\n/m;
-  const all = [...content.matchAll(/^<<<<<<</gm)];
-  if (all.length !== 1) return null;
-  const m = content.match(re);
-  if (!m) return null;
-  const [whole, headPart, incomingPart] = m;
-
-  // Sanity: both sides should look like additive section blocks — leading
-  // comment row of em-dashes and at least one entry. The original case
-  // we saw used "// ──────────────". Just look for a leading "//" header
-  // in each side.
-  const headFirstLine = headPart.split('\n').find((l) => l.trim());
-  const incomingFirstLine = incomingPart.split('\n').find((l) => l.trim());
-  if (!/^\s*\/\//.test(headFirstLine ?? '') || !/^\s*\/\//.test(incomingFirstLine ?? '')) {
-    return null;
-  }
-
-  // Concatenate both sides. For multiline-entry files, glueLine is the
-  // literal `  },` that closes HEAD's last entry (whose closer was
-  // swallowed by the conflict markers). For one-line files no glue is
-  // needed — each entry closes itself on the same line.
-  const separator = glueLine ? `\n${glueLine}\n\n` : '\n\n';
-  const joined = headPart.replace(/\s+$/, '') + separator + incomingPart.replace(/\s+$/, '') + '\n';
-  return content.replace(whole, joined);
 }
