@@ -108,6 +108,14 @@ const CALLOUT_KINDS = new Set([
 // per-chapter counters
 const problemComponents = [];
 const termKeysUsed = new Set();
+const slideProse = [];
+
+// Normalise prose for substring comparison: drop markdown emphasis/code
+// marks and collapse whitespace, lowercase (e2e text matchers are usually
+// case-insensitive).
+function norm(s) {
+  return s.replace(/[*_`]/g, '').replace(/\s+/g, ' ').toLowerCase().trim();
+}
 
 // Files directly under the chapter dir (e.g. 01-hello.mdx) are smoke
 // slides for the existing chapters; slide-nav.ts deliberately ignores
@@ -181,6 +189,42 @@ for (const file of realSlides) {
 
   // ── Problem-component count ───────────────────────────────────────
   for (const _ of src.matchAll(/<Problem\b/g)) problemComponents.push(rel);
+
+  slideProse.push(src);
+}
+
+// ─── e2e spec assertions must match slide prose ───────────────────────
+// The chapter spec asserts on revealed solution text via
+// `article.getByText(...)`. Those strings must be verbatim substrings of
+// the slides — a paraphrase that isn't is the single most common e2e
+// failure, and agents don't run e2e. We only check `article.getByText`
+// (slide content); bare `page.getByText` targets component feedback
+// ("Correct.", "Not quite") and button labels, which aren't slide prose.
+
+const slug = chapterRel.split('/').pop().replace(/^\d+-/, '');
+const specPath = resolve(ROOT, 'tests/e2e', `${slug}.spec.ts`);
+const specSrc = readSafe(specPath);
+if (!specSrc) {
+  warn(`no e2e spec at tests/e2e/${slug}.spec.ts (expected one per chapter)`);
+} else {
+  const hay = norm(slideProse.join('\n'));
+  const assertions = [];
+  for (const m of specSrc.matchAll(/\barticle\.getByText\(\s*'([^']+)'/g)) assertions.push({ raw: m[1], rx: false });
+  for (const m of specSrc.matchAll(/\barticle\.getByText\(\s*"([^"]+)"/g)) assertions.push({ raw: m[1], rx: false });
+  for (const m of specSrc.matchAll(/\barticle\.getByText\(\s*\/([^/]+)\/[a-z]*/g)) assertions.push({ raw: m[1], rx: true });
+  for (const a of assertions) {
+    // For a regex, test its longest literal fragments (split on metachars);
+    // a literal is tested whole.
+    const frags = a.rx
+      ? a.raw.split(/[.*+?()[\]{}|^$\\]/).map((s) => s.trim()).filter((s) => s.length >= 6)
+      : [a.raw];
+    if (frags.length === 0) continue; // regex too pattern-y to check
+    if (!frags.some((f) => hay.includes(norm(f)))) {
+      const shown = a.rx ? `/${a.raw}/` : `"${a.raw}"`;
+      err(`tests/e2e/${slug}.spec.ts: article.getByText(${shown}) does not appear verbatim in any slide — ` +
+          `copy assertion text straight from the slide's solution prose.`);
+    }
+  }
 }
 
 // ─── tex source: problem coverage ─────────────────────────────────────

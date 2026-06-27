@@ -280,7 +280,9 @@ npm run build
 - every section dir matches `NN-kebab-slug`
 - every slide file matches `NN-kebab-slug.mdx`
 - every exercise `id` is unique per slide
+- every interactive island (`MCQ`/`NumericInput`/`ProofReveal`/`Problem`) has `client:load`
 - every `\begin{(s|d)?problem}` in the source TeX has a `<Problem>` somewhere in the chapter
+- every `article.getByText(...)` assertion in your spec appears verbatim in a slide (catches paraphrased assertions before they fail in e2e)
 - no MDX uses relative `../` imports or the legacy `part="…" chapter="…"` props
 
 **`npm run build` is not optional.** `astro check` only typechecks — it
