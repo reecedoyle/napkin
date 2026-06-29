@@ -89,6 +89,7 @@ export const partTitles: Record<string, string> = {
   'part-7-quantum-algorithms': 'Part VII — Quantum Algorithms',
   'part-8-calculus': 'Part VIII — Calculus 101',
   'part-9-complex-analysis': 'Part IX — Complex Analysis',
+  'part-10-measure-theory': 'Part X — Measure Theory',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -126,6 +127,11 @@ export const chapterTitles: Record<string, string> = {
   'part-9-complex-analysis/02-meromorphic-functions': 'Chapter 32 — Meromorphic functions',
   'part-9-complex-analysis/03-holomorphic-square-roots-and-logarithms': 'Chapter 33 — Holomorphic square roots and logarithms',
   'part-9-complex-analysis/04-bonus-topological-abel-ruffini-theorem': 'Chapter 34 — Bonus: Topological Abel-Ruffini Theorem',
+  'part-10-measure-theory/01-measure-spaces': 'Chapter 35 — Measure spaces',
+  'part-10-measure-theory/02-constructing-the-borel-and-lebesgue-measure': 'Chapter 36 — Constructing the Borel and Lebesgue measure',
+  'part-10-measure-theory/03-lebesgue-integration': 'Chapter 37 — Lebesgue integration',
+  'part-10-measure-theory/04-swapping-order-with-lebesgue-integrals': 'Chapter 38 — Swapping order with Lebesgue integrals',
+  'part-10-measure-theory/05-bonus-a-hint-of-pontryagin-duality': 'Chapter 39 — Bonus: A hint of Pontryagin duality',
 };
 
 export const sectionTitles: Record<string, string> = {
