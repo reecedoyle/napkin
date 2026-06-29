@@ -20,11 +20,7 @@ Both sides may be $+\infty$.
 
 The proof is four lines:
 
-$$\int_\Omega f\; d\mu
- = \int_\Omega \!\Bigl(\liminf_n f_n\Bigr)\; d\mu
- \le \liminf_n \int_\Omega f_n\; d\mu
- \le \limsup_n \int_\Omega f_n\; d\mu
- \le \int_\Omega f\; d\mu.$$
+$$\int_\Omega f\; d\mu = \int_\Omega \!\Bigl(\liminf_n f_n\Bigr)\; d\mu \le \liminf_n \int_\Omega f_n\; d\mu \le \limsup_n \int_\Omega f_n\; d\mu \le \int_\Omega f\; d\mu.$$
 
 The first inequality is Fatou's lemma. The last uses $f_n \le f$ for all $n$, so $\int f_n \le \int f$.
 All four quantities are therefore equal.

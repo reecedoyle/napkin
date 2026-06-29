@@ -11,9 +11,9 @@ import Term from '@/components/Term.astro';
 Let $(X, \mu)$ and $(Y, \nu)$ be <Term k="sigmaFinite">$\sigma$-finite</Term> measure spaces,
 and let $f \colon X \times Y \to [0,+\infty]$ be <Term k="nonnegMeasurable">nonneg. measurable</Term>.
 Then
-$$\int_{X \times Y} f\; d(\mu \otimes \nu)
-  = \int_X \!\left(\int_Y f(x,y)\; d\nu(y)\right) d\mu(x)
-  = \int_Y \!\left(\int_X f(x,y)\; d\mu(x)\right) d\nu(y).$$
+
+$$\int_{X \times Y} f\; d(\mu \otimes \nu) = \int_X \!\left(\int_Y f(x,y)\; d\nu(y)\right) d\mu(x) = \int_Y \!\left(\int_X f(x,y)\; d\mu(x)\right) d\nu(y).$$
+
 All three expressions may be $+\infty$, and they are always equal.
 </Callout>
 

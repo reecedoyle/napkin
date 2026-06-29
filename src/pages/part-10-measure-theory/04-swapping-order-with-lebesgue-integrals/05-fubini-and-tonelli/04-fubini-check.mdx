@@ -12,8 +12,9 @@ import MCQ from '@/components/MCQ';
 A classic application: compute $\int_0^\infty e^{-x^2} dx$.
 
 Write $I = \int_0^\infty e^{-x^2} dx$. Then
-$$I^2 = \int_0^\infty e^{-x^2} dx \cdot \int_0^\infty e^{-y^2} dy
-       = \int_0^\infty\!\int_0^\infty e^{-(x^2+y^2)} dx\; dy.$$
+
+$$I^2 = \int_0^\infty e^{-x^2} dx \cdot \int_0^\infty e^{-y^2} dy = \int_0^\infty\!\int_0^\infty e^{-(x^2+y^2)} dx\; dy.$$
+
 By <Term k="fubiniTheorem">Fubini's theorem</Term> (the integrand is nonneg., so Tonelli applies to justify
 the switch to polar coordinates), switching to polar gives $I^2 = \pi/4$, so $I = \sqrt{\pi}/2$.
 </Callout>

@@ -15,10 +15,9 @@ Let $f_1, f_2, \dots \colon \Omega \to \RR$ be measurable, and suppose
 $g \colon \Omega \to \RR$ is <Term k="absolutelyIntegrable">absolutely integrable</Term>
 with $\lvert f_n(\omega)\rvert \le g(\omega)$ for all $n$ and $\omega$.
 Then
-$$\int_\Omega\!\Bigl(\liminf_{n} f_n\Bigr)\; d\mu
-  \;\le\; \liminf_{n} \int_\Omega f_n\; d\mu
-  \;\le\; \limsup_{n} \int_\Omega f_n\; d\mu
-  \;\le\; \int_\Omega\!\Bigl(\limsup_{n} f_n\Bigr)\; d\mu.$$
+
+$$\int_\Omega\!\Bigl(\liminf_{n} f_n\Bigr)\; d\mu \;\le\; \liminf_{n} \int_\Omega f_n\; d\mu \;\le\; \limsup_{n} \int_\Omega f_n\; d\mu \;\le\; \int_\Omega\!\Bigl(\limsup_{n} f_n\Bigr)\; d\mu.$$
+
 </Callout>
 
 The proof applies Fatou's lemma twice — once to $g + f_n$ (nonneg. by assumption) and once to $g - f_n$ (also nonneg.). The middle inequality $\liminf \le \limsup$ is always true and is there only to make the chain easy to remember.
