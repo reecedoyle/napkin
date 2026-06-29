@@ -98,4 +98,7 @@ export const napkinKatexMacros: Record<string, string> = {
 
   // Quantum computing (Chapter 25 — Shor's algorithm) — Dirac ket notation, QFT.
   '\\UQFT': 'U_{\\mathrm{QFT}}',
+  '\\TT': '\\mathbb{T}',
+  '\\SB': '\\mathcal{B}',
+  '\\taking': '\\xrightarrow{#1}',
 };
