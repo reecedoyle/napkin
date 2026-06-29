@@ -77,17 +77,17 @@ test.describe('Constructing the Borel and Lebesgue measure — ProofReveal flow 
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    await expect(article.getByText(/disjoint refinement/i)).toBeHidden();
+    await expect(article.getByText(/pre-measure axiom gives/i)).toBeHidden();
 
     await page.getByRole('button', { name: /reveal solution/i }).click();
-    await expect(article.getByText(/disjoint refinement/i)).toBeVisible();
+    await expect(article.getByText(/pre-measure axiom gives/i)).toBeVisible();
 
     expect(await page.evaluate((k) => window.localStorage.getItem(k), PROOF_KEY)).toContain(
       '"outcome":"revealed"',
     );
 
     await page.reload();
-    await expect(article.getByText(/disjoint refinement/i)).toBeVisible();
+    await expect(article.getByText(/pre-measure axiom gives/i)).toBeVisible();
   });
 });
 
