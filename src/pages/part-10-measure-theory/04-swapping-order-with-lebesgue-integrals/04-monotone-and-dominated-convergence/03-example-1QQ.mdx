@@ -1,0 +1,27 @@
+---
+title: Example — recovering the integral of 1_ℚ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — recovering the integral of 1_ℚ">
+
+We already know $\int_{[0,1]} \mathbf{1}_\QQ\; d\mu = 0$ directly from the definition.
+Monotone convergence gives a second derivation.
+
+<Callout kind="example" title="Monotone convergence applied to 1_ℚ">
+Recall the sequence $g_n$ (the indicator of rationals with denominator dividing $n!$).
+We have:
+- $g_n \le \mathbf{1}_\QQ$ for every $n$ (each $g_n$ picks out only some rationals).
+- $g_n \to \mathbf{1}_\QQ$ pointwise as $n \to \infty$.
+- $\int_{[0,1]} g_n\; d\mu = 0$ for each $n$ (each $g_n$ is nonzero only on a finite set).
+
+By the <Term k="monotonoConvergence">monotone convergence theorem</Term>:
+$$\int_{[0,1]} \mathbf{1}_\QQ\; d\mu = \lim_{n\to\infty} \int_{[0,1]} g_n\; d\mu = \lim_{n\to\infty} 0 = 0.$$
+</Callout>
+
+This is how the theorem earns its keep: instead of computing a complicated integral directly,
+we approximate by simpler functions whose integrals we already know.
+
+</SlideLayout>

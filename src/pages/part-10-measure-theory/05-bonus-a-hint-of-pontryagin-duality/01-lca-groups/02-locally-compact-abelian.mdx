@@ -1,0 +1,37 @@
+---
+title: Locally compact abelian groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Locally compact abelian groups">
+
+For Fourier analysis we need one additional topological condition beyond being a topological group: **local compactness**.
+
+<Callout kind="definition" title="LCA group">
+A <Term k="lcaGroup">**locally compact abelian (LCA) group**</Term> $G$ is a topological group whose group operation is abelian, and whose topology is locally compact: every point $p \in G$ has a compact neighborhood.
+</Callout>
+
+Our key examples:
+
+- Any finite group $Z$ with the discrete topology is LCA (every point has the compact neighborhood $\{p\}$).
+- The circle group <Term k="circleGroup">$\TT$</Term> is LCA — and in fact **compact** (the whole space is compact).
+- $\RR$ is LCA but **not** compact: any compact subset of $\RR$ is bounded, so $\RR$ itself is not compact.
+
+<MCQ
+  client:load
+  id="pont-lca-mcq-which-lca"
+  prompt="Which of the following is NOT locally compact?"
+  options={[
+    { id: "a", label: "ℝ with the standard topology" },
+    { id: "b", label: "ℤ with the discrete topology" },
+    { id: "c", label: "𝕋 (the unit circle in ℂ)" },
+    { id: "d", label: "ℚ with the subspace topology from ℝ" },
+  ]}
+  correct="d"
+  explanation="ℚ with the subspace topology is not locally compact: no point in ℚ has a compact neighborhood in ℚ. (A compact subset of ℚ has empty interior in ℝ, so ℚ is far from locally compact.) The other three — ℝ, ℤ, and 𝕋 — are all LCA groups."
+/>
+
+</SlideLayout>

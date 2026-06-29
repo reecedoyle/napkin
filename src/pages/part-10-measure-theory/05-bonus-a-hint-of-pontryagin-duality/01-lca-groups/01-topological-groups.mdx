@@ -1,0 +1,28 @@
+---
+title: Topological groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Topological groups">
+
+When we studied Fourier series, the domain was the circle <Term k="circleGroup">$\TT$</Term>.
+When we studied the Fourier transform, the domain was <Term k="RR">$\RR$</Term>.
+Both spaces share something beyond being topological spaces: they are also **abelian groups**.
+
+A structure that is simultaneously a group and a topological space — where the two interact nicely — is called a topological group.
+
+<Callout kind="definition" title="Topological group">
+A <Term k="topologicalGroup">**topological group**</Term> is a Hausdorff topological space $G$ equipped with a group operation such that both maps
+$$
+G \times G \to G,\quad (x,y)\mapsto xy \qquad\text{and}\qquad G \to G,\quad x\mapsto x\inv
+$$
+are continuous.
+</Callout>
+
+The Hausdorff condition says distinct points can be separated by open sets — a mild sanity check most spaces of interest satisfy. The continuity conditions say you can't "teleport" when you multiply or invert.
+
+**Examples:** $(\RR, +)$, $(\CC \setminus \{0\}, \cdot)$, and the circle group $\TT = \{z \in \CC : |z|=1\}$ under multiplication are all topological groups. Any group with the discrete topology (every subset open) is also a topological group.
+
+</SlideLayout>

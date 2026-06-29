@@ -1,0 +1,41 @@
+---
+title: Step 1 — indicator functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Step 1 — indicator functions">
+
+The simplest function on a measure space is one that is 1 on some measurable set and 0 everywhere else.
+
+<Callout kind="definition" title="Indicator function">
+If $A$ is a measurable set of $\Omega$, the **indicator function** $\mathbf{1}_A \colon \Omega \to \mathbb{R}$ is defined by
+
+$$\mathbf{1}_A(\omega) = \begin{cases} 1 & \omega \in A \\ 0 & \omega \notin A. \end{cases}$$
+</Callout>
+
+Think of $\mathbf{1}_A$ as a light switch: it is on precisely when $\omega$ is in $A$.
+
+**Step 1.** For an indicator function, we require
+
+$$\int_\Omega \mathbf{1}_A \; d\mu \defeq \mu(A)$$
+
+which may be infinite. This is the only sensible choice: integrating a function that is 1 on $A$ and 0 elsewhere should give the measure of $A$.
+
+<MCQ
+  client:load
+  id="leb-def-mcq-indicator-value"
+  prompt="Let Ω = ℝ with the Borel measure μ. What is ∫_ℝ 𝟏_{[2,5]} dμ?"
+  options={[
+    { id: "a", label: "1" },
+    { id: "b", label: "3" },
+    { id: "c", label: "5" },
+    { id: "d", label: "∞" },
+  ]}
+  correct="b"
+  explanation="By Step 1, the integral of 𝟏_A equals μ(A). Here A = [2,5], and the Borel measure of [2,5] is its length, which is 5 − 2 = 3."
+/>
+
+</SlideLayout>

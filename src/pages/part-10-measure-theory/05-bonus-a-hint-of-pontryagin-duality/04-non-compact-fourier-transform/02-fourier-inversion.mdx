@@ -1,0 +1,26 @@
+---
+title: Fourier inversion in the non-compact case
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fourier inversion in the non-compact case">
+
+Even without an $L^2$ basis, we can still define Fourier coefficients and recover $f$ from them.
+
+<Callout kind="theorem" title="Fourier inversion formula (non-compact case)">
+Let $G$ be an LCA group with Haar measure $\mu$. For $f \colon G \to \CC$ and $\xi \in \wh G$, define
+$$\wh f(\xi) = \int_G f(x)\, \ol{e_\xi(x)}\, d\mu.$$
+Then there exists a unique Haar measure $\nu$ on $\wh G$ (the <Term k="dualMeasure">**dual measure**</Term>) such that: whenever $f \in L^1(G)$ and $\wh f \in L^1(\wh G)$, we have
+$$f(x) = \int_{\wh G} \wh f(\xi)\, \xi(x)\, d\nu(\xi)$$
+for $\mu$-almost all $x \in G$. If $f$ is continuous, this holds everywhere.
+</Callout>
+
+The formula $f(x) = \int_{\wh G} \wh f(\xi)\, \xi(x)\, d\nu$ is a perfect analogue of the compact case's series $f = \sum_\xi \wh f(\xi)\, e_\xi$ — the sum has become an integral, and counting measure has become the dual measure $\nu$.
+
+<Callout kind="remark" title="The dual measure for compact G">
+When $G$ is compact, the dual measure on the discrete $\wh G$ is the **counting measure** — consistent with the Parseval identity $\|f\|^2 = \sum_\xi |\wh f(\xi)|^2$ from the compact theorem.
+</Callout>
+
+</SlideLayout>

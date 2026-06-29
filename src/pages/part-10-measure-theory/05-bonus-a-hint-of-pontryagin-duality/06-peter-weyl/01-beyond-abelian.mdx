@@ -1,0 +1,24 @@
+---
+title: Beyond abelian — compact Lie groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Beyond abelian — compact Lie groups">
+
+Everything so far required $G$ to be **abelian**. What if $G$ is a compact Lie group that is not abelian — like $\mathrm{SO}(3)$ or $\mathrm{SU}(2)$?
+
+The key idea is to replace **characters** (1-dimensional representations) with **matrix coefficients** of irreducible representations.
+
+<Callout kind="lemma" title="Compact Lie groups have unitary representations">
+Any finite-dimensional complex representation $V$ of a compact Lie group $G$ is **unitary**: it admits a $G$-invariant inner product. Consequently, every such representation is completely reducible — it splits into a direct sum of irreducibles.
+</Callout>
+
+The proof is elegant: start with any inner product $B$ on $V$, then average it over $G$ using the Haar measure:
+$$\widetilde{B}(v,w) = \int_G B(gv, gw)\, dg.$$
+The averaged inner form $\widetilde{B}$ is $G$-invariant by construction. Complete reducibility then follows because the orthogonal complement of a subrepresentation is itself a subrepresentation.
+
+This generalizes Maschke's theorem from finite groups to compact Lie groups.
+
+</SlideLayout>

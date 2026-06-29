@@ -1,0 +1,29 @@
+---
+title: Problems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems">
+
+<Problem
+  client:load
+  id="pont-prob-dual-measure-compact"
+  difficulty="standard"
+  prompt="If $G$ is compact (so $\\widehat{G}$ is discrete), describe the dual measure $\\nu$ on $\\widehat{G}$."
+  hint="You can read it off from the characters-form-an-ONB theorem: the Fourier inversion formula in that case is a sum, not an integral."
+  solution="The dual measure is the counting measure on the discrete group G-hat. This is consistent with the compact theorem: the inversion formula f = Σ_{ξ} f-hat(ξ) e_ξ is exactly the Fourier inversion integral f(x) = ∫_{G-hat} f-hat(ξ) ξ(x) dν when ν is counting measure and G-hat is discrete."
+/>
+
+<Problem
+  client:load
+  id="pont-prob-compact-iff-discrete"
+  difficulty="standard"
+  prompt="Show that an LCA group $G$ is compact if and only if $\\widehat{G}$ is discrete. (You will need the compact-open topology on $\\widehat{G}$.)"
+  hint="After applying Pontryagin duality, it suffices to show: (1) G compact implies G-hat discrete, and (2) G discrete implies G-hat compact. Both are topological arguments using the compact-open topology — no heavy machinery needed."
+  solution="For (1): assume G is compact. In the compact-open topology on G-hat, the trivial character is isolated because the set {ξ : ξ(G) ⊆ V} for a small enough arc V around 1 ∈ 𝕋 contains only the trivial character (any continuous homomorphism from the compact G into a small arc of 𝕋 must be trivial). So every point of G-hat is isolated, meaning G-hat is discrete. For (2): assume G is discrete. Then G-hat = Hom(G, 𝕋) is a closed subset of 𝕋^G. By Tychonoff's theorem 𝕋^G is compact, and G-hat is a closed subgroup, hence compact."
+/>
+
+</SlideLayout>

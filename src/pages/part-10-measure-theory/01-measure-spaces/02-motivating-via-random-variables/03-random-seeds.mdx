@@ -1,0 +1,20 @@
+---
+title: Random seeds — a programmer's analogy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Random seeds — a programmer's analogy">
+
+If you have written programs with random number generators, you already know this idea.
+
+<Callout kind="remark" title="The random seed analogy">
+Each <Term k="omega">$\omega \in \Omega$</Term> is a **random seed**. Once you fix the seed, every random quantity is determined. The coin flip, the temperature, the rainfall — all are computed from $\omega$. "Random" just means we haven't looked at the seed yet.
+</Callout>
+
+In code: `random.seed(omega)` then call `temperature()`, `rainfall()`, etc. The outputs can be correlated (both depend on the same seed), but each is a deterministic function of `omega`.
+
+The mathematical punchline: we can no longer assign a well-defined measure to **every** subset of $\Omega$ when $\Omega$ is large (like $\mathbb{R}$). There are simply $2^{|\Omega|}$ possible subsets, and most of them are too wild. The notion of a <Term k="sigmaAlgebra">$\sigma$-algebra</Term> captures which subsets are "measurable enough" to work with.
+
+</SlideLayout>

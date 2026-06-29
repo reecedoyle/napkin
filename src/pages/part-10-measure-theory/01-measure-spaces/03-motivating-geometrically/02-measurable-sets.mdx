@@ -1,0 +1,22 @@
+---
+title: Measurable sets — what we can size up
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Measurable sets — what we can size up">
+
+We will use the adjective **measurable** for the sets that our measure can handle. The family of all measurable sets is denoted by a script letter like <Term k="sigmaAlgebra">$\mathcal{A}$</Term>, and individual measurable sets by early Roman capitals $A$, $B$, $C$, $D$, $E$.
+
+This is not a restriction in practice. Here is the good news:
+
+<Callout kind="remark" title="Measurability in practice">
+For any set you would write down in a proof or a program — any open set, any closed set, any countable union or intersection of such sets — the set is <Term k="measurableSpace">measurable</Term>. The only non-measurable sets require the Axiom of Choice to construct. You will never encounter one accidentally.
+</Callout>
+
+So the theory is not restrictive — it is **protective**. It tells us exactly which sets are safe to work with, and it turns out almost everything is safe.
+
+The formal definition of what makes a family $\mathcal{A}$ "good enough" is the $\sigma$-algebra axioms, which we state next.
+
+</SlideLayout>

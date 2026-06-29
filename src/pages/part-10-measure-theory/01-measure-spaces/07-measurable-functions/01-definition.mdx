@@ -1,0 +1,24 @@
+---
+title: Measurable functions — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Measurable functions — definition">
+
+In topology, the "right" functions between spaces are **continuous** ones — preimages of open sets are open. The analogous notion in measure theory is measurability.
+
+<Callout kind="definition" title="Measurable function">
+Let $(X, \mathcal{A})$ and $(Y, \mathcal{B})$ be <Term k="measurableSpace">measurable spaces</Term>. A function $f \colon X \to Y$ is <Term k="measurableFunction">**measurable**</Term> if for every measurable set $S \in \mathcal{B}$,
+
+$$f^{-1}(S) = \{\, x \in X \mid f(x) \in S \,\} \in \mathcal{A}.$$
+
+That is, preimages of measurable sets are measurable.
+</Callout>
+
+**Prototype.** The <Term k="indicatorFunction">indicator function</Term> $\mathbf{1}_S \colon \Omega \to \mathbb{R}$ (which is $1$ on $S$ and $0$ off $S$) is measurable if and only if $S \in \mathcal{A}$.
+
+In practice, $Y$ is usually a topological space with the Borel $\sigma$-algebra. In this case, "measurable set $S$" in the definition can be replaced by "open set $S$" — because if preimages of open sets are measurable, then by closure of $\mathcal{A}$ under the axioms, preimages of all Borel sets are measurable.
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Why approximate from below?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why approximate from below?">
+
+In Step 3 we took a supremum over simple functions $s \le f$. Why not a infimum over simple functions $s \ge f$?
+
+For bounded functions on finite-measure spaces, both approaches give the same answer. But in general, approximating from above fails.
+
+<Callout kind="remark" title="Two counterexamples">
+
+**Unbounded integrable function.** Take $f(x) = x^{-2}$ on $\Omega = (1, \infty)$. This is absolutely integrable (its integral is 1). But for any simple function $s \ge f$, we have $\int_\Omega s \; d\mu = \infty$, because $f$ is unbounded and any simple overestimate on $(1,\infty)$ must include a large constant piece of infinite measure.
+
+**Function with blow-up at zero.** Take $f(x) = x^{-1/2}$ on $\Omega = (0,1)$. This is absolutely integrable (integral equals 2). But there is no simple function $s$ with $f \le s$ that is finite almost everywhere — $f$ blows up as $x \to 0$, and any simple overestimate must be $+\infty$ on a neighbourhood of 0.
+</Callout>
+
+The lesson: approximating from below is robust. Approximating from above requires the function to be bounded and the domain to be finite — conditions that rule out many interesting cases.
+
+<Callout kind="remark" title="Nonnegative functions are special">
+We really like nonneg functions: we can always integrate them (the answer is allowed to be $+\infty$), and we can throw in $+\infty$ values freely. Once we allow sign changes, we must enforce finiteness on both sides before we can subtract.
+</Callout>
+
+</SlideLayout>

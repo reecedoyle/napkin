@@ -1,0 +1,24 @@
+---
+title: σ-algebras — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="σ-algebras — definition">
+
+Here is the formal definition of the "nice family of measurable sets."
+
+<Callout kind="definition" title="Measurable space and σ-algebra">
+A **measurable space** $(\Omega, \mathcal{A})$ consists of a set $\Omega$ and a <Term k="sigmaAlgebra">$\sigma$-algebra</Term> $\mathcal{A}$ of subsets of $\Omega$. The set $\mathcal{A}$ must satisfy:
+
+1. $\mathcal{A}$ contains $\varnothing$ and $\Omega$.
+2. $\mathcal{A}$ is **closed under complements**: if $A \in \mathcal{A}$ then $\Omega \setminus A \in \mathcal{A}$.
+3. $\mathcal{A}$ is **closed under countable unions**: if $A_1, A_2, \ldots \in \mathcal{A}$ then $\bigcup_n A_n \in \mathcal{A}$.
+</Callout>
+
+The $\sigma$ in $\sigma$-algebra signals the countable-union condition. (In algebra, a $\sigma$-something often means "countably infinite version of something".) Closure under countable intersections follows by de Morgan's law.
+
+A word on naming: a *measurable* space merely has a $\sigma$-algebra. A *measure* space additionally has a measure $\mu$ assigned to each set in $\mathcal{A}$.
+
+</SlideLayout>

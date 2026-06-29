@@ -1,0 +1,24 @@
+---
+title: Carathéodory measurable sets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Carathéodory measurable sets">
+
+We have an outer measure $\mu^\ast$ on all of $2^\Omega$. But outer measures are only sub-additive. To get true additivity, we restrict to a special sub-collection of sets.
+
+<Callout kind="definition" title="Carathéodory measurable set">
+Let $\mu^\ast$ be an outer measure on $\Omega$. A set $A \subseteq \Omega$ is **Carathéodory measurable** (or $\mu^\ast$-measurable) if for every $E \subseteq \Omega$:
+
+$$\mu^\ast(E) = \mu^\ast(E \cap A) + \mu^\ast(E \setminus A).$$
+</Callout>
+
+This condition says: "$A$ splits every set $E$ cleanly." Sub-additivity already gives $\le$; the content of the condition is the reverse inequality $\ge$.
+
+<Callout kind="remark" title="Why this definition?">
+It looks mysterious at first. One motivation: for $\Omega = \mathbb{R}^n$ this turns out to be equivalent to an approachable geometric condition (every open set measurable by approximation). But the Carathéodory condition is the right notion for general $\Omega$, where no geometry is available.
+</Callout>
+
+</SlideLayout>

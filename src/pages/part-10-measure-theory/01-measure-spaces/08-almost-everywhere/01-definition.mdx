@@ -1,0 +1,25 @@
+---
+title: Almost everywhere — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Almost everywhere — definition">
+
+You will see the phrases "almost everywhere" and "almost surely" constantly in measure theory. Here is the definition.
+
+<Callout kind="definition" title="Almost everywhere / almost surely">
+We say a property $P$ holds <Term k="almostEverywhere">**almost everywhere**</Term> (a.e.) or **almost surely** (a.s.) on a measure space $(\Omega, \mathcal{A}, \mu)$ if the set of exceptions
+
+$$\{\, \omega \in \Omega \mid P(\omega) \text{ does not hold} \,\}$$
+
+has <Term k="measureZero">measure zero</Term>.
+</Callout>
+
+**Examples:**
+- "$f = g$ almost everywhere" means $\mu(\{ \omega : f(\omega) \neq g(\omega) \}) = 0$.
+- "The sequence $f_n$ converges almost everywhere" means the set of $\omega$ where $f_n(\omega)$ fails to converge has measure zero.
+- In probability: "$X = 0$ almost surely" means $\mu(\{\omega : X(\omega) \neq 0\}) = 0$, even though individual worlds with $X(\omega) \neq 0$ may exist.
+
+</SlideLayout>

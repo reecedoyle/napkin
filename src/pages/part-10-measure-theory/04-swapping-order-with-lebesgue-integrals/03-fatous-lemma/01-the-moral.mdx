@@ -1,0 +1,28 @@
+---
+title: Fatou's lemma — the moral
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fatou's lemma — the moral">
+
+Look back at all the counterexamples: the Witch's hat, the spreading uniform mass.
+In every case, $\int f_k \; dx$ was *larger* than $\int f \; dx$ — the integral of the limit.
+
+We can make the anomaly go the other way by negating the functions,
+but for *nonneg.* functions the discrepancy can only run in one direction.
+
+<Callout kind="remark" title="Moral of Fatou's lemma">
+For nonneg. functions, if the interchange fails then the integral of the limit is *smaller*
+than the limit of the integrals — mass can escape to infinity or concentrate on shrinking spikes,
+but it cannot appear from nowhere.
+
+In symbols: $\displaystyle\int f\; d\mu \le \lim_{n\to\infty}\int f_n\; d\mu$.
+</Callout>
+
+This is the essential content of <Term k="fatousLemma">Fatou's lemma</Term>.
+It turns out the correct way to state it uses the <Term k="liminf">$\liminf$</Term>,
+which generalises the plain limit to sequences that might not converge.
+
+</SlideLayout>

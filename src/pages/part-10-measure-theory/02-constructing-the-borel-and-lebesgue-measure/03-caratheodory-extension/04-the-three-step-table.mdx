@@ -1,0 +1,31 @@
+---
+title: The three-step construction table
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The three-step construction table">
+
+Putting everything together so far, we have a three-step pipeline from pre-measure to complete measure:
+
+| Domain | Function | Step | Notes |
+|---|---|---|---|
+| $2^\Omega$ | $\mu^\ast$ | Step 2 | Outer measure obtained from $\mu_0$ |
+| $\mathcal{A}^{\mathrm{cm}}$ | $\mu^{\mathrm{cm}}$ | Step 3 | Complete measure on Carathéodory-measurable sets |
+| $\mathcal{A}_0$ | $\mu_0$ | Step 1 | Pre-measure on algebra |
+
+Going **down** a row corresponds to restriction (to a smaller domain). Going **up** corresponds to extension. The steps are numbered in construction order: we define $\mu_0$ first, build $\mu^\ast$ second, then identify $\mathcal{A}^{\mathrm{cm}}$ third.
+
+<NumericInput
+  client:load
+  id="clb-s3-num-steps"
+  prompt="How many steps does the pre-measure → complete measure pipeline take?"
+  expected="3"
+  hint="Count the arrows: pre-measure → outer measure → complete measure."
+/>
+
+The two compatibility results together tell us $\mathcal{A}^{\mathrm{cm}} \supseteq \mathcal{A}_0$ and $\mu^{\mathrm{cm}}$ agrees with $\mu_0$ on $\mathcal{A}_0$: the construction truly extends the original.
+
+</SlideLayout>

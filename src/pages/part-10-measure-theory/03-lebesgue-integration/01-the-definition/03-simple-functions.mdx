@@ -1,0 +1,32 @@
+---
+title: Step 2 — simple functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Step 2 — simple functions">
+
+We extend linearly to finite sums of indicator functions.
+
+<Callout kind="definition" title="Simple function">
+A <Term k="simpleFunction">**simple function**</Term> is a finite nonnegative linear combination of indicator functions:
+
+$$s = \sum_{i=1}^n c_i \mathbf{1}_{A_i}$$
+
+where $A_1, \dots, A_n$ are measurable sets and $c_i \in [0,+\infty]$.
+</Callout>
+
+**Step 2.** We integrate a simple function by:
+
+$$\int_\Omega \left( \sum_{i=1}^n c_i \mathbf{1}_{A_i} \right) d\mu \defeq \sum_{i=1}^n c_i \mu(A_i).$$
+
+One convention: if $c_i = \infty$ and $\mu(A_i) = 0$, we set $c_i \mu(A_i) = 0$ (measure-zero sets contribute nothing regardless of the coefficient).
+
+The same simple function can be written in different ways as $\sum c_i \mathbf{1}_{A_i}$, but one can check the integral is the same regardless of representation — it is compatible with Step 1.
+
+<Callout kind="example" title="Computing with simple functions">
+On $\Omega = \mathbb{R}$ with Borel measure, $s = 3 \cdot \mathbf{1}_{[0,2]} + 5 \cdot \mathbf{1}_{[1,4]}$ is a simple function. Its integral is $3 \cdot \mu([0,2]) + 5 \cdot \mu([1,4]) = 3 \cdot 2 + 5 \cdot 3 = 21$.
+</Callout>
+
+</SlideLayout>

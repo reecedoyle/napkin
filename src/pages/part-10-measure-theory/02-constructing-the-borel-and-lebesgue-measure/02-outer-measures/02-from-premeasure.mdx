@@ -1,0 +1,28 @@
+---
+title: Outer measures from pre-measures
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Outer measures from pre-measures">
+
+The right way to build an outer measure is from a pre-measure, not from an arbitrary function. Starting from a pre-measure gives us a crucial compatibility guarantee.
+
+<Callout kind="theorem" title="Constructing outer measures from pre-measures">
+Let $\mu_0$ be a pre-measure on an algebra $\mathcal{A}_0$ on $\Omega$. Define
+
+$$\mu^\ast(E) = \inf\left\{ \sum_{n=1}^\infty \mu_0(A_n) \;\middle|\; A_n \in \mathcal{A}_0,\; E \subseteq \bigcup_{n=1}^\infty A_n \right\}.$$
+
+Then:
+
+(a) $\mu^\ast$ is an <Term k="outerMeasure">outer measure</Term> on $2^\Omega$.
+
+(b) For every $A \in \mathcal{A}_0$, we have $\mu^\ast(A) = \mu_0(A)$.
+</Callout>
+
+Part (a) says we get a genuine outer measure. Part (b) is the first compatibility guarantee: the outer measure agrees with the pre-measure on the original algebra. No information is lost.
+
+Intuitively, $\mu^\ast(A)$ is the infimum over all countable covers of $A$ by algebra sets. For the Lebesgue case this is "cover $A$ by rectangles and minimize total area."
+
+</SlideLayout>

@@ -1,0 +1,25 @@
+---
+title: Non-compact examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Non-compact examples">
+
+The non-compact Fourier inversion formula also unifies two classical transforms.
+
+<Callout kind="example" title="Non-compact Fourier transforms">
+- **$G = \RR$** (self-dual: $\wh G = \RR$). The formula gives the classical **continuous Fourier transform**:
+  $$f(x) = \int_\RR \wh f(\xi)\, e^{2\pi i \xi x}\, d\xi.$$
+- **$G = \ZZ$** (dual: $\wh G = \TT$). The formula gives the **discrete-time Fourier transform (DTFT)**:
+  $$f(n) = \int_\TT \wh f(\xi)\, e^{2\pi i \xi n}\, d\xi.$$
+</Callout>
+
+Both are special cases of the same abstract theorem — with different Haar measures (Lebesgue on $\RR$, counting measure on $\ZZ$, arc-length on $\TT$).
+
+<Callout kind="remark" title="Why so many names?">
+Every combination of a group $G$ and its dual $\wh G$ has historically been given its own Wikipedia article and its own name. If we called them all "$G$-Fourier transforms," life would be simpler. The zoo of names — continuous Fourier transform, Fourier series, DFT, DTFT — reflects history more than mathematics.
+</Callout>
+
+</SlideLayout>

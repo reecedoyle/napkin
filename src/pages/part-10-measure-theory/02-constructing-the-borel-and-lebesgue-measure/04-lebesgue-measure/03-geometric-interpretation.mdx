@@ -1,0 +1,26 @@
+---
+title: Geometric meaning of Lebesgue measurability
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Geometric meaning of Lebesgue measurability">
+
+The Carathéodory condition is abstract. For $\mathbb{R}^n$ it has a concrete geometric restatement.
+
+<Callout kind="proposition" title="Geometric characterization">
+A set $A \subseteq \mathbb{R}^n$ is <Term k="lebesgueSigmaAlgebra">Lebesgue measurable</Term> if and only if for every $\varepsilon > 0$ there exists an open set $U \supseteq A$ such that
+
+$$\lambda^\ast(U \setminus A) < \varepsilon.$$
+</Callout>
+
+In plain terms: $A$ is Lebesgue measurable when it can be approximated from outside by open sets up to arbitrary precision. This is sometimes taken as the definition of "measurable" — Lebesgue's original formulation.
+
+<Callout kind="remark" title="Borel ⊆ Lebesgue">
+Every open set $U$ trivially satisfies the condition with $U$ itself: $U \setminus U = \varnothing$ has measure zero. So every open set is Lebesgue measurable. Since the Lebesgue $\sigma$-algebra contains all open sets, it contains the <Term k="borelSigmaAlgebra">Borel $\sigma$-algebra</Term> $\mathcal{B}(\mathbb{R}^n)$.
+
+The containment is **strict** — there are more Lebesgue measurable sets than Borel ones. Indeed, one can show $|\mathcal{B}(\mathbb{R})| = |\mathbb{R}|$, and every subset of the Cantor set is Lebesgue measurable (since $\lambda(C) = 0$ and the space is complete), giving $2^{|\mathbb{R}|}$ Lebesgue-measurable sets.
+</Callout>
+
+</SlideLayout>

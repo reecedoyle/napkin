@@ -1,0 +1,35 @@
+---
+title: The space of worlds
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The space of worlds">
+
+The big idea in modern probability is to flip the script. Instead of starting with probabilities, we start with a **space of worlds**.
+
+<Callout kind="definition" title="Worlds and random variables">
+Our <Term k="measureSpace">measure space</Term> $\Omega$ is a set of **worlds**. Each element <Term k="omega">$\omega \in \Omega$</Term> is one complete description of reality. A <Term k="randomVariable">random variable</Term> is a function $X \colon \Omega \to \mathbb{R}$ — it reads off one number from each world.
+</Callout>
+
+This handles dependence automatically. If temperature $T(\omega)$ and rainfall $R(\omega)$ are both functions of the same world $\omega$, they can be as correlated as reality dictates — because reality is encoded in $\omega$.
+
+A fair coin in this language: $\Omega = \{H, T\}$, and we want the "fraction" of worlds where the coin shows heads to be $\tfrac{1}{2}$. Assigning these fractions is the job of a **measure**.
+
+<MCQ
+  client:load
+  id="ms-rv-mcq-what-is-rv"
+  prompt="In the 'space of worlds' framework, what is a random variable?"
+  options={[
+    { id: "a", label: "A probability distribution over outcomes" },
+    { id: "b", label: "A function from the sample space Ω to ℝ" },
+    { id: "c", label: "A σ-algebra on Ω" },
+    { id: "d", label: "A subset of Ω with positive measure" },
+  ]}
+  correct="b"
+  explanation="A random variable X: Ω → ℝ assigns a real number to every world ω. The randomness comes from not knowing which ω we are in, not from X itself — X is a deterministic function."
+/>
+
+</SlideLayout>

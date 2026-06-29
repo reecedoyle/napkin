@@ -1,0 +1,25 @@
+---
+title: Updating your instincts — measure theory is a.e.
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Updating your instincts — measure theory is a.e.">
+
+In measure theory, functions that agree <Term k="almostEverywhere">almost everywhere</Term> are essentially indistinguishable. This is the core philosophical shift.
+
+<Callout kind="remark" title="The a.e. principle">
+In measure theory, we basically only care about things up to almost everywhere.
+</Callout>
+
+Concretely:
+
+- If $f = g$ a.e., then $\int_\Omega f \, d\mu = \int_\Omega g \, d\mu$. Changing a function on a <Term k="measureZero">measure-zero</Term> set does not change its integral.
+- Uniqueness results are up to a.e.: when we say "there is a unique function $f$ with property $P$", we mean unique up to a.e. equality.
+
+Think of this like **isomorphism** in algebra: two groups are "the same" when they are isomorphic. In measure theory, two functions are "the same" when they agree almost everywhere. Some authors literally define functions on measure spaces as equivalence classes — one class per a.e.-equality relation.
+
+This takes some getting used to. The rational numbers $\mathbb{Q}$ have Lebesgue measure zero in $\mathbb{R}$, so from the measure-theoretic perspective they are "invisible." The indicator function $\mathbf{1}_{\mathbb{Q}}$ and the zero function are identical, measure-theoretically.
+
+</SlideLayout>

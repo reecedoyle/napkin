@@ -1,0 +1,33 @@
+---
+title: Pointwise convergence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pointwise convergence">
+
+Define the sequence of functions $g_1, g_2, \dots$ by
+
+$$g_n(x) = \begin{cases} 1 & (n!)x \in \ZZ \\ 0 & \text{otherwise.} \end{cases}$$
+
+Each $g_n$ picks out the rationals with denominator dividing $n!$.
+Every $g_n$ is piecewise constant, hence <Term k="riemannIntegrable">Riemann integrable</Term>,
+with $\int_0^1 g_n \; dx = 0$.
+
+But as $n \to \infty$, $g_n$ approaches $\mathbf{1}_\QQ$ in the following sense.
+
+<Callout kind="definition" title="Pointwise convergence">
+A sequence of functions $f_1, f_2, \dots \colon \Omega \to \RR$
+<Term k="pointwiseConvergence">converges pointwise</Term> to $f \colon \Omega \to \RR$
+if, for each fixed $\omega \in \Omega$,
+$$f_1(\omega),\; f_2(\omega),\; f_3(\omega),\; \dots \longrightarrow f(\omega).$$
+We write $\lim_{n \to \infty} f_n = f$.
+Similarly we can define $\liminf_{n \to \infty} f_n$ and $\limsup_{n \to \infty} f_n$ pointwise.
+</Callout>
+
+For our sequence, every rational $x = p/q$ is eventually hit by $g_n$ (once $n \geq q$),
+so $g_n(x) \to 1$. Every irrational is never hit, so $g_n(x) \to 0$.
+Thus $\lim_{n \to \infty} g_n = \mathbf{1}_\QQ$ pointwise, even though the limit is not Riemann integrable.
+
+</SlideLayout>

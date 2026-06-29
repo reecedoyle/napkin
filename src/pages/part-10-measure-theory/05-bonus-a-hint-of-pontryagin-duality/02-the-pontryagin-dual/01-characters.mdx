@@ -1,0 +1,26 @@
+---
+title: Characters of an LCA group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Characters of an LCA group">
+
+In Fourier analysis on $\RR$, the building blocks are the complex exponentials $x \mapsto e^{2\pi i \xi x}$. Each one is a continuous group homomorphism $\RR \to \TT$. We abstract this.
+
+<Callout kind="definition" title="Character">
+Let $G$ be an LCA group. A <Term k="character">**character**</Term> of $G$ is a continuous group homomorphism $\xi \colon G \to \TT$.
+</Callout>
+
+A character $\xi$ respects both the group structure ($\xi(x+y) = \xi(x)\xi(y)$) and the topology (continuity). The values live in the circle <Term k="circleGroup">$\TT$</Term>, so characters are "oscillatory" functions on $G$.
+
+<Callout kind="definition" title="Pontryagin dual">
+The <Term k="pontryaginDual">**Pontryagin dual**</Term> of an LCA group $G$ is the abelian group
+$$\wh G \defeq \{\text{continuous group homomorphisms } \xi \colon G \to \TT\}$$
+with pointwise multiplication $(\xi_1 \xi_2)(x) = \xi_1(x)\xi_2(x)$.
+</Callout>
+
+With the compact-open topology, $\wh G$ is itself an LCA group — so the duality operation produces a new LCA group from any LCA group.
+
+</SlideLayout>

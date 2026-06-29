@@ -1,0 +1,35 @@
+---
+title: Equivalent weaker axioms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Equivalent weaker axioms">
+
+When you want to **verify** that something is a measure, you don't always need to check the full countable-additivity axiom. Weaker conditions suffice.
+
+<Callout kind="exercise" title="Equivalent weaker definitions">
+
+**(a)** The $\sigma$-algebra axioms can be weakened to: (i) $\varnothing \in \mathcal{A}$, and (ii) $\mathcal{A}$ is closed under complements and countable unions. (Closure under intersections follows by de Morgan.)
+
+**(b)** The measure axioms can be weakened to:
+1. $\mu(\varnothing) = 0$,
+2. finite additivity: $\mu(A \sqcup B) = \mu(A) + \mu(B)$,
+3. continuity from above: for $A_1 \supseteq A_2 \supseteq \cdots$ with $\mu(A_1) < \infty$, we have $\mu\!\bigl(\bigcap_n A_n\bigr) = \lim_n \mu(A_n)$.
+
+These three together are equivalent to countable additivity.
+</Callout>
+
+For checking whether $2^\Omega$ with the power set is a $\sigma$-algebra: how many axioms do you need to verify?
+
+<NumericInput
+  client:load
+  id="ms-meas-num-axioms"
+  prompt="The minimal definition of a σ-algebra requires how many axioms (as listed above in part (a))?"
+  expected="2"
+  hint="Part (a) lists two conditions: containment of ∅, and closure under complements and countable unions."
+/>
+
+</SlideLayout>

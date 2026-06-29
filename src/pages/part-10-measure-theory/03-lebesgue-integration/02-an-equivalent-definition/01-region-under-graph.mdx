@@ -1,0 +1,28 @@
+---
+title: The integral as a volume
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The integral as a volume">
+
+There is a second way to think about the Lebesgue integral that is more geometric.
+
+<Callout kind="remark" title="The key idea">
+The integral $\int_\Omega f \; d\mu$ is the **volume of the region under the graph** of $f$.
+</Callout>
+
+This should feel familiar: the Riemann integral of $f$ over $[a,b]$ is the area under the curve $y = f(x)$. The Lebesgue version says the same thing — but makes it precise using measure theory.
+
+**Step 1 (Equivalent version).** For a nonneg function $f \colon \Omega \to \mathbb{R}$, define the <Term k="regionUnderGraph">**region under the function**</Term>:
+
+$$R(f) = \{ (x, y) \in \Omega \times \mathbb{R} : 0 \le y \le f(x) \}.$$
+
+This is the set of all points $(x,y)$ that lie between the $x$-axis and the graph of $f$.
+
+<Callout kind="remark" title="Why only nonneg first?">
+For a signed function $f$, defining "the region under the graph" requires handling both the positive part above the $x$-axis and the negative part below it. It is cleaner to handle the nonneg case first, then split.
+</Callout>
+
+</SlideLayout>

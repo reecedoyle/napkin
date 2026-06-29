@@ -1,0 +1,30 @@
+---
+title: Double integrals and iterated integrals
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Double integrals and iterated integrals">
+
+A second kind of "swapping" question arises when we integrate over a product space:
+is the order of integration interchangeable?
+
+Suppose we want to integrate a function $f(x, y)$ over $\RR^2$.
+There are three natural candidates:
+- The double integral $\displaystyle\int_{\RR^2} f\; d(\mu \otimes \nu)$ over the
+  <Term k="productMeasure">product measure</Term>.
+- The iterated integral $\displaystyle\int_\RR \!\left(\int_\RR f(x,y)\; d\nu(y)\right) d\mu(x)$:
+  integrate over $y$ first, then over $x$.
+- The iterated integral in the other order: integrate over $x$ first, then over $y$.
+
+**Do these always agree?** In Riemann calculus, calculus students learn to switch the order of integration
+when the region is nice. In Lebesgue theory, Fubini and Tonelli give a precise answer.
+
+<Callout kind="example" title="Why the question matters">
+The integral $\int_0^1 \!\int_0^1 \frac{x^2 - y^2}{(x^2+y^2)^2}\; dx\; dy$ equals $\pi/4$,
+but integrating in the other order gives $-\pi/4$. The function is not absolutely integrable,
+so Fubini does not apply — and the two orders genuinely disagree.
+</Callout>
+
+</SlideLayout>

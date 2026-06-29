@@ -1,0 +1,25 @@
+---
+title: Outer measures — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Outer measures — definition">
+
+An <Term k="outerMeasure">**outer measure**</Term> takes the opposite trade-off from a pre-measure: it is defined on **every** subset of $\Omega$ (no domain restriction), but only requires **sub-additivity** rather than true additivity.
+
+<Callout kind="definition" title="Outer measure">
+An **outer measure** $\mu^\ast$ on a set $\Omega$ is a function $\mu^\ast : 2^\Omega \to [0,+\infty]$ satisfying:
+
+1. $\mu^\ast(\varnothing) = 0$
+2. **Monotonicity:** $E \subseteq F \Rightarrow \mu^\ast(E) \le \mu^\ast(F)$
+3. **Countable sub-additivity:** for any subsets $E_1, E_2, \ldots$ of $\Omega$,
+$$\mu^\ast\!\left(\bigcup_n E_n\right) \le \sum_n \mu^\ast(E_n).$$
+</Callout>
+
+Notice: no disjointness requirement in (3). Sub-additivity is strictly weaker than additivity — we only need $\le$, not $=$.
+
+The name "outer measure" reflects the usual construction: you approximate a set from **outside** by covering it with simple shapes and taking the infimum of their total size.
+
+</SlideLayout>

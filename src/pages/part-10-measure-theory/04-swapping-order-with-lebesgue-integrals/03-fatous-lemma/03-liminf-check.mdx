@@ -1,0 +1,33 @@
+---
+title: Understanding liminf for functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Understanding liminf for functions">
+
+The pointwise <Term k="liminf">$\liminf$</Term> of a sequence of functions is defined by
+applying the scalar $\liminf$ at each point:
+
+$$\left(\liminf_{n \to \infty} f_n\right)(\omega) \;=\; \liminf_{n \to \infty} f_n(\omega).$$
+
+Recall: $\liminf_{n\to\infty} a_n = \lim_{n\to\infty} \inf_{k \ge n} a_k$ — the largest
+value the sequence eventually stays above.
+
+<MCQ
+  client:load
+  id="swap-fatou-mcq-liminf"
+  prompt="Let fₙ(x) = 1 if n is odd, fₙ(x) = 0 if n is even (for all x). What is (liminf fₙ)(x)?"
+  options={[
+    { id: "a", label: "1 — the sequence visits 1 infinitely often" },
+    { id: "b", label: "0 — the sequence also visits 0 infinitely often, so the infimum of tails is 0" },
+    { id: "c", label: "1/2 — average of the two values" },
+    { id: "d", label: "undefined — the sequence does not converge" },
+  ]}
+  correct="b"
+  explanation="liminf aₙ = lim inf_{k≥n} aₖ. For any n the infimum of {aₙ, aₙ₊₁, …} is 0 (some even index appears). So lim of 0 = 0. The limsup would be 1. The liminf records the worst-case eventual behavior."
+/>
+
+</SlideLayout>

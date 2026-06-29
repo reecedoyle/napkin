@@ -1,0 +1,35 @@
+---
+title: Applying Fubini — a check
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Applying Fubini — a check">
+
+<Callout kind="example" title="Gaussian integral via Fubini">
+A classic application: compute $\int_0^\infty e^{-x^2} dx$.
+
+Write $I = \int_0^\infty e^{-x^2} dx$. Then
+$$I^2 = \int_0^\infty e^{-x^2} dx \cdot \int_0^\infty e^{-y^2} dy
+       = \int_0^\infty\!\int_0^\infty e^{-(x^2+y^2)} dx\; dy.$$
+By <Term k="fubiniTheorem">Fubini's theorem</Term> (the integrand is nonneg., so Tonelli applies to justify
+the switch to polar coordinates), switching to polar gives $I^2 = \pi/4$, so $I = \sqrt{\pi}/2$.
+</Callout>
+
+<MCQ
+  client:load
+  id="swap-fub-mcq-when-fubini"
+  prompt="You want to switch the order of integration in ∫∫ f(x,y) dx dy. Which condition is sufficient to guarantee this is valid?"
+  options={[
+    { id: "a", label: "f is continuous" },
+    { id: "b", label: "f is nonneg. and measurable (Tonelli)" },
+    { id: "c", label: "f is absolutely integrable: ∫∫|f| < ∞ (Fubini)" },
+    { id: "d", label: "Both (b) and (c) are sufficient" },
+  ]}
+  correct="d"
+  explanation="Both are valid sufficient conditions. Tonelli covers nonneg. measurable functions (with possibly infinite integrals). Fubini covers absolutely integrable functions (finite integrals, any sign). In practice you often apply Tonelli first to |f| to verify Fubini's hypothesis."
+/>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: What breaks in the non-compact case
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What breaks in the non-compact case">
+
+When $G$ is LCA but **not compact** (like $\RR$ or $\ZZ$), the orthonormal basis theorem fails. Let's see why.
+
+The theorem required that $\sum_{\xi \in \wh G} \wh f(\xi)\, e_\xi$ converge, but when $\wh G$ is not discrete this sum is replaced by an **integral** — and the theory of $L^2$-bases breaks down because the Haar measure on $\wh G$ is no longer counting measure.
+
+Concretely: for $G = \RR$, the "characters" $e_\xi(x) = e^{2\pi i \xi x}$ are not in $L^2(\RR)$ (they have absolute value 1 everywhere, so $\int_\RR |e_\xi|^2 = \infty$). They can't be an orthonormal basis in the Hilbert-space sense.
+
+<Callout kind="remark" title="Why non-compact is harder">
+In the compact case, the Haar measure $\mu$ has $\mu(G) = 1$, so $L^1(G) \supseteq L^2(G)$ and the Fourier coefficients $\wh f(\xi) = \int_G f\, \ol{e_\xi}\, d\mu$ are always finite for $f \in L^2(G)$.
+
+For $G = \RR$, we have $\mu(\RR) = \infty$. The Fourier transform $\wh f(\xi) = \int_\RR f(x)\, e^{-2\pi i \xi x}\, dx$ only converges when $f \in L^1(\RR)$, and separately handling $L^2(\RR)$ requires more delicate analysis (Plancherel's theorem).
+</Callout>
+
+Despite these difficulties, an inversion formula still holds in a weaker sense.
+
+</SlideLayout>

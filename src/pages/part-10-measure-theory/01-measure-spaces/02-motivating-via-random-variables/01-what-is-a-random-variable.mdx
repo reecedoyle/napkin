@@ -1,0 +1,23 @@
+---
+title: What is a random variable?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a random variable?">
+
+Our ultimate goal is a rigorous theory of probability powerful enough to prove the law of large numbers and the central limit theorem. To get there we need to handle <Term k="randomVariable">random variables</Term> — quantities that depend on chance.
+
+Examples of random variables:
+- The result of a coin flip (discrete, two outcomes).
+- The high temperature in Boston on Saturday (continuous on some range).
+- The amount of rain next weekend (can be correlated with temperature).
+
+A single coin flip is easy: "50% heads, 50% tails." Continuous outcomes need calculus. But the moment two variables **talk to each other** — temperature tells you something about rain — the naive approach breaks down. Conditional probability gets messy fast.
+
+<Callout kind="remark" title="The key insight">
+We will build a single space of **worlds** and define random variables as functions on it. Dependence between variables is then just the fact that two functions share the same input.
+</Callout>
+
+</SlideLayout>

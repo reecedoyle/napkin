@@ -1,0 +1,27 @@
+---
+title: Sign changes — the caveat
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sign changes — the caveat">
+
+The equivalence between improper Riemann integrals and Lebesgue integrals **breaks down when $f$ changes sign**.
+
+<Callout kind="remark" title="When nonnegativity fails">
+If $f$ is not nonneg, the improper Riemann integral $\lim_{b \to \infty} \int_1^b f(x) \; dx$ may exist even though $f$ is not absolutely integrable (i.e. $\int |f| \, d\mu = \infty$). In that case the Lebesgue integral $\int_{(1,\infty)} f \; d\mu$ does not exist.
+</Callout>
+
+The canonical example is $f(x) = \frac{\sin x}{x}$ on $(1,\infty)$:
+
+- The improper Riemann integral $\lim_{b \to \infty} \int_1^b \frac{\sin x}{x} \; dx$ converges (conditionally) — positive and negative arches cancel out just enough.
+- But $\int_1^\infty \left|\frac{\sin x}{x}\right| dx = \infty$, so $f$ is **not absolutely integrable** and has **no Lebesgue integral**.
+
+This is analogous to a conditionally convergent series: $\sum (-1)^n / n$ converges, but $\sum 1/n$ diverges. Lebesgue integration is the absolute-convergence analogue for integrals.
+
+<Callout kind="remark" title="Summary">
+Nonneg functions: Lebesgue integral = improper Riemann integral (over open intervals). Signed functions: Lebesgue integral requires absolute integrability — it will not capture conditionally convergent improper integrals.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,34 @@
+---
+title: Step 4 — general (signed) functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Step 4 — general (signed) functions">
+
+So far we have only handled nonneg functions. For functions that can be positive or negative, we split.
+
+<Callout kind="definition" title="Absolutely integrable (general case)">
+A measurable function $f \colon \Omega \to [-\infty, \infty]$ is <Term k="absolutelyIntegrable">**absolutely integrable**</Term> if $|f|$ is absolutely integrable, i.e. $\int_\Omega |f| \; d\mu < \infty$.
+</Callout>
+
+**Step 4.** When $f$ is absolutely integrable, define the positive and negative parts:
+
+$$f^+(x) = \max\{ f(x), 0 \}, \qquad f^-(x) = \min\{ f(x), 0 \}.$$
+
+Both $|f^+|$ and $|f^-|$ are nonneg, and we set
+
+$$\int_\Omega f \; d\mu = \int_\Omega |f^+| \; d\mu - \int_\Omega |f^-| \; d\mu,$$
+
+which is finite. We really are splitting $f$ into its positive and negative contributions, integrating each separately (using Step 3), and subtracting.
+
+<ProofReveal
+  client:load
+  id="leb-def-proof-abs-int-split"
+  prompt="Show that $|f|$ being absolutely integrable is equivalent to both $|f^+|$ and $|f^-|$ being absolutely integrable."
+  solution="Note that |f| = |f⁺| + |f⁻| (since f⁺ ≥ 0 and f⁻ ≤ 0, so |f⁻| = −f⁻). By monotonicity and linearity of the integral for nonneg functions: ∫|f| dμ = ∫|f⁺| dμ + ∫|f⁻| dμ. This is finite if and only if each summand is finite, which is exactly the condition that both |f⁺| and |f⁻| are absolutely integrable."
+/>
+
+</SlideLayout>

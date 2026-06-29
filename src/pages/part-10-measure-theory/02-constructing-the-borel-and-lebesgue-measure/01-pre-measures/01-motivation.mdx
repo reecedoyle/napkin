@@ -1,0 +1,20 @@
+---
+title: Why pre-measures?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why pre-measures?">
+
+Building a measure on $\mathcal{B}(\mathbb{R}^n)$ all at once is hard. We approach it in two stages, each relaxing one requirement.
+
+A <Term k="premeasure">**pre-measure**</Term> satisfies the measure axioms but lives on fewer sets — an **algebra** instead of a full <Term k="sigmaAlgebra">$\sigma$-algebra</Term>. An <Term k="outerMeasure">**outer measure**</Term> lives on all subsets but obeys weaker axioms (sub-additivity rather than additivity).
+
+The path forward is:
+
+$$\mu_0 \text{ (pre-measure on algebra } \mathcal{A}_0\text{)} \;\longrightarrow\; \mu^\ast \text{ (outer measure on } 2^\Omega\text{)} \;\longrightarrow\; \mu \text{ (true measure)}$$
+
+Each arrow is a construction theorem. By the end we have a genuine, complete measure whose values on "nice" sets like rectangles match our geometric intuition.
+
+</SlideLayout>

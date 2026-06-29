@@ -1,0 +1,29 @@
+---
+title: Measure spaces — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Measure spaces — definition">
+
+A measurable space tells us *which* sets can be sized. Now we actually assign sizes.
+
+<Callout kind="definition" title="Measure and measure space">
+Let $(\Omega, \mathcal{A})$ be a <Term k="measurableSpace">measurable space</Term>. A <Term k="measure">**measure**</Term> is a function $\mu \colon \mathcal{A} \to [0, +\infty]$ satisfying:
+
+1. $\mu(\varnothing) = 0$.
+2. <Term k="countableAdditivity">**Countable additivity**</Term>: if $A_1, A_2, \ldots \in \mathcal{A}$ are pairwise disjoint, then
+$$\mu\!\Bigl(\bigsqcup_n A_n\Bigr) = \sum_n \mu(A_n).$$
+
+The triple $(\Omega, \mathcal{A}, \mu)$ is called a **measure space**. If additionally $\mu(\Omega) = 1$ it is a <Term k="probabilitySpace">**probability space**</Term>.
+</Callout>
+
+Two immediate consequences of the axioms:
+
+- If $A \subseteq B$ are measurable then $\mu(A) \le \mu(B)$ — measuring a subset gives at most the measure of the whole.
+- In a probability space, all measures lie in $[0, 1]$.
+
+We allow $\mu$ to take the value $+\infty$ (hence the codomain $[0, +\infty]$), so infinite sets like $\mathbb{R}$ with Lebesgue measure are fine.
+
+</SlideLayout>

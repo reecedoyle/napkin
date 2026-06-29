@@ -1,0 +1,31 @@
+---
+title: Special cases of the compact theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Special cases of the compact theorem">
+
+The general theorem recovers every compact Fourier theory as a special case.
+
+<Callout kind="example" title="Recognizing familiar theories">
+- **$G = \TT$** (the circle). Then $\wh G = \ZZ$ and the characters are $e_n(\theta) = e^{2\pi i n\theta}$. This is exactly the classical **Fourier series**.
+- **$G = \Zc{n}$** (cyclic group of order $n$). Then $\wh G \cong \Zc{n}$ and the characters are $\xi_k(j) = e^{2\pi i jk/n}$. This is the **discrete Fourier transform (DFT)**.
+- **$G$ = any finite abelian group**. This is the general **Fourier transform on finite groups**.
+</Callout>
+
+All of these are just different compact LCA groups plugged into the same theorem. The "scary" looking DFT formula is just a special case of the universal pattern.
+
+How many distinct characters does $\Zc{6}$ have?
+
+<NumericInput
+  client:load
+  id="pont-compact-num-chars-z6"
+  prompt="The group ℤ/6ℤ has how many distinct characters? (Enter a number.)"
+  expected="6"
+  solution="Since the Pontryagin dual of ℤ/6ℤ is isomorphic to ℤ/6ℤ itself, there are exactly 6 characters. Each is determined by the image of the generator 1, which can be any 6th root of unity in 𝕋."
+/>
+
+</SlideLayout>

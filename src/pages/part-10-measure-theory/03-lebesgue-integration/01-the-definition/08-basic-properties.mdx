@@ -1,0 +1,32 @@
+---
+title: Basic properties of the Lebesgue integral
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basic properties of the Lebesgue integral">
+
+Fix a <Term k="measureSpace">measure space</Term> $(\Omega, \mathcal{A}, \mu)$. Let $f$ and $g$ be measurable functions with $f(x) = g(x)$ <Term k="almostEverywhere">almost everywhere</Term>.
+
+<Callout kind="proposition" title="Fundamental properties">
+
+**(Almost-everywhere preservation.)** $f$ is absolutely integrable if and only if $g$ is, and if so their integrals agree.
+
+**(Additivity.)** If $f$ and $g$ are absolutely integrable:
+$$\int_\Omega (f+g) \; d\mu = \int_\Omega f \; d\mu + \int_\Omega g \; d\mu.$$
+The "absolutely integrable" hypothesis can be dropped when $f$ and $g$ are nonneg.
+
+**(Scaling.)** If $f$ is absolutely integrable and $c \in \mathbb{R}$, then $cf$ is absolutely integrable and
+$$\int_\Omega cf \; d\mu = c \int_\Omega f \; d\mu.$$
+Dropped when $f \ge 0$ and $c > 0$.
+
+**(Monotonicity.)** If $f$ and $g$ are absolutely integrable and $f \le g$, then
+$$\int_\Omega f \; d\mu \le \int_\Omega g \; d\mu.$$
+Dropped when $f$ and $g$ are nonneg.
+
+</Callout>
+
+Additivity plus scaling say the integral is **linear** on the space of absolutely integrable functions — the same as Riemann integration. Monotonicity says the integral respects order.
+
+</SlideLayout>

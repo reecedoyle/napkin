@@ -1,0 +1,28 @@
+---
+title: A type guide for measure theory
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A type guide for measure theory">
+
+Measure theory introduces several interacting objects. Over the next few chapters we will juggle sample spaces, collections of sets, functions on those sets, and numerical values. To keep track, we follow a strict naming convention — essentially a type system.
+
+<Callout kind="remark" title="Letter conventions">
+
+| Letter(s) | Type |
+|---|---|
+| <Term k="measureSpace">$\Omega$</Term>, elements <Term k="omega">$\omega$</Term> | Measure spaces and their points |
+| Script <Term k="sigmaAlgebra">$\mathcal{A}$, $\mathcal{B}$</Term>, … | $\sigma$-algebras (families of measurable sets) |
+| $A$, $B$, $C$, $D$, $E$, … | Measurable sets (elements of a $\sigma$-algebra) |
+| <Term k="measure">$\mu$, $\rho$</Term> | Measures (functions assigning sets to non-negative reals) |
+| $X$, $Y$, $Z$ | Random variables (functions $\Omega \to \mathbb{R}$) |
+| $f$, $g$ | Probability density functions; $F$, $G$ for CDFs |
+| $x$, $y$, $z$ | Ordinary real numbers |
+
+</Callout>
+
+This table doubles as a lookup: when you see $\mu(A)$, you immediately know $\mu$ is a measure and $A$ is a measurable set in some $\sigma$-algebra. We will revisit these conventions whenever a new type enters the stage.
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: The Peter–Weyl theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Peter–Weyl theorem">
+
+For a compact Lie group, <Term k="matrixCoefficient">matrix coefficients</Term> replace characters as the building blocks of $L^2(G)$.
+
+Fix a compact Lie group $G$ and an irreducible unitary representation $(V, \rho)$ with $\dim V = d$ and an orthonormal basis $e_1, \dots, e_d$. The $(i,j)$th matrix coefficient is
+$$\rho_{ij}(g) = \text{the }(i,j)\text{ entry of the matrix }\rho(g).$$
+
+<Callout kind="theorem" title="Peter–Weyl">
+Let $G$ be a compact Lie group. Let $\Sigma$ be a set of representatives of all isomorphism classes of irreducible finite-dimensional unitary representations of $G$. Then the functions
+$$\bigl\{\sqrt{\dim V}\, \rho_{ij} \;\big\vert\; (V,\rho)\in\Sigma,\; 1\le i,j\le\dim V\bigr\}$$
+form an **orthonormal basis** of <Term k="peterWeyl">$L^2(G)$</Term>.
+</Callout>
+
+When $G$ is abelian, all irreducible representations are 1-dimensional (maps $G \to \CC^\times$) and the unitary condition forces them into $G \to \TT$ — they are exactly the characters in $\wh G$. So Peter–Weyl recovers the abelian theorem as a special case.
+
+</SlideLayout>

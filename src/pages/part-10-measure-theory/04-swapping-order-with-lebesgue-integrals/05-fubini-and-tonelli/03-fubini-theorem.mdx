@@ -1,0 +1,30 @@
+---
+title: Fubini's theorem — absolutely integrable functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fubini's theorem — absolutely integrable functions">
+
+<Callout kind="theorem" title="Fubini's theorem">
+Let $(X, \mu)$ and $(Y, \nu)$ be $\sigma$-finite, and let $f \colon X \times Y \to \RR$
+be <Term k="absolutelyIntegrable">absolutely integrable</Term>:
+$\displaystyle\int_{X\times Y} |f|\; d(\mu\otimes\nu) < \infty$.
+Then the three integrals
+$$\int_{X \times Y}\! f\; d(\mu \otimes \nu),\quad
+  \int_X \!\left(\int_Y f(x,y)\; d\nu(y)\right)\! d\mu(x),\quad
+  \int_Y \!\left(\int_X f(x,y)\; d\mu(x)\right)\! d\nu(y)$$
+are all finite and equal.
+</Callout>
+
+The standard strategy is: **use Tonelli on $|f|$ first** to verify $\int |f| < \infty$,
+then apply Fubini to $f$ to swap the order of integration freely.
+
+<Callout kind="remark" title="Fubini–Tonelli in one step">
+Together, Tonelli and Fubini give a clean recipe for double integrals:
+compute one iterated integral of $|f|$ — if it's finite, then all three integrals of $f$
+agree and you may switch the order at will.
+</Callout>
+
+</SlideLayout>

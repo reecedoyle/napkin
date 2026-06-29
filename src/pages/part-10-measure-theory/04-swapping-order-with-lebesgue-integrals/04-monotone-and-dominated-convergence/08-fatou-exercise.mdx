@@ -1,0 +1,31 @@
+---
+title: Where is the dominator used?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Where is the dominator used?">
+
+In the proof of the <Term k="fatouLebesgue">Fatou–Lebesgue theorem</Term> we applied Fatou's lemma
+to $g + f_n$ and to $g - f_n$, using the fact that both are nonneg. because $|f_n| \le g$.
+
+But there is a subtlety: why does the calculation work out even when we subtract integrals of $g$?
+The answer is that $g$ must be finite: $\int g < \infty$.
+
+<Callout kind="exercise" title="Where is absolute integrability used?">
+In the Fatou–Lebesgue proof, we apply Fatou to $g + f_n \ge 0$ to get
+$\int \liminf(g + f_n)\; d\mu \le \liminf \int(g + f_n)\; d\mu$.
+Expanding: $\int g + \int \liminf f_n \le \int g + \liminf \int f_n$.
+We then cancel $\int g$ from both sides. At what point does $\int g < \infty$ become essential?
+</Callout>
+
+<ProofReveal
+  client:load
+  id="swap-dct-proof-dominator"
+  prompt="Show where the finiteness of ∫g is used when cancelling."
+  solution="We cancel ∫g from both sides of ∫g + ∫(liminf fₙ) ≤ ∫g + liminf ∫fₙ. This subtraction is only valid when ∫g is a finite number — otherwise we would be computing ∞ − ∞, which is undefined. Absolute integrability of g (∫|g| < ∞) guarantees ∫g is finite, so the cancellation is legal."
+/>
+
+</SlideLayout>

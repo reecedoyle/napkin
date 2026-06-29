@@ -1,0 +1,33 @@
+---
+title: "Example: integrating 1/√x on (0,1)"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Example: integrating 1/√x on (0,1)">
+
+Here is a concrete example where the Lebesgue framework eliminates a technical annoyance.
+
+<Callout kind="example" title="Integrating 1/√x on (0,1)">
+The function $f(x) = x^{-1/2}$ is **not** defined at $x = 0$. In the Riemann world, we resort to an improper integral:
+
+$$\int_0^1 \frac{1}{\sqrt{x}} \; dx \defeq \lim_{\varepsilon \to 0^+} \int_\varepsilon^1 \frac{1}{\sqrt{x}} \; dx = \lim_{\varepsilon \to 0^+} \left( 2\sqrt{1} - 2\sqrt{\varepsilon} \right) = 2.$$
+
+But $f$ is a nonneg measurable function $(0,1) \to [0,+\infty]$, so the Lebesgue framework handles it directly:
+
+$$\int_{(0,1)} \frac{1}{\sqrt{x}} \; d\mu = 2.$$
+
+No limits, no $\varepsilon$. The function was never asked to be defined at 0 (a single point has measure zero anyway).
+</Callout>
+
+<NumericInput
+  client:load
+  id="leb-rim-num-sqrt-x"
+  prompt="Using the Fundamental Theorem of Calculus, what is the value of ∫_{(0,4)} x^{-1/2} dμ?"
+  expected="4"
+  hint="Apply the theorem: ∫₀⁴ x^{-1/2} dx = [2√x]₀⁴ = 2·2 − 0."
+/>
+
+</SlideLayout>

@@ -1,0 +1,41 @@
+---
+title: Lebesgue is the completion of Borel
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Lebesgue is the completion of Borel">
+
+The relationship between the Lebesgue and Borel $\sigma$-algebras is captured cleanly by the notion of completion.
+
+<Callout kind="definition" title="Completion of a measure space">
+Given $(\Omega, \mathcal{A}, \mu)$, the **completion** is $(\Omega, \overline{\mathcal{A}}, \overline{\mu})$ where
+
+$$\overline{\mathcal{A}} = \{A \cup N : A \in \mathcal{A},\; N \subseteq \text{null set}\}.$$
+
+and $\overline{\mu}(A \cup N) = \mu(A)$. This forces every subset of a <Term k="nullSet">null set</Term> to be measurable (with measure zero).
+</Callout>
+
+<Callout kind="theorem" title="Lebesgue is completion of Borel">
+For $\mathbb{R}^n$, the <Term k="lebesgueMeasure">Lebesgue measure</Term> is the <Term k="completionMeasure">completion</Term> of the <Term k="borelSigmaAlgebra">Borel measure</Term>.
+</Callout>
+
+This gives us a clean description: $\mathcal{L}(\mathbb{R}^n) = \overline{\mathcal{B}(\mathbb{R}^n)}$. Every Lebesgue measurable set is a Borel set plus a subset of a Borel null set.
+
+<MCQ
+  client:load
+  id="clb-s4-mcq-borel-complete"
+  prompt="Why is the Borel σ-algebra NOT complete?"
+  options={[
+    { id: "a", label: "The Cantor set is not Borel measurable" },
+    { id: "b", label: "The Borel σ-algebra has the same cardinality as ℝ, but the Cantor set has 2^|ℝ| subsets — some must be non-Borel" },
+    { id: "c", label: "Every countable set has positive Borel measure" },
+    { id: "d", label: "The Borel σ-algebra is not closed under complements" },
+  ]}
+  correct="b"
+  explanation="The Cantor set C is Borel (it's closed) and has Borel measure zero. Completeness would require every subset of C to be Borel. But |ℬ(ℝ)| = |ℝ| while C has 2^|ℝ| subsets — most subsets of C are not Borel. The Lebesgue σ-algebra is complete and does contain all subsets of C."
+/>
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: Null sets and completeness
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Null sets and completeness">
+
+<Callout kind="definition" title="Null set and complete measure space">
+A **null set** of a measure space $(\Omega, \mathcal{A}, \mu)$ is a set $A \in \mathcal{A}$ with $\mu(A) = 0$.
+
+The space is **complete** if every subset of a null set also belongs to $\mathcal{A}$ (and hence has measure zero).
+</Callout>
+
+Intuitively: if a set has zero mass, removing part of it should also give a zero-mass set. A complete measure says every such remainder is measurable.
+
+The Carathéodory construction gives completeness for free.
+
+<Callout kind="theorem" title="Carathéodory extension theorem for outer measures">
+If $\mu^\ast$ is any outer measure and $\mathcal{A}^{\mathrm{cm}}$ is the collection of all $\mu^\ast$-measurable sets, then $\mathcal{A}^{\mathrm{cm}}$ is a $\sigma$-algebra on $\Omega$, and the restriction $\mu^{\mathrm{cm}}$ of $\mu^\ast$ to $\mathcal{A}^{\mathrm{cm}}$ is a **complete** measure.
+</Callout>
+
+The superscript "cm" stands for "Carathéodory measurable" (or "complete" — both work). Every pre-measure we want to extend will give us a complete measure through this route.
+
+</SlideLayout>

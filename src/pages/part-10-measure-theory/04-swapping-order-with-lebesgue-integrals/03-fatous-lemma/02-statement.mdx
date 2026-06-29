@@ -1,0 +1,27 @@
+---
+title: Fatou's lemma — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fatou's lemma — statement">
+
+<Callout kind="lemma" title="Fatou's lemma">
+Let $f_1, f_2, \dots \colon \Omega \to [0,+\infty]$ be a sequence of
+<Term k="nonnegMeasurable">nonneg. measurable functions</Term>.
+Then $\displaystyle\liminf_{n \to \infty} f_n$ is measurable and
+$$\int_\Omega \!\left(\liminf_{n \to \infty} f_n\right) d\mu
+  \;\le\; \liminf_{n \to \infty} \left(\int_\Omega f_n\; d\mu\right).$$
+Both sides may be $+\infty$.
+</Callout>
+
+Two points worth emphasising:
+
+- **No extra hypotheses.** The only requirement is that the functions are nonneg. and measurable.
+  This makes Fatou's lemma surprisingly powerful for proving general results.
+- **Converging vs. non-converging sequences.** When the sequence actually converges (pointwise),
+  $\liminf_{n\to\infty} f_n = \lim_{n\to\infty} f_n$ and the statement collapses to
+  $\int f\; d\mu \le \lim \int f_n\; d\mu$, the "preliminary version."
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: "Problem — the indicator of the rationals"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — the indicator of the rationals">
+
+The rational numbers $\mathbb{Q}$ are dense in $\mathbb{R}$, yet they form a set of measure zero. This problem contrasts the Riemann and Lebesgue worlds sharply.
+
+<Problem
+  client:load
+  id="leb-prob-indicator-rationals"
+  difficulty="starred"
+  prompt="Let 𝟏_ℚ : ℝ → {0,1} be the indicator function of the rational numbers. (a) Prove that 𝟏_ℚ is not Riemann integrable. (b) Show that ∫_ℝ 𝟏_ℚ dμ exists and determine its value."
+  hint="For (a), recall that a bounded function is Riemann integrable iff it is continuous almost everywhere (Lebesgue's criterion). For (b), the rationals are countable, hence have Borel measure zero."
+  solution="(a) The function 𝟏_ℚ is discontinuous everywhere: on any interval there are both rationals (where f = 1) and irrationals (where f = 0). By Lebesgue's criterion for Riemann integrability (a bounded function on [a,b] is Riemann integrable iff its discontinuity set has measure zero), 𝟏_ℚ is not Riemann integrable on any [a,b].
+
+(b) Since ℚ is countable, it is a countable union of single points, each of which has Borel measure zero. So μ(ℚ) = 0. Therefore 𝟏_ℚ = 𝟏_ℚ equals 0 almost everywhere (since the irrationals have full measure). By the almost-everywhere preservation property, ∫_ℝ 𝟏_ℚ dμ = ∫_ℝ 0 dμ = 0. This is the value you would expect: ℚ has measure zero, so its indicator function integrates to zero."
+/>
+
+</SlideLayout>

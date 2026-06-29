@@ -1,0 +1,37 @@
+---
+title: Riemann integrability requires boundedness
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Riemann integrability requires boundedness">
+
+A key limitation of the Riemann integral is that every Riemann integrable function *must be bounded*. The Lebesgue theory handles many unbounded functions with no trouble.
+
+<Callout kind="example" title="A function that is not Riemann integrable on [0,1]">
+Define
+
+$$f(x) = \begin{cases} \dfrac{\sin(1/x)}{x} & x > 0 \\ 0 & x = 0. \end{cases}$$
+
+This function blows up as $x \to 0$, so it is **not** bounded on $[0,1]$, and hence **not Riemann integrable** on $[0,1]$.
+
+The improper Riemann integral $\lim_{\varepsilon \to 0^+} \int_\varepsilon^1 f(x) \; dx$ may still exist as a limit — but that is a different object than the Riemann integral.
+</Callout>
+
+<MCQ
+  client:load
+  id="leb-rim-mcq-bounded"
+  prompt="Which of the following is always true of a Riemann integrable function on [a,b]?"
+  options={[
+    { id: "a", label: "It is continuous." },
+    { id: "b", label: "It is bounded." },
+    { id: "c", label: "It is Lebesgue integrable with finite integral." },
+    { id: "d", label: "It equals zero almost everywhere." },
+  ]}
+  correct="b"
+  explanation="Riemann integrability requires boundedness — unbounded functions are not Riemann integrable on [a,b]. Riemann integrable functions need not be continuous (e.g. step functions), and option (c) is actually also true but 'always bounded' is the fundamental requirement. Option (d) is false."
+/>
+
+</SlideLayout>

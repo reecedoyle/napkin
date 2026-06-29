@@ -1,0 +1,35 @@
+---
+title: Why we want to swap limits and integrals
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Why we want to swap limits and integrals">
+
+Here is a typical problem: compute
+
+$$\lim_{k \to \infty} \int_1^\infty \frac{1}{k}\, e^{-x^2}\; dx.$$
+
+The integral $\int e^{-x^2} dx$ has no closed form in elementary functions, yet
+intuitively the factor $1/k \to 0$ should make the whole thing zero. We would love to say:
+
+$$\lim_{k \to \infty} \int_1^\infty \frac{e^{-x^2}}{k}\; dx = \int_1^\infty \lim_{k \to \infty} \frac{e^{-x^2}}{k}\; dx = \int_1^\infty 0\; dx = 0.$$
+
+Moving the <Term k="limitInterchange">$\lim$ inside the integral sign</Term> is called
+interchanging the limit and the integral. When is this legal?
+
+<MCQ
+  client:load
+  id="swap-mot-mcq-when-legal"
+  prompt="Pointwise convergence alone (f_n → f at every point) is enough to guarantee that lim ∫ f_n = ∫ f."
+  options={[
+    { id: "a", label: "True — pointwise convergence always lets you swap" },
+    { id: "b", label: "False — extra conditions are needed" },
+  ]}
+  correct="b"
+  explanation="False. Pointwise convergence is a very weak condition. We need extra control — like bounded domination or monotonicity — to guarantee the swap is valid. The rest of the chapter is about pinning down exactly what that control looks like."
+/>
+
+</SlideLayout>

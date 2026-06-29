@@ -1,0 +1,26 @@
+---
+title: The unified Fourier table
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The unified Fourier table">
+
+Every flavor of Fourier analysis is an instance of the same abstract framework: pick an LCA group $G$, compute its <Term k="pontryaginDual">Pontryagin dual</Term> $\wh G$, and apply the appropriate theorem.
+
+| Name | Domain $G$ | Dual $\wh G$ | Compact? |
+|---|---|---|---|
+| Fourier transform on finite groups | $Z$ (finite abelian) | $\wh Z \cong Z$ | Yes |
+| Discrete Fourier transform (DFT) | $\Zc{n}$ | $\Zc{n}$ | Yes |
+| Fourier series | $\TT$ | $\ZZ$ | Yes |
+| Continuous Fourier transform | $\RR$ | $\RR$ | No |
+| Discrete-time Fourier transform | $\ZZ$ | $\TT$ | No |
+
+The top three rows use the orthonormal-basis theorem (compact $G$, discrete $\wh G$, sum over characters). The bottom two use the inversion-formula theorem (non-compact $G$, integral over characters).
+
+<Callout kind="remark" title="The naming problem">
+Every row above has its own Wikipedia article and its own name. Evan Chen's proposal: call them all the "$G$-Fourier transform" and be done with it. The zoo of names is a historical accident, not a mathematical distinction.
+</Callout>
+
+</SlideLayout>

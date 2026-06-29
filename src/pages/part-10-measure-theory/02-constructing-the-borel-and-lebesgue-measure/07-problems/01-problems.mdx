@@ -1,0 +1,38 @@
+---
+title: Problems — Constructing measures
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Constructing measures">
+
+<Problem
+  client:load
+  id="clb-prob-outer-measure-construction"
+  difficulty="daggered"
+  prompt="For a set Ω, let 𝓔 be any subset of 2^Ω and let ρ : 𝓔 → [0,+∞] be any function. Prove that μ*(E) = inf{ ∑ ρ(Eₙ) | Eₙ ∈ 𝓔, E ⊆ ⋃ Eₙ } defines an outer measure."
+  hint="Verify the three axioms directly. For sub-additivity, given coverings of each Eₙ, concatenate them to get a covering of the union, then compare infima."
+  solution="We check the three outer measure axioms. (1) Empty set: ∅ ⊆ ⋃ ∅ is covered by the empty collection, giving inf{} = 0 (by convention), so μ*(∅) = 0. (2) Monotonicity: if E ⊆ F, every cover of F is also a cover of E, so the infimum over covers of E is ≤ the infimum over covers of F, giving μ*(E) ≤ μ*(F). (3) Sub-additivity: let E ⊆ ⋃ₙ Eₙ. For each n and ε > 0, pick a cover Eₙ ⊆ ⋃ₖ Eₙₖ with ∑ₖ ρ(Eₙₖ) < μ*(Eₙ) + ε/2ⁿ. Then {Eₙₖ : n, k} is a countable cover of E, and ∑ₙ,ₖ ρ(Eₙₖ) < ∑ₙ μ*(Eₙ) + ε. Since ε > 0 is arbitrary, μ*(⋃ₙ Eₙ) ≤ ∑ₙ μ*(Eₙ)."
+/>
+
+<Problem
+  client:load
+  id="clb-prob-insane-scientist"
+  difficulty="standard"
+  prompt="Let Ω = ℝ², and let 𝓔 be the set of non-degenerate rectangles. Let ρ(E) = 1 for every rectangle E. Using the infimum-covering construction, compute μ*(S) for each subset S ⊆ ℝ², and determine which sets are μ*-measurable."
+  hint="Show that μ*(S) = 0 if S = ∅, μ*(S) = 1 if S is bounded and nonempty, μ*(S) = ∞ if S is unbounded. For measurability, consider whether a rectangle A satisfies the splitting condition μ*(E) = μ*(E ∩ A) + μ*(E \\ A) for all E."
+  solution="First compute μ*. Any nonempty bounded set S can be covered by a single rectangle, giving μ*(S) ≤ 1. A single rectangle contributes ρ = 1 > 0, so the infimum over nonempty covers is 1, giving μ*(S) = 1 for bounded nonempty S. An unbounded set needs infinitely many rectangles (each bounded), so μ*(S) = ∞. Thus μ*(S) = 0 if S = ∅, 1 if S is bounded nonempty, ∞ if S is unbounded. For measurability, a non-degenerate rectangle A must satisfy μ*(E) = μ*(E ∩ A) + μ*(E \\ A) for all E. Take E = A: then μ*(A) = 1, but μ*(A ∩ A) = 1 and μ*(A \\ A) = μ*(∅) = 0, so 1 = 1 + 0 ✓. But take E to be a larger rectangle containing A: μ*(E) = 1, μ*(E ∩ A) = 1, and μ*(E \\ A) = 1 (nonempty bounded), giving 1 ≠ 1 + 1. So rectangles are NOT μ*-measurable. The measurable sets turn out to be ∅, one-point sets (measure 0), and unbounded sets (measure ∞) — no rectangle passes the test."
+/>
+
+<Problem
+  client:load
+  id="clb-prob-continuous-measurable"
+  difficulty="standard"
+  prompt="A function f : ℝ → ℝ is continuous. Must f be measurable with respect to the Lebesgue measure on ℝ?"
+  hint="Think about preimages of open sets under continuous maps, and what the Lebesgue (and Borel) σ-algebra contains."
+  solution="Yes. A function is Lebesgue-measurable if and only if the preimage f⁻¹(U) of every open set U ⊆ ℝ is Lebesgue-measurable. For a continuous f, the preimage of any open set is open (by the topological definition of continuity). Every open subset of ℝ is Borel (hence Lebesgue) measurable. So f⁻¹(U) is Lebesgue measurable for every open U, which means f is Lebesgue measurable."
+/>
+
+</SlideLayout>

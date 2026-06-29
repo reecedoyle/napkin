@@ -1,0 +1,27 @@
+---
+title: Characters form an orthonormal basis
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Characters form an orthonormal basis">
+
+Here is the central theorem of this chapter. It unifies all the Fourier theories we have seen.
+
+<Callout kind="theorem" title="Characters of G-hat form an orthonormal basis">
+Assume $G$ is LCA and compact (so $\wh G$ is discrete). The characters
+$$e_\xi(x) = \exp(2\pi i\, \xi(x)), \qquad \xi \in \wh G,$$
+form an **orthonormal basis** of $L^2(G)$.
+
+Thus every $f \in L^2(G)$ has a Fourier expansion
+$$f = \sum_{\xi \in \wh G} \wh f(\xi)\, e_\xi$$
+where the <Term k="fourierCoeffLCA">**Fourier coefficients**</Term> are
+$$\wh f(\xi) = \langle f, e_\xi \rangle = \int_G f(x)\, \exp(-2\pi i\, \xi(x))\, d\mu.$$
+</Callout>
+
+The orthonormality $\langle e_\xi, e_{\xi'} \rangle = [[\xi = \xi']]$ follows directly from character integration: integrating a nontrivial character over a compact group gives zero.
+
+This theorem says: **on any compact LCA group, Fourier analysis works perfectly** — every square-integrable function expands as a (possibly infinite) series in the characters.
+
+</SlideLayout>

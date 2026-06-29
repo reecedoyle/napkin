@@ -1,0 +1,24 @@
+---
+title: Improper integrals of nonneg functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Improper integrals of nonneg functions">
+
+For nonneg functions, <Term k="improperIntegral">improper Riemann integrals</Term> and Lebesgue integrals over open intervals agree perfectly.
+
+<Callout kind="theorem" title="Improper integrals are nice Lebesgue ones">
+Let $f \ge 0$ be a continuous nonneg function on $(a,b) \subseteq \mathbb{R}$ (allowing $a = -\infty$ or $b = \infty$). Then
+
+$$\int_{(a,b)} f \; d\mu = \lim_{\substack{a' \to a^+ \\ b' \to b^-}} \int_{a'}^{b'} f(x) \; dx,$$
+
+where both sides are allowed to be $+\infty$ if $f$ is not absolutely integrable.
+</Callout>
+
+The Lebesgue integral over the open interval $(a,b)$ exactly captures the limit of Riemann integrals over compact subintervals $[a',b']$ as $a' \to a^+$ and $b' \to b^-$.
+
+This works because $f \ge 0$: there is no cancellation between positive and negative parts, so the limit behaves well regardless of how fast we approach the endpoints.
+
+</SlideLayout>

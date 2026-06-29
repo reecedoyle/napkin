@@ -1,0 +1,24 @@
+---
+title: Proof of compatibility
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Proof of compatibility">
+
+We verify part (b) of the theorem: that $\mu^\ast(A) = \mu_0(A)$ for $A \in \mathcal{A}_0$.
+
+The easy direction: $\mu^\ast(A) \le \mu_0(A)$ since the singleton cover $A_1 = A$ (and $A_n = \varnothing$ for $n > 1$) is a valid covering and contributes $\mu_0(A)$ to the infimum.
+
+<ProofReveal
+  client:load
+  id="clb-s2-proof-compatibility"
+  prompt="Show that μ*(A) ≥ μ₀(A) for A ∈ 𝒜₀."
+  solution="Given any covering A ⊆ ⋃ₙ Aₙ with Aₙ ∈ 𝒜₀, define disjoint sets B₁ = A ∩ A₁, B₂ = (A ∩ A₂) ∖ B₁, B₃ = (A ∩ A₃) ∖ (B₁ ∪ B₂), and so on. Each Bₙ ⊆ Aₙ, all Bₙ are in 𝒜₀, they are pairwise disjoint, and ⊔ₙ Bₙ = A. Since this disjoint union lies in 𝒜₀, the pre-measure axiom gives μ₀(A) = ∑ₙ μ₀(Bₙ) ≤ ∑ₙ μ₀(Aₙ). Taking the infimum over all coverings yields μ*(A) ≥ μ₀(A)."
+/>
+
+The key trick is to replace the covering $A_n$ with a **disjoint** refinement $B_n \subseteq A_n$ that still covers $A$. Then countable additivity of $\mu_0$ applies, and monotonicity finishes the job.
+
+</SlideLayout>

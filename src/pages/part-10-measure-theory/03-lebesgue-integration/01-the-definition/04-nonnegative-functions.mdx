@@ -1,0 +1,26 @@
+---
+title: Step 3 — nonnegative functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Step 3 — nonnegative functions">
+
+Steps 1 and 2 handled simple functions. Now we reach all measurable $f \colon \Omega \to [0,+\infty]$.
+
+**Step 3.** For each <Term k="measurableFunction">measurable function</Term> $f \colon \Omega \to [0, +\infty]$, define
+
+$$\int_\Omega f \; d\mu \defeq \sup_{0 \le s \le f,\; s \text{ simple}} \int_\Omega s \; d\mu.$$
+
+That is, we take the supremum over all simple functions $s$ with $0 \le s \le f$ everywhere.
+
+<Callout kind="remark" title="The key idea">
+We are approximating $f$ from below by simple staircases. As the staircases get finer and finer — tracking $f$ more and more closely — their integrals approach $\int_\Omega f \, d\mu$.
+</Callout>
+
+The integral may be $+\infty$ (and that is fine for nonneg functions). This step is compatible with the previous ones: if $f$ is itself a simple function, the supremum equals the simple-function integral.
+
+Note that $[0,+\infty]$ can be given the Borel $\sigma$-algebra (by adding open sets of the form $(a,+\infty]$), so "measurable $f$ into $[0,+\infty]$" is well-defined.
+
+</SlideLayout>

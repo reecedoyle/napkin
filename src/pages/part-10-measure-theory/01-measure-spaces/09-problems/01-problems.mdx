@@ -1,0 +1,31 @@
+---
+title: Problems — measure spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — measure spaces">
+
+The following problems test the core definitions from this chapter.
+
+<Problem
+  client:load
+  id="ms-prob-intersection-measure-one"
+  difficulty="daggered"
+  prompt="Let (Ω, 𝒜, μ) be a probability space. Show that the intersection of countably many sets of measure 1 also has measure 1."
+  hint="Use the complement: the complement of a measure-1 set has measure 0. What is the measure of a countable union of measure-zero sets?"
+  solution="Let A₁, A₂, … be measurable sets with μ(Aₙ) = 1 for each n. Then μ(Aₙᶜ) = 1 − μ(Aₙ) = 0 for each n. By countable additivity (and sub-additivity), μ(⋃ₙ Aₙᶜ) ≤ ∑ₙ μ(Aₙᶜ) = 0. So ⋃ₙ Aₙᶜ has measure 0. Taking complements: μ(⋂ₙ Aₙ) = μ(Ω) − μ((⋂ₙ Aₙ)ᶜ) = 1 − μ(⋃ₙ Aₙᶜ) = 1 − 0 = 1."
+/>
+
+<Problem
+  client:load
+  id="ms-prob-countable-sigma-algebra"
+  difficulty="standard"
+  prompt="Let 𝒜 be a σ-algebra on a set Ω. Suppose that 𝒜 has countable cardinality. Prove that |𝒜| is finite and equals a power of 2."
+  hint="Each atom of 𝒜 — a minimal non-empty measurable set — is determined by a point of Ω. The atoms partition Ω. A countable σ-algebra can only have finitely many atoms, and 𝒜 consists exactly of all unions of atoms."
+  solution="We call a set A ∈ 𝒜 an atom if it is nonempty and contains no proper nonempty measurable subset. Since 𝒜 is countable, the intersection of all sets in 𝒜 containing a given point ω is itself in 𝒜 (a countable intersection of measurable sets). This intersection is the unique atom containing ω. The atoms partition Ω into pairwise disjoint nonempty sets. If 𝒜 is countable, there are at most countably many atoms; but if there were infinitely many atoms, 𝒜 would contain all subsets of the atom set — a set of cardinality 2^ℵ₀, uncountable. So the number of atoms k is finite, 𝒜 consists of all unions of subsets of the k atoms, and |𝒜| = 2^k."
+/>
+
+</SlideLayout>

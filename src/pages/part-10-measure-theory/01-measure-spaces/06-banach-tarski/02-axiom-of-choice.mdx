@@ -1,0 +1,20 @@
+---
+title: Axiom of Choice and Banach–Tarski
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Axiom of Choice and Banach–Tarski">
+
+The Vitali construction required the Axiom of Choice to pick one representative from each equivalence class. This is not a coincidence.
+
+<Callout kind="remark" title="Axiom of Choice and non-measurable sets">
+Every known construction of a non-measurable set uses the Axiom of Choice. Without it, one cannot prove that non-measurable sets exist. This is why the <Term k="banachTarski">Banach–Tarski paradox</Term> always mentions the Axiom of Choice: the "paradoxical" pieces are non-measurable sets you cannot construct explicitly.
+</Callout>
+
+The <Term k="banachTarski">Banach–Tarski paradox</Term> says a solid ball in $\mathbb{R}^3$ can be decomposed into five pieces and reassembled into two balls of the same size — using only rotations and translations. The pieces are non-measurable. This is a theorem, not actually a paradox — it just shows that volume cannot be defined on all of $2^{\mathbb{R}^3}$.
+
+**The moral:** Restricting to a $\sigma$-algebra (and in particular to Borel sets) is not a limitation but a **feature** — it is exactly the right domain for a consistent notion of size.
+
+</SlideLayout>

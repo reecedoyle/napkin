@@ -1,0 +1,37 @@
+---
+title: Dominated convergence in action
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Dominated convergence in action">
+
+Here is the standard template for a DCT exam question.
+
+<Callout kind="example" title="Computing a limit of integrals via DCT">
+We want $\displaystyle\lim_{n \to \infty} \int_{(0,1)} \frac{n\sin(n^{-1} x)}{\sqrt{x}}\; dx$.
+
+**Step 1 — find the pointwise limit.**
+For fixed $x > 0$: $n\sin(n^{-1}x) = n \cdot \frac{x}{n}\bigl(1 + O(n^{-2})\bigr) \to x$.
+So $\dfrac{n\sin(n^{-1}x)}{\sqrt{x}} \to \dfrac{x}{\sqrt{x}} = \sqrt{x}$.
+
+**Step 2 — find a dominator.**
+We have $\bigl\lvert\sin(\theta)\bigr\rvert \le \lvert\theta\rvert$,
+so $n\lvert\sin(n^{-1}x)\rvert \le x$.
+Thus $\bigl\lvert f_n(x)\bigr\rvert = \dfrac{n|\sin(n^{-1}x)|}{\sqrt{x}} \le \dfrac{x}{\sqrt{x}} = \sqrt{x}$.
+The function $g(x) = \sqrt{x}$ is absolutely integrable on $(0,1)$.
+
+**Step 3 — apply DCT.** By the <Term k="dominatedConvergence">dominated convergence theorem</Term>:
+$$\lim_{n \to \infty} \int_{(0,1)} \frac{n\sin(n^{-1}x)}{\sqrt{x}}\; dx = \int_{(0,1)} \sqrt{x}\; dx = \frac{2}{3}.$$
+</Callout>
+
+<NumericInput
+  client:load
+  id="swap-dct-num-integral"
+  prompt="What is ∫₀¹ √x dx? (Enter as a fraction like 2/3)"
+  expected="2/3"
+/>
+
+</SlideLayout>

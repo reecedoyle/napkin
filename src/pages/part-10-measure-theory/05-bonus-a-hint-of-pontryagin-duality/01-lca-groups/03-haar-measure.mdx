@@ -1,0 +1,28 @@
+---
+title: Haar measure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Haar measure">
+
+The payoff for working with LCA groups: every one of them carries a canonical measure.
+
+<Callout kind="theorem" title="Haar measure">
+Let $G$ be a locally compact abelian group. There exists a measure <Term k="haarMeasure">$\mu$</Term> on the <Term k="borelSigmaAlgebra">Borel $\sigma$-algebra $\SB(G)$</Term>, called the **Haar measure**, satisfying:
+- **Translation invariance**: $\mu(gS) = \mu(S)$ for every $g \in G$ and measurable $S$.
+- **Finite on compacta**: $\mu(K) < \infty$ for every compact $K$.
+- **Outer regularity**: $\mu(S) = \inf\{\mu(U) : U \supseteq S,\, U \text{ open}\}$.
+- **Inner regularity**: $\mu(U) = \sup\{\mu(K) : K \subseteq U,\, K \text{ compact}\}$ for open $U$.
+
+Moreover, $\mu$ is unique up to a positive scalar.
+</Callout>
+
+Translation invariance is the key property: it means $\mu$ doesn't favor any particular "location" in the group. This generalizes the familiar fact that Lebesgue measure on $\RR$ satisfies $\lambda(a + S) = \lambda(S)$.
+
+When $G$ is compact, $\mu(G)$ is finite and positive, so we conventionally **normalize $\mu(G) = 1$**. This gives a unique probability measure on any compact LCA group.
+
+The theorem also implies the earlier Lebesgue measure construction on $\SB(\RR^n)$: $\RR^n$ is itself an LCA group, and Lebesgue measure is its Haar measure.
+
+</SlideLayout>

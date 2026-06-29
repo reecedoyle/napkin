@@ -1,0 +1,29 @@
+---
+title: The three big convergence theorems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The three big convergence theorems">
+
+Three results classify when you can swap $\lim$ and $\int$:
+
+<Callout kind="remark" title="The hierarchy">
+
+| Theorem | Hypothesis | Scope |
+|---|---|---|
+| <Term k="fatousLemma">Fatou's lemma</Term> | functions are nonneg. | most general — just a bound |
+| <Term k="monotonoConvergence">Monotone convergence</Term> | nonneg. and $f_n \le f$ | a quick corollary of Fatou |
+| <Term k="dominatedConvergence">Dominated convergence</Term> | $\lvert f_n \rvert \le g$, $g$ integrable | the everyday workhorse |
+
+</Callout>
+
+The logical flow is elegant: Fatou's lemma does the hard work once, and the other two
+fall out as corollaries in just a few lines.
+
+Fatou says: for nonneg. functions, the integral cannot
+*suddenly jump up* when you pass to the limit — but it can drop.
+The dominated convergence theorem adds: if the functions can't wiggle beyond a fixed integrable bound, there's no room for any anomaly at all.
+
+</SlideLayout>

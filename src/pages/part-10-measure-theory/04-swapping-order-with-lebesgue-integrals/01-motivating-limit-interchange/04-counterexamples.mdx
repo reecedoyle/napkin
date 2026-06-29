@@ -1,0 +1,30 @@
+---
+title: Counterexamples — where swapping fails
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Counterexamples — where swapping fails">
+
+Even innocent-looking sequences can break the interchange. Here are two revealing failures.
+
+<Callout kind="example" title="Probability mass escaping to infinity">
+Let $f_k(x) = \frac{\mathbf{1}_{(0,k)}}{k}$. As $k \to \infty$, $f_k(x) \to 0$ pointwise —
+in fact *uniformly* — yet $\int f_k \; dx = 1$ for every $k$, while $\int 0 \; dx = 0$.
+The mass doesn't disappear; it spreads thinner across an ever-wider domain.
+</Callout>
+
+<Callout kind="example" title="The Witch's hat — mass on a shrinking spike">
+Let $f_k(x) = k \cdot \mathbf{1}_{(0,\,1/k)}$. Again $f_k \to 0$ pointwise,
+yet $\int f_k \; dx = 1$ for every $k$.
+Here the mass concentrates on a spike that shrinks but grows taller.
+</Callout>
+
+In both cases the function sequence has a unit "lump" of integral that goes missing in the limit.
+The common thread: there is no fixed <Term k="dominatingFunction">dominating function</Term>
+$g$ with $|f_k| \le g$ and $\int g < \infty$.
+
+The convergence theorems of this chapter tell us exactly what extra condition prevents these anomalies.
+
+</SlideLayout>

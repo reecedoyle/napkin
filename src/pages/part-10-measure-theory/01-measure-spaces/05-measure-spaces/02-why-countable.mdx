@@ -1,0 +1,26 @@
+---
+title: Why countable additivity?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why countable additivity?">
+
+The axioms stop at **countable** unions and additivity. Why not uncountable?
+
+<Callout kind="remark" title="Uncountable sums never work">
+An uncountable collection of positive real numbers cannot have a finite sum. Here is the elementary reason: if you sum uncountably many positive reals, for each $n$ there must be at least one summand $\geq 1/n$ (else the total would be at most $|\mathbb{N}| \cdot (1/n) = \infty$). Actually, infinitely many summands are $\geq 1/n$ for each $n$, so the total is infinite.
+</Callout>
+
+Concretely: the unit interval $[0,1]$ is a union of uncountably many points, each with Lebesgue measure 0. If we required uncountable additivity, we would get $\lambda([0,1]) = 0$ — a contradiction with the obvious $\lambda([0,1]) = 1$.
+
+So <Term k="countableAdditivity">countable additivity</Term> is the right balance:
+
+- **Finite** additivity alone is too weak — we couldn't compute the area of a circle by limits of polygons.
+- **Uncountable** additivity would force every set to have measure 0 or $\infty$.
+- **Countable** additivity is exactly right for limits and integration.
+
+This is also why we use $\sigma$-algebras (closed under countable unions) and not something larger.
+
+</SlideLayout>

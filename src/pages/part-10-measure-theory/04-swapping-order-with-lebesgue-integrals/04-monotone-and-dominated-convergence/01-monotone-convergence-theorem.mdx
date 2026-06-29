@@ -1,0 +1,32 @@
+---
+title: Monotone convergence theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Monotone convergence theorem">
+
+The first application of Fatou's lemma gives a clean result when the sequence is "bounded from above by its own limit."
+
+<Callout kind="corollary" title="Monotone convergence theorem">
+Let $f$ and $f_1, f_2, \dots \colon \Omega \to [0,+\infty]$ be
+<Term k="nonnegMeasurable">nonneg. measurable functions</Term> with
+$\lim_{n} f_n = f$ pointwise and $f_n(\omega) \le f(\omega)$ for each $n$.
+Then
+$$\lim_{n \to \infty} \int_\Omega f_n\; d\mu \;=\; \int_\Omega f\; d\mu.$$
+Both sides may be $+\infty$.
+</Callout>
+
+The proof is four lines:
+
+$$\int_\Omega f\; d\mu
+ = \int_\Omega \!\Bigl(\liminf_n f_n\Bigr)\; d\mu
+ \le \liminf_n \int_\Omega f_n\; d\mu
+ \le \limsup_n \int_\Omega f_n\; d\mu
+ \le \int_\Omega f\; d\mu.$$
+
+The first inequality is Fatou's lemma. The last uses $f_n \le f$ for all $n$, so $\int f_n \le \int f$.
+All four quantities are therefore equal.
+
+</SlideLayout>

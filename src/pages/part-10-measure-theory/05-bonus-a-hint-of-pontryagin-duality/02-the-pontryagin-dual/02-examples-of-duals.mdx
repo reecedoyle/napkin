@@ -1,0 +1,31 @@
+---
+title: Examples of Pontryagin duals
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of Pontryagin duals">
+
+The four most important LCA groups and their duals:
+
+<Callout kind="example" title="Computing Pontryagin duals">
+- $\wh{\ZZ} \cong \TT$. A homomorphism $\ZZ \to \TT$ is determined by where $1$ goes, and it can go anywhere in $\TT$.
+- $\wh{\TT} \cong \ZZ$. The characters of $\TT$ are $\theta \mapsto e^{2\pi i n\theta}$ for $n \in \ZZ$.
+- $\wh{\RR} \cong \RR$. Each $\xi \in \RR$ gives the character $x \mapsto e^{2\pi i \xi x}$.
+- $\wh{\Zc{n}} \cong \Zc{n}$. Characters are determined by the image of the generator $1$.
+- $\wh{G \times H} \cong \wh G \times \wh H$.
+</Callout>
+
+Notice the symmetry: $\ZZ$ and $\TT$ are dual to each other (one discrete, one compact). $\RR$ is self-dual.
+
+The <Term k="pontryaginDualityThm">Pontryagin duality theorem</Term> says this is always true:
+
+<Callout kind="theorem" title="Pontryagin duality">
+For any LCA group $G$, there is a natural isomorphism
+$$G \cong \wh{\wh G} \qquad \text{by} \qquad x \mapsto \bigl(\xi \mapsto \xi(x)\bigr).$$
+</Callout>
+
+This is the group-theoretic analogue of the double-dual isomorphism $V \cong (V^\vee)^\vee$ for finite-dimensional vector spaces.
+
+</SlideLayout>

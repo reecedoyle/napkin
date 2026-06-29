@@ -1,0 +1,32 @@
+---
+title: Egorov's theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Egorov's theorem">
+
+The counterexamples all had their "bad behavior" concentrated in a specific region.
+Egorov's theorem makes this precise.
+
+<Callout kind="theorem" title="Egorov's theorem">
+Let $(\Omega, \mu)$ be a measure space with $\mu(\Omega) < \infty$.
+Let $f_1, f_2, \dots$ and $f \colon \Omega \to \RR$ be measurable with $f_n \to f$ pointwise
+almost everywhere. For any $\eps > 0$ there exists a measurable $U \subseteq \Omega$ such that:
+$$\mu(\Omega \setminus U) < \eps,$$
+and the convergence of $f_n \to f$ is <Term k="uniformConvergence">uniform</Term> on $U$.
+</Callout>
+
+In words: the failure of uniform convergence is always confined to a set of measure less than $\eps$.
+Delete that small set and everything is well-behaved.
+
+<Callout kind="theorem" title="Uniform convergence theorem">
+If $f_n \to f$ uniformly on a finite-measure space, then $f$ is integrable and
+$\lim_n \int f_n\; d\mu = \int f\; d\mu$.
+</Callout>
+
+Together these say: the reason $\int f\; d\mu \neq \lim \int f_k\; d\mu$ is always explained by
+the bad behavior on the exceptional set $\Omega \setminus U$. Remove it, and the interchange is valid.
+
+</SlideLayout>

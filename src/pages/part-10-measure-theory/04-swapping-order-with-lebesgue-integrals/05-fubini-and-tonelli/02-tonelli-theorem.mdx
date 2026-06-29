@@ -1,0 +1,27 @@
+---
+title: Tonelli's theorem — nonneg. functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tonelli's theorem — nonneg. functions">
+
+<Callout kind="theorem" title="Tonelli's theorem">
+Let $(X, \mu)$ and $(Y, \nu)$ be <Term k="sigmaFinite">$\sigma$-finite</Term> measure spaces,
+and let $f \colon X \times Y \to [0,+\infty]$ be <Term k="nonnegMeasurable">nonneg. measurable</Term>.
+Then
+$$\int_{X \times Y} f\; d(\mu \otimes \nu)
+  = \int_X \!\left(\int_Y f(x,y)\; d\nu(y)\right) d\mu(x)
+  = \int_Y \!\left(\int_X f(x,y)\; d\mu(x)\right) d\nu(y).$$
+All three expressions may be $+\infty$, and they are always equal.
+</Callout>
+
+Tonelli is the "Fatou's lemma" of double integrals: *no* absolute integrability required,
+just nonnegativity. The price is that the integral might be infinite.
+
+The $\sigma$-finiteness condition is mild: both Lebesgue measure on $\RR^n$ and any
+probability measure satisfy it. It prevents pathological cases where the product measure
+isn't even well-defined.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Making Ω × ℝ into a measure space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Making Ω × ℝ into a measure space">
+
+The region $R(f) \subseteq \Omega \times \mathbb{R}$ lives in a product space. We need a measure on it.
+
+**Step 2 (Equivalent version).** We define a <Term k="productMeasure">product measure</Term> on $\Omega \times \mathbb{R}$ by assigning
+
+$$|X \times Y| = |X| \times |Y|$$
+
+to any measurable $X \subseteq \Omega$ and $Y \subseteq \mathbb{R}$. This pre-measure extends to a full measure on $\Omega \times \mathbb{R}$ by Carathéodory's theorem (which we used to build Borel measures in the previous chapter).
+
+<Callout kind="remark" title="Intuition">
+On $\Omega = \mathbb{R}$ with Borel measure, the product space $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ gets the usual 2-dimensional Borel measure — the measure of a rectangle $[a,b] \times [c,d]$ is $(b-a)(d-c)$, which is its area. So "volume of the region under the graph" really is the usual area for functions $\mathbb{R} \to \mathbb{R}$.
+</Callout>
+
+**Step 3 (Equivalent version).** For each nonneg measurable $f \colon \Omega \to [0,+\infty]$:
+
+$$\int_\Omega f \; d\mu \defeq |R(f)|.$$
+
+This is well-defined whenever $R(f)$ is measurable in $\Omega \times \mathbb{R}$.
+
+</SlideLayout>

@@ -1,0 +1,32 @@
+---
+title: "Problem — sin(x)/x on (1,∞)"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — sin(x)/x on (1,∞)">
+
+This is the canonical example separating absolute integrability from conditional convergence of improper integrals.
+
+<Problem
+  client:load
+  id="leb-prob-sin-over-x"
+  difficulty="daggered"
+  prompt="Define f : (1,∞) → ℝ by f(x) = sin(x)/x. Show that f is not absolutely integrable, but that the improper Riemann integral ∫₁^∞ f(x) dx := lim_{b→∞} ∫₁^b f(x) dx exists."
+  hint="For non-absolute-integrability: on each interval [kπ, (k+1)π], bound |sin(x)/x| from below using |sin x| ≥ 0 and the fact that 1/x ≥ 1/((k+1)π). For conditional convergence: integrate by parts, or use the Dirichlet test for improper integrals."
+  solution="Non-absolute-integrability: On the interval [kπ, (k+1)π] for k ≥ 1, we have |sin(x)/x| ≥ |sin x| / ((k+1)π). Integrating over [kπ,(k+1)π]:
+
+∫_{kπ}^{(k+1)π} |sin(x)/x| dx ≥ (1/((k+1)π)) ∫_{kπ}^{(k+1)π} |sin x| dx = 2/((k+1)π).
+
+Summing over k = 1, 2, 3, …: ∫₁^∞ |sin(x)/x| dx ≥ ∑_{k=1}^∞ 2/((k+1)π) = ∞, since the harmonic series diverges.
+
+Conditional convergence: Write I(b) = ∫₁^b sin(x)/x dx. Integrate by parts with u = 1/x, dv = sin(x) dx:
+
+I(b) = [-cos(x)/x]₁^b − ∫₁^b cos(x)/x² dx = (cos 1 − cos(b)/b) − ∫₁^b cos(x)/x² dx.
+
+As b → ∞, cos(b)/b → 0. The remaining integral ∫₁^∞ cos(x)/x² dx converges absolutely since |cos(x)/x²| ≤ 1/x² and ∫₁^∞ 1/x² dx = 1 < ∞. So I(b) converges to a finite limit."
+/>
+
+</SlideLayout>

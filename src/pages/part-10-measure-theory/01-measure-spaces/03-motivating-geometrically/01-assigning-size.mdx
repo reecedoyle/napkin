@@ -1,0 +1,23 @@
+---
+title: Assigning size to sets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Assigning size to sets">
+
+Forget probability for a moment. We want to assign a **size** (think: area) to subsets of $\mathbb{R}^2$.
+
+Triangles and rectangles are fine. Circles are fine — approximate with polygons. But the trouble comes with stranger sets:
+
+- What is the area of <Term k="QQ">$\mathbb{Q}^2$</Term> (the rational points in the plane)? It turns out "zero" works, but it takes a theory to say so.
+- A unit disk is a union of infinitely many points. Each point has area zero — yet together they have area $\pi$. Something must be said about how that happens.
+
+<Callout kind="remark" title="The naive approach fails">
+If you try to assign a "measure" to **every** subset of $\mathbb{R}^2$ while respecting rotation-invariance and additivity, you quickly run into contradictions. The <Term k="banachTarski">Banach–Tarski paradox</Term> makes this precise in $\mathbb{R}^3$.
+</Callout>
+
+The escape: restrict to a **sufficiently nice** family of sets — the **measurable** sets — and assign sizes only to those. Practically, this rules out nothing we actually care about.
+
+</SlideLayout>

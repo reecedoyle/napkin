@@ -1,0 +1,28 @@
+---
+title: L²(G) and its inner product
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="L²(G) and its inner product">
+
+Let $G$ be a compact LCA group with its normalized <Term k="haarMeasure">Haar measure</Term> $\mu$ (so $\mu(G) = 1$). We can now set up a Hilbert space of functions on $G$.
+
+<Callout kind="definition" title="L²(G)">
+The space <Term k="lTwoGroup">$L^2(G)$</Term> consists of all measurable functions $f \colon G \to \CC$ with
+$$\int_G |f|^2 \, d\mu < \infty,$$
+with the inner product
+$$\langle f, g \rangle = \int_G f \cdot \ol{g} \, d\mu.$$
+</Callout>
+
+This is exactly the Hilbert space framework we need to state a general Fourier theorem.
+
+For each character <Term k="character">$\xi \in \wh G$</Term>, define
+$$e_\xi \colon G \to \CC \qquad \text{by} \qquad e_\xi(x) = \exp(2\pi i \, \xi(x)).$$
+
+These are the "complex exponentials" of the group $G$ — the analogues of $e^{2\pi i n x}$ on $\TT$.
+
+Since $G$ is compact and $\wh G$ is discrete (by the compact $\Leftrightarrow$ discrete proposition), the sum $\sum_{\xi \in \wh G}$ makes sense as a countable sum.
+
+</SlideLayout>

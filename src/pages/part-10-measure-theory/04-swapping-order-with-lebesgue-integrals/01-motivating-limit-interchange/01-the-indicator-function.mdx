@@ -1,0 +1,27 @@
+---
+title: The indicator function that broke Riemann
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The indicator function that broke Riemann">
+
+One poster child for why the Lebesgue integral beats Riemann is the function
+<Term k="indicatorQQ">$\mathbf{1}_\QQ$</Term> — the function that is 1 on rationals and 0 on irrationals.
+
+The Riemann integral of $\mathbf{1}_\QQ$ on $[0,1]$ does not exist: every subinterval contains
+both rationals and irrationals, so upper and lower Riemann sums never agree.
+
+The Lebesgue integral, by contrast, is immediate:
+
+$$\int_{[0,1]} \mathbf{1}_\QQ \; d\mu = \mu\!\left([0,1] \cap \QQ\right) = 0$$
+
+because $\QQ$ is countable and every countable set has <Term k="measureZero">measure zero</Term>.
+
+<Callout kind="remark" title="Why this matters for limits">
+It gets more interesting when we ask: can $\mathbf{1}_\QQ$ be a *limit* of nicer functions?
+Yes — and that's where the question of swapping limits and integrals comes in.
+</Callout>
+
+</SlideLayout>

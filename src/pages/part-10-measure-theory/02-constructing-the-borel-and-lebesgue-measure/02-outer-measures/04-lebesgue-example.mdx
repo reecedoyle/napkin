@@ -1,0 +1,26 @@
+---
+title: The Lebesgue outer measure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Lebesgue outer measure">
+
+Applying the construction to the rectangle pre-measure $\lambda_0$ gives the <Term k="lebesgueOuterMeasure">**Lebesgue outer measure**</Term> $\lambda^\ast$.
+
+<Callout kind="example" title="Lebesgue outer measure on ℝ²">
+For $\Omega = \mathbb{R}^2$ and $\lambda_0$ the area pre-measure on rectangles:
+
+$$\lambda^\ast(A) = \inf\left\{ \sum_n \lambda_0(R_n) \;\middle|\; R_n \text{ rectangles},\; A \subseteq \bigcup_n R_n \right\}$$
+
+This is exactly the idea of "approximate $A$ from outside by a countable cover of rectangles and minimize total area." For the unit disk, you'd take smaller and smaller rectangle grids.
+</Callout>
+
+By the theorem, $\lambda^\ast$ is an outer measure on $2^{\mathbb{R}^2}$ — it assigns a size to **every** subset of $\mathbb{R}^2$ (including non-measurable ones!). And it agrees with $\lambda_0$ on all rectangles.
+
+<Callout kind="remark" title="Why sub-additivity and not additivity?">
+The infimum-over-covers definition naturally yields sub-additivity. If $A \subseteq \bigcup A_n$ and $B \subseteq \bigcup B_n$, then $A \cup B \subseteq \bigcup A_n \cup \bigcup B_n$, giving $\lambda^\ast(A \cup B) \le \lambda^\ast(A) + \lambda^\ast(B)$. Getting exact equality for disjoint sets requires picking which sets are "measurable" — that is the Carathéodory step.
+</Callout>
+
+</SlideLayout>

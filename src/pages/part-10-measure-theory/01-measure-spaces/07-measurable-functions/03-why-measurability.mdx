@@ -1,0 +1,24 @@
+---
+title: Why measurability matters for integration
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why measurability matters for integration">
+
+The definition of <Term k="measurableFunction">measurable function</Term> might feel abstract. Here is the connection to integration.
+
+<Callout kind="remark" title="Measurability is exactly integrability">
+For a nonnegative function $f \colon \Omega \to \mathbb{R}_{\geq 0}$ on a measure space $(\Omega, \mathcal{A}, \mu)$, the Lebesgue integral
+
+$$\int_\Omega f \, d\mu$$
+
+exists (possibly equal to $+\infty$) **if and only if** $f$ is measurable.
+</Callout>
+
+This is why the definition uses preimages: when we define $\int f \, d\mu$, we approximate $f$ from below by simple functions of the form $\sum_i c_i \mathbf{1}_{A_i}$. For this to make sense, each $A_i$ must be in the $\sigma$-algebra $\mathcal{A}$, i.e., each level set of $f$ must be measurable.
+
+In short: measurability is the correct hypothesis for the Lebesgue integral to be well-defined. Continuity would be too restrictive; no hypothesis would be too weak.
+
+</SlideLayout>

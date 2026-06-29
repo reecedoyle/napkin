@@ -1,0 +1,28 @@
+---
+title: Absolutely integrable functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Absolutely integrable functions">
+
+Every measurable $f \colon \Omega \to [0,+\infty]$ gets a Lebesgue integral — possibly $+\infty$. Saying a function is "integrable" is a much stronger demand.
+
+<Callout kind="definition" title="Absolutely integrable (nonneg case)">
+A nonnegative measurable function $f \colon \Omega \to [0, +\infty]$ is <Term k="absolutelyIntegrable">**absolutely integrable**</Term> (or just **integrable**) if $\int_\Omega f \; d\mu < \infty$.
+</Callout>
+
+This name is confusing! Every nonneg measurable function *has* a Lebesgue integral — it is just that the integral might be infinite. "Integrable" demands that the integral is *finite*.
+
+<Callout kind="example" title="The constant function 1 on ℝ">
+The constant function $f \equiv 1$ is **not** absolutely integrable on $\mathbb{R}$ with Borel measure:
+
+$$\int_\mathbb{R} 1 \; d\mu = \mu(\mathbb{R}) = +\infty.$$
+
+Even though $f$ is perfectly nice, the domain is too big.
+</Callout>
+
+Evan Chen prefers the name **"finitely integrable"** privately (it's more honest: it means the integral is finite), but "absolutely integrable" is standard. We will use both names — just remember: having an integral is not the same as being integrable.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: The monotone name is misleading
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The monotone name is misleading">
+
+The standard textbook version of the <Term k="monotonoConvergence">monotone convergence theorem</Term>
+states a stronger hypothesis: $f_1(\omega) \le f_2(\omega) \le \dots \le f(\omega)$ for all $\omega$.
+That pointwise chain is where the name "monotone" comes from.
+
+<Callout kind="remark" title="The monotone hypothesis is superfluous">
+Our version only requires $f_n(\omega) \le f(\omega)$ for all $n$ — the functions need not be
+increasing in $n$. This weaker condition is actually sufficient, and implies the usual version.
+(The implication goes: a monotone increasing chain bounded above by $f$ automatically satisfies
+each $f_n \le f$.)
+
+This observation appears on MathOverflow in a thread titled
+"Do you know of any very important theorems that remain unknown?" — a testament to how rarely
+the cleaner version is taught.
+</Callout>
+
+For everyday use, both formulations give the same result. The cleaner version is simply more versatile
+when you are trying to prove something general and monotonicity of the sequence is hard to verify.
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Measurable functions and measurable regions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Measurable functions and measurable regions">
+
+When is $R(f)$ measurable? Exactly when $f$ is a <Term k="measurableFunction">measurable function</Term>.
+
+<Callout kind="proposition" title="Measurability criterion">
+A nonneg function $f$ is measurable if and only if the region $R(f) = \{(x,y) : 0 \le y \le f(x)\}$ is measurable in $\Omega \times \mathbb{R}$.
+</Callout>
+
+This is the payoff of the definition of measurable function: it was set up *precisely* so that we can measure the region below the graph.
+
+**Step 4 (Equivalent version).** For signed $f$, define positive and negative regions:
+
+$$R^+(f) = \{(x,y) : f(x) \ge 0,\; 0 \le y \le f(x)\} = R(f^+)$$
+$$R^-(f) = \{(x,y) : f(x) \le 0,\; f(x) \le y \le 0\},$$
+
+where $|R^-(f)| = |R(f^-)|$ since $R^-(f)$ reflects $R(f^-)$ across the $x$-axis without changing area. Then if $f$ is absolutely integrable:
+
+$$\int_\Omega f \; d\mu = |R^+(f)| - |R^-(f)|.$$
+
+Both definitions — the sup-of-simples and the volume-under-graph — give the same integral. The volume picture is more intuitive; the sup-of-simples picture is easier to prove things with.
+
+</SlideLayout>

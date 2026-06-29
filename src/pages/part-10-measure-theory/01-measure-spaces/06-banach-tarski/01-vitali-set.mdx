@@ -1,0 +1,27 @@
+---
+title: The Vitali set — why 2^Ω fails
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Vitali set — why 2^Ω fails">
+
+We claimed that assigning a measure to every subset of $\mathbb{R}^n$ is impossible. Here is the proof by example on the unit circle.
+
+<Callout kind="example" title="Vitali set on the unit circle">
+Let $\Omega$ be the unit circle in $\mathbb{R}^2$ and suppose we want any rotation-invariant probability measure $\mu$ on $\mathcal{A} = 2^\Omega$.
+
+Define an equivalence relation: two points are **equivalent** if one is obtained from the other by rotating by a **rational multiple of $\pi$**. By the Axiom of Choice, pick one representative from each equivalence class; call this set <Term k="vitaliSet">$X$</Term>.
+
+Then
+$$\Omega = \bigsqcup_{\substack{q \in \mathbb{Q} \\ 0 \le q < 2}} \bigl( X \text{ rotated by } q\pi \bigr).$$
+
+Each rotated copy of $X$ must have the same measure $m$ (rotation-invariance). But countable additivity on this countable disjoint union gives $\mu(\Omega) = \sum_{q} m$:
+- If $m = 0$: $\mu(\Omega) = 0 \neq 1$.
+- If $m > 0$: $\mu(\Omega) = +\infty \neq 1$.
+
+Contradiction. So no such measure exists on $2^\Omega$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Lebesgue integration — overview
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lebesgue integration — overview">
+
+We have a <Term k="measureSpace">measure space $(\Omega, \mathcal{A}, \mu)$</Term> and a function $f \colon \Omega \to [0,\infty]$. We want to assign a number
+
+$$\int_\Omega f \; d\mu$$
+
+called the <Term k="lebesgueIntegral">Lebesgue integral</Term> of $f$ with respect to $\mu$.
+
+This integral may be $+\infty$. The construction works in four steps, each extending the previous one:
+
+1. **Indicator functions** — we know exactly how much a set "weighs".
+2. **Simple functions** — finite linear combinations of indicators.
+3. **Nonnegative functions** — approximate from below by simple functions.
+4. **Absolutely integrable functions** — split into positive and negative parts.
+
+<Callout kind="remark" title="Why bother?">
+The Riemann integral works by slicing the *domain* (the x-axis) into thin strips. The Lebesgue integral instead slices the *range* (the y-axis). This change of perspective makes the theory far more powerful — and lets us integrate many functions that Riemann cannot handle.
+</Callout>
+
+</SlideLayout>
