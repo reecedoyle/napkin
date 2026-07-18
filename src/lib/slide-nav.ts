@@ -92,6 +92,7 @@ export const partTitles: Record<string, string> = {
   'part-10-measure-theory': 'Part X — Measure Theory',
   'part-11-probability': 'Part XI — Probability',
   'part-12-differential-geometry': 'Part XII — Differential Geometry',
+  'part-13-riemann-surfaces': 'Part XIII — Riemann Surfaces',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -141,6 +142,12 @@ export const chapterTitles: Record<string, string> = {
   'part-12-differential-geometry/02-differential-forms': 'Chapter 44 — Differential forms',
   'part-12-differential-geometry/03-integrating-differential-forms': 'Chapter 45 — Integrating differential forms',
   'part-12-differential-geometry/04-a-bit-of-manifolds': 'Chapter 46 — A bit of manifolds',
+  'part-13-riemann-surfaces/01-basic-definitions-of-riemann-surfaces': 'Chapter 47 — Basic definitions of Riemann surfaces',
+  'part-13-riemann-surfaces/02-morphisms-between-riemann-surfaces': 'Chapter 48 — Morphisms between Riemann surfaces',
+  'part-13-riemann-surfaces/03-affine-and-projective-plane-curves': 'Chapter 49 — Affine and projective plane curves',
+  'part-13-riemann-surfaces/04-differential-forms': 'Chapter 50 — Differential forms',
+  'part-13-riemann-surfaces/05-the-riemann-roch-theorem': 'Chapter 51 — The Riemann-Roch theorem',
+  'part-13-riemann-surfaces/06-line-bundles': 'Chapter 52 — Line bundles',
 };
 
 export const sectionTitles: Record<string, string> = {
