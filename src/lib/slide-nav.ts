@@ -93,6 +93,7 @@ export const partTitles: Record<string, string> = {
   'part-11-probability': 'Part XI — Probability',
   'part-12-differential-geometry': 'Part XII — Differential Geometry',
   'part-13-riemann-surfaces': 'Part XIII — Riemann Surfaces',
+  'part-14-algebraic-nt-i-rings-of-integers': 'Part XIV — Algebraic NT I: Rings of Integers',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -148,6 +149,12 @@ export const chapterTitles: Record<string, string> = {
   'part-13-riemann-surfaces/04-differential-forms': 'Chapter 50 — Differential forms',
   'part-13-riemann-surfaces/05-the-riemann-roch-theorem': 'Chapter 51 — The Riemann-Roch theorem',
   'part-13-riemann-surfaces/06-line-bundles': 'Chapter 52 — Line bundles',
+  'part-14-algebraic-nt-i-rings-of-integers/01-algebraic-integers': 'Chapter 53 — Algebraic integers',
+  'part-14-algebraic-nt-i-rings-of-integers/02-the-ring-of-integers': 'Chapter 54 — The ring of integers',
+  'part-14-algebraic-nt-i-rings-of-integers/03-unique-factorization-finally': 'Chapter 55 — Unique factorization (finally!)',
+  'part-14-algebraic-nt-i-rings-of-integers/04-minkowski-bound-and-class-groups': 'Chapter 56 — Minkowski bound and class groups',
+  'part-14-algebraic-nt-i-rings-of-integers/05-more-properties-of-the-discriminant': 'Chapter 57 — More properties of the discriminant',
+  'part-14-algebraic-nt-i-rings-of-integers/06-bonus-let-s-solve-pell-s-equation': "Chapter 58 — Bonus: Let's solve Pell's equation!",
 };
 
 export const sectionTitles: Record<string, string> = {
