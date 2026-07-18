@@ -25,7 +25,7 @@ $= S_{n-1}^2 + \\mathbb{E}[(\\pm 1)^2] - n = S_{n-1}^2 + 1 - n = (S_{n-1}^2 - (n
 **(b)** Let $\\lambda = q/p$. Then $Y_n = \\lambda^{S_n}$ where $S_n = X_1 + \\cdots + X_n$. Given $S_{n-1}$:
 
 $\\mathbb{E}(Y_n \\mid S_{n-1}) = \\lambda^{S_{n-1}} \\cdot (p \\cdot \\lambda^1 + q \\cdot \\lambda^{-1}) = \\lambda^{S_{n-1}} \\cdot (p \\cdot (q/p) + q \\cdot (p/q))$
-$= \\lambda^{S_{n-1}} \\cdot (q + p) \\cdot \\frac{p+q}{?}$... In fact $p \\cdot (q/p) + q \\cdot (p/q) = q + p^2/q$. Wait — let's be careful: $p\\lambda + q/\\lambda = p(q/p) + q(p/q) = q + p^2/q$. Actually we want $p \\cdot \\lambda + q \\cdot \\lambda^{-1} = p(q/p) + q(p/q) = q + p = 1$. So $\\mathbb{E}(Y_n \\mid S_{n-1}) = \\lambda^{S_{n-1}} \\cdot 1 = Y_{n-1}$.
+$= \\lambda^{S_{n-1}} \\cdot (q + p) = \\lambda^{S_{n-1}} \\cdot 1 = Y_{n-1}.$ The key identity is $p \\cdot \\tfrac{q}{p} + q \\cdot \\tfrac{p}{q} = q + p = 1$.
 
 **(c)** After $n$ minutes there are $n+2$ marbles; let $r_n = R_n/(n+2)$ where $R_n$ is the number of red. In the next step, we remove a red marble (prob $r_n$) and add two red, so $R_{n+1} = R_n + 1$; or remove a blue (prob $1-r_n$) and add two blue, so $R_{n+1} = R_n$. Thus:
 

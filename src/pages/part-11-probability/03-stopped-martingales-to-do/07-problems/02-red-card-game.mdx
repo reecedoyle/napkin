@@ -16,7 +16,7 @@ Across all possible strategies, determine the maximal probability of winning."
   hint="There is a cute elementary solution. For the martingale-based solution, show that the fraction of red cards remaining in the deck at time $n$ is a martingale."
   solution="The answer is 1/2, and every strategy achieves exactly 1/2.
 
-**Elementary argument.** In any stopping strategy, you stop at some time $T$ (possibly after seeing all cards). The next card is equally likely to be any of the unseen cards. Since half of the unseen cards are red on average — wait, this isn't quite right since $T$ depends on what you've seen.
+**Intuition.** Whenever you stop, the next card is equally likely to be any of the cards you have not yet seen, so your instantaneous chance of winning is exactly the fraction of red cards left in the deck. The subtlety is that your stopping time depends on what you have already seen, so we cannot just say that half the unseen cards are red. The martingale argument below makes the symmetry precise and shows the fraction-red-remaining is unaffected, on average, by any stopping rule.
 
 **Martingale argument.** Let $R_n$ be the number of red cards remaining and $B_n$ be the number of black cards remaining after $n$ draws. Let $X_n = R_n / (R_n + B_n)$ be the fraction of red cards in the remaining deck. We have $X_0 = 1/2$.
 
