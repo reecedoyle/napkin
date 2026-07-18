@@ -1,0 +1,26 @@
+---
+title: Number fields — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Number fields — definition">
+
+We've been adjoining algebraic numbers to $\mathbb{Q}$ and getting bigger fields. Let's give this a name.
+
+<Callout kind="definition" title="Number field">
+A **number field** $K$ is a <Term k="field">field</Term> containing <Term k="QQ">$\mathbb{Q}$</Term> as a subfield that is finite-dimensional as a <Term k="vectorSpace">$\mathbb{Q}$-vector space</Term>. The <Term k="dimension">**degree**</Term> of $K$ is $\dim_{\mathbb{Q}} K$, written $[K : \mathbb{Q}]$.
+</Callout>
+
+The prototype is $K = \mathbb{Q}(\sqrt{2}) = \{a + b\sqrt{2} \mid a, b \in \mathbb{Q}\}$.
+
+- It contains $\mathbb{Q}$ (set $b = 0$).
+- It's a field: $\frac{1}{3 - \sqrt{2}} = \frac{3 + \sqrt{2}}{7}$, so inverses stay inside $K$.
+- As a $\mathbb{Q}$-vector space, a <Term k="basis">basis</Term> is $\{1, \sqrt{2}\}$, so $[K:\mathbb{Q}] = 2$.
+
+<Callout kind="example" title="Non-examples">
+$\mathbb{R}$ and $\mathbb{C}$ are fields containing $\mathbb{Q}$, but they are **not** number fields: they are infinite-dimensional over $\mathbb{Q}$ (no finite $\mathbb{Q}$-basis exists).
+</Callout>
+
+</SlideLayout>

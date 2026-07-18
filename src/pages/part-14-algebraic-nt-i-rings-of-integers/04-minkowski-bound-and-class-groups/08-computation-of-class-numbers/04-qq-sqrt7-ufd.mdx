@@ -1,0 +1,27 @@
+---
+title: ℚ(√7) has class number 1 — cherries that are still principal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="ℚ(√7) has class number 1 — cherries that are still principal">
+
+<Callout kind="proposition" title="ℤ[√7] is a UFD">
+$K = \mathbb{Q}(\sqrt{7})$ has class number $1$.
+</Callout>
+
+**Proof.** Signature $(2,0)$, $\Delta_K = 28$ (since $7 \equiv 3 \pmod{4}$, so $\Delta_K = 4 \cdot 7 = 28$).
+
+$$M_K = 1 \cdot \frac{2!}{4} \cdot \sqrt{28} = \frac{\sqrt{28}}{2} = \sqrt{7} \approx 2.646.$$
+
+Only branch: $(2)$. The polynomial $x^2 - 7 \equiv (x-1)(x+1) \pmod{2}$, so
+
+$$(2) = \mathfrak{p}_1 \mathfrak{p}_2, \quad \mathfrak{p}_1 = (2, \sqrt{7}-1),\; \mathfrak{p}_2 = (2, \sqrt{7}+1).$$
+
+Both cherries have norm $2 \leq M_K$. But one checks that $\mathfrak{p}_1 = (3 - \sqrt{7})$, a principal ideal.
+
+Since $(2) = \mathfrak{p}_1\mathfrak{p}_2$ and $\mathfrak{p}_1$ is principal, $\mathfrak{p}_2 = (2)(3-\sqrt{7})^{-1} = \frac{(2)}{(3-\sqrt{7})}$ is also principal.
+
+Both cherries are principal, so every ideal class is trivial and $h_K = 1$. $\square$
+
+</SlideLayout>

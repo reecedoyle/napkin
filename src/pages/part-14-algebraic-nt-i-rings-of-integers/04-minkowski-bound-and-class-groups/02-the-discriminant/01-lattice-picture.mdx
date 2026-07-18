@@ -1,0 +1,25 @@
+---
+title: 𝒪_K as a lattice
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="𝒪_K as a lattice">
+
+Let's think geometrically. Take $K = \mathbb{Q}(\sqrt{2})$ with $\mathcal{O}_K = \mathbb{Z}[\sqrt{2}]$.
+
+A naive approach: embed $\mathcal{O}_K$ into $\mathbb{Q}^2$ by sending $a + b\sqrt{2} \mapsto (a, b)$. That works, but it depends on the choice of basis.
+
+A **basis-free** approach: use the two field embeddings $\sigma_1, \sigma_2 \colon K \hookrightarrow \mathbb{C}$.
+
+$$\sigma_1(a + b\sqrt{2}) = a + b\sqrt{2}, \quad \sigma_2(a + b\sqrt{2}) = a - b\sqrt{2}.$$
+
+Map each $\alpha \in K$ to the point $(\sigma_1(\alpha), \sigma_2(\alpha)) \in \mathbb{R}^2$. Under this embedding, $\mathcal{O}_K$ becomes a lattice in $\mathbb{R}^2$.
+
+<Callout kind="remark" title="Why this is better">
+Both embeddings have real image for $\mathbb{Q}(\sqrt{2})$. Sending $\alpha$ to $(\sigma_1(\alpha), \sigma_2(\alpha))$ captures the full arithmetic structure without choosing a particular basis — the "shape" of the lattice reflects properties of $K$ itself.
+</Callout>
+
+The generator $1$ maps to $(1, 1)$ and $\sqrt{2}$ maps to $(\sqrt{2}, -\sqrt{2})$. These span the lattice.
+
+</SlideLayout>

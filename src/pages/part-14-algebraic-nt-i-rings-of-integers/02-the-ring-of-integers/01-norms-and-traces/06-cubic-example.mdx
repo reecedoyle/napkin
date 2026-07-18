@@ -1,0 +1,23 @@
+---
+title: Norm in ℚ(∛2) — conjugates leaving the field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Norm in ℚ(∛2) — conjugates leaving the field">
+
+Something interesting happens in degree-3 fields: the conjugates of an element need not lie in the field itself.
+
+<Callout kind="example" title="Norm of a + b∛2 + c∛4">
+Let $K = \QQ(\cbrt{2})$ and $\alpha = a + b\cbrt{2} + c\cbrt{4}$ with $b \neq 0$ or $c \neq 0$. Here $\deg \alpha = \deg K = 3$, so $k = 1$.
+
+Let $\omega = e^{2\pi i/3}$ be a primitive cube root of unity. The three Galois conjugates of $\alpha$ are:
+$$\alpha,\quad a + b\cbrt{2}\,\omega + c\cbrt{4}\,\omega^2,\quad a + b\cbrt{2}\,\omega^2 + c\cbrt{4}\,\omega.$$
+
+One can compute:
+$$\operatorname{N}_{K/\QQ}(\alpha) = a^3 + 2b^3 + 4c^3 - 6abc, \qquad \operatorname{Tr}_{K/\QQ}(\alpha) = 3a.$$
+</Callout>
+
+Note that the second and third conjugates involve $\omega \notin \RR$, so they do **not** lie in $K = \QQ(\cbrt{2}) \subset \RR$. The norm and trace are still rational — in fact, they are still integers when $a, b, c \in \ZZ$ — but the conjugates themselves live outside the field.
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: General formula for quadratic rings of integers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="General formula for quadratic rings of integers">
+
+The pattern from the two examples generalises cleanly.
+
+<Callout kind="theorem" title="Ring of integers of ℚ(√d)">
+Let $d$ be a squarefree integer and $K = \QQ(\sqrt{d})$. Then $\OO_K = \ZZ[\sqrt{d}]$ when $d \equiv 2, 3 \pmod{4}$, and $\OO_K = \ZZ\!\left[\frac{1+\sqrt{d}}{2}\right]$ when $d \equiv 1 \pmod{4}$.
+</Callout>
+
+The mod-4 condition is what decides whether "half-integer" solutions $a, b \in \ZZ + \frac{1}{2}$ can appear. The proof is an elementary congruence computation: if $2a, a^2 - db^2 \in \ZZ$ for rational $a, b$, work modulo 4 to determine when half-integers survive.
+
+**Examples at a glance:**
+- $d = 2$ ($\equiv 2$): $\OO_K = \ZZ[\sqrt{2}]$, basis $\{1, \sqrt{2}\}$
+- $d = 3$ ($\equiv 3$): $\OO_K = \ZZ[\sqrt{3}]$, basis $\{1, \sqrt{3}\}$
+- $d = 5$ ($\equiv 1$): $\OO_K = \ZZ[\frac{1+\sqrt{5}}{2}]$, basis $\{1, \frac{1+\sqrt{5}}{2}\}$
+- $d = -3$ ($\equiv 1$): $\OO_K = \ZZ[\frac{1+\sqrt{-3}}{2}] = \ZZ[\omega]$ where $\omega = e^{2\pi i/3}$
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: Dirichlet's unit theorem — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Dirichlet's unit theorem — statement">
+
+Legend says Dirichlet proved this theorem during an Easter concert in the Sistine Chapel. Whatever the setting, the result is a complete description of all units.
+
+<Callout kind="theorem" title="Dirichlet's unit theorem">
+Let $K$ be a <Term k="an58numberField">number field</Term> with <Term k="an58signature">signature $(r_1, r_2)$</Term> and set $s = r_1 + r_2 - 1$. Then there exist units $u_1, \dots, u_s \in \mathcal{O}_K^\times$ such that every unit $\alpha \in \mathcal{O}_K^\times$ can be written **uniquely** as
+$$\alpha = \omega \cdot u_1^{n_1} \cdots u_s^{n_s}$$
+where $\omega \in \mu(\mathcal{O}_K)$ is a root of unity and $n_1, \dots, n_s \in \ZZ$.
+</Callout>
+
+In group-theory language:
+$$\mathcal{O}_K^\times \;\cong\; \ZZ^s \times \mu(\mathcal{O}_K).$$
+
+The integer $s = r_1 + r_2 - 1$ is the **rank** of the unit group. A choice of $u_1, \dots, u_s$ is called a choice of <Term k="an58fundamentalUnit">fundamental units</Term>.
+
+</SlideLayout>

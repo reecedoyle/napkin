@@ -1,0 +1,22 @@
+---
+title: Computing class numbers — strategy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Computing class numbers — strategy">
+
+The Minkowski bound $M_K$ is a specific computable number. Here is the algorithm:
+
+1. **Compute $M_K$.** Every ideal class has a representative of norm $\leq M_K$.
+2. **List primes $p \leq M_K$.** These are the only rational primes whose prime-ideal factors can appear in a small representative.
+3. **Factor each $(p)$ in $\mathcal{O}_K$.** Use the factoring algorithm: reduce the minimal polynomial of a generator mod $p$ and factor over $\mathbb{F}_p$.
+4. **Build all integral ideals of norm $\leq M_K$** from these prime ideals. Check which are principal (norm of a generator matches), and which are nontrivial classes.
+
+<Callout kind="remark" title="Ideals divide their norms">
+If $\mathfrak{b}$ is an integral ideal with $\operatorname{N}(\mathfrak{b}) = n$, then $\mathfrak{b} \mid (n)$. This is because $n\alpha \equiv 0 \pmod{\mathfrak{b}}$ for all $\alpha$ by Lagrange's theorem on the additive group $\mathcal{O}_K/\mathfrak{b}$.
+</Callout>
+
+This lemma narrows the search: a prime ideal $\mathfrak{p}$ of norm $p$ must divide $(p)$. So we only ever need to factor finitely many rational primes.
+
+</SlideLayout>

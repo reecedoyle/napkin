@@ -1,0 +1,25 @@
+---
+title: Norm as a determinant — the right definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Norm as a determinant — the right definition">
+
+Why is the norm multiplicative? The cleanest explanation comes from viewing $K$ as a <Term k="vectorSpace">$\QQ$-vector space</Term> and the norm as a determinant.
+
+<Callout kind="theorem" title="Morally correct definition of norm and trace">
+Let $K$ be a number field of degree $n$ and $\alpha \in K$. Define the $\QQ$-linear map
+$$\mu_\alpha \colon K \to K, \quad x \mapsto \alpha x.$$
+Then:
+$$\operatorname{N}_{K/\QQ}(\alpha) = \det(\mu_\alpha), \qquad \operatorname{Tr}_{K/\QQ}(\alpha) = \operatorname{Tr}(\mu_\alpha).$$
+</Callout>
+
+The determinant measures how multiplication by $\alpha$ stretches volume in $K \cong \QQ^n$. Since $\det$ and $\operatorname{Tr}$ are independent of the choice of <Term k="basis">basis</Term>, you can pick any convenient basis and use the usual formulas.
+
+Multiplicativity of the norm is now immediate:
+$$\mu_{\alpha\beta} = \mu_\alpha \circ \mu_\beta \implies \det(\mu_{\alpha\beta}) = \det(\mu_\alpha)\cdot\det(\mu_\beta),$$
+because determinants multiply under composition. Similarly, the trace is additive.
+
+</SlideLayout>

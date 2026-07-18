@@ -1,0 +1,24 @@
+---
+title: Ring of integers of ℚ(√3)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Ring of integers of ℚ(√3)">
+
+Let's work out $\OO_K$ for $K = \QQ(\sqrt{3})$.
+
+<Callout kind="example" title="𝒪_ℚ(√3) = ℤ[√3]">
+We claim $\OO_K = \ZZ[\sqrt{3}] = \{m + n\sqrt{3} \mid m, n \in \ZZ\}$.
+
+Let $\alpha = a + b\sqrt{3}$ with $a, b \in \QQ$. When does $\alpha \in \OO_K$?
+
+- If $b = 0$: the minimal polynomial is $x - a$, so $\alpha \in \OO_K$ iff $a \in \ZZ$.
+- If $b \neq 0$: the minimal polynomial is $(x - a)^2 - 3b^2 = x^2 - 2ax + (a^2 - 3b^2)$. This has integer coefficients iff $2a \in \ZZ$ and $a^2 - 3b^2 \in \ZZ$.
+</Callout>
+
+From the conditions $2a \in \ZZ$ and $a^2 - 3b^2 \in \ZZ$, one can check (working mod 4) that when $3 \equiv 3 \pmod{4}$, the only solutions have $a, b \in \ZZ$. So $\OO_{\QQ(\sqrt{3})} = \ZZ[\sqrt{3}]$.
+
+The condition "$d \equiv 2$ or $3 \pmod{4}$" is what makes the integers be the obvious $\ZZ[\sqrt{d}]$.
+
+</SlideLayout>

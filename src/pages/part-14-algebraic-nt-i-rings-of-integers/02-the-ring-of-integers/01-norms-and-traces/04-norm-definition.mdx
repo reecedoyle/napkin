@@ -1,0 +1,35 @@
+---
+title: Defining norm and trace
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Defining norm and trace">
+
+Let $K$ be a number field (a finite-degree extension of $\QQ$) of degree $d = [K:\QQ]$. For $\alpha \in K$, let $n = \deg \alpha$ (the degree of its minimal polynomial over $\QQ$), so $\QQ(\alpha) \subseteq K$. Set $k = d/n$ — a positive integer.
+
+<Callout kind="definition" title="Norm and trace relative to K">
+$$\operatorname{N}_{K/\QQ}(\alpha) \defeq \left(\prod_{\text{Galois conj. } \sigma} \sigma(\alpha)\right)^k$$
+$$\operatorname{Tr}_{K/\QQ}(\alpha) \defeq k \cdot \left(\sum_{\text{Galois conj. } \sigma} \sigma(\alpha)\right)$$
+
+The factor $k$ is a **correction** that accounts for elements with smaller degree than $K$ itself.
+</Callout>
+
+For a "generic" element $\alpha$ with $\QQ(\alpha) = K$ we have $k = 1$ and no correction is needed. For rational numbers like $5 \in \QQ(i)$, we get $k = 2$, giving $\operatorname{N}_{\QQ(i)/\QQ}(5) = 5^2 = 25$.
+
+<MCQ
+  client:load
+  id="an54-s1-mcq-k-value"
+  prompt="In the field K = ℚ(i) of degree 2, what is k for the element α = 3 ∈ ℚ?"
+  options={[
+    { id: "a", label: "k = 1 (since 3 has degree 1 in ℚ(i))" },
+    { id: "b", label: "k = 2 (since deg K = 2 and deg 3 = 1, so k = 2/1 = 2)" },
+    { id: "c", label: "k = 3 (the value of α itself)" },
+    { id: "d", label: "k = 0 (since 3 is rational)" },
+  ]}
+  correct="b"
+  explanation="The correction factor is k = (deg K) / (deg α). Here deg K = 2 and 3 ∈ ℚ has minimal polynomial x − 3, so deg 3 = 1. Thus k = 2/1 = 2. The norm of 3 in ℚ(i) is (3)² = 9."
+/>
+
+</SlideLayout>

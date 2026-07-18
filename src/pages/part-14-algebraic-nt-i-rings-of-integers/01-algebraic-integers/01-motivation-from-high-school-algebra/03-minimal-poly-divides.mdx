@@ -1,0 +1,24 @@
+---
+title: Every vanishing polynomial is divisible by the minimal polynomial
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Every vanishing polynomial is divisible by the minimal polynomial">
+
+Here is the key property that makes minimal polynomials useful.
+
+<Callout kind="theorem" title="Minimal polynomial divides everything">
+Let $P(x)$ be the minimal polynomial of $\alpha$ over $\mathbb{Q}$. If $A(x) \in \mathbb{Q}[x]$ satisfies $A(\alpha) = 0$, then $P(x)$ divides $A(x)$ in <Term k="polyRing">$\mathbb{Q}[x]$</Term>.
+</Callout>
+
+**Proof.** Suppose not. By polynomial long division, write $A(x) = Q(x)P(x) + R(x)$ with $\deg R < \deg P$. Plugging in $x = \alpha$ gives $R(\alpha) = 0$. But $R$ has degree less than $P$, contradicting $P$ being minimal. Contradiction.
+
+**Consequence.** All roots of $P$ are also roots of $A$. That is, $\alpha$ is "accompanied" by every other root of its minimal polynomial — those are its **conjugates**.
+
+<Callout kind="example" title="Why 2 + √2 forces 2 − √2">
+The minimal polynomial of $2 + \sqrt{2}$ is $P(x) = x^2 - 4x + 2$. The polynomial $A(x) = x^3 - 3x^2 - 2x + 2$ vanishes at $2 + \sqrt{2}$, so $P \mid A$. The other root of $P$ is $2 - \sqrt{2}$, so $A$ must also vanish there — confirming what we saw at the start.
+</Callout>
+
+</SlideLayout>

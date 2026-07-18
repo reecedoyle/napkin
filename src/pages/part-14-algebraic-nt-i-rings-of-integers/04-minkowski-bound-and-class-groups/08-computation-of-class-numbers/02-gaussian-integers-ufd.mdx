@@ -1,0 +1,23 @@
+---
+title: ℤ[i] is a UFD — via class number
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="ℤ[i] is a UFD — via class number">
+
+<Callout kind="theorem" title="ℤ[i] has class number 1">
+The Gaussian integers $\mathbb{Z}[i] = \mathcal{O}_{\mathbb{Q}(i)}$ form a UFD.
+</Callout>
+
+**Proof via Minkowski bound.** For $K = \mathbb{Q}(i)$: signature $(r_1, r_2) = (0, 1)$, discriminant $\Delta_K = -4$.
+
+$$M_K = \left(\frac{4}{\pi}\right)^1 \cdot \frac{2!}{2^2} \cdot \sqrt{4} = \frac{4}{\pi} \cdot \frac{1}{2} \cdot 2 = \frac{4}{\pi} < 2.$$
+
+So every ideal class has a representative of norm $< 2$. The only integral ideal of norm $< 2$ is $(1) = \mathcal{O}_K$ itself (the unit ideal).
+
+Therefore **every ideal class is trivial**, $\Cl_K = \{1\}$, and $\mathcal{O}_K$ is a PID, hence a UFD. $\square$
+
+This gives a conceptual proof that Gaussian integers have unique factorization — no need to exhibit a Euclidean algorithm.
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: The Dedekind–Kummer theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Dedekind–Kummer theorem">
+
+The magical-seeming example computations are all instances of one theorem:
+
+<Callout kind="theorem" title="Dedekind–Kummer factoring algorithm">
+Let $K$ be a <Term k="an55monogenic">monogenic</Term> number field with $\OO_K = \ZZ[\theta]$ and minimal polynomial $f \in \ZZ[x]$. For any rational prime $p$, factor $\bar{f}$ over $\FF_p$:
+$$\bar{f} \equiv \bar{f}_1^{e_1} \bar{f}_2^{e_2} \cdots \bar{f}_g^{e_g} \pmod{p}.$$
+Then $\kp_i = (f_i(\theta), p)$ is a prime ideal of $\OO_K$ for each $i$, and
+$$(p) = \kp_1^{e_1} \kp_2^{e_2} \cdots \kp_g^{e_g}.$$
+</Callout>
+
+**The one-sentence summary:** to factor $p$ in $\ZZ[x]/(f(x))$, factor $f(x)$ in $\FF_p[x]$.
+
+<Callout kind="remark" title="Recipe in practice">
+1. Find $f$ = minimal polynomial of $\theta$.
+2. Factor $f \bmod p$ into irreducible polynomials $\bar{f}_1^{e_1} \cdots \bar{f}_g^{e_g}$.
+3. Set $\kp_i = (f_i(\theta), p)$.
+
+Then $(p) = \kp_1^{e_1} \cdots \kp_g^{e_g}$.
+</Callout>
+
+Note that different lifts of $\bar{f}_i$ back to $\ZZ[x]$ give the same ideal $\kp_i$, so the choice of lift does not matter.
+
+</SlideLayout>

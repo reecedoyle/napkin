@@ -1,0 +1,36 @@
+---
+title: The ideal norm — definition and examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The ideal norm — definition and examples">
+
+We need a notion of "size" for ideals, both to prove the factoring algorithm and to apply number-theoretic arguments.
+
+<Callout kind="definition" title="Ideal norm">
+The <Term k="an55idealNorm">**ideal norm**</Term> (or absolute norm) of a nonzero ideal $\mathfrak{a} \subseteq \OO_K$ is
+$$\mathcal{N}(\mathfrak{a}) = |\OO_K / \mathfrak{a}|,$$
+the number of elements in the quotient ring.
+</Callout>
+
+<Callout kind="example" title="Norm of (5) in ℤ[i]">
+$\OO_K = \ZZ[i]$, $K = \QQ(i)$. The quotient $\ZZ[i]/(5)$ consists of residues $\{a + bi : a, b \in \Zc5\}$, so $\mathcal{N}((5)) = 25$.
+</Callout>
+
+<Callout kind="example" title="Norm of (2+i) in ℤ[i]">
+Modulo $2+i$: we have $5 = (2+i)(2-i) \equiv 0$ and $i \equiv -2$. So $\ZZ[i]/(2+i) \cong \FF_5$, giving $\mathcal{N}((2+i)) = 5$.
+(Since $(2+i)$ is prime, we get a field — as expected.)
+</Callout>
+
+<NumericInput
+  client:load
+  id="an55-norm-num-3-zi"
+  prompt="What is the ideal norm 𝒩((3)) in ℤ[i]? Hint: ℤ[i]/(3) ≅ {a+bi : a,b ∈ ℤ/3ℤ}."
+  expected="9"
+  explanation="ℤ[i]/(3) has elements a+bi with a,b ∈ {0,1,2}, giving 3·3 = 9 elements. So 𝒩((3)) = 9."
+/>
+
+</SlideLayout>

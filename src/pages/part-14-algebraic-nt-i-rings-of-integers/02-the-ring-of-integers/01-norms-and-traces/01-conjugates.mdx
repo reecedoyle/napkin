@@ -1,0 +1,24 @@
+---
+title: Galois conjugates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Galois conjugates">
+
+Remember doing olympiad problems where $a^2 + b^2$ was the "norm" of $a + bi$? There's a deeper story behind that. To tell it properly we first need to say what a **conjugate** of an algebraic number is.
+
+<Callout kind="definition" title="Algebraic number and its degree">
+An **algebraic number** $\alpha$ is any complex number that satisfies a nonzero polynomial equation with rational coefficients. The **degree** of $\alpha$ is the degree of its **minimal polynomial** — the unique monic polynomial $P(x) \in \QQ[x]$ of smallest degree having $\alpha$ as a root.
+</Callout>
+
+<Callout kind="definition" title="Galois conjugates">
+Let $\alpha$ be an algebraic number with minimal polynomial $P(x) \in \QQ[x]$ of degree $m$. The $m$ roots of $P$ in $\CC$ are the **Galois conjugates** of $\alpha$.
+</Callout>
+
+For example, $\sqrt{2}$ has minimal polynomial $x^2 - 2$, whose two roots are $\pm\sqrt{2}$. So the Galois conjugates of $\sqrt{2}$ are $\sqrt{2}$ and $-\sqrt{2}$.
+
+The element $i$ has minimal polynomial $x^2 + 1$, so its conjugates are $i$ and $-i$ — exactly the usual complex conjugate!
+
+</SlideLayout>

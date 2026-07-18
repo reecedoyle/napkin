@@ -1,0 +1,26 @@
+---
+title: The problem with ℤ[√-5]
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The problem with ℤ[√-5]">
+
+We want to understand integers of the form $x^2 + 5y^2$ — for example, which $n$ can be written this way? The natural move is to factor $n$ inside <Term k="an55ZSqrtMinus5">$\ZZ[\sqrt{-5}]$</Term>.
+
+Consider $n = 6$. We get two completely different-looking factorisations:
+
+$$
+6 = 2 \cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5}).
+$$
+
+Both are genuine. Neither factors further inside <Term k="an55ZSqrtMinus5">$\ZZ[\sqrt{-5}]$</Term>. So <Term k="ufd">unique factorization of elements fails</Term> here — the fundamental theorem of arithmetic breaks down.
+
+<Callout kind="remark" title="Why does this matter?">
+Without unique factorization, we cannot tell whether $6$ is "really" $2 \cdot 3$ or $(1+\sqrt{-5})(1-\sqrt{-5})$ — both are equally valid factorizations into irreducibles. Reasoning about divisibility becomes ambiguous.
+</Callout>
+
+The underlying issue is that we lack a notion of <Term k="an55gcdIdeal">greatest common divisor</Term>. In $\ZZ$ we can write $(35, 77) = (7)$ — the GCD is the generator of the ideal of all linear combinations. But what is the GCD of $3$ and $1 + \sqrt{-5}$?
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Properties of the ideal norm
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Properties of the ideal norm">
+
+<Callout kind="lemma" title="Properties of the ideal norm">
+Let $\mathfrak{a}$ be a nonzero ideal of $\OO_K$.
+1. $\mathcal{N}(\mathfrak{a})$ is **finite**.
+2. For any other nonzero ideal $\mathfrak{b}$: $\mathcal{N}(\mathfrak{a}\mathfrak{b}) = \mathcal{N}(\mathfrak{a}) \mathcal{N}(\mathfrak{b})$.
+3. If $\mathfrak{a} = (a)$ is principal: $\mathcal{N}((a)) = |\Norm_{K/\QQ}(a)|$.
+</Callout>
+
+Property (1) is already in our pocket: the proof that $\OO_K$ is Dedekind showed $\OO_K/\kp$ is finite for any prime $\kp$.
+
+Property (2) says the norm is **completely multiplicative** — it converts ideal products to integer products, just like the element norm converts element products to integer products.
+
+Property (3) links the ideal norm to the <Term k="an55elementNorm">element norm</Term>: for principal ideals, the two notions agree.
+
+<Callout kind="remark" title="Geometric interpretation">
+$\mathcal{N}(\mathfrak{a}) = |\OO_K : \mathfrak{a}|$ is the index of $\mathfrak{a}$ as a subgroup of $\OO_K$. Geometrically, if $\OO_K$ is a lattice in $\RR^n$, then $\mathfrak{a}$ is a sublattice and $\mathcal{N}(\mathfrak{a})$ is the ratio of fundamental domain volumes.
+For a principal ideal $(a)$, this ratio is $|\det \mu_a|$ where $\mu_a$ is multiplication-by-$a$, which equals $|\Norm_{K/\QQ}(a)|$.
+</Callout>
+
+The multiplicativity of the norm extends to <Term k="an55fractionalIdeal">fractional ideals</Term>: if $J = \prod \kp_i^{n_i}$ then $\mathcal{N}(J) = \prod \mathcal{N}(\kp_i)^{n_i}$. So $\mathcal{N}: J_K \to \QQ^\times$ is a group homomorphism.
+
+</SlideLayout>

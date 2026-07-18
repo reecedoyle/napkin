@@ -1,0 +1,40 @@
+---
+title: Examples of number fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of number fields">
+
+Let's build intuition with a few concrete number fields and their degrees.
+
+<Callout kind="example" title="Quadratic, cubic, and cyclotomic fields">
+
+| Field | Degree | Basis |
+| --- | --- | --- |
+| $\mathbb{Q}(\sqrt{2})$ | 2 | $\{1, \sqrt{2}\}$ |
+| $\mathbb{Q}(\sqrt{-1}) = \mathbb{Q}(i)$ | 2 | $\{1, i\}$ |
+| $\mathbb{Q}(\sqrt[3]{2})$ | 3 | $\{1, \sqrt[3]{2}, \sqrt[3]{4}\}$ |
+| $\mathbb{Q}(\zeta_5)$, where $\zeta_5 = e^{2\pi i/5}$ | 4 | $\{1, \zeta_5, \zeta_5^2, \zeta_5^3\}$ |
+
+The degree 2 case is called a **quadratic field**. Any $\mathbb{Q}(\sqrt{d})$ for squarefree $d \neq 1$ is quadratic.
+
+</Callout>
+
+<MCQ
+  client:load
+  id="an53-nf-mcq-degree-q-cbrt2"
+  prompt="An element of ℚ(∛2) can always be written uniquely as a + b∛2 + c∛4. What is the degree [ℚ(∛2) : ℚ]?"
+  options={[
+    { id: "a", label: "2 — the number of irrational terms b∛2 + c∛4" },
+    { id: "b", label: "3 — the size of the basis {1, ∛2, ∛4}" },
+    { id: "c", label: "6 — the degree of the polynomial (x³ − 2)²" },
+    { id: "d", label: "∞ — since ∛2 is irrational" },
+  ]}
+  correct="b"
+  explanation="The minimal polynomial of ∛2 is x³ − 2, which has degree 3. The basis {1, ∛2, ∛4} has 3 elements, so [ℚ(∛2) : ℚ] = 3. Irrational does not mean infinite-dimensional — it just means ∛2 is not in ℚ."
+/>
+
+</SlideLayout>

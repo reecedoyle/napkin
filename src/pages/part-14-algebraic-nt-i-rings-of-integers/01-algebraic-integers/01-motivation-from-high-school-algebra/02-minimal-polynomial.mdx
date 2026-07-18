@@ -1,0 +1,28 @@
+---
+title: The minimal polynomial
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The minimal polynomial">
+
+Let $\alpha$ be any complex number. We want to capture "the simplest polynomial that kills $\alpha$."
+
+<Callout kind="definition" title="Minimal polynomial">
+The **minimal polynomial** of $\alpha$ over $\mathbb{Q}$ is the unique monic polynomial $P(x) \in \mathbb{Q}[x]$ of smallest degree satisfying $P(\alpha) = 0$. Its degree is called the **degree** of $\alpha$.
+</Callout>
+
+We require **monic** (leading coefficient 1) so there's a unique such polynomial — scaling by a nonzero rational doesn't change the roots, but does change the polynomial.
+
+We work over <Term k="QQ">$\mathbb{Q}$</Term> so we can divide by leading coefficients without leaving the ring.
+
+<Callout kind="example" title="Examples">
+- $\sqrt{2}$ has minimal polynomial $x^2 - 2$ over $\mathbb{Q}$. Degree 2.
+- $i = \sqrt{-1}$ has minimal polynomial $x^2 + 1$. Degree 2.
+- A primitive $p$th root of unity $\zeta_p = e^{2\pi i / p}$ (for prime $p$) has minimal polynomial $x^{p-1} + x^{p-2} + \cdots + 1$. Degree $p-1$.
+</Callout>
+
+Note: $100x^2 - 200$ also has $\sqrt{2}$ as a root, but it's not monic — after making it monic we get $x^2 - 2$, the unique minimal polynomial.
+
+</SlideLayout>

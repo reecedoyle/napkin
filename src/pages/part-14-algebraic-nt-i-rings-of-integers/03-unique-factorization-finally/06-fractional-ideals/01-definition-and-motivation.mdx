@@ -1,0 +1,26 @@
+---
+title: Fractional ideals — definition and motivation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fractional ideals — definition and motivation">
+
+Integral ideals are to $\OO_K$ as integers are to $\ZZ$. But just as we pass from $\ZZ$ to $\QQ$ to allow division, we pass from integral ideals to **fractional ideals** to allow ideal inverses.
+
+<Callout kind="definition" title="Fractional ideal">
+Let $\mathcal{A}$ be a Dedekind domain with fraction field $K$. A <Term k="an55fractionalIdeal">**fractional ideal**</Term> $J$ of $K$ is a set of the form
+$$J = \frac{1}{x} \cdot \mathfrak{a}$$
+where $x \in \mathcal{A}$ (nonzero) and $\mathfrak{a}$ is an ordinary (integral) ideal of $\mathcal{A}$.
+</Callout>
+
+The analogy: a rational number $p/q$ has integer numerator and integer denominator — we only need to invert elements of $\ZZ$, not "fractions of integers". Similarly, we only need scalar denominators $x \in \mathcal{A}$, not "fractions of ideals".
+
+<Callout kind="example" title="Fractional ideal in ℤ">
+The set $\frac{5}{2}\ZZ = \{\frac{5n}{2} : n \in \ZZ\} = \frac{1}{2}(5)$ is a fractional ideal of $\ZZ$.
+</Callout>
+
+Every integral ideal is a fractional ideal (take $x = 1$). The term "integral ideal" emphasizes an ideal that is not just fractional.
+
+</SlideLayout>

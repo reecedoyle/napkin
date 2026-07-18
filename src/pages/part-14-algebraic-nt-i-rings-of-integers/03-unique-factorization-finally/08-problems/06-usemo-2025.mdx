@@ -1,0 +1,17 @@
+---
+title: Problem — USEMO 2025
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — USEMO 2025">
+
+<Problem
+  client:load
+  id="an55-prob-usemo-2025"
+  difficulty="standard"
+  prompt="[USEMO 2025] Let k be a positive integer not divisible by 6. Suppose there exists a prime p such that p divides both 2025^k - 1 and 2026^k - 1. Prove that p < 3^k. Hint: Let ω = e^{2πi/k}, K = ℚ(ω), and 𝔭 a prime ideal above p in 𝒪_K. Show there exist i, j with 2025 - ωⁱ and 2026 - ωʲ both in 𝔭. Then show 1 + ωⁱ - ωʲ is nonzero with norm at most 3^k."
+  solution="Let ω = e^{2πi/k} and K = ℚ(ω). Choose a prime ideal 𝔭 of 𝒪_K lying over p. Since ∏_{i=0}^{k-1}(2025-ωⁱ) = 2025^k - 1 ∈ (p) ⊆ 𝔭, and 𝔭 is prime, some factor 2025-ωⁱ ∈ 𝔭. Similarly 2026-ωʲ ∈ 𝔭 for some j. Subtracting: 1+ωⁱ-ωʲ ∈ 𝔭. Since 6 ∤ k, it follows that 1+ωⁱ-ωʲ ≠ 0 (if it were zero, then ωⁱ-ωʲ = -1, but the only roots of unity that sum to -1 require 6 ∣ k). Thus p ≤ |Norm_{K/ℚ}(1+ωⁱ-ωʲ)| = ∏_{gcd(m,k)=1} |1+ω^{mi}-ω^{mj}| ≤ 3^k, where the last inequality uses |1+ωᵃ-ωᵇ| ≤ |1|+|ωᵃ|+|ωᵇ| = 3 for each factor. Since p is a prime strictly below the norm (p divides the norm but p ≠ norm since the norm bounds show the norm is ≤ 3^k, and equality is impossible), we get p < 3^k."
+/>
+
+</SlideLayout>

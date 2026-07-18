@@ -1,0 +1,33 @@
+---
+title: The trap box
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The trap box">
+
+We need a set $S$ to apply Minkowski's theorem to. Here is our "mousetrap":
+
+<Callout kind="definition" title="Trap box S_M">
+For $M > 0$, let $S$ be the set of points $(x_1, \dots, x_{r_1}, z_1, \dots, z_{r_2}) \in \mathbb{R}^{r_1} \times \mathbb{C}^{r_2}$ satisfying
+
+$$\sum_{i=1}^{r_1} |x_i| + 2\sum_{j=1}^{r_2} |z_j| \leq M.$$
+
+This set is convex, centrally symmetric, and compact.
+</Callout>
+
+**Why "mousetrap"?** If an element $\alpha \in \mathcal{O}_K$ has $\iota(\alpha) \in S$, then
+
+$$\operatorname{N}_{K/\mathbb{Q}}(\alpha) = \prod_{i=1}^n |\sigma_i(\alpha)| \leq \left(\frac{M}{n}\right)^n$$
+
+by the AM-GM inequality: the geometric mean $\leq$ arithmetic mean, and the arithmetic mean is $M/n$.
+
+<Callout kind="lemma" title="Volume of the trap box">
+Under the isomorphism $\tau \colon \mathbb{R}^{r_1} \times \mathbb{C}^{r_2} \xrightarrow{\sim} \mathbb{R}^n$, the image of $S$ has volume
+
+$$2^{r_1} \cdot \left(\frac{\pi}{2}\right)^{r_2} \cdot \frac{M^n}{n!}.$$
+</Callout>
+
+**Sanity check for $n=2$:** signature $(2,0)$ gives $r_1=2, r_2=0$, so volume $= 4 \cdot M^2/2 = 2M^2$. This is the area of the diamond $\{(x_1,x_2): |x_1|+|x_2|\leq M\}$. ✓ Signature $(0,1)$ gives $r_1=0, r_2=1$, so volume $= (\pi/2) \cdot M^2$. This is the area of the disk $|z|\leq M/2$. ✓
+
+</SlideLayout>

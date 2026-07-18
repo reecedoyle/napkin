@@ -1,0 +1,29 @@
+---
+title: ℚ(√−67) has class number 1
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="ℚ(√−67) has class number 1">
+
+<Callout kind="proposition" title="ℚ(√−67) has trivial class group">
+$\mathcal{O}_K = \mathbb{Z}[\theta]$ where $\theta = \frac{1+\sqrt{-67}}{2}$ has minimal polynomial $x^2 - x + 17$, and $h_K = 1$.
+</Callout>
+
+**Proof.** Signature $(0,1)$, discriminant $\Delta_K = -67$ (since $-67 \equiv 1 \pmod{4}$).
+
+$$M_K = \frac{4}{\pi} \cdot \frac{2!}{4} \cdot \sqrt{67} \approx 5.2.$$
+
+So we only need to factor $(2)$, $(3)$, $(5)$ in $\mathcal{O}_K$.
+
+| Prime | $x^2 - x + 17 \pmod{p}$ | Factors in $\mathcal{O}_K$ |
+|---|---|---|
+| $2$ | $x^2 + x + 1$ (irreducible) | $(2)$ stays prime |
+| $3$ | $x^2 + 2x + 2$ (irreducible) | $(3)$ stays prime |
+| $5$ | $x^2 + 4x + 2$ (irreducible) | $(5)$ stays prime |
+
+So the only cherries on the tree are $(2)$, $(3)$, $(5)$ themselves — but their norms are $4$, $9$, $25$ respectively, all exceeding $M_K \approx 5.2$. The only integral ideals of norm $\leq M_K$ are $(1)$ and $(2)$, both principal.
+
+Every ideal class has a principal representative, so $\Cl_K$ is trivial. $\square$
+
+</SlideLayout>

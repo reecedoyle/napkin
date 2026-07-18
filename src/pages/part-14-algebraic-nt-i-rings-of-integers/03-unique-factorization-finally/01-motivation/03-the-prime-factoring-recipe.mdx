@@ -1,0 +1,30 @@
+---
+title: The prime-factoring recipe (preview)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The prime-factoring recipe (preview)">
+
+Once we have ideal factorization, we can recover all representations of $n$ as $x^2 + 5y^2$ by factoring $n$ into prime ideals and then reading off element factorizations. The key step is factoring each rational prime $p \mid n$.
+
+For $\OO_K = \ZZ[\sqrt{-5}]$ the recipe is:
+
+- If $t^2 + 5$ factors as $(t+c)(t-c) \pmod{p}$, then $(p) = (p, c+\sqrt{-5})(p, c-\sqrt{-5})$.
+- Otherwise, $(p)$ is already a <Term k="an55primeIdealOK">prime ideal</Term> in $\OO_K$.
+
+This chapter develops the full theory for any <Term k="an55ringOfIntegers">ring of integers $\OO_K$</Term>.
+
+<Callout kind="remark" title="Notation">
+Throughout this chapter, lowercase Gothic letters $\mathfrak{a}, \mathfrak{b}, \mathfrak{p}, \mathfrak{q}$ denote ideals of $\OO_K$; capital $I, J$ denote fractional ideals.
+</Callout>
+
+The roadmap:
+1. Define ideal addition and multiplication.
+2. Define Dedekind domains — the class of rings where ideal factorization works.
+3. Prove unique factorization of ideals.
+4. Give the explicit factoring algorithm for rational primes.
+5. Extend to fractional ideals and the ideal norm.
+
+</SlideLayout>

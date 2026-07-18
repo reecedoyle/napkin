@@ -1,0 +1,29 @@
+---
+title: 𝒪_K is a free ℤ-module of rank n
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="𝒪_K is a free ℤ-module of rank n">
+
+The ring of integers has a particularly nice structure as a module: it looks just like $\ZZ^n$.
+
+<Callout kind="theorem" title="𝒪_K ≅ ℤ^n as abelian group">
+Let $K$ be a number field of degree $n = [K:\QQ]$. Then $\OO_K$ is a <Term k="freeModule">free $\ZZ$-module</Term> of <Term k="rank">rank</Term> $n$:
+$$\OO_K \cong \ZZ^{\oplus n}.$$
+Concretely, there exist algebraic integers $\alpha_1, \dots, \alpha_n \in \OO_K$ such that every element of $\OO_K$ writes uniquely as $c_1\alpha_1 + \cdots + c_n\alpha_n$ with $c_i \in \ZZ$.
+</Callout>
+
+The proof of this is postponed to a later chapter. But we can see it in action:
+
+- $K = \QQ(\sqrt{3})$: $\OO_K = \ZZ[\sqrt{3}]$ with $\ZZ$-<Term k="basis">basis</Term> $\{1, \sqrt{3}\}$. So $\OO_K \cong \ZZ^2$.
+- $K = \QQ(\sqrt{5})$: $\OO_K = \ZZ[\frac{1+\sqrt{5}}{2}]$ with $\ZZ$-basis $\{1, \frac{1+\sqrt{5}}{2}\}$. So $\OO_K \cong \ZZ^2$.
+
+In both cases the free $\ZZ$-module structure reflects that $K$ has degree 2.
+
+<Callout kind="remark" title="𝒪_K as a lattice">
+Think of $\OO_K$ as a **lattice** inside the $\QQ$-vector space $K$: the integer combinations of a fixed basis tile $K$, just as $\ZZ^n$ tiles $\QQ^n$.
+</Callout>
+
+</SlideLayout>

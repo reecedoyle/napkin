@@ -1,0 +1,23 @@
+---
+title: Norms and traces of algebraic integers are rational integers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Norms and traces of algebraic integers are rational integers">
+
+<Callout kind="proposition" title="Norms and traces land in ℤ">
+If $\alpha$ is an algebraic integer (a root of a monic polynomial with integer coefficients), then $\operatorname{N}_{K/\QQ}(\alpha) \in \ZZ$ and $\operatorname{Tr}_{K/\QQ}(\alpha) \in \ZZ$.
+</Callout>
+
+The proof is a nice application of **Vieta's formulas**. The norm is a product and the trace is a sum of conjugates of $\alpha$. Each conjugate is also a root of the same minimal polynomial (with integer coefficients), so the elementary symmetric polynomials in the conjugates — including the norm and trace — are integers by Vieta.
+
+For example, in $\QQ(\sqrt{2})$: if $\alpha = a + b\sqrt{2}$ is an algebraic integer, then $a, b \in \ZZ$, and indeed $\operatorname{N} = a^2 - 2b^2 \in \ZZ$ and $\operatorname{Tr} = 2a \in \ZZ$.
+
+<Callout kind="remark" title="Via embeddings">
+There is an elegant reformulation. A number field $K$ of degree $d = [K:\QQ]$ admits exactly $d$ embeddings $\sigma_1, \dots, \sigma_d \colon K \hookrightarrow \CC$. Then:
+$$\operatorname{Tr}_{K/\QQ}(\alpha) = \sum_{i=1}^d \sigma_i(\alpha), \qquad \operatorname{N}_{K/\QQ}(\alpha) = \prod_{i=1}^d \sigma_i(\alpha).$$
+These formulas automatically build in the correction factor $k$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,33 @@
+---
+title: What is the discriminant?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is the discriminant?">
+
+Every number field $K$ of degree $n$ carries a single integer called its discriminant. Think of it as a measure of how "spread out" or "ramified" the field is — small absolute value means the field sits close to $\QQ$, large absolute value signals high arithmetic complexity.
+
+We define it via the embeddings. For a degree-$n$ field $K$, there are exactly $n$ field embeddings $\sigma_1, \dots, \sigma_n : K \hookrightarrow \CC$. Pick any <Term k="ZZ">$\ZZ$</Term>-basis $\alpha_1, \dots, \alpha_n$ for $\OO_K$ and form the **embedding matrix**:
+
+$$
+M \;=\;
+\begin{bmatrix}
+\sigma_1(\alpha_1) & \cdots & \sigma_n(\alpha_1) \\
+\vdots & \ddots & \vdots \\
+\sigma_1(\alpha_n) & \cdots & \sigma_n(\alpha_n)
+\end{bmatrix}.
+$$
+
+<Callout kind="definition" title="Discriminant Δ_K">
+The discriminant of $K$ is
+$$
+\Delta_K \;\defeq\; \det(M)^2.
+$$
+It is an integer, independent of the choice of $\ZZ$-basis.
+</Callout>
+
+Changing the basis replaces $M$ by $M \cdot A$ for an integer matrix $A$ with $\det A = \pm 1$ (a change-of-basis matrix in <Term k="ZZ">$\ZZ$</Term>), so $\det(MA)^2 = \det(M)^2 \det(A)^2 = \det(M)^2$. Basis-independence is immediate.
+
+</SlideLayout>

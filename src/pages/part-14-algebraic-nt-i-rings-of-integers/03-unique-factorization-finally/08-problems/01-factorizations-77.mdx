@@ -1,0 +1,17 @@
+---
+title: Problem — factorizations of 77 in ℚ(√-13)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — factorizations of 77 in ℚ(√-13)">
+
+<Problem
+  client:load
+  id="an55-prob-77-factorizations"
+  difficulty="standard"
+  prompt="Show that there are three different factorizations of 77 into irreducibles in 𝒪_K, where K = ℚ(√-13)."
+  solution="Here 𝒪_K = ℤ[√-13] (since -13 ≡ 3 mod 4). Note 77 = 7·11. We also have 77 = (√-13 + 8)(√-13 - 8) since (√-13+8)(√-13-8) = -13+64 = 51... let us recompute: we need Norm = 77, so a²+13b² = 77. Try b=1: a²=64, a=8. So 77 = (8+√-13)(8-√-13). And b=2: a²=77-52=25, a=5. So 77 = (5+2√-13)(5-2√-13). Check: (5+2√-13)(5-2√-13)=25+52=77. Yes! Thus the three factorizations of 77 are: 7·11, (8+√-13)(8-√-13), and (5+2√-13)(5-2√-13). Each factor is irreducible (check by considering norms: norm 7 would need a²+13b²=7, impossible; norm 11 needs a²+13b²=11, impossible; norm 77 elements 8±√-13 and 5±2√-13 are irreducible since they have prime norm... actually norm(8+√-13)=77 which is not prime, but they cannot be further factored as norm is 77 = 7·11 and there are no elements of norm 7 or 11 in ℤ[√-13])."
+/>
+
+</SlideLayout>

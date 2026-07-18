@@ -1,0 +1,27 @@
+---
+title: Problems — geometry and linear algebra
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — geometry and linear algebra">
+
+<Problem
+  client:load
+  id="an56-prob-china-tst-1998"
+  difficulty="standard"
+  prompt="(China TST 1998) Let n be a positive integer. A polygon in the plane (not necessarily convex) has area greater than n. Prove that one can translate it so that it contains at least n+1 lattice points."
+  hint="Mimic the proof of part (a) of Minkowski's theorem: dissect the plane into 1×1 squares and overlay them."
+  solution="Dissect the plane into unit squares [a, a+1] × [b, b+1] for a, b ∈ ℤ. Translate all these squares to [0,1] × [0,1] by subtracting (a,b). Since the polygon P has area > n, by the Pigeonhole Principle there exist n+1 points of the overlaid image that came from n+1 distinct squares — call the corresponding original points p₁, …, p_{n+1} ∈ P. Now translate P by −p₁ (without loss of generality) so that p₁ maps to the origin (a lattice point). The translate contains p₁ − p₁ = 0 ∈ ℤ². But actually the cleaner argument: overlay all unit squares onto [0,1)². Some point in [0,1)² is covered by at least n+1 pieces of the polygon (since total area > n). Call the corresponding original polygon points q₁,…,q_{n+1}. Translate P by −q₁: the translated polygon contains q_i − q₁ for all i. Each q_i − q₁ is a lattice point (since q_i and q₁ are in the same unit-square grid modulo ℤ²). So the translated polygon contains at least n+1 lattice points."
+/>
+
+<Problem
+  client:load
+  id="an56-prob-ok-linalg"
+  difficulty="standard"
+  prompt="Show that the image of 𝒪_K ⊆ K under the canonical embedding K ↪ ℝ^{r₁} × ℂ^{r₂} ↪ ℝⁿ is a lattice with mesh (1/2^{r₂})√|Δ_K|."
+  hint="Linear algebra: write the matrix of the canonical embedding in terms of the embedding matrix, and use that breaking ℂ into ℝ² introduces a factor."
+  solution="Let α₁,…,αₙ be a ℤ-basis of 𝒪_K. Under ι: K → ℝ^{r₁} × ℂ^{r₂}, the basis vectors become columns of the matrix M = [σᵢ(αⱼ)]. Under τ, each complex entry σᵢ(αⱼ) = xᵢⱼ + iyᵢⱼ splits into two real entries. This τ-step multiplies the determinant by (1/i)^{r₂} = (−i)^{r₂}, so |det τ(M)| = |det M|/2^{r₂} (since each complex pair contributes a factor of 2 to the volume element via the Jacobian). Now |det M|² = |det[σᵢ(αⱼ)]|² = Δ_K (up to sign, by definition), so the mesh = |det τ(M)| = √|Δ_K|/2^{r₂}."
+/>
+
+</SlideLayout>

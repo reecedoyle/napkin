@@ -1,0 +1,21 @@
+---
+title: Fractional ideals and the class group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Fractional ideals and the class group">
+
+We now have unique factorization of *ideals* in $\mathcal{O}_K$. In a PID every ideal is principal, so ideals factor the same way elements do. But $\mathcal{O}_K$ need not be a PID — we want to measure how far it falls short.
+
+The tool is the **class group** $\Cl_K$.
+
+Let $K$ be a number field and $J_K$ the multiplicative group of fractional ideals of $\mathcal{O}_K$. A **fractional ideal** is a nonzero $\mathcal{O}_K$-submodule $\mathfrak{a} \subseteq K$ with $d\mathfrak{a} \subseteq \mathcal{O}_K$ for some nonzero $d \in \mathbb{Z}$. Ordinary ideals are fractional ideals with $d = 1$.
+
+<Callout kind="definition" title="Principal fractional ideals P_K">
+A fractional ideal of the form $(x) = x\mathcal{O}_K$ for some $x \in K^\times$ is called **principal**. The set of all principal fractional ideals, denoted $P_K$, is a subgroup of $J_K$.
+</Callout>
+
+**Check:** $(x\mathcal{O}_K)(y\mathcal{O}_K) = (xy)\mathcal{O}_K$ and $(x\mathcal{O}_K)^{-1} = (x^{-1})\mathcal{O}_K$, so $P_K$ is closed under multiplication and inverses.
+
+</SlideLayout>

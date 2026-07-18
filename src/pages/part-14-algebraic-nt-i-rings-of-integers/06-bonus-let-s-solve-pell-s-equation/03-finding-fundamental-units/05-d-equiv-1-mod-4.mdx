@@ -1,0 +1,27 @@
+---
+title: The d ≡ 1 (mod 4) subtlety
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The d ≡ 1 (mod 4) subtlety">
+
+When $d \equiv 1 \pmod{4}$ (like $d = 5$), the ring of integers is larger:
+$$\mathcal{O}_K = \ZZ\!\left[\tfrac{1+\sqrt{d}}{2}\right] \supsetneq \ZZ[\sqrt{d}].$$
+
+The <Term k="an58fundamentalUnit">fundamental unit</Term> may then be a half-integer, not an element of $\ZZ[\sqrt{d}]$ itself.
+
+<Callout kind="example" title="d = 5: the golden ratio">
+
+$K = \QQ(\sqrt{5})$, $\mathcal{O}_K = \ZZ[\frac{1+\sqrt{5}}{2}]$. The fundamental unit is:
+$$u = \frac{1 + \sqrt{5}}{2},$$
+the golden ratio $\varphi$. Its norm is $\frac{1-5}{4} = -1$, confirming it is a unit.
+
+The first **integer** element of $\ZZ[\sqrt{5}]$ with norm $\pm 1$ is $2 + \sqrt{5}$, which equals $u^3$. So $2 + \sqrt{5}$ is not fundamental — it is the cube of the actual fundamental unit.
+
+</Callout>
+
+This is why the theorem has two cases: for $d \equiv 1 \pmod 4$ we must look at the ring of half-integers, not just $\ZZ[\sqrt{d}]$.
+
+</SlideLayout>

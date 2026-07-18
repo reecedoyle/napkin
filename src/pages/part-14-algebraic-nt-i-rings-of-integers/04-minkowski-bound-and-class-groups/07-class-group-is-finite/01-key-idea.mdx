@@ -1,0 +1,25 @@
+---
+title: Every class contains a small ideal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Every class contains a small ideal">
+
+Let $M_K = \left(\frac{4}{\pi}\right)^{r_2} \frac{n!}{n^n} \sqrt{|\Delta_K|}$, a constant depending only on $K$.
+
+**Key insight:** Given any ideal class, we can find a "small" representative for it. Here is how.
+
+Given a fractional ideal $\mathfrak{a}$, the Minkowski bound gives $0 \neq \alpha \in \mathfrak{a}$ with $\operatorname{N}(\alpha) \leq M_K \cdot \operatorname{N}(\mathfrak{a})$.
+
+Since $\alpha \in \mathfrak{a}$, we have $(\alpha) \subseteq \mathfrak{a}$, so $\mathfrak{b} \defeq (\alpha) \cdot \mathfrak{a}^{-1}$ is an integral ideal (i.e. $\mathfrak{b} \subseteq \mathcal{O}_K$).
+
+<Callout kind="remark" title="Moral">
+The class of $\mathfrak{a}$ is determined by $(\alpha) \cdot \mathfrak{a}^{-1}$. If two ideals $\mathfrak{a}, \mathfrak{b}$ satisfy $(\alpha)\mathfrak{a}^{-1} = (\beta)\mathfrak{b}^{-1}$, then $\mathfrak{a}$ and $\mathfrak{b}$ are in the same ideal class.
+</Callout>
+
+Rewriting: $\operatorname{N}(\mathfrak{b}) = \operatorname{N}((\alpha)) / \operatorname{N}(\mathfrak{a}) \leq M_K$.
+
+So **every ideal class contains an integral ideal of norm at most $M_K$**.
+
+</SlideLayout>

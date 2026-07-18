@@ -1,0 +1,23 @@
+---
+title: Minkowski's theorem — proof sketch
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Minkowski's theorem — proof sketch">
+
+<ProofReveal
+  client:load
+  id="an56-mink-proof-pigeonhole"
+  prompt="Sketch: why does a convex centrally symmetric S with volume > 4 in ℝ² (with L = ℤ²) contain a nonzero lattice point? (Hint: Pigeonhole on 2×2 squares.)"
+  solution="Dissect the plane into 2×2 squares [2a−1, 2a+1] × [2b−1, 2b+1] and overlay all of them onto a single copy. The total area of S exceeds 4, so by the Pigeonhole Principle two distinct points p ≠ q in S must land in the same square after overlaying. Since S is symmetric, −q ∈ S. Then (p − q)/2 is in S by convexity, and is a nonzero lattice point."
+/>
+
+<Callout kind="remark" title="Part (b)">
+For the compact case where volume equals $2^n d$: for each $\varepsilon > 0$, the enlarged set $(1+\varepsilon)S$ satisfies the strict volume condition of part (a), so it contains a nonzero lattice point $v_\varepsilon$. As $\varepsilon \to 0$ these points $v_\varepsilon$ (which are discrete) must eventually stabilize, giving a nonzero lattice point in $S$.
+</Callout>
+
+This is a genuinely elegant proof — essentially the only input is Pigeonhole. Yet it will let us prove that class groups are finite, a deep arithmetic fact.
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Norm and trace in ℚ(√2)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Norm and trace in ℚ(√2)">
+
+Let's compute the norm and trace in the degree-2 field $K = \QQ(\sqrt{2})$.
+
+<Callout kind="example" title="Norm of a + b√2">
+Let $\alpha = a + b\sqrt{2} \in \QQ(\sqrt{2})$ with $b \neq 0$. Then $\alpha$ and $K$ both have degree $2$, so $k = 1$.
+
+The two Galois conjugates of $\alpha$ are $a + b\sqrt{2}$ and $a - b\sqrt{2}$. Therefore:
+$$\operatorname{N}_{K/\QQ}(\alpha) = (a + b\sqrt{2})(a - b\sqrt{2}) = a^2 - 2b^2$$
+$$\operatorname{Tr}_{K/\QQ}(\alpha) = (a + b\sqrt{2}) + (a - b\sqrt{2}) = 2a$$
+
+Nicely, these formulas also work when $b = 0$: a rational number $a$ has norm $a^2$ and trace $2a$ in $\QQ(\sqrt{2})$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="an54-s1-num-norm-sqrt2"
+  prompt="What is N_{ℚ(√2)/ℚ}(3 + √2)? Use the formula a² − 2b² with a = 3, b = 1."
+  expected="7"
+  label="Norm"
+/>
+
+</SlideLayout>

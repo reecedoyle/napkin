@@ -1,0 +1,21 @@
+---
+title: Rational algebraic integers are ordinary integers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Rational algebraic integers are ordinary integers">
+
+There's a clean intersection theorem that shows the algebraic integers refine the integers, not the rationals.
+
+<Callout kind="proposition" title="ℤ̄ ∩ ℚ = ℤ">
+An <Term k="algebraicInteger">algebraic integer</Term> that is also rational must be an ordinary integer. In symbols,
+$$\overline{\mathbb{Z}} \cap \mathbb{Q} = \mathbb{Z}.$$
+</Callout>
+
+**Proof.** Any integer $n \in \mathbb{Z}$ is a root of $x - n \in \mathbb{Z}[x]$, so it's an algebraic integer. Conversely, suppose $\alpha = p/q$ (in lowest terms, $q > 0$) is rational and an algebraic integer. Let $P(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0 \in \mathbb{Z}[x]$ be a monic integer polynomial with $P(\alpha) = 0$. Substituting $\alpha = p/q$ and multiplying through by $q^n$ gives $p^n + a_{n-1}p^{n-1}q + \cdots + a_0 q^n = 0$. So $q \mid p^n$. Since $\gcd(p,q) = 1$ we get $q = 1$, so $\alpha \in \mathbb{Z}$.
+
+This is just the **rational root theorem** in disguise: monic integer polynomials can only have integer rational roots.
+
+</SlideLayout>

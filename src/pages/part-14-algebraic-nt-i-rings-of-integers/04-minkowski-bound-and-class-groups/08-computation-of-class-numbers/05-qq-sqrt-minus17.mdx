@@ -1,0 +1,31 @@
+---
+title: ℚ(√−17) has class group ℤ/4ℤ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="ℚ(√−17) has class group ℤ/4ℤ">
+
+Now an example with a **nontrivial** class group.
+
+<Callout kind="proposition" title="Cl_K ≅ ℤ/4ℤ for K = ℚ(√−17)">
+$\Delta_K = -68$, signature $(0,1)$, $M_K = \frac{4}{\pi}\sqrt{17} < 6$.
+</Callout>
+
+**Factoring the relevant primes** (minimal polynomial $x^2 + 17$):
+
+| Prime | Factorization in $\mathcal{O}_K$ | Norm |
+|---|---|---|
+| $(2)$ | $\mathfrak{p}^2$, $\mathfrak{p} = (2, \sqrt{-17}+1)$ | $\operatorname{N}(\mathfrak{p}) = 2$ |
+| $(3)$ | $\mathfrak{q}_1\mathfrak{q}_2$, $\mathfrak{q}_i = (3, \sqrt{-17}\pm 1)$ | $\operatorname{N}(\mathfrak{q}_i) = 3$ |
+| $(5)$ | stays prime | $\operatorname{N}((5)) = 25 > M_K$ |
+
+The cherries with norm $\leq 5$ are $\{\mathfrak{p}, \mathfrak{q}_1, \mathfrak{q}_2\}$ plus their combinations of total norm $\leq 5$: only $\{(1), \mathfrak{p}, \mathfrak{q}_1, \mathfrak{q}_2, \mathfrak{p}^2\}$.
+
+Since $\mathfrak{p}^2 = (2)$ is principal, $\mathfrak{p}$ has order $2$ in $\Cl_K$.
+
+Since $\mathfrak{q}_1^2 \neq (3)$ (that would force $\mathfrak{q}_1 = \mathfrak{q}_2$, impossible since $\mathfrak{q}_1 + \mathfrak{q}_2 = (1)$), $\mathfrak{q}_1$ has order $> 2$ in $\Cl_K$, hence order $4$ (Lagrange says the order divides $|\Cl_K| \leq 4$).
+
+Therefore $\Cl_K \cong \mathbb{Z}/4\mathbb{Z}$.
+
+</SlideLayout>

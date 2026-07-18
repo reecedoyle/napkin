@@ -1,0 +1,22 @@
+---
+title: Fundamental units and Pell's equation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fundamental units and Pell's equation">
+
+The verification argument generalises to a precise theorem. Recall that <Term k="an58pellEquationPM">$x^2 - dy^2 = \pm 1$</Term> is the Pell-type equation for $d$.
+
+<Callout kind="theorem" title="Fundamental units via minimal Pell solutions">
+Let $d$ be a squarefree integer.
+
+**(a)** If $d \equiv 2$ or $3 \pmod{4}$: let $(x, y)$ be the minimal **integer** solution to $x^2 - dy^2 = \pm 1$ (minimising $|y| > 0$). Then $x + y\sqrt{d}$ is a fundamental unit of $\mathcal{O}_K = \ZZ[\sqrt{d}]$.
+
+**(b)** If $d \equiv 1 \pmod{4}$: the fundamental unit may be a half-integer. The minimal **integer** solution to $a^2 - db^2 = \pm 4$ gives the fundamental unit $\frac{a + b\sqrt{d}}{2}$.
+</Callout>
+
+The upshot: finding the fundamental unit of a real quadratic field is equivalent to finding the **smallest positive solution** to a Pell equation. That is the key link we will exploit.
+
+</SlideLayout>

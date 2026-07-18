@@ -1,0 +1,25 @@
+---
+title: Every element of K is a fraction from 𝒪_K
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Every element of K is a fraction from 𝒪_K">
+
+The relationship between $K$ and $\OO_K$ mirrors how $\QQ$ and $\ZZ$ relate: every rational is a fraction of integers, and every element of $K$ is a fraction of algebraic integers.
+
+<Callout kind="example" title="Rationalizing the denominator">
+In $K = \QQ(\sqrt{3})$, consider $x = \frac{1}{4 + \sqrt{3}}$. Multiply top and bottom by $4 - \sqrt{3}$:
+$$\frac{1}{4+\sqrt{3}} = \frac{4-\sqrt{3}}{(4+\sqrt{3})(4-\sqrt{3})} = \frac{4-\sqrt{3}}{13}.$$
+So $x = \frac{1}{13}(4 - \sqrt{3})$, which is $\frac{1}{13}$ times an element of $\OO_K$.
+</Callout>
+
+<Callout kind="theorem" title="K = ℚ · 𝒪_K">
+Let $K$ be a number field and $x \in K$. There exists a nonzero integer $n$ such that $nx \in \OO_K$. In other words,
+$$x = \frac{\alpha}{n}$$
+for some $\alpha \in \OO_K$ and $n \in \ZZ \setminus \{0\}$.
+</Callout>
+
+The proof is quick: $x$ has a minimal polynomial $a_d x^d + \cdots + a_0$ with $a_i \in \QQ$. Clearing the leading coefficient, set $\alpha = a_d x$; then $\alpha$ satisfies a monic polynomial with integer coefficients, so $\alpha \in \OO_K$ and $x = \alpha/a_d$.
+
+</SlideLayout>

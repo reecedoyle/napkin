@@ -1,0 +1,30 @@
+---
+title: Example — factoring 3 in ℤ[√-17]
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — factoring 3 in ℤ[√-17]">
+
+Let $\OO_K = \ZZ[\sqrt{-17}]$ with minimal polynomial $f = x^2 + 17$. We want to factor $(3)$.
+
+Factor $f \bmod 3$: $x^2 + 17 \equiv x^2 - 1 = (x-1)(x+1) \pmod 3$.
+
+Two distinct linear factors, so $(3)$ splits. By the <Term k="an55factoringAlgorithm">Dedekind–Kummer theorem</Term>:
+
+$$\mathfrak{q}_1 = (3, \sqrt{-17} - 1), \quad \mathfrak{q}_2 = (3, \sqrt{-17} + 1), \quad (3) = \mathfrak{q}_1 \mathfrak{q}_2.$$
+
+We verify $\mathfrak{q}_1 \mathfrak{q}_2 = (3)$:
+
+$$\mathfrak{q}_1\mathfrak{q}_2 = (9,\; 3\sqrt{-17}+3,\; 3\sqrt{-17}-3,\; 18) = (9,\; 3\sqrt{-17}+3,\; 6) = (3)$$
+
+using $9 - 6 = 3$, and then noting $3\sqrt{-17} \pm 3 = 3(\sqrt{-17} \pm 1) \in (3)$.
+
+<Callout kind="remark" title="Quotient check">
+$\OO_K/\mathfrak{q}_1 \cong \FF_3[x]/(x^2+17, x-1) \cong \FF_3[x]/(x-1) \cong \FF_3$, confirming $\mathfrak{q}_1$ is maximal.
+</Callout>
+
+The computation looks magical at first — the two weird ideals $\mathfrak{q}_1$ and $\mathfrak{q}_2$ multiply back to the simple principal ideal $(3)$. The theorem guarantees this always works.
+
+</SlideLayout>

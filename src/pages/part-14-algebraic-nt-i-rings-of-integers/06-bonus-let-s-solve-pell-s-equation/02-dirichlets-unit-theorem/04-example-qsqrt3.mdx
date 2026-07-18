@@ -1,0 +1,24 @@
+---
+title: Units in ℚ(√3) — one fundamental unit
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Units in ℚ(√3) — one fundamental unit">
+
+Now try $K = \QQ(\sqrt{3})$ with $\mathcal{O}_K = \ZZ[\sqrt{3}]$.
+
+$K$ has two distinct real embeddings ($\sqrt{3} \mapsto +\sqrt{3}$ and $\sqrt{3} \mapsto -\sqrt{3}$), so signature $(r_1, r_2) = (2, 0)$:
+$$s = 2 + 0 - 1 = 1.$$
+
+<Term k="an58dirichletUnitTheorem">Dirichlet's theorem</Term> says $\mathcal{O}_K^\times \cong \ZZ^1 \times \{\pm 1\}$. There is exactly **one** <Term k="an58fundamentalUnit">fundamental unit</Term> $u$, and every unit is $\pm u^n$ for $n \in \ZZ$.
+
+The fundamental unit of $\ZZ[\sqrt{3}]$ is $u = 2 + \sqrt{3}$:
+- Norm: $\NK(2 + \sqrt{3}) = 2^2 - 3 \cdot 1^2 = 1$. ✓
+- Its inverse is $2 - \sqrt{3} = u^{-1}$ (also in $\ZZ[\sqrt{3}]$). ✓
+
+So the full unit group is:
+$$\ZZ[\sqrt{3}]^\times = \bigl\{ \pm(2+\sqrt{3})^n \;\big|\; n \in \ZZ \bigr\}.$$
+
+</SlideLayout>

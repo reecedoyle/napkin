@@ -1,0 +1,43 @@
+---
+title: Quick examples of the discriminant
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Quick examples of the discriminant">
+
+Let us compute $\Delta_K$ for the two simplest cases.
+
+**$K = \QQ$.** The only embedding is the identity, so the embedding matrix is the $1 \times 1$ matrix $[1]$. Thus $\Delta_\QQ = 1$.
+
+**$K = \QQ(\sqrt{d})$, $d$ squarefree.** The two embeddings are $\sigma_1(a + b\sqrt{d}) = a + b\sqrt{d}$ and $\sigma_2(a + b\sqrt{d}) = a - b\sqrt{d}$. Take the basis $\{1, \omega\}$ for $\OO_K$, where $\omega = \frac{1+\sqrt{d}}{2}$ if $d \equiv 1 \pmod{4}$, and $\omega = \sqrt{d}$ otherwise. A short computation gives:
+
+$$
+\Delta_K =
+\begin{cases}
+d & \text{if } d \equiv 1 \pmod{4}, \\
+4d & \text{if } d \equiv 2 \text{ or } 3 \pmod{4}.
+\end{cases}
+$$
+
+<Callout kind="example" title="ℚ(√5) and ℚ(√2)">
+$\Delta_{\QQ(\sqrt{5})} = 5$ (since $5 \equiv 1 \pmod 4$). $\Delta_{\QQ(\sqrt{2})} = 8$ (since $2 \equiv 2 \pmod 4$).
+</Callout>
+
+<MCQ
+  client:load
+  id="an57-intro-mcq-sign"
+  prompt="What is the discriminant of ℚ(√-3)?"
+  options={[
+    { id: "a", label: "12 (since −3 ≡ −3 mod 4, so we use 4d = 4·(−3) = −12... wait, 4d = −12, absolute value 12)" },
+    { id: "b", label: "−12 (using the d ≡ 2,3 case with 4d)" },
+    { id: "c", label: "3 (taking |d| since discriminants should be positive)" },
+    { id: "d", label: "−3 (since −3 ≡ 1 mod 4, we use Δ = d)" },
+  ]}
+  correct="d"
+  explanation="−3 ≡ 1 (mod 4) because −3 = −1 · 4 + 1. So we use the d ≡ 1 mod 4 case: Δ = d = −3. Discriminants can be negative — the sign carries information about the field's signature (Brill's theorem). So Δ_{ℚ(√-3)} = −3."
+/>
+
+</SlideLayout>

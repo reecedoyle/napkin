@@ -112,4 +112,12 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\Div': '\\operatorname{Div}',
   '\\deg': '\\operatorname{deg}',
   '\\mult': '\\operatorname{mult}',
+  '\\NK': '\\operatorname{N}_{K/\\mathbb{Q}}',
+  '\\Cl': '\\operatorname{Cl}',
+  '\\TrK': '\\operatorname{Tr}_{K/\\mathbb{Q}}',
+  '\\ka': '\\mathfrak{a}',
+  '\\kb': '\\mathfrak{b}',
+  '\\kp': '\\mathfrak{p}',
+  '\\kq': '\\mathfrak{q}',
+  '\\NmK': '\\operatorname{N}_{K/\\mathbb{Q}}',
 };

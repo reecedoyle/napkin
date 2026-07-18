@@ -1,0 +1,25 @@
+---
+title: Irreducible polynomials have distinct roots
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Irreducible polynomials have distinct roots">
+
+Before we can count conjugates confidently, we need to know that the minimal polynomial never has a repeated root. This is a classical fact.
+
+<Callout kind="lemma" title="No repeated complex roots">
+An irreducible polynomial in $\QQ[x]$ cannot have a complex double root.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="an54-s1-proof-distinct-roots"
+  prompt="Why can't the minimal polynomial of an algebraic number have a repeated root?"
+  solution="Suppose f(x) ∈ ℚ[x] is irreducible and has a double root α. Consider its derivative f′(x). The derivative has degree one less than f, and since α is a double root, α is also a root of f′. So f and f′ share the factor (x − α), meaning gcd(f, f′) is nonconstant. But gcd(f, f′) ∈ ℚ[x] by the Euclidean algorithm, and it has smaller degree than f while still dividing f — contradicting irreducibility of f."
+/>
+
+**Consequence:** $\alpha$ has **exactly** as many distinct Galois conjugates as its degree. So every algebraic number of degree $m$ has exactly $m$ conjugates.
+
+</SlideLayout>

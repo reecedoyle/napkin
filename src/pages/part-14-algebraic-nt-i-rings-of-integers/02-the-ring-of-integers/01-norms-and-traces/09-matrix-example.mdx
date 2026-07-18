@@ -1,0 +1,26 @@
+---
+title: Computing the matrix of μ_α in ℚ(√2)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Computing the matrix of μ_α in ℚ(√2)">
+
+Let's make the determinant definition concrete.
+
+<Callout kind="example" title="Matrix of multiplication by a + b√2">
+Let $K = \QQ(\sqrt{2})$ with <Term k="basis">basis</Term> $\{1, \sqrt{2}\}$. For $\alpha = a + b\sqrt{2}$:
+
+$$\alpha \cdot (x + y\sqrt{2}) = (ax + 2yb) + (bx + ay)\sqrt{2}.$$
+
+Writing this in the basis $\{1, \sqrt{2}\}$:
+$$\mu_\alpha = \begin{bmatrix} a & 2b \\ b & a \end{bmatrix}.$$
+
+Therefore:
+$$\det \mu_\alpha = a^2 - 2b^2, \qquad \operatorname{Tr} \mu_\alpha = 2a.$$
+</Callout>
+
+This matrix approach explains why the norm formula $a^2 - 2b^2$ works even when $b = 0$: the <Term k="matrix">matrix</Term> $\mu_a = \begin{bmatrix} a & 0 \\ 0 & a \end{bmatrix}$ has determinant $a^2$ and trace $2a$, consistent with viewing $a \in \QQ$ as a degree-1 element of a degree-2 field with correction factor $k = 2$.
+
+</SlideLayout>

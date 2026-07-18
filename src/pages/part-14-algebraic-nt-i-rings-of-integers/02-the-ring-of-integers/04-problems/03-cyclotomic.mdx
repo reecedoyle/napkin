@@ -1,0 +1,18 @@
+---
+title: Problems — cyclotomic ring of integers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — cyclotomic ring of integers">
+
+<Problem
+  client:load
+  id="an54-prob-cyclotomic"
+  difficulty="daggered"
+  prompt="Let p be an odd prime and ζ_p a primitive p-th root of unity. Let K = ℚ(ζ_p). Prove that 𝒪_K = ℤ[ζ_p]."
+  hint="Obviously ℤ[ζ_p] ⊆ 𝒪_K. For the reverse: show that for any α ∈ 𝒪_K, the trace of α(1−ζ_p) is divisible by p. Given x = a₀ + a₁ζ_p + ⋯ + a_{p−2}ζ_p^{p−2} ∈ 𝒪_K with aᵢ ∈ ℚ, consider (1−ζ_p)x."
+  solution="We show ℤ[ζ_p] ⊆ 𝒪_K ⊆ ℤ[ζ_p]. The first inclusion is clear since ζ_p is an algebraic integer. For the second, let x = a₀ + a₁ζ_p + ⋯ + a_{p−2}ζ_p^{p−2} ∈ 𝒪_K with aᵢ ∈ ℚ (using the fact that {1, ζ_p, …, ζ_p^{p−2}} is a ℚ-basis for K). We want to show all aᵢ ∈ ℤ. Key tool: for any α ∈ 𝒪_K, Tr_{K/ℚ}(α·ζ_p^j) ∈ ℤ. Now Tr(ζ_p^j) = −1 for 1 ≤ j ≤ p−1 and Tr(1) = p−1. Taking traces of x·ζ_p^{−j} = a₀ζ_p^{−j} + ⋯ gives linear equations in the aᵢ with integer right-hand sides. The Vandermonde-style system shows each aᵢ ∈ (1/p)ℤ. A more refined trace argument using (1−ζ_p) shows actually aᵢ ∈ ℤ. Specifically, one shows that Tr((1−ζ_p)·ζ_p^k) equals p if k ≡ 0 (mod p), and 0 otherwise; using this to extract each aᵢ shows pᵢ ∈ pℤ, hence aᵢ ∈ ℤ."
+/>
+
+</SlideLayout>

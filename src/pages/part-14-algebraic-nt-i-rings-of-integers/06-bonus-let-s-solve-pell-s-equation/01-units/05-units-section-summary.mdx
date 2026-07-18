@@ -1,0 +1,25 @@
+---
+title: Units — summary and outlook
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Units — summary and outlook">
+
+Here is what we know so far about <Term k="an58unitGroup">$\mathcal{O}_K^\times$</Term>:
+
+- It always contains $\pm 1$ and any roots of unity in $K$.
+- For real quadratic fields $\QQ(\sqrt{d})$ with $d > 0$, there are **infinitely many** units — all the powers of a single "generator."
+- The norm criterion $\NK(\alpha) = \pm 1$ is the efficient test.
+
+<Callout kind="remark" title="The big question">
+How many "independent" units are there, and can we describe them all? Dirichlet's unit theorem answers this precisely, depending only on the **signature** $(r_1, r_2)$ of the number field.
+</Callout>
+
+The <Term k="an58signature">signature</Term> $(r_1, r_2)$ records how many real and complex embeddings $K$ has: $r_1$ real embeddings, $r_2$ conjugate pairs of complex embeddings, with $r_1 + 2r_2 = [K : \QQ]$.
+
+- $K = \QQ(\sqrt{3})$: degree 2, two real embeddings $\Rightarrow$ signature $(2, 0)$.
+- $K = \QQ(i)$: degree 2, one conjugate pair $\Rightarrow$ signature $(0, 1)$.
+
+</SlideLayout>

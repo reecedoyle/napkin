@@ -1,0 +1,24 @@
+---
+title: Verifying a fundamental unit
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Verifying a fundamental unit">
+
+Suppose someone tells us the fundamental unit of $\ZZ[\sqrt{11}]$ is $10 + 3\sqrt{11}$. How do we verify it?
+
+First, $\NK(10 + 3\sqrt{11}) = 10^2 - 11 \cdot 9 = 100 - 99 = 1$. So it **is** a unit.
+
+To confirm it is **fundamental** (not a proper power of a smaller unit), we argue as follows. If $10 + 3\sqrt{11} = (x + y\sqrt{11})^n$ for some integer $n > 1$ and unit $x + y\sqrt{11}$, then at minimum $|y| < 3$.
+
+So we just check $y = 1$ and $y = 2$:
+- $y = 1$: need $x^2 - 11 = \pm 1$, so $x^2 \in \{10, 12\}$. Neither is a perfect square.
+- $y = 2$: need $x^2 - 44 = \pm 1$, so $x^2 \in \{43, 45\}$. Neither is a perfect square.
+
+<Callout kind="remark" title="The key insight">
+Since $(10, 3)$ is the **smallest** solution to $x^2 - 11y^2 = \pm 1$ in terms of $|y|$, it must be the fundamental unit. No smaller unit can generate it.
+</Callout>
+
+</SlideLayout>

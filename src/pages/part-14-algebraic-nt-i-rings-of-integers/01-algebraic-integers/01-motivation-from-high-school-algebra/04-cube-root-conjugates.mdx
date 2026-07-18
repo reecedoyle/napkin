@@ -1,0 +1,36 @@
+---
+title: The cube root of 2 has two conjugates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The cube root of 2 has two conjugates">
+
+The minimal polynomial of $\sqrt[3]{2}$ is $x^3 - 2$. This has three roots:
+
+$$\sqrt[3]{2}, \quad \sqrt[3]{2}\,e^{2\pi i/3}, \quad \sqrt[3]{2}\,e^{4\pi i/3}$$
+
+Any polynomial with rational coefficients that vanishes at $\sqrt[3]{2}$ must also vanish at the other two. The three roots travel as a package.
+
+So even though $\sqrt[3]{2}$ is a real number with no obvious "conjugate" over the reals, it does have conjugates over $\mathbb{Q}$ — they happen to be complex.
+
+<Callout kind="remark" title="Uniqueness of the minimal polynomial">
+Monicity and minimality together guarantee uniqueness. If $P$ and $P'$ are both monic minimal polynomials of $\alpha$, then $P \mid P'$ and $P' \mid P$ (by the theorem on the previous slide), so $P = P'$.
+</Callout>
+
+<MCQ
+  client:load
+  id="an53-mot-mcq-degree-zeta5"
+  prompt="What is the degree of a primitive 5th root of unity ζ₅ = e^(2πi/5) over ℚ?"
+  options={[
+    { id: "a", label: "1" },
+    { id: "b", label: "2" },
+    { id: "c", label: "4" },
+    { id: "d", label: "5" },
+  ]}
+  correct="c"
+  explanation="The minimal polynomial of ζ₅ over ℚ is x⁴ + x³ + x² + x + 1, which has degree 4. (The formula x^(p-1) + ⋯ + 1 for a prime p = 5 gives degree p − 1 = 4.)"
+/>
+
+</SlideLayout>

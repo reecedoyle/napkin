@@ -1,0 +1,17 @@
+---
+title: Problem — prove the factoring algorithm
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — prove the factoring algorithm">
+
+<Problem
+  client:load
+  id="an55-prob-prove-factoring-alg"
+  difficulty="standard"
+  prompt="In the notation of the Dedekind–Kummer theorem, let I = ∏ 𝔭ᵢ^{eᵢ}. Assume K is monogenic with 𝒪_K = ℤ[θ]. (a) Prove each 𝔭ᵢ is prime. (b) Show (p) divides I. (c) Use the norm to show (p) = I. Hints: (a) is straightforward. For (b) work mod p. For (c) use norms."
+  solution="(a) Each 𝔭ᵢ is prime because 𝒪_K/𝔭ᵢ ≅ (ℤ[x]/f)/(p,fᵢ) ≅ 𝔽_p[x]/(fᵢ) is a field (since fᵢ is irreducible over 𝔽_p). (b) We must show I ⊆ (p), i.e., (p) ∣ I. The product ∏(fᵢ(θ))^{eᵢ} ≡ f(θ) ≡ 0 (mod p) (since f is the minimal polynomial of θ). So every generator of I lies in (p), giving I ⊆ (p). (c) Since (p) ∣ I, write (p) = ∏ 𝔭ᵢ^{eᵢ'} with eᵢ' ≤ eᵢ. Now 𝒩((p)) = |𝒪_K/(p)| = |𝔽_p[x]/(f)| = p^{deg f}. Also 𝒩(𝔭ᵢ) = p^{deg fᵢ}. Using multiplicativity: p^{deg f} = 𝒩((p)) = ∏ p^{eᵢ' deg fᵢ}. But deg f = ∑ eᵢ deg fᵢ (from the factorization over 𝔽_p). Since eᵢ' ≤ eᵢ for each i, equality forces eᵢ' = eᵢ for all i. So (p) = I."
+/>
+
+</SlideLayout>

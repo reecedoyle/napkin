@@ -1,0 +1,26 @@
+---
+title: The ring of integers of a number field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The ring of integers of a number field">
+
+Just as $\ZZ$ gives richer arithmetic than $\QQ$, focusing on the **algebraic integers** inside a number field $K$ gives much nicer structure than $K$ itself.
+
+<Callout kind="definition" title="Ring of integers 𝒪_K">
+Given a number field $K$, define
+$$\OO_K \defeq K \cap \ol{\ZZ}$$
+to be the **ring of integers** of $K$. Equivalently, $\OO_K$ consists of all elements of $K$ that are roots of some monic polynomial with integer coefficients.
+</Callout>
+
+The notation $\ol{\ZZ}$ means the ring of **all** algebraic integers (in $\CC$). We intersect with $K$ to stay inside our field.
+
+**The analogy:**
+| Number field $K$ | Rational numbers $\QQ$ |
+|---|---|
+| Ring of integers $\OO_K$ | Integers $\ZZ$ |
+
+The prototype is $K = \QQ$ itself, where $\OO_K = \ZZ$. Every algebraic integer in $\QQ$ is an ordinary integer.
+
+</SlideLayout>

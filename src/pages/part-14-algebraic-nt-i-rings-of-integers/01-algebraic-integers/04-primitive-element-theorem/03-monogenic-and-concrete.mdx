@@ -1,0 +1,26 @@
+---
+title: Monogenic extensions — concreteness of number fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Monogenic extensions — concreteness of number fields">
+
+The primitive element theorem says every number field $K$ is of the form $K = \mathbb{Q}(\alpha) \cong \mathbb{Q}[x]/(P(x))$ for some <Term k="irreducible">irreducible</Term> $P \in \mathbb{Q}[x]$.
+
+This is an extremely concrete description:
+
+- **Elements** of $K$ are polynomials in $\alpha$ of degree $< \deg P$: every element looks like $a_0 + a_1\alpha + \cdots + a_{m-1}\alpha^{m-1}$.
+- **Addition** is polynomial addition.
+- **Multiplication** is polynomial multiplication, then reduce mod $P(\alpha) = 0$.
+
+<Callout kind="example" title="Arithmetic in ℚ(√3 + √5)">
+In $K = \mathbb{Q}(\sqrt{3}+\sqrt{5})$ with $\gamma = \sqrt{3}+\sqrt{5}$, every element is $a + b\gamma + c\gamma^2 + d\gamma^3$ for $a, b, c, d \in \mathbb{Q}$. To multiply, use $\gamma^4 = 16\gamma^2 - 16$ (from the minimal polynomial $\gamma^4 - 16\gamma^2 + 4 = 0$) to reduce higher powers.
+</Callout>
+
+<Callout kind="remark" title="One theorem, used rarely">
+Evan Chen notes: the primitive element theorem is included here because it's a natural fact that's easy to miss, but he doesn't use it in anything that follows. Think of it as orientation — "number fields are all monogenic" — rather than a tool you'll reach for.
+</Callout>
+
+</SlideLayout>

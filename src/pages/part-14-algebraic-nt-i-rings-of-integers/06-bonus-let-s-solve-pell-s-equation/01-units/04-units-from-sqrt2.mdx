@@ -1,0 +1,29 @@
+---
+title: Infinitely many units from √2
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Infinitely many units from √2">
+
+Consider $K = \QQ(\sqrt{2})$ with <Term k="an58ringOfIntegers">$\mathcal{O}_K = \ZZ[\sqrt{2}]$</Term>. The element $u = 3 - 2\sqrt{2}$ satisfies:
+$$\NK(3 - 2\sqrt{2}) = 3^2 - 2 \cdot (2)^2 = 9 - 8 = 1.$$
+So $u$ is a unit. Since it is not a root of unity (its powers grow without bound), the elements $u^n = (3 - 2\sqrt{2})^n$ give infinitely many distinct units.
+
+<MCQ
+  client:load
+  id="an58-units-mcq-norm-check"
+  prompt="Which of the following elements of ℤ[√5] is a unit?"
+  options={[
+    { id: "a", label: "1 + √5  (norm = 1 − 5 = −4)" },
+    { id: "b", label: "2 + √5  (norm = 4 − 5 = −1)" },
+    { id: "c", label: "3 + √5  (norm = 9 − 5 = 4)" },
+    { id: "d", label: "4 + √5  (norm = 16 − 5 = 11)" },
+  ]}
+  correct="b"
+  explanation="A unit in ℤ[√5] must have norm ±1. We have N(a + b√5) = a² − 5b². For 2 + √5: 4 − 5 = −1 = ±1, so it's a unit. The others have norms −4, 4, and 11, none of which are ±1."
+/>
+
+</SlideLayout>

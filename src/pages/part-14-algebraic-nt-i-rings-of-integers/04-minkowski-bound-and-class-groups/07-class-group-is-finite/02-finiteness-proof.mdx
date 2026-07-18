@@ -1,0 +1,25 @@
+---
+title: The class group is finite — proof
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The class group is finite — proof">
+
+<Callout kind="theorem" title="Finiteness of the class group">
+For any number field $K$, the class group $\Cl_K$ is finite.
+</Callout>
+
+**Proof.** We just showed every class contains an integral ideal of norm $\leq M_K$. So it suffices to show there are only finitely many such ideals.
+
+Think of building an ideal $\mathfrak{b} = \mathfrak{p}_1^{e_1} \cdots \mathfrak{p}_m^{e_m}$ using a **cherry tree** metaphor:
+
+- Each **branch** is a rational prime $(p)$.
+- The **cherries** on branch $(p)$ are the prime ideals of $\mathcal{O}_K$ lying over $p$ (finitely many per branch).
+- Your **bucket** (ideal $\mathfrak{b}$) can hold total weight (norm) at most $M_K$.
+
+Since a prime ideal $\mathfrak{p}$ over $(p)$ satisfies $\operatorname{N}(\mathfrak{p}) \geq p$, you can only touch branches with $p \leq M_K$ — finitely many primes. Each branch has finitely many cherries. The norm is multiplicative, so the number of ways to fill the bucket to weight $\leq M_K$ is finite.
+
+Therefore there are only finitely many integral ideals with norm $\leq M_K$, so $\Cl_K$ is finite. $\square$
+
+</SlideLayout>

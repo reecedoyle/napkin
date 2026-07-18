@@ -1,0 +1,27 @@
+---
+title: The class number
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The class number">
+
+<Callout kind="definition" title="Class number">
+The **class number** of $K$ is $h_K = |\Cl_K|$, the size of the class group.
+</Callout>
+
+**Key fact:** the class number is always finite. This is far from obvious — after all, there are infinitely many ideals. The bulk of this chapter builds up to proving it.
+
+Here is a preview of what class numbers look like for imaginary quadratic fields $\mathbb{Q}(\sqrt{-d})$:
+
+| Field | Class number | PID? |
+|---|---|---|
+| $\mathbb{Q}(i)$ | 1 | Yes (Gaussian integers) |
+| $\mathbb{Q}(\sqrt{-5})$ | 2 | No |
+| $\mathbb{Q}(\sqrt{-23})$ | 3 | No |
+| $\mathbb{Q}(\sqrt{-17})$ | 4 | No |
+| $\mathbb{Q}(\sqrt{-163})$ | 1 | Yes |
+
+The bigger the class number, the further $\mathcal{O}_K$ is from having unique factorization. We'll prove finiteness using Minkowski's theorem — a geometric result about lattice points.
+
+</SlideLayout>

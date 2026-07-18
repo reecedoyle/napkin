@@ -1,0 +1,35 @@
+---
+title: Ring of integers of ℚ(√5) — the golden ratio appears
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Ring of integers of ℚ(√5) — the golden ratio appears">
+
+The case $K = \QQ(\sqrt{5})$ is more surprising.
+
+<Callout kind="example" title="𝒪_ℚ(√5) = ℤ[(1+√5)/2]">
+We claim
+$$\OO_K = \ZZ\!\left[\tfrac{1+\sqrt{5}}{2}\right] = \left\{m + n \cdot \tfrac{1+\sqrt{5}}{2} \;\middle|\; m, n \in \ZZ\right\}.$$
+
+The number $\varphi = \frac{1+\sqrt{5}}{2}$ (the golden ratio) satisfies $\varphi^2 - \varphi - 1 = 0$, a monic integer polynomial — so $\varphi \in \OO_K$.
+
+The key difference: $5 \equiv 1 \pmod{4}$, so there are two classes of half-integer solutions. Working mod 4, if $\alpha = a + b\sqrt{5}$ with $2a \in \ZZ$ and $a^2 - 5b^2 \in \ZZ$, then either $a, b \in \ZZ$ or $a, b \in \ZZ + \tfrac{1}{2}$ (both half-integers).
+</Callout>
+
+<MCQ
+  client:load
+  id="an54-s2-mcq-sqrt5-integers"
+  prompt="Is the element (1 + √5)/2 in 𝒪_ℚ(√5)?"
+  options={[
+    { id: "a", label: "No — it has a denominator so it cannot be an algebraic integer" },
+    { id: "b", label: "Yes — it satisfies x² − x − 1 = 0, a monic polynomial with integer coefficients" },
+    { id: "c", label: "Only if we include it by convention" },
+    { id: "d", label: "Yes, but only because ℚ(√5) is a special field" },
+  ]}
+  correct="b"
+  explanation="Being an algebraic integer means satisfying a monic polynomial with INTEGER coefficients — not that the number itself is an integer. The golden ratio φ = (1+√5)/2 satisfies φ² − φ − 1 = 0, which is monic with integer coefficients, so φ ∈ 𝒪_ℚ(√5). The denominator 2 is no obstacle."
+/>
+
+</SlideLayout>

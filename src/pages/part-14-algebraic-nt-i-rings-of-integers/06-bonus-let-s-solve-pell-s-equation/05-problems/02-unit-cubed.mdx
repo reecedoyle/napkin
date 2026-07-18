@@ -1,0 +1,18 @@
+---
+title: When does the fundamental unit land in ℤ[√d]?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="When does the fundamental unit land in ℤ[√d]?">
+
+<Problem
+  client:load
+  id="an58-prob-unit-cubed"
+  difficulty="standard"
+  statement="Let d > 0 be a squarefree integer and let u denote the fundamental unit of ℚ(√d). Show that either u ∈ ℤ[√d], or u^n ∈ ℤ[√d] if and only if 3 ∣ n."
+  hint="Write u = (a + b√d)/2 with a, b odd integers (the case when u is a half-integer). Compute u², u³ and check which ones have integer (not half-integer) coefficients. The parity of a² + db² controls this."
+  solution="If u ∈ ℤ[√d] we are done. Otherwise u = (a + b√d)/2 with a, b odd (both must have the same parity as each other, and since 4 ∤ a²−db² and a²−db² = ±4 forces a, b odd). Then u² = (a² + db²)/4 + (ab/2)√d. Since a, b are odd, a²+db² ≡ 1+d (mod 4). For u to be a half-integer with odd numerators, we need a²+db² ≡ 2 (mod 4), i.e., d ≡ 1 (mod 4). Then u² = (a²+db²)/4 + (ab/2)√d. Since a,b odd, ab is odd and ab/2 is not an integer, so u² ∉ ℤ[√d]. For u³ = u·u²: compute u³ = u·u². Write u = (a+b√d)/2, u² = (a²+db² + 2ab√d)/4. Then u³ = ((a+b√d)(a²+db²+2ab√d))/8. The non-√d part is a(a²+db²) + 2ab²d = a³ + 3ab²d, and the √d part is b(a²+db²) + 2a²b = 3a²b + b³d. So u³ = (a³+3ab²d + (3a²b+b³d)√d)/8. Now a,b odd implies a³+3ab²d ≡ a+3ab² (mod 8). We have a³+3ab²d = a(a²+3b²d). Since a²≡1, b²≡1 (mod 8) for odd a,b: a²+3b²d ≡ 1+3d (mod 8). For d≡1(mod 4), d=4m+1, so 3d≡3 (mod 8) if d≡1(mod 8) or 3d≡7(mod 8) if d≡5(mod 8). In either case a(a²+3b²d)/8 works out to give integer coefficients for u³. Thus u³ ∈ ℤ[√d], and since u¹, u² ∉ ℤ[√d], the answer is that u^n ∈ ℤ[√d] if and only if 3 ∣ n."
+/>
+
+</SlideLayout>

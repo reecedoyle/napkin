@@ -1,0 +1,44 @@
+---
+title: Problems — |Δ_K| > 1, Brill's theorem, Stickelberger
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — |Δ_K| > 1, Brill's theorem, Stickelberger">
+
+Three structural results: a lower bound on $|\Delta_K|$, a sign rule, and a mod-4 constraint.
+
+<Problem
+  client:load
+  id="an57-prob-abs-gt-1"
+  difficulty="standard"
+  prompt="Show that if K ≠ ℚ is a number field, then |Δ_K| > 1."
+  hint="The Minkowski bound M_K ≥ 1 must hold. Use the fact that M_K = 1 forces K = ℚ, or argue directly that the trace form on 𝒪_K cannot be unimodular unless 𝒪_K = ℤ."
+  solution="By the Minkowski bound, every ideal class of 𝒪_K contains an ideal of norm at most M_K, where M_K depends on n and |Δ_K|^{1/2}. A more direct argument: the discriminant is the determinant of the Gram matrix [Tr(αᵢαⱼ)] of the trace bilinear form on 𝒪_K. If |Δ_K| = 1 then this Gram matrix is unimodular over ℤ, meaning 𝒪_K with the trace form is isometric to ℤⁿ. But the trace form Tr(1·1) = [K:ℚ] = n ≥ 2 shows the Gram matrix cannot be ±I, so |Δ_K| ≥ n ≥ 2 > 1 for any nontrivial extension."
+/>
+
+<Problem
+  client:load
+  id="an57-prob-brill"
+  difficulty="standard"
+  prompt="(Brill's theorem) For a number field K with signature (r₁, r₂), show that Δ_K > 0 if and only if r₂ is even."
+  hint="Order the embeddings so the first r₁ are real and the rest come in conjugate pairs (τⱼ, τ̄ⱼ). Perform row operations on M to bring it to a real matrix, tracking how each conjugate-pair replacement scales the determinant."
+  solution="Order the n = r₁ + 2r₂ embeddings so the first r₁ are real and the rest come in conjugate pairs (τⱼ, τ̄ⱼ) for j = 1, …, r₂. Starting from the embedding matrix M, replace each pair of rows (τⱼ, τ̄ⱼ) by their sum τⱼ + τ̄ⱼ (real) and their scaled difference (τⱼ − τ̄ⱼ)/i (also real). Each such replacement multiplies det(M) by 1/(1 · i) = −i because the row (τⱼ − τ̄ⱼ) was divided by i. After all r₂ pairs are processed, the matrix is real-valued and det(M) = (−i)^{r₂} · det(M_real). Squaring: Δ_K = det(M)² = (−i)^{2r₂} · det(M_real)² = (−1)^{r₂} · det(M_real)². Since det(M_real)² ≥ 0, the sign of Δ_K is (−1)^{r₂}. So Δ_K > 0 iff r₂ is even."
+/>
+
+<Problem
+  client:load
+  id="an57-prob-stickelberger"
+  difficulty="standard"
+  prompt="(Stickelberger's theorem) Let K be a number field. Prove that Δ_K ≡ 0 or 1 (mod 4)."
+  hint="Write det(M) = P − N where P is the sum of terms from even permutations and N from odd permutations. Show that P + N is an integer, then use the identity (P − N)² = (P + N)² − 4PN with 4PN ≡ 0 (mod 4)."
+  solution="Write det(M) = ∑_σ sign(σ) · ∏_i σᵢ(α_{σ(i)}) = P − N where P is the sum over even permutations and N over odd permutations.
+
+The permanent P + N = ∑_{all σ} ∏_i σᵢ(α_{σ(i)}) is fixed by all automorphisms of ℚ̄/ℚ (they permute the σᵢ, just reordering the terms), so P + N ∈ ℚ. Each term is a product of algebraic integers, so P + N is also an algebraic integer. Therefore P + N ∈ ℤ.
+
+Now Δ_K = (P − N)² = (P + N)² − 4PN. Since (P + N)² is a perfect square of an integer, it is ≡ 0 or 1 (mod 4). And 4PN ≡ 0 (mod 4). Therefore Δ_K ≡ (P + N)² − 0 ≡ 0 or 1 (mod 4)."
+/>
+
+</SlideLayout>

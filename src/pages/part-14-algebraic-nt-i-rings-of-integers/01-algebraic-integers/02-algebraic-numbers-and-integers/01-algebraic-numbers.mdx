@@ -1,0 +1,24 @@
+---
+title: Algebraic numbers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Algebraic numbers">
+
+We now step back and define the full class of numbers we're dealing with.
+
+<Callout kind="definition" title="Algebraic number">
+An **algebraic number** is any $\alpha \in \mathbb{C}$ that is the root of some nonzero polynomial with coefficients in <Term k="QQ">$\mathbb{Q}$</Term>. The set of all algebraic numbers is denoted $\overline{\mathbb{Q}}$.
+</Callout>
+
+<Callout kind="remark">
+Equivalently, we can use polynomials with coefficients in <Term k="ZZ">$\mathbb{Z}$</Term> — any rational polynomial can be scaled to an integer polynomial without changing its roots.
+</Callout>
+
+Algebraic numbers form a <Term k="field">field</Term> $\overline{\mathbb{Q}} \subset \mathbb{C}$. We'll take this on faith for now (the next chapter gives tools to prove it cleanly).
+
+Numbers that are *not* algebraic are called **transcendental**. Both $\pi$ and $e$ are transcendental — this is a theorem, not obvious. Most real numbers are transcendental (in a precise measure-theoretic sense), even though we rarely encounter them explicitly.
+
+</SlideLayout>

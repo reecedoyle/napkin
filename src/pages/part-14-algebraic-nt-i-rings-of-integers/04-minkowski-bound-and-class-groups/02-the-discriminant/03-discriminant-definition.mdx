@@ -1,0 +1,21 @@
+---
+title: The discriminant — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The discriminant — definition">
+
+<Callout kind="definition" title="Discriminant Δ_K">
+Let $\alpha_1, \dots, \alpha_n$ be a $\mathbb{Z}$-basis of $\mathcal{O}_K$, and let $\sigma_1, \dots, \sigma_n$ be the $n$ embeddings $K \hookrightarrow \mathbb{C}$. The **discriminant** of $K$ is
+
+$$\Delta_K \defeq \det \begin{bmatrix} \sigma_1(\alpha_1) & \cdots & \sigma_n(\alpha_1) \\ \vdots & \ddots & \vdots \\ \sigma_1(\alpha_n) & \cdots & \sigma_n(\alpha_n) \end{bmatrix}^2.$$
+
+This is always a nonzero integer, independent of the choice of $\mathbb{Z}$-basis.
+</Callout>
+
+Why the square? Swapping two rows changes the sign of the determinant, so squaring makes the result independent of the ordering of the $\alpha_i$. The square also ensures $\Delta_K \in \mathbb{Z}$ (which is not obvious).
+
+**Intuition:** $\sqrt{|\Delta_K|}$ measures the "size" (mesh) of the lattice $\mathcal{O}_K$ sits in — bigger discriminant means the lattice is more spread out.
+
+</SlideLayout>

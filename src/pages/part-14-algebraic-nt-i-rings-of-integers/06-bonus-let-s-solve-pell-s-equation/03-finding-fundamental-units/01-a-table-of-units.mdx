@@ -1,0 +1,27 @@
+---
+title: A table of fundamental units
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A table of fundamental units">
+
+For real quadratic fields $\QQ(\sqrt{d})$ with $d \equiv 2$ or $3 \pmod{4}$, the <Term k="an58fundamentalUnit">fundamental unit</Term> is $x + y\sqrt{d}$ where $(x, y)$ is the smallest positive integer solution to $x^2 - dy^2 = \pm 1$.
+
+Here are the fundamental units for small squarefree $d$:
+
+| $d$ | Fundamental unit |
+|-----|-----------------|
+| $2$ | $1 + \sqrt{2}$ |
+| $3$ | $2 + \sqrt{3}$ |
+| $6$ | $5 + 2\sqrt{6}$ |
+| $7$ | $8 + 3\sqrt{7}$ |
+| $10$ | $3 + \sqrt{10}$ |
+| $11$ | $10 + 3\sqrt{11}$ |
+
+The case $d = 5$ is special: since $5 \equiv 1 \pmod{4}$, the ring of integers is $\ZZ[\frac{1+\sqrt{5}}{2}]$, and the fundamental unit is $\frac{1+\sqrt{5}}{2}$ — the golden ratio!
+
+In general, computing fundamental units is **hard**. But verifying a proposed fundamental unit is manageable.
+
+</SlideLayout>

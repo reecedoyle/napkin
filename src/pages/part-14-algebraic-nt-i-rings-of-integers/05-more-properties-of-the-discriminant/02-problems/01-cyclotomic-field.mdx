@@ -1,0 +1,28 @@
+---
+title: Problems — discriminant of a cyclotomic field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — discriminant of a cyclotomic field">
+
+These six problems flesh out the theory of $\Delta_K$: two alternative formulas, a positivity criterion, a sign rule, and a mod-4 constraint. Each problem gives just the setup and a hint — try a first attempt before revealing the solution sketch.
+
+<Callout kind="remark" title="How to use these slides">
+Click **Show hint** for a nudge, or **Show solution** to reveal a worked sketch. The solution sketches are concise — fill in the algebra on paper.
+</Callout>
+
+<Problem
+  client:load
+  id="an57-prob-cyclotomic"
+  difficulty="starred"
+  prompt="Let p be an odd prime and ζ_p a primitive p-th root of unity. Let K = ℚ(ζ_p). Show that Δ_K = (−1)^((p−1)/2) · p^(p−2)."
+  hint="The ring of integers is 𝒪_K = ℤ[ζ_p], so the natural basis is {1, ζ_p, ζ_p², …, ζ_p^(p−2)}. Write down the embedding matrix: the j-th embedding σ_j sends ζ_p ↦ ζ_p^j. The resulting matrix factors into Vandermonde-like pieces that you can evaluate using the factorization of the minimal polynomial x^(p−1) + x^(p−2) + ··· + 1 at the various roots of unity."
+  solution="The p−1 embeddings of K are σ_j : ζ_p ↦ ζ_p^j for j = 1, …, p−1. The embedding matrix M on the basis {1, ζ_p, …, ζ_p^{p−2}} is the (p−1)×(p−1) Vandermonde matrix V(ζ_p, ζ_p², …, ζ_p^{p−1}), so det(M) = ∏_{1 ≤ i < j ≤ p−1} (ζ_p^j − ζ_p^i).
+
+To evaluate det(M)²: each factor (ζ_p^j − ζ_p^i) = ζ_p^i(ζ_p^{j−i} − 1), so ∏ (ζ_p^j − ζ_p^i) is a product of differences of roots of unity. A classical computation using the factorization Φ_p(x) = ∏_{k=1}^{p−1} (x − ζ_p^k) gives |det(M)|² = p^{p−2}. The sign (−1)^{(p−1)/2} tracks the number of complex conjugate pairs: r₂ = (p−1)/2 for the cyclotomic field, and Brill's theorem gives sign(Δ_K) = (−1)^{r₂}. Hence Δ_K = (−1)^{(p−1)/2} · p^{p−2}."
+/>
+
+</SlideLayout>

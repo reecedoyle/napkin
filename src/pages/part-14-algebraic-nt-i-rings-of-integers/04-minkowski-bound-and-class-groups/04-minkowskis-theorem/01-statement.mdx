@@ -1,0 +1,25 @@
+---
+title: Minkowski's theorem — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Minkowski's theorem — statement">
+
+Here is the beautiful geometric engine powering everything that follows.
+
+<Callout kind="theorem" title="Minkowski's theorem">
+Let $S \subseteq \mathbb{R}^n$ be a **convex** set that is **centrally symmetric** (meaning $x \in S \Leftrightarrow -x \in S$). Let $L$ be a lattice in $\mathbb{R}^n$ with mesh $d$. If either
+
+(a) the volume of $S$ exceeds $2^n d$, or
+
+(b) the volume of $S$ equals $2^n d$ and $S$ is compact,
+
+then $S$ contains a **nonzero** lattice point of $L$.
+</Callout>
+
+Note: any nonempty convex centrally symmetric set already contains $0 \in L$, since taking $x \in S$ and $-x \in S$ and averaging gives $0$. The theorem asks for a *nonzero* lattice point.
+
+**Intuition:** if $S$ is "big enough" relative to the lattice spacing, it must overlap a lattice point other than the origin. The bound $2^n d$ is sharp — you need exactly that volume.
+
+</SlideLayout>

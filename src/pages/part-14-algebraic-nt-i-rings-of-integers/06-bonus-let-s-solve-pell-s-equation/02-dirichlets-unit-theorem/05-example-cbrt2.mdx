@@ -1,0 +1,25 @@
+---
+title: Units in ℚ(∛2) — also rank 1
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Units in ℚ(∛2) — also rank 1">
+
+A cubic example: $K = \QQ(\sqrt[3]{2})$ with signature $(r_1, r_2) = (1, 1)$:
+- One real embedding: $\sqrt[3]{2} \mapsto \sqrt[3]{2} \in \RR$.
+- One conjugate pair: $\sqrt[3]{2} \mapsto \omega\sqrt[3]{2}$ and $\sqrt[3]{2} \mapsto \bar\omega\sqrt[3]{2}$ where $\omega = e^{2\pi i/3}$.
+
+Then:
+$$s = r_1 + r_2 - 1 = 1 + 1 - 1 = 1.$$
+
+Again rank 1! Dirichlet's theorem says there is one fundamental unit. It turns out to be:
+$$u = 1 + \sqrt[3]{2} + \sqrt[3]{4},$$
+so $\mathcal{O}_K^\times = \bigl\{\pm u^n \;\big|\; n \in \ZZ\bigr\}$.
+
+<Callout kind="remark" title="Computing fundamental units is hard">
+Dirichlet's theorem guarantees fundamental units exist and describes the structure, but finding them explicitly requires real work. For quadratic fields there's a slick method via Pell's equation, coming up next.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: The canonical embedding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The canonical embedding">
+
+Order the $n$ embeddings so that $\sigma_1, \dots, \sigma_{r_1}$ are the real ones, and $\sigma_{r_1+1}, \dots, \sigma_{r_1+r_2}$ are one from each conjugate pair (omitting the conjugates, which give no new information).
+
+<Callout kind="definition" title="Canonical embedding ι">
+$$K \overset{\iota}{\hookrightarrow} \mathbb{R}^{r_1} \times \mathbb{C}^{r_2}, \qquad \alpha \mapsto \bigl(\sigma_1(\alpha), \dots, \sigma_{r_1}(\alpha),\, \sigma_{r_1+1}(\alpha), \dots, \sigma_{r_1+r_2}(\alpha)\bigr).$$
+
+Composing with $\tau \colon \mathbb{R}^{r_1} \times \mathbb{C}^{r_2} \xrightarrow{\sim} \mathbb{R}^n$ (split each $z_j$ into $\Re z_j, \Im z_j$) gives a lattice embedding $\mathcal{O}_K \hookrightarrow \mathbb{R}^n$.
+</Callout>
+
+<Callout kind="example" title="K = ℚ(∛2) with signature (1,1)">
+Label $\sigma_1(\sqrt[3]{2}) = \sqrt[3]{2}$ (real), $\sigma_2(\sqrt[3]{2}) = \sqrt[3]{2}\omega$ (complex). For $\alpha = 9 + \sqrt[3]{2}$:
+
+$$\alpha \overset{\iota}{\mapsto} (9+\sqrt[3]{2},\; 9 + \sqrt[3]{2}\omega) \in \mathbb{R} \times \mathbb{C} \overset{\tau}{\mapsto} (9+\sqrt[3]{2},\; 9 - \tfrac{1}{2}\sqrt[3]{2},\; \tfrac{\sqrt[6]{108}}{2}) \in \mathbb{R}^3.$$
+</Callout>
+
+<Callout kind="lemma" title="Mesh of 𝒪_K in ℝⁿ">
+Under the canonical embedding, $\mathcal{O}_K$ is a lattice in $\mathbb{R}^n$ with mesh equal to $\dfrac{1}{2^{r_2}}\sqrt{|\Delta_K|}$.
+</Callout>
+
+For an ideal $\mathfrak{a} \subseteq \mathcal{O}_K$, its image is a sublattice with mesh $\dfrac{\operatorname{N}(\mathfrak{a})}{2^{r_2}}\sqrt{|\Delta_K|}$, because $\mathcal{O}_K/\mathfrak{a}$ has order $\operatorname{N}(\mathfrak{a})$.
+
+</SlideLayout>

@@ -1,0 +1,39 @@
+---
+title: Discriminant — examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Discriminant — examples">
+
+<Callout kind="example" title="K = ℚ(√2)">
+$\mathcal{O}_K = \mathbb{Z}[\sqrt{2}]$ with basis $\{1, \sqrt{2}\}$ and embeddings $\sigma_1(\sqrt{2}) = \sqrt{2}$, $\sigma_2(\sqrt{2}) = -\sqrt{2}$. So
+
+$$\Delta_K = \det \begin{bmatrix} 1 & 1 \\ \sqrt{2} & -\sqrt{2} \end{bmatrix}^2 = (-2\sqrt{2})^2 = 8.$$
+</Callout>
+
+<Callout kind="example" title="K = ℚ(i)">
+$\mathcal{O}_K = \mathbb{Z}[i]$ with basis $\{1, i\}$. The embeddings are the identity and complex conjugation, giving
+
+$$\Delta_K = \det \begin{bmatrix} 1 & 1 \\ i & -i \end{bmatrix}^2 = (-2i)^2 = -4.$$
+
+Note that $\Delta_K$ can be negative for fields that "wander into $\mathbb{C}$".
+</Callout>
+
+<Callout kind="example" title="K = ℚ(√5)">
+Here $\mathcal{O}_K = \mathbb{Z} \oplus \frac{1+\sqrt{5}}{2}\mathbb{Z}$. Applying the embeddings to basis $\{1, \frac{1+\sqrt{5}}{2}\}$ gives $\Delta_K = (-\sqrt{5})^2 = 5$.
+</Callout>
+
+**Pattern for quadratic fields:** if $K = \mathbb{Q}(\sqrt{d})$ with $d$ squarefree, then
+
+$$\Delta_K = \begin{cases} d & \text{if } d \equiv 1 \pmod{4} \\ 4d & \text{if } d \equiv 2, 3 \pmod{4}. \end{cases}$$
+
+<NumericInput
+  client:load
+  id="an56-disc-num-qi"
+  prompt="What is the discriminant of K = ℚ(√−3)? (Note: −3 ≡ 1 mod 4.)"
+  expected="-3"
+/>
+
+</SlideLayout>

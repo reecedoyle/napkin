@@ -1,0 +1,27 @@
+---
+title: The Minkowski bound
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The Minkowski bound">
+
+Now we assemble everything. Choose $M$ so that the mesh of the ideal's lattice equals $2^{-n}$ times the volume of the trap box — this is exactly the threshold of Minkowski's theorem.
+
+<Callout kind="theorem" title="Minkowski bound">
+Let $\mathfrak{a} \subseteq \mathcal{O}_K$ be any nonzero ideal. Then there exists $0 \neq \alpha \in \mathfrak{a}$ such that
+
+$$\operatorname{N}_{K/\mathbb{Q}}(\alpha) \leq \left(\frac{4}{\pi}\right)^{r_2} \frac{n!}{n^n} \sqrt{|\Delta_K|} \cdot \operatorname{N}(\mathfrak{a}).$$
+</Callout>
+
+**Proof idea.** Match up what we have:
+
+| Object | In $\mathbb{R}^n$ | Quantity |
+|---|---|---|
+| Trap box $S$ | image $\tau(S)$ | volume = $2^{r_1}(\pi/2)^{r_2} M^n / n!$ |
+| $\mathcal{O}_K$ | lattice $L$ | mesh = $2^{-r_2}\sqrt{\lvert\Delta_K\rvert}$ |
+| Ideal $\mathfrak{a}$ | sublattice $L_\mathfrak{a}$ | mesh = $\operatorname{N}(\mathfrak{a}) \cdot 2^{-r_2}\sqrt{\lvert\Delta_K\rvert}$ |
+
+Choose $M$ so that $\text{mesh}(L_\mathfrak{a}) = 2^{-n} \cdot \text{vol}(\tau(S))$. Minkowski guarantees a nonzero $\alpha \in \mathfrak{a}$ inside $S$. The mousetrap lemma then gives $\operatorname{N}(\alpha) \leq (M/n)^n$. Substituting the chosen $M$ yields the bound.
+
+</SlideLayout>

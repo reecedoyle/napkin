@@ -1,0 +1,36 @@
+---
+title: Problems — number theory applications
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — number theory applications">
+
+<Problem
+  client:load
+  id="an56-prob-sum-of-two-squares"
+  difficulty="standard"
+  prompt="Let p ≡ 1 (mod 4) be a prime. Show that there are unique integers a > b > 0 such that a² + b² = p."
+  hint="Factor p in ℚ(i). Since p ≡ 1 (mod 4), the polynomial x²+1 splits mod p, so (p) splits in ℤ[i]."
+  solution="In ℤ[i] = 𝒪_{ℚ(i)} (which has class number 1, hence is a UFD), factor (p). Since p ≡ 1 (mod 4), x²+1 ≡ (x+t)(x−t) (mod p) for some t (−1 is a square mod p). By the factoring algorithm, (p) = (p, t+i)(p, t−i) = 𝔭·𝔭̄ with N(𝔭) = p. Since ℤ[i] is a PID, 𝔭 = (a+bi) for some a, b ∈ ℤ. Then N(a+bi) = a²+b² = p. Uniqueness: any element of norm p in ℤ[i] is a unit times a prime element over p, so a²+b² = p has only one solution up to units and conjugation, giving unique a > b > 0."
+/>
+
+<Problem
+  client:load
+  id="an56-prob-korea-2014"
+  difficulty="standard"
+  prompt="(Korea National Olympiad 2014) Let p be an odd prime and k a positive integer such that p ∣ k²+5. Prove that there exist positive integers m, n such that p² = m²+5n²."
+  hint="Factor p in ℚ(√−5). Show that Cl_{ℚ(√−5)} has order 2, then use that 𝔭₁² and 𝔭₂² are principal."
+  solution="Let K = ℚ(√−5) with 𝒪_K = ℤ[√−5] and Δ_K = −20. Compute M_K = (4/π)(1/2)√20 ≈ 2.85. Factor (2): x²+5 ≡ (x+1)² (mod 2), so (2) = 𝔭² with 𝔭 = (2, 1+√−5). Since N(𝔭) = 2 and 𝔭 is not principal (no a+b√−5 with a²+5b² = 2), [𝔭] ≠ [(1)]. Since 𝔭² = (2) is principal, [𝔭] has order 2. The class group has order at most 2 (only cherry of norm ≤ 2 is 𝔭), so Cl_K ≅ ℤ/2ℤ. Now, p ∣ k²+5 means x²+5 ≡ (x+k)(x−k) (mod p), so (p) = 𝔭₁𝔭₂ with N(𝔭₁) = N(𝔭₂) = p (and 𝔭₁ ≠ 𝔭₂ since p does not ramify — p ≠ 2, 5). Then (p²) = 𝔭₁²𝔭₂². Since Cl_K has order 2, both 𝔭₁² and 𝔭₂² are principal: 𝔭₁² = (α), 𝔭₂² = (ᾱ) with N(α) = p². Writing α = m+n√−5, we get m²+5n² = p²."
+/>
+
+<Problem
+  client:load
+  id="an56-prob-prime-not-in-other"
+  difficulty="standard"
+  prompt="Let K be a number field and 𝔭 any nonzero prime ideal. Prove there exists x ∈ 𝔭 such that x ∉ 𝔮 for any other prime ideal 𝔮 ≠ 𝔭."
+  hint="Let n be a positive integer such that 𝔭ⁿ is principal."
+  solution="Let n = |Cl_K| (the class number). Then [𝔭]ⁿ = [(1)] in Cl_K, so 𝔭ⁿ is principal: 𝔭ⁿ = (x) for some x ∈ K. Since (x) = 𝔭ⁿ and 𝔭 is prime, x ∈ 𝔭. If x ∈ 𝔮 for some other prime ideal 𝔮 ≠ 𝔭, then 𝔮 ∣ (x) = 𝔭ⁿ. By unique factorization of ideals, 𝔮 must equal 𝔭 — contradiction. So x ∈ 𝔭 but x ∉ 𝔮 for any 𝔮 ≠ 𝔭."
+/>
+
+</SlideLayout>

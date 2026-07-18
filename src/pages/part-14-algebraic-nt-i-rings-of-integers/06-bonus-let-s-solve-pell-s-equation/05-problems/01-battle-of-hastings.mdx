@@ -1,0 +1,18 @@
+---
+title: The Battle of Hastings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="The Battle of Hastings">
+
+<Problem
+  client:load
+  id="an58-prob-hastings"
+  difficulty="standard"
+  statement="Determine the number of soldiers in the following battle: The men of Harold stood well together, as their wont was, and formed thirteen squares, with a like number of men in every square thereof... when Harold threw himself into the fray the Saxons were one mighty square of men. (Assume the army has size at least 1 and at most one billion.)"
+  hint="Harold's men form 13 equal squares of k² men each (total 13k²). When Harold joins, the total 13k² + 1 must be a perfect square m². So you need to solve the Pell equation m² − 13k² = 1."
+  solution="We model the problem as: 13k² men form thirteen squares; Harold joins to give 13k² + 1 = m² soldiers in one big square. This is the Pell equation x² − 13y² = 1. To find the fundamental solution, expand √13 as a continued fraction: √13 = [3; 1, 1, 1, 1, 6, ...]. The convergents are 3/1, 4/1, 7/2, 11/3, 18/5, 119/33, .... The fundamental solution to x² − 13y² = 1 is (x, y) = (649, 180). So k = 180, m = 649, and the army size is m² = 649² = 421201. Check: 13 · 180² + 1 = 13 · 32400 + 1 = 421200 + 1 = 421201 = 649². The army (including Harold) had 421201 soldiers, fewer than one billion."
+/>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: Norms in number fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Norms in number fields">
+
+You've probably computed "norms" in $\mathbb{Q}(\sqrt{2})$ without realizing it — that mysterious formula $N(a + b\sqrt{2}) = a^2 - 2b^2$.
+
+Here's the algebraic explanation. For $K = \mathbb{Q}(\sqrt{2})$, the element $\alpha = a + b\sqrt{2}$ has a **conjugate** $\bar\alpha = a - b\sqrt{2}$ (the other root of the minimal polynomial when $b \neq 0$). The norm is the product over all conjugates:
+
+$$N_{K/\mathbb{Q}}(a + b\sqrt{2}) = (a + b\sqrt{2})(a - b\sqrt{2}) = a^2 - 2b^2.$$
+
+<Callout kind="remark" title="Why norms are multiplicative">
+Since the minimal polynomial is $(x - \alpha)(x - \bar\alpha) = x^2 - 2ax + (a^2 - 2b^2)$, the norm is just the constant term (up to sign). Multiplicativity $N(\alpha\beta) = N(\alpha)N(\beta)$ follows because the constant term of a product of polynomials is the product of the constant terms.
+</Callout>
+
+This multiplicativity was the "magic fact" from high school. Now we see it's a structural consequence of how conjugates work in number fields. The <Term k="ring">ring</Term> $\mathcal{O}_K = \mathbb{Z}[\sqrt{2}]$ inherits this: norms of algebraic integers land in <Term k="ZZ">$\mathbb{Z}$</Term>.
+
+</SlideLayout>

@@ -1,0 +1,33 @@
+---
+title: Units in ℚ(i) — no free units
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Units in ℚ(i) — no free units">
+
+Let us apply <Term k="an58dirichletUnitTheorem">Dirichlet's unit theorem</Term> to the Gaussian integers $\ZZ[i]$.
+
+$K = \QQ(i)$ has <Term k="an58signature">signature</Term> $(r_1, r_2) = (0, 1)$: no real embeddings, one conjugate pair of complex embeddings. So:
+$$s = r_1 + r_2 - 1 = 0 + 1 - 1 = 0.$$
+
+With $s = 0$ there are **no free generators** — the only units are the roots of unity. Since $\NK(a + bi) = a^2 + b^2 = 1$ in the integers forces $a, b \in \{-1, 0, 1\}$, we get:
+$$\mathcal{O}_K^\times = \ZZ[i]^\times = \{\pm 1, \pm i\}.$$
+
+<MCQ
+  client:load
+  id="an58-dut-mcq-qi-units"
+  prompt="The Gaussian integers ℤ[i] have exactly 4 units. Which formula from Dirichlet's theorem explains why there are no 'extra' units beyond roots of unity?"
+  options={[
+    { id: "a", label: "s = r₁ + r₂ − 1 = 0, so 𝒪_K× ≅ {±1, ±i} with no ℤ factor" },
+    { id: "b", label: "s = r₁ + r₂ − 1 = 1, giving one fundamental unit" },
+    { id: "c", label: "s = r₁ + r₂ = 1, giving one fundamental unit" },
+    { id: "d", label: "s = r₁ − r₂ = −1, meaning the formula doesn't apply" },
+  ]}
+  correct="a"
+  explanation="ℚ(i) has signature (0,1), so s = 0 + 1 − 1 = 0. The rank-0 case means 𝒪_K× = μ(𝒪_K) = {±1, ±i} — just roots of unity, no infinite cyclic factor."
+/>
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Rings of integers of number fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Rings of integers of number fields">
+
+Every number field $K$ has an associated <Term k="ring">ring</Term> of integers: the algebraic integers inside it.
+
+<Callout kind="definition" title="Ring of integers of a number field">
+For a number field $K$, the **ring of integers** $\mathcal{O}_K$ is the set of all elements of $K$ that are <Term k="algebraicInteger">algebraic integers</Term>:
+$$\mathcal{O}_K = K \cap \overline{\mathbb{Z}}.$$
+</Callout>
+
+$\mathcal{O}_K$ is indeed a <Term k="ring">ring</Term> — inherited from the ring structure of $\overline{\mathbb{Z}}$.
+
+<Callout kind="example" title="Rings of integers of quadratic fields">
+- For $K = \mathbb{Q}(\sqrt{2})$: the ring of integers is $\mathcal{O}_K = \mathbb{Z}[\sqrt{2}] = \{a + b\sqrt{2} \mid a, b \in \mathbb{Z}\}$.
+- For $K = \mathbb{Q}(i)$: the ring of integers is the <Term k="gaussianIntegers">Gaussian integers</Term> $\mathcal{O}_K = \mathbb{Z}[i] = \{a + bi \mid a, b \in \mathbb{Z}\}$.
+- For $K = \mathbb{Q}(\sqrt{-3})$: surprisingly, $\mathcal{O}_K = \mathbb{Z}\!\left[\frac{-1+\sqrt{-3}}{2}\right]$ — some elements with "half-integer" coordinates are algebraic integers.
+</Callout>
+
+The third example shows that $\mathcal{O}_K$ is richer than just $\mathbb{Z}[\alpha]$ in general. Computing $\mathcal{O}_K$ is one of the central problems of algebraic number theory.
+
+</SlideLayout>

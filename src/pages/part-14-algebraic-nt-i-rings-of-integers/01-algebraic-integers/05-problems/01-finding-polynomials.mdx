@@ -1,0 +1,27 @@
+---
+title: Problems — finding polynomials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — finding polynomials">
+
+<Problem
+  client:load
+  id="an53-prob-poly-sqrt2-cbrt3"
+  difficulty="standard"
+  prompt="Find a polynomial with integer coefficients which has √2 + ∛3 as a root."
+  solution="Let α = √2 + ∛3. Then α − √2 = ∛3, so (α − √2)³ = 3. Expanding: α³ − 3√2·α² + 6α − 2√2 = 3. Rearranging: α³ + 6α − 3 = √2(3α² + 2). Squaring both sides: (α³ + 6α − 3)² = 2(3α² + 2)². This expands to a degree-6 monic polynomial with integer coefficients. One can verify it is x⁶ − 6x⁴ − 6x³ + 12x² − 36x + 1 = 0. (Check: the coefficient of x⁵ vanishes because there's no √2 term of that degree.)"
+/>
+
+<Problem
+  client:load
+  id="an53-prob-brazil-2006"
+  difficulty="standard"
+  prompt="[Brazil 2006] Let p be an irreducible polynomial in ℚ[x] of degree larger than 1. Prove that if p has two roots r and s whose product rs = 1, then the degree of p is even."
+  hint="Note that p(x) is the minimal polynomial of r, but so is q(x) = x^(deg p) · p(1/x). Since the minimal polynomial is unique, q and p must be scalar multiples of each other."
+  solution="Since p is irreducible and has r as a root, p is the minimal polynomial of r. Define q(x) = xⁿ · p(1/x) where n = deg p. Since p is monic with integer coefficients, q is also monic with integer coefficients, and q(r) = rⁿ · p(1/r) = rⁿ · p(s) = 0 (since rs = 1 means 1/r = s, and p(s) = 0). So q is a monic integer polynomial of degree n vanishing at r, hence q = p by uniqueness of the minimal polynomial. The equality q = p says the coefficients are palindromic (aₖ = aₙ₋ₖ). Pairing coefficients: if n were odd, the middle coefficient a_{n/2} would pair with itself but the degree is not an integer, contradiction. More directly: the roots of p are paired under r ↦ 1/r (since q = p). This pairing is a fixed-point-free involution on the roots, so the number of roots n must be even."
+/>
+
+</SlideLayout>

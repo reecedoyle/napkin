@@ -1,0 +1,30 @@
+---
+title: Ideal divisibility
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Ideal divisibility">
+
+We need a notion of "one ideal divides another" to make sense of prime factorization.
+
+<Callout kind="definition" title="Ideal divisibility">
+We say $\mathfrak{a}$ **divides** $\mathfrak{b}$ and write <Term k="an55idealDivides">$\mathfrak{a} \mid \mathfrak{b}$</Term> if $\mathfrak{a} \supseteq \mathfrak{b}$.
+</Callout>
+
+The reversal of inclusion is counterintuitive at first, but it is consistent with elements: $(3) \mid (15)$ because $(15) \subseteq (3)$ — every multiple of 15 is a multiple of 3.
+
+In $\ZZ[\sqrt{-5}]$, our ideal $\mathfrak{q}_1 = (3, 1-\sqrt{-5})$ divides both $(3)$ and $(1 - \sqrt{-5})$, because both are contained in $\mathfrak{q}_1$.
+
+**Slogan:** "to contain is to divide." Bigger ideal = smaller divisor.
+
+<ProofReveal
+  client:load
+  id="an55-arith-proof-prime-div"
+  prompt="A nonzero proper ideal 𝔭 is prime if and only if whenever 𝔭 divides 𝔞𝔟, 𝔭 divides 𝔞 or 𝔭 divides 𝔟. Convince yourself this is equivalent to the definition: xy ∈ 𝔭 ⟹ x ∈ 𝔭 or y ∈ 𝔭."
+  solution="The ideal 𝔭 divides 𝔞𝔟 means 𝔞𝔟 ⊆ 𝔭. The element condition says: if xy ∈ 𝔭, then x ∈ 𝔭 or y ∈ 𝔭. Every element of 𝔞𝔟 is a finite sum of products ab with a ∈ 𝔞, b ∈ 𝔟; if 𝔭 is prime (element-wise), then each ab ∈ 𝔭 forces a ∈ 𝔭 or b ∈ 𝔭, which forces 𝔞 ⊆ 𝔭 or 𝔟 ⊆ 𝔭, i.e., 𝔭 ∣ 𝔞 or 𝔭 ∣ 𝔟."
+/>
+
+</SlideLayout>

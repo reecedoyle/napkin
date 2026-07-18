@@ -1,0 +1,18 @@
+---
+title: No solutions to x² − 34y² = −1
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="No solutions to x² − 34y² = −1">
+
+<Problem
+  client:load
+  id="an58-prob-d34"
+  difficulty="standard"
+  statement="Show that x² − 34y² = −1 has no integer solutions, despite −1 being a quadratic residue mod 34."
+  hint="The fundamental unit of ℤ[√34] has norm +1, not −1. Use the fact that if the fundamental unit u has norm N(u) = +1, then all powers of u also have positive norm, so no element of ℤ[√34] can have norm −1."
+  solution="The fundamental unit of ℤ[√34] is u = 35 + 6√34 (one can verify: 35² − 34·36 = 1225 − 1224 = 1, so N(u) = 1). Since N(u) = +1 and the norm is multiplicative, every power uⁿ has N(uⁿ) = N(u)ⁿ = 1ⁿ = 1. The units of ℤ[√34] are {±uⁿ : n ∈ ℤ}, and each has norm +1 (since N(−α) = N(α) for the norm in a real quadratic field). Therefore no element of ℤ[√34] has norm −1, which means x² − 34y² = −1 has no integer solutions. The condition '−1 is a quadratic residue mod 34' is necessary but not sufficient: it ensures there is no local obstruction mod 34, but there can still be a global obstruction coming from the sign of the fundamental unit's norm."
+/>
+
+</SlideLayout>

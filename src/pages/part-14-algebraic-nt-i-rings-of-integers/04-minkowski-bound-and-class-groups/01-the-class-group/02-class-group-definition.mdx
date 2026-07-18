@@ -1,0 +1,36 @@
+---
+title: The class group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The class group">
+
+Since $J_K$ is abelian and $P_K \leq J_K$, we can form the quotient:
+
+<Callout kind="definition" title="Class group Cl_K">
+$$\Cl_K \defeq J_K / P_K.$$
+
+The elements of $\Cl_K$ are called **ideal classes**. Two nonzero fractional ideals $\mathfrak{a}, \mathfrak{b}$ belong to the same class if and only if $\mathfrak{a} = (x)\mathfrak{b}$ for some $x \in K^\times$ — that is, they differ only by scaling by a field element.
+</Callout>
+
+<Callout kind="remark" title="Moral">
+The class group $\Cl_K$ is the set of nonzero fractional ideals modulo scaling by a nonzero element of $K$. Think of classes as the "shapes" of ideals: two ideals in the same class are isomorphic as $\mathcal{O}_K$-modules.
+</Callout>
+
+<MCQ
+  client:load
+  id="an56-cls-mcq-pid"
+  prompt="When is Cl_K trivial (the group with one element)?"
+  options={[
+    { id: "a", label: "When K = ℚ" },
+    { id: "b", label: "When every nonzero ideal of 𝒪_K is principal" },
+    { id: "c", label: "When 𝒪_K is a UFD but not a PID" },
+    { id: "d", label: "When K has degree 1 over ℚ" },
+  ]}
+  correct="b"
+  explanation="Cl_K = J_K / P_K is trivial exactly when J_K = P_K, i.e. every fractional ideal is principal. Since integral ideals are fractional ideals, this means every nonzero ideal of 𝒪_K is principal — exactly the PID condition. (ℚ itself satisfies this as a special case, but the general criterion is option b.)"
+/>
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Irreducible if and only if minimal
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Irreducible if and only if minimal">
+
+There's a tautological but important relationship between minimal polynomials and irreducible polynomials.
+
+<Callout kind="proposition" title="Irreducible ↔ Minimal">
+Let $\alpha$ be a root of $P(x) \in \mathbb{Q}[x]$ (monic). Then $P$ is the minimal polynomial of $\alpha$ if and only if $P$ is <Term k="irreducible">irreducible</Term> over $\mathbb{Q}$.
+</Callout>
+
+This is almost a restatement of definitions: $P$ is minimal iff no polynomial of smaller degree kills $\alpha$, and $P$ is irreducible iff it can't be written as a product of two lower-degree polynomials over $\mathbb{Q}$.
+
+The point is that **"minimal polynomial" and "irreducible polynomial" are the same beast** — just two names for the same object.
+
+<ProofReveal
+  client:load
+  id="an53-mot-proof-irred-iff-min"
+  prompt="Prove that a monic P ∈ ℚ[x] with P(α) = 0 is the minimal polynomial of α if and only if it is irreducible over ℚ."
+  solution="(⇒) If P is reducible, write P = AB with deg A, deg B < deg P. Since P(α) = 0, either A(α) = 0 or B(α) = 0 (ℚ[x] is an integral domain). That factor is a polynomial of smaller degree vanishing at α, contradicting minimality. (⇐) If P is irreducible and Q is any monic polynomial vanishing at α with deg Q < deg P, then since P is irreducible and P ∤ Q (degrees), they are coprime. By Bezout in ℚ[x] we get f·P + g·Q = 1. Evaluating at α gives 0 = 1, a contradiction. So no such Q exists and P is minimal."
+/>
+
+</SlideLayout>

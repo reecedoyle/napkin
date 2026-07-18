@@ -1,0 +1,30 @@
+---
+title: Examples of units
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of units">
+
+Every number field has some obvious units, and some surprising ones.
+
+<Callout kind="example" title="Units you always have">
+
+- **$\pm 1$** are units in every $\mathcal{O}_K$, since $\NK(\pm 1) = 1$.
+- Any <Term k="an58rootOfUnity">root of unity</Term> $\omega$ (satisfying $\omega^n = 1$ for some $n$) is a unit, because $\NK(\omega)^n = \NK(\omega^n) = \NK(1) = 1$, forcing $\NK(\omega) = \pm 1$.
+- **Powers of units are units.** If $u \in \mathcal{O}_K^\times$, then so is $u^n$ for any $n \in \ZZ$.
+
+</Callout>
+
+<Callout kind="example" title="A unit that is not a root of unity">
+
+In $K = \QQ(\sqrt{3})$ with $\mathcal{O}_K = \ZZ[\sqrt{3}]$, consider $u = 2 + \sqrt{3}$. We compute:
+$$\NK(2 + \sqrt{3}) = 2^2 - 3 \cdot 1^2 = 1.$$
+So $2 + \sqrt{3}$ is a unit. Its inverse is $2 - \sqrt{3}$, which is also in $\mathcal{O}_K$. Since $u \neq \pm 1$ and $u$ is not periodic under powers, it is **not** a root of unity.
+
+</Callout>
+
+Every power $(2+\sqrt{3})^n$ is then a distinct unit. The unit group of $\ZZ[\sqrt{3}]$ is infinite.
+
+</SlideLayout>

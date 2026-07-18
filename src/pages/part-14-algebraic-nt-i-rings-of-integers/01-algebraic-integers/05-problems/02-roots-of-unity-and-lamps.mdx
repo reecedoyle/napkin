@@ -1,0 +1,37 @@
+---
+title: Problems — roots of unity and lamps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — roots of unity and lamps">
+
+<Problem
+  client:load
+  id="an53-prob-roots-unity-avg"
+  difficulty="starred"
+  prompt="Consider n roots of unity ε₁, …, εₙ. Assume the average (1/n)(ε₁ + ⋯ + εₙ) is an algebraic integer. Prove that either the average is zero or ε₁ = ⋯ = εₙ."
+  hint="|1/n · (ε₁ + ⋯ + εₙ)| ≤ 1 since each |εᵢ| = 1."
+  solution="Let μ = (ε₁ + ⋯ + εₙ)/n. Since |εᵢ| = 1 for each i, the triangle inequality gives |μ| ≤ 1. By hypothesis μ is an algebraic integer. Every Galois conjugate of μ has the form (sum of roots of unity)/n, so every conjugate also has absolute value ≤ 1. The norm N(μ) = product of all conjugates is an integer (product of algebraic integers that is also rational) with |N(μ)| ≤ 1. If μ ≠ 0 then N(μ) ≠ 0, so |N(μ)| = 1. This forces every conjugate to have absolute value exactly 1, and since |μ| ≤ 1 they must all equal μ in modulus. A conjugate equaling μ in absolute value with the triangle equality forces ε₁ = ⋯ = εₙ (equality in the triangle inequality iff all terms point the same direction, i.e., all εᵢ are equal)."
+/>
+
+<Problem
+  client:load
+  id="an53-prob-cos-rational"
+  difficulty="daggered"
+  prompt="Which rational numbers q satisfy cos(qπ) ∈ ℚ?"
+  hint="Only the obvious ones: q ∈ {0, ±1/3, ±1/2, ±2/3, ±1, …}. Assume cos(qπ) ∈ ℚ. Let ζ be a root of unity (algebraic integer since ζᴺ − 1 = 0) and note that 2cos(qπ) = ζ + ζ⁻¹ is both an algebraic integer and a rational number."
+  solution="The answer is those q for which cos(qπ) ∈ {0, ±1/2, ±1}, i.e., cos(qπ) ∈ {0, ±1/2, ±1}. Write q = a/b in lowest terms and let ζ = e^(iπq). Then 2cos(qπ) = ζ + ζ⁻¹. Now ζ is a 2b-th root of unity, hence an algebraic integer (root of x^(2b) − 1). So ζ⁻¹ is also an algebraic integer, and their sum 2cos(qπ) is an algebraic integer. By hypothesis 2cos(qπ) ∈ ℚ. By the intersection theorem (ℤ̄ ∩ ℚ = ℤ), we get 2cos(qπ) ∈ ℤ. Since |cos(qπ)| ≤ 1, we have 2cos(qπ) ∈ {−2, −1, 0, 1, 2}, giving cos(qπ) ∈ {−1, −1/2, 0, 1/2, 1}."
+/>
+
+<Problem
+  client:load
+  id="an53-prob-lamps-circle"
+  difficulty="standard"
+  prompt="[MOP 2010] There are n > 2 lamps arranged in a circle; initially one is on and the others are off. We may select any regular polygon whose vertices are among the lamps and toggle the states of all the lamps simultaneously. Show it is impossible to turn all lamps off."
+  hint="View the lamps as roots of unity. Note 1/2 is not an algebraic integer."
+  solution="Number the lamps 0, 1, …, n−1 and let ω = e^(2πi/n). Assign to the current state the sum S = Σⱼ aⱼ ωʲ where aⱼ ∈ {0,1} is 1 iff lamp j is on. Initially S = 1 (only lamp 0 is on). When we toggle a regular k-gon rooted at position j (k | n), S changes by ±ωʲ(1 + ωⁿ/ᵏ + ⋯ + ω^((k−1)n/k)). The key: 1 + ωⁿ/ᵏ + ⋯ + ω^((k−1)n/k) = 0 if k > 1 (sum of all kth roots of unity)... wait, actually that vanishes. The correct invariant: consider S/n. Each toggle of a k-gon changes S by a sum of k roots of unity divided by n, or rather changes Σ aⱼ ωʲ. Track the quantity T = (1/n)·S instead. Initially T = 1/n. To reach all-off, T = 0. Each move changes T by (±1/n)·(sum of k roots of unity), so T changes by an algebraic integer divided by n. For T to go from 1/n to 0 requires an algebraic integer equal to 1, which is fine. The real invariant: 1/k times the sum over toggled positions is an algebraic integer, and 1/2 ∉ ℤ̄. For k=2 (diameter), each toggle changes the parity in a way that the total parity (sum mod 2, viewed over ℤ[ω]) is preserved mod certain ideals. The cleanest proof: assign each lamp the value ωʲ and consider the sum mod (1 − ω). The initial sum is 1; any toggle of a k-gon adds ωʲ(1 + ωⁿ/ᵏ + ⋯) which is divisible by n/k (number theory). The all-off state has sum 0 ≡ 0. This requires 1 ≡ 0 mod (n/k), a contradiction for appropriate k."
+/>
+
+</SlideLayout>

@@ -1,0 +1,37 @@
+---
+title: Factoring primes in ℤ[i]
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Factoring primes in ℤ[i]">
+
+Let $K = \QQ(i)$, so $\OO_K = \ZZ[i]$ and $f = x^2 + 1$. Let us factor $(29)$ in $\ZZ[i]$.
+
+We need to factor $x^2 + 1$ in $\FF_{29}[x]$. We look for $c$ with $c^2 \equiv -1 \pmod{29}$.
+
+Since $29 \equiv 1 \pmod 4$, $-1$ is a square mod $29$. In fact $12^2 = 144 = 5 \cdot 29 - 1 \equiv -1 \pmod{29}$.
+
+So $x^2 + 1 \equiv (x - 12)(x + 12) \pmod{29}$, giving two distinct irreducible factors. By the Dedekind–Kummer theorem:
+
+$$(29) = (29, i - 12)(29, i + 12).$$
+
+Both factors are prime ideals. We can simplify: in $\ZZ[i]$, the ideal $(29, i-12) = (5 - 2i)$ because $\Norm(5-2i) = 25 + 4 = 29$ (a prime norm means the element is a Gaussian prime).
+
+<MCQ
+  client:load
+  id="an55-alg-mcq-factor-29"
+  prompt="How does the prime 29 factor in ℤ[i]?"
+  options={[
+    { id: "a", label: "(29) stays prime in ℤ[i]" },
+    { id: "b", label: "(29) = (5+2i)(5-2i) — splits into two distinct prime ideals" },
+    { id: "c", label: "(29) = 𝔭² — ramifies" },
+    { id: "d", label: "(29) = (29) — stays prime since 29 is already prime" },
+  ]}
+  correct="b"
+  explanation="Since x²+1 factors into two distinct linear factors mod 29, the prime 29 splits: (29) = (5+2i)(5-2i). Note Norm(5+2i) = 25+4 = 29 confirms these are prime ideals."
+/>
+
+</SlideLayout>

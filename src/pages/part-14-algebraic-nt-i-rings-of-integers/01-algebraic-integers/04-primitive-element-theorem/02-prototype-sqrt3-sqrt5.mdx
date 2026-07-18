@@ -1,0 +1,28 @@
+---
+title: Prototype — ℚ(√3, √5) = ℚ(√3 + √5)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Prototype — ℚ(√3, √5) = ℚ(√3 + √5)">
+
+The prototypical example makes the theorem feel natural.
+
+**Claim:** $\mathbb{Q}(\sqrt{3}, \sqrt{5}) = \mathbb{Q}(\sqrt{3} + \sqrt{5})$.
+
+The inclusion $\mathbb{Q}(\sqrt{3} + \sqrt{5}) \subseteq \mathbb{Q}(\sqrt{3}, \sqrt{5})$ is clear — $\sqrt{3} + \sqrt{5}$ is an element of the larger field.
+
+The hard direction: show $\sqrt{3}$ and $\sqrt{5}$ each lie in $\mathbb{Q}(\sqrt{3}+\sqrt{5})$.
+
+<ProofReveal
+  client:load
+  id="an53-pet-proof-sqrt3-sqrt5"
+  prompt="Show that √3 and √5 both lie in ℚ(√3 + √5), so ℚ(√3 + √5) = ℚ(√3, √5)."
+  solution="Let γ = √3 + √5. Then γ² = 8 + 2√15, so γ² − 8 = 2√15, giving √15 ∈ ℚ(γ). Now compute γ·√15 = (√3 + √5)·√15 = √45 + √75 = 3√5 + 5√3. Combined with γ = √3 + √5, we solve: subtracting 5·γ = 5√3 + 5√5 from 3√5 + 5√3 gives (γ·√15 − 5γ) = −2√5, so √5 = (5γ − γ√15)/2 ∈ ℚ(γ). Similarly √3 ∈ ℚ(γ)."
+/>
+
+The degree of $\mathbb{Q}(\sqrt{3}, \sqrt{5})$ over $\mathbb{Q}$ is 4, with <Term k="basis">basis</Term> $\{1, \sqrt{3}, \sqrt{5}, \sqrt{15}\}$. So the minimal polynomial of $\sqrt{3} + \sqrt{5}$ over $\mathbb{Q}$ has degree 4.
+
+</SlideLayout>

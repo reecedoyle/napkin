@@ -1,0 +1,29 @@
+---
+title: Real and complex embeddings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Real and complex embeddings">
+
+We want to embed $\mathcal{O}_K$ into $\mathbb{R}^n$ to use geometric tools. For $K = \mathbb{Q}(\sqrt{2})$ we got lucky — both embeddings had real image. For $K = \mathbb{Q}(i)$ we have complex embeddings.
+
+Among the $n$ embeddings $\sigma_1, \dots, \sigma_n \colon K \hookrightarrow \mathbb{C}$:
+
+- A **real embedding** is one whose image lies entirely in $\mathbb{R}$.
+- A **complex embedding** maps some element of $K$ outside $\mathbb{R}$. If $\sigma$ is complex, so is the conjugate $\bar\sigma \neq \sigma$. So **complex embeddings come in conjugate pairs**.
+
+<Callout kind="definition" title="Signature (r₁, r₂)">
+Let $r_1$ = number of real embeddings and $r_2$ = number of conjugate pairs of complex embeddings. The **signature** of $K$ is the pair $(r_1, r_2)$. We always have $r_1 + 2r_2 = n = [K:\mathbb{Q}]$.
+</Callout>
+
+**Examples:**
+
+| Field | $n$ | Embeddings | $(r_1, r_2)$ |
+|---|---|---|---|
+| $\mathbb{Q}$ | 1 | identity | $(1, 0)$ |
+| $\mathbb{Q}(\sqrt{2})$ | 2 | $\pm\sqrt{2}$ (both real) | $(2, 0)$ |
+| $\mathbb{Q}(i)$ | 2 | $\pm i$ (complex pair) | $(0, 1)$ |
+| $\mathbb{Q}(\sqrt[3]{2})$ | 3 | one real, one complex pair | $(1, 1)$ |
+
+</SlideLayout>

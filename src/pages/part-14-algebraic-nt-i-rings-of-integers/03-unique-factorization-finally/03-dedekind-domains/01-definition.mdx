@@ -1,0 +1,42 @@
+---
+title: Dedekind domains — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Dedekind domains — definition">
+
+We now carve out the class of rings where ideal factorization works perfectly.
+
+<Callout kind="definition" title="Dedekind domain">
+An integral domain $\mathcal{A}$ is a <Term k="an55dedekindDomain">**Dedekind domain**</Term> if:
+1. $\mathcal{A}$ is <Term k="noetherian">Noetherian</Term> (every ideal is finitely generated),
+2. $\mathcal{A}$ is <Term k="an55integrallyClosed">integrally closed</Term>, and
+3. every nonzero prime ideal of $\mathcal{A}$ is also a maximal ideal.
+</Callout>
+
+The third condition is the heart of the matter. In $\ZZ$: the nonzero prime ideals are $(p)$ for rational primes $p$, and these are also maximal (since $\ZZ/(p) \cong \FF_p$ is a field). So $\ZZ$ is a Dedekind domain.
+
+<Callout kind="remark" title="Comparison with UFDs">
+For elements: UFD $\iff$ prime elements = irreducible elements (plus Noetherian).
+For ideals: Dedekind $\iff$ prime ideals = maximal ideals (plus Noetherian + integrally closed).
+The analogy is exact.
+</Callout>
+
+<MCQ
+  client:load
+  id="an55-ded-mcq-key-condition"
+  prompt="Which condition is the key structural one that makes Dedekind domains special?"
+  options={[
+    { id: "a", label: "Every ideal is principal" },
+    { id: "b", label: "Every nonzero prime ideal is maximal" },
+    { id: "c", label: "The ring is Noetherian" },
+    { id: "d", label: "The ring is integrally closed" },
+  ]}
+  correct="b"
+  explanation="The key condition is that every nonzero prime ideal is maximal — this is what makes unique ideal factorization work. Noetherian and integrally closed are necessary technicalities but 'prime = maximal' has the real content."
+/>
+
+</SlideLayout>

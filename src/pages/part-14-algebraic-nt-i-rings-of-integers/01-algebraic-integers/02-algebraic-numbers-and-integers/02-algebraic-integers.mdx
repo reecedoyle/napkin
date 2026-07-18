@@ -1,0 +1,31 @@
+---
+title: Algebraic integers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Algebraic integers">
+
+Among all algebraic numbers, some are "integrally behaved" — their minimal polynomial has integer coefficients.
+
+<Callout kind="definition" title="Algebraic integer">
+An <Term k="algebraicInteger">**algebraic integer**</Term> is an algebraic number $\alpha$ whose minimal polynomial over $\mathbb{Q}$ has coefficients in <Term k="ZZ">$\mathbb{Z}$</Term>. The set of all algebraic integers is denoted $\overline{\mathbb{Z}}$.
+</Callout>
+
+<Callout kind="example" title="Examples of algebraic integers">
+
+The following are all algebraic integers, witnessed by monic integer polynomials:
+
+| Number | Polynomial |
+| --- | --- |
+| $4$ | $x - 4$ |
+| $i = \sqrt{-1}$ | $x^2 + 1$ |
+| $\sqrt[3]{2}$ | $x^3 - 2$ |
+| $\sqrt{2} + \sqrt{3}$ | $(x^2 - 5)^2 - 24$ |
+
+The number $\frac{1}{2}$ has minimal polynomial $x - \frac{1}{2}$, which has a non-integer coefficient. So $\frac{1}{2}$ is an algebraic number but **not** an algebraic integer.
+
+</Callout>
+
+</SlideLayout>

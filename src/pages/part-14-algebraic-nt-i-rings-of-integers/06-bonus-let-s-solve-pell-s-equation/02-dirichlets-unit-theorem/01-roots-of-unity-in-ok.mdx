@@ -1,0 +1,26 @@
+---
+title: Roots of unity in 𝒪_K
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Roots of unity in 𝒪_K">
+
+Before stating Dirichlet's unit theorem, we need to understand the "torsion" part of the unit group: the <Term k="an58muOK">roots of unity $\mu(\mathcal{O}_K)$</Term>.
+
+<Callout kind="definition" title="Roots of unity in a number field">
+Let $\mu(\mathcal{O}_K)$ denote the set of all roots of unity in $K$ — elements $\omega \in \mathcal{O}_K$ satisfying $\omega^n = 1$ for some $n \geq 1$.
+</Callout>
+
+<Callout kind="example" title="Examples of μ(𝒪_K)">
+
+- $K = \QQ(i)$: $\mathcal{O}_K = \ZZ[i]$. The units with $|z| = 1$ and $a^2 + b^2 = 1$ in $\ZZ$ give $\mu(\mathcal{O}_K) = \{\pm 1, \pm i\}$.
+- $K = \QQ(\sqrt{3})$: $\mathcal{O}_K = \ZZ[\sqrt{3}]$. Since all elements are real, the only roots of unity are $\mu(\mathcal{O}_K) = \{\pm 1\}$.
+- $K = \QQ(\sqrt{-3})$: $\mathcal{O}_K = \ZZ[\frac{1+\sqrt{-3}}{2}]$. The primitive 6th roots of unity live here, so $\mu(\mathcal{O}_K) = \{z : z^6 = 1\}$, a group of order 6.
+
+</Callout>
+
+In all cases $\mu(\mathcal{O}_K)$ is a **finite cyclic group** — it must be, since the roots of $x^n - 1$ in a number field are finite in number.
+
+</SlideLayout>

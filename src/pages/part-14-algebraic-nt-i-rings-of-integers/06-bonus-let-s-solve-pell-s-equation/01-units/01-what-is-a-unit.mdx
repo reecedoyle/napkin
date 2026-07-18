@@ -1,0 +1,22 @@
+---
+title: Units in a ring of integers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Units in a ring of integers">
+
+We have been studying <Term k="an58ringOfIntegers">$\mathcal{O}_K$</Term>, the ring of integers of a number field $K$. Recall that an element $\alpha \in \mathcal{O}_K$ is **invertible** (a **unit**) when there exists $\beta \in \mathcal{O}_K$ with $\alpha\beta = 1$.
+
+It turns out there is a beautifully clean way to detect units using the <Term k="an58normNK">field norm $\NK$</Term>:
+
+<Callout kind="theorem" title="Units via the norm">
+$\alpha \in \mathcal{O}_K$ is a unit if and only if $\NK(\alpha) = \pm 1$.
+</Callout>
+
+This is the key criterion: instead of hunting for an explicit inverse, just compute a single integer norm. If it's $\pm 1$, you have a unit.
+
+For $K = \QQ(\sqrt{d})$ with $\mathcal{O}_K \subseteq \ZZ[\sqrt{d}]$, the norm of $a + b\sqrt{d}$ is $a^2 - db^2$. So $a + b\sqrt{d}$ is a unit exactly when $a^2 - db^2 = \pm 1$ — which is Pell's equation in disguise.
+
+</SlideLayout>

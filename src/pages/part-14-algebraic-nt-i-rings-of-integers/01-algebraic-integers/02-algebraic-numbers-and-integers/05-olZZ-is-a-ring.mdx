@@ -1,0 +1,25 @@
+---
+title: The algebraic integers form a ring
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The algebraic integers form a ring">
+
+Two key structural facts (we state these now and prove them via module theory in the next chapter):
+
+<Callout kind="proposition" title="Closure properties">
+- The set $\overline{\mathbb{Z}}$ of all <Term k="algebraicInteger">algebraic integers</Term> forms a <Term k="ring">ring</Term>: if $\alpha, \beta \in \overline{\mathbb{Z}}$ then $\alpha + \beta$ and $\alpha \beta$ are also algebraic integers.
+- The set $\overline{\mathbb{Q}}$ of all algebraic numbers forms a <Term k="field">field</Term>: it is closed under addition, subtraction, multiplication, and division by nonzero elements.
+</Callout>
+
+This is not obvious — the sum $\sqrt{2} + \sqrt{3}$ is an algebraic integer (we checked) — but in general showing the sum or product of algebraic integers is an algebraic integer requires work.
+
+<Callout kind="remark" title="The big picture">
+Think of $\overline{\mathbb{Z}}$ as the "integers of the algebraic numbers", sitting inside $\overline{\mathbb{Q}}$ exactly as $\mathbb{Z}$ sits inside $\mathbb{Q}$. The chain is
+$$\mathbb{Z} \;\subset\; \overline{\mathbb{Z}} \;\subset\; \mathbb{C}, \qquad \mathbb{Q} \;\subset\; \overline{\mathbb{Q}} \;\subset\; \mathbb{C}.$$
+All roots of a minimal polynomial of $\alpha \in \overline{\mathbb{Z}}$ are again in $\overline{\mathbb{Z}}$ — the algebraic integers are closed under conjugation.
+</Callout>
+
+</SlideLayout>

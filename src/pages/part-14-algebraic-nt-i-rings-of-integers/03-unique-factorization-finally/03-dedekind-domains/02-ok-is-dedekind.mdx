@@ -1,0 +1,26 @@
+---
+title: 𝒪_K is a Dedekind domain
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="𝒪_K is a Dedekind domain">
+
+The case we care about: for any <Term k="an55numberField">number field $K$</Term>, the ring <Term k="an55ringOfIntegers">$\OO_K$</Term> is a Dedekind domain. The Noetherian and integrally closed parts are routine. The interesting part is showing every nonzero prime is maximal.
+
+<Callout kind="theorem" title="Prime ideals divide rational primes (and are maximal)">
+Let $\kp$ be a nonzero prime ideal of $\OO_K$. Then:
+1. $\kp$ contains a rational prime $p \in \ZZ$.
+2. $\kp$ is maximal.
+</Callout>
+
+**Sketch of proof.** Take any nonzero $\alpha \in \kp$. Its norm $N = \Norm_{K/\QQ}(\alpha) = \alpha \cdot (\text{product of Galois conjugates})$ is a nonzero integer in $\kp$. So $\kp$ contains some integer, hence its smallest positive integer (call it $p$) must be a rational prime (otherwise $\kp \ni p = xy$ forces one of $x, y \in \kp$, contradicting minimality of $p$).
+
+For maximality: since $\OO_K \cong \ZZ^{\oplus n}$ as abelian groups, the quotient $\OO_K/(p)$ has size $p^n$. Since $\kp \supseteq (p)$, the quotient $\OO_K/\kp$ is also finite. A finite integral domain is a field (every nonzero element has finite multiplicative order, hence is a unit). So $\OO_K/\kp$ is a field, meaning $\kp$ is maximal.
+
+<Callout kind="remark" title="The key trick">
+We used that a finite integral domain is a field. Finiteness came from $\kp$ containing a rational prime $p$, which pins the quotient inside $(\ZZ/p\ZZ)^n$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Problems — units and fractions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — units and fractions">
+
+<Problem
+  client:load
+  id="an54-prob-units-norm"
+  difficulty="starred"
+  prompt="Show that α ∈ 𝒪_K is a unit (i.e., α⁻¹ ∈ 𝒪_K) if and only if N_{K/ℚ}(α) = ±1."
+  hint="The norm is multiplicative and equals (up to sign) the product of the Galois conjugates of α."
+  solution="(⇒) If α is a unit with α⁻¹ ∈ 𝒪_K, then N(α)·N(α⁻¹) = N(αα⁻¹) = N(1) = 1 by multiplicativity. Both N(α) and N(α⁻¹) are integers (since α,α⁻¹ ∈ 𝒪_K), so their product is 1 in ℤ, meaning each is ±1. Hence N(α) = ±1. (⇐) If N(α) = ±1, then the product of all Galois conjugates of α (times the appropriate power k) equals ±1. By Vieta's formulas, α⁻¹ = ±(product of the other conjugates), which is a polynomial in α with integer coefficients, so α⁻¹ ∈ 𝒪_K."
+/>
+
+<Problem
+  client:load
+  id="an54-prob-frac-field"
+  difficulty="starred"
+  prompt="Let K be a number field. What is the field of fractions of 𝒪_K?"
+  hint="It is isomorphic to K."
+  solution="The field of fractions of 𝒪_K is isomorphic to K itself. Every element x ∈ K can be written as x = α/n where α ∈ 𝒪_K and n ∈ ℤ ∖ {0} (by the theorem that K = ℚ · 𝒪_K). So every element of K appears as a ratio of elements of 𝒪_K. Conversely, 𝒪_K ⊂ K, so all fractions of elements of 𝒪_K lie in K (since K is a field). Hence Frac(𝒪_K) ≅ K."
+/>
+
+</SlideLayout>

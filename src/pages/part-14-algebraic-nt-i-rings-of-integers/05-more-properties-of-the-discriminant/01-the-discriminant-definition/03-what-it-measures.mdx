@@ -1,0 +1,23 @@
+---
+title: What the discriminant measures
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What the discriminant measures">
+
+The discriminant $\Delta_K$ encodes two things at once: the **arithmetic complexity** of $\OO_K$ and the **ramification** of primes in $K$.
+
+A prime $p$ ramifies in $K$ — meaning a prime ideal of $\OO_K$ above $p$ appears with multiplicity $\geq 2$ — if and only if $p \mid \Delta_K$. So the prime factors of $\Delta_K$ are precisely the primes that "branch" when you pass from <Term k="ZZ">$\ZZ$</Term> to $\OO_K$.
+
+<Callout kind="remark" title="Key facts to keep in mind">
+1. $\Delta_K \in \ZZ$ — the discriminant is always an integer.
+2. The sign of $\Delta_K$ records the signature $(r_1, r_2)$ of $K$: specifically $\Delta_K > 0$ iff $r_2$ is even (Brill's theorem, which we will prove in this chapter).
+3. $|\Delta_K| > 1$ for every $K \neq \QQ$ (also a problem in this chapter).
+4. $\Delta_K \equiv 0$ or $1 \pmod 4$ (Stickelberger's theorem, also here).
+</Callout>
+
+This chapter is a short problem set that establishes these properties, together with two alternative formulas for $\Delta_K$: one in terms of the trace bilinear form and one in terms of the polynomial discriminant of a minimal polynomial.
+
+</SlideLayout>

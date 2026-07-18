@@ -1,0 +1,17 @@
+---
+title: Problem — factor (5) in ℤ[∛2]
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — factor (5) in ℤ[∛2]">
+
+<Problem
+  client:load
+  id="an55-prob-factor-5-cbrt2"
+  difficulty="standard"
+  prompt="Let K = ℚ(∛2); take for granted that 𝒪_K = ℤ[∛2]. Find the factorization of (5) in 𝒪_K."
+  solution="The minimal polynomial of θ = ∛2 is f(x) = x³ - 2. We factor f mod 5 in 𝔽₅[x]. Check: f(2) = 8-2 = 6 ≡ 1, f(3) = 27-2 = 25 ≡ 0 (mod 5). So x=3 is a root, giving factor (x-3). Divide: x³-2 = (x-3)(x²+3x+9) in 𝔽₅[x] (check: (x-3)(x²+3x+9) = x³+3x²+9x-3x²-9x-27 = x³-27 ≡ x³-2 mod 5 since 27≡2). Is x²+3x+9 irreducible mod 5? Its discriminant is 9-36=−27≡3 mod 5. Since 3 is not a square mod 5 (squares mod 5 are 0,1,4), yes it is irreducible. So f ≡ (x-3)(x²+3x+9) mod 5 with both factors irreducible. By Dedekind–Kummer: (5) = 𝔭₁·𝔭₂ where 𝔭₁ = (5, θ-3) and 𝔭₂ = (5, θ²+3θ+9). Both are prime ideals; 𝒩(𝔭₁) = 5 and 𝒩(𝔭₂) = 25."
+/>
+
+</SlideLayout>

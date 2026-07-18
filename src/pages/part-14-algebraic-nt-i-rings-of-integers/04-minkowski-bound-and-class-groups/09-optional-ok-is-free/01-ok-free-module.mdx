@@ -1,0 +1,29 @@
+---
+title: Optional — 𝒪_K is a free ℤ-module
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Optional — 𝒪_K is a free ℤ-module">
+
+We have been assuming $\mathcal{O}_K$ is a free $\mathbb{Z}$-module of rank $n = [K:\mathbb{Q}]$. Here is why this is true.
+
+<Callout kind="theorem" title="𝒪_K is free of rank n">
+Let $K$ be a number field of degree $n$. Then $\mathcal{O}_K$ is a free $\mathbb{Z}$-module of rank $n$.
+</Callout>
+
+**Why rank $\geq n$:** Choose a $\mathbb{Q}$-basis $\alpha_1, \dots, \alpha_n$ of $K$. By multiplying by suitable integers, assume all $\alpha_i \in \mathcal{O}_K$. Since they are linearly independent over $\mathbb{Q}$, they are linearly independent over $\mathbb{Z}$, so $\operatorname{rank}\mathcal{O}_K \geq n$.
+
+**Why $\mathcal{O}_K$ is discrete:** We need to show $\mathcal{O}_K$ is not dense in $K$ (like $\mathbb{Q}$ inside $\mathbb{R}$). The key tool is the discriminant: define
+
+$$d = \det\bigl[\operatorname{Tr}_{K/\mathbb{Q}}(\alpha_i\alpha_j)\bigr]_{i,j}.$$
+
+For any $x \in \mathcal{O}_K$, Cramer's rule (applied to the trace-form linear system) shows $d \cdot x$ lies in $A = \langle \alpha_1, \dots, \alpha_n \rangle_\mathbb{Z}$.
+
+Therefore $\mathcal{O}_K \subseteq \frac{1}{d}A$, a free $\mathbb{Z}$-module of rank $n$. A submodule of a free finitely generated $\mathbb{Z}$-module is itself free of rank $\leq n$, so $\mathcal{O}_K$ is free of rank exactly $n$.
+
+<Callout kind="remark" title="Three proofs">
+The source gives three proofs of this fact: (1) squeezing $\mathcal{O}_K$ between two free modules via the discriminant; (2) using the dual lattice $S = \{x \in K : \operatorname{Tr}(xa) \in \mathbb{Z} \text{ for all } a \in A\}$; (3) using continuity of the norm and Minkowski to find a ball around $0$ with no nonzero element of $\mathcal{O}_K$.
+</Callout>
+
+</SlideLayout>

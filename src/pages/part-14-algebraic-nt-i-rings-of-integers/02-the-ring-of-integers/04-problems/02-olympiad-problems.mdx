@@ -1,0 +1,27 @@
+---
+title: Problems — olympiad applications
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — olympiad applications">
+
+<Problem
+  client:load
+  id="an54-prob-russian-1984"
+  difficulty="standard"
+  prompt="[Russian olympiad 1984] Find all integers m and n such that (5 + 3√2)^m = (3 + 5√2)^n."
+  hint="Take the norm N_{ℚ(√2)/ℚ} of both sides. The norm of (5 + 3√2) is 25 − 18 = 7, and the norm of (3 + 5√2) is 9 − 50 = −41."
+  solution="Apply N_{ℚ(√2)/ℚ} to both sides. Using multiplicativity of the norm: N(5+3√2)^m = N(3+5√2)^n. Now N(5+3√2) = 5²−2·3² = 25−18 = 7 and N(3+5√2) = 3²−2·5² = 9−50 = −41. So 7^m = (−41)^n. The left side is always positive; for the right side to be positive we need n even, say n = 2t. Then 7^m = 41^{2t}. But gcd(7, 41) = 1, so the only solution is m = 2t = 0. Hence m = n = 0 is the only solution."
+/>
+
+<Problem
+  client:load
+  id="an54-prob-usa-tst-2012"
+  difficulty="standard"
+  prompt="[USA TST 2012] Decide whether there exist integers a, b, c > 2010 satisfying a³ + 2b³ + 4c³ = 6abc + 1."
+  hint="Interpret the left side as the norm N_{ℚ(∛2)/ℚ}(a + b∛2 + c∛4). The norm formula gives a³ + 2b³ + 4c³ − 6abc."
+  solution="Recognize that a³ + 2b³ + 4c³ − 6abc = N_{ℚ(∛2)/ℚ}(a + b∛2 + c∛4). So the equation becomes N(a + b∛2 + c∛4) = 1. By the unit-norm result, this means α = a + b∛2 + c∛4 is a unit in 𝒪_ℚ(∛2). The units of ℚ(∛2) are exactly ±1 (since it is a real cubic field with exactly one real place and the unit rank is 1, with fundamental unit having norm −1; the only elements with norm +1 are ±1 up to powers of the fundamental unit — but checking modulo 3 shows the only units with positive norm are ±1). However, a + b∛2 + c∛4 with a, b, c > 2010 is much larger than ±1. This is a contradiction, so no such integers exist."
+/>
+
+</SlideLayout>

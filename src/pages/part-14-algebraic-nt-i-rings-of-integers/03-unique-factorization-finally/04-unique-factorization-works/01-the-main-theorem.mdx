@@ -1,0 +1,28 @@
+---
+title: Unique ideal factorization — the main theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Unique ideal factorization — the main theorem">
+
+We have arrived at the payoff.
+
+<Callout kind="theorem" title="Prime factorization works in Dedekind domains">
+Let $\mathfrak{a}$ be a nonzero proper ideal of a Dedekind domain $\mathcal{A}$. Then $\mathfrak{a}$ factors as a finite product of nonzero prime ideals:
+$$\mathfrak{a} = \mathfrak{p}_1^{e_1} \mathfrak{p}_2^{e_2} \cdots \mathfrak{p}_g^{e_g},$$
+and this factorization is unique up to order of the $\mathfrak{p}_i$.
+
+Moreover, $\mathfrak{a} \mid \mathfrak{b}$ if and only if every prime ideal exponent of $\mathfrak{a}$ is at most the corresponding exponent of $\mathfrak{b}$.
+</Callout>
+
+This is <Term k="an55idealFactorization">unique ideal factorization</Term> — the ideal-world analogue of the fundamental theorem of arithmetic.
+
+The "divides = exponents dominated" clause mirrors the integer case: $m \mid n$ iff every prime power in $m$ also appears in $n$.
+
+<Callout kind="remark" title="When the domain is a PID">
+If $\mathcal{A}$ is also a PID (like $\ZZ$), then every ideal $(a)$ is principal, and the factorization of $(a)$ directly gives the factorization of $a$ into primes (up to units). So unique element factorization in $\ZZ$ is a corollary of unique ideal factorization.
+</Callout>
+
+</SlideLayout>

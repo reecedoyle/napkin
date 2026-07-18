@@ -1,0 +1,25 @@
+---
+title: Why the norm depends on the field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why the norm depends on the field">
+
+It's tempting to define the **norm** of $\alpha$ as the product of all its conjugates. For $2 + i \in \QQ(i)$ that gives $(2+i)(2-i) = 5$, which is the familiar $a^2 + b^2$.
+
+But there's a subtlety. We want the norm to be **multiplicative**: $N(\alpha\beta) = N(\alpha)\cdot N(\beta)$. Let's check:
+
+$$N(2+i) = 5, \quad N(2-i) = 5.$$
+
+But $(2+i)(2-i) = 5$, which is a degree-$1$ rational number with **no conjugates at all** other than itself. If we only take the product of conjugates, $N(5) = 5$, not $25$.
+
+<Callout kind="remark" title="The fix: norm is relative to a field">
+The norm is not a property of $\alpha$ alone — it is a property of $\alpha$ viewed **inside a particular number field** $K$.
+
+If $5$ lives in $\QQ$, its norm is $5$. But viewed as an element of $\QQ(i)$, its norm should be $25$ — because $\QQ(i)$ "sees" $5$ as having a repeated conjugate.
+</Callout>
+
+This motivates defining $\operatorname{N}_{K/\QQ}(\alpha)$, the norm of $\alpha$ **with respect to $K$**.
+
+</SlideLayout>

@@ -1,0 +1,21 @@
+---
+title: The n embeddings of a number field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The n embeddings of a number field">
+
+The key structural fact we need:
+
+<Callout kind="theorem" title="The n embeddings of a number field">
+Let $K$ be a number field of degree $n$. There are exactly $n$ field homomorphisms $\sigma_1, \dots, \sigma_n \colon K \hookrightarrow \mathbb{C}$ that fix $\mathbb{Q}$. Moreover, for $\alpha \in K$, the values $\sigma_i(\alpha)$ as $i$ ranges from $1$ to $n$ are precisely the conjugates of $\alpha$.
+</Callout>
+
+This lets us express the trace and norm via embeddings:
+
+$$\operatorname{Tr}_{K/\mathbb{Q}}(\alpha) = \sum_{i=1}^n \sigma_i(\alpha), \qquad \operatorname{N}_{K/\mathbb{Q}}(\alpha) = \prod_{i=1}^n \sigma_i(\alpha).$$
+
+These formulas make concrete why the trace and norm are rational (or even integer) when $\alpha \in \mathcal{O}_K$: the product/sum of all conjugates of an algebraic integer is always an integer.
+
+</SlideLayout>

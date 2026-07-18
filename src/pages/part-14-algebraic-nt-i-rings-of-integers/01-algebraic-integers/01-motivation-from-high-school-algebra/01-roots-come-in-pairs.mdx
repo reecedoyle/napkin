@@ -1,0 +1,30 @@
+---
+title: Roots come in pairs
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Roots come in pairs">
+
+In high-school precalculus you noticed something: irrational roots of integer polynomials come in pairs.
+
+$$x^3 - 3x^2 - 2x + 2 = (x+1)(x^2 - 4x + 2)$$
+
+has roots $-1$, $2 + \sqrt{2}$, $2 - \sqrt{2}$. The irrational roots travel together.
+
+Similarly,
+
+$$x^3 - x^2 - x - 15 = (x-3)(x^2 + 2x + 5)$$
+
+has roots $3$, $-1+2i$, $-1-2i$. Complex roots come in conjugate pairs.
+
+Your textbook told you this was true for complex roots. But *why*? And does it always hold for roots of the form $a + b\sqrt{c}$?
+
+<Callout kind="question" title="What about ∛2?">
+The polynomial $x^3 - 2$ has only one real root, $\sqrt[3]{2}$. The other two roots are complex: $\sqrt[3]{2}\,e^{2\pi i/3}$ and $\sqrt[3]{2}\,e^{4\pi i/3}$. Does $\sqrt[3]{2}$ have "conjugates" too?
+</Callout>
+
+The answer is yes — but the notion of conjugate is more subtle than you thought. This section makes it precise.
+
+</SlideLayout>

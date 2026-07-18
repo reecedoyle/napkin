@@ -1,0 +1,17 @@
+---
+title: Problem — Fermat's little theorem for ideals
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — Fermat's little theorem for ideals">
+
+<Problem
+  client:load
+  id="an55-prob-fermat-ideals"
+  difficulty="standard"
+  prompt="Let 𝔭 be a prime ideal in some ring of integers 𝒪_K. Show that for α ∈ 𝒪_K, α^{𝒩(𝔭)} ≡ α (mod 𝔭). Hint: copy the proof of the usual Fermat's little theorem."
+  solution="If α ≡ 0 (mod 𝔭) then α ∈ 𝔭, so α^{𝒩(𝔭)} ∈ 𝔭 and the congruence holds trivially. If α ≢ 0 (mod 𝔭), then the image of α in 𝒪_K/𝔭 is a nonzero element. Since 𝔭 is a prime ideal, 𝒪_K/𝔭 is a field. It is also finite with 𝒩(𝔭) elements, so its multiplicative group (𝒪_K/𝔭)× has order 𝒩(𝔭)-1. By Lagrange's theorem, α^{𝒩(𝔭)-1} ≡ 1 (mod 𝔭), so α^{𝒩(𝔭)} ≡ α (mod 𝔭)."
+/>
+
+</SlideLayout>
