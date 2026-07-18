@@ -101,4 +101,9 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\TT': '\\mathbb{T}',
   '\\SB': '\\mathcal{B}',
   '\\taking': '\\xrightarrow{#1}',
+  '\\EE': '\\mathbb{E}',
+  '\\Var': '\\operatorname{Var}',
+  '\\Pr': '\\operatorname{Pr}',
+  '\\sgn': '\\operatorname{sgn}',
+  '\\SA': '\\mathscr{A}',
 };
