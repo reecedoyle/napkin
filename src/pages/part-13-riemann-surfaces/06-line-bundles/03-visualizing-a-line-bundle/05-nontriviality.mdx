@@ -11,16 +11,16 @@ import ProofReveal from '@/components/ProofReveal';
 We built a bundle over $\mathbb{C}_\infty$ whose real-part picture is a Möbius strip. It appears obviously <Term k="rs52nontrivialBundle">nontrivial</Term> — whatever "isomorphic" means, a Möbius strip and a cylinder are not the same.
 
 <Callout kind="remark" title="Why nontriviality matters">
-A line bundle is trivial if and only if it has a **nowhere-zero global analytic section**. For the trivial bundle $\mathbb{C} \times X$ the constant section $p \mapsto (1, p)$ is nowhere zero. On the Möbius bundle, any global real section must pass through zero — the bundle "cannot avoid" a zero.
+A line bundle is trivial if and only if it has a **nowhere-zero global (analytic) section**: such a section identifies each fiber with $\mathbb{C}$ consistently, giving an isomorphism to $\mathbb{C} \times X$. For the trivial bundle the constant section $p \mapsto (1, p)$ is nowhere zero. So nontriviality means precisely that *no* global section avoids zero everywhere. On the real Möbius bundle the sign flips as you loop around the base, so any global section must cross zero.
 
-Over the complex Riemann sphere, the story is the same: the transition function $(y, z) \mapsto (y/z, z)$ introduces a pole, and any global analytic section must have at least one zero.
+Over the complex Riemann sphere the bundle we built has no nowhere-zero global holomorphic section either (its nonzero global sections each vanish at a point), so it too is nontrivial.
 </Callout>
 
 <ProofReveal
   client:load
   id="rs52-viz-proof-connected-overlap"
   prompt="The real picture of the Möbius bundle uses the disconnected set ℝ \ {0} for the overlap, which makes the twist visible. For the complex bundle, the overlap is ℂ \ {0}. Why can't we simply 'untwist' the complex bundle the same way we might naively try to over ℝ?"
-  solution="Over ℝ, the overlap ℝ \ {0} has two connected components: the positive and negative reals. The twist lives in the sign flip between them, and in principle one could try to correct it on each component separately. Over ℂ, the overlap ℂ \ {0} is connected — there are no components to exploit. Any 'correction' analytic function on ℂ \ {0} that is nonzero everywhere must be of the form cz^n for integer n (by the argument principle), and no such function simultaneously makes the transition function trivial on both the z-chart and the t-chart. The global topology of ℂ \ {0} forces the twist to be genuine."
+  solution="Untwisting means writing the transition function g(z) as a ratio a(z)/b(z) of nowhere-zero analytic functions, one on each chart (a on the z-chart, b on the t = 1/z chart). Over ℝ the overlap ℝ \ {0} splits into two components (positive and negative reals), and the sign flip could in principle be absorbed component by component. Over ℂ the overlap ℂ \ {0} is connected, so there is no such freedom. The obstruction is the winding number: any nowhere-zero analytic function on ℂ \ {0} has a well-defined integer winding number n = (1/2πi)∮ f'/f around the origin, and it is trivializable across the origin only when n = 0. The transition function here has nonzero winding number, and no choice of nowhere-zero a and b can cancel it — so the twist is genuine."
 />
 
 </SlideLayout>

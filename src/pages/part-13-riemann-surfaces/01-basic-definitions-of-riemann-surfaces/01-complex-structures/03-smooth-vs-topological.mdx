@@ -10,10 +10,10 @@ import Term from '@/components/Term.astro';
 Consider the open interval $(0, 2) \subseteq \RR$ as a topological manifold. We can define two homeomorphisms from $(0,2)$ to open subsets of $\RR$:
 
 $$
-\phi_1(x) = x, \qquad \phi_2(x) = \begin{cases} x & x \leq 1 \\ x + e^{-1/(x-1)} & x > 1 \end{cases}
+\phi_1(x) = x, \qquad \phi_2(x) = \begin{cases} x & x \leq 1 \\ 2x - 1 & x > 1 \end{cases}
 $$
 
-Both $\phi_1$ and $\phi_2$ are homeomorphisms — they preserve topological structure. But $\phi_2$ is **also** smooth! The transition map $\phi_1 \circ \phi_2^{-1}$ is smooth, so both charts belong to the same smooth atlas.
+Both $\phi_1$ and $\phi_2$ are homeomorphisms — as maps of topological spaces they are equally good. But $\phi_2$ has a **corner** at $x = 1$, so the transition map $\phi_2 \circ \phi_1^{-1}$ is *not* smooth there. A homeomorphism need not be a diffeomorphism: the two charts are topologically interchangeable but not smoothly compatible.
 
 <Callout kind="remark" title="The subtlety">
 A topological space does not come with a unique smooth structure. Two different atlases can give the **same** topological manifold **different** smooth structures. The smooth structure is extra data — it is encoded in the choice of atlas, not in the topology alone.
