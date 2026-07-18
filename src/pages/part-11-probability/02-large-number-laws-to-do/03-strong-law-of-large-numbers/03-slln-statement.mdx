@@ -1,0 +1,22 @@
+---
+title: Strong law of large numbers — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Strong law of large numbers — statement">
+
+<Callout kind="theorem" title="Strong law of large numbers (SLLN)">
+Let $X_1, X_2, \ldots$ be i.i.d. random variables with $\EE[X_i] = 0$. Define the <Term k="llSampleMean">partial mean</Term>
+$$M_n = \frac{X_1 + \cdots + X_n}{n}.$$
+Then $M_n \xrightarrow{\text{a.s.}} 0$ — in almost every world, $M_n \to 0$.
+</Callout>
+
+In other words, $M_n$ <Term k="llAlmostSureConv">converges almost surely</Term> to $0$.
+
+The requirement $\EE[X_i] = 0$ is just for convenience. If the mean is $\mu$, apply the theorem to $X_i - \mu$ to conclude $M_n \to \mu$ almost surely.
+
+We will prove this under the additional assumption that $\EE[X_i^2] < \infty$ (finite variance). The general proof — which truncates each $X_i$ to obtain finite variance — is omitted here.
+
+</SlideLayout>

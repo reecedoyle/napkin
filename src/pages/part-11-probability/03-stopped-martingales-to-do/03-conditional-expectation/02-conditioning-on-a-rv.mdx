@@ -1,0 +1,25 @@
+---
+title: Conditioning on a random variable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Conditioning on a random variable">
+
+Before the general definition, let's understand why $\mathbb{E}(X \mid Y)$ is itself a random variable, not a number.
+
+**Weather example.** The probability of rain tomorrow depends on today's weather:
+
+$$\Pr(\text{rain tomorrow} \mid \text{rain today}) = 0.6, \qquad \Pr(\text{rain tomorrow} \mid \text{no rain today}) = 0.3.$$
+
+"Today's weather" is a random variable. So the forecast probability $Z = \Pr(\text{rain tomorrow} \mid \text{weather today})$ is also a random variable — it takes one of two values depending on $\omega$.
+
+**Dice example.** Let $X$ and $Y$ be two independent dice rolls. Then:
+
+- $\mathbb{E}[X \mid X+Y = 3] = 1.5$ — a fixed number given a fixed event.
+- $\mathbb{E}(X \mid X+Y)$ is a *random variable* that takes the value $1.5$ in any world where $X+Y = 3$.
+- In fact, $\mathbb{E}(X \mid X+Y) = \frac{X+Y}{2}$ as a function of $\omega$.
+
+Notice: $\mathbb{E}(X \mid X+Y)$ depends on $\omega$ only through $X+Y$ — it is $\sigma(X+Y)$-measurable.
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Stopped supermartingales are still supermartingales
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Stopped supermartingales are still supermartingales">
+
+Stopping a supermartingale doesn't make it worse.
+
+<Callout kind="proposition" title="The stopped process is a supermartingale">
+Let $(X_n)$ be a supermartingale and $\tau$ a stopping time. Then the <Term k="stoppedMartingale">stopped process</Term>
+
+$$X_{\tau \wedge 0},\; X_{\tau \wedge 1},\; X_{\tau \wedge 2},\; \dots$$
+
+is itself a supermartingale.
+</Callout>
+
+**Proof.** We compute almost everywhere:
+
+$$\mathbb{E}(X_{\tau \wedge n} \mid \mathcal{F}_{n-1}) = \mathbb{E}\!\left( X_{n-1} + \mathbf{1}_{\tau(\omega) \ge n}(X_n - X_{n-1}) \mid \mathcal{F}_{n-1} \right).$$
+
+Since $\{\tau \ge n\} = \{\tau \le n-1\}^c \in \mathcal{F}_{n-1}$ (the indicator is $\mathcal{F}_{n-1}$-measurable), we can pull it out:
+
+$$= X_{n-1} + \mathbf{1}_{\tau(\omega) \ge n} \cdot \mathbb{E}(X_n - X_{n-1} \mid \mathcal{F}_{n-1}) \le X_{n-1},$$
+
+since $(X_n)$ being a supermartingale means $\mathbb{E}(X_n - X_{n-1} \mid \mathcal{F}_{n-1}) \le 0$.
+
+</SlideLayout>

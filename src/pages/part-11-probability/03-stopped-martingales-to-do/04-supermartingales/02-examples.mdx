@@ -1,0 +1,44 @@
+---
+title: Examples of martingales and supermartingales
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of martingales and supermartingales">
+
+<Callout kind="example" title="Random walk is a martingale">
+An ant starts at $0$ and each minute moves $+1$ or $-1$ with equal probability. If $X_t$ is its position at time $t$, then
+
+$$\mathbb{E}(X_t \mid X_0, \dots, X_{t-1}) = \frac{(X_{t-1}+1) + (X_{t-1}-1)}{2} = X_{t-1}.$$
+
+So the symmetric random walk is a martingale.
+</Callout>
+
+<Callout kind="example" title="Casino game is a martingale">
+The doubling strategy from §1 is a martingale: every individual bet has expected value $0$, so wealth has the same expected value before and after each bet.
+</Callout>
+
+<Callout kind="example" title="Product of mean-1 variables is a martingale">
+Let $X_1, X_2, \dots$ be independent with $\mathbb{E}[X_i] = 1$. Then $Y_n = X_1 X_2 \cdots X_n$ is a martingale, since $\mathbb{E}(Y_n \mid Y_1, \dots, Y_{n-1}) = \mathbb{E}[X_n] \cdot Y_{n-1} = Y_{n-1}$.
+</Callout>
+
+<Callout kind="example" title="Blackjack is a supermartingale">
+If $X_t$ is your wealth after $t$ games of blackjack, the house edge makes $\mathbb{E}(X_t \mid X_0, \dots, X_{t-1}) < X_{t-1}$. Your expected wealth can only decrease.
+</Callout>
+
+<MCQ
+  client:load
+  id="smt-s4-mcq-classify"
+  prompt="Let Yₙ = (X₁ + ⋯ + Xₙ)² − n where X₁, X₂, … are iid ±1 with equal probability. What is Yₙ?"
+  options={[
+    { id: "a", label: "A supermartingale (but not a martingale)" },
+    { id: "b", label: "A submartingale (but not a martingale)" },
+    { id: "c", label: "A martingale" },
+    { id: "d", label: "None of the above" },
+  ]}
+  correct="c"
+  explanation="Yₙ is a martingale. Computing: 𝔼(Yₙ | Yₙ₋₁, …) = 𝔼((Sₙ₋₁ ± 1)² − n) = Sₙ₋₁² + 1 − n = (Sₙ₋₁² − (n−1)) = Yₙ₋₁. This is the first part of the Problems section."
+/>
+
+</SlideLayout>

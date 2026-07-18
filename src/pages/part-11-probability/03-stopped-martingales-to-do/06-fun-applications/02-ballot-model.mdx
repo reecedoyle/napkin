@@ -1,0 +1,21 @@
+---
+title: Modeling the ballot count
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Modeling the ballot count">
+
+**Key trick: reverse the order.** Instead of revealing votes one at a time (which conditions on the final total), we start with all votes and *remove* them in a random order.
+
+Let $(A_i, B_i)$ be the votes **remaining** after $i$ removals, starting from $(A_0, B_0) = (a, b)$. At each step, either an Alice vote is removed (with probability $A_{i-1}/(A_{i-1}+B_{i-1})$) or a Bob vote is removed (with the complementary probability).
+
+This removes each ballot uniformly at random. The question becomes computing the probability that Alice is strictly ahead at every step:
+
+$$\Pr[A_i > B_i \text{ for all } 0 \le i \le a+b-1].$$
+
+There is no conditioning on a specific total — we just need to track whether Alice is always ahead.
+
+**Why not $A_i - B_i$ directly?** A natural guess is $X_i = A_i - B_i$. But this is not a martingale — the expected lead changes at each step. We need to modify it.
+
+</SlideLayout>

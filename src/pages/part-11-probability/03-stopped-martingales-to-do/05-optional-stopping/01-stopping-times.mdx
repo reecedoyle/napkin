@@ -1,0 +1,29 @@
+---
+title: Stopping times
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Stopping times">
+
+The gambler's advantage in §1 came from choosing *when* to leave. We want to formalize "quitting at a random time based only on information so far."
+
+<Callout kind="definition" title="Stopping time">
+Let $\mathcal{F}_0 \subseteq \mathcal{F}_1 \subseteq \cdots$ be a filtration. A **stopping time** is a function
+
+$$\tau \colon \Omega \to \{0, 1, 2, \dots\} \cup \{\infty\}$$
+
+such that for each integer $n$, the set $\{\omega \mid \tau(\omega) = n\}$ is $\mathcal{F}_n$-measurable.
+</Callout>
+
+The <Term k="stoppingTime">stopping time</Term> condition means: whether you stop at time $n$ is determined solely by the information available at time $n$ — no peeking ahead.
+
+**The stopped value.** Given a martingale $(X_n)$ and a stopping time $\tau$:
+
+- The **stopped process** is $X_{\tau \wedge n}(\omega) = X_{\min(\tau(\omega),\, n)}(\omega)$.
+- The **eventual value** is $X_\tau(\omega) = X_{\tau(\omega)}(\omega)$ if $\tau(\omega) < \infty$, or $\lim_{n \to \infty} X_n(\omega)$ otherwise.
+
+So $X_{\tau \wedge n}$ freezes at the stopping time: if $\tau(\omega) = 3$, then $X_{\tau \wedge 4}(\omega) = X_{\tau \wedge 5}(\omega) = \cdots = X_3(\omega)$.
+
+</SlideLayout>

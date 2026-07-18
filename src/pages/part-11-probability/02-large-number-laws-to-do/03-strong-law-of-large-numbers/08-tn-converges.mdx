@@ -1,0 +1,23 @@
+---
+title: Tₙ converges almost surely
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tₙ converges almost surely">
+
+We now apply Kolmogorov's inequality to the tail of $T_n = \sum_{k=1}^n X_k / k$.
+
+The corollary of Kolmogorov's inequality says: for independent mean-zero variables, $\Pr[\sup_{i \ge 1} |S_i| \ge a] \le \frac{1}{a^2} \sum_{i \ge 1} \Var[X_i]$ (take $n \to \infty$).
+
+Apply this to the **tail** $X_{N+1}/(N+1), X_{N+2}/(N+2), \ldots$ of our weighted series. The tail variance is
+$$\sum_{k=N+1}^{\infty} \frac{\Var[X_1]}{k^2}.$$
+
+Since $\sum 1/k^2 < \infty$, the tail variance tends to $0$ as $N \to \infty$. So for every $\eps > 0$, there exists $N$ such that in almost every world, all tail partial sums $|T_m - T_N|$ (for $m \ge N$) are $< \eps/2$.
+
+By the triangle inequality, for $m, \ell \ge N$: $|T_m - T_\ell| < \eps$.
+
+By <Term k="llCauchy">Cauchy's convergence criterion</Term>, the sequence $(T_n)$ is Cauchy in almost every world, hence convergent. $\square$
+
+</SlideLayout>

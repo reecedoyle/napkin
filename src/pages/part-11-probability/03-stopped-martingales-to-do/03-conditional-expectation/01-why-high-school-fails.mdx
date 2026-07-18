@@ -1,0 +1,25 @@
+---
+title: Why high school conditioning breaks down
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why high school conditioning breaks down">
+
+To define a martingale we need conditional expectation. This turns out to be surprisingly subtle.
+
+<Callout kind="example" title="The 0/0 problem">
+Suppose $X, Y$ are independent random variables, each uniform on $[0,1]$ (so $\Omega = [0,1]^2$). We want to compute the expected value of $X$ given that $X + Y = 0.6$.
+
+Intuitively, the answer should be $0.3$ — by symmetry, if we know the sum is $0.6$, each variable contributes half.
+
+But any attempt to write this formally runs into:
+
+$$\mathbb{E}[X \mid X+Y = 0.6] = \frac{\int_S X \, d\mu}{\int_S 1 \, d\mu} \quad \text{where } S = \{ \omega : X(\omega)+Y(\omega) = 0.6 \}.$$
+
+The problem: $S$ is a line segment in $[0,1]^2$, which has Lebesgue measure **zero**. Both integrals are $0$, giving $\frac{0}{0}$.
+</Callout>
+
+The standard formula $\Pr(A \mid B) = \frac{\Pr(A \cap B)}{\Pr(B)}$ requires $\Pr(B) > 0$. For continuous random variables, the conditioning event is typically a probability-zero set. We need a different approach.
+
+</SlideLayout>

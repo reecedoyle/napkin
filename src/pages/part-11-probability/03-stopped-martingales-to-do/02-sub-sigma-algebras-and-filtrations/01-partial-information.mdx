@@ -1,0 +1,24 @@
+---
+title: Partial information about the world
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Partial information about the world">
+
+We model the world as a probability space $\Omega$, equipped with a full $\sigma$-algebra $\mathcal{A}$ of measurable events. But at any given moment you only know part of the story.
+
+**Example:** split all possible worlds into two groups:
+
+$$\Omega = A \sqcup B,$$
+
+where $A$ is the set of worlds in which the world ends in 2012, and $B$ is all other worlds. At the time of writing, we know we are in $B$. But we don't know everything about the future — just this one fact.
+
+To capture this partial knowledge, we need a smaller $\sigma$-algebra that contains only the sets we currently care about. For the 2012 question, that's just:
+
+$$\mathcal{F} = \{ \varnothing,\, A,\, B,\, \Omega \}.$$
+
+This is a <Term k="subSigmaAlgebra">sub-$\sigma$-algebra</Term> on $\Omega$: it is a valid $\sigma$-algebra, and every set in it belongs to $\mathcal{A}$.
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: The weighted series Tₙ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The weighted series Tₙ">
+
+The finite-variance proof proceeds via a clever auxiliary series.
+
+<Callout kind="definition" title="The weighted partial-sum series">
+Define the <Term k="llWeightedSeries">weighted series</Term>
+$$T_n = X_1 + \frac{X_2}{2} + \frac{X_3}{3} + \cdots + \frac{X_n}{n}.$$
+</Callout>
+
+This step is hard to motivate up front — think of it as: "scale down later terms to keep the total variance finite."
+
+<Callout kind="proposition" title="Key claim">
+In almost every world, the sequence $T_n$ converges (as $n \to \infty$).
+</Callout>
+
+**Why finite variance helps:** the individual variances are
+$$\Var\!\left[\frac{X_n}{n}\right] = \frac{\Var[X_1]}{n^2}.$$
+
+So the total variance of all terms is
+$$\sum_{n=1}^{\infty} \Var\!\left[\frac{X_n}{n}\right] = \Var[X_1] \cdot \sum_{n=1}^{\infty} \frac{1}{n^2} = \Var[X_1] \cdot \frac{\pi^2}{6} < \infty.$$
+
+Finite total variance is the engine of the proof. The next slide shows how to convert this into almost sure convergence.
+
+</SlideLayout>

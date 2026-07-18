@@ -1,0 +1,26 @@
+---
+title: Linearity of expectation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Linearity of expectation">
+
+One of the most useful properties of <Term k="expectedValue">expected value</Term> is that it is linear — and the measure-theoretic proof makes this completely transparent.
+
+<Callout kind="theorem" title="Linearity of expectation">
+If $X$ and $Y$ are random variables on the same probability space $(\Omega, \SA, \mu)$, then
+$$\EE[X + Y] = \EE[X] + \EE[Y].$$
+</Callout>
+
+
+
+<Callout kind="remark" title="Proof">
+By definition of expected value and linearity of the Lebesgue integral:
+$$\EE[X+Y] = \int_\Omega (X(\omega) + Y(\omega)) \; d\mu = \int_\Omega X(\omega) \; d\mu + \int_\Omega Y(\omega) \; d\mu = \EE[X] + \EE[Y].$$
+</Callout>
+
+Note that $X$ and $Y$ do **not** need to be independent. Linearity holds unconditionally — this is what makes it so powerful. For example, to compute the expected number of heads in $n$ coin flips, write it as a sum of $n$ indicator variables and apply linearity, no independence calculation needed.
+
+</SlideLayout>

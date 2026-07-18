@@ -1,0 +1,34 @@
+---
+title: What this chapter covers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="What this chapter covers">
+
+The doubling strategy works — in theory — because you can quit at any time. You exploit the freedom to stop the game at a favorable moment. This chapter formalizes that freedom and shows its limits.
+
+Two main threads:
+
+1. **Optional stopping theorem**: under "sane" conditions (finite time, finite money, or bounded bets), you cannot extract a profit from a fair game by choosing when to stop. Las Vegas wins.
+
+2. **Martingales as a proof tool**: once we accept we can't beat the casino, we can flip the idea around. Problems that have nothing to do with gambling can sometimes be solved by constructing a suitable martingale and applying the optional stopping theorem.
+
+Along the way we need to build up the machinery: conditional expectation, filtrations, and the formal definition of a stopping time.
+
+<MCQ
+  client:load
+  id="smt-s1-mcq-why-doubling-fails"
+  prompt="The doubling strategy fails in practice because of which constraint?"
+  options={[
+    { id: "a", label: "The coin isn't truly fair" },
+    { id: "b", label: "You need unbounded money (or time) to guarantee a win" },
+    { id: "c", label: "Expected value per bet is positive" },
+    { id: "d", label: "The casino counts cards" },
+  ]}
+  correct="b"
+  explanation="The strategy requires you to potentially bet arbitrarily large amounts — you need unlimited credit. Any finite bankroll means there is a positive probability of ruin before the first heads. The optional stopping theorem makes this precise."
+/>
+
+</SlideLayout>

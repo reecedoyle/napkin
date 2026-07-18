@@ -1,0 +1,21 @@
+---
+title: Almost sure convergence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Almost sure convergence">
+
+A random variable is a function $X \colon \Omega \to \RR$ on some <Term k="llProbabilitySpace">probability space</Term> $(\Omega, \mu)$. A sequence $X_1, X_2, \ldots$ of random variables can converge in several distinct senses. The strongest is **almost sure convergence**.
+
+<Callout kind="definition" title="Almost sure convergence">
+Let $X$, $X_n$ be random variables on a probability space $\Omega$. We say $X_n$ <Term k="llAlmostSureConv">converges almost surely</Term> to $X$ if
+$$\mu\!\left(\omega \in \Omega : \lim_{n} X_n(\omega) = X(\omega)\right) = 1.$$
+</Callout>
+
+Think of it this way: fix a world $\omega$. In that world the numerical values $X_1(\omega), X_2(\omega), \ldots$ form an ordinary real-number sequence. "Almost sure convergence" says that in $100\%$ of worlds, those values converge.
+
+This is the analogue of pointwise convergence for function sequences — except we allow measure-zero exceptions.
+
+</SlideLayout>

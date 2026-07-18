@@ -1,0 +1,24 @@
+---
+title: Convergence in probability
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Convergence in probability">
+
+The archer example motivates a weaker notion. Instead of asking "does every world converge?", we ask "does the chance of a large deviation shrink to zero?"
+
+<Callout kind="definition" title="Convergence in probability">
+$X_n$ <Term k="llInProbability">converges in probability</Term> to $X$ if for every $\eps > 0$ and $\delta > 0$, there exists $N$ such that for all $n \ge N$,
+$$\mu\!\left(\omega : \left|X_n(\omega) - X(\omega)\right| < \eps\right) \ge 1 - \delta.$$
+</Callout>
+
+Equivalently, for every $\eps > 0$:
+$$\lim_{n \to \infty} \mu\!\left(\omega : \left|X_n(\omega) - X(\omega)\right| < \eps\right) = 1.$$
+
+The archer **does** succeed here: for any $\delta > 0$, if $n > 1/\delta$ then the probability of hitting a bulls-eye exceeds $1 - \delta$.
+
+**Key difference:** convergence in probability allows different "bad worlds" at each step $n$. Almost sure convergence demands that the set of bad worlds itself has measure zero — forever.
+
+</SlideLayout>

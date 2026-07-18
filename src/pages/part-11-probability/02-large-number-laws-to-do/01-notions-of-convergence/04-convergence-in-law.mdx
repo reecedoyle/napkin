@@ -1,0 +1,28 @@
+---
+title: Convergence in law
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Convergence in law">
+
+The weakest standard notion only asks that the **distributions** become similar — not that individual worlds track each other at all.
+
+<Callout kind="definition" title="Convergence in law (weak convergence)">
+$X_n$ <Term k="llInLaw">converges in law</Term> (or *in distribution*) to $X$ if for every continuous bounded function $f \colon \RR \to \RR$,
+$$\EE[f(X_n)] \to \EE[f(X)].$$
+Equivalently, the cumulative distribution functions satisfy $F_{X_n}(t) \to F_X(t)$ at every continuity point $t$ of $F_X$.
+</Callout>
+
+<Callout kind="remark" title="Hierarchy">
+The three notions form a strict chain:
+
+$$\text{almost surely} \implies \text{in probability} \implies \text{in law.}$$
+
+None of the reverse implications holds in general. The large number laws we study next belong to the strongest tier (almost sure) or the middle tier (in probability).
+</Callout>
+
+Convergence in law is the setting for the Central Limit Theorem: sums of i.i.d. variables converge in distribution to a Gaussian, even though the variables themselves need not be anywhere close to Gaussian world-by-world.
+
+</SlideLayout>

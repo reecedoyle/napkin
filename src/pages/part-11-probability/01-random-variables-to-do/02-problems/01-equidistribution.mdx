@@ -1,0 +1,21 @@
+---
+title: Problem — Equidistribution
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — Equidistribution">
+
+This problem connects random variables to a classical result in analysis: the equidistribution of a sequence. The key tool is linearity of expectation together with the law of large numbers.
+
+<Problem
+  client:load
+  id="rv-prob-equidistribution"
+  prompt="Let X₁, X₂, … be i.i.d. uniform random variables on [0,1]. Show that almost surely the Xᵢ are equidistributed: for almost all ω,
+$$\lim_{N \to \infty} \frac{\#\{1 \le i \le N \mid a \le X_i(\omega) \le b\}}{N} = b - a \qquad \forall\, 0 \le a < b \le 1.$$"
+  hint="Apply the strong law of large numbers to the indicator random variables 𝟏_{[a,b]}(Xᵢ). Each has expected value 𝔼[𝟏_{[a,b]}(Xᵢ)] = b − a. Then handle all rational a < b simultaneously using a countable union of null sets."
+  solution="Fix a < b. Define Yᵢ = 𝟏_{[a,b]}(Xᵢ). These are i.i.d. with 𝔼[Yᵢ] = b − a (since Xᵢ is uniform on [0,1]). By the strong law of large numbers, almost surely (1/N)∑ᵢ₌₁ᴺ Yᵢ → 𝔼[Y₁] = b − a. This gives the limit for each fixed rational pair a < b outside a null set N_{a,b}. Take the union over all rational pairs: N = ⋃_{a,b ∈ ℚ} N_{a,b} is still a null set (countable union). For ω ∉ N, the limit holds for all rational a < b. For general real a < b, approximate from inside and outside by rationals and use monotonicity of the count. Hence the limit holds for all a < b simultaneously, for almost all ω."
+  difficulty="standard"
+/>
+
+</SlideLayout>

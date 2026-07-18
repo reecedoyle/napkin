@@ -1,0 +1,24 @@
+---
+title: Doob's convergence theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Doob's convergence theorem">
+
+A martingale that wanders freely can oscillate forever. But if it is bounded, it must eventually settle down.
+
+<Callout kind="theorem" title="Doob's martingale convergence theorem">
+Let $(X_n)_{n \ge 0}$ be a supermartingale on a probability space $\Omega$ such that
+
+$$\sup_{n \ge 0} \mathbb{E}[|X_n|] < \infty.$$
+
+Then there exists a random variable $X_\infty \colon \Omega \to \mathbb{R}$ such that $X_n \to X_\infty$ almost surely.
+</Callout>
+
+The <Term k="doobConvergence">convergence theorem</Term> is the probabilistic analogue of the monotone convergence theorem: a supermartingale that is bounded below is like a decreasing sequence bounded below — it must converge.
+
+**Why this matters.** For a stopping time $\tau$ that equals $\infty$ on some worlds, we need $X_\tau(\omega) = \lim_{n \to \infty} X_n(\omega)$ to be well-defined. The convergence theorem gives us this for free whenever the supermartingale is bounded.
+
+</SlideLayout>

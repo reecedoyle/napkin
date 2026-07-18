@@ -1,0 +1,29 @@
+---
+title: Motivation — a biased random walk
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Motivation — a biased random walk">
+
+Before stating the SLLN, here is a question that reveals why "almost every world" matters.
+
+<Callout kind="example" title="Biased random walk">
+Define a random walk: $X_0 = 1$, and at each step $i \ge 1$, move down by $1$ with probability $p = 0.6$ or up by $1$ with probability $1 - p = 0.4$. What is the expected number of steps to first reach $0$?
+</Callout>
+
+A natural approach: let $f(i)$ be the expected steps to reach $0$ from position $i$. Then we get an infinite system $f(1) = 1 + 0.6 f(0) + 0.4 f(2)$, $f(2) = 1 + 0.6 f(1) + 0.4 f(3)$, etc. — no closed form.
+
+**Smarter approach:** let $x = f(1)$. From position $2$, we first reach $1$ (costing $x$ steps in expectation), then reach $0$ (another $x$ steps). So:
+$$x = 1 + 0.6 \cdot 0 + 0.4 \cdot 2x.$$
+
+<NumericInput
+  client:load
+  id="ll-slln-num-walk-answer"
+  prompt="Solve 1 + 0.8x = x to find the expected hitting time x."
+  expected="5"
+/>
+
+</SlideLayout>

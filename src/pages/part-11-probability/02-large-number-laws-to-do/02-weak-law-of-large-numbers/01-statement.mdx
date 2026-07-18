@@ -1,0 +1,22 @@
+---
+title: Weak law of large numbers — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Weak law of large numbers — statement">
+
+Suppose we repeat an experiment many times and record the outcome each time. The <Term k="llWLLN">weak law of large numbers</Term> formalises the intuition that the running average stabilises.
+
+<Callout kind="theorem" title="Weak law of large numbers (WLLN)">
+Let $X_1, X_2, \ldots$ be <Term k="llIID">i.i.d.</Term> random variables with finite mean $\mu = \EE[X_1]$. Define the <Term k="llSampleMean">sample mean</Term>
+$$M_n = \frac{X_1 + \cdots + X_n}{n}.$$
+Then $M_n \xrightarrow{P} \mu$ — that is, $M_n$ <Term k="llInProbability">converges in probability</Term> to $\mu$.
+</Callout>
+
+As the name implies, this is a direct corollary of the strong law (which we prove in §3). The proof of the WLLN itself is simpler, and some applications only need this weaker statement.
+
+**Intuition:** the variance of $M_n$ is $\Var[M_n] = \Var[X_1]/n \to 0$. By <Term k="llChebyshev">Chebyshev's inequality</Term>, small variance forces concentration near the mean.
+
+</SlideLayout>

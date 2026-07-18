@@ -1,0 +1,29 @@
+---
+title: Conditional expectation — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Conditional expectation — definition">
+
+The measure-theoretic solution avoids conditioning on an event of measure zero entirely.
+
+<Callout kind="proposition" title="Existence and uniqueness">
+Let $X \colon \Omega \to \mathbb{R}$ be absolutely integrable ($\mathbb{E}[|X|] < \infty$) and let $\mathcal{F}$ be a sub-$\sigma$-algebra. There exists a function $\eta \colon \Omega \to \mathbb{R}$ satisfying:
+
+1. $\eta$ is $\mathcal{F}$-measurable.
+2. For every $A \in \mathcal{F}$: $\mathbb{E}[\eta \cdot \mathbf{1}_A] = \mathbb{E}[X \cdot \mathbf{1}_A]$.
+
+Moreover, $\eta$ is unique up to almost-sure equality. (The proof uses the Radon-Nikodym derivative.)
+</Callout>
+
+<Callout kind="definition" title="Conditional expectation">
+We write $\eta = \mathbb{E}(X \mid \mathcal{F})$ and call it the **conditional expectation** of $X$ with respect to $\mathcal{F}$.
+
+If $Y$ is a random variable, $\mathbb{E}(X \mid Y)$ means $\mathbb{E}(X \mid \sigma(Y))$.
+</Callout>
+
+The <Term k="conditionalExpectation">conditional expectation</Term> $\mathbb{E}(X \mid \mathcal{F})$ is the best $\mathcal{F}$-measurable approximation to $X$: it uses only the information in $\mathcal{F}$ but matches $X$ in expectation over every $\mathcal{F}$-measurable event.
+
+</SlideLayout>

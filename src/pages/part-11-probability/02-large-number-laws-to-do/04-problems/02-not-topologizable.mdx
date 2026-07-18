@@ -1,0 +1,20 @@
+---
+title: Problems — almost sure convergence is not topologizable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — almost sure convergence is not topologizable">
+
+<Problem
+  client:load
+  id="ll-prob-not-topologizable"
+  difficulty="standard"
+  prompt="Consider the space of all random variables on Ω = [0,1] (with Lebesgue measure). Prove that there is no metric on this space for which: a sequence X₁, X₂, … converges almost surely to X if and only if Xᵢ converges to X in the metric."
+  hint="Almost sure convergence is not sequentially determined in the usual topological sense: a sequence can have the property that every subsequence has a further subsequence that converges almost surely, yet the original sequence fails to converge almost surely. A metric topology cannot behave this way."
+  solution="See the detailed argument at https://math.stackexchange.com/a/2201906/229197. The key idea: almost sure convergence fails to be topologizable because it does not satisfy the 'subsequence characterisation' of topological convergence. Specifically, one can construct a sequence Xₙ that does NOT converge almost surely to 0, yet every subsequence Xₙₖ has a further subsequence Xₙₖⱼ that converges almost surely to 0. In a metric space, if every subsequence has a convergent subsubsequence with the same limit, then the original sequence must converge — contradiction. Therefore no such metric can exist."
+/>
+
+</SlideLayout>

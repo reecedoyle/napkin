@@ -1,0 +1,28 @@
+---
+title: From Tₙ convergence to Mₙ → 0
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From Tₙ convergence to Mₙ → 0">
+
+We have shown $T_n$ converges in almost every world. Now we extract the SLLN.
+
+<Callout kind="proposition" title="Relation between Tₙ and Mₙ">
+In every world where $T_n$ converges, $M_n \to 0$.
+</Callout>
+
+Note that $X_n = n(T_n - T_{n-1})$. So:
+$$M_n = \frac{X_1 + 2(T_2 - T_1) + 3(T_3 - T_2) + \cdots + n(T_n - T_{n-1})}{n}.$$
+
+A summation-by-parts (Abel's) calculation gives:
+$$M_n = T_n - \frac{T_1 + T_2 + \cdots + T_{n-1}}{n}.$$
+
+If $T_n \to L$, then the <Term k="llCesaro">Cesàro mean</Term> $(T_1 + \cdots + T_{n-1})/n$ also $\to L$.
+
+Therefore $M_n = T_n - \frac{T_1 + \cdots + T_{n-1}}{n} \to L - L = 0$. $\square$
+
+This completes the proof of the strong law of large numbers under the finite-variance assumption.
+
+</SlideLayout>

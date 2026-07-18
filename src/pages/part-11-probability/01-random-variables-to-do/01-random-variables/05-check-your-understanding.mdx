@@ -1,0 +1,34 @@
+---
+title: Check your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import MCQ from '@/components/MCQ';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Check your understanding">
+
+Two quick checks on the definitions.
+
+<MCQ
+  client:load
+  id="rv-s1-mcq-rv-definition"
+  prompt="A random variable on a probability space (Ω, 𝒜, μ) is formally defined as:"
+  options={[
+    { id: "a", label: "A real number drawn uniformly at random from [0, 1]" },
+    { id: "b", label: "A measurable function X : Ω → ℝ" },
+    { id: "c", label: "A probability distribution on ℝ" },
+    { id: "d", label: "A continuous function on Ω" },
+  ]}
+  correct="b"
+  explanation="A random variable is a measurable function from the sample space Ω to ℝ (with ℝ equipped with the Borel σ-algebra). It is not the distribution itself, and it need not be continuous — measurability is the only requirement."
+/>
+
+<NumericInput
+  client:load
+  id="rv-s1-num-indicator-expectation"
+  prompt="If A is a measurable set with μ(A) = 0.3, what is 𝔼[𝟏_A]?"
+  expected="0.3"
+  placeholder="a decimal"
+/>
+
+</SlideLayout>

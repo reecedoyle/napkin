@@ -1,0 +1,38 @@
+---
+title: A non-example — the improving archer
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="A non-example — the improving archer">
+
+Almost sure convergence is stricter than it looks. Here is the canonical trap.
+
+<Callout kind="example" title="Non-example of almost sure convergence">
+An immortal skeleton archer practices shots. On shot $n$ he scores a bulls-eye with probability $1 - \tfrac{1}{n}$ (improving over time). Let $X_n \in \{0, 1, \ldots, 10\}$ be the score of shot $n$.
+
+Although $\Pr[\text{bulls-eye on shot } n] \to 1$, we still have
+$$\mu\!\left(\omega \in \Omega : \lim_n X_n(\omega) = 10\right) = 0.$$
+</Callout>
+
+Why? On any fixed shot $n$ the archer misses with probability $\tfrac{1}{n}$. By the <Term k="llBorelCantelli">Borel–Cantelli lemma</Term>, since $\sum_{n=1}^\infty \tfrac{1}{n}$ diverges, in almost every world the archer misses infinitely often — so the scores never settle to $10$.
+
+The lesson: "likely on each step" is far weaker than "converges in almost every world."
+
+<MCQ
+  client:load
+  id="ll-conv-mcq-archer"
+  prompt="In the archer example, what does μ(ω : lim X_n(ω) = 10) equal?"
+  options={[
+    { id: "a", label: "1 (almost every world converges to a bulls-eye)" },
+    { id: "b", label: "0 (almost no world converges to a bulls-eye)" },
+    { id: "c", label: "1/2" },
+    { id: "d", label: "It depends on n" },
+  ]}
+  correct="b"
+  explanation="Even though each shot independently hits a bulls-eye with probability tending to 1, the sum of miss probabilities (1 + 1/2 + 1/3 + …) diverges. By Borel–Cantelli, almost every world contains infinitely many misses, so the sequence never converges to 10 in almost any world."
+/>
+
+</SlideLayout>

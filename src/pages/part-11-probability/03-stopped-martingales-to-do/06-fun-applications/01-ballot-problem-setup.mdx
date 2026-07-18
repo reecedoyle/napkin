@@ -1,0 +1,23 @@
+---
+title: The ballot problem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The ballot problem">
+
+Here is the first of three applications of optional stopping. (The other two, on the ABRACADABRA problem and a USA TST problem, are marked "to be written" in the source — they are omitted here.)
+
+**Setup.** Alice and Bob race in an election. Alice receives $a$ votes, Bob receives $b$ votes, with $a > b$. The $a + b$ ballots are counted in a uniformly random order. We ask:
+
+> What is the probability that Alice **stays strictly ahead** of Bob throughout the entire count?
+
+<Callout kind="proposition" title="Ballot problem">
+The probability that Alice remains strictly ahead of Bob at every step of the count is
+
+$$\frac{a - b}{a + b}.$$
+</Callout>
+
+The proof uses a clever martingale. We need to model the ballot count probabilistically, construct a martingale, and apply the optional stopping theorem.
+
+</SlideLayout>

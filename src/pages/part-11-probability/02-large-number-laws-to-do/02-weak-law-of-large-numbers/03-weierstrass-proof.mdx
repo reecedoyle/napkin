@@ -1,0 +1,30 @@
+---
+title: Weierstrass via Bernstein polynomials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Weierstrass via Bernstein polynomials">
+
+Let $X_1, \ldots, X_n$ be i.i.d. $\text{Bernoulli}(p)$, so each $X_i \in \{0,1\}$ with $\EE[X_i] = p$. The sample mean $M_n = (X_1 + \cdots + X_n)/n$ counts the fraction of heads.
+
+Then $B_n f(p) = \EE[f(M_n)]$ — the Bernstein polynomial is literally the expected value of $f$ applied to the sample mean.
+
+<Callout kind="remark" title="Why B_n f → f uniformly">
+Since $f$ is continuous on a compact set it is **uniformly continuous**: for every $\eps > 0$ there exists $\delta > 0$ with $|f(x) - f(y)| < \eps$ whenever $|x - y| < \delta$.
+
+Split the expectation into two parts: worlds where $|M_n - p| < \delta$ (close, so $f(M_n) \approx f(p)$) and worlds where $|M_n - p| \ge \delta$ (far, but low probability by the WLLN). Each part is small, giving $|B_n f(p) - f(p)| < \eps$ uniformly in $p$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="ll-wlln-proof-bernstein"
+  prompt="Show that |B_n f(p) − f(p)| < ε for large n, uniformly in p."
+  solution="Let M be a bound for |f|. Fix ε > 0 and choose δ from uniform continuity. Then:
+|B_n f(p) − f(p)| = |𝔼[f(M_n)] − f(p)| ≤ 𝔼[|f(M_n) − f(p)|].
+Split: on the event {|M_n − p| < δ}, the integrand is < ε by uniform continuity. On the complementary event {|M_n − p| ≥ δ}, the integrand is ≤ 2M. By WLLN, Pr[|M_n − p| ≥ δ] ≤ Var[X₁]/(n δ²) = p(1−p)/(nδ²) ≤ 1/(4nδ²) → 0. So the whole expectation is ≤ ε + 2M/(4nδ²) < 2ε for n large enough. Since the bound is independent of p, convergence is uniform."
+/>
+
+</SlideLayout>

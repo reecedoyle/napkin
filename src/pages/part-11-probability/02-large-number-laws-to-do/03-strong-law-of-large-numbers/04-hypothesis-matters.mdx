@@ -1,0 +1,24 @@
+---
+title: Why the hypothesis 𝔼[Xᵢ] = 0 matters
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the hypothesis 𝔼[Xᵢ] = 0 matters">
+
+Before proving the SLLN, here is a counterexample showing the mean hypothesis is genuinely needed.
+
+<Callout kind="example" title="The St. Petersburg paradox variant">
+Define $X_i$ to take values $\pm 2^k$ each with probability $2^{-k-2}$ for $k = 1, 2, 3, \ldots$. Then $\EE[X_i] = \sum_{k \ge 1} 2^k \cdot 2^{-k-2} - 2^k \cdot 2^{-k-2} = 0$ — but actually $\EE[X_i]$ is *undefined* (the series $\sum_k 2^k \cdot 2^{-k-2}$ diverges).
+
+For this distribution, $M_n \to 0$ fails in almost every world.
+</Callout>
+
+The reason is "heavy tails": on average, within the first $2^k$ samples there is one $X_i$ with $|X_i| = 2^k$. This skews $M_{2^k}$ by roughly $\tfrac{1}{4}$ — and this skew happens infinitely often, preventing convergence.
+
+<Callout kind="example" title="Finite mean but infinite variance">
+Taking $Y_i = \operatorname{sgn}(X_i)\sqrt{|X_i|}$ from the St. Petersburg example gives $\EE[Y_i] = 0$ but $\EE[Y_i^2] = \infty$. So finite mean alone is not enough for the finite-variance proof — but the full SLLN (without finite-variance assumption) still applies.
+</Callout>
+
+</SlideLayout>

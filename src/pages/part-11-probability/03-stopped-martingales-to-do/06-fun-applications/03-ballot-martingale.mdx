@@ -1,0 +1,31 @@
+---
+title: Constructing the ballot martingale
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Constructing the ballot martingale">
+
+The right martingale turns out to be:
+
+$$X_i = \frac{A_i - B_i}{a + b - i} \quad \text{for } 0 \le i \le a+b-1.$$
+
+Note that $a + b - i$ is the number of votes still remaining after $i$ removals, so $X_i$ is the **lead of Alice relative to the pool size** — the same as $\frac{A_i - B_i}{A_i + B_i}$.
+
+<ProofReveal
+  client:load
+  id="smt-s6-proof-ballot-martingale"
+  prompt="Verify that Xᵢ = (Aᵢ − Bᵢ)/(a + b − i) is a martingale."
+  solution="We check 𝔼(Xᵢ | X₀, …, Xᵢ₋₁) = Xᵢ₋₁. At step i, either an Alice vote is removed (probability Aᵢ₋₁/(Aᵢ₋₁+Bᵢ₋₁)) or a Bob vote is removed. So:
+
+𝔼(Aᵢ − Bᵢ) = (Aᵢ₋₁−1−Bᵢ₋₁)·(Aᵢ₋₁/(Aᵢ₋₁+Bᵢ₋₁)) + (Aᵢ₋₁−(Bᵢ₋₁−1))·(Bᵢ₋₁/(Aᵢ₋₁+Bᵢ₋₁))
+
+= [(Aᵢ₋₁−Bᵢ₋₁)(Aᵢ₋₁+Bᵢ₋₁) − Aᵢ₋₁ + Bᵢ₋₁] / (Aᵢ₋₁+Bᵢ₋₁)
+
+= (Aᵢ₋₁−Bᵢ₋₁) · (Aᵢ₋₁+Bᵢ₋₁−1)/(Aᵢ₋₁+Bᵢ₋₁).
+
+Dividing by (a+b−i) = (Aᵢ₋₁+Bᵢ₋₁−1) gives 𝔼(Xᵢ) = (Aᵢ₋₁−Bᵢ₋₁)/(Aᵢ₋₁+Bᵢ₋₁) = Xᵢ₋₁."
+/>
+
+</SlideLayout>

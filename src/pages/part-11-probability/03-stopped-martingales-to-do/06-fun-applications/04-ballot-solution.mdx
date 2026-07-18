@@ -1,0 +1,35 @@
+---
+title: Solving the ballot problem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Solving the ballot problem">
+
+**Define the stopping time.** Let $\tau$ be:
+
+- $a+b-1$ (the last step) if Alice remains strictly ahead throughout — i.e., $X_i > 0$ for all $0 \le i \le a+b-1$.
+- Otherwise, the smallest $i$ with $X_i = 0$ (the first tie).
+
+**Apply the martingale corollary.** Since $X_i$ is a martingale and the conditions of the optional stopping theorem are satisfied (finite time: $\tau \le a+b-1$), we get:
+
+$$\mathbb{E}[X_\tau] = \mathbb{E}[X_0] = \frac{A_0 - B_0}{a+b} = \frac{a-b}{a+b}.$$
+
+**Compute $\mathbb{E}[X_\tau]$.** Two cases:
+
+- If Alice stays ahead: $X_\tau = X_{a+b-1} = \frac{A_{a+b-1} - B_{a+b-1}}{1} = 1$ (one ballot remains, it is Alice's, lead is $1$).
+- If Alice ever ties Bob: $X_\tau = 0$.
+
+So $\mathbb{E}[X_\tau] = 1 \cdot \Pr[\text{Alice always ahead}] + 0 \cdot \Pr[\text{otherwise}] = \Pr[\text{Alice always ahead}]$.
+
+Therefore $\Pr[\text{Alice always ahead}] = \frac{a-b}{a+b}$.
+
+<NumericInput
+  client:load
+  id="smt-s6-num-ballot"
+  prompt="Alice gets 7 votes, Bob gets 3 votes. What is the probability (as a fraction a/b, simplified) that Alice stays strictly ahead throughout? Enter as a decimal."
+  expected="0.4"
+/>
+
+</SlideLayout>

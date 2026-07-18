@@ -1,0 +1,20 @@
+---
+title: Problems — quantifier hell
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — quantifier hell">
+
+<Problem
+  client:load
+  id="ll-prob-quantifier-hell"
+  difficulty="standard"
+  prompt="In the definition of convergence in probability, suppose we allowed δ = 0 (rather than δ > 0). Show that the modified definition is equivalent to almost sure convergence."
+  hint="Focus on ε = 1/m for m = 1, 2, …. For each m you get a threshold Nₘ such that the 'anomaly set' Aₘ = {ω : |X(ω) − Xₙ(ω)| ≥ 1/m for some n > Nₘ} has measure zero. The union of countably many measure-zero sets is still measure zero — take the union over all m."
+  solution="Fix ε = 1/m for each positive integer m. The modified definition says there exists a threshold Nₘ such that μ(ω : |X(ω) − Xₙ(ω)| ≥ 1/m) = 0 for all n > Nₘ. Define the anomaly set Aₘ = {ω : |X(ω) − Xₙ(ω)| ≥ 1/m for some n > Nₘ}. This is a countable union of measure-zero sets, hence μ(Aₘ) = 0. The countable union A = ⋃_{m≥1} Aₘ also has measure zero. For any world ω ∉ A, we have ω ∉ Aₘ for every m, meaning |X(ω) − Xₙ(ω)| < 1/m for all n > Nₘ. Since this holds for every m, we get lim_n X_n(ω) = X(ω). Thus X_n converges almost surely to X."
+/>
+
+</SlideLayout>

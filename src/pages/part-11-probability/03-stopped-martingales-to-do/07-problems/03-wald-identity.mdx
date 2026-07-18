@@ -1,0 +1,29 @@
+---
+title: Problems — Wald's identity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Wald's identity">
+
+<Problem
+  client:load
+  id="smt-prob-wald-identity"
+  difficulty="standard"
+  prompt="Let $\\mu$ be a real number. Let $X_1, X_2, \\dots$ be independent random variables with mean $\\mu$. Let $\\tau$ be a stopping time with $\\mathbb{E}[\\tau] < \\infty$, where the event $\\{\\tau = n\\}$ depends only on $X_1, \\dots, X_n$.
+
+Prove that $\\mathbb{E}[X_1 + X_2 + \\cdots + X_\\tau] = \\mu \\, \\mathbb{E}[\\tau]$."
+  solution="Define $Y_n = (X_1 + \\cdots + X_n) - n\\mu$. We claim $Y_n$ is a martingale.
+
+$\\mathbb{E}(Y_n \\mid Y_1, \\dots, Y_{n-1}) = \\mathbb{E}(X_n - \\mu \\mid Y_1, \\dots, Y_{n-1}) + Y_{n-1} = 0 + Y_{n-1} = Y_{n-1}$
+
+since $X_n$ is independent of $X_1, \\dots, X_{n-1}$ and has mean $\\mu$.
+
+Apply the optional stopping theorem to $Y_\\tau$. The condition $\\mathbb{E}[\\tau] < \\infty$ together with the bounded-increments assumption (each $|X_n - \\mu|$ is finite, and we need $\\mathbb{E}[|X_n - \\mu| \\mid \\mathcal{F}_n] \\le C$ on $\\{\\tau \\ge n\\}$) gives the finite-bets condition. So:
+
+$\\mathbb{E}[Y_\\tau] = \\mathbb{E}[Y_0] = 0.$
+
+But $Y_\\tau = (X_1 + \\cdots + X_\\tau) - \\tau\\mu$, so $\\mathbb{E}[X_1 + \\cdots + X_\\tau] = \\mu \\mathbb{E}[\\tau]$."
+/>
+
+</SlideLayout>

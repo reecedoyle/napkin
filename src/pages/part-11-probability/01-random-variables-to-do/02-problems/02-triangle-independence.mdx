@@ -1,0 +1,20 @@
+---
+title: Problem — Side length independent from median
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — Side length independent from median">
+
+A beautiful result in geometric probability: when a triangle is placed randomly in the plane using independent standard Gaussians, two natural lengths turn out to be independent.
+
+<Problem
+  client:load
+  id="rv-prob-triangle-independence"
+  prompt="Let X₁, Y₁, X₂, Y₂, X₃, Y₃ be six independent standard Gaussians. Define triangle ABC in the Cartesian plane by A = (X₁,Y₁), B = (X₂,Y₂), C = (X₃,Y₃). Prove that the length of side BC is independent from the length of the A-median (the segment from A to the midpoint of BC)."
+  hint="Let M = ((X₂+X₃)/2, (Y₂+Y₃)/2) be the midpoint of BC. Express the side length |BC| and the median length |AM| in terms of the vectors U = B − C = (X₂−X₃, Y₂−Y₃) and V = A − M = (X₁ − (X₂+X₃)/2, Y₁ − (Y₂+Y₃)/2). Then show U and V are independent Gaussian vectors."
+  solution="Set U = B − C = (X₂ − X₃, Y₂ − Y₃) and V = A − M = (X₁ − (X₂+X₃)/2, Y₁ − (Y₂+Y₃)/2). Then |BC| = |U| and the A-median length = |V|. The components of U and V are linear combinations of the six independent standard Gaussians. Check their covariance: Cov(X₂−X₃, X₁−(X₂+X₃)/2) = 0 − (−1/2) − (−1/2) + ... Working it out, every component of U is uncorrelated with every component of V. Since jointly Gaussian and uncorrelated implies independent, U and V are independent random vectors. Therefore |BC| = |U| and the median length |V| are independent (as functions of independent random variables)."
+  difficulty="standard"
+/>
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: The indicator random variable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The indicator random variable">
+
+A simple but crucial example: the indicator of a measurable set.
+
+<Callout kind="definition" title="Indicator function">
+For a measurable set $A \in \SA$, the <Term k="indicatorFunction">**indicator**</Term> $\mathbf{1}_A \colon \Omega \to \RR$ is defined by
+$$\mathbf{1}_A(\omega) = \begin{cases} 1 & \omega \in A, \\ 0 & \omega \notin A. \end{cases}$$
+</Callout>
+
+This is the simplest random variable: it is $1$ when the event $A$ occurs and $0$ otherwise. It is measurable because the preimage of any Borel set in $\RR$ is either $\varnothing$, $A$, $A^c$, or $\Omega$ — all in $\SA$.
+
+<ProofReveal
+  client:load
+  id="rv-s1-proof-indicator-expectation"
+  prompt="Show that 𝟏_A is a random variable, and compute its expected value."
+  solution="Measurability: the preimage of any Borel set B under 𝟏_A is one of ∅, A, Aᶜ, or Ω — all in 𝒜 by hypothesis. So 𝟏_A is measurable. Expected value: by definition, 𝔼[𝟏_A] = ∫_Ω 𝟏_A(ω) dμ = 1·μ(A) + 0·μ(Aᶜ) = μ(A). So the expected value of the indicator of A equals the probability of A."
+/>
+
+So the expected value of an indicator equals the probability (measure) of the event: $\EE[\mathbf{1}_A] = \mu(A)$. This is a cornerstone of the probabilistic method.
+
+</SlideLayout>

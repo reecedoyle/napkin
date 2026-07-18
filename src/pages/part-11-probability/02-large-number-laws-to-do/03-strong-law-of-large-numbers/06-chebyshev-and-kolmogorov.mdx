@@ -1,0 +1,26 @@
+---
+title: Chebyshev and Kolmogorov's inequalities
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Chebyshev and Kolmogorov's inequalities">
+
+We need two tail inequalities. The first is classical:
+
+<Callout kind="theorem" title="Chebyshev's inequality">
+For $X$ with mean $0$ and variance $\sigma^2$:
+$$\Pr[|X| \ge a] \le \frac{\Var[X]}{a^2}.$$
+</Callout>
+
+But Chebyshev only bounds the **final** partial sum $|S_n|$. To prove almost sure convergence of $T_n$, we need control over the **running maximum**:
+
+<Callout kind="theorem" title="Kolmogorov's maximal inequality">
+Let $X_1, \ldots, X_n$ be independent mean-zero random variables. Define $S_i = X_1 + \cdots + X_i$. Then
+$$\Pr\!\left[\max_{1 \le i \le n} |S_i| \ge a\right] \le \frac{\Var[S_n]}{a^2}.$$
+</Callout>
+
+This is strictly stronger: Chebyshev bounds $\Pr[|S_n| \ge a]$; <Term k="llKolmogorov">Kolmogorov's inequality</Term> bounds $\Pr[\text{any } |S_i| \ge a]$ — with the **same** right-hand side. Positive correlation among partial sums is the key: knowing $S_i$ is large makes $S_n$ likely to stay large too.
+
+</SlideLayout>

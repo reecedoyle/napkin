@@ -1,0 +1,26 @@
+---
+title: Expected value, moments, and variance
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Expected value, moments, and variance">
+
+Three fundamental quantities describe how a random variable behaves.
+
+<Callout kind="definition" title="Expected value, kth moment, variance">
+Given a random variable $X$ on a probability space $(\Omega, \SA, \mu)$:
+
+- The <Term k="expectedValue">**expected value**</Term> of $X$ is the Lebesgue integral
+$$\EE[X] = \int_{\Omega} X(\omega) \; d\mu.$$
+- The <Term k="kthMoment">**$k$th moment**</Term> of $X$ is $\EE[X^k]$, for each integer $k \ge 1$.
+- The <Term k="variance">**variance**</Term> of $X$ is
+$$\Var(X) = \EE\!\left[(X - \EE[X])^2\right].$$
+</Callout>
+
+The expected value is the measure-theoretic way to say "average value". The first moment is the mean. The variance measures spread: how far $X$ typically strays from its mean.
+
+One notation note: in probability, the letter $\mu$ often doubles as the mean $\EE[X]$. In our measure-theoretic setup, $\mu$ is the probability measure on $\Omega$; the expected value is the integral against it.
+
+</SlideLayout>

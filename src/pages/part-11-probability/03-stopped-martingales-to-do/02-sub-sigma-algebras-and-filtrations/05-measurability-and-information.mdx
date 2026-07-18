@@ -1,0 +1,38 @@
+---
+title: Measurability as "determined by information"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Measurability as determined by information">
+
+The moral of the filtration story:
+
+<Callout kind="remark" title="Key intuition">
+$X$ is $\mathcal{F}$-measurable if and only if $X$ is determined solely by the information encoded in $\mathcal{F}$.
+</Callout>
+
+In the coin flip filtration, let $X_3$ be the value (H or T) of the third flip.
+
+- $X_3$ is **not** $\mathcal{F}_2$-measurable: knowing only flips 1 and 2 tells you nothing about flip 3. Formally, $X_3^{-1}(\{H\}) \notin \mathcal{F}_2$.
+- $X_3$ **is** $\mathcal{F}_3$-measurable: after the third flip, you know its value.
+
+This captures the intuition: a process is <Term k="adaptedProcess">adapted</Term> to a filtration $(\mathcal{F}_n)$ if $X_n$ is $\mathcal{F}_n$-measurable for each $n$ — you can observe $X_n$ from the information available at time $n$, without looking into the future.
+
+<MCQ
+  client:load
+  id="smt-s2-mcq-adapted"
+  prompt="Which of the following is NOT adapted to the coin flip filtration (ℱₙ = σ(first n flips))?"
+  options={[
+    { id: "a", label: "X₅ = value of the 5th flip" },
+    { id: "b", label: "Sₙ = number of heads in first n flips" },
+    { id: "c", label: "M = index of the first heads (if we stop at n = 5)" },
+    { id: "d", label: "X₁₀ = value of the 10th flip, observed at step n = 3" },
+  ]}
+  correct="d"
+  explanation="X₁₀ observed at step n = 3 is not ℱ₃-measurable: you cannot know the 10th flip from just the first 3. Each of X₅ (at time 5), Sₙ (at time n), and M (once time 5 has passed) are determined by the flips up to their respective times."
+/>
+
+</SlideLayout>

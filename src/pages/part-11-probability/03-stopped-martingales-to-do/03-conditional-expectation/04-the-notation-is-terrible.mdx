@@ -1,0 +1,27 @@
+---
+title: Warning — the notation is a random variable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Warning — the notation is a random variable">
+
+<Callout kind="remark" title="The notation 𝔼(X | ℱ) is confusing">
+$\mathbb{E}(X \mid \mathcal{F})$ looks like a number — it has the same shape as $\mathbb{E}[X]$. But it is actually an entire function $\Omega \to \mathbb{R}$. To flag this distinction, Napkin uses parentheses for conditional expectations and square brackets for ordinary expectations.
+</Callout>
+
+<Callout kind="remark" title="Almost-sure uniqueness">
+When we write $Y = \mathbb{E}(X \mid \mathcal{F})$, there is a hidden "up to measure zero" clause. Two functions satisfying the conditions of the proposition may differ on a set of measure zero — and that's fine, because any $\mathcal{F}$-measurable modification on a measure-zero set still satisfies the defining equation.
+</Callout>
+
+**Worked example.** For $X, Y$ independent and uniform on $[0,1]$, we claimed $\mathbb{E}(X \mid X+Y) = \frac{X+Y}{2}$.
+
+<ProofReveal
+  client:load
+  id="smt-s3-proof-cond-exp-example"
+  prompt="Verify that η = (X+Y)/2 satisfies both conditions of the proposition when ℱ = σ(X+Y)."
+  solution="Condition 1: (X+Y)/2 is σ(X+Y)-measurable because it is a function of X+Y alone. Condition 2: for any A ∈ σ(X+Y), A has the form {X+Y ∈ B} for some Borel B. By symmetry of X and Y, 𝔼[X · 1_A] = 𝔼[Y · 1_A], so 𝔼[X · 1_A] = (𝔼[X · 1_A] + 𝔼[Y · 1_A])/2 = 𝔼[(X+Y)/2 · 1_A] = 𝔼[η · 1_A]. Both conditions hold."
+/>
+
+</SlideLayout>

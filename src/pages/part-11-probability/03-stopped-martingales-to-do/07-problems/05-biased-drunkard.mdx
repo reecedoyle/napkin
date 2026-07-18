@@ -1,0 +1,32 @@
+---
+title: Problems — biased drunkard's walk
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — biased drunkard's walk">
+
+<Problem
+  client:load
+  id="smt-prob-biased-drunkard"
+  difficulty="standard"
+  prompt="Let $0 < p < 1$. An ant starts at $0$ on a number line, walking right with probability $p$ and left with probability $q = 1-p$ each step. It stops once it reaches either $-17$ or $+8$.
+
+Find the probability it reaches $+8$ first."
+  hint="Use de Moivre's martingale: $Y_n = (q/p)^{X_n}$ is a martingale (see the examples problem)."
+  solution="Let $\\lambda = q/p$. By de Moivre's martingale (Problem 1b), $Y_n = \\lambda^{X_n}$ is a martingale. By the optional stopping theorem (the walk is bounded between $-17$ and $+8$, so $Y_{\\tau \\wedge n}$ is bounded):
+
+$\\mathbb{E}[Y_\\tau] = Y_0 = \\lambda^0 = 1.$
+
+Let $\\pi = \\Pr[X_\\tau = +8]$. Then:
+
+$\\mathbb{E}[Y_\\tau] = \\pi \\cdot \\lambda^8 + (1-\\pi) \\cdot \\lambda^{-17} = 1.$
+
+Solving: $\\pi(\\lambda^8 - \\lambda^{-17}) = 1 - \\lambda^{-17}$, so
+
+$\\pi = \\frac{1 - \\lambda^{-17}}{\\lambda^8 - \\lambda^{-17}} = \\frac{\\lambda^{17} - 1}{\\lambda^{25} - 1}$
+
+where $\\lambda = q/p$. When $p = q = 1/2$, we have $\\lambda = 1$ and L'Hôpital gives $\\pi = 17/25$, consistent with the unbiased case."
+/>
+
+</SlideLayout>

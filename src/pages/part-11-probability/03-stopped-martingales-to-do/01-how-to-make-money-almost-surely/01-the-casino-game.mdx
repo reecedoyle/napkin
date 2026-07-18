@@ -1,0 +1,28 @@
+---
+title: A game that looks unwinnable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A game that looks unwinnable">
+
+We now take our newfound knowledge of measure theory to a casino.
+
+Here's the setup: a casino lets you bet any amount $n$ on a fair coin flip, but with bad odds — you win $\$n$ if the coin shows heads, but lose $\$2n$ if it shows tails. The expected value of each bet is
+
+$$\frac{1}{2}(n) + \frac{1}{2}(-2n) = -\frac{n}{2}.$$
+
+This is clearly a losing game on any single bet. And yet — with unbounded time and money — you can almost surely come out ahead. This seems paradoxical. The chapter unravels exactly why, and what "sane" conditions prevent you from exploiting it.
+
+<Callout kind="example" title="The doubling strategy">
+Start by betting $\$1$. If you lose, bet $\$10$. If you lose again, bet $\$100$. Continue multiplying by $10$ each time you lose.
+
+Since a fair coin will eventually land heads (with probability 1), you will eventually win. When you do, the winnings at that step overwhelm all previous losses — you leave with a profit.
+
+The expected number of flips until the first heads is just 2. So why can't you do this in practice?
+</Callout>
+
+In everything that follows, $\Omega = (\Omega, \mathcal{A}, \mu)$ denotes a <Term k="probabilitySpace">probability space</Term>.
+
+</SlideLayout>

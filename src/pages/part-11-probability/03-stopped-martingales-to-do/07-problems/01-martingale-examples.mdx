@@ -1,0 +1,37 @@
+---
+title: Problems — martingale examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — martingale examples">
+
+<Problem
+  client:load
+  id="smt-prob-martingale-examples"
+  difficulty="standard"
+  prompt="We give some more examples of martingales.
+
+**(a) Simple random walk.** Let $X_1, X_2, \\dots$ be i.i.d. random variables equal to $+1$ with probability $1/2$ and $-1$ with probability $1/2$. Prove that $Y_n = (X_1 + \\cdots + X_n)^2 - n$ is a martingale.
+
+**(b) de Moivre's martingale.** Fix $p, q > 0$ with $p + q = 1$. Let $X_1, X_2, \\dots$ be i.i.d. equal to $+1$ with probability $p$ and $-1$ with probability $q$. Show that $Y_n = (q/p)^{X_1 + \\cdots + X_n}$ is a martingale.
+
+**(c) Pólya's urn.** An urn starts with one red and one blue marble. Each minute, a marble is removed at random, and two marbles of the same color are added back (so the urn grows by one marble per minute). After $n$ minutes it has $n+2$ marbles. Let $r_n$ be the fraction of marbles that are red. Show that $r_n$ is a martingale."
+  solution="**(a)** Let $S_n = X_1 + \\cdots + X_n$. Then $Y_n = S_n^2 - n$. We compute:
+
+$\\mathbb{E}(Y_n \\mid Y_1, \\dots, Y_{n-1}) = \\mathbb{E}((S_{n-1} \\pm 1)^2 - n)$
+$= S_{n-1}^2 + \\mathbb{E}[(\\pm 1)^2] - n = S_{n-1}^2 + 1 - n = (S_{n-1}^2 - (n-1)) = Y_{n-1}.$
+
+**(b)** Let $\\lambda = q/p$. Then $Y_n = \\lambda^{S_n}$ where $S_n = X_1 + \\cdots + X_n$. Given $S_{n-1}$:
+
+$\\mathbb{E}(Y_n \\mid S_{n-1}) = \\lambda^{S_{n-1}} \\cdot (p \\cdot \\lambda^1 + q \\cdot \\lambda^{-1}) = \\lambda^{S_{n-1}} \\cdot (p \\cdot (q/p) + q \\cdot (p/q))$
+$= \\lambda^{S_{n-1}} \\cdot (q + p) \\cdot \\frac{p+q}{?}$... In fact $p \\cdot (q/p) + q \\cdot (p/q) = q + p^2/q$. Wait — let's be careful: $p\\lambda + q/\\lambda = p(q/p) + q(p/q) = q + p^2/q$. Actually we want $p \\cdot \\lambda + q \\cdot \\lambda^{-1} = p(q/p) + q(p/q) = q + p = 1$. So $\\mathbb{E}(Y_n \\mid S_{n-1}) = \\lambda^{S_{n-1}} \\cdot 1 = Y_{n-1}$.
+
+**(c)** After $n$ minutes there are $n+2$ marbles; let $r_n = R_n/(n+2)$ where $R_n$ is the number of red. In the next step, we remove a red marble (prob $r_n$) and add two red, so $R_{n+1} = R_n + 1$; or remove a blue (prob $1-r_n$) and add two blue, so $R_{n+1} = R_n$. Thus:
+
+$\\mathbb{E}[R_{n+1} \\mid R_n] = r_n(R_n+1) + (1-r_n) R_n = R_n + r_n.$
+
+So $\\mathbb{E}[r_{n+1} \\mid r_n] = (R_n + r_n)/(n+3) = (r_n(n+2) + r_n)/(n+3) = r_n(n+3)/(n+3) = r_n$. Martingale."
+/>
+
+</SlideLayout>

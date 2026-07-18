@@ -1,0 +1,30 @@
+---
+title: Problems — the red card game
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — the red card game">
+
+<Problem
+  client:load
+  id="smt-prob-red-card-game"
+  difficulty="standard"
+  prompt="A deck has 52 cards: 26 red and 26 black. Cards are drawn one at a time. At any point (while cards remain), you may stop the dealer; you win if and only if the next card is red. If all cards are dealt without you stopping, you lose.
+
+Across all possible strategies, determine the maximal probability of winning."
+  hint="There is a cute elementary solution. For the martingale-based solution, show that the fraction of red cards remaining in the deck at time $n$ is a martingale."
+  solution="The answer is 1/2, and every strategy achieves exactly 1/2.
+
+**Elementary argument.** In any stopping strategy, you stop at some time $T$ (possibly after seeing all cards). The next card is equally likely to be any of the unseen cards. Since half of the unseen cards are red on average — wait, this isn't quite right since $T$ depends on what you've seen.
+
+**Martingale argument.** Let $R_n$ be the number of red cards remaining and $B_n$ be the number of black cards remaining after $n$ draws. Let $X_n = R_n / (R_n + B_n)$ be the fraction of red cards in the remaining deck. We have $X_0 = 1/2$.
+
+Check that $X_n$ is a martingale: given the state at time $n$, the $(n+1)$th card drawn is equally likely to be any of the remaining $R_n + B_n$ cards. So $\\mathbb{E}[R_{n+1}/(R_n+B_n-1) \\mid R_n, B_n] = (R_n(R_n-1)/(R_n+B_n) + B_n \\cdot R_n/(R_n+B_n)) / (R_n+B_n-1) = R_n/(R_n+B_n) = X_n$.
+
+By the optional stopping theorem (finite time: at most 51 draws), $\\mathbb{E}[X_\\tau] = X_0 = 1/2$.
+
+When you stop, $X_\\tau$ is the probability the next card is red (given what you've seen). So your winning probability is $\\mathbb{E}[X_\\tau] = 1/2$, regardless of strategy."
+/>
+
+</SlideLayout>

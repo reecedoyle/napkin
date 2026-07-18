@@ -1,0 +1,35 @@
+---
+title: The martingale case — equality
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The martingale case — equality">
+
+<Callout kind="corollary" title="Optional stopping for martingales">
+Under the same hypotheses as Doob's theorem:
+
+- If $(X_n)$ is a **submartingale**, then $\mathbb{E}[X_\tau] \ge \mathbb{E}[X_0]$.
+- If $(X_n)$ is a **martingale**, then $\mathbb{E}[X_\tau] = \mathbb{E}[X_0]$.
+</Callout>
+
+**Proof.** For a submartingale, apply the theorem to $(-X_n)$, which is a supermartingale. For a martingale, it is both a supermartingale and a submartingale, so both inequalities apply and we get equality.
+
+**Why equality is powerful.** For a supermartingale we only know $\mathbb{E}[X_\tau] \le \mathbb{E}[X_0]$. But for a martingale we get the precise equation $\mathbb{E}[X_\tau] = \mathbb{E}[X_0]$. If we know $\mathbb{E}[X_0]$ and can compute $\mathbb{E}[X_\tau]$ in terms of what we want to find — we can solve for the unknown!
+
+<MCQ
+  client:load
+  id="smt-s5-mcq-doubling"
+  prompt="The doubling strategy from §1 violates the finite-money condition because:"
+  options={[
+    { id: "a", label: "The coin is biased" },
+    { id: "b", label: "After k losses, the required bet grows without bound as k → ∞" },
+    { id: "c", label: "You can only stop at integer times" },
+    { id: "d", label: "Expected stopping time is infinite" },
+  ]}
+  correct="b"
+  explanation="After k consecutive losses, the next bet required is 10^k (or exponentially large). So |X_{τ∧n}| is unbounded: there is no finite C with |X_{τ∧n}| ≤ C for all n. Both finite-money and finite-bets conditions fail."
+/>
+
+</SlideLayout>

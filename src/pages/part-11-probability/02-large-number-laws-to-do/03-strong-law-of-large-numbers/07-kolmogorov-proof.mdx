@@ -1,0 +1,23 @@
+---
+title: Proof of Kolmogorov's inequality
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of Kolmogorov's inequality">
+
+Here is the proof of <Term k="llKolmogorov">Kolmogorov's maximal inequality</Term>. Let $A_i$ be the event that $i$ is the **first** index with $|S_i| \ge a$. The events $A_1, \ldots, A_n$ are disjoint and cover the event $\{\max_{i \le n} |S_i| \ge a\}$.
+
+For each $i$, since $A_i$ is determined by $X_1, \ldots, X_i$ and $S_n - S_i = X_{i+1} + \cdots + X_n$ is independent with mean $0$:
+$$\EE[S_n^2 \cdot \mathbf{1}_{A_i}] = \EE[S_i^2 \cdot \mathbf{1}_{A_i}] + \underbrace{\EE[S_i \cdot \mathbf{1}_{A_i} \cdot (S_n - S_i)]}_{= \, 0} + \EE[(S_n - S_i)^2 \cdot \mathbf{1}_{A_i}].$$
+
+The middle term is zero (independence + mean zero). The last term is $\ge 0$. So:
+$$\EE[S_n^2 \cdot \mathbf{1}_{A_i}] \ge \EE[S_i^2 \cdot \mathbf{1}_{A_i}] \ge a^2 \Pr[A_i].$$
+
+Summing over $i = 1, \ldots, n$:
+$$\Var[S_n] = \EE[S_n^2] \ge \sum_{i=1}^n \EE[S_n^2 \cdot \mathbf{1}_{A_i}] \ge a^2 \sum_{i=1}^n \Pr[A_i] = a^2 \Pr\!\left[\max_{i \le n} |S_i| \ge a\right].$$
+
+Rearranging gives the result. $\square$
+
+</SlideLayout>

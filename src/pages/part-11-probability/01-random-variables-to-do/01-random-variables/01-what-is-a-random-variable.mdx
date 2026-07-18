@@ -1,0 +1,20 @@
+---
+title: What is a random variable?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a random variable?">
+
+Informally, a random variable is a quantity whose value depends on the outcome of a random experiment — the roll of a die, a coin flip, a random point chosen from an interval. Formally, we already have the machinery to make this precise: a random variable is just a measurable function.
+
+<Callout kind="definition" title="Random variable">
+A (real) **random variable** $X$ on a <Term k="probabilitySpace">probability space</Term> $\Omega = (\Omega, \SA, \mu)$ is a <Term k="measurableFunction">measurable function</Term> $X \colon \Omega \to \RR$, where $\RR$ is equipped with the <Term k="borelSigmaAlgebra">Borel $\sigma$-algebra</Term>.
+</Callout>
+
+Because $X$ is a function, we can add random variables pointwise: if $X$ and $Y$ are random variables on the same probability space, so is $X + Y$, defined by $(X+Y)(\omega) = X(\omega) + Y(\omega)$.
+
+Because $X$ is measurable, we can integrate it over $\Omega$ using the Lebesgue integral developed for measure spaces. That integral is what gives us expected value.
+
+</SlideLayout>

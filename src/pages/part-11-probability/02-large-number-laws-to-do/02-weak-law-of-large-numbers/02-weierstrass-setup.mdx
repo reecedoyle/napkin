@@ -1,0 +1,23 @@
+---
+title: Application — Weierstrass approximation setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Application — Weierstrass approximation setup">
+
+One striking application of the WLLN is a probabilistic proof of the Weierstrass approximation theorem.
+
+<Callout kind="theorem" title="Weierstrass approximation">
+Every continuous function $f \colon [0,1] \to \RR$ is the uniform limit of polynomials.
+</Callout>
+
+The key idea: interpret $p \in [0,1]$ as the bias of a coin, flip it $n$ times, and look at the fraction of heads. By the WLLN that fraction concentrates near $p$, so $f(\text{fraction of heads}) \approx f(p)$.
+
+Formally, define the <Term k="llBernsteinPoly">Bernstein polynomials</Term>:
+$$B_n f(p) = \sum_{k=0}^{n} f\!\left(\tfrac{k}{n}\right)\binom{n}{k} p^k (1-p)^{n-k}.$$
+
+For each fixed $n$, this is a polynomial in $p$. The claim is that $B_n f \to f$ uniformly on $[0,1]$.
+
+</SlideLayout>
