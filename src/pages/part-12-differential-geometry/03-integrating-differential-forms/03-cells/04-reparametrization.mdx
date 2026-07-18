@@ -1,0 +1,26 @@
+---
+title: Reparametrization and orientation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Reparametrization and orientation">
+
+A <Term k="kCell">$k$-cell</Term> is technically a function, but we want to think of it as the geometric shape it traces. When does it matter which parametrization we choose?
+
+<Callout kind="definition" title="Reparametrization">
+A <Term k="reparametrization">**reparametrization**</Term> of a $k$-cell $c$ is a bijective smooth map $\phi$ between parameter boxes with $(D\phi)_p$ invertible everywhere. The composed cell $c\circ\phi$ traces the same geometric image.
+
+We say $\phi$ **preserves orientation** if $\det(D\phi)_p > 0$ everywhere, and **reverses orientation** if $\det(D\phi)_p < 0$ everywhere.
+</Callout>
+
+Exactly one of these cases occurs (the determinant is continuous and never zero, so it keeps a constant sign).
+
+<Callout kind="theorem" title="Reparametrization theorem">
+$$\int_{c\circ\phi}\alpha = \begin{cases} \int_c \alpha & \phi \text{ preserves orientation} \\ -\int_c\alpha & \phi \text{ reverses orientation.}\end{cases}$$
+</Callout>
+
+This follows from naturality of the pullback combined with the standard change-of-variables theorem in calculus. The upshot: we can think of a $k$-cell as its geometric image together with an orientation (a choice of "positive direction"), and the integral depends only on this data.
+
+</SlideLayout>

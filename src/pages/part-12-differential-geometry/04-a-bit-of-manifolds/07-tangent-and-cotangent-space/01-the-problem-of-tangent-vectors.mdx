@@ -1,0 +1,24 @@
+---
+title: "(Optional) The challenge of tangent vectors"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="(Optional) The challenge of tangent vectors">
+
+We used the phrase "tangent space $T_p(M)$" earlier without defining it. For embedded manifolds (those sitting in $\mathbb{R}^N$), the tangent space is just the geometric tangent plane. But smooth manifolds are **intrinsic** objects, not subsets of $\mathbb{R}^N$.
+
+<Callout kind="remark" title="Analogy with groups">
+A group $G$ is defined abstractly — not as a subgroup of $S_n$, even though Cayley's theorem says it embeds into one. Similarly, a smooth manifold $M$ is defined without reference to an ambient space.
+
+During the 19th century, a "group" literally meant a subset of $\text{GL}(n)$ or $S_n$. Only later did mathematicians realise the intrinsic definition is more powerful. The same evolution happened with manifolds.
+</Callout>
+
+We want a definition of the tangent space that:
+1. Depends only on the smooth structure of $M$, not on any ambient space.
+2. Agrees with the geometric tangent plane when $M$ happens to be embedded.
+
+The trick: **tangent vectors are partial-derivative-like maps on smooth functions**.
+
+</SlideLayout>

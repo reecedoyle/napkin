@@ -1,0 +1,28 @@
+---
+title: Pullbacks in coordinates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pullbacks in coordinates">
+
+There is a concrete coordinate formula for the <Term k="pullback">pullback</Term>. Pick bases $w_1,\dots,w_n$ for $V'$ and $e_1,\dots,e_m$ for $V$. Write
+
+$$\phi(v) = \phi_1(v)w_1 + \dots + \phi_n(v)w_n, \qquad \alpha = \sum_{I \subseteq \{1,\dots,n\}} f_I\, dw_I.$$
+
+Then:
+
+$$\phi^\ast\alpha = \sum_{I \subseteq \{1,\dots,n\}} (f_I \circ \phi)\,(D\phi_{i_1} \wedge \dots \wedge D\phi_{i_k}).$$
+
+Each $\phi_i\colon V \to \RR$ is a component function of $\phi$, and $D\phi_i$ is its derivative (a 1-form on $U$).
+
+<Callout kind="example" title="Computation of a pullback">
+Let $V = \RR^2$ and $\phi(a\mathbf{e}_1 + b\mathbf{e}_2) = (a^2+b^2)w_1 + \log(a^2+1)w_2 + b^3 w_3$ into $V' = \RR^3$. Take $\alpha = f(q)\, w_1^\vee \wedge w_3^\vee$. Then
+
+$$(\phi^\ast\alpha)_p = f(\phi(p))\cdot(2a\,\mathbf{e}_1^\vee + 2b\,\mathbf{e}_2^\vee)\wedge(3b^2\,\mathbf{e}_2^\vee) = 6ab^2 f(\phi(p))\,\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee.$$
+</Callout>
+
+The computation: differentiate each component of $\phi$ involved in $\alpha$'s index set ($\phi_1 = a^2+b^2$, $\phi_3 = b^3$), wedge the resulting 1-forms, and multiply by $f \circ \phi$.
+
+</SlideLayout>

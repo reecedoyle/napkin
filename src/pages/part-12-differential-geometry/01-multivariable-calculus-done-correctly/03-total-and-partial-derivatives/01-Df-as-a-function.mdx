@@ -1,0 +1,30 @@
+---
+title: Df as a function on U
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Df as a function on U">
+
+So far, $(Df)_p$ is the total derivative **at a single point** $p$.
+If $f \colon U \to \mathbb{R}$ is differentiable everywhere,
+we can collect all these derivative-maps into a single function:
+
+$$
+Df \colon U \to V^\vee, \quad p \mapsto (Df)_p.
+$$
+
+This is a little mind-bending: to every **point** $p \in U$
+we associate a **linear functional** $(Df)_p \in V^\vee$.
+We call $Df$ the <Term k="totalDerivative">total derivative</Term> of $f$ (as opposed to the total derivative at a single point).
+
+<Callout kind="remark">
+The total derivative $Df$ is a map from the open set $U$ into the dual space $V^\vee$.
+For $f \colon U \subseteq \mathbb{R}^n \to \mathbb{R}$, we have $V^\vee \cong \mathbb{R}^n$ (via the standard inner product), so $Df$ is a vector field — the **gradient** in disguise.
+</Callout>
+
+The next step: use the <Term k="projectionPrinciple">projection principle</Term> to decompose $Df$
+into $n$ scalar functions using a basis for $V^\vee$.
+
+</SlideLayout>

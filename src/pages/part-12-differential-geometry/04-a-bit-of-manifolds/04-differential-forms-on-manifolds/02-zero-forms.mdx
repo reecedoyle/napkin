@@ -1,0 +1,35 @@
+---
+title: Zero-forms are smooth functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Zero-forms are smooth functions">
+
+A differential $0$-form on $\mathbb{R}^n$ is just a smooth function — it has no indices to contract with tangent vectors. On a manifold the definition is especially clean.
+
+A $0$-form on $M$ is a collection of smooth functions $f_i \colon E_i \to \mathbb{R}$, one per chart, satisfying $f_j = f_i \circ \phi_{ij}^{-1}$ on overlaps. But this is exactly the same as saying there is a single smooth function $f \colon M \to \mathbb{R}$.
+
+<Callout kind="proposition" title="0-forms = smooth functions">
+A differential $0$-form on a smooth manifold $M$ is the same thing as a smooth function $f \colon M \to \mathbb{R}$.
+</Callout>
+
+This is the content of the chapter's problem: a $0$-form on $M$ is equivalent to a smooth function $M \to \mathbb{R}$.
+
+<MCQ
+  client:load
+  id="mfd-df-mcq-kform-dim"
+  prompt="On a smooth n-manifold M, a differential k-form assigns to each point p a multilinear map on the tangent space T_p(M). What does it take as input?"
+  options={[
+    { id: "a", label: "k tangent vectors at p" },
+    { id: "b", label: "k cotangent vectors at p" },
+    { id: "c", label: "A single tangent vector at p" },
+    { id: "d", label: "A point in ℝⁿ" },
+  ]}
+  correct="a"
+  explanation="A k-form at a point p takes k tangent vectors (elements of T_p(M)) as input and returns a real number. It is an alternating multilinear map (T_p(M))^k → ℝ. For k = 0 there are no inputs, and the form reduces to a real number at each point — i.e., a smooth function."
+/>
+
+</SlideLayout>

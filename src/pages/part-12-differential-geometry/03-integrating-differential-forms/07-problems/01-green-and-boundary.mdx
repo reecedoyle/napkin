@@ -1,0 +1,27 @@
+---
+title: Problems — Green's theorem and the boundary operator
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Green's theorem and the boundary operator">
+
+<Problem
+  client:load
+  id="stk-prob-greens-theorem"
+  difficulty="daggered"
+  prompt="Let f, g: R^2 -> R be smooth and let c be a 2-cell. Prove Green's theorem: the integral over c of (dg/dx - df/dy) dx^dy equals the integral over the boundary of c of (f dx + g dy)."
+  hint="Apply Stokes' theorem directly to the 1-form alpha = f dx + g dy."
+  solution="Let alpha = f dx + g dy. Compute d(alpha) = df^dx + dg^dy = (df/dy dy)^dx + (dg/dx dx)^dy = (dg/dx - df/dy) dx^dy. By Stokes' theorem, the integral over c of d(alpha) equals the integral over the boundary of c of alpha, which gives exactly Green's theorem."
+/>
+
+<Problem
+  client:load
+  id="stk-prob-boundary-squared"
+  difficulty="standard"
+  prompt="Prove that the boundary operator squares to zero: for any k-chain c, we have d(d(c)) = 0."
+  hint="This is an exercise in sigma notation. Expand the boundary of the boundary using the definition and show that each (k-2)-face appears exactly twice with opposite signs."
+  solution="Each (k-2)-face of c is obtained by fixing two parameters i and j to their start or stop values. For each pair (i, j) with i < j, the face appears once from the i-th boundary step applied to the j-th boundary of the (k-1)-cell, and once in the reverse order. An index-chase shows these two contributions have opposite signs and cancel, giving zero."
+/>
+
+</SlideLayout>

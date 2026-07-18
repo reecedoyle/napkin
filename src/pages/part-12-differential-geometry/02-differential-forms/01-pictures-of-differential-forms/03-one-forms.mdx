@@ -1,0 +1,44 @@
+---
+title: 1-forms — linear functionals along curves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="1-forms — linear functionals along curves">
+
+We want to integrate over **curves** — 1-dimensional paths. A curve $c \colon [0,1] \to U$ traces out a path through $U$. At each point $p$ on the curve, we also have a tangent vector $v = c'(t)$.
+
+To assign a number to "integrate along $c$", we need something that uses both the position $p$ and the direction $v$. A **1-form** does exactly this.
+
+<Callout kind="definition" title="1-form">
+A <Term k="oneForm">**$1$-form**</Term> $\alpha$ on $U$ is a smooth function
+$$\alpha \colon U \to V^\vee.$$
+At each point $p$, the value $\alpha_p \in V^\vee$ is a <Term k="linearFunctional">linear functional</Term> on tangent vectors.
+</Callout>
+
+So $\alpha_p(v) \in \mathbb{R}$ for each tangent vector $v \in V$. The linearity requirement — $\alpha_p(\lambda v) = \lambda\,\alpha_p(v)$ — is what makes integration over curves well-behaved.
+
+<Figure>
+<svg viewBox="0 0 320 160" width="320" height="160" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="160" cy="80" rx="140" ry="65" fill="#f0f4ff" stroke="#666" strokeWidth="1.5"/>
+  <text x="270" y="30" fontSize="14" fill="#666" fontStyle="italic">U</text>
+  <path d="M 50,120 Q 120,30 200,70 Q 240,90 280,50" fill="none" stroke="#22c55e" strokeWidth="2.5"/>
+  <text x="250" y="45" fontSize="13" fill="#22c55e" fontStyle="italic">c</text>
+  <circle cx="160" cy="55" r="3" fill="#3b82f6"/>
+  <text x="153" y="45" fontSize="12" fill="#3b82f6">p</text>
+  <line x1="160" y1="55" x2="210" y2="40" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr)"/>
+  <text x="215" y="38" fontSize="12" fill="#3b82f6" fontStyle="italic">v</text>
+  <text x="60" y="140" fontSize="12" fill="#555">α_p(v) ∈ ℝ</text>
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+</svg>
+</Figure>
+
+The 1-form $\alpha$ "reads off" a number from every (point, tangent vector) pair along the curve. Summing these up gives $\int_c \alpha$.
+
+</SlideLayout>

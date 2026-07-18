@@ -1,0 +1,41 @@
+---
+title: The derivative as a linear map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The derivative as a linear map">
+
+High school calculus taught us to define $f'(p)$ as a **number** — the slope of the tangent line.
+But think about what that slope really does: it tells us that moving $\varepsilon$ away from $p$
+changes $f$ by about $f'(p)\cdot\varepsilon$.
+
+That is exactly what a <Term k="linearMap">linear map</Term> does.
+
+<Callout kind="remark" title="The fundamental idea">
+The derivative of $f$ at $p$ approximates $f$ near $p$ by a linear function.
+The number $f'(p)$ is only a compressed encoding of that linear map,
+valid because every linear map $\mathbb{R} \to \mathbb{R}$ is just multiplication by a scalar.
+</Callout>
+
+For functions $f \colon \mathbb{R} \to \mathbb{R}$ the compression is lossless.
+The moment the domain is $\mathbb{R}^n$ for $n \ge 2$, we lose information by reducing to a single slope.
+**The morally correct object is always the linear map, not the number.**
+
+<MCQ
+  client:load
+  id="mvc-s1-mcq-why-linear"
+  prompt="Why does reducing f′(p) to a single number work in single-variable calculus but not in general?"
+  options={[
+    { id: "a", label: "Because the derivative is always zero in higher dimensions" },
+    { id: "b", label: "Because every linear map ℝ → ℝ is determined by a single scalar (multiplication by f′(p))" },
+    { id: "c", label: "Because multi-variable functions are always nonlinear" },
+    { id: "d", label: "Because higher-dimensional functions have no tangent lines" },
+  ]}
+  correct="b"
+  explanation="A linear map T: ℝ → ℝ must satisfy T(x) = cx for some constant c. So the entire map is captured by that one number c = f′(p). In higher dimensions a linear map T: ℝⁿ → ℝ has n degrees of freedom (it is a row vector / dual vector), so one number is not enough."
+/>
+
+</SlideLayout>

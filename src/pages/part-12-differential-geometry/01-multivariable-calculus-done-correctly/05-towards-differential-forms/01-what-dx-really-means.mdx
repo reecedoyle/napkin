@@ -1,0 +1,38 @@
+---
+title: What dx and dy really mean
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What dx and dy really mean">
+
+We have reached the punchline of this chapter.
+The total derivative $Df$ sends each point $p \in U$ to a linear functional $(Df)_p \in V^\vee$.
+For a scalar-valued function $f \colon U \to \mathbb{R}$:
+
+$$
+Df \colon U \to V^\vee.
+$$
+
+This is precisely what a **differential 1-form** is: a smooth assignment of a covector to each point.
+
+<Callout kind="remark" title="The mystery of dx">
+In first-year calculus you wrote $\int f(x)\,dx$ and were told the $dx$ was "an infinitesimal" or "just notation". In fact, $dx$ is the total derivative of the coordinate function $x \colon \mathbb{R}^n \to \mathbb{R}$:
+$$
+dx = D(x\text{-coordinate}) = \mathbf{e}_1^\vee.
+$$
+Similarly $dy = \mathbf{e}_2^\vee$, $dz = \mathbf{e}_3^\vee$.
+These are the elements of the <Term k="dualBasis">dual basis</Term> — the coordinate covectors.
+</Callout>
+
+So when we write $df = \dfrac{\partial f}{\partial x}\,dx + \dfrac{\partial f}{\partial y}\,dy$,
+we are literally spelling out the decomposition
+
+$$
+Df = \frac{\partial f}{\partial \mathbf{e}_1} \cdot \mathbf{e}_1^\vee + \frac{\partial f}{\partial \mathbf{e}_2} \cdot \mathbf{e}_2^\vee
+$$
+
+in the dual basis $\{dx, dy\}$. The notation was right all along — now we know what it means.
+
+</SlideLayout>

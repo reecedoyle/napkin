@@ -1,0 +1,31 @@
+---
+title: Level hypersurfaces — the m = 1 case
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Level hypersurfaces — the m = 1 case">
+
+The most useful special case of the regular value theorem is $m = 1$: a single smooth constraint cuts the ambient space down by one dimension.
+
+<Callout kind="corollary" title="Level hypersurfaces">
+Let $f \colon U \to \mathbb{R}$ be smooth on open $U \subseteq \mathbb{R}^n$. If $M = \{p \in U \mid f(p) = 0\}$ is nonempty and $(Df)_p \neq 0$ for all $p \in M$, then $M$ is a smooth manifold of dimension $n - 1$.
+</Callout>
+
+<Callout kind="example" title="The circle">
+Take $f(x,y) = x^2 + y^2 - c$ for $c > 0$. Then $Df = 2x\,dx + 2y\,dy$, which is nonzero as long as $(x,y) \neq (0,0)$. Since $c > 0$ the zero set $M = \{x^2 + y^2 = c\}$ is a circle with radius $\sqrt{c}$, and it avoids the origin. So the circle is a <Term k="levelHypersurface">smooth $1$-manifold</Term>.
+
+When $c = 0$ the theorem fails: $M = \{(0,0)\}$, a point where $(Df)_0 = 0$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="mfd-rvt-num-sphere-dim"
+  prompt="The unit sphere S² ⊆ ℝ³ is the zero set of f(x,y,z) = x² + y² + z² − 1. What is the dimension of S² as a manifold predicted by the corollary?"
+  expected="2"
+  hint="The ambient space is ℝ³ (dimension 3) and we have m = 1 constraint. The formula gives n − m."
+/>
+
+</SlideLayout>

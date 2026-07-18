@@ -1,0 +1,22 @@
+---
+title: Arc length ds is not a 1-form
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Arc length ds is not a 1-form">
+
+You may have integrated $ds$ in calculus: $\int_c ds$ is the arc length of the curve $c$. We can certainly integrate it, so why isn't $ds$ a differential form?
+
+The definition: $ds_p(v) = \|v\|$. This is **not linear**. Specifically, $ds_p(-v) = \|-v\| = \|v\| = ds_p(v)$, but linearity would require $ds_p(-v) = -ds_p(v)$.
+
+<Callout kind="remark" title="Why not linear?">
+A 1-form $\alpha$ must satisfy $\alpha_p(\lambda v) = \lambda\,\alpha_p(v)$ for all scalars $\lambda$, including negative ones. But $\|{-v}\| = \|v\| \neq -\|v\|$ (for $v \neq 0$). So $ds$ fails the linearity test.
+</Callout>
+
+You may also see the informal expression $ds = \sqrt{dx^2 + dy^2}$ — the square root is a giveaway that $ds$ is not linear in $dx$ and $dy$.
+
+The correct framework for $ds$ is a **1-density**, not a 1-form. Densities generalize forms by dropping the sign-flip requirement: they assign a non-negative number to each direction. A 1-form is a 1-density that happens to be linear (and hence can be negative).
+
+</SlideLayout>

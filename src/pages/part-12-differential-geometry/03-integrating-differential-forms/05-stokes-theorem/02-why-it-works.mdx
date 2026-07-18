@@ -1,0 +1,38 @@
+---
+title: Why Stokes' theorem works
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Why Stokes' theorem works">
+
+The proof of <Term k="stokesThm">Stokes' theorem</Term> reduces to the one-dimensional fundamental theorem of calculus, using two key tools:
+
+1. **Pullback commutes with $d$:** $\phi^\ast(d\alpha) = d(\phi^\ast\alpha)$.
+2. **Fubini's theorem:** we can integrate one variable at a time.
+
+Concretely: pull $\alpha$ back to the unit box $[0,1]^k$ via $c$. On the box, $c^\ast\alpha$ is a $(k-1)$-form that can be written explicitly. Applying $d$ and using the one-variable fundamental theorem in each coordinate direction produces the boundary terms — which are exactly the faces of $\partial c$.
+
+The alternating signs $(-1)^{i+1}$ in the definition of $\partial c$ are chosen precisely to make the algebra work out: they cancel the signs that appear when we apply the fundamental theorem of calculus to each coordinate direction.
+
+<Callout kind="remark" title="Dual pair: d and ∂">
+Stokes' theorem says that $d$ and $\partial$ are **adjoint operators**: integrating $d\alpha$ over $c$ is the same as integrating $\alpha$ over $\partial c$. This is analogous to integration by parts, where $\int f g' = -\int f' g$ (plus boundary terms).
+</Callout>
+
+<MCQ
+  client:load
+  id="stk-stokes-mcq-ftc-case"
+  prompt="When k = 1 and α = g is a smooth function, Stokes' theorem ∫_c dg = ∫_{∂c} g gives:"
+  options={[
+    { id: "a", label: "Green's theorem in the plane" },
+    { id: "b", label: "The fundamental theorem of calculus: g(c(b)) − g(c(a))" },
+    { id: "c", label: "The divergence theorem in ℝ³" },
+    { id: "d", label: "The classical Stokes' theorem for surfaces in ℝ³" },
+  ]}
+  correct="b"
+  explanation="When k = 1, ∂c = {c(b)} − {c(a)}, so ∫_{∂c} g = g(c(b)) − g(c(a)). And ∫_c dg = ∫_{[a,b]} g′(t) dt = g(c(b)) − g(c(a)) by the fundamental theorem of calculus. This is the k=1 special case of Stokes' theorem."
+/>
+
+</SlideLayout>

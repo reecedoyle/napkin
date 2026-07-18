@@ -1,0 +1,37 @@
+---
+title: Computing the total derivative in practice
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Computing the total derivative in practice">
+
+Now that we have the continuous partials theorem, computing $Df$ is straightforward:
+take partial derivatives, check they are continuous, write $Df$ as their linear combination.
+
+<Callout kind="example" title="Total derivative of f(x,y) = x sin y + x²y⁴">
+Compute the partial derivatives:
+$$
+\frac{\partial f}{\partial x}(x,y) = \sin y + 2xy^4, \qquad
+\frac{\partial f}{\partial y}(x,y) = x\cos y + 4x^2y^3.
+$$
+Both are continuous everywhere, so by the <Term k="continuousPartials">continuous partials theorem</Term>,
+$f$ is differentiable and
+$$
+(Df)_{(x,y)} = (\sin y + 2xy^4)\,\mathbf{e}_1^\vee + (x\cos y + 4x^2y^3)\,\mathbf{e}_2^\vee.
+$$
+</Callout>
+
+At the point $(1, 0)$ we get $(Df)_{(1,0)} = 0 \cdot \mathbf{e}_1^\vee + 1 \cdot \mathbf{e}_2^\vee$.
+
+<NumericInput
+  client:load
+  id="mvc-s3-num-partial-xy"
+  prompt="For f(x,y) = x²y³, what is ∂f/∂x at the point (2, 1)?"
+  expected="4"
+  hint="∂(x²y³)/∂x = 2xy³. Evaluate at (2,1)."
+/>
+
+</SlideLayout>

@@ -1,0 +1,49 @@
+---
+title: Symmetry of D²f and Clairaut's theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Symmetry of D²f and Clairaut's theorem">
+
+The most important structural fact about the second derivative is that it is symmetric.
+
+<Callout kind="theorem" title="Symmetry of D²f">
+Let $f \colon U \to W$ with $U \subseteq V$ open.
+If $(D^2f)_p$ exists at some $p \in U$, then for any $v_1, v_2 \in V$:
+$$
+(D^2f)_p(v_1, v_2) = (D^2f)_p(v_2, v_1).
+$$
+</Callout>
+
+An immediate corollary about mixed partials:
+
+<Callout kind="corollary" title="Clairaut's theorem: mixed partials commute">
+Let $f \colon U \to \mathbb{R}$ be twice differentiable.
+Then for any basis directions $\mathbf{e}_i, \mathbf{e}_j$ and point $p$:
+$$
+\frac{\partial}{\partial \mathbf{e}_i}\frac{\partial f}{\partial \mathbf{e}_j}(p)
+= \frac{\partial}{\partial \mathbf{e}_j}\frac{\partial f}{\partial \mathbf{e}_i}(p).
+$$
+</Callout>
+
+In coordinates: $f_{xy} = f_{yx}$ — the order of partial differentiation does not matter,
+provided $f$ is twice differentiable. This is <Term k="clairauts">Clairaut's theorem</Term>.
+
+<MCQ
+  client:load
+  id="mvc-s4-mcq-clairaut"
+  prompt="For f(x,y) = x³y², what is ∂²f/∂y∂x?"
+  options={[
+    { id: "a", label: "6x²y" },
+    { id: "b", label: "6xy²" },
+    { id: "c", label: "3x²y²" },
+    { id: "d", label: "2x³y" },
+  ]}
+  correct="a"
+  explanation="∂f/∂x = 3x²y², then ∂/∂y(3x²y²) = 6x²y. By Clairaut's theorem this equals ∂²f/∂x∂y: ∂f/∂y = 2x³y, then ∂/∂x(2x³y) = 6x²y. ✓"
+/>
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: The exterior derivative — formal definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The exterior derivative — formal definition">
+
+We saw pictorially that $df$ measures "infinitesimal change in $f$." Now we define $d$ formally for all $k$-forms.
+
+For a 0-form (smooth function) $f \colon U \to \mathbb{R}$:
+$$df \defeq Df = \sum_i \frac{\partial f}{\partial \mathbf{e}_i}\,\mathbf{e}_i^\vee.$$
+
+This is just the total derivative. For a general $k$-form $\alpha = \sum_I f_I\,d\mathbf{e}_I$:
+
+<Callout kind="definition" title="Exterior derivative">
+$$d\alpha \defeq \sum_I df_I \wedge d\mathbf{e}_I = \sum_I \sum_j \frac{\partial f_I}{\partial \mathbf{e}_j}\,d\mathbf{e}_j \wedge d\mathbf{e}_I.$$
+</Callout>
+
+This sends $k$-forms to $(k+1)$-forms. The definition looks basis-dependent, but one can show it is actually canonical — we'll see why when we look at its axiomatic characterization.
+
+<Callout kind="remark" title="The dx notation">
+By an entrenched abuse of notation, $x_1$ denotes the coordinate function $\mathbf{e}_1^\vee$ (the function sending $(x_1,\ldots,x_n)$ to $x_1$), and then $dx_1 \defeq d(\mathbf{e}_1^\vee)$. One can verify that $(dx_1)_p = \mathbf{e}_1^\vee$ — a constant 1-form. The notation is confusing but universal.
+</Callout>
+
+</SlideLayout>

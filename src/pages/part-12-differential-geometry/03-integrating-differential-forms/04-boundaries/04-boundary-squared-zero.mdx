@@ -1,0 +1,26 @@
+---
+title: The boundary of a boundary is zero
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The boundary of a boundary is zero">
+
+There is a fundamental algebraic fact about the boundary operator:
+
+<Callout kind="theorem" title="∂² = 0">
+For any $k$-chain $c$, we have $\partial(\partial c) = 0$.
+</Callout>
+
+This mirrors the fact that $d^2 = 0$ for the exterior derivative. In fact, Stokes' theorem will connect these two "squaring to zero" properties directly.
+
+**Geometric intuition.** The boundary of a boundary has no boundary of its own. For a square: its boundary is a closed loop of four edges; the boundary of that loop is $\sum_i \{p_{i+1}\} - \{p_i\}$, which telescopes to zero (each vertex appears once with each sign).
+
+The algebraic proof is "just sigma notation": expanding $\partial(\partial c)$ reveals that each $(k-2)$-face of $c$ appears exactly twice, with opposite signs, from two different $i$-values.
+
+<Callout kind="remark">
+The sequence of spaces of $k$-chains linked by the boundary operator $\partial$ forms a **chain complex** — a cornerstone of algebraic topology. The fact that <Term k="boundarySquaredZero">$\partial^2 = 0$</Term> is what makes the notion of "cycles" and "boundaries" well-defined.
+</Callout>
+
+</SlideLayout>

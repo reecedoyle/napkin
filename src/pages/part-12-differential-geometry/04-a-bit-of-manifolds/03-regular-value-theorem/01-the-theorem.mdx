@@ -1,0 +1,22 @@
+---
+title: Regular value theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Regular value theorem">
+
+We know the circle $x^2 + y^2 = 1$ is a $1$-manifold, but so far we haven't explained *why*: we would need to explicitly construct an atlas. The **regular value theorem** automates this.
+
+<Callout kind="theorem" title="Regular value theorem">
+Let $f_1, \dots, f_m \colon U \to \mathbb{R}$ be smooth functions on an open set $U \subseteq \mathbb{R}^n$. Let
+$$M = \{ p \in U \mid f_1(p) = \cdots = f_m(p) = 0 \}.$$
+Suppose $M \neq \varnothing$ and at every $p \in M$ the map
+$$v \mapsto \bigl((Df_1)_p(v), \dots, (Df_m)_p(v)\bigr)$$
+has rank $m$. Then $M$ is a smooth manifold of dimension $n - m$.
+</Callout>
+
+The rank condition says: the constraints $f_1 = \cdots = f_m = 0$ are "independent" at each point of $M$. If they were not independent, the zero set might be singular (a point, a cusp, etc.) rather than a manifold.
+
+</SlideLayout>

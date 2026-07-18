@@ -1,0 +1,36 @@
+---
+title: Continuous partials imply differentiability
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Continuous partials imply differentiability">
+
+We know: if $Df$ exists, then the partials exist and determine $Df$.
+But can partials exist without $Df$ existing? Yes — the converse is false in general.
+
+<Callout kind="example" title="Counterexample: partials exist but Df does not">
+Let
+$$
+f(x,y) = \begin{cases} \dfrac{xy}{x^2+y^2} & (x,y) \neq (0,0) \\ 0 & (x,y) = (0,0). \end{cases}
+$$
+Both partial derivatives at the origin are zero, yet $Df$ does not exist there
+(the limit along the line $y = x$ gives a different value).
+</Callout>
+
+The fix: requiring the partials to be **continuous** is sufficient.
+
+<Callout kind="theorem" title="Continuous partials implies differentiable">
+Let $f \colon U \to \mathbb{R}$ and suppose all partial derivatives $\partial f / \partial \mathbf{e}_i$
+exist and are **continuous** on $U$. Then $f$ is differentiable and
+$$
+Df = \sum_{i=1}^n \frac{\partial f}{\partial \mathbf{e}_i} \cdot \mathbf{e}_i^\vee.
+$$
+</Callout>
+
+This is what the <Term k="continuousPartials">continuous partials theorem</Term> says.
+For virtually every function you will meet in practice, the partials are continuous,
+so computing $Df$ reduces to the familiar AP Calculus partial derivative computations.
+
+</SlideLayout>

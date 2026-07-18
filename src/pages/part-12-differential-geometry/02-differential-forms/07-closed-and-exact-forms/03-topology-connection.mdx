@@ -1,0 +1,22 @@
+---
+title: Closed vs exact — the topology connection
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Closed vs exact — the topology connection">
+
+The failure of a closed form to be exact detects **holes** in the space $U$.
+
+On $\mathbb{R}^n$ itself (no holes), every closed form is exact — this is the Poincaré lemma. On $\mathbb{R}^2 \setminus \{0\}$ (one hole: the removed origin), the angle form is closed but not exact. The hole allows a form to "wind around" without being a global derivative.
+
+<Callout kind="remark" title="de Rham cohomology">
+The gap between closed and exact forms is measured by **<Term k="deRhamCohomology">de Rham cohomology</Term>**: the quotient vector spaces
+$$H^k_{\mathrm{dR}}(U) = \frac{\{\text{closed } k\text{-forms on } U\}}{\{\text{exact } k\text{-forms on } U\}}.$$
+These are topological invariants of $U$ — they count independent "holes" of each dimension. The angle form on $\mathbb{R}^2 \setminus \{0\}$ represents a nonzero element of $H^1_{\mathrm{dR}}(\mathbb{R}^2 \setminus \{0\}) \cong \mathbb{R}$.
+</Callout>
+
+This is the same information that homotopy groups and homology capture, just expressed through the language of forms. In complex analysis, Cauchy-Goursat requires simple connectivity — the same "no holes" condition. The angle form is the real-analytic shadow of the complex story.
+
+</SlideLayout>

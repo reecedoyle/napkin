@@ -106,4 +106,7 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\Pr': '\\operatorname{Pr}',
   '\\sgn': '\\operatorname{sgn}',
   '\\SA': '\\mathscr{A}',
+  '\\ee': '\\mathbf{e}_{#1}',
+  '\\fpartial': '\\dfrac{\\partial #1}{\\partial #2}',
+  '\\odif': '\\,\\mathrm{d}',
 };

@@ -1,0 +1,28 @@
+---
+title: Stokes' theorem for cells
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Stokes' theorem for cells">
+
+We now have all the ingredients: $k$-cells, their <Term k="cellBoundary">boundaries</Term>, and the exterior derivative $d$. The central theorem of the chapter ties them together.
+
+<Callout kind="theorem" title="Stokes' theorem">
+Let $U \subseteq V$ be open, let $c\colon [0,1]^k \to U$ be a $k$-cell, and let $\alpha$ be a $(k-1)$-form on $U$. Then
+
+$$\int_c d\alpha = \int_{\partial c} \alpha.$$
+
+In particular, if $d\alpha = 0$ then $\int_c d\alpha = 0$.
+</Callout>
+
+**Special case: $k=1$.** When $c\colon [a,b] \to U$ and $\alpha = g$ is a 0-form (a function), we have $d\alpha = dg$ and $\partial c = \{c(b)\} - \{c(a)\}$. Stokes' theorem gives:
+
+$$\int_{[a,b]} dg = g(c(b)) - g(c(a)) = \int_{\partial c} g.$$
+
+This is exactly the **fundamental theorem of calculus**. Stokes' theorem is its multivariable generalization.
+
+The theorem also connects the two "squaring to zero" identities: <Term k="boundarySquaredZero">$\partial^2 = 0$</Term> (from the boundary chapter) and $d^2 = 0$ (exterior derivative). Both are facets of the same algebraic phenomenon.
+
+</SlideLayout>

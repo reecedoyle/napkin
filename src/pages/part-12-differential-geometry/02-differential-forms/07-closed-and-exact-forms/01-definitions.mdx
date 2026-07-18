@@ -1,0 +1,39 @@
+---
+title: Closed and exact forms — definitions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Closed and exact forms — definitions">
+
+With $d^2 = 0$, any exact form is automatically closed:
+
+<Callout kind="definition" title="Closed form">
+A $k$-form $\alpha$ is <Term k="closedForm">**closed**</Term> if $d\alpha = 0$.
+</Callout>
+
+<Callout kind="definition" title="Exact form">
+A $k$-form $\alpha$ is <Term k="exactForm">**exact**</Term> if there exists a $(k-1)$-form $\beta$ with $d\beta = \alpha$. (For $k = 0$, exact means $\alpha = 0$.)
+</Callout>
+
+Since $d^2 = 0$: if $\alpha = d\beta$, then $d\alpha = d^2\beta = 0$. So **every exact form is closed**.
+
+The interesting question is the converse: is every closed form exact? Globally, the answer depends on the **topology** of $U$.
+
+<MCQ
+  client:load
+  id="df-s7-mcq-closed-exact"
+  prompt="If α = dβ for some form β, what can we immediately conclude about α?"
+  options={[
+    { id: "a", label: "α is exact and hence also closed" },
+    { id: "b", label: "α is closed but we cannot say it is exact" },
+    { id: "c", label: "α = 0 everywhere" },
+    { id: "d", label: "β must also be closed" },
+  ]}
+  correct="a"
+  explanation="If α = dβ then α is exact by definition. And since d²= 0, we have dα = d(dβ) = 0, so α is closed. Exact implies closed — the reverse is not always true."
+/>
+
+</SlideLayout>

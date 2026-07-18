@@ -1,0 +1,24 @@
+---
+title: Why linearity matters for integration
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why linearity matters for integration">
+
+Differential forms — being linear — enjoy a stability property that densities like $ds$ lack.
+
+<Callout kind="theorem" title="Forms are stable under uniform limits">
+Let $\omega$ be a 1-form and let $c_k \colon [0,1] \to \mathbb{R}^2$ be a sequence of smooth curves converging uniformly to $c$. Then $\int_{c_k} \omega \to \int_c \omega$.
+</Callout>
+
+This **fails for $ds$** — that is, arc length is not stable under uniform convergence. The classic example: a staircase approximation to the diagonal of a unit square. The staircases converge uniformly to the diagonal, but their arc length is always $2$ (total horizontal + vertical), while the diagonal has length $\sqrt{2}$.
+
+In fact (though we won't prove it here), the converse also holds: any smooth 1-density that is stable under uniform limits of curves must be linear — i.e., must be a 1-form.
+
+<Callout kind="remark" title="The takeaway">
+Differential forms are exactly the integrable things that behave well under limits and orientation reversal. Arc length and similar "absolute value" integrals live in the world of densities, not forms. The two worlds overlap only when the form happens to be non-negative (which requires special geometry).
+</Callout>
+
+</SlideLayout>

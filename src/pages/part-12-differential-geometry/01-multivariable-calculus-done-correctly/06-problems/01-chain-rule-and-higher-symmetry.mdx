@@ -1,0 +1,51 @@
+---
+title: Problems — chain rule and higher symmetry
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — chain rule and higher symmetry">
+
+<Problem
+  client:load
+  id="mvc-prob-chain-rule"
+  difficulty="starred"
+  statement="Let $U_1 \xrightarrow{f} U_2 \xrightarrow{g} U_3$ be differentiable maps between open sets of normed vector spaces $V_1, V_2, V_3$, and let $h = g \circ f$. Prove the **Chain Rule**: for any point $p \in U_1$,
+$$(Dh)_p = (Dg)_{f(p)} \circ (Df)_p.$$"
+  solution="We want to show that the composition $(Dg)_{f(p)} \circ (Df)_p$ is the total derivative of $h = g \circ f$ at $p$. Set $T = (Df)_p$ and $S = (Dg)_{f(p)}$, so we claim $(Dh)_p = S \circ T$.
+
+Write $q = f(p)$ and consider a small displacement $v$. Since $f$ is differentiable at $p$:
+$$f(p+v) = f(p) + T(v) + r_1(v), \quad \frac{\|r_1(v)\|}{\|v\|} \to 0.$$
+Since $g$ is differentiable at $q = f(p)$:
+$$g(q + w) = g(q) + S(w) + r_2(w), \quad \frac{\|r_2(w)\|}{\|w\|} \to 0 \text{ as } w \to 0.$$
+Set $w = f(p+v) - f(p) = T(v) + r_1(v)$. Then:
+$$h(p+v) = g(f(p+v)) = g(q+w) = g(q) + S(w) + r_2(w).$$
+Expanding $S(w) = S(T(v) + r_1(v)) = (S \circ T)(v) + S(r_1(v))$ (linearity of $S$):
+$$h(p+v) - h(p) - (S \circ T)(v) = S(r_1(v)) + r_2(w).$$
+We need to show the norm of the left side divided by $\|v\|$ goes to zero.
+
+- $\|S(r_1(v))\| / \|v\| \le \|S\| \cdot \|r_1(v)\| / \|v\| \to 0$.
+- For $r_2(w)$: since $\|w\| = \|T(v) + r_1(v)\| \le (\|T\|+1)\|v\|$ for small $v$, we have $w \to 0$ as $v \to 0$. So $\|r_2(w)\| / \|w\| \to 0$, hence $\|r_2(w)\| / \|v\| \le (\|T\|+1) \cdot \|r_2(w)\| / \|w\| \to 0$.
+
+Thus the limit is zero and $(Dh)_p = S \circ T = (Dg)_{f(p)} \circ (Df)_p$."
+/>
+
+<Problem
+  client:load
+  id="mvc-prob-higher-symmetry"
+  difficulty="standard"
+  statement="Let $U \subseteq V$ be open and $f \colon U \to \mathbb{R}$ be differentiable $k$ times. Show that $(D^k f)_p$ is symmetric in its $k$ arguments: for any $v_1, \dots, v_k \in V$ and any permutation $\sigma$ of $\{1, \dots, k\}$,
+$$(D^k f)_p(v_1, \dots, v_k) = (D^k f)_p(v_{\sigma(1)}, \dots, v_{\sigma(k)}).$$"
+  hint="Induct on k. The k = 2 case is the symmetry theorem for D²f. Every permutation is a product of transpositions of adjacent elements; use the induction hypothesis to handle the inductive step."
+  solution="We proceed by induction on $k$.
+
+**Base case $k=2$:** This is exactly the symmetry theorem for $D^2 f$ proved in the text: $(D^2 f)_p(v_1, v_2) = (D^2 f)_p(v_2, v_1)$.
+
+**Inductive step:** Assume the result holds for $k-1$. Any permutation of $k$ elements can be written as a product of adjacent transpositions $(i, i+1)$, so it suffices to show symmetry when swapping $v_i$ and $v_{i+1}$ for any $i$.
+
+Fix all arguments except positions $i$ and $i+1$. Consider the function $g(p) = (D^{k-2}f)_p(v_1, \dots, \hat{v}_i, \hat{v}_{i+1}, \dots, v_k)$ (omitting positions $i$ and $i+1$). Then $(D^k f)_p(v_1,\dots,v_k) = (D^2 g)_p(v_i, v_{i+1})$, and by the base case this equals $(D^2 g)_p(v_{i+1}, v_i)$, which is $(D^k f)_p$ with $v_i$ and $v_{i+1}$ swapped. Since every permutation is a composition of such transpositions, the result follows."
+/>
+
+</SlideLayout>

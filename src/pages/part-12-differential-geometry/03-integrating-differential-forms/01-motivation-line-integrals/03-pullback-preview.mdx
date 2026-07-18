@@ -1,0 +1,22 @@
+---
+title: Pullback preview
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pullback preview">
+
+The key move we just made — packaging the curve integral as $\int_{[a,b]} c^\ast\alpha$ — is a special case of a very general idea.
+
+Suppose $\phi\colon U \to U'$ is any smooth map (where $U \subseteq V$, $U' \subseteq V'$). If $\alpha$ is a $k$-form on $U'$, we can "pull it back" to a $k$-form $\phi^\ast\alpha$ on $U$. The pullback "eats" points and vectors from $U$ and feeds appropriately transformed versions to $\alpha$ on $U'$.
+
+In the curve case, $\phi = c\colon [a,b] \to U$ and $U' = U$. The pullback $c^\ast\alpha$ on $[a,b]$ is a 1-form on a 1-dimensional space, so it can be written as $f(t)\, dt$ for some real-valued function $f$ — and that's exactly how we integrate it.
+
+<Callout kind="remark" title="The big picture">
+The pattern $\int_c \alpha = \int_{[a,b]} c^\ast\alpha$ will generalize to any dimension: we always reduce integration on a complicated domain to integration on a standard box by pulling back through the parametrization.
+</Callout>
+
+This is the key insight behind the whole chapter. We will now develop <Term k="pullback">pullbacks</Term> in full generality, then use them to define integrals over higher-dimensional surfaces (<Term k="kCell">$k$-cells</Term>), and finally state Stokes' theorem.
+
+</SlideLayout>

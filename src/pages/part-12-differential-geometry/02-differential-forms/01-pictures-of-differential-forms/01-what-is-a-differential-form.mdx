@@ -1,0 +1,20 @@
+---
+title: What is a differential form?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a differential form?">
+
+Before we write down a single definition, let's think about integration. To integrate a function over a curve, a surface, or a solid blob, we need something that "knows how to be integrated" over objects of each dimension.
+
+<Callout kind="remark" title="Joe Harris's dictum">
+The definition of a differential form is: something you can integrate.
+</Callout>
+
+Let $U \subseteq V$ be an open set inside a <Term k="finDimRealVS">finite-dimensional real vector space</Term> $V$. Throughout this chapter, all functions are assumed <Term k="smoothFunction">smooth</Term> (infinitely differentiable).
+
+The plan: we first build up geometric pictures of $k$-forms for $k = 0, 1, 2$, and the operators that connect them. Then we make everything precise.
+
+</SlideLayout>

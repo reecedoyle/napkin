@@ -1,0 +1,29 @@
+---
+title: Two upgrades from single to multivariable
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Two upgrades from single to multivariable">
+
+Going from single-variable calculus $f \colon \mathbb{R} \to \mathbb{R}$
+to fully multivariable $f \colon \mathbb{R}^n \to \mathbb{R}^m$ involves two separate upgrades:
+
+1. **Domain upgrade**: $\mathbb{R} \to \mathbb{R}^n$ (inputs become vectors)
+2. **Codomain upgrade**: $\mathbb{R} \to \mathbb{R}^m$ (outputs become vectors)
+
+These upgrades are **not equally hard**. The domain upgrade is the deep one —
+it is what forces us to replace the scalar slope $f'(p)$ with a linear map.
+The codomain upgrade, by contrast, turns out to be completely mechanical.
+
+<Callout kind="remark" title="Where the difficulty lives">
+All the interesting structure in multivariable calculus comes from upgrading the domain.
+Upgrading the codomain is just doing the same thing coordinate-by-coordinate.
+</Callout>
+
+Once you accept that $Df$ for scalar-valued $f$ is a dual vector $(Df)_p \in V^\vee$,
+extending to vector-valued functions $f \colon U \to \mathbb{R}^m$
+follows immediately from the <Term k="projectionPrinciple">projection principle</Term>.
+
+</SlideLayout>

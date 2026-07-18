@@ -1,0 +1,29 @@
+---
+title: d² = 0 — the fundamental identity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="d² = 0 — the fundamental identity">
+
+The example showed $d^2 f = 0$. This holds for all forms:
+
+<Callout kind="theorem" title="Exterior derivative squares to zero">
+For any <Term k="diffKForm">differential $k$-form</Term> $\alpha$, we have $d^2\alpha = d(d\alpha) = 0$.
+</Callout>
+
+The proof uses the symmetry of mixed partial derivatives: the double derivative picks up terms $\frac{\partial^2 f_I}{\partial e_j \partial e_i}\,d\mathbf{e}_j \wedge d\mathbf{e}_i + \frac{\partial^2 f_I}{\partial e_i \partial e_j}\,d\mathbf{e}_i \wedge d\mathbf{e}_j$, and since mixed partials are equal and $d\mathbf{e}_j \wedge d\mathbf{e}_i = -d\mathbf{e}_i \wedge d\mathbf{e}_j$, they cancel.
+
+**Geometric meaning:** Recall from the Stokes picture that $d$ increases dimension by 1 — $d$ of a form tells us "what happens on the boundary." But the boundary of a boundary is always empty. So $d^2 = 0$ is the algebraic shadow of $\partial^2 = \emptyset$.
+
+<Callout kind="remark" title="Properties of d">
+The exterior derivative satisfies:
+1. $d^2 = 0$
+2. For a $k$-form $\alpha$ and $\ell$-form $\beta$: $d(\alpha \wedge \beta) = d\alpha \wedge \beta + (-1)^k\,\alpha \wedge d\beta$ (graded Leibniz rule)
+3. For $f \colon U \to \mathbb{R}$: $df = Df$
+
+These three properties **uniquely determine** $d$, and show the definition is basis-independent.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Where cross products come from
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Where cross products come from">
+
+The <Term k="crossProduct">**cross product**</Term> $\mathbf{v}\times\mathbf{w}$ in $\RR^3$ can be demystified using the Hodge star.
+
+Given $\mathbf{v} = x\mathbf{e}_1 + y\mathbf{e}_2 + z\mathbf{e}_3$ and $\mathbf{w} = x'\mathbf{e}_1 + y'\mathbf{e}_2 + z'\mathbf{e}_3$:
+
+$$\mathbf{v}\wedge\mathbf{w} = (xy'-x'y)\,\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee + (yz'-y'z)\,\mathbf{e}_2^\vee\wedge\mathbf{e}_3^\vee + (zx'-xz')\,\mathbf{e}_3^\vee\wedge\mathbf{e}_1^\vee.$$
+
+Applying the <Term k="hodgeStar">Hodge star</Term> $\star$:
+
+$$\star(\mathbf{v}\wedge\mathbf{w}) = (yz'-y'z)\,\mathbf{e}_1^\vee + (zx'-xz')\,\mathbf{e}_2^\vee + (xy'-x'y)\,\mathbf{e}_3^\vee.$$
+
+Dropping the $\vee$'s gives exactly the classical formula $\mathbf{v}\times\mathbf{w}$.
+
+<Callout kind="remark">
+The cross product is an $\RR^3$-specific accident: it only exists because $\binom{3}{1} = \binom{3}{2}$. In $\RR^4$ there is no analogous "cross product of two vectors giving a vector." The Hodge star generalizes, but the dimensions no longer match.
+</Callout>
+
+The cross product is **not** a "fundamental" operation — it is the Hodge star of the wedge product, disguised by the accident of dimension 3. This is why cross products behave strangely under orientation reversal: they pick up a sign, because the Hodge star depends on orientation.
+
+</SlideLayout>

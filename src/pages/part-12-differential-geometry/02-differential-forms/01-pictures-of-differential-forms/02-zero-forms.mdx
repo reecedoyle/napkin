@@ -1,0 +1,36 @@
+---
+title: 0-forms — functions on points
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="0-forms — functions on points">
+
+Start with the simplest case: a **0-form** is just a smooth function $f \colon U \to \mathbb{R}$. It assigns a real number to each point.
+
+<Callout kind="definition" title="0-form">
+A <Term k="zeroForm">**$0$-form**</Term> $f$ on $U$ is a smooth function $f \colon U \to \mathbb{R}$.
+</Callout>
+
+To "integrate" $f$ over a discrete set $S = \{p_1, p_2, \ldots\}$ of points, we simply sum the values:
+$$\int_S f = f(p_1) + f(p_2) + \cdots$$
+
+A 0-form lets us integrate over **0-dimensional cells** (finite sets of points). This is the degenerate case — interesting integration happens in higher dimensions.
+
+<MCQ
+  client:load
+  id="df-s1-mcq-zero-form"
+  prompt="Which of the following is a 0-form on ℝ²?"
+  options={[
+    { id: "a", label: "A smooth function f(x, y) = x² + y²" },
+    { id: "b", label: "A pair of smooth functions (f, g) giving a vector at each point" },
+    { id: "c", label: "A bilinear form that takes two vectors and returns a number" },
+    { id: "d", label: "The arc-length element ds" },
+  ]}
+  correct="a"
+  explanation="A 0-form is simply a smooth real-valued function on the domain — f(x, y) = x² + y² fits perfectly. A pair (f, g) would be a vector field, not a 0-form. A bilinear form is a 2-form. And ds is not even a differential form (more on this later)."
+/>
+
+</SlideLayout>

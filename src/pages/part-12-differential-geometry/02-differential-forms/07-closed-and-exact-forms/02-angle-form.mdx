@@ -1,0 +1,24 @@
+---
+title: The angle form — closed but not exact
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The angle form — closed but not exact">
+
+The most important example of a closed-but-not-exact form lives on the punctured plane.
+
+<Callout kind="example" title="The angle form">
+Let $U = \mathbb{R}^2 \setminus \{0\}$. Define the <Term k="angleForm">**angle form**</Term>
+$$\alpha = \frac{-y\,dx + x\,dy}{x^2 + y^2}.$$
+This 1-form measures the infinitesimal change in the polar angle $\theta$ at each point. Intuitively, "$\alpha = d\theta$."
+
+One can verify directly that $d\alpha = 0$ — the angle form is closed.
+
+However, $\alpha$ is **not exact** on $U$. There is no smooth function $\theta \colon U \to \mathbb{R}$ with $d\theta = \alpha$, because the angle $\theta$ is only well-defined modulo $2\pi$ — it wraps around.
+</Callout>
+
+The punchline: if we integrate $\alpha$ around a circle enclosing the origin, we get $2\pi \neq 0$. An exact form would always integrate to zero around any loop (by Stokes' theorem). The non-zero integral witnesses that $\alpha$ cannot be $df$ for a global $f$.
+
+</SlideLayout>

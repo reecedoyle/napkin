@@ -1,0 +1,27 @@
+---
+title: Problems — arc length and exact forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — arc length and exact forms">
+
+<Problem
+  client:load
+  id="stk-prob-arc-length-not-form"
+  difficulty="standard"
+  prompt="Show that there does not exist a 1-form alpha on R^2 such that for every curve c: [0,1] -> R^2, the integral of alpha over c gives the arc length of c."
+  hint="We would need alpha_p(v) = ||v|| for all tangent vectors v. But a 1-form must be linear. What happens when you evaluate at -v?"
+  solution="If such a 1-form alpha existed, we would need alpha_p(v) = ||v|| for all v in R^2. But alpha_p must be linear, so alpha_p(-v) = -alpha_p(v) = -||v||. However ||-v|| = ||v|| is not equal to -||v|| for v not zero. Contradiction. Geometrically: arc length does not change when you reverse a curve, but the line integral of a 1-form changes sign. So arc length cannot be a line integral of any differential 1-form."
+/>
+
+<Problem
+  client:load
+  id="stk-prob-exact-concentric"
+  difficulty="standard"
+  prompt="Let alpha be an exact 1-form on the plane and let C1, C2 be any two concentric circles. Prove that the integral of alpha over C1 equals the integral of alpha over C2."
+  hint="Show first that d^2=0 implies the integral of alpha over the boundary of any 2-cell is zero for exact alpha. Then draw an annulus whose boundary is C2 minus C1."
+  solution="Since alpha = d(beta) is exact, for any 2-cell c: the integral of alpha over the boundary of c equals the integral of d(alpha) over c by Stokes' theorem, which equals the integral of d(d(beta)) = 0 over c. Now take c to be an annular 2-cell between C1 and C2. Its boundary is C2 minus C1 (outer circle minus inner circle with orientations). So 0 = integral over boundary of c of alpha = integral over C2 of alpha minus integral over C1 of alpha, giving equality."
+/>
+
+</SlideLayout>

@@ -1,0 +1,36 @@
+---
+title: Pullback properties
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Pullback properties">
+
+The <Term k="pullback">pullback</Term> behaves as nicely as possible:
+
+- **Linearity:** $\phi^\ast(c\alpha + \beta) = c\phi^\ast\alpha + \phi^\ast\beta$
+- **Wedge compatibility:** $\phi^\ast(\alpha \wedge \beta) = (\phi^\ast\alpha)\wedge(\phi^\ast\beta)$
+- **Naturality (chain rule):** $\phi_1^\ast(\phi_2^\ast\alpha) = (\phi_2 \circ \phi_1)^\ast\alpha$
+
+All three can be verified by expanding in a basis.
+
+The naturality property is the chain rule for pullbacks: composing maps corresponds to composing pullbacks in the opposite order. This is what lets us use pullbacks to reduce integration on arbitrary cells to integration on a standard box.
+
+<Callout kind="remark" title="Pullback and exterior derivative commute">
+A crucial fact (which you can verify by computation): for any smooth $\phi$ and any form $\alpha$,
+
+$$\phi^\ast(d\alpha) = d(\phi^\ast\alpha).$$
+
+This will be essential in the proof of Stokes' theorem.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="stk-pull-proof-naturality"
+  prompt="Why does naturality (φ₁)*(φ₂*α) = (φ₂∘φ₁)*α follow from the chain rule?"
+  solution="By the chain rule, D(φ₂ ∘ φ₁)_p = (Dφ₂)_{φ₁(p)} ∘ (Dφ₁)_p. Plugging into the pullback definition: ((φ₂∘φ₁)*α)_p(v₁,…,vₖ) = α_{(φ₂∘φ₁)(p)}(D(φ₂∘φ₁)_p(v₁),…) = α_{φ₂(φ₁(p))}((Dφ₂)_{φ₁(p)}∘(Dφ₁)_p(v₁),…). This equals (φ₁*(φ₂*α))_p(v₁,…,vₖ) by applying the outer pullback definition first."
+/>
+
+</SlideLayout>

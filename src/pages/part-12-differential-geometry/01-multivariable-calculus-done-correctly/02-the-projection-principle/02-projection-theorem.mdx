@@ -1,0 +1,38 @@
+---
+title: The projection principle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The projection principle">
+
+<Callout kind="theorem" title="Projection principle">
+Let $U$ be an open subset of the normed vector space $V$.
+Let $W$ be an $m$-dimensional real vector space with basis $w_1, \dots, w_m$.
+Then there is a bijection between continuous functions $f \colon U \to W$ and
+$m$-tuples of continuous scalar functions $f_1, \dots, f_m \colon U \to \mathbb{R}$,
+via
+$$
+f(v) = f_1(v)w_1 + \cdots + f_m(v)w_m.
+$$
+The same holds with "continuous" replaced by "differentiable", "smooth", or "arbitrary".
+</Callout>
+
+In plain language: a function into $\mathbb{R}^m$ is determined by its $m$ coordinate functions,
+and every interesting analytic property (continuity, differentiability) can be checked per-coordinate.
+
+<Callout kind="remark">
+This is why we mostly study functions $f \colon U \to \mathbb{R}$. Understanding scalar-valued functions is enough — the vector-valued case is just $m$ copies stacked together.
+For $f \colon U \to \mathbb{R}$, the total derivative $(Df)_p$ lives in the <Term k="dualSpace">dual space</Term> $V^\vee$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="mvc-s2-proof-projection"
+  prompt="Why is the projection principle 'obvious'?"
+  solution="Any vector w ∈ W decomposes uniquely as w = c₁w₁ + ⋯ + cₘwₘ. Setting fᵢ(v) = (i-th coordinate of f(v)) is the unique decomposition. Continuity/differentiability of f is equivalent to continuity/differentiability of each scalar function fᵢ, since the norm on W is equivalent to the max of coordinate absolute values (all norms on finite-dimensional spaces are equivalent)."
+/>
+
+</SlideLayout>

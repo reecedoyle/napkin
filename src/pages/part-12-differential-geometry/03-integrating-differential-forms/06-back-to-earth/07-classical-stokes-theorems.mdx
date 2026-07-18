@@ -1,0 +1,26 @@
+---
+title: Six theorems, one formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Six theorems, one formula">
+
+Every red arrow in the 18.02 chart gives an instance of <Term k="stokesThm">Stokes' theorem</Term> $\int_c d\alpha = \int_{\partial c}\alpha$.
+
+| 18.02 name | Dimension | What it says |
+|---|---|---|
+| Fundamental Theorem of Calculus | $k=1$, $n=1$ | $\int_a^b f'\, dx = f(b)-f(a)$ |
+| FTC for line integrals | $k=1$, $n=2,3$ | $\int_c \nabla f\cdot d\mathbf{r} = f(\text{end}) - f(\text{start})$ |
+| Green's theorem | $k=2$, $n=2$ | $\iint_D \left(\frac{\partial g}{\partial x}-\frac{\partial f}{\partial y}\right)dA = \oint_{\partial D}(f\,dx+g\,dy)$ |
+| Stokes' theorem (classical) | $k=2$, $n=3$ | $\iint_S (\nabla\times\mathbf{F})\cdot d\mathbf{S} = \oint_{\partial S}\mathbf{F}\cdot d\mathbf{r}$ |
+| Divergence theorem | $k=3$, $n=3$ | $\iiint_V \nabla\cdot\mathbf{F}\, dV = \oiint_{\partial V}\mathbf{F}\cdot d\mathbf{S}$ |
+
+All five are the single formula $\int_c d\alpha = \int_{\partial c}\alpha$ for different choices of $k$, $n$, and identification of vector fields with forms.
+
+<Callout kind="remark" title="The big picture">
+Abstract Stokes' theorem for cells unifies a semester of vector calculus identities into a single statement. The identities aren't separate results — they are all one theorem viewed through different coordinate representations. This is the payoff of building the abstract theory first.
+</Callout>
+
+</SlideLayout>

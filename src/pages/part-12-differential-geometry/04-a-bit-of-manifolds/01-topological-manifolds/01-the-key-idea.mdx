@@ -1,0 +1,25 @@
+---
+title: The key idea — spaces that look locally flat
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The key idea — spaces that look locally flat">
+
+Long ago, people thought the Earth was flat. They were wrong about the global shape, but right about something local: standing on the surface, it really does look like <Term k="RRn">$\mathbb{R}^2$</Term>.
+
+This observation motivates the central definition of the chapter.
+
+<Callout kind="remark" title="The guiding moral">
+An $n$-manifold is a space which locally looks like $\mathbb{R}^n$.
+</Callout>
+
+There are two equivalent ways to make "locally looks like" precise:
+
+- **Locally:** at every point $p \in M$, some open neighborhood of $p$ is homeomorphic to an open set of $\mathbb{R}^n$.
+- **Globally:** there is an open cover $\{U_i\}$ of $M$ such that each $U_i$ is homeomorphic to some open subset of $\mathbb{R}^n$.
+
+These two conditions are equivalent. The global version is easier to work with formally, so it becomes the official definition.
+
+</SlideLayout>

@@ -1,0 +1,41 @@
+---
+title: Defining the line integral
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Defining the line integral">
+
+By type-checking, there is only one reasonable definition. We need a real number for each $t \in [a,b]$: feed the tangent vector $c'(t) = (Dc)_t(1)$ into $\alpha_{c(t)}$.
+
+<Callout kind="definition" title="Line integral">
+Let $c\colon [a,b] \to U$ be a <Term k="parametrizedCurve">parametrized curve</Term> and $\alpha$ a 1-form on $U$. We define
+
+$$\int_c \alpha \;\defeq\; \int_{[a,b]} \alpha_{c(t)}\!\left(c'(t)\right) dt.$$
+
+Here $c'(t) = (Dc)_t(1)$ is the **tangent vector** to the curve at time $t$.
+</Callout>
+
+That formula is a mouthful. We can package it more cleanly by defining the <Term k="pullback">**pullback**</Term> $c^\ast\alpha$, a 1-form on $[a,b]$:
+
+$$(c^\ast\alpha)_t(\varepsilon) \;=\; \alpha_{c(t)}\cdot (Dc)_t(\varepsilon).$$
+
+Then the line integral becomes simply $\int_c \alpha = \int_{[a,b]} c^\ast\alpha$.
+
+<MCQ
+  client:load
+  id="stk-mot-mcq-tangent-vector"
+  prompt="In the line integral formula, what does c′(t) represent?"
+  options={[
+    { id: "a", label: "The position c(t) on the curve at time t" },
+    { id: "b", label: "The tangent vector to c at time t, i.e. (Dc)_t(1)" },
+    { id: "c", label: "The value of the 1-form α at c(t)" },
+    { id: "d", label: "The arc length element |c′(t)| dt" },
+  ]}
+  correct="b"
+  explanation="c′(t) = (Dc)_t(1) is the tangent vector: the derivative of c at time t applied to the unit vector in [a,b]. It captures the direction and speed of the curve, and α_{c(t)} then eats it to give a real number."
+/>
+
+</SlideLayout>

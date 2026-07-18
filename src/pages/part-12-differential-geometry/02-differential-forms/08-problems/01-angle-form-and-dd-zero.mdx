@@ -1,0 +1,26 @@
+---
+title: Problems — angle form and d² = 0
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — angle form and d² = 0">
+
+<Problem
+  client:load
+  id="df-prob-angle-form-closed"
+  difficulty="standard"
+  prompt="Show directly that the angle form α = (−y dx + x dy) / (x² + y²) on ℝ² ∖ {0} is closed, i.e., compute dα and verify it equals zero."
+  solution="We compute dα directly. Write α = f dx + g dy where f = −y/(x²+y²) and g = x/(x²+y²). Then dα = (∂g/∂x − ∂f/∂y) dx ∧ dy. We have ∂g/∂x = (x²+y² − x·2x)/(x²+y²)² = (y²−x²)/(x²+y²)² and ∂f/∂y = (−(x²+y²) + y·2y)/(x²+y²)² = (y²−x²)/(x²+y²)². Since ∂g/∂x = ∂f/∂y, we get dα = 0. The angle form is closed."
+/>
+
+<Problem
+  client:load
+  id="df-prob-dd-zero"
+  difficulty="standard"
+  prompt="Prove that d² = 0 for any k-form α. (Hint: write α in coordinates and use the fact that mixed partial derivatives commute.)"
+  hint="Write α = Σ_I f_I de_I. Then dα = Σ_I Σ_j (∂f_I/∂e_j) de_j ∧ de_I. Apply d again and collect terms with de_i ∧ de_j ∧ de_I. The coefficient of each such term involves ∂²f_I/∂e_j∂e_i and ∂²f_I/∂e_i∂e_j — these are equal by symmetry of mixed partials, and de_i ∧ de_j = −de_j ∧ de_i so they cancel."
+  solution="Write α = Σ_I f_I de_I. Then dα = Σ_I Σ_j (∂f_I/∂e_j) de_j ∧ de_I. Applying d again: d(dα) = Σ_I Σ_j Σ_i (∂²f_I/∂e_i∂e_j) de_i ∧ de_j ∧ de_I. For each pair i ≠ j and multi-index I, the terms with (i,j) and (j,i) are: (∂²f_I/∂e_i∂e_j) de_i ∧ de_j ∧ de_I + (∂²f_I/∂e_j∂e_i) de_j ∧ de_i ∧ de_I. By symmetry of mixed partials, ∂²f_I/∂e_i∂e_j = ∂²f_I/∂e_j∂e_i. By antisymmetry of wedge, de_j ∧ de_i = −de_i ∧ de_j. So these two terms cancel. The i = j terms vanish because de_i ∧ de_i = 0. Hence d²α = 0."
+/>
+
+</SlideLayout>

@@ -1,0 +1,33 @@
+---
+title: Definition of the total derivative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Definition of the total derivative">
+
+Let $U \subseteq V$ be an open subset of a <Term k="normedVectorSpace">normed vector space</Term> $V$,
+and let $f \colon U \to W$ be a continuous function into another normed space $W$.
+We want the derivative at a point $p \in U$ to be a <Term k="linearMap">linear map</Term>
+$T \colon V \to W$ that approximates $f$ near $p$:
+$$
+f(p + v) \approx f(p) + T(v)
+$$
+for small displacements $v \in V$.
+
+The "$\approx$" is made precise using the norm.
+
+<Callout kind="definition" title="Total derivative">
+Suppose there exists a linear map $T \colon V \to W$ such that
+$$
+\lim_{\|v\|_V \to 0} \frac{\|f(p+v) - f(p) - T(v)\|_W}{\|v\|_V} = 0.
+$$
+Then $T$ is the **total derivative** of $f$ at $p$, written $(Df)_p$.
+We say $f$ is **differentiable at $p$**.
+If $(Df)_p$ exists at every point we simply say $f$ is **differentiable**.
+</Callout>
+
+Note: we need $U$ open so that for small enough $\|v\|$, the displaced point $p + v$ is still in the domain $U$.
+
+</SlideLayout>

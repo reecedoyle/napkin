@@ -1,0 +1,32 @@
+---
+title: What is a k-cell?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a k-cell?">
+
+To integrate a $k$-form over a $k$-dimensional region, we need a notion of "$k$-dimensional surface." The right concept is a **cell**.
+
+<Callout kind="definition" title="k-cell">
+A <Term k="kCell">**$k$-cell**</Term> is a smooth function
+
+$$c\colon [a_1,b_1]\times[a_2,b_2]\times\dots\times[a_k,b_k] \;\to\; V.$$
+</Callout>
+
+<Callout kind="example" title="Examples of cells">
+In $V = \RR^2$:
+
+- A **0-cell** is a single point (a map from a 0-dimensional box).
+- A **1-cell** is an arbitrary curve (a map from an interval).
+- A **2-cell** is a 2-dimensional surface patch. For example,
+
+$$c\colon [0,R]\times[0,2\pi] \to \RR^2, \quad (r,\theta)\mapsto (r\cos\theta,\, r\sin\theta)$$
+
+parametrizes a disk of radius $R$.
+</Callout>
+
+A cell is a *function*, but we usually think of it as its image — the geometric shape it traces out. This is mostly harmless, because (as we'll see) reparametrizing a cell changes the integral by at most a sign.
+
+</SlideLayout>

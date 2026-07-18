@@ -1,0 +1,28 @@
+---
+title: Problems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems">
+
+<Problem
+  client:load
+  id="mfd-prob-zero-form-is-smooth-fn"
+  difficulty="standard"
+  prompt="Show that a differential 0-form on a smooth manifold M is the same thing as a smooth function M → ℝ."
+  hint="A 0-form is a collection of smooth functions {fᵢ} on each chart domain Eᵢ, compatible under transition maps. Unpack what the compatibility condition φᵢⱼ*(fᵢ) = fⱼ means for 0-forms (functions), and show this is exactly the definition of a smooth function M → ℝ."
+  solution="A differential 0-form on M is a collection {fᵢ} where each fᵢ: Eᵢ → ℝ is a smooth function on the chart domain, with the compatibility condition fⱼ = φᵢⱼ*(fᵢ) = fᵢ ∘ φᵢⱼ⁻¹ on overlaps.
+
+Given such a collection, define f: M → ℝ by f(p) = fᵢ(φᵢ(p)) for any chart (Uᵢ, φᵢ) with p ∈ Uᵢ. The compatibility condition ensures this is well-defined: if p ∈ Uᵢ ∩ Uⱼ, then fᵢ(φᵢ(p)) = fⱼ(φᵢⱼ(φᵢ(p))) = fⱼ(φⱼ(p)).
+
+The function f: M → ℝ is smooth because its coordinate expression in any chart is fᵢ = f ∘ φᵢ⁻¹, which is smooth by assumption.
+
+Conversely, given a smooth function f: M → ℝ, define fᵢ = f ∘ φᵢ⁻¹: Eᵢ → ℝ. This is smooth, and the compatibility condition holds automatically: fᵢ ∘ φᵢⱼ⁻¹ = f ∘ φᵢ⁻¹ ∘ φᵢⱼ⁻¹ = f ∘ φⱼ⁻¹ = fⱼ.
+
+So differential 0-forms on M are in natural bijection with smooth functions M → ℝ."
+/>
+
+</SlideLayout>

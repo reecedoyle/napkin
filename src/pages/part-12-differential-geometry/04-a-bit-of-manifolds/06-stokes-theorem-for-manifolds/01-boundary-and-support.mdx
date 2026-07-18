@@ -1,0 +1,29 @@
+---
+title: Manifolds with boundary and compactly supported forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Manifolds with boundary and compactly supported forms">
+
+Stokes' theorem involves integrating over a manifold and over its boundary. We need two more definitions before we can state it.
+
+<Callout kind="definition" title="Manifold with boundary">
+A <Term k="manifoldWithBoundary">**manifold with boundary**</Term> $M$ is a space that locally looks like either:
+- an open subset of $\mathbb{R}^n$ (interior points), or
+- an open subset of a half-space (boundary points).
+The **boundary** $\partial M$ is the set of all boundary points. It is itself a smooth $(n-1)$-manifold with no boundary.
+</Callout>
+
+The disk $D^2$ has boundary $\partial D^2 = S^1$. The interval $[0,1]$ has boundary $\{0, 1\}$. If $M$ is a manifold without boundary (like $S^n$), then $\partial M = \varnothing$.
+
+<Callout kind="definition" title="Support and compact support">
+The <Term k="supportForm">**support**</Term> of a differential form $\alpha$ on $M$ is
+$$\operatorname{supp}(\alpha) = \overline{\{ p \in M \mid \alpha_p \neq 0 \}}.$$
+We say $\alpha$ is <Term k="compactlySupported">**compactly supported**</Term> if $\operatorname{supp}(\alpha)$ is compact.
+</Callout>
+
+Compact support is a technical condition that ensures the integral over a non-compact manifold is well-defined (the form "turns off" before reaching infinity).
+
+</SlideLayout>

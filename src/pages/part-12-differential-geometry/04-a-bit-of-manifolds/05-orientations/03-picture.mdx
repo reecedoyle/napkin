@@ -1,0 +1,37 @@
+---
+title: Picturing orientations — normal vectors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Picturing orientations — normal vectors">
+
+The formal definition of orientability uses volume forms, but for "embedded manifolds" (those sitting inside some $\mathbb{R}^N$) there is a more geometric picture.
+
+For a smooth hypersurface $M \subset \mathbb{R}^{n+1}$, orientability is equivalent to being able to **continuously pick a unit normal vector** at every point of $M$. Such a choice is called a **normal field**.
+
+For example, on the sphere $S^2 \subset \mathbb{R}^3$, we can always point the normal outward (away from the center) — or always inward — and the choice is continuous and consistent everywhere. So $S^2$ is orientable.
+
+The Möbius strip fails: if you travel around the center circle, the chosen normal rotates by $180°$ and ends up pointing the opposite way, so no consistent global choice exists.
+
+<Callout kind="remark" title="Non-rigorous but correct intuition">
+We haven't yet defined the <Term k="tangentSpace">tangent space</Term> $T_p(M)$ rigorously (that comes in §7). The normal-field picture is non-rigorous but gives correct intuition for whether a space is orientable.
+</Callout>
+
+<MCQ
+  client:load
+  id="mfd-orient-mcq-rp2"
+  prompt="The real projective plane ℝP² is a compact 2-manifold. Is it orientable?"
+  options={[
+    { id: "a", label: "Yes, every compact manifold is orientable" },
+    { id: "b", label: "No, ℝP² is not orientable" },
+    { id: "c", label: "Yes, because ℝP² is a surface" },
+    { id: "d", label: "Only when embedded in ℝ⁴" },
+  ]}
+  correct="b"
+  explanation="ℝP² is NOT orientable. The rule is that ℝPⁿ is orientable only for odd n. Since n = 2 is even, ℝP² is non-orientable. Compactness has no bearing on orientability — the Klein bottle is also compact and non-orientable."
+/>
+
+</SlideLayout>

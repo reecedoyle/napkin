@@ -1,0 +1,26 @@
+---
+title: 1-densities — integrable but not linear
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="1-densities — integrable but not linear">
+
+Working in $\mathbb{R}^2$ for simplicity: if $\omega$ is a "thing you can integrate over smooth curves," it must satisfy two reasonable conditions:
+
+1. **Additivity:** if $c = c_1 \cup c_2$ (concatenation), then $\int_c \omega = \int_{c_1} \omega + \int_{c_2} \omega$.
+2. **Approximate linearity on short segments:** for a curve $c$ with initial segment $c_\varepsilon$ of length $\varepsilon$,
+$$\lim_{\varepsilon \to 0^+} \frac{\int_{c_\varepsilon} \omega}{\varepsilon} = h \in \mathbb{R}.$$
+
+The key insight: the limit $h$ depends only on the starting point $p = c(0)$ and the initial direction $v = c'(0)$, not on the shape of $c$ beyond those. So:
+
+<Callout kind="definition" title="1-density">
+A <Term k="oneDensity">**$1$-density**</Term> $\omega$ is a function $\mathbb{R}^2 \times \mathbb{R}^2 \to \mathbb{R}$, written $\omega_p(v)$, satisfying $\omega_p(\lambda v) = \lambda\,\omega_p(v)$ for all $\lambda \geq 0$.
+</Callout>
+
+Notice: $\lambda \geq 0$, not all $\lambda \in \mathbb{R}$. A **1-form** is a 1-density that additionally satisfies $\omega_p(\lambda v) = \lambda\,\omega_p(v)$ for all real $\lambda$ — so it can be negative and has the sign-flip property.
+
+Arc length fits: $ds_p(v) = \|v\|$ satisfies $ds_p(\lambda v) = \lambda\|v\|$ for $\lambda \geq 0$.
+
+</SlideLayout>

@@ -1,0 +1,44 @@
+---
+title: Stokes' theorem — boundary of a boundary
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="Stokes' theorem — boundary of a boundary">
+
+We saw that $\int_c df = f(b) - f(a)$: integrating $df$ over a curve recovers the change at the boundary (the endpoints). This pattern generalizes.
+
+Given a 1-form $\alpha$, its exterior derivative $d\alpha$ is the 2-form that records **how $\alpha$ behaves on the boundary of a small parallelogram**. At a point $p$, for vectors $v$ and $w$:
+
+$(d\alpha)_p(v, w)$ = the integral of $\alpha$ around the boundary of the parallelogram spanned by $v$ and $w$.
+
+<Figure>
+<svg viewBox="0 0 320 160" width="320" height="160" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="160" cy="80" rx="140" ry="65" fill="#f0f4ff" stroke="#666" strokeWidth="1.5"/>
+  <text x="270" y="30" fontSize="14" fill="#666" fontStyle="italic">U</text>
+  <rect x="60" y="25" width="160" height="110" fill="rgba(251,146,60,0.2)" stroke="#ef4444" strokeWidth="1.5"/>
+  <text x="225" y="32" fontSize="12" fill="#ef4444" fontStyle="italic">c</text>
+  <circle cx="100" cy="110" r="2.5" fill="#3b82f6"/>
+  <text x="84" y="122" fontSize="10" fill="#3b82f6">p</text>
+  <line x1="100" y1="110" x2="140" y2="110" stroke="#3b82f6" strokeWidth="1.8" markerEnd="url(#a3)"/>
+  <line x1="140" y1="110" x2="140" y2="70" stroke="#3b82f6" strokeWidth="1.8" markerEnd="url(#a3)"/>
+  <line x1="140" y1="70" x2="100" y2="70" stroke="#3b82f6" strokeWidth="1.8" markerEnd="url(#a3)"/>
+  <line x1="100" y1="70" x2="100" y2="110" stroke="#3b82f6" strokeWidth="1.8" markerEnd="url(#a3)"/>
+  <text x="45" y="150" fontSize="11" fill="#555">adjacent boundaries cancel → only outer boundary survives</text>
+  <defs>
+    <marker id="a3" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
+      <path d="M0,0 L5,2.5 L0,5 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+</svg>
+</Figure>
+
+When we tile the full surface $c$ with tiny parallelograms and sum $d\alpha$ over all of them, adjacent interior boundary pieces cancel. Only the **outer boundary** of $c$ survives:
+
+$$\int_c d\alpha = \int_{\partial c} \alpha.$$
+
+This is <Term k="stokesTheorem">**Stokes' theorem**</Term>. It will be proved carefully in the next chapter; for now it is the geometric engine behind everything.
+
+</SlideLayout>

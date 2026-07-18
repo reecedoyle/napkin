@@ -1,0 +1,32 @@
+---
+title: Evaluating a k-form at a point
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Evaluating a k-form at a point">
+
+At a point $p$, we have $\alpha_p \in \bigwedge^k(V^\vee)$. How do we evaluate it on $k$ vectors $v_1, \ldots, v_k$? The answer is a determinant.
+
+<Callout kind="definition" title="Evaluation of a k-form">
+For linear functionals $\xi_1, \ldots, \xi_k \in V^\vee$ and vectors $v_1, \ldots, v_k \in V$,
+$$(\xi_1 \wedge \cdots \wedge \xi_k)(v_1, \ldots, v_k) = \det \begin{bmatrix} \xi_1(v_1) & \cdots & \xi_1(v_k) \\ \vdots & \ddots & \vdots \\ \xi_k(v_1) & \cdots & \xi_k(v_k) \end{bmatrix}.$$
+</Callout>
+
+This is the signed volume of the parallelogram spanned by $v_1, \ldots, v_k$, as measured by $\xi_1, \ldots, \xi_k$. The determinant automatically enforces antisymmetry: swapping two $v_i$'s swaps two columns, negating the determinant.
+
+<Callout kind="example" title="Computing an evaluation">
+Set $V = \mathbb{R}^3$. Let $\alpha_p = 2\,\mathbf{e}_1^\vee \wedge \mathbf{e}_2^\vee + \mathbf{e}_1^\vee \wedge \mathbf{e}_3^\vee$, $v_1 = 3\mathbf{e}_1 + \mathbf{e}_2 + 4\mathbf{e}_3$, $v_2 = 8\mathbf{e}_1 + 9\mathbf{e}_2 + 5\mathbf{e}_3$. Then
+$$\alpha_p(v_1, v_2) = 2\det\begin{bmatrix}3&8\\1&9\end{bmatrix} + \det\begin{bmatrix}3&8\\4&5\end{bmatrix} = 2(27-8) + (15-32) = 38 - 17 = 21.$$
+</Callout>
+
+<NumericInput
+  client:load
+  id="df-s3-num-eval-form"
+  prompt="Using the same α_p and vectors above: what is α_p(v₁, v₂)?"
+  expected="21"
+/>
+
+</SlideLayout>

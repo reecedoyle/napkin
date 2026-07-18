@@ -1,0 +1,27 @@
+---
+title: Stokes' theorem for manifolds
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Stokes' theorem for manifolds">
+
+We can now state the most general version of Stokes' theorem. The definition of integration on an oriented manifold is technical, so we wave our hands and state the theorem.
+
+<Callout kind="theorem" title="Stokes' theorem for manifolds">
+Let $M$ be a smooth oriented $n$-manifold with boundary, and let $\alpha$ be a compactly supported $(n-1)$-form on $M$. Then
+$$\int_M d\alpha = \int_{\partial M} \alpha.$$
+</Callout>
+
+This is the <Term k="stokesManifold">grand unification</Term> of calculus:
+
+| Special case | What Stokes says |
+|---|---|
+| $M = [a,b] \subset \mathbb{R}$ | $\int_a^b f'(x)\,dx = f(b) - f(a)$ — the fundamental theorem |
+| $M$ a region in $\mathbb{R}^2$ | $\iint_M \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) = \oint_{\partial M} P\,dx + Q\,dy$ — Green's theorem |
+| $M$ a surface in $\mathbb{R}^3$ | $\iint_M (\nabla \times F) \cdot dS = \oint_{\partial M} F \cdot dr$ — classical Stokes |
+
+All three are a single statement $\int_M d\alpha = \int_{\partial M} \alpha$ in disguise.
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: Why we need orientations
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why we need orientations">
+
+We want to integrate differential forms on manifolds. But there is an obstacle: the sign of an integral depends on a choice of direction.
+
+Recall from calculus:
+$$\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx.$$
+
+If $M$ is a space homeomorphic to an interval, there is no canonical "left" or "right". To integrate a $1$-form over $M$, we must first **pick a direction**.
+
+<Callout kind="example" title="The circle">
+If $M = S^1$ is a circle, there is no default "clockwise" or "counterclockwise" until we embed $M$ into $\mathbb{R}^2$. An abstract $S^1$ has no preferred orientation built in.
+</Callout>
+
+The fix is to require our manifolds to carry an extra piece of structure: an **orientation**. This is what lets us consistently integrate.
+
+</SlideLayout>

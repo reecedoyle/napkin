@@ -1,0 +1,26 @@
+---
+title: Curl and divergence as exterior derivatives
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Curl and divergence as exterior derivatives">
+
+Every red "differentiation" arrow in the 18.02 chart is an exterior derivative.
+
+**Gradient** ($0$-form → $1$-form): $\nabla f$ corresponds to $df = \frac{\partial f}{\partial x_1}\mathbf{e}_1^\vee + \dots + \frac{\partial f}{\partial x_n}\mathbf{e}_n^\vee$.
+
+**<Term k="curlOp">Curl</Term>** ($1$-form → $2$-form, then Hodge star): For $\mathbf{F} = F_1\mathbf{e}_1 + F_2\mathbf{e}_2 + F_3\mathbf{e}_3$ with dual 1-form $\alpha = F_1\mathbf{e}_1^\vee + F_2\mathbf{e}_2^\vee + F_3\mathbf{e}_3^\vee$:
+
+$$d\alpha = \left(\frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z}\right)\mathbf{e}_2^\vee\wedge\mathbf{e}_3^\vee + \left(\frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x}\right)\mathbf{e}_3^\vee\wedge\mathbf{e}_1^\vee + \left(\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}\right)\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee.$$
+
+Applying $\star$ and dropping $\vee$'s recovers $\nabla\times\mathbf{F}$.
+
+**<Term k="divOp">Divergence</Term>** ($2$-form → $3$-form): For $\alpha = F_1\mathbf{e}_2^\vee\wedge\mathbf{e}_3^\vee + F_2\mathbf{e}_3^\vee\wedge\mathbf{e}_1^\vee + F_3\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee$, one can show $d\alpha = \left(\frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}\right)\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee\wedge\mathbf{e}_3^\vee$, which corresponds to $\nabla\cdot\mathbf{F}$.
+
+<Callout kind="corollary" title="d² = 0 gives two identities">
+Since $d^2 = 0$: **curl of a gradient is zero** ($d(df) = 0$), and **divergence of a curl is zero** ($d(d\alpha) = 0$ for a 1-form). In 18.02 these are stated as two separate "miracle identities" — in our framework they are one theorem.
+</Callout>
+
+</SlideLayout>

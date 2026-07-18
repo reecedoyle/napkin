@@ -1,0 +1,32 @@
+---
+title: Building a 1-form from a 0-form — df
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Building a 1-form from a 0-form — df">
+
+Given a smooth function $f \colon U \to \mathbb{R}$ (a 0-form), there is a canonical 1-form built from it: the **exterior derivative** $df$.
+
+At a point $p$ and in the direction of a tangent vector $v$, the value $(df)_p(v)$ is simply the **directional derivative** — how much $f$ changes as we move from $p$ in the direction $v$. In other words,
+
+$$(df)_p = (Df)_p,$$
+
+the total derivative of $f$ at $p$, viewed as a linear functional on tangent vectors.
+
+<Callout kind="definition" title="Exterior derivative of a 0-form">
+For a smooth function $f \colon U \to \mathbb{R}$, the <Term k="exteriorDerivative">**exterior derivative**</Term> $df$ is the 1-form whose value at $p$ is the total derivative $(Df)_p \in V^\vee$.
+</Callout>
+
+Geometrically: $df$ measures the infinitesimal change in $f$ in any direction.
+
+<ProofReveal
+  client:load
+  id="df-s2-proof-stokes-0form"
+  prompt="If df measures infinitesimal change in f, what should ∫_c df equal for a curve c from a to b?"
+  solution="Integrating the infinitesimal changes in f along the entire path from a to b telescopes: all the intermediate changes cancel and we get f(b) − f(a). This is the fundamental theorem of calculus, and it's the first instance of Stokes' theorem."
+/>
+
+</SlideLayout>

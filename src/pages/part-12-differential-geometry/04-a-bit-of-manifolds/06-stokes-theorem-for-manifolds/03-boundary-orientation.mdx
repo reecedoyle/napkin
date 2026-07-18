@@ -1,0 +1,28 @@
+---
+title: Induced orientation on the boundary
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Induced orientation on the boundary">
+
+Stokes' theorem requires $\partial M$ to be oriented. When $M$ is oriented, its boundary inherits a canonical orientation.
+
+The rule for the induced orientation: at each boundary point $p \in \partial M$, choose a normal vector pointing **outward** from $M$. This outward normal, together with a positively oriented basis of $T_p(\partial M)$, should give a positively oriented basis of $T_p(M)$.
+
+<Callout kind="example" title="The interval [0,1]">
+The interval $[0,1]$ with the standard orientation (positive direction: left to right) has boundary $\{0\} \cup \{1\}$. The induced orientation on $\partial [0,1]$ assigns $+1$ to the right endpoint and $-1$ to the left endpoint. So:
+$$\int_{[0,1]} df = f(1) - f(0).$$
+This is exactly the fundamental theorem of calculus.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="mfd-stokes-proof-closed-manifold"
+  prompt="If M is a compact oriented manifold with no boundary (∂M = ∅), what does Stokes' theorem say about ∫_M dα for any compactly supported (n−1)-form α?"
+  solution="Stokes' theorem says ∫_M dα = ∫_{∂M} α. But ∂M = ∅, so the integral on the right is over the empty set and equals 0. Therefore ∫_M dα = 0 for every compactly supported (n−1)-form α. This is a useful corollary: closed manifolds have no 'escape' for the exterior derivative."
+/>
+
+</SlideLayout>

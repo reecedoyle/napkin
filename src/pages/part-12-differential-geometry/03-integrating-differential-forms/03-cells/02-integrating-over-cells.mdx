@@ -1,0 +1,25 @@
+---
+title: Integrating over cells
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Integrating over cells">
+
+Given a differential $k$-form $\alpha$ and a $k$-cell $c\colon [0,1]^k \to V$, we define the integral using the <Term k="pullback">pullback</Term>:
+
+<Callout kind="definition" title="Integral of a k-form over a k-cell">
+
+$$\int_c \alpha \;\coloneqq\; \int_{[0,1]^k} c^\ast\alpha.$$
+
+The pullback $c^\ast\alpha$ is a $k$-form on the unit box $[0,1]^k$, which can be written as $f(x_1,\dots,x_k)\, dx_1\wedge\dots\wedge dx_k$. So the right-hand side is an ordinary iterated integral:
+
+$$\int_0^1\cdots\int_0^1 f(x_1,\dots,x_k)\, dx_1\cdots dx_k.$$
+</Callout>
+
+**Geometric meaning.** A $k$-form $\alpha$ at a point $p$ with $k$ tangent vectors returns a signed "hypervolume" of the parallelotope they span. Integrating $\alpha$ over a cell adds up these infinitesimal signed volumes across the entire cell.
+
+The <Term k="volumeForm">**volume form**</Term> $\alpha_p = \mathbf{e}_1^\vee\wedge\dots\wedge\mathbf{e}_k^\vee$ on $\RR^k$ gives exactly the $k$-dimensional volume of the cell's image. It is the canonical example of a $k$-form worth integrating.
+
+</SlideLayout>

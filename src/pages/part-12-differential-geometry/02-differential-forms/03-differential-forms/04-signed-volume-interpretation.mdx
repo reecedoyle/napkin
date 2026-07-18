@@ -1,0 +1,25 @@
+---
+title: k-forms as signed volume measurements
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="k-forms as signed volume measurements">
+
+The determinant formula captures something deep. At a point $p \in U$:
+
+<Callout kind="remark" title="The key intuition">
+A $k$-form $\alpha$ at a point $p$ takes in $k$ vectors $v_1, \ldots, v_k$ and returns a number, to be interpreted as a **signed volume** of the parallelepiped they span — weighted by the form.
+</Callout>
+
+The "signed" part is crucial: $\alpha_p(v_1, v_2) = -\alpha_p(v_2, v_1)$, just like the signed area of a parallelogram flips sign when you swap the two edge vectors. This antisymmetry is what the <Term k="wedgeProduct">wedge product</Term> enforces.
+
+The geometric meaning depends on the form:
+- A 1-form $\alpha_p(v)$ measures the **projection** of $v$ in some direction (think: work done by a force field along a displacement).
+- A 2-form $\beta_p(v, w)$ measures the **signed area** of the parallelogram spanned by $v$ and $w$ (think: flux of a vector field through a surface element).
+- An $n$-form in $\mathbb{R}^n$ measures **signed volume** — exactly one such form up to scaling.
+
+This signed-volume structure is what makes differential forms **fit for integration**: we can coherently add up these measurements across all the tiny pieces of a curve, surface, or higher-dimensional region.
+
+</SlideLayout>

@@ -1,0 +1,35 @@
+---
+title: Total derivative of f(x,y) = x² + y²
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Total derivative of f(x,y) = x² + y²">
+
+Let $V = \mathbb{R}^2$ with standard basis $\mathbf{e}_1, \mathbf{e}_2$ and $W = \mathbb{R}$.
+Set $f(x\mathbf{e}_1 + y\mathbf{e}_2) = x^2 + y^2$.
+
+At $p = a\mathbf{e}_1 + b\mathbf{e}_2$, the total derivative is the linear map
+
+$$
+(Df)_p \colon \mathbb{R}^2 \to \mathbb{R}, \quad
+v \mapsto 2a \cdot \mathbf{e}_1^\vee(v) + 2b \cdot \mathbf{e}_2^\vee(v).
+$$
+
+Here $\mathbf{e}_1^\vee, \mathbf{e}_2^\vee \in V^\vee$ are the <Term k="dualBasis">dual basis</Term> elements: $\mathbf{e}_i^\vee(\mathbf{e}_j) = \delta_{ij}$.
+So $(Df)_p \in V^\vee$, as expected — for $f \colon U \to \mathbb{R}$, the derivative is a <Term k="dualVector">dual vector</Term>.
+
+**Verification.** Set $v = x\mathbf{e}_1 + y\mathbf{e}_2$.
+
+$$
+\frac{|f(p+v) - f(p) - T(v)|}{\|v\|} = \frac{|(a+x)^2+(b+y)^2 - (a^2+b^2) - (2ax+2by)|}{\sqrt{x^2+y^2}}
+= \frac{x^2+y^2}{\sqrt{x^2+y^2}} = \sqrt{x^2+y^2} \to 0.
+$$
+
+<Callout kind="remark">
+Differentiability implies continuity, just as in single-variable calculus.
+Also note: the vectors in $U$ are "input positions" while the vectors from $V$ used as $v$ are "small displacements". Keeping these conceptually separate helps when $0_V \notin U$.
+</Callout>
+
+</SlideLayout>

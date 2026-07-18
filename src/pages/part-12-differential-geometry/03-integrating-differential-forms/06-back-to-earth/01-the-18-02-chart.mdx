@@ -1,0 +1,27 @@
+---
+title: The 18.02 chart
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The 18.02 chart">
+
+Now let's connect what we've built to the vector calculus you saw in a first multivariable calculus course (MIT's 18.02 or equivalent).
+
+Think of a table with rows labeled by the domain ($\RR^1$, $\RR^2$, $\RR^3$) and columns labeled by the dimension of the integral (0-D, 1-D, 2-D, 3-D). Every entry describes some type of integral that appears in first-year calculus. The goal: translate each entry into the differential-forms language.
+
+**What we can explain:**
+
+- The diagonal entries (integrating an $n$-form over an $n$-cell) are straightforward.
+- The "purplish" integrals over vector fields (work and flux) correspond to integrating 1-forms and 2-forms.
+- Every red "differentiation" arrow in the chart corresponds to the exterior derivative $d$.
+- Every arrow gives an instance of Stokes' theorem.
+
+**What we cannot explain:** the "green" line integrals for scalar functions — arc length $\int |c'(t)| dt$ and surface area. These are **not** integrals of differential forms. The integrand $|\cdot|$ involves a norm, which is not alternating, so it cannot be a differential form.
+
+<Callout kind="remark">
+Arc length is **not** the integral of any 1-form. This is a theorem, not a gap in our framework — it genuinely lies outside the world of differential forms.
+</Callout>
+
+</SlideLayout>

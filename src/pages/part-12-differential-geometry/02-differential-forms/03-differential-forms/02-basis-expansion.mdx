@@ -1,0 +1,32 @@
+---
+title: Writing a k-form in coordinates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Writing a k-form in coordinates">
+
+Fix a basis $\mathbf{e}_1, \ldots, \mathbf{e}_n$ for $V$, with dual basis $\mathbf{e}_1^\vee, \ldots, \mathbf{e}_n^\vee$ for $V^\vee$. By the projection principle, $\bigwedge^k(V^\vee)$ has a basis consisting of all wedge products
+
+$$\mathbf{e}_{i_1}^\vee \wedge \mathbf{e}_{i_2}^\vee \wedge \cdots \wedge \mathbf{e}_{i_k}^\vee, \quad 1 \le i_1 < i_2 < \cdots < i_k \le n.$$
+
+There are $\binom{n}{k}$ such basis elements. So a general $k$-form in coordinates is:
+
+$$\alpha_p = \sum_{1 \le i_1 < \cdots < i_k \le n} f_{i_1 \cdots i_k}(p) \cdot \mathbf{e}_{i_1}^\vee \wedge \cdots \wedge \mathbf{e}_{i_k}^\vee$$
+
+where each $f_I \colon U \to \mathbb{R}$ is a smooth coefficient function.
+
+<Callout kind="remark" title="Abbreviated notation">
+We write $d\mathbf{e}_I$ for $\mathbf{e}_{i_1}^\vee \wedge \cdots \wedge \mathbf{e}_{i_k}^\vee$, and abbreviate the whole expansion as
+$$\alpha = \sum_I f_I \cdot d\mathbf{e}_I.$$
+For $V = \mathbb{R}^n$ with standard coordinates $x_1, \ldots, x_n$, this becomes the familiar $\alpha = \sum_I f_I \, dx_{i_1} \wedge \cdots \wedge dx_{i_k}$.
+</Callout>
+
+<Callout kind="example" title="A 2-form on ℝ³">
+In $\mathbb{R}^3$ with basis $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$, a typical 2-form looks like
+$$\alpha_p = f(p)\,\mathbf{e}_1^\vee \wedge \mathbf{e}_2^\vee + g(p)\,\mathbf{e}_1^\vee \wedge \mathbf{e}_3^\vee + h(p)\,\mathbf{e}_2^\vee \wedge \mathbf{e}_3^\vee$$
+for smooth functions $f, g, h \colon U \to \mathbb{R}$.
+</Callout>
+
+</SlideLayout>

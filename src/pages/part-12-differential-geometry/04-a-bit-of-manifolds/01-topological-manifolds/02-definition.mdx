@@ -1,0 +1,24 @@
+---
+title: Topological manifolds — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Topological manifolds — definition">
+
+<Callout kind="definition" title="Topological n-manifold">
+A <Term k="topologicalManifold">**topological $n$-manifold**</Term> $M$ is a <Term k="hausdorff">Hausdorff</Term> space with an open cover $\{U_i\}$ where each $U_i$ is homeomorphic to an open subset $E_i \subseteq \mathbb{R}^n$, via a homeomorphism
+$$\phi_i \colon U_i \xrightarrow{\;\cong\;} E_i \subseteq \mathbb{R}^n.$$
+Each $\phi_i$ is called a <Term k="chart">**chart**</Term>, and the collection $\{(U_i, \phi_i)\}$ is called an <Term k="atlas">**atlas**</Term>.
+</Callout>
+
+The name "chart" and "atlas" are geographic metaphors. A chart is like a map of one region; an atlas is the whole collection.
+
+Note the Hausdorff condition: it rules out pathological spaces where points can't be separated by open sets.
+
+<Callout kind="remark" title="Intrinsic, not embedded">
+This definition does not assume $M$ sits inside some ambient $\mathbb{R}^N$. An abstract group $G$ is an intrinsic object rather than a subgroup of $S_n$; likewise, an abstract manifold $M$ is an intrinsic space rather than a subset of $\mathbb{R}^N$.
+</Callout>
+
+</SlideLayout>

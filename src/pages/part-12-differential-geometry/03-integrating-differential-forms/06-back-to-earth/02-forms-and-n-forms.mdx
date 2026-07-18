@@ -1,0 +1,26 @@
+---
+title: 0-forms and n-forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="0-forms and n-forms">
+
+The two easiest columns in the 18.02 chart correspond to 0-forms and $n$-forms.
+
+**0-forms are just functions.** A 0-D integral is evaluation at a point. A 0-chain is a weighted set of points, and integrating a 0-form over it returns a weighted sum of values. Nothing surprising here.
+
+**$n$-forms over $n$-cells are iterated integrals.** The $n$-form $f \cdot \mathbf{e}_1^\vee \wedge \dots \wedge \mathbf{e}_n^\vee$ integrated over a standard box gives an ordinary iterated integral:
+
+| Dimension | 18.02 notation | Napkin form |
+|---|---|---|
+| 1-D, $n=1$ | $\int_a^b f(x)\, dx$ | integrate $f \cdot \mathbf{e}_1^\vee$ over a 1-cell |
+| 2-D, $n=2$ | $\int\int f(x,y)\, dx\, dy$ | integrate $f \cdot \mathbf{e}_1^\vee \wedge \mathbf{e}_2^\vee$ over a 2-cell |
+| 3-D, $n=3$ | $\int\int\int f(x,y,z)\, dx\, dy\, dz$ | integrate $f \cdot \mathbf{e}_1^\vee \wedge \mathbf{e}_2^\vee \wedge \mathbf{e}_3^\vee$ over a 3-cell |
+
+In each case, $\mathbf{e}_1^\vee \wedge \dots \wedge \mathbf{e}_n^\vee$ is the <Term k="volumeForm">volume form</Term>. Multiplying by $f$ and integrating gives the standard "weighted volume."
+
+The <Term k="gradientOp">gradient</Term> $\nabla f$ corresponds to the exterior derivative $df$, a 1-form. The grad arrow in the 18.02 chart is the exterior derivative from 0-forms to 1-forms.
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: Flux integrals and the Hodge star
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Flux integrals and the Hodge star">
+
+The <Term k="fluxIntegral">**flux integral**</Term> in $\RR^3$ looks like:
+
+$$\iint \mathbf{F}(\mathbf{r}(u,v))\cdot\left(\frac{\partial\mathbf{r}}{\partial u}\times\frac{\partial\mathbf{r}}{\partial v}\right)du\, dv.$$
+
+Here $\mathbf{F}\colon\RR^3\to\RR^3$ is a vector field and $\mathbf{r}(u,v)$ is a 2-cell $c$. But $\mathbf{F}$ seems to have "the wrong type" for a 2-form.
+
+**The weird hack:** identify $\mathbf{F} = F_1\mathbf{e}_1 + F_2\mathbf{e}_2 + F_3\mathbf{e}_3$ with the 2-form
+
+$$\alpha_p = F_1(p)\,\mathbf{e}_2^\vee\wedge\mathbf{e}_3^\vee + F_2(p)\,\mathbf{e}_3^\vee\wedge\mathbf{e}_1^\vee + F_3(p)\,\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee.$$
+
+This works because $\binom{3}{1} = \binom{3}{2} = 3$: the space of 1-forms and the space of 2-forms on $\RR^3$ both have dimension 3. The <Term k="hodgeStar">**Hodge star**</Term> $\star\colon\bigwedge^2(\RR^3)\to\RR^3$ is the isomorphism sending
+
+$$\mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee \mapsto \mathbf{e}_3^\vee,\quad \mathbf{e}_2^\vee\wedge\mathbf{e}_3^\vee \mapsto \mathbf{e}_1^\vee,\quad \mathbf{e}_3^\vee\wedge\mathbf{e}_1^\vee \mapsto \mathbf{e}_2^\vee.$$
+
+With this identification, the dot-cross expression $\mathbf{F}\cdot(\mathbf{r}_u\times\mathbf{r}_v)$ is exactly the <Term k="pullback">pullback</Term> $c^\ast\alpha$, so $\iint \mathbf{F}\cdot(\mathbf{r}_u\times\mathbf{r}_v)\, du\, dv = \int_c\alpha$.
+
+</SlideLayout>

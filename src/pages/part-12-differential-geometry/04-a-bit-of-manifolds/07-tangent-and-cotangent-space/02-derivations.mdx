@@ -1,0 +1,25 @@
+---
+title: Derivations and the tangent space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Derivations and the tangent space">
+
+The key insight: a tangent vector $\vec{v}$ at a point $p$ in $\mathbb{R}^n$ gives a directional derivative operator $D_{\vec{v}}$ that acts on smooth functions $f$ by $D_{\vec{v}}(f) = \nabla f \cdot \vec{v}$. This operator is linear and satisfies the product rule.
+
+Remarkably, knowing the operator $D_{\vec{v}}$ on all smooth functions recovers $\vec{v}$ uniquely. So we can **define** tangent vectors by the operators they induce.
+
+<Callout kind="definition" title="Derivation">
+A <Term k="derivation">**derivation**</Term> at $p \in M$ is a linear map $D \colon C^\infty(M) \to \mathbb{R}$ satisfying the Leibniz rule: for all $f, g \in C^\infty(M)$,
+$$D(fg) = f(p) \cdot D(g) + g(p) \cdot D(f).$$
+</Callout>
+
+<Callout kind="definition" title="Tangent space">
+A **tangent vector** at $p$ is a derivation at $p$. The <Term k="tangentSpace">**tangent space**</Term> $T_p(M)$ is the set of all tangent vectors at $p$, with the natural vector space structure from pointwise addition and scalar multiplication of maps.
+</Callout>
+
+For $M = \mathbb{R}^n$ and $p = 0$, the operators $\partial/\partial x_i\big|_0$ are derivations, and they form a basis of $T_0(\mathbb{R}^n) \cong \mathbb{R}^n$.
+
+</SlideLayout>

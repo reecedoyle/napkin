@@ -1,0 +1,27 @@
+---
+title: The boundary operator
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The boundary operator">
+
+<Callout kind="definition" title="Boundary of a k-cell">
+Let $c\colon [0,1]^k \to U$ be a $k$-cell. For each $i = 1,\dots,k$, define the $(k-1)$-cells
+
+$$c_i^{\text{start}}(t_1,\dots,t_{k-1}) = c(t_1,\dots,t_{i-1},0,t_i,\dots,t_{k-1})$$
+$$c_i^{\text{stop}}(t_1,\dots,t_{k-1}) = c(t_1,\dots,t_{i-1},1,t_i,\dots,t_{k-1}).$$
+
+The <Term k="cellBoundary">**boundary**</Term> of $c$ is the $(k-1)$-chain
+
+$$\partial c \;\defeq\; \sum_{i=1}^k (-1)^{i+1}\!\left(c_i^{\text{stop}} - c_i^{\text{start}}\right).$$
+
+The boundary of a <Term k="kChain">chain</Term> is the sum of boundaries with appropriate weights.
+</Callout>
+
+The alternating signs $(-1)^{i+1}$ ensure that adjacent faces are traversed with compatible orientations — they fit together to form a consistently oriented boundary.
+
+For a 1-cell $c\colon [0,1]\to U$: only $i=1$ contributes, giving $\partial c = c_1^{\text{stop}} - c_1^{\text{start}} = \{c(1)\} - \{c(0)\}$, as expected.
+
+</SlideLayout>

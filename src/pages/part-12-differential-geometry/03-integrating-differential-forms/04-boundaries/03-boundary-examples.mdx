@@ -1,0 +1,26 @@
+---
+title: Boundary examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Boundary examples">
+
+<Callout kind="example" title="Boundary of a square">
+For the 2-cell $c\colon [0,1]^2 \to \RR^2$, the four corners $p_1 = c(0,0)$, $p_2 = c(1,0)$, $p_3 = c(1,1)$, $p_4 = c(0,1)$ give boundary
+
+$$\partial c = [p_1,p_2] + [p_2,p_3] - [p_4,p_3] - [p_1,p_4].$$
+
+Reading these four edges in order traces the boundary **counterclockwise** around the square — the standard positive orientation.
+</Callout>
+
+<Callout kind="example" title="Boundary of a disk">
+The unit disk $c\colon (r,\theta)\mapsto (r\cos 2\pi\theta, r\sin 2\pi\theta)$ on $[0,1]^2$ has four boundary pieces. The outer edge ($r=1$) traverses the unit circle. Two "radial" edges (at $\theta=0$ and $\theta=1$) are the same segment traversed in opposite directions and cancel. The inner edge ($r=0$) is a degenerate cell — a constant map to the origin.
+
+So $\partial c$ is essentially just the unit circle, traversed counterclockwise.
+</Callout>
+
+The degenerate inner cell integrates to zero (integrating over a single point gives zero), which is why it doesn't contribute.
+
+</SlideLayout>

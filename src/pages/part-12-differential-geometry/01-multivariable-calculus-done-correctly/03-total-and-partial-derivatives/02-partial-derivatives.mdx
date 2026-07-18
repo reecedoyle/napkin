@@ -1,0 +1,37 @@
+---
+title: Partial derivatives defined
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Partial derivatives defined">
+
+Pick a basis $\mathbf{e}_1, \dots, \mathbf{e}_n$ for $V$.
+The projection principle gives a dual basis $\mathbf{e}_1^\vee, \dots, \mathbf{e}_n^\vee$ for $V^\vee$,
+so we can write
+
+$$
+Df = \psi_1 \mathbf{e}_1^\vee + \cdots + \psi_n \mathbf{e}_n^\vee
+$$
+
+for some scalar functions $\psi_i \colon U \to \mathbb{R}$.
+What are the $\psi_i$?
+
+<Callout kind="definition" title="Partial derivative">
+The **$i$-th partial derivative** of $f \colon U \to \mathbb{R}$ is the function
+$$
+\frac{\partial f}{\partial \mathbf{e}_i}(p)
+\;=\; \lim_{t \to 0} \frac{f(p + t\mathbf{e}_i) - f(p)}{t}.
+$$
+It measures how $f$ changes when we move only in the $\mathbf{e}_i$ direction.
+</Callout>
+
+One can check: if $(Df)_p$ exists, then $(Df)_p(\mathbf{e}_i) = \dfrac{\partial f}{\partial \mathbf{e}_i}(p)$.
+So the coordinate functions of $Df$ are exactly the <Term k="partialDerivative">partial derivatives</Term>:
+
+$$
+\boxed{Df = \frac{\partial f}{\partial \mathbf{e}_1} \cdot \mathbf{e}_1^\vee + \cdots + \frac{\partial f}{\partial \mathbf{e}_n} \cdot \mathbf{e}_n^\vee.}
+$$
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: From the fundamental theorem to curves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From the fundamental theorem to curves">
+
+The familiar fundamental theorem of calculus says: if $f = df/dt$, then
+
+$$\int_{[a,b]} f(t)\, dt = g(b) - g(a)$$
+
+where $g$ is a function with $g' = f$. We can rephrase this using the exterior derivative $d$ from the previous chapter:
+
+$$\int_{[a,b]} dg = g(b) - g(a).$$
+
+So we already know how to integrate 1-forms over an interval $[a,b]$. The question is: **what if we want to integrate over a curve in a higher-dimensional space?**
+
+Let $U$ be an open subset of a finite-dimensional real vector space $V$, and let $\alpha\colon U \to V^\vee$ be a 1-form. We want to integrate $\alpha$ along a <Term k="parametrizedCurve">**parametrized curve**</Term> $c\colon [a,b] \to U$.
+
+<Callout kind="remark" title="Goal">
+Define $\int_c \alpha$ so that it "adds up all the values of $\alpha$ along the curve $c$."
+</Callout>
+
+The form $\alpha$ takes a point $p$ and a tangent vector $v \in V$ and returns a real number $\alpha_p(v)$. As $t$ ranges over $[a,b]$, the curve $c$ sweeps through $U$ with tangent vector $c'(t)$ at each moment — so the integrand "wants" to be $\alpha_{c(t)}(c'(t))$, a real number for each $t$.
+
+</SlideLayout>

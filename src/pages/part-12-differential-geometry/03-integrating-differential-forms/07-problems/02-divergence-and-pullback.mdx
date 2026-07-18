@@ -1,0 +1,27 @@
+---
+title: Problems — divergence and pullback commuting with d
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — divergence and pullback commuting with d">
+
+<Problem
+  client:load
+  id="stk-prob-divergence-form"
+  difficulty="standard"
+  prompt="Let F: R^3 -> R^3 be a vector field. The associated 2-form is alpha = F1 e2v^e3v + F2 e3v^e1v + F3 e1v^e2v. Show that d(alpha) = (dF1/dx + dF2/dy + dF3/dz) e1v^e2v^e3v, completing the correspondence between 18.02 divergence notation and Napkin notation."
+  hint="Compute d(alpha) by differentiating each component and wedging. Use that ei^ei = 0 and that the only non-vanishing 3-form on R^3 is e1v^e2v^e3v."
+  solution="d(alpha) = dF1^e2v^e3v + dF2^e3v^e1v + dF3^e1v^e2v. Expanding dFi = (dFi/dx)e1v + (dFi/dy)e2v + (dFi/dz)e3v and using antisymmetry, only the terms where the new index matches the missing one in each 2-form survive: (dF1/dx)e1v^e2v^e3v + (dF2/dy)e2v^e3v^e1v + (dF3/dz)e3v^e1v^e2v. Reordering gives (dF1/dx + dF2/dy + dF3/dz)e1v^e2v^e3v."
+/>
+
+<Problem
+  client:load
+  id="stk-prob-pullback-d-commute"
+  difficulty="standard"
+  prompt="Let phi: U -> U' be smooth. Prove that pullback and exterior derivative commute: phi*(d(alpha)) = d(phi*(alpha)) for any differential form alpha on U'."
+  hint="This is a straightforward but somewhat lengthy computation. Write alpha in a basis, compute both sides, and compare. Use the chain rule for d(phi_i)."
+  solution="Write alpha = sum f_I dw_I in a basis. Then phi*(alpha) = sum (f_I composed with phi)(D(phi_i1)^...^D(phi_ik)). Apply d to both sides. On the right, d(phi*(alpha)) differentiates f_I composed phi via the chain rule: d(f_I composed phi) = sum_j (df_I/dw_j composed phi) D(phi_j). On the left, phi*(d(alpha)) = phi*(sum df_I ^ dw_I). Expanding and applying the pullback definition gives the same expression: sum_I sum_j (df_I/dw_j composed phi) D(phi_j) ^ D(phi_i1) ^ ... ^ D(phi_ik)."
+/>
+
+</SlideLayout>

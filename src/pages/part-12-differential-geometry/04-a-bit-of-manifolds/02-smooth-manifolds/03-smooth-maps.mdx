@@ -1,0 +1,30 @@
+---
+title: Smooth maps between manifolds
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Smooth maps between manifolds">
+
+With smooth manifolds in hand, we can define what it means for a map between them to be smooth.
+
+<Callout kind="definition" title="Smooth function">
+A continuous function $f \colon M \to \mathbb{R}$ is **smooth** if for every chart $\phi_i \colon U_i \to E_i$, the composition
+$$E_i \xrightarrow{\phi_i^{-1}} U_i \hookrightarrow M \xrightarrow{f} \mathbb{R}$$
+is smooth as a function $E_i \to \mathbb{R}$.
+</Callout>
+
+More generally, a <Term k="smoothMap">**smooth map**</Term> $f \colon M \to N$ between two smooth manifolds is one where, in every pair of charts (one on $M$, one on $N$), the coordinate expression of $f$ is smooth as a map between Euclidean spaces.
+
+The pattern is always the same: **pick charts, write everything in coordinates, demand smoothness there**. The smooth transition maps guarantee this is chart-independent.
+
+<ProofReveal
+  client:load
+  id="mfd-sm-proof-smooth-fn-example"
+  prompt="Show that if M = ℝⁿ (with its standard atlas), 'smooth function M → ℝ' in the manifold sense agrees with the usual calculus definition."
+  solution="The standard atlas on ℝⁿ has one chart: the identity map φ = id. So the coordinate expression of f is f ∘ id⁻¹ = f itself. Smoothness in the manifold sense requires this to be smooth as a map ℝⁿ → ℝ — which is exactly the usual definition."
+/>
+
+</SlideLayout>

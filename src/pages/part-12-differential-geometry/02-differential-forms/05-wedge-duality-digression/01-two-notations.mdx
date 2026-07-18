@@ -1,0 +1,20 @@
+---
+title: Two notations for the same space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Two notations for the same space">
+
+We defined a $k$-form's value at $p$ as an element of $\bigwedge^k(V^\vee)$. There's an alternative: one could use $(\bigwedge^k V)^\vee$ instead. For finite-dimensional $V$ these are canonically isomorphic, but they differ in convenience.
+
+**Why $\bigwedge^k(V^\vee)$ is nicer:** The wedge product of two forms is natural. If $\alpha \in \bigwedge^j(V^\vee)$ and $\beta \in \bigwedge^k(V^\vee)$, we define $\alpha \wedge \beta \in \bigwedge^{j+k}(V^\vee)$ directly.
+
+**Why $(\bigwedge^k V)^\vee$ is harder:** An element $f \in (\bigwedge^k V)^\vee$ simply evaluates as $f(v_1 \wedge \cdots \wedge v_k)$. But if we try to wedge $f \in (\bigwedge^1 V)^\vee$ with $g \in (\bigwedge^1 V)^\vee$ to get something in $(\bigwedge^2 V)^\vee$, the naive attempt $(v \wedge w \mapsto f(v)g(w))$ is **not well-defined**: it assigns different values to $\mathbf{e}_1 \wedge \mathbf{e}_2$ and $-\mathbf{e}_2 \wedge \mathbf{e}_1$, which are equal in $\bigwedge^2 V$.
+
+<Callout kind="remark" title="The upshot">
+We work with $\bigwedge^k(V^\vee)$ throughout. The isomorphism with $(\bigwedge^k V)^\vee$ exists and is used in the evaluation formula (via the <Term k="alternationMap">alternation map</Term>), but $\bigwedge^k(V^\vee)$ is the more convenient home for differential forms.
+</Callout>
+
+</SlideLayout>

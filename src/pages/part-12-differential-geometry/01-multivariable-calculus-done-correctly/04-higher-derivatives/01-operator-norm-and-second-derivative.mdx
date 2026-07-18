@@ -1,0 +1,40 @@
+---
+title: Higher derivatives — the second derivative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Higher derivatives — the second derivative">
+
+We have $Df \colon U \to \operatorname{Hom}(V, W)$.
+To differentiate $Df$ itself, we need $\operatorname{Hom}(V,W)$ to be a normed vector space.
+
+<Callout kind="definition" title="Operator norm">
+For a linear map $T \colon V \to W$, the **operator norm** is
+$$
+\|T\| \;\defeq\; \sup\!\left\{ \frac{\|T(v)\|_W}{\|v\|_V} \;\middle|\; v \neq 0_V \right\}.
+$$
+This makes $\operatorname{Hom}(V,W)$ a normed vector space.
+</Callout>
+
+With this norm in place, we can differentiate $Df \colon U \to \operatorname{Hom}(V,W)$
+to get the **second total derivative**
+
+$$
+D^2f \colon U \to \operatorname{Hom}(V, \operatorname{Hom}(V,W)).
+$$
+
+And iterating: $D^k f \colon U \to \operatorname{Hom}(V, \operatorname{Hom}(V, \cdots \operatorname{Hom}(V,W)\cdots))$.
+
+Using the natural isomorphism $\operatorname{Hom}(V,W) \cong V^\vee \otimes W$,
+we can write this more cleanly as
+
+$$
+D^k f \colon U \to (V^\vee)^{\otimes k} \otimes W.
+$$
+
+For $k=2$, $W=\mathbb{R}$: $D^2 f(p) \in (V^\vee)^{\otimes 2}$,
+which can be represented as an $n \times n$ matrix — the <Term k="hessian">Hessian</Term>.
+
+</SlideLayout>

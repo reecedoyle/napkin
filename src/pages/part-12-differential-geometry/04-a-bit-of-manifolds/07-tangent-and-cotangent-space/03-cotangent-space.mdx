@@ -1,0 +1,25 @@
+---
+title: The cotangent space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cotangent space">
+
+There is an even more algebraic way to describe the tangent space — one that generalises beautifully to algebraic geometry.
+
+Define the **maximal ideal** at $p$:
+$$\mathfrak{m}_p = \{ f \in C^\infty(M) \mid f(p) = 0 \}.$$
+
+A derivation $D$ at $p$ satisfies $D(1_M) = 0$ and $D(fg) = 0$ whenever $f(p) = g(p) = 0$. This means $D$ factors through the quotient <Term k="maximalIdealGerm">$\mathfrak{m}_p$</Term> and vanishes on $\mathfrak{m}_p^2 = \{ \sum_i f_i g_i \mid f_i(p) = g_i(p) = 0 \}$ (functions vanishing to second order).
+
+So a tangent vector is really a linear map $\mathfrak{m}_p / \mathfrak{m}_p^2 \to \mathbb{R}$.
+
+<Callout kind="definition" title="Cotangent space">
+The <Term k="cotangentSpace">**cotangent space**</Term> at $p$ is $T_p^*(M) = \mathfrak{m}_p / \mathfrak{m}_p^2$. The tangent space $T_p(M)$ is the dual of the cotangent space.
+</Callout>
+
+For $M \subset \mathbb{R}^n$ open and $p = 0$, one shows that $\mathfrak{m}_0 / \mathfrak{m}_0^2 \cong \mathbb{R}^n$ via $f \mapsto \nabla f(0)$. So $T_p^*(M)$ has basis $dx_1|_p, \dots, dx_n|_p$ — the differentials of the coordinate functions. This confirms that the cotangent space is the natural home for differential forms.
+
+</SlideLayout>

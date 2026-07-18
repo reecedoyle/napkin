@@ -1,0 +1,28 @@
+---
+title: The alternation map and the isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The alternation map and the isomorphism">
+
+The isomorphism $\bigwedge^k(V^\vee) \cong (\bigwedge^k V)^\vee$ passes through the tensor algebra. Let $T^k(V) = V^{\otimes k}$.
+
+There is a natural injection $\phi \colon T^k(V^\vee) \hookrightarrow (T^k V)^\vee$ sending
+$$\phi(\xi_1 \otimes \cdots \otimes \xi_k)(v_1 \otimes \cdots \otimes v_k) = \xi_1(v_1)\cdots\xi_k(v_k).$$
+Both sides have dimension $(\dim V)^k$, so $\phi$ is an isomorphism.
+
+To pass to the wedge quotient, we use the <Term k="alternationMap">**alternation map**</Term>:
+
+<Callout kind="definition" title="Alternation map">
+For $f = f_1 \otimes \cdots \otimes f_k \in T^k(V)$, define
+$$\operatorname{Alt}(f) = \frac{1}{k!}\sum_{\sigma \in S_k} \operatorname{sgn}(\sigma)\,(f_{\sigma(1)} \otimes \cdots \otimes f_{\sigma(k)}).$$
+</Callout>
+
+The alternation map picks a canonical antisymmetric representative in each equivalence class under the wedge relations. For example in $\mathbb{R}^2$:
+$$\operatorname{Alt}(\mathbf{e}_1 \otimes \mathbf{e}_2) = \frac{\mathbf{e}_1 \otimes \mathbf{e}_2 - \mathbf{e}_2 \otimes \mathbf{e}_1}{2}.$$
+
+Composing the maps through the tensor algebra gives the isomorphism $\bigwedge^k(V^\vee) \xrightarrow{\sim} (\bigwedge^k V)^\vee$. A corrective factor of $k!$ appears: the natural determinant formula gives $\frac{1}{2}$ where we want $1$, so we scale by $k!$ when converting between the two notations.
+
+</SlideLayout>

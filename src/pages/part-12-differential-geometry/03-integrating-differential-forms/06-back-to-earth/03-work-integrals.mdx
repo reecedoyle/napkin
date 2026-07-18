@@ -1,0 +1,30 @@
+---
+title: Work integrals and 1-forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Work integrals and 1-forms">
+
+In $\RR^3$, a vector field $\mathbf{F}\colon \RR^3 \to \RR^3$ has components $\mathbf{F}(p) = F_1(p)\mathbf{e}_1 + F_2(p)\mathbf{e}_2 + F_3(p)\mathbf{e}_3$.
+
+The 18.02 <Term k="workIntegral">**work integral**</Term> along a curve $\mathbf{r}(t)$ is:
+
+$$\int_{t_0}^{t_1} \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\, dt.$$
+
+**Translation to Napkin:** identify $\mathbf{F}$ with the 1-form
+
+$$\alpha_p = F_1(p)\,\mathbf{e}_1^\vee + F_2(p)\,\mathbf{e}_2^\vee + F_3(p)\,\mathbf{e}_3^\vee.$$
+
+The curve $\mathbf{r}(t)$ parametrizes a 1-cell $c\colon [t_0,t_1]\to\RR^3$. Then the dot product $\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)$ is exactly $\alpha_{c(t)}(c'(t))$, the <Term k="pullback">pullback</Term> $c^\ast\alpha$ evaluated at $t$.
+
+$$\int_{t_0}^{t_1}\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\, dt = \int_c \alpha.$$
+
+<Callout kind="remark">
+The dot product $\mathbf{F}(p)\cdot v$ is exactly $\alpha_p(v)$ under the identification $\mathbf{e}_i \leftrightarrow \mathbf{e}_i^\vee$ (using the standard inner product on $\RR^3$ to identify vectors with covectors). In $\RR^n$ with the standard norm, this identification is canonical.
+</Callout>
+
+The same translation works in $\RR^2$: $\mathbf{F}\colon\RR^2\to\RR^2$ becomes $\alpha = F_1\,\mathbf{e}_1^\vee + F_2\,\mathbf{e}_2^\vee$, and work is $\int_c\alpha$.
+
+</SlideLayout>

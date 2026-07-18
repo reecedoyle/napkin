@@ -1,0 +1,22 @@
+---
+title: Transition maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Transition maps">
+
+Let $M$ be a topological $n$-manifold with atlas $\{U_i \xrightarrow{\phi_i} E_i\}$. When two charts overlap — $U_i \cap U_j \neq \varnothing$ — we need a way to pass between them.
+
+<Callout kind="definition" title="Transition map">
+For charts $\phi_i: U_i \to E_i$ and $\phi_j: U_j \to E_j$ with $U_i \cap U_j \neq \varnothing$, the <Term k="transitionMap">**transition map**</Term> is
+$$\phi_{ij} \colon \phi_i(U_i \cap U_j) \xrightarrow{\phi_i^{-1}} U_i \cap U_j \xrightarrow{\phi_j} \phi_j(U_i \cap U_j).$$
+It is a homeomorphism between open subsets of $\mathbb{R}^n$.
+</Callout>
+
+In plain language: the transition map tells you how to convert coordinates from chart $i$ to chart $j$ on their overlap. On $S^1$ covered by two arcs, the two transition maps are just coordinate changes on the two ends where the arcs overlap.
+
+The key point: each $\phi_i$ and $\phi_j$ land in $\mathbb{R}^n$, so $\phi_{ij}$ is a map between open subsets of $\mathbb{R}^n$. This is where we know how to talk about smoothness.
+
+</SlideLayout>

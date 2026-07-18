@@ -1,0 +1,25 @@
+---
+title: Differential k-forms — formal definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Differential k-forms — formal definition">
+
+We're now ready to make the picture rigorous. Fix a real vector space $V$ of dimension $n$, and let $U \subseteq V$ be an open set. Recall that the <Term k="exteriorPower">exterior power</Term> $\bigwedge^k(V^\vee)$ is a vector space whose elements are the antisymmetric multilinear functionals on $k$ vectors in $V$.
+
+<Callout kind="definition" title="Differential k-form">
+A <Term k="diffKForm">**differential $k$-form**</Term> $\alpha$ on $U$ is a smooth map
+$$\alpha \colon U \to \bigwedge^k(V^\vee).$$
+We write $\alpha_p$ for $\alpha(p)$, so $\alpha_p \in \bigwedge^k(V^\vee)$.
+</Callout>
+
+The low-dimensional cases match our pictures:
+- $k = 0$: $\bigwedge^0(V^\vee) \cong \mathbb{R}$, so a 0-form is just a function $U \to \mathbb{R}$.
+- $k = 1$: $\bigwedge^1(V^\vee) = V^\vee$, so a 1-form is a smooth function $U \to V^\vee$.
+- $k = 2$: $\alpha_p \in V^\vee \wedge V^\vee$ takes two vectors and returns a signed area.
+
+The phrase "smooth map into $\bigwedge^k(V^\vee)$" means: if we write $\alpha$ in coordinates, each component function is infinitely differentiable.
+
+</SlideLayout>

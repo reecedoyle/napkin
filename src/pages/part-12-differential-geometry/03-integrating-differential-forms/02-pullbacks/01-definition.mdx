@@ -1,0 +1,22 @@
+---
+title: Pullbacks — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pullbacks — definition">
+
+Let $V$ and $V'$ be finite-dimensional real vector spaces with open subsets $U \subseteq V$ and $U' \subseteq V'$. Given a smooth map $\phi\colon U \to U'$ and a $k$-form $\alpha$ on $U'$, we want to construct a $k$-form $\phi^\ast\alpha$ on $U$.
+
+There is essentially one thing we can do: $\alpha$ needs a point in $U'$ and $k$ tangent vectors in $V'$. We have a point $p \in U$ and $k$ tangent vectors $v_1,\dots,v_k \in V$. The map $\phi$ sends $p \mapsto \phi(p)$, and the derivative $(D\phi)_p$ sends each $v_i$ to a vector in $V'$.
+
+<Callout kind="definition" title="Pullback">
+Given $\phi\colon U \to U'$ and a $k$-form $\alpha$ on $U'$, the <Term k="pullback">**pullback**</Term> $\phi^\ast\alpha$ is the $k$-form on $U$ defined by
+
+$$(\phi^\ast\alpha)_p(v_1,\dots,v_k) \;\defeq\; \alpha_{\phi(p)}\!\left((D\phi)_p(v_1),\,\dots,\,(D\phi)_p(v_k)\right).$$
+</Callout>
+
+In words: evaluate $\alpha$ at the image point $\phi(p)$, feeding it the derivatives $(D\phi)_p(v_i)$ of the tangent vectors. The derivative $(D\phi)_p\colon V \to V'$ is a linear map, so it "pushes" tangent vectors forward even while $\phi^\ast$ "pulls" forms back.
+
+</SlideLayout>

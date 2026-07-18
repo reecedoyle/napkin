@@ -1,0 +1,36 @@
+---
+title: Example — area of a circle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Example — area of a circle">
+
+Let's compute the area of a disk of radius $R$ using our machinery.
+
+Take $V = \RR^2$, the 2-cell $c\colon (r,\theta)\mapsto (r\cos\theta)\mathbf{e}_1 + (r\sin\theta)\mathbf{e}_2$ on $[0,R]\times[0,2\pi]$, and the <Term k="volumeForm">volume form</Term> $\alpha_p = \mathbf{e}_1^\vee\wedge\mathbf{e}_2^\vee$.
+
+Computing the pullback:
+
+$$c^\ast\alpha = (\cos\theta\, dr - r\sin\theta\, d\theta)\wedge(\sin\theta\, dr + r\cos\theta\, d\theta)$$
+$$= r(\cos^2\theta+\sin^2\theta)\,(dr\wedge d\theta) = r\, dr\wedge d\theta.$$
+
+Therefore:
+
+$$\int_c \alpha = \int_0^R\int_0^{2\pi} r\, dr\, d\theta = \pi R^2.$$
+
+<Callout kind="remark">
+The factor $r$ in $c^\ast\alpha = r\, dr\wedge d\theta$ is the **Jacobian** of polar coordinates — the standard change-of-variables factor. The pullback machinery gives it automatically.
+</Callout>
+
+<NumericInput
+  client:load
+  id="stk-cells-num-area-unit-disk"
+  prompt="Using the formula above with R = 1, what is ∫_c α (the area of the unit disk)? Give your answer as a multiple of π, e.g. enter '3.14159…' or 'π' — here just give the coefficient of π."
+  expected="1"
+  hint="Set R = 1 in πR²."
+/>
+
+</SlideLayout>

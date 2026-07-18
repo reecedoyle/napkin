@@ -1,0 +1,24 @@
+---
+title: Smooth manifolds — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smooth manifolds — definition">
+
+Transition maps between chart domains land in $\mathbb{R}^n$, so we know exactly what it means for them to be smooth (infinitely differentiable). We use this to promote a topological manifold to a smooth one.
+
+<Callout kind="definition" title="Smooth manifold">
+A topological $n$-manifold $M$ is a <Term k="smoothManifold">**smooth manifold**</Term> if all its <Term k="transitionMap">transition maps</Term> $\phi_{ij}$ are smooth as maps between open subsets of $\mathbb{R}^n$.
+</Callout>
+
+This is clean because smoothness of a map between Euclidean spaces is already well-defined. We are not adding structure on top of the manifold — we are choosing an atlas whose overlaps are compatible in a smooth way.
+
+<Callout kind="remark" title="Why this is the right setup">
+Once we have smooth manifolds, we can port over definitions from $\mathbb{R}^n$. Any definition that makes sense locally (on each chart) and is compatible across overlaps (using the smooth transition maps) extends to all of $M$.
+</Callout>
+
+All the standard examples — spheres, tori, real projective spaces, $\mathbb{R}^n$ itself — carry natural smooth structures.
+
+</SlideLayout>

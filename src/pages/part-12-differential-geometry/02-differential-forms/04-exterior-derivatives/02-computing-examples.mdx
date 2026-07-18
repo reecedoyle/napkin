@@ -1,0 +1,27 @@
+---
+title: Computing exterior derivatives
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Computing exterior derivatives">
+
+Let $V = \mathbb{R}^3$ with standard coordinates $x, y, z$ (so $dx, dy, dz$ are the dual basis 1-forms).
+
+<Callout kind="example" title="d of a function">
+Let $f(x, y, z) = x^4 + y^3 + 2xz$. Then
+$$df = (4x^3 + 2z)\,dx + 3y^2\,dy + 2x\,dz.$$
+This is a 1-form. The coefficients are exactly the partial derivatives of $f$.
+</Callout>
+
+<Callout kind="example" title="d of a 1-form, and d² = 0">
+Now compute $d(df) = d^2 f$:
+$$d^2 f = (12x^2\,dx + 2\,dz) \wedge dx + (6y\,dy) \wedge dy + 2\,(dx \wedge dz).$$
+Using $dx \wedge dx = 0$ (any form wedged with itself is zero) and $dy \wedge dy = 0$:
+$$d^2 f = 2\,(dz \wedge dx) + 2\,(dx \wedge dz) = 2\,(dz \wedge dx) - 2\,(dz \wedge dx) = 0.$$
+</Callout>
+
+The $d^2 f = 0$ calculation used symmetry of mixed partials: $\frac{\partial^2 f}{\partial x \partial z} = \frac{\partial^2 f}{\partial z \partial x}$. The antisymmetry of $\wedge$ makes these equal-and-opposite terms cancel.
+
+</SlideLayout>
