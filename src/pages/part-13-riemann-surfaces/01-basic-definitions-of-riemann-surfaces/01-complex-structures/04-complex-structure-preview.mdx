@@ -1,0 +1,22 @@
+---
+title: Towards complex structure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Towards complex structure">
+
+Real $n$-manifolds are built from patches of $\RR^n$. But $\RR^n$ carries more than just a smooth structure — it also carries an **analytic structure**, because smooth functions on $\RR^n$ can be power-series expanded. Complex analysis takes this one step further.
+
+<Callout kind="remark" title="Key fact">
+Every holomorphic function is analytic — it equals its own Taylor series everywhere it is defined. This is much stronger than the real case, where smooth functions need not be analytic (e.g. $e^{-1/x^2}$ extended by $0$ at $x=0$).
+</Callout>
+
+This rigidity is exactly what we want for Riemann surfaces. The definition will ask that all transition maps be **analytic** (i.e. holomorphic), giving us a **complex structure** on the space. The complex-analytic world is much more rigid — and much richer — than the smooth world.
+
+<Callout kind="remark" title="The moral">
+A Riemann surface is a smooth real $2$-manifold which locally looks like $\CC$, equipped with a complex-analytic structure. The analyticity of transition maps is what makes a Riemann surface more than just a smooth surface.
+</Callout>
+
+</SlideLayout>

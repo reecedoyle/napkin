@@ -1,0 +1,24 @@
+---
+title: "Line bundle isomorphism and what comes next"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Line bundle isomorphism and what comes next">
+
+<Callout kind="definition" title="Isomorphism of line bundles">
+Two line bundles $L_1$ and $L_2$ over $X$ are <Term k="rs52lineBundleIso">isomorphic</Term> if there exist line bundle morphisms $\alpha \colon L_1 \to L_2$ and $\beta \colon L_2 \to L_1$ with $\beta \circ \alpha = \mathrm{id}_{L_1}$ and $\alpha \circ \beta = \mathrm{id}_{L_2}$.
+
+Equivalently: $\alpha$ is an isomorphism if and only if its local scaling function $f$ is analytic and **everywhere nonzero** on each chart overlap.
+</Callout>
+
+We showed that the Möbius-type bundle over $\mathbb{C}_\infty$ (built with transition function $(y, z) \mapsto y/z$) is not isomorphic to the trivial bundle: the transition function $1/z$ has a pole at $z = 0$, and no analytic nonzero function on $\mathbb{C} \setminus \{0\}$ can absorb it into the trivial transition function $1$.
+
+**What comes next?** Line bundles over $X$ form a group under tensor product — the **Picard group** $\mathrm{Pic}(X)$. There is also a deep connection between line bundles and **linearly equivalent divisors**: the divisor of a section of a line bundle is well-defined up to linear equivalence. Both threads lead naturally into algebraic geometry.
+
+<Callout kind="remark" title="Relation to invertible sheaves">
+Line bundles over a Riemann surface (or algebraic curve) correspond bijectively to **invertible sheaves** — rank-1 locally free sheaves of $\mathcal{O}_X$-modules. The sheaf language, developed in the algebraic geometry section, is the natural generalization of everything in this chapter.
+</Callout>
+
+</SlideLayout>

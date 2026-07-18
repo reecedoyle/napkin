@@ -1,0 +1,24 @@
+---
+title: Compact Riemann surfaces and degree
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Compact Riemann surfaces and degree">
+
+The Riemann sphere $\CC_\infty$ is compact — it is a closed, bounded surface. Compact Riemann surfaces enjoy especially nice properties.
+
+Here is a striking one: for a holomorphic map between compact Riemann surfaces, every point in the target has exactly the same number of preimages, counted with multiplicity.
+
+<Callout kind="proposition" title="Constant fiber size">
+Let $X$ and $Y$ be compact Riemann surfaces, and let $f \colon X \to Y$ be holomorphic and not constant. For each point $y \in Y$, let $d_y$ be the total multiplicity of points in the preimage $f^{-1}(y)$.
+
+Then $d_y$ is well-defined and constant — it takes the same value for every $y \in Y$.
+</Callout>
+
+<Callout kind="definition" title="Degree of a map">
+The constant value $d_y$ above is called the <Term k="rs48degreeMap">degree</Term> of the map $f$, written $\deg(f)$.
+</Callout>
+
+</SlideLayout>

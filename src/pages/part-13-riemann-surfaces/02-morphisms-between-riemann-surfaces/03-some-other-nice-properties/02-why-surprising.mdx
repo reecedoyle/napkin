@@ -1,0 +1,25 @@
+---
+title: Why constant degree is surprising
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why constant degree is surprising">
+
+This proposition might seem obvious — after all, a polynomial of degree $k$ has $k$ roots counted with multiplicity. But it fails badly for smooth maps!
+
+<Callout kind="example" title="Smooth maps can have variable fiber sizes">
+Consider a smooth map $f \colon X \to Y$ between compact smooth real 1-manifolds (circles). We can draw such a map as a curve in a plane — and it is easy to construct examples where:
+
+- Above one point, the fiber is empty (no preimages).
+- Above another point, there is exactly one preimage.
+- Above another point, there are two preimages.
+- Above yet another point, infinitely many preimages (if $f$ is constant on an interval).
+
+No such pathology is possible for holomorphic maps between compact Riemann surfaces.
+</Callout>
+
+The key reason it works in the holomorphic setting is the identity theorem: a nonconstant holomorphic map cannot be locally constant on any open set. This forces the fiber count to be locally constant, and then connectedness forces it to be globally constant.
+
+</SlideLayout>

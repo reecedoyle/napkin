@@ -1,0 +1,37 @@
+---
+title: Example — the non-holomorphic form z̄ dz
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Example — the non-holomorphic form z̄ dz">
+
+Here is a subtler example: $\ol{z}\,dz$. The form is written as $f(z)\,dz$ with $f(z) = \ol{z}$.
+
+Since $f(z) = \ol{z}$ is **smooth** (infinitely differentiable as a real map) but **not holomorphic**, this form is:
+- <Term k="rs50type10">Type $(1,0)$</Term>: yes, because it is written as $f(z)\,dz$
+- Holomorphic: no, because $f = \ol{z}$ is not holomorphic
+
+<Callout kind="remark" title="The distinction between type and holomorphicity">
+Both $2z\,dz$ and $\ol{z}\,dz$ are type $(1,0)$ — they share the same "rotation behavior." But only $2z\,dz$ is holomorphic, because only its coefficient $2z$ is holomorphic.
+
+Type $(1,0)$ is a broader class: it only requires the coefficient $f$ to be smooth. Holomorphic forms are the type $(1,0)$ forms with a holomorphic coefficient.
+</Callout>
+
+<MCQ
+  client:load
+  id="rs50-s2-mcq-type-classification"
+  prompt="Which of the following is a type (1,0) form but NOT holomorphic?"
+  options={[
+    { id: "a", label: "dz" },
+    { id: "b", label: "2z dz" },
+    { id: "c", label: "z̄ dz" },
+    { id: "d", label: "d(z̄)" },
+  ]}
+  correct="c"
+  explanation="z̄ dz is type (1,0) because it has the form f(z) dz, but z̄ is not holomorphic (its Cauchy–Riemann equations fail), so the form is not holomorphic. By contrast, dz and 2z dz are holomorphic forms. The form d(z̄) = dRe − i dIm is type (0,1), not (1,0)."
+/>
+
+</SlideLayout>

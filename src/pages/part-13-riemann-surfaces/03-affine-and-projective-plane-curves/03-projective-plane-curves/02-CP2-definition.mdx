@@ -1,0 +1,25 @@
+---
+title: The projective plane ℂℙ²
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The projective plane ℂℙ²">
+
+Following the same template as $\mathbb{CP}^1$:
+
+<Callout kind="definition" title="ℂℙ²">
+<Term k="rs49CP2">$\mathbb{CP}^2$</Term> is the quotient $(\mathbb{C}^3 \setminus \{0\}) / {\sim}$ where $(x,y,z) \sim (\lambda x, \lambda y, \lambda z)$ for $\lambda \in \mathbb{C}^{\times}$. A point is written $[x : y : z]$.
+</Callout>
+
+**Three affine charts.** The map $\phi_i$ "normalises" by dividing by the $i$-th coordinate:
+$$\phi_0([x:y:z]) = (y/x,\; z/x), \quad \text{domain } U_0 = \{x \neq 0\}$$
+$$\phi_1([x:y:z]) = (x/y,\; z/y), \quad \text{domain } U_1 = \{y \neq 0\}$$
+$$\phi_2([x:y:z]) = (x/z,\; y/z), \quad \text{domain } U_2 = \{z \neq 0\}$$
+
+Each $\phi_i$ maps $U_i \xrightarrow{\sim} \mathbb{C}^2$: the open set where the $i$-th coordinate is nonzero is isomorphic to the affine plane. These three patches cover all of $\mathbb{CP}^2$ (every point has at least one nonzero coordinate).
+
+**Embedding $\mathbb{C}^2 \hookrightarrow \mathbb{CP}^2$.** Via $\phi_2^{-1}$: the affine point $(z,w) \mapsto [z : w : 1]$. The "points at infinity" are those with $z = 0$, forming a copy of $\mathbb{CP}^1$.
+
+</SlideLayout>

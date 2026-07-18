@@ -1,0 +1,21 @@
+---
+title: Why Hausdorff and second-countable?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why Hausdorff and second-countable?">
+
+The definition of a Riemann surface requires the underlying topological space to be **Hausdorff** and **second-countable**. These are mild technical conditions that rule out pathological spaces.
+
+**Hausdorff** means distinct points can be separated by disjoint open sets. Without it, limits of sequences may fail to be unique — a nuisance when doing analysis.
+
+**Second-countable** means the topology has a countable base. This ensures the space isn't "too large": in particular, any cover has a countable subcover, and partition-of-unity arguments work.
+
+<Callout kind="remark">
+In practice, every Riemann surface you will encounter — open subsets of $\CC$, the Riemann sphere, algebraic curves over $\CC$ — satisfies both conditions automatically. The conditions are there to exclude spaces that nobody wants to study, not to restrict genuine examples.
+</Callout>
+
+The **connected** requirement is also conventional. A disconnected space with a complex structure is just a disjoint union of Riemann surfaces, one for each connected component. We focus on connected spaces so that theorems about holomorphic functions have clean statements.
+
+</SlideLayout>

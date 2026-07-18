@@ -1,0 +1,25 @@
+---
+title: Why analytic transition maps?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Why analytic transition maps?">
+
+The requirement that transition maps be analytic is what distinguishes a Riemann surface from a smooth real $2$-manifold. But why analytic rather than just smooth?
+
+In complex analysis, **holomorphic = analytic**: every holomorphic function equals its Taylor series locally. So asking for analytic transition maps and asking for holomorphic transition maps are the same thing.
+
+<Callout kind="remark">
+On $\RR$, smooth $\ne$ analytic: the function $e^{-1/x^2}$ (extended by $0$ at $x=0$) is smooth but not analytic at $0$. So the complex world is fundamentally more rigid — and this rigidity is what makes the global theorems about Riemann surfaces so powerful.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="rs47-rs-proof-analytic-rigid"
+  prompt="Why does analyticity of transition maps make holomorphicity of functions on a Riemann surface well-defined?"
+  solution="A function f : X → ℂ is holomorphic if, in every local chart φᵢ, the composition f ∘ φᵢ⁻¹ is holomorphic on Eᵢ ⊆ ℂ. For this to be consistent between overlapping charts i and j, we need: f ∘ φᵢ⁻¹ holomorphic ⟺ f ∘ φⱼ⁻¹ holomorphic. This is exactly true when the transition map φⱼ ∘ φᵢ⁻¹ is analytic (holomorphic), because a composition of holomorphic functions is holomorphic. If the transition maps were only smooth (not analytic), the notion of 'holomorphic on X' would break down — a function could be holomorphic in one chart but fail to be holomorphic in an overlapping chart."
+/>
+
+</SlideLayout>

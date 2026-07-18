@@ -1,0 +1,26 @@
+---
+title: Why compact Riemann surfaces are special
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why compact Riemann surfaces are special">
+
+The theory gets even nicer on **compact** Riemann surfaces. Here are three striking facts:
+
+<Callout kind="theorem" title="Rigidity of compact Riemann surfaces">
+Let $X$ and $Y$ be Riemann surfaces with $Y$ compact.
+
+1. Any meromorphic function $f \colon X \to Y$ must in fact be holomorphic — defined at every point of $X$.
+2. If $X$ itself is compact, any holomorphic function $f \colon X \to \CC$ is **constant**.
+3. If $X$ is compact and $g \colon X \to \CC$ is meromorphic, then $g$ has exactly as many zeros as poles (counted with multiplicity).
+</Callout>
+
+These feel surprising at first. Why can't a holomorphic function on a compact Riemann surface escape to infinity? Because there is nowhere to go — the space is bounded in a topological sense, and holomorphic functions are too rigid to create a new maximum.
+
+<Callout kind="remark" title="Intuition">
+$\CC$ is not compact: it is like the Riemann sphere with one point ($\infty$) removed. By adding that point back, meromorphic functions (which had poles — blowups to $\infty$) can be extended to honest holomorphic functions into the completed sphere.
+</Callout>
+
+</SlideLayout>

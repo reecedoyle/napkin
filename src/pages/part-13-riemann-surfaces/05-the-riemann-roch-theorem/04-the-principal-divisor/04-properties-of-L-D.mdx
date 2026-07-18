@@ -1,0 +1,28 @@
+---
+title: Basic properties of L(D)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Basic properties of L(D)">
+
+Three key facts about <Term k="rs51LDspace">$L(D)$</Term> on a compact Riemann surface $X$:
+
+<Callout kind="proposition" title="Properties of L(D)">
+1. If $D_1 \leq D_2$, then $L(D_1) \subseteq L(D_2)$.
+2. $L(0) \cong \CC$ — the only meromorphic functions with no poles are constants.
+3. If $\deg D < 0$, then $L(D) = \{0\}$.
+</Callout>
+
+Properties (1) and (3) are exercises to build your intuition for the $\Div(f) \geq -D$ notation.
+
+<ProofReveal
+  client:load
+  id="rs51-pd-proof-L0"
+  prompt="Why does L(0) ≅ ℂ on a compact Riemann surface? (Hint: what does Div(f) ≥ 0 say about poles?)"
+  solution="If Div(f) ≥ 0 = −D, then ord_p(f) ≥ 0 for all p, meaning f has no poles anywhere on X. A meromorphic function on a compact Riemann surface with no poles is holomorphic everywhere, hence bounded. By Liouville's theorem (in the compact Riemann surface form), such f must be constant. So L(0) consists only of constants — that is, L(0) ≅ ℂ as a complex vector space."
+/>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: The genus of a Riemann surface
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The genus of a Riemann surface">
+
+Before stating the theorem we need one more ingredient: the **genus** of the surface.
+
+<Callout kind="definition" title="Genus">
+The <Term k="rs51genus">genus</Term> $g$ of a compact Riemann surface $X$ is its topological "number of holes." More precisely, as a topological surface, $X$ is homeomorphic to a sphere with $g$ handles attached.
+</Callout>
+
+| Surface | Genus $g$ |
+|---|---|
+| Riemann sphere $\CC_\infty$ | $0$ |
+| Torus (complex elliptic curve) | $1$ |
+| Double torus | $2$ |
+
+The genus is the single number that governs how the dimension $\dim L(D)$ deviates from what you would naively expect. On the sphere ($g = 0$), the Riemann-Roch formula reduces to a clean formula; on higher-genus surfaces, there is a correction that grows with $g$.
+
+</SlideLayout>

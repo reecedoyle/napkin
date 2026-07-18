@@ -1,0 +1,28 @@
+---
+title: "The vector space structure on fibers"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The vector space structure on fibers">
+
+The fiber above each point $p \in X$ is a **$1$-dimensional $\mathbb{C}$-vector space**. That means we can add two elements in the same fiber and get another element in the same fiber.
+
+Concretely: if $a, b \in L$ satisfy $\pi(a) = \pi(b) = p$, then $a + b$ is well-defined in $\pi^{-1}(p)$.
+
+This is the reason a **non-$\mathbb{C}$-linear** change of fiber coordinates breaks the structure: if we rescale by $|y|^{0.7}$ instead of a linear function of $y$, then $(a + b)$ gets a different fiber coordinate than $a + b$ should have. The result no longer satisfies the vector space axioms in a way that is consistent across charts.
+
+<Callout kind="remark" title="Analytic structure">
+Even though a section of a nontrivial bundle need not be a function, we can still say when a section is **analytic**: check it in any bundle chart, using the analytic structure on $\mathbb{C}$ for the fiber direction and the analytic structure on $X$ for the base direction. If all charts give an analytic map, the section is analytic.
+</Callout>
+
+<NumericInput
+  client:load
+  id="rs52-viz-num-fiber-dimension"
+  prompt="The fiber of a line bundle above each point p ∈ X is isomorphic to ℂ^n as a ℂ-vector space. What is n?"
+  expected="1"
+/>
+
+</SlideLayout>

@@ -1,0 +1,37 @@
+---
+title: Examples — check your understanding
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Examples — check your understanding">
+
+<MCQ
+  client:load
+  id="rs47-ex-mcq-which-is-rs"
+  prompt="Which of the following is NOT a Riemann surface?"
+  options={[
+    { id: "a", label: "ℂ itself (the whole complex plane)" },
+    { id: "b", label: "The open unit disk {z ∈ ℂ : |z| < 1}" },
+    { id: "c", label: "The disjoint union of two copies of ℂ" },
+    { id: "d", label: "The complex torus ℂ/ℤ[i]" },
+  ]}
+  correct="c"
+  explanation="The disjoint union of two copies of ℂ has a complex atlas but is not connected — and the definition of a Riemann surface requires connectedness. All of ℂ, the open unit disk, and the complex torus ℂ/ℤ[i] are connected Riemann surfaces."
+/>
+
+<NumericInput
+  client:load
+  id="rs47-ex-num-sphere-charts"
+  prompt="The standard complex atlas on the Riemann sphere uses how many charts?"
+  expected="2"
+/>
+
+<Callout kind="remark" title="Prototype">
+The Riemann sphere and connected open subsets of $\CC$ are the two most important prototypes. The sphere is the unique compact Riemann surface of genus $0$. Open subsets of $\CC$ are the basic non-compact examples that require no welding.
+</Callout>
+
+</SlideLayout>

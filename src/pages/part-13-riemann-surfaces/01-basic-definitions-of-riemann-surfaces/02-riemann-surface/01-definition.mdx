@@ -1,0 +1,29 @@
+---
+title: Riemann surface — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Riemann surface — definition">
+
+We have seen that a Riemann surface should be a space locally homeomorphic to $\CC$ with analytic transition maps. Here is the precise definition.
+
+<Callout kind="definition" title="Riemann surface">
+A <Term k="rs47riemannSurface">**Riemann surface**</Term> $X$ is a second-countable connected Hausdorff space together with a <Term k="rs47complexAtlas">complex atlas</Term>: a countable open cover $\{U_i\}$ with homeomorphisms
+$$
+\phi_i \colon U_i \xrightarrow{\cong} E_i \subseteq \CC
+$$
+(each $E_i$ open in $\CC$) such that all <Term k="rs47transitionMap">transition maps</Term>
+$$
+\phi_{ij} \colon \phi_i(U_i \cap U_j) \to \phi_j(U_i \cap U_j), \quad
+\phi_{ij} = \phi_j \circ \phi_i^{-1}
+$$
+are analytic functions.
+</Callout>
+
+Each map $\phi_i$ is called a <Term k="rs47complexChart">**complex chart**</Term>. The atlas gives $X$ its <Term k="rs47complexStructure">**complex structure**</Term>.
+
+Think of the $U_i$ as overlapping patches. On each patch, $\phi_i$ gives a local copy of $\CC$ to do complex analysis in. The transition maps ensure that complex-analytic computations done in one patch are consistent with those in an overlapping patch.
+
+</SlideLayout>

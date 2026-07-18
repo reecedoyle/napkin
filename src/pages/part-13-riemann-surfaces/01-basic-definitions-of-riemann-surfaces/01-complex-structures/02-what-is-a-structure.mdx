@@ -1,0 +1,24 @@
+---
+title: What is a "structure"?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a &quot;structure&quot;?">
+
+Topological manifolds carry a **topological structure**, smooth manifolds carry a **smooth structure**, and complex manifolds carry a **complex structure**. But what does "structure" actually mean?
+
+Think about a **topological structure**. It's just a topology on a set — a collection of open sets. That topology tells you:
+
+- which sets are open or closed,
+- whether a sequence of points converges to a given point,
+- whether a map $f \colon X \to Y$ is continuous.
+
+A local chart $\phi_i \colon U_i \to E_i \subseteq \RR^n$ **respects** the topological structure when it is a homeomorphism — it maps open sets to open sets and its inverse does too.
+
+<Callout kind="remark">
+The same idea applies at every level. A chart respects smooth structure when it is a diffeomorphism. A chart respects complex structure when it is an analytic (holomorphic) map. The transition maps between overlapping charts must respect the same structure, to keep the structure consistent across the whole space.
+</Callout>
+
+</SlideLayout>

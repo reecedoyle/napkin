@@ -1,0 +1,37 @@
+---
+title: The rotation property of type (1,0) forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The rotation property of type (1,0) forms">
+
+We can characterize type $(1,0)$ forms geometrically.
+
+<Callout kind="proposition" title="Rotation characterization">
+A $1$-form $\omega$ is of <Term k="rs50type10">type $(1, 0)$</Term> if and only if, at each point $z$,
+$$\omega_z(i \cdot v) = i \cdot \omega_z(v)$$
+for all tangent vectors $v$. That is: rotating the input direction $90°$ counterclockwise **multiplies the output by $i$**.
+</Callout>
+
+This is well-defined because complex multiplication by $i$ is precisely the $90°$ counterclockwise rotation. For a <Term k="rs50type01">type $(0,1)$</Term> form, the same rotation multiplies the output by $-i$.
+
+The proposition is nontrivial: it says that a holomorphic function $f$ scales every direction the same way, so $f(z)\,dz$ is consistent with the rotation rule. A non-holomorphic coefficient like $\ol{z}$ is still $\RR$-linear but not $\CC$-linear — yet since $d\ol{z}$ carries the $(0,1)$ factor, the form $\ol{z}\,dz$ still satisfies the $(1,0)$ rotation rule overall.
+
+<MCQ
+  client:load
+  id="rs50-s2-mcq-rotation"
+  prompt="For the 1-form dz̄, what is the output when the input direction is rotated 90° counterclockwise (multiplied by i)?"
+  options={[
+    { id: "a", label: "The output is also rotated by i (multiplied by i)" },
+    { id: "b", label: "The output is multiplied by −i" },
+    { id: "c", label: "The output is unchanged" },
+    { id: "d", label: "The output is multiplied by −1" },
+  ]}
+  correct="b"
+  explanation="For d(z̄), we have d(z̄) · (iv) = conjugate of iv = −i · conjugate(v) = −i · (d(z̄) · v). So rotating the input by i multiplies the output by −i. This is the signature of a type (0,1) form."
+/>
+
+</SlideLayout>

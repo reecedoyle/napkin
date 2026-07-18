@@ -1,0 +1,41 @@
+---
+title: Example — the 1-form dz
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Example — the 1-form dz">
+
+The simplest example is <Term k="rs50dz">$dz$</Term>, the form that records the total displacement in $z$.
+
+Recall $dz \cdot v = v$. So:
+- Moving right by $1$: value $= 1$
+- Moving up by $1$ (direction $i$): value $= i$
+- Moving left by $1$: value $= -1$
+- Moving down by $1$: value $= -i$
+
+The quiver diagram for $dz$ looks the **same at every point** — it is translation-invariant. The rightward arrows are labeled $1$ and the upward arrows $i$.
+
+<Callout kind="example" title="Integrating dz along a curve">
+Suppose $c$ moves $2$ units right, then $1$ unit up. Adding the contributions:
+$$\int_c dz = 2 \cdot 1 + 1 \cdot i = 2 + i.$$
+This equals $c(\text{end}) - c(\text{start})$, which is exactly the total change in $z$ — confirming that $\int_c dz$ is path-independent on $\CC$.
+</Callout>
+
+<MCQ
+  client:load
+  id="rs50-s2-mcq-dz-on-diagonal"
+  prompt="The 1-form dz evaluated on the tangent vector v = 1 + i (unit step diagonally up-right) gives:"
+  options={[
+    { id: "a", label: "1 + i" },
+    { id: "b", label: "1 − i" },
+    { id: "c", label: "2" },
+    { id: "d", label: "i" },
+  ]}
+  correct="a"
+  explanation="Since dz · v = v for every tangent vector v, we get dz · (1 + i) = 1 + i. The form dz is the identity functional — it returns the direction you move."
+/>
+
+</SlideLayout>

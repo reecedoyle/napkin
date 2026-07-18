@@ -1,0 +1,26 @@
+---
+title: Examples of affine plane curves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of affine plane curves">
+
+Here are three affine plane curves of increasing complexity.
+
+<Callout kind="example" title="The parabola w = z²">
+The polynomial $f(z,w) = w - z^2$ gives the parabola. Check: $\partial f/\partial w = 1 \neq 0$ everywhere. So the curve is smooth and the chart $\phi(z,w) = z$ covers everything. This Riemann surface is isomorphic to $\mathbb{C}$ itself via $(z,w) \mapsto z$.
+</Callout>
+
+<Callout kind="example" title="The circle z² + w² = 1">
+The polynomial $f(z,w) = z^2 + w^2 - 1$. The gradient vanishes only when $z = w = 0$, but $(0,0)$ is not on the circle (since $f(0,0) = -1 \neq 0$). So the circle is a smooth affine plane curve. Its complex Riemann surface turns out to be isomorphic to the hyperbola $zw = 1$, which is $\mathbb{C} \setminus \{0\}$.
+</Callout>
+
+<Callout kind="example" title="The elliptic curve w² = z³ - z">
+The polynomial $f(z,w) = w^2 - z^3 + z$. Computing: $\partial f/\partial w = 2w$ and $\partial f/\partial z = -3z^2 + 1$. At a potential singular point, $w = 0$ and $3z^2 = 1$, so $z = \pm 1/\sqrt{3}$. But $f(z, 0) = -z^3 + z = z(1-z^2) \neq 0$ at $z = \pm 1/\sqrt{3}$ — so all singular candidates are not actually on the curve. This <Term k="rs49ellipticCurve">**elliptic curve**</Term> is smooth.
+</Callout>
+
+The elliptic curve is the first example that is genuinely new: it is not isomorphic to $\mathbb{C}$ or $\mathbb{C} \setminus \{0\}$, even allowing deletion of finitely many points.
+
+</SlideLayout>

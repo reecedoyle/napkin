@@ -1,0 +1,27 @@
+---
+title: The rigidity of complex manifolds
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The rigidity of complex manifolds">
+
+A complex $n$-manifold is a smooth real $2n$-manifold, but with much more structure. The analytic transition maps make complex manifolds far more rigid than their smooth counterparts.
+
+One way to feel this: in smooth geometry, you can deform the metric freely; in complex geometry, the complex structure imposes constraints that prevent many deformations.
+
+<Callout kind="remark" title="An analogy">
+Compare $\RR^n$ (smooth geometry) and $\CC^n$ (complex geometry). Both have the same underlying topology, but $\CC^n$ has Cauchy–Riemann equations constraining its functions. A holomorphic function on $\CC^n$ determined by its values on a tiny open set is determined everywhere — there is no "bump function" trick that works for holomorphic functions.
+</Callout>
+
+This rigidity is a feature, not a bug. It means that global objects on complex manifolds — holomorphic functions, meromorphic functions, line bundles — are far more constrained and therefore far more classifiable.
+
+<NumericInput
+  client:load
+  id="rs47-cm-num-real-dim"
+  prompt="A complex 3-manifold is a smooth real manifold of real dimension ___."
+  expected="6"
+/>
+
+</SlideLayout>

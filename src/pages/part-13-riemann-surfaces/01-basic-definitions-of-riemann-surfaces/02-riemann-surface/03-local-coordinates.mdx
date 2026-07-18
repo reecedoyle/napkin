@@ -1,0 +1,22 @@
+---
+title: Local coordinates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Local coordinates">
+
+A complex chart $\phi \colon U \to \CC$ gives each point $x \in U$ a complex number $z = \phi(x)$ that we call its <Term k="rs47localCoordinate">**local coordinate**</Term>. Working in local coordinates lets us treat the patch $U$ as an open subset of $\CC$ and apply all of complex analysis there.
+
+<Callout kind="definition" title="Centered coordinate">
+A local coordinate $z = \phi(x)$ on $U$ is <Term k="rs47centeredCoordinate">**centered at $p$**</Term> if $\phi(p) = 0$ — so the point $p$ itself maps to the origin in $\CC$.
+</Callout>
+
+Centered coordinates are convenient for local expansions (power series around a given point) and for defining orders of zeros and poles.
+
+**Example.** On the Riemann sphere $\CC_\infty$, the chart $\phi_1$ (stereographic projection from the north pole) gives a coordinate centered at the south pole $S$, since $\phi_1(S) = 0$. For any point $p$ with $\phi_1(p) = 4$, we say its local coordinate under $\phi_1$ is $z = 4$. Under the other chart $\phi_2$, the same point has local coordinate $t = \phi_2(p) = \frac{1}{4}$.
+
+The two local coordinates are related by the transition map $t = 1/z$ — which is analytic on $\CC \setminus \{0\}$, exactly as required.
+
+</SlideLayout>

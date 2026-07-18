@@ -1,0 +1,29 @@
+---
+title: Example — hyperelliptic curves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — hyperelliptic curves">
+
+<Callout kind="example" title="Hyperelliptic curves of all genera">
+Let $x_1, \dots, x_{2k+1} \in \mathbb{C}$ be distinct. The affine curve
+$$f(z,w) = w^2 - (z - x_1)(z - x_2) \cdots (z - x_{2k+1})$$
+has degree $2k+1$ in $z$ and degree 2 in $w$.
+
+Its homogenisation is:
+$$g(x,y,z) = y^2 z^{2k-1} - (x - x_1 z)(x - x_2 z) \cdots (x - x_{2k+1} z)$$
+
+The zero set in $\mathbb{CP}^2$ is a compact Riemann surface of <b>genus $k$</b>.
+</Callout>
+
+Taking $k = 1$ gives the elliptic curve (genus 1). Taking $k = 2$ gives a genus-2 surface. And so on.
+
+<Callout kind="remark" title="All genera appear">
+By choosing different values of $k$, we get compact Riemann surfaces of every genus $k \geq 1$. Combined with the Riemann sphere (genus 0), this shows that compact Riemann surfaces of every genus exist and can be realised as smooth projective plane curves (or covers of them).
+</Callout>
+
+The key point: <Term k="rs49hyperellipticCurve">**hyperelliptic curves**</Term> give explicit polynomial equations for compact Riemann surfaces of all genera. They are the first large family of examples.
+
+</SlideLayout>

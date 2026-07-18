@@ -1,0 +1,40 @@
+---
+title: Complex structure on ℂℙ¹
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Complex structure on ℂℙ¹">
+
+We want to give $\mathbb{CP}^1$ the structure of a Riemann surface. The textbook definition uses two charts:
+
+<Callout kind="definition" title="Complex structure of ℂℙ¹">
+Let $U_1 = \{[x:y] \in \mathbb{CP}^1 : x \neq 0\}$ and $U_2 = \{[x:y] : y \neq 0\}$. Define:
+$$\phi_1 \colon U_1 \to \mathbb{C}, \quad \phi_1([x:y]) = y/x$$
+$$\phi_2 \colon U_2 \to \mathbb{C}, \quad \phi_2([x:y]) = x/y$$
+These are well-defined (the ratio is unchanged by scaling) and together cover $\mathbb{CP}^1$.
+</Callout>
+
+The transition map on $U_1 \cap U_2$ (where both $x,y \neq 0$) is:
+$$\phi_2 \circ \phi_1^{-1}(w) = 1/w$$
+This is holomorphic on $\mathbb{C}^{\times}$, so the charts are compatible.
+
+**Where do these charts come from?** They are exactly the affine curves $x = 1$ and $y = 1$ embedded in $\mathbb{CP}^1$. The chart $\phi_1$ records $y/x$, which is the $y$-coordinate on the affine line $x = 1$. This is not the only choice — you could use $x + y = 1$ and $x - y = 1$ just as well.
+
+<MCQ
+  client:load
+  id="rs49-proj-line-mcq-transition"
+  prompt="The transition map between the two charts on ℂℙ¹ is φ₂ ∘ φ₁⁻¹(w) = 1/w. Why must we remove w = 0 from its domain?"
+  options={[
+    { id: "a", label: "Because 1/w is not defined at w = 0" },
+    { id: "b", label: "Because [x:y] with y/x = 0 means y = 0, but U₂ requires y ≠ 0" },
+    { id: "c", label: "Because the charts must overlap on a connected set" },
+    { id: "d", label: "Both (a) and (b) — they describe the same geometric fact" },
+  ]}
+  correct="d"
+  explanation="When w = y/x = 0, we have y = 0. But U₂ requires y ≠ 0, so [x:0] is not in U₂. Algebraically, 1/w is also undefined at w = 0. These are two ways of saying the same thing: the overlap U₁ ∩ U₂ is exactly where both x ≠ 0 and y ≠ 0, corresponding to w ≠ 0."
+/>
+
+</SlideLayout>

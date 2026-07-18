@@ -1,0 +1,35 @@
+---
+title: Examples of morphisms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of morphisms">
+
+Here are two basic examples.
+
+<Callout kind="example" title="Two morphisms">
+- The function $f \colon \CC \to \CC$ given by $f(z) = z^3$ is a <Term k="rs48morphism">morphism</Term>. It is holomorphic at every point of $\CC$ in the standard charts.
+
+  Note that $f$ is not bijective: at each point $p \neq 0$ there is a neighborhood on which $f$ has an inverse, but at $0$ no inverse exists.
+
+- The embedding $\CC \hookrightarrow \CC_\infty$ of the complex plane into the <Term k="rs48riemannSphere">Riemann sphere</Term> is a morphism. It sends every finite $z \in \CC$ to itself in $\CC_\infty = \CC \cup \{\infty\}$.
+</Callout>
+
+<MCQ
+  client:load
+  id="rs48-def-mcq-morphism-check"
+  prompt="Which map is NOT a morphism of Riemann surfaces?"
+  options={[
+    { id: "a", label: "z ↦ z² on ℂ" },
+    { id: "b", label: "z ↦ eᶻ on ℂ" },
+    { id: "c", label: "z ↦ |z| on ℂ" },
+    { id: "d", label: "The inclusion ℂ ↪ ℂ∞" },
+  ]}
+  correct="c"
+  explanation="z ↦ |z| is real-valued and not complex-differentiable — it fails the Cauchy-Riemann equations at every point. The other three maps are all holomorphic (and hence morphisms): z² and eᶻ are holomorphic on all of ℂ, and the inclusion ℂ ↪ ℂ∞ is holomorphic by the definition of the Riemann sphere's atlas."
+/>
+
+</SlideLayout>

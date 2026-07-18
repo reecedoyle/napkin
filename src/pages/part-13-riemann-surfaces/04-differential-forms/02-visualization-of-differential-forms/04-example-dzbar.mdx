@@ -1,0 +1,27 @@
+---
+title: Example — the non-holomorphic form d(z̄)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — the non-holomorphic form d(z̄)">
+
+Now consider <Term k="rs50dzbbar">$d\ol{z}$</Term>, which records the change in $\ol{z}$ (the complex conjugate). Since $\ol{z} = \Re z - i\,\Im z$, we have:
+$$d\ol{z} = d\Re - i\,d\Im.$$
+
+Computing its values on the coordinate directions:
+- Rightward ($v = 1$): $d\ol{z} \cdot 1 = 1$
+- Upward ($v = i$): $d\ol{z} \cdot i = -i$
+
+Notice that $d\ol{z} \cdot i = -i$, but $i \cdot (d\ol{z} \cdot 1) = i \cdot 1 = i$. We get $-i \neq i$.
+
+<Callout kind="remark" title="What breaks for d(z̄)">
+For $dz$, rotating the input direction by $90°$ multiplied the output by $i$. For $d\ol{z}$, it multiplies the output by $-i$.
+
+This is the signature of a <Term k="rs50type01">type $(0,1)$ form</Term>: rotating the input by $90°$ counterclockwise scales the output by $-i$. The form $d\ol{z}$ is **not** type $(1,0)$ — it cannot be written as $f(z)\,dz$ for any smooth $f$.
+</Callout>
+
+Geometrically, $d\ol{z}$ and $dz$ are "conjugate" forms: where $dz$ sees counterclockwise rotations as multiplying by $i$, $d\ol{z}$ sees them as multiplying by $-i$.
+
+</SlideLayout>

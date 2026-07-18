@@ -1,0 +1,33 @@
+---
+title: The "nice formula" theme
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The 'nice formula' theme">
+
+The sum-of-orders proposition is an instance of a recurring theme in complex analysis and Riemann surface theory.
+
+<Callout kind="remark" title="Recurring theme">
+If the "things" (zeros, poles, preimages) are counted properly — with multiplicity — the formula is very nice. The total count is always the same, regardless of the point chosen.
+</Callout>
+
+This is fundamentally a consequence of holomorphicity: the rigidity of holomorphic maps forces these counts to be globally constant in ways that smooth or continuous maps need not be.
+
+<MCQ
+  client:load
+  id="rs48-orders-mcq-sum"
+  prompt="A nonconstant meromorphic function on a compact Riemann surface has zeros of total order 7. What is the total order of its poles?"
+  options={[
+    { id: "a", label: "0" },
+    { id: "b", label: "7" },
+    { id: "c", label: "−7" },
+    { id: "d", label: "It depends on the surface." },
+  ]}
+  correct="b"
+  explanation="By the sum-of-orders proposition, the sum of all orders (zeros contributing positively, poles contributing negatively) is zero. If the zeros contribute +7, then the poles must contribute −7, so the total order of the poles is 7 (the pole orders sum to 7 in absolute value)."
+/>
+
+</SlideLayout>

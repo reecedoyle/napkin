@@ -1,0 +1,31 @@
+---
+title: 1-forms and contour integration
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="1-forms and contour integration">
+
+The motivation for introducing $1$-forms on $\CC$ is to generalize <Term k="rs50contourIntegral">contour integration</Term>.
+
+In complex analysis, the contour integral $\int_c f(z)\,dz$ integrates the function $f$ along a curve $c$. But what if we want to integrate something more general — not just $f(z)\,dz$, but an arbitrary $1$-form $\omega = f(z)\,d\Re + g(z)\,d\Im$?
+
+<Callout kind="definition" title="Integration of a 1-form over a curve">
+Let $c : [0, 1] \to U$ be a smooth curve and $\omega = f(z)\,d\Re + g(z)\,d\Im$ a $1$-form on $U$. The integral of $\omega$ along $c$ is:
+$$\int_c \omega = \int_0^1 \bigl[f(c(t)) \cdot \Re(c'(t)) + g(c(t)) \cdot \Im(c'(t))\bigr]\,dt.$$
+</Callout>
+
+This recovers the familiar contour integral: if $\omega = f(z)\,dz = f(z)\,d\Re + if(z)\,d\Im$, then
+$$\int_c \omega = \int_0^1 f(c(t))\bigl[\Re(c'(t)) + i\,\Im(c'(t))\bigr]\,dt = \int_0^1 f(c(t))\,c'(t)\,dt,$$
+which is exactly $\int_c f(z)\,dz$.
+
+<ProofReveal
+  client:load
+  id="rs50-s1-proof-dz-recovery"
+  prompt="Verify: if ω = f(z) dz, plugging into the definition gives the usual contour integral ∫_c f(z) dz."
+  solution="Write dz = dRe + i dIm, so ω = f(z) dRe + i f(z) dIm. The integral is ∫₀¹ [f(c(t)) · Re(c′(t)) + i f(c(t)) · Im(c′(t))] dt = ∫₀¹ f(c(t)) [Re(c′(t)) + i Im(c′(t))] dt = ∫₀¹ f(c(t)) c′(t) dt, which is the contour integral ∫_c f(z) dz."
+/>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: ℂℙ¹ is the Riemann sphere
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="ℂℙ¹ is the Riemann sphere">
+
+We have two descriptions of the Riemann sphere:
+- **Old:** $\mathbb{C}_\infty = \mathbb{C} \cup \{\infty\}$, the one-point compactification of $\mathbb{C}$.
+- **New:** $\mathbb{CP}^1 = (\mathbb{C}^2 \setminus \{0\}) / {\sim}$.
+
+They are isomorphic as Riemann surfaces. The isomorphism sends $[x : y] \mapsto x/y \in \mathbb{C}_\infty$, with the convention $[1 : 0] \mapsto \infty$.
+
+<Callout kind="remark" title="Why bother with ℂℙ¹?">
+If we already have the Riemann sphere, why define $\mathbb{CP}^1$? Because $\mathbb{CP}^1$ makes a pattern clear: it is a special case of projective space $\mathbb{CP}^n$. When we generalise to $\mathbb{CP}^2$ in the next section, everything — the quotient construction, the charts, the homogeneous coordinates — works by the same template.
+</Callout>
+
+The two charts $\phi_1([x:y]) = y/x$ and $\phi_2([x:y]) = x/y$ correspond exactly to the stereographic projections from the north and south poles of the Riemann sphere. The "point at infinity" is $[0:1]$ in the first chart's missing point.
+
+**Abstractly:** $\mathbb{CP}^1$ is the unique compact Riemann surface of genus 0. Any other description (Riemann sphere, one-point compactification) gives the same object up to isomorphism.
+
+</SlideLayout>

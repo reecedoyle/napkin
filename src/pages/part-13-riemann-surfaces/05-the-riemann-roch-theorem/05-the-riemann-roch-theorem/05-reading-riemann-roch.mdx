@@ -1,0 +1,26 @@
+---
+title: Reading Riemann-Roch
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Reading Riemann-Roch">
+
+How do we use the Riemann-Roch formula in practice? The key insight is that $\dim L(K - D)$ is often zero, in which case the formula gives <Term k="rs51ellD">$\ell(D)$</Term> exactly.
+
+<Callout kind="proposition" title="When the correction term vanishes">
+If $\deg D > \deg K = 2g - 2$, then $\deg(K - D) < 0$, hence $L(K - D) = \{0\}$ and Riemann-Roch simplifies to:
+
+$$
+\dim L(D) = \deg(D) + 1 - g.
+$$
+</Callout>
+
+So for "large" divisors $D$ — those of degree exceeding $2g - 2$ — the dimension is determined completely by $\deg D$ and $g$. The difficult term $\dim L(K - D)$ only bites for small or negative-degree divisors.
+
+<Callout kind="remark" title="The correction term L(K − D)">
+The term $\dim L(K - D)$ is a measure of the "extra" functions that exist for special reasons — related to the topology of $X$ rather than the combinatorics of $D$. It is zero for generic divisors and nonzero only in special cases. The deeper content of Riemann-Roch is precisely this control.
+</Callout>
+
+</SlideLayout>

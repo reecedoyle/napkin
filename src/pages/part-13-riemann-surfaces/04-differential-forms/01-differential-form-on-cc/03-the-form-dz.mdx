@@ -1,0 +1,38 @@
+---
+title: The 1-form dz
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The 1-form dz">
+
+Why do we care about complex coefficients at all? Because we want a clean way to write <Term k="rs50dz">$dz$</Term>, the $1$-form that records the infinitesimal change in $z$ itself.
+
+Let $z : \CC \to \CC$ denote the identity function $z \mapsto z$. Its total differential measures how $z$ changes as we move in a tangent direction $v$:
+
+$$dz \cdot v = v.$$
+
+Let's compute $dz$ in terms of $d\Re$ and $d\Im$. If $v = a + ib$ is a tangent vector, then:
+$$\Re(v) = a, \qquad \Im(v) = b.$$
+
+So $dz \cdot v = a + ib = d\Re \cdot v + i \cdot d\Im \cdot v$, which gives us:
+
+<Callout kind="definition" title="The standard 1-form dz">
+$$dz = d\Re + i\,d\Im.$$
+More generally, for a holomorphic or smooth function $h$, the $1$-form $dh$ is defined by the rule
+$dh \cdot v = $ (the directional derivative of $h$ in direction $v$).
+</Callout>
+
+The companion form is $d\ol{z} = d\Re - i\,d\Im$, which records the change in $\ol{z}$.
+
+<NumericInput
+  client:load
+  id="rs50-s1-num-dz-on-i"
+  prompt="What is the value of the 1-form dz evaluated on the tangent vector v = i (a unit step in the imaginary direction)?"
+  expected="i"
+  placeholder="a complex number"
+/>
+
+</SlideLayout>

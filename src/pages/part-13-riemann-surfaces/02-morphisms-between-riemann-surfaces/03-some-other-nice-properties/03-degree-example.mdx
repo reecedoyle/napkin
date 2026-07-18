@@ -1,0 +1,28 @@
+---
+title: Degree — an example
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Degree — an example">
+
+<Callout kind="example" title="Power map on ℂ∞">
+The map $z \mapsto z^k$, extended to a map $\CC_\infty \to \CC_\infty$ (sending $\infty \mapsto \infty$), has <Term k="rs48degreeMap">degree</Term> $k$.
+
+For a nonzero $t \neq 0$, the equation $z^k = t$ has exactly $k$ distinct solutions — the $k$-th roots of $t$, each with multiplicity 1. So the total multiplicity of the fiber above $t$ is $k$.
+
+For $t = 0$, the preimage is just $\{0\}$, but $0$ is mapped with multiplicity $k$ (since locally $z^k \approx k z^{k-1} \cdot z$ vanishes to order $k$). So the total multiplicity is still $k$.
+</Callout>
+
+The theme: counted with multiplicity, holomorphic maps are very regular. We will make the notion of multiplicity precise in the next section.
+
+<NumericInput
+  client:load
+  id="rs48-nice-num-degree-z3"
+  prompt="What is the degree of z ↦ z³, extended to a map ℂ∞ → ℂ∞?"
+  expected="3"
+/>
+
+</SlideLayout>

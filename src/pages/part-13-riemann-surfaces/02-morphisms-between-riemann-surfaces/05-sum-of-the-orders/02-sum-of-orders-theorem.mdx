@@ -1,0 +1,28 @@
+---
+title: The sum of orders is zero
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The sum of orders is zero">
+
+<Callout kind="proposition" title="Sum of orders on a compact surface">
+Let $f \colon X \to \CC$ be a nonconstant <Term k="rs48meromorphicFunction">meromorphic function</Term> on a compact Riemann surface $X$. Then
+
+$$\sum_p \operatorname{ord}_p(f) = 0.$$
+
+Here we sum over all $p \in X$, where $\operatorname{ord}_p(f)$ is the <Term k="rs48orderMeromorphic">order of $f$ at $p$</Term>: positive at zeros, negative at poles, zero elsewhere.
+</Callout>
+
+<Callout kind="remark" title="Why compactness is necessary">
+On the noncompact surface $\CC$, there is no such constraint: $f(z) = z$ has one zero and no poles — the zeros outnumber the poles.
+
+Compactness forces the function to "wrap around" and acquire poles at infinity to compensate.
+</Callout>
+
+<Callout kind="remark" title="Proof idea">
+Extend $f$ to a holomorphic map $g \colon X \to \CC_\infty$. The sum of multiplicities above $0$ equals $\deg(g)$, and the sum above $\infty$ also equals $\deg(g)$. The orders of zeros contribute positively and orders of poles contribute negatively, so the total is $\deg(g) - \deg(g) = 0$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: The rigidity of holomorphic functions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The rigidity of holomorphic functions">
+
+Holomorphic functions on ℂ are already remarkably rigid: a function $\CC \to \CC$ is uniquely determined by its Taylor series at the origin. Knowing the function in a tiny neighborhood pins it down everywhere. Yet specifying it still requires infinitely many coefficients $c_0, c_1, c_2, \ldots$.
+
+<Callout kind="remark" title="Liouville's theorem (Riemann sphere form)">
+A holomorphic function <Term k="rs51riemannSphere">$\CC_\infty \to \CC$</Term> is constant. In other words, the $\CC$-vector space of such functions has dimension $1$ — you need just a single complex number to specify it completely.
+</Callout>
+
+So we have two extremes:
+
+- **Holomorphic $\CC \to \CC$:** infinite-dimensional space of functions (one per power series).
+- **Holomorphic $\CC_\infty \to \CC$:** one-dimensional space (only constants).
+
+The Riemann-Roch theorem is the tool that interpolates between these two extremes.
+
+</SlideLayout>

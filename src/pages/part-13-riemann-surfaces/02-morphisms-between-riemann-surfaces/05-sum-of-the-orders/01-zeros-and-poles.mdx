@@ -1,0 +1,25 @@
+---
+title: Zeros and poles of meromorphic functions on ℂ∞
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Zeros and poles of meromorphic functions on ℂ∞">
+
+Let us look at some meromorphic functions extended to $\CC_\infty \to \CC_\infty$, and list their zeros and poles with multiplicity.
+
+<Callout kind="example" title="Four meromorphic functions on ℂ∞">
+| Function | Zeros | Poles |
+|----------|-------|-------|
+| $5$ (constant) | None | None |
+| $(x+1)^2$ | $-1, -1$ | $\infty, \infty$ |
+| $\dfrac{1}{x^2+1}$ | $\infty, \infty$ | $i, -i$ |
+| $\dfrac{x+1}{x+2}$ | $-1$ | $-2$ |
+</Callout>
+
+Observe: in every case, the number of zeros equals the number of poles. The zeros and poles are counted with multiplicity — for instance, $(x+1)^2$ vanishes to order 2 at $-1$ and has a pole of order 2 at $\infty$ (since $(x+1)^2 \sim x^2$ for large $x$).
+
+This pattern is not a coincidence.
+
+</SlideLayout>

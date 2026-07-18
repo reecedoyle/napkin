@@ -1,0 +1,33 @@
+---
+title: More complicated L spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="More complicated L spaces">
+
+There is no reason to restrict poles to $\infty$. We can mix pole and zero constraints at multiple points.
+
+<Callout kind="example" title="L(−1·3 + 4·i + 5·∞)">
+The space $L(-1 \cdot 3 + 4 \cdot i + 5 \cdot \infty)$ consists of meromorphic $f \colon \CC_\infty \to \CC$ satisfying:
+
+- $f$ has a **zero of order at least $1$** at $z = 3$;
+- $f$ has a **pole of order at most $4$** at $z = i$;
+- $f$ has a **pole of order at most $5$** at $z = \infty$.
+
+For instance, $f(z) = (z-3)^3 / (z-i)^2$ belongs to this space, but $f(z) = (z-3)^2 + 1$ does not (no zero at $3$).
+</Callout>
+
+This space is also finite-dimensional. The Riemann-Roch theorem tells us its dimension precisely. For now, notice that multiplying every $f \in L(-1 \cdot 3 + 4 \cdot i + 3 \cdot \infty)$ by $(z-i)^4$ gives a bijection to $L(-1 \cdot 3 + 7 \cdot \infty)$, which consists of polynomials of degree $\leq 7$ with a zero at $3$ — a $7$-dimensional space.
+
+<NumericInput
+  client:load
+  id="rs51-mot-num-dim-L4inf"
+  prompt="What is the dimension of L(n·∞) on the Riemann sphere, for a general n ≥ 0? (Enter the formula evaluated at n = 6, i.e. dim L(6·∞).)"
+  expected="7"
+  explanation="L(n·∞) consists of all polynomials of degree ≤ n, spanned by {1, z, …, zⁿ}. So dim L(n·∞) = n + 1. At n = 6, dim L(6·∞) = 7."
+/>
+
+</SlideLayout>

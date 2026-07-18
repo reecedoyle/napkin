@@ -1,0 +1,18 @@
+---
+title: The identity theorem for Riemann surfaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The identity theorem for Riemann surfaces">
+
+In complex analysis on $\CC$, the identity theorem says that a holomorphic function is completely determined by its values on any convergent sequence — or equivalently, by its values on any open set. The same holds for holomorphic maps between Riemann surfaces.
+
+<Callout kind="theorem" title="Identity theorem">
+Let $f, g \colon X \to Y$ be holomorphic maps between Riemann surfaces, with $X$ connected. If $f = g$ on a nonempty open subset of $X$, then $f = g$ everywhere on $X$.
+</Callout>
+
+The hypothesis that $X$ is connected is essential. The disjoint union of two copies of $\CC$ is a smooth 2-manifold, but it is not connected (and not a Riemann surface by the usual convention), so two maps that agree on one copy but differ on the other would be a counterexample without connectivity.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Divisors — formal definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Divisors — formal definition">
+
+<Callout kind="definition" title="Divisor on a Riemann surface">
+Let $X$ be a Riemann surface. A <Term k="rs51divisor">divisor</Term> $D$ on $X$ is a function $D \colon X \to \ZZ$ that is nonzero on only a discrete (isolated) set of points.
+</Callout>
+
+We write a divisor as a formal integer linear combination $D = \sum_p n_p \cdot p$, where all but finitely many $n_p$ are zero (on a compact surface, discreteness forces finiteness). The set of all divisors forms the <Term k="rs51divisorGroup">group of divisors $\Div(X)$</Term> under pointwise addition.
+
+<Callout kind="example" title="(−3)·i + (−4)·∞ as a divisor">
+The formal expression $(z-i)^{-3} \cdot (z-\infty)^{-4}$ becomes the divisor $D \colon \CC_\infty \to \ZZ$ defined by
+
+$$
+D(z) = \begin{cases} -3 & z = i, \\ -4 & z = \infty, \\ 0 & \text{otherwise.} \end{cases}
+$$
+
+We write this concisely as $D = (-3) \cdot i + (-4) \cdot \infty$.
+</Callout>
+
+By convention, a single point $p \in X$ is identified with the divisor that assigns $1$ to $p$ and $0$ elsewhere. So $(-3) \cdot i$ means the divisor with value $-3$ at $i$ — and the notation is purely additive.
+
+</SlideLayout>

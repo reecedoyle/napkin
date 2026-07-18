@@ -1,0 +1,37 @@
+---
+title: "Compatible charts"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Compatible charts">
+
+Two different-looking grids can represent the **same** line bundle structure.
+
+Consider $U = \{z \in \mathbb{C} \mid |z - 3| < 2\}$, whose real part is the open interval $(1, 5)$.
+
+**Reparametrizing the base.** If we apply the analytic change of coordinate $t = 25/x$ to the interval, the vertical grid lines move. But this only changes how we label points on $X$, not the fiber structure — the two charts are compatible.
+
+**Rescaling the fiber by an analytic function.** If we scale the vertical direction by a function $g(x)$ that is analytic and nonzero on $(1, 5)$, the fiber isomorphism changes, but the underlying line bundle does not.
+
+<Callout kind="remark" title="What is NOT compatible">
+If we rescale the vertical direction by a function that is **not** linear on each fiber — for example, replacing the $y$-coordinate by $|y|^{0.7} \cdot \mathrm{sgn}(y)$ — the vector space structure changes. The two grids no longer represent the same line bundle structure, because adding two fiber elements and then rescaling gives a different answer than rescaling then adding.
+</Callout>
+
+<MCQ
+  client:load
+  id="rs52-viz-mcq-compatible"
+  prompt="Which reparametrization of a line bundle chart produces a compatible (equivalent) chart?"
+  options={[
+    { id: "a", label: "Scaling the fiber direction by a nonzero analytic function." },
+    { id: "b", label: "Replacing each fiber ℂ with ℂ²." },
+    { id: "c", label: "Scaling the fiber by a nonlinear function like |y|^0.7." },
+    { id: "d", label: "Identifying two different fibers with each other." },
+  ]}
+  correct="a"
+  explanation="Scaling every fiber by a nonzero analytic function g(p) is precisely what the transition functions do — it is a ℂ-linear isomorphism on each fiber and analytic in p. Option (c) is nonlinear on fibers so it changes the vector space structure. Options (b) and (d) change the fiber dimension or identification, not just the chart."
+/>
+
+</SlideLayout>

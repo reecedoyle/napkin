@@ -1,0 +1,28 @@
+---
+title: Spaces of functions with bounded poles
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Spaces of functions with bounded poles">
+
+We can now define the "intermediate" spaces that sit between constants and all holomorphic functions on ℂ. The key idea: allow a pole at $\infty$, but cap its order.
+
+<Callout kind="example" title="L(4·∞) on the Riemann sphere">
+Let <Term k="rs51LDspace">$L(4 \cdot \infty)$</Term> be the set of meromorphic $\CC_\infty \to \CC$ functions that are holomorphic everywhere except possibly at $\infty$, with $\ord_\infty(f) \geq -4$.
+
+$$
+L(4 \cdot \infty) = \{ f \text{ meromorphic on } \CC_\infty \mid f \text{ holomorphic on } \CC_\infty \setminus \{\infty\},\ \ord_\infty(f) \geq -4 \}.
+$$
+
+Any $f \in L(4 \cdot \infty)$ has a Laurent series at the origin. Since $f$ is holomorphic at $0$, there are no negative-power terms. And the order-at-$\infty$ condition forces the degree to be at most $4$. So $L(4 \cdot \infty)$ is exactly the polynomials of degree $\leq 4$ — the $\CC$-vector space with basis $\{1, z, z^2, z^3, z^4\}$.
+</Callout>
+
+This is the surprise: an analytic condition (bounded pole at $\infty$) forces a purely algebraic conclusion (polynomial of bounded degree). And:
+
+$$
+\dim L(4 \cdot \infty) = 5.
+$$
+
+</SlideLayout>

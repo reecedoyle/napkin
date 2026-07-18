@@ -1,0 +1,26 @@
+---
+title: The Riemann sphere — transition map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Riemann sphere — transition map">
+
+For $\CC_\infty$ to be a Riemann surface, we need the <Term k="rs47transitionMap">transition map</Term> between $\phi_1$ and $\phi_2$ to be analytic. Let $U = \CC_\infty \setminus \{N, S\}$ be the overlap (the sphere minus both poles).
+
+On $U$, both charts are defined, and the transition map is:
+
+$$
+\phi_{12} = \phi_2 \circ \phi_1^{-1} \colon \phi_1(U) \to \phi_2(U), \qquad \phi_{12}(z) = \frac{1}{z}
+$$
+
+<Callout kind="remark" title="Why z ↦ 1/z?">
+The geometry of stereographic projection from opposite poles gives exactly the inversion map. The minus sign in the embedding of $E_2$ was chosen precisely to make this happen. Without it, one gets $z \mapsto 1/\bar{z}$ (conjugate inversion), which is **not** analytic.
+</Callout>
+
+The map $z \mapsto 1/z$ is analytic on $\CC \setminus \{0\} = \phi_1(U)$. So the transition map is analytic, and $\CC_\infty$ is indeed a Riemann surface — in fact, a compact one.
+
+We can think of the Riemann sphere as the result of welding two copies of $\CC$ together to "fill in" the missing point $\infty$: one copy covers finite $z$, the other covers the neighbourhood of $\infty$ via $t = 1/z$.
+
+</SlideLayout>

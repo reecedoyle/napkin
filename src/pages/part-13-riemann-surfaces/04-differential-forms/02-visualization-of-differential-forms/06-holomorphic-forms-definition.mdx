@@ -1,0 +1,32 @@
+---
+title: Holomorphic 1-forms — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Holomorphic 1-forms — definition">
+
+We have seen that $dz$ and $2z\,dz$ share a special rotation property: moving the input direction by $90°$ counterclockwise multiplies the output by $i$. This is captured by the following definition.
+
+<Callout kind="definition" title="Holomorphic 1-form">
+A $1$-form $\omega$ on an open set $U \subseteq \CC$ is <Term k="rs50holomorphicForm">holomorphic</Term> if and only if it can be written as
+$$\omega = f(z)\,dz$$
+for some holomorphic function $f : U \to \CC$.
+</Callout>
+
+Intuitively: $\omega$ is holomorphic exactly when the coefficient of $dz$ is a holomorphic function. The form "inherits" its analytic quality from $f$.
+
+<Callout kind="remark" title="Why holomorphic?">
+A holomorphic function $f$ has the property that its total derivative is complex-linear (not just real-linear): $D_p f(v) = f'(p) \cdot v$. This means $f$ scales all directions equally, so $df = f'(z)\,dz$ is well-defined. Non-holomorphic smooth functions distinguish real from imaginary directions, producing forms that aren't pure multiples of $dz$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="rs50-s2-proof-holomorphic-check"
+  prompt="Verify that d(z²) = 2z dz is holomorphic by checking that its coefficient is a holomorphic function."
+  solution="The form d(z²) = 2z dz has coefficient f(z) = 2z. This is a polynomial in z, hence holomorphic everywhere on ℂ. The Cauchy–Riemann equations confirm: writing 2z = 2x + 2iy, we get ∂(2x)/∂x = 2 = ∂(2y)/∂y and ∂(2x)/∂y = 0 = −∂(2y)/∂x. So d(z²) is holomorphic."
+/>
+
+</SlideLayout>

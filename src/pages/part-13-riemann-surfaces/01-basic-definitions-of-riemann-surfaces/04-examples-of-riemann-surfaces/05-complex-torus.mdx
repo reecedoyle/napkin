@@ -1,0 +1,22 @@
+---
+title: The complex torus
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The complex torus">
+
+Let $L = \ZZ[i] = \{ a + bi : a, b \in \ZZ \}$ be the <Term k="rs47lattice">Gaussian integer lattice</Term>. This is a discrete additive subgroup of $\CC$.
+
+The <Term k="rs47complexTorus">**complex torus**</Term> $\CC/L$ identifies all complex numbers that differ by a Gaussian integer. Concretely, points in the unit square $[0,1) \times [0,1)$ represent one copy of each equivalence class.
+
+<Callout kind="remark" title="Imagine the unit square with edges glued">
+$\CC/L$ is a square with the top and bottom edges identified, and the left and right edges identified. The result is a surface shaped like a donut — a torus of genus $1$.
+</Callout>
+
+**Complex structure.** The quotient map $\pi \colon \CC \to \CC/L$ is a local homeomorphism. For each point $[z] \in \CC/L$, any small open disk $D \subseteq \CC$ around $z$ maps bijectively to a neighbourhood of $[z]$, giving a complex chart. Transition maps between two such charts differ by $x \mapsto x + a$ for some $a \in L$, which is analytic.
+
+So $\CC/L$ inherits a complex structure from $\CC$ via the quotient. It is compact, so any holomorphic function $f \colon \CC/L \to \CC$ must be constant. Meromorphic functions on $\CC/L$ (the **Weierstrass $\wp$-function** and its relatives) are more interesting and more difficult to construct.
+
+</SlideLayout>

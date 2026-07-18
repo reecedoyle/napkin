@@ -1,0 +1,28 @@
+---
+title: Complex n-manifold — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Complex n-manifold — definition">
+
+A Riemann surface is the $n=1$ case of a broader family. We can define complex manifolds of any dimension by replacing $\CC$ with $\CC^n$.
+
+<Callout kind="definition" title="Complex n-manifold">
+A <Term k="rs47complexManifold">**complex $n$-manifold**</Term> is a Hausdorff space with a countable open cover $\{U_i\}$ and homeomorphisms
+$$
+\phi_i \colon U_i \xrightarrow{\cong} E_i \subseteq \CC^n
+$$
+(each $E_i$ open in $\CC^n$) such that all transition maps $\phi_j \circ \phi_i^{-1}$ are analytic functions $\CC^n \to \CC^n$.
+</Callout>
+
+By analytic here we mean each component of the transition map is holomorphic in all $n$ complex variables — the right notion of analyticity in higher complex dimensions.
+
+<Callout kind="remark" title="Dimension counting">
+A complex $n$-manifold is naturally a smooth **real** $2n$-manifold, because $\CC^n \cong \RR^{2n}$ as a real vector space. Each complex direction contributes two real dimensions. So a Riemann surface (complex $1$-manifold) is a smooth real $2$-manifold, i.e. a smooth surface.
+</Callout>
+
+The extra structure on top of a smooth real $2n$-manifold — the analytic transition maps — is exactly what the complex structure adds.
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Defining multiplicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining multiplicity">
+
+We want a notion of multiplicity that satisfies two axioms:
+
+1. $z \mapsto z^m$ has multiplicity $m$ at $0$.
+2. Multiplicity is invariant under analytic reparametrization of either the source or the target.
+
+These two properties uniquely determine the multiplicity:
+
+<Callout kind="proposition">
+Let $f \colon X \to Y$ be a nonconstant holomorphic map, and let $p \in X$. There is a unique integer $m \geq 1$ such that: for every chart $\phi_2$ on $Y$ centered at $f(p)$ (meaning $\phi_2(f(p)) = 0$), there exists a chart $\phi_1$ on $X$ centered at $p$ such that the induced map
+
+$$\phi_2 \circ f \circ \phi_1^{-1} \colon V_1 \to V_2$$
+
+has the form $z \mapsto z^m$.
+</Callout>
+
+<Callout kind="remark" title="Proof sketch">
+Expand $f$ in a Taylor series: the smallest nonzero term determines $m$. Then one can construct $\phi_1$ accordingly. The exponent $m$ is independent of the choice of chart on $Y$ because any two centered charts differ by a holomorphic reparametrization with nonzero derivative at $0$, which preserves the order of vanishing.
+</Callout>
+
+</SlideLayout>

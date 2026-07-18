@@ -1,0 +1,37 @@
+---
+title: Riemann-Roch on the sphere
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Riemann-Roch on the sphere">
+
+Let us verify the theorem on the simplest case: $X = \CC_\infty$, genus $g = 0$, canonical divisor $K = (-2) \cdot \infty$.
+
+<Callout kind="example" title="D = 4·∞ on the Riemann sphere">
+Take $D = 4 \cdot \infty$. Then:
+
+- $\deg D = 4$.
+- $K - D = (-2) \cdot \infty - 4 \cdot \infty = (-6) \cdot \infty$.
+- $\deg(K - D) = -6 < 0$, so $L(K - D) = \{0\}$ and $\dim L(K - D) = 0$.
+
+Riemann-Roch says:
+
+$$
+\dim L(D) - 0 = 4 + 1 - 0 = 5.
+$$
+
+So $\dim L(4 \cdot \infty) = 5$, confirming our earlier calculation that $L(4 \cdot \infty)$ is spanned by $\{1, z, z^2, z^3, z^4\}$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="rs51-rr-num-sphere"
+  prompt="Using Riemann-Roch on ℂ∞ (g = 0, K = (−2)·∞): what is dim L(7·∞)?"
+  expected="8"
+  explanation="deg D = 7, dim L(K − D) = dim L(−9·∞) = 0 (negative degree). Riemann-Roch: dim L(7·∞) = 7 + 1 − 0 = 8. These are the polynomials of degree ≤ 7, spanned by {1, z, …, z⁷}."
+/>
+
+</SlideLayout>

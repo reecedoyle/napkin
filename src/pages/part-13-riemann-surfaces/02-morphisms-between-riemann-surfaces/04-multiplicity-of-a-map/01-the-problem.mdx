@@ -1,0 +1,24 @@
+---
+title: Why we need multiplicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why we need multiplicity">
+
+We want every fiber to have the same total count — but for that we need to count points with multiplicity. Here is the issue:
+
+<Callout kind="example">
+Consider $f \colon \CC \to \CC$ given by $f(z) = z^5 + 1$.
+
+Above a generic point $y \in \CC$, the fiber $f^{-1}(y)$ has exactly 5 points — the 5 roots of $z^5 = y - 1$.
+
+But above $y = 1$: the fiber is $f^{-1}(1) = \{0\}$, a single point. The equation $z^5 = 0$ has only one solution, $z = 0$.
+</Callout>
+
+We would like to say that $f$ maps "5 identical copies" of $0$ to $1$ — in other words, that $z = 0$ contributes multiplicity 5 to the fiber above $y = 1$.
+
+An equivalent way to see this: for any sequence $y_i \to 1$ with $y_i \neq 1$, there are 5 different sequences $x_i^{(1)}, \ldots, x_i^{(5)}$ each converging to $0$, with $f(x_i^{(j)}) = y_i$. The 5 branches collide at $0$.
+
+</SlideLayout>

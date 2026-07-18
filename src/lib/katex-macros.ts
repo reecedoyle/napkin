@@ -109,4 +109,7 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\ee': '\\mathbf{e}_{#1}',
   '\\fpartial': '\\dfrac{\\partial #1}{\\partial #2}',
   '\\odif': '\\,\\mathrm{d}',
+  '\\Div': '\\operatorname{Div}',
+  '\\deg': '\\operatorname{deg}',
+  '\\mult': '\\operatorname{mult}',
 };

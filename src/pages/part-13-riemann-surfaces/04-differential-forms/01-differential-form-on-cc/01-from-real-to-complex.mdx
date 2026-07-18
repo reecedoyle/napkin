@@ -1,0 +1,24 @@
+---
+title: From real 1-forms to complex 1-forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From real 1-forms to complex 1-forms">
+
+Recall that a <Term k="rs50oneFormR2">1-form on $\RR^2$</Term> assigns, to each point $p$, a linear functional on tangent vectors — something that "eats" a direction and spits out a number. In coordinates, it looks like $f(x,y)\,dx + g(x,y)\,dy$.
+
+On the complex plane $\CC$ we identify points with complex numbers $z = x + iy$, so we think of $\CC \cong \RR^2$. The real and imaginary axes play the roles of $x$ and $y$.
+
+The natural stand-ins for $dx$ and $dy$ on $\CC$ are the functionals $d\Re$ and $d\Im$, which measure the change in the real part and the change in the imaginary part of $z$, respectively.
+
+<Callout kind="definition" title="Differential 1-form on ℂ">
+A <Term k="rs50oneFormCC">$1$-form $\omega$ on an open set $U \subseteq \CC$</Term> is an expression
+$$\omega = f(z)\,d\Re + g(z)\,d\Im$$
+where $f, g : U \to \CC$ are smooth functions (meaning infinitely differentiable when viewed as maps $\RR^2 \to \RR^2$).
+</Callout>
+
+The key novelty: the coefficient functions $f$ and $g$ take **complex** values, whereas in the real setting they were real-valued. We will see shortly why this is natural — and mostly harmless.
+
+</SlideLayout>

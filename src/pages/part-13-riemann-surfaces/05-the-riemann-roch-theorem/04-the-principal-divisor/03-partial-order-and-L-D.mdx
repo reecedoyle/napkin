@@ -1,0 +1,28 @@
+---
+title: Partial order on divisors and the L(D) space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Partial order on divisors and the L(D) space">
+
+We want to say "$f$ has poles no worse than $D$ allows." The right tool is a partial order on divisors.
+
+<Callout kind="definition" title="Partial order on divisors">
+For divisors $D_1, D_2$ on $X$, write <Term k="rs51divisorOrder">$D_1 \geq D_2$</Term> if $D_1(p) \geq D_2(p)$ for all $p \in X$. Write $D \geq 0$ if every coefficient is non-negative.
+</Callout>
+
+<Callout kind="definition" title="The space L(D)">
+Let $D$ be a divisor on a Riemann surface $X$. The space <Term k="rs51LDspace">$L(D)$</Term> of meromorphic functions bounded by $D$ is
+
+$$
+L(D) = \{ f \text{ meromorphic on } X \mid \Div(f) \geq -D \}.
+$$
+
+Equivalently, $f \in L(D)$ iff $\ord_p(f) \geq -D(p)$ for all $p$ — so $f$ can have a pole of order at most $D(p)$ at each $p$, and must have a zero of order at least $-D(p)$ wherever $D(p) < 0$.
+</Callout>
+
+This is a $\CC$-vector space (closed under addition and scalar multiplication). On a compact surface it is finite-dimensional. The central goal of Riemann-Roch is to compute $\dim L(D)$.
+
+</SlideLayout>

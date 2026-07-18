@@ -1,0 +1,22 @@
+---
+title: Meromorphic functions become holomorphic maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Meromorphic functions become holomorphic maps">
+
+Let $X$ be a Riemann surface and $f \colon X \to \CC$ a <Term k="rs48meromorphicFunction">meromorphic function</Term> on $X$. Define $g \colon X \to \CC_\infty$ by
+
+$$g(z) = \begin{cases} f(z) & \text{if } f(z) \neq \infty \\ \infty & \text{if } f(z) = \infty. \end{cases}$$
+
+This $g$ is clearly continuous, since meromorphic functions have isolated poles. But much more is true: $g$ is actually holomorphic everywhere on $X$.
+
+<Callout kind="remark" title="Why g is holomorphic at poles">
+At a point $z_0$ where $f$ has a pole, we need to check holomorphicity in a chart of $\CC_\infty$ near $\infty$. That chart is $t = 1/w$. In this chart, the map $g$ looks like $1/f$, which is holomorphic near $z_0$ (since $1/f$ has a zero where $f$ has a pole). So there is no singularity at all.
+</Callout>
+
+The poles of $f$ have been "plugged" by sending them to the point $\infty \in \CC_\infty$.
+
+</SlideLayout>

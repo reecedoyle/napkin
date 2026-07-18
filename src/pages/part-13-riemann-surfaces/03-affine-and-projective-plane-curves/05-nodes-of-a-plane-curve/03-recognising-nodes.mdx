@@ -1,0 +1,39 @@
+---
+title: Recognising nodes algebraically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Recognising nodes algebraically">
+
+How do we recognise a <Term k="rs49node">node</Term> from the polynomial? Expand $f$ in a Taylor series around the singular point $p = (0,0)$ (translate if needed):
+$$f(x,y) = Q(x,y) + \text{higher-order terms}$$
+where $Q$ is the lowest-degree nonzero homogeneous part. At a <Term k="rs49singularPoint">singular point</Term>, $f(0,0) = 0$ and both first partials vanish, so $Q$ has degree $\geq 2$.
+
+<Callout kind="definition" title="Node criterion">
+A singular point $p$ of $\{f = 0\}$ is a **node** if $Q$ — the degree-2 part of $f$ at $p$ — factors into two distinct linear factors over $\mathbb{C}$:
+$$Q(x,y) = \lambda_1(x,y) \cdot \lambda_2(x,y), \quad \lambda_1 \not\parallel \lambda_2.$$
+The two linear factors give the two tangent directions of the branches.
+</Callout>
+
+**For $f = x^2 - y^2$:** The degree-2 part is $Q = x^2 - y^2 = (x-y)(x+y)$. Two distinct factors. Node confirmed.
+
+**For $f = y^2 - x^3$ (a cusp at origin):** The lowest-degree part is $y^2$ — a perfect square, giving only one tangent direction. Not a node: it is a cusp.
+
+<MCQ
+  client:load
+  id="rs49-node-mcq-which-is-node"
+  prompt="Which of the following has a node (not a cusp) at the origin?"
+  options={[
+    { id: "a", label: "f(x,y) = y² − x³ (cuspidal cubic)" },
+    { id: "b", label: "f(x,y) = y² − x² − x³ (nodal cubic)" },
+    { id: "c", label: "f(x,y) = y² (smooth double line)" },
+    { id: "d", label: "f(x,y) = y − x² (parabola)" },
+  ]}
+  correct="b"
+  explanation="For f = y² − x² − x³: the degree-2 part is y² − x² = (y−x)(y+x), two distinct linear factors. That is a node. For the cuspidal cubic y² − x³, the degree-2 part is just y², a repeated factor — a cusp. For y² the whole polynomial is a repeated factor — not a node. The parabola y − x² has degree 1 at the origin, so the origin is not even a singular point."
+/>
+
+</SlideLayout>

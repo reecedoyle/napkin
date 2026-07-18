@@ -1,0 +1,30 @@
+---
+title: Complex charts on affine curves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Complex charts on affine curves">
+
+The implicit function theorem does more than guarantee smoothness — it hands us local coordinates. These become the <Term k="rs49complexChart">**complex charts**</Term> that make the curve a Riemann surface.
+
+On an open set $U \subseteq X$ where $\frac{\partial f}{\partial z} \neq 0$ everywhere, the curve is locally parametrised by $z = g(w)$, so the map $\phi(z, w) = w$ is a valid complex chart from $U$ to $\mathbb{C}$.
+
+On an open set where $\frac{\partial f}{\partial w} \neq 0$ everywhere, use $\phi(z, w) = z$ instead.
+
+<Callout kind="remark" title="These charts are compatible">
+Where both derivatives are nonzero, the two charts overlap and the transition map is holomorphic — this is what it means for them to define a complex structure.
+</Callout>
+
+**Check on the unit circle.** For $f(z,w) = z^2 + w^2 - 1$, we get $\partial f/\partial z = 2z$ and $\partial f/\partial w = 2w$. At the point $(0, 1)$ we have $\partial f/\partial z = 0$ but $\partial f/\partial w = 2 \neq 0$, so the chart $\phi = z$ works near $(0,1)$. At $(1, 0)$ it's reversed.
+
+<ProofReveal
+  client:load
+  id="rs49-affine-proof-circle-chart"
+  prompt="Verify: at the point (0, 1) on the circle z² + w² = 1, the map φ(z,w) = z is a valid complex chart."
+  solution="At (0, 1): ∂f/∂w = 2w = 2 ≠ 0. By the implicit function theorem, near (0, 1) the curve is parametrised as w = h(z) for an analytic h. So the projection φ(z,w) = z is injective and analytic near (0, 1). It is a valid complex chart."
+/>
+
+</SlideLayout>

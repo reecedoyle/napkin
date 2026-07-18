@@ -1,0 +1,23 @@
+---
+title: Maximal vs finite atlas
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Maximal vs finite atlas">
+
+Two different complex atlases on the same space can give the same complex structure — just as two different sets of coordinates can describe the same geometry. We say two atlases are **compatible** if their union is still a valid atlas (all transition maps between the combined charts are analytic).
+
+<Callout kind="remark" title="Maximal atlas (alternative definition)">
+Some references (e.g. Miranda) define a Riemann surface using a **maximal** complex atlas — one that contains every chart compatible with it. This is a canonical object: any two compatible atlases determine the same maximal atlas.
+
+Our definition (a specific finite or countable atlas) is equivalent and more practical: it is much easier to exhibit two or three charts and verify their transition maps than to describe infinitely many.
+</Callout>
+
+In practice, when showing a space is a Riemann surface, we:
+1. Give an explicit collection of complex charts covering the space.
+2. Verify that each pairwise transition map is analytic.
+
+That's it — the maximal atlas is implicitly defined by compatibility, but we never need to write it down.
+
+</SlideLayout>

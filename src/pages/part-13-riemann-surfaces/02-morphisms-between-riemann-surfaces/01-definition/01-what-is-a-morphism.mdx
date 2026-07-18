@@ -1,0 +1,22 @@
+---
+title: What is a morphism?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a morphism?">
+
+A <Term k="rs48riemannSurface">Riemann surface</Term> carries a complex structure: every point has a neighborhood that looks like an open subset of $\CC$, with holomorphic transition maps between overlapping neighborhoods.
+
+The natural maps to study between Riemann surfaces are the ones that respect this complex structure.
+
+<Callout kind="definition" title="Morphism of Riemann surfaces">
+Let $X$ and $Y$ be <Term k="rs48riemannSurface">Riemann surfaces</Term>. A map $f \colon X \to Y$ is <Term k="rs48holomorphicAtP">holomorphic at $p \in X$</Term> if there exist charts $\phi_1 \colon U_1 \to E_1$ on $X$ with $p \in U_1$ and $\phi_2 \colon U_2 \to E_2$ on $Y$ with $f(p) \in U_2$, such that the composition $\phi_2 \circ f \circ \phi_1^{-1}$ is holomorphic at $\phi_1(p)$.
+
+We say $f$ is a <Term k="rs48morphism">morphism between Riemann surfaces</Term> if it is holomorphic at every point of $X$.
+</Callout>
+
+In plain terms: $f$ is a morphism whenever it looks like an ordinary holomorphic function $\CC \to \CC$ in every compatible pair of local coordinates.
+
+</SlideLayout>

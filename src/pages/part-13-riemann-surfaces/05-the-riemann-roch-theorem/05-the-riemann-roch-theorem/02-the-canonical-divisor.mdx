@@ -1,0 +1,24 @@
+---
+title: The canonical divisor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The canonical divisor">
+
+Riemann-Roch involves not just $D$ but also a "complementary" divisor $K$ — the **canonical divisor**.
+
+<Callout kind="definition" title="Canonical divisor">
+The <Term k="rs51canonicalDiv">canonical divisor</Term> $K$ on a compact Riemann surface $X$ is the divisor associated with the space of holomorphic 1-forms (meromorphic differentials). Its linear equivalence class — the **canonical class** — is an intrinsic invariant of $X$.
+
+A key fact: $\deg K = 2g - 2$, where $g$ is the genus of $X$.
+</Callout>
+
+<Callout kind="example" title="Canonical divisor on the Riemann sphere">
+On $\CC_\infty$ with $g = 0$: $\deg K = 2(0) - 2 = -2$. One choice is $K = (-2) \cdot \infty$. We can verify: $L(K) = L((-2) \cdot \infty)$ requires $\ord_\infty(f) \geq 2$, meaning $f$ vanishes to order $\geq 2$ at $\infty$. No nonzero polynomial can do this, so $L(K) = \{0\}$, and $\dim L(K) = 0$ — consistent with the sphere having only constant holomorphic functions.
+</Callout>
+
+Think of $K - D$ as a "dual" divisor to $D$. Riemann-Roch says the dimensions of $L(D)$ and $L(K - D)$ are related in a precise way.
+
+</SlideLayout>

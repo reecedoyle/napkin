@@ -1,0 +1,23 @@
+---
+title: "Definition — line bundle"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Definition — line bundle">
+
+<Callout kind="definition" title="Line bundle">
+A **line bundle** $L$ over a Riemann surface $X$ is a set together with:
+
+1. A <Term k="rs52projectionMap">projection map</Term> $\pi \colon L \to X$.
+2. An open cover $\{U_i\}$ of $X$.
+3. For each $U_i$, a <Term k="rs52lineBundleChart">line bundle chart</Term> $\phi \colon \pi^{-1}(U_i) \to \mathbb{C} \times U_i$ that restricts to a bijection $\pi^{-1}(p) \to \mathbb{C} \times \{p\}$ for each $p \in U_i$.
+4. For any two open sets $U_1, U_2$, the <Term k="rs52transitionFunction">transition function</Term>
+$$\phi_2 \circ \phi_1^{-1} \colon \mathbb{C} \times (U_1 \cap U_2) \to \mathbb{C} \times (U_1 \cap U_2)$$
+must be a $\mathbb{C}$-vector space isomorphism on each fiber $\mathbb{C} \times \{p\}$, with an analytic scaling factor.
+</Callout>
+
+The dense definition packages two compatible structures: an **analytic** one (charts are holomorphic) and a **$1$-dimensional vector space** one (fibers are copies of $\mathbb{C}$). The transition functions are exactly the glue that welds the local pieces into a coherent global object.
+
+</SlideLayout>

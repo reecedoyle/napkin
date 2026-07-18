@@ -1,0 +1,23 @@
+---
+title: Natural structure via universal property
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Natural structure via universal property">
+
+There is something deeper going on. The set $X = \{f = 0\} \subseteq \mathbb{C}^2$ carries the complex structure we defined. But why is this the *right* structure?
+
+$\mathbb{C}^2$ already has an analytic structure, and $X$ sits inside via the inclusion map $\iota: X \hookrightarrow \mathbb{C}^2$. The complex structure on $X$ is the unique one making $\iota$ analytic and satisfying:
+
+- A map $g: Y \to X$ is analytic if and only if $\iota \circ g: Y \to \mathbb{C}^2$ is analytic.
+- A map $h: X \to Y$ is analytic if and only if $h \circ \iota$ extended locally is analytic.
+
+<Callout kind="remark" title="Categorical perspective">
+This is a universal property: $X$ is the "initial" Riemann surface equipped with an analytic map into $\mathbb{C}^2$ whose image lies in $\{f = 0\}$. In category theory, we study objects by the maps between them — and the inclusion map into $\mathbb{C}^2$ completely determines the complex structure on $X$.
+</Callout>
+
+This is the same philosophy as many constructions you've seen: subspace topology, subgroup, subring. The structure on $X$ is the one induced by the ambient structure via the inclusion.
+
+</SlideLayout>

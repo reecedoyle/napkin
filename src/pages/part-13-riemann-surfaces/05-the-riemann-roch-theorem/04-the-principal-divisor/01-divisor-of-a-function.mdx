@@ -1,0 +1,36 @@
+---
+title: The divisor of a meromorphic function
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The divisor of a meromorphic function">
+
+We now connect divisors back to functions. Given any meromorphic function $f$ on a Riemann surface, its <Term k="rs51principalDiv">divisor $\Div(f)$</Term> records all its zeros and poles.
+
+<Callout kind="definition" title="Divisor of a meromorphic function">
+Let $f$ be meromorphic on a Riemann surface $X$. The divisor of $f$ is the function
+
+$$
+\Div(f)(p) = \ord_p(f)
+$$
+
+for each $p \in X$. Written as a formal sum: $\Div(f) = \sum_p \ord_p(f) \cdot p$.
+</Callout>
+
+<Callout kind="example" title="Prototype">
+For $f(z) = \dfrac{(z-3)^2}{z - i}$ on $\CC_\infty$:
+
+- Zero of order $2$ at $z = 3$: contributes $+2$.
+- Pole of order $1$ at $z = i$: contributes $-1$.
+- Pole of order $1$ at $z = \infty$ (since degree of numerator exceeds denominator by $1$): contributes $-1$.
+
+$$
+\Div(f) = 2 \cdot 3 + (-1) \cdot i + (-1) \cdot \infty.
+$$
+</Callout>
+
+Notice: $\deg \Div(f) = 2 - 1 - 1 = 0$. This is not a coincidence.
+
+</SlideLayout>

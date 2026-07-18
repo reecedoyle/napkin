@@ -1,0 +1,20 @@
+---
+title: Why projective? Compactness
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why projective? Compactness">
+
+Affine plane curves are useful, but they have a serious drawback: they are never compact. The parabola $w = z^2$ and the elliptic curve $w^2 = z^3 - z$ both extend to infinity in $\mathbb{C}^2$.
+
+Compact Riemann surfaces have powerful properties — function theory on them behaves like function theory on a closed bounded domain, not an open one. For instance, Riemann–Roch (which counts meromorphic functions with prescribed poles) only works cleanly in the compact setting.
+
+<Callout kind="remark" title="The fix: work in ℂℙ²">
+Projective plane curves $X \subseteq \mathbb{CP}^2$ are automatically compact. Since $\mathbb{CP}^2$ is compact (it is a continuous image of the unit sphere in $\mathbb{C}^3$) and $X$ is closed in $\mathbb{CP}^2$, $X$ is also compact.
+</Callout>
+
+The idea: start with an affine curve $\{f(z,w) = 0\} \subseteq \mathbb{C}^2$, then "add points at infinity" by embedding $\mathbb{C}^2$ into $\mathbb{CP}^2$. The result is a compact Riemann surface.
+
+</SlideLayout>

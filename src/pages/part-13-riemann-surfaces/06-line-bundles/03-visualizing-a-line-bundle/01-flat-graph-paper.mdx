@@ -1,0 +1,26 @@
+---
+title: "Flat graph paper — the trivial bundle"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Flat graph paper — the trivial bundle">
+
+Start with the simplest case: the <Term k="rs52trivialBundle">trivial line bundle</Term> $\mathbb{C} \times X$ over $X = \mathbb{C}$.
+
+Looking only at real parts, this is just the Cartesian plane: $X$ is a horizontal line and above each point $p \in X$ sits a vertical copy of $\mathbb{R}$ (standing in for $\mathbb{C}$).
+
+The bundle structure adds two things beyond "just a plane":
+
+1. **Vector space structure.** Each vertical fiber carries a marked scale — we can distinguish $0$, $1$, $2$, etc. on each line. Think of each fiber as having its own copy of a ruler, not just a featureless line.
+
+2. **Analytic variation.** The rulers must vary smoothly (analytically) as the base point $p$ moves. Visualize this as horizontal grid lines that are straight: the $y = 1$ grid line connects the "$1$" mark on each fiber continuously across $X$.
+
+Together, the two structures produce the standard grid. On this flat "graph paper," a <Term k="rs52section">section</Term> is exactly a function: the graph of $f(x) = x^2 - 1$ is an analytic section of $\mathbb{C} \times \mathbb{C}$.
+
+<Callout kind="remark" title="Coordinate convention">
+Recall Miranda's convention: the target of a chart is $\mathbb{C} \times U$, so the section graph has coordinate $(y, x)$ — fiber value first, base point second. This is the reverse of the usual $(x, f(x))$ notation for function graphs.
+</Callout>
+
+</SlideLayout>

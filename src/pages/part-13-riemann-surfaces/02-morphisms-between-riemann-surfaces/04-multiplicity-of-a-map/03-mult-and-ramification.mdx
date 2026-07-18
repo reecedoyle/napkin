@@ -1,0 +1,26 @@
+---
+title: Multiplicity, ramification, and branch points
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Multiplicity, ramification, and branch points">
+
+<Callout kind="definition" title="Multiplicity">
+The integer $m$ from the previous slide is the <Term k="rs48multiplicityMap">multiplicity of $f$ at $p$</Term>, written $\mult_p(f)$.
+</Callout>
+
+<Callout kind="example" title="Three examples of multiplicity">
+- The map $z \mapsto z^{-2}$, extended to $\CC \to \CC_\infty$, has $\mult_0(f) = 2$ — two sheets above $\infty$ collapse to $0$.
+- The function $f(z) = (z-1)(z-2)^5$ has $\mult_2(f) = 5$ — more generally, if $p$ is a root of $f$, then $\mult_p(f)$ equals the order of the root.
+- The map $z \mapsto z + 1$ has $\mult_p(f) = 1$ everywhere — no sheet-collapsing occurs.
+</Callout>
+
+<Callout kind="definition" title="Ramification and branch points">
+A point $p \in X$ with $\mult_p(f) > 1$ is called a <Term k="rs48ramificationPoint">ramification point</Term>. Its image $f(p) \in Y$ is called a <Term k="rs48branchPoint">branch point</Term>.
+</Callout>
+
+The moral: every nonconstant holomorphic map locally looks like $z \mapsto z^m$ for some $m \geq 1$. When $m = 1$ the map is a local biholomorphism; when $m > 1$ it wraps $m$ local sheets around the image.
+
+</SlideLayout>

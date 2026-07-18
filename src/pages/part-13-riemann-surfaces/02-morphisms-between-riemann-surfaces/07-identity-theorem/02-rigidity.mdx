@@ -1,0 +1,28 @@
+---
+title: Rigidity of holomorphic maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Rigidity of holomorphic maps">
+
+The identity theorem captures a fundamental property of holomorphic maps: they are extraordinarily <Term k="rs48rigidity">rigid</Term>.
+
+<Callout kind="remark" title="Rigidity of holomorphic maps">
+Holomorphic maps are rigid — the value of a holomorphic map on any tiny open patch of the domain determines its value everywhere on the entire connected surface.
+</Callout>
+
+This is in stark contrast with smooth maps: we can easily construct a smooth function on $\RR$ that is $0$ on $(-\infty, 0]$ and positive on $(0, \infty)$ — the function is determined on $(-\infty, 0]$ but this does not constrain its behavior anywhere else.
+
+For holomorphic maps, there is no such freedom. If you know $f$ on any open set, you know $f$ everywhere. This is why complex analysis, despite being "about functions of a complex variable," ends up with much stronger results than its real counterpart.
+
+<ProofReveal
+  client:load
+  id="rs48-identity-proof-rigid"
+  prompt="Why does knowing f on a small open disk D completely determine f on the whole connected surface X?"
+  solution="The set S = {x ∈ X : f(x) = g(x)} is closed (because f and g are continuous) and open (by the identity theorem for holomorphic functions on ℂ, applied in local charts: if f = g on an open set, their difference is zero on an open set, hence identically zero in that chart, so S is open). Since X is connected and S is nonempty, S = X."
+/>
+
+</SlideLayout>

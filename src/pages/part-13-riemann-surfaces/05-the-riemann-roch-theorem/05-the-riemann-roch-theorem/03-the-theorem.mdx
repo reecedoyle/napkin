@@ -1,0 +1,27 @@
+---
+title: The Riemann-Roch theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Riemann-Roch theorem">
+
+We have all the pieces. Here is the theorem.
+
+<Callout kind="theorem" title="Riemann-Roch">
+Let $X$ be a compact algebraic curve (compact Riemann surface) of genus $g$, let $K$ be a <Term k="rs51canonicalDiv">canonical divisor</Term>, and let $D$ be any divisor on $X$. Then
+
+$$
+\dim L(D) - \dim L(K - D) = \deg(D) + 1 - g.
+$$
+</Callout>
+
+The left side is a difference of two dimensions of spaces of meromorphic functions. The right side depends only on:
+
+- $\deg D$ — a single integer you compute by adding up the coefficients of $D$;
+- the genus $g$ — a topological invariant of $X$.
+
+So Riemann-Roch converts a hard analytic question ("how many independent meromorphic functions satisfy these pole/zero conditions?") into an almost purely algebraic computation.
+
+</SlideLayout>

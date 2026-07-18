@@ -1,0 +1,22 @@
+---
+title: Example — the Riemann sphere in ℂℙ²
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — the Riemann sphere in ℂℙ²">
+
+<Callout kind="example" title="The Riemann sphere as a projective curve">
+Consider $g(x,y,z) = z$, which is homogeneous of degree 1. Its zero set is:
+$$X = \{[x:y:z] \in \mathbb{CP}^2 : z = 0\} = \{[x:y:0]\}$$
+This is exactly $\mathbb{CP}^1$ embedded in $\mathbb{CP}^2$ as the "line at infinity." As a Riemann surface, $X \cong \mathbb{CP}^1$, the Riemann sphere.
+</Callout>
+
+This is a trivial example — we already knew the Riemann sphere. But it demonstrates the mechanism: a degree-1 homogeneous polynomial cuts out a smooth projective curve.
+
+**Smoothness check.** $g(x,y,z) = z$ gives $\partial g/\partial z = 1 \neq 0$ everywhere. So every point of $X$ is smooth.
+
+**Compactness.** The set $\{[x:y:0]\}$ is closed in $\mathbb{CP}^2$ and hence compact — we have compactified the affine line $\{z = 0\} \cap U_2 = \emptyset$ (wait: on $U_2$ we need $z \neq 0$, so the affine part lives in $U_0$ and $U_1$). The projective line has no "missing points at infinity" — it is already compact.
+
+</SlideLayout>

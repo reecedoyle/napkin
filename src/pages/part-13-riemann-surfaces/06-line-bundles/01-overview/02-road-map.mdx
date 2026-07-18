@@ -1,0 +1,36 @@
+---
+title: "Road map"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Road map">
+
+We will build up line bundles in four stages:
+
+1. **Definition** — the formal data: projection map, open cover, bundle charts, and transition functions.
+2. **Visualization** — what a line bundle looks like over $X = \mathbb{C}$ (flat) and over $X = \mathbb{C}_\infty$ (where the Möbius-strip twist appears).
+3. **Morphisms** — maps that respect the bundle structure, giving us a notion of isomorphism.
+4. **Relation to sheaves** — sections of a line bundle form the model for what sheaf theory calls "sections of an invertible sheaf." (We note the connection here; sheaves are developed later.)
+
+<Callout kind="remark" title="Why work over a Riemann surface?">
+We will take $X$ to be a <em>Riemann surface</em>. That means $X$ is locally like an open subset of $\mathbb{C}$, so "analytic" has a clear meaning. Everything here extends to higher-dimensional complex manifolds, but one complex dimension is enough to see all the key phenomena.
+</Callout>
+
+<MCQ
+  client:load
+  id="rs52-overview-mcq-what-distinguishes"
+  prompt="What key property distinguishes a section of a nontrivial line bundle from an ordinary complex-valued function?"
+  options={[
+    { id: "a", label: "It maps into a higher-dimensional space." },
+    { id: "b", label: "The 'graph paper' is twisted, so no consistent function value exists globally." },
+    { id: "c", label: "It is only defined on finitely many points of X." },
+    { id: "d", label: "It must be a constant map." },
+  ]}
+  correct="b"
+  explanation="On flat graph paper (the trivial bundle), a section is the same as a function. On twisted graph paper — like a Möbius strip — you cannot assign a consistent numerical value at each point, because the fibers don't glue together trivially."
+/>
+
+</SlideLayout>

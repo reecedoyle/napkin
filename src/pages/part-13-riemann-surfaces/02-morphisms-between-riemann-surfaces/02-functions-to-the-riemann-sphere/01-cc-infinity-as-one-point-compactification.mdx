@@ -1,0 +1,22 @@
+---
+title: ℂ∞ as ℂ plus a point at infinity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="ℂ∞ as ℂ plus a point at infinity">
+
+The <Term k="rs48riemannSphere">Riemann sphere</Term> $\CC_\infty$ can be identified with $\CC$ together with a single extra point called $\infty$.
+
+Concretely: use stereographic projection to identify $\CC_\infty \setminus \{N\}$ (the sphere minus the north pole) with $\CC$. Under this identification, the north pole $N$ becomes the point $\infty$.
+
+<Callout kind="remark" title="Why call it ∞?">
+This name makes sense topologically: every sequence of complex numbers $z_i$ with $|z_i| \to +\infty$ converges to the point $\infty$ on $\CC_\infty$.
+
+In other words, numbers that "go off to infinity" in $\CC$ actually converge to a specific point on $\CC_\infty$ — the one we've added to compactify the plane.
+</Callout>
+
+This compact picture turns out to be exactly what we need to handle meromorphic functions without singularities.
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: Smooth and singular points
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smooth and singular points">
+
+Not every polynomial zero set looks like a smooth curve. Consider $f(x,y) = x^2 - y^2$. Its zero set factors as $(x-y)(x+y) = 0$ — two intersecting lines. Near the origin, the zero set is **not** a smooth curve: two branches cross.
+
+This failure has a neat algebraic signature:
+
+<Callout kind="theorem" title="Implicit function theorem criterion">
+Let $f(x,y)$ be a polynomial and $X = \{(x,y) \in \mathbb{R}^2 : f(x,y) = 0\}$. At a point $(x_0, y_0) \in X$ where at least one of $\frac{\partial f}{\partial x}$ or $\frac{\partial f}{\partial y}$ is nonzero, the curve $X$ is locally smooth near $(x_0, y_0)$.
+</Callout>
+
+Concretely: if $\frac{\partial f}{\partial y}(x_0, y_0) \neq 0$, then near $(x_0, y_0)$ the curve is the graph $y = h(x)$ for some analytic function $h$. If $\frac{\partial f}{\partial x}(x_0, y_0) \neq 0$, the curve is $x = g(y)$ instead.
+
+<Callout kind="definition" title="Smooth point">
+A point $(x_0, y_0) \in X$ is called <Term k="rs49smoothPoint">**smooth** (or **nonsingular**)</Term> if $\frac{\partial f}{\partial x}(x_0, y_0) \neq 0$ or $\frac{\partial f}{\partial y}(x_0, y_0) \neq 0$. Otherwise it is a **singular point**.
+</Callout>
+
+For $f = x^2 - y^2$: at the origin, $\partial f/\partial x = 2x = 0$ and $\partial f/\partial y = -2y = 0$ simultaneously — the origin is singular.
+
+</SlideLayout>

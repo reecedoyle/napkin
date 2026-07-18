@@ -1,0 +1,35 @@
+---
+title: "Sections of a line bundle"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Sections of a line bundle">
+
+<Callout kind="definition" title="Sections">
+Let $L$ be a line bundle over $X$.
+
+- A **<Term k="rs52section">section</Term>** on an open set $U \subseteq X$ is a map $f \colon U \to L$ with $\pi \circ f = \mathrm{id}_U$.
+- A **<Term k="rs52globalSection">global section</Term>** is a section $f \colon X \to L$ defined on all of $X$.
+- A section is **<Term k="rs52analyticSection">analytic</Term>** if for every $U_1 \subseteq U$ with a chart $\phi \colon \pi^{-1}(U_1) \to \mathbb{C} \times U_1$, the composite $\phi \circ f|_{U_1} \colon U_1 \to \mathbb{C} \times U_1$ is analytic.
+</Callout>
+
+Concretely, a section picks one point from each fiber — exactly like a function selects a value at each input. When the bundle is the <Term k="rs52trivialBundle">trivial bundle</Term> $\mathbb{C} \times X$, a section is exactly a function $f \colon X \to \mathbb{C}$, because specifying a point in $\mathbb{C} \times \{p\}$ is the same as specifying a complex number.
+
+<MCQ
+  client:load
+  id="rs52-def-mcq-section-condition"
+  prompt="Which condition on f: U → L makes it a section of π: L → X?"
+  options={[
+    { id: "a", label: "f ∘ π = id_L" },
+    { id: "b", label: "π ∘ f = id_U" },
+    { id: "c", label: "f is bijective" },
+    { id: "d", label: "f maps every point to the zero element of its fiber" },
+  ]}
+  correct="b"
+  explanation="A section must satisfy π ∘ f = id_U: applying the projection after f must return you to the point you started from. This is the condition that f 'picks a point from each fiber above U'. The condition f ∘ π = id_L would go the other direction and would require L to map back to L."
+/>
+
+</SlideLayout>

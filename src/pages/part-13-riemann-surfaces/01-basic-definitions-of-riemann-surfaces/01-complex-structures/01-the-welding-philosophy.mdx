@@ -1,0 +1,23 @@
+---
+title: The welding philosophy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The welding philosophy">
+
+Riemann surface theory is complex analysis generalized with ideas from differential geometry. The key image is **welding**: we take pieces of the complex plane $\CC$ and glue them together analytically to form a more complicated space.
+
+You already know two instances of this philosophy:
+
+- A **topological manifold** is patches of $\RR^n$ welded by homeomorphisms.
+- A **smooth manifold** is patches of $\RR^n$ welded by smooth maps (diffeomorphisms).
+
+<Callout kind="remark" title="The moral">
+We take countably many patches $\{U_i\}$ and weld them together while preserving the underlying structure. A topological manifold preserves topological structure; a smooth manifold preserves smooth structure; a Riemann surface preserves **complex-analytic structure**.
+</Callout>
+
+Each layer of structure makes the transition maps — the maps that say how patches overlap — more constrained. For Riemann surfaces, the transition maps must be **analytic functions** of a complex variable.
+
+</SlideLayout>

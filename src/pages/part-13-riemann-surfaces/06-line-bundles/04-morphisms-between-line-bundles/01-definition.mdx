@@ -1,0 +1,23 @@
+---
+title: "Morphisms between line bundles — definition"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Morphisms between line bundles — definition">
+
+To define isomorphism, we first need morphisms.
+
+<Callout kind="definition" title="Line bundle morphism">
+Let $\pi_1 \colon L_1 \to X$ and $\pi_2 \colon L_2 \to X$ be line bundles over the same base $X$. A <Term k="rs52lineBundleMorphism">line bundle morphism</Term> $\alpha \colon L_1 \to L_2$ is a set map satisfying:
+
+1. **Fiber-preserving:** $\pi_2 \circ \alpha = \pi_1$ — every point in $\pi_1^{-1}(p)$ maps into $\pi_2^{-1}(p)$.
+2. **Locally linear and analytic:** for any charts $\phi_1 \colon \pi_1^{-1}(U_1) \to \mathbb{C} \times U_1$ and $\phi_2 \colon \pi_2^{-1}(U_2) \to \mathbb{C} \times U_2$, the composition
+$$\phi_2 \circ \alpha \circ \phi_1^{-1} \colon \mathbb{C} \times (U_1 \cap U_2) \to \mathbb{C} \times (U_1 \cap U_2)$$
+has the form $(s, p) \mapsto (f(p) \cdot s, p)$ for some analytic function $f$ on $U_1 \cap U_2$.
+</Callout>
+
+In other words, $\alpha$ acts fiber-by-fiber as multiplication by an analytic function $f$. This is the only $\mathbb{C}$-linear map from a $1$-dimensional space to a $1$-dimensional space (up to the choice of scalar $f(p)$).
+
+</SlideLayout>

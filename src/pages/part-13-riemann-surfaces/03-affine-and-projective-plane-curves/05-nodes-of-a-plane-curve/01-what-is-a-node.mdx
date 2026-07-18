@@ -1,0 +1,22 @@
+---
+title: What is a node?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a node?">
+
+We have been careful to work with **smooth** curves — where the implicit function theorem applies everywhere. But singular points arise naturally, and the simplest kind is a **node**.
+
+The prototype is the curve $x^2 - y^2 = 0$ at the origin. This factors as $(x - y)(x + y) = 0$: two lines $y = x$ and $y = -x$ crossing at the origin.
+
+<Callout kind="definition" title="Node (ordinary double point)">
+A <Term k="rs49node">**node**</Term> (or **ordinary double point**) on a plane curve $X = \{f = 0\}$ is a <Term k="rs49singularPoint">singular point</Term> $p$ where exactly two smooth branches of $X$ cross transversally — that is, their tangent lines at $p$ are distinct.
+</Callout>
+
+At a node, $p$ is singular (both partial derivatives vanish), but the singularity is mild — only two branches cross, and they cross cleanly (not tangentially).
+
+**Contrast with cusps.** A cusp is another type of singularity where a single branch has a pointy tip (like $y^2 = x^3$ at the origin). There the two tangent directions coincide.
+
+</SlideLayout>

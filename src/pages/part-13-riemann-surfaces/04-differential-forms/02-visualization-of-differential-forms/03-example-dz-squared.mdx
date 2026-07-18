@@ -1,0 +1,28 @@
+---
+title: Example — the 1-form d(z²) = 2z dz
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — the 1-form d(z²) = 2z dz">
+
+The next example is $d(z^2)$, the form measuring the infinitesimal change in $z^2$.
+
+If $h(z) = z^2$, then $dh \cdot v$ is the directional derivative of $h$ at $z$ in direction $v$. Since $h'(z) = 2z$, we get:
+$$d(z^2) \cdot v = 2z \cdot v.$$
+
+So at each point $z$, the form $d(z^2)$ is just $2z$ times the form $dz$. This motivates the algebraic identity:
+$$d(z^2) = 2z \cdot dz.$$
+
+<Callout kind="example" title="Reading the quiver at z = 1 + i">
+At $z = 1 + i$, the coefficient is $2z = 2 + 2i$. The form evaluates to:
+- Rightward direction ($v = 1$): value $= 2 + 2i$
+- Upward direction ($v = i$): value $= (2 + 2i) \cdot i = -2 + 2i$
+
+Note that the upward value equals $i$ times the rightward value: $i \cdot (2 + 2i) = -2 + 2i$. This pattern — rotating the input by $90°$ counterclockwise multiplies the output by $i$ — holds at **every** point, and it is the defining feature of <Term k="rs50type10">type $(1,0)$ forms</Term>.
+</Callout>
+
+The form $d(z^2) = 2z\,dz$ is holomorphic because its coefficient $f(z) = 2z$ is holomorphic.
+
+</SlideLayout>

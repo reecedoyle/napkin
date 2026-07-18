@@ -1,0 +1,23 @@
+---
+title: "Line bundles — the big picture"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Line bundles — the big picture">
+
+You have probably heard the definition: a <Term k="rs52lineBundle">line bundle</Term> over a space $X$ is a set $L$ with a projection $\pi \colon L \to X$ where the preimage of each point is a copy of $\mathbb{C}$.
+
+That sounds like just another manifold — one dimension higher than $X$. So why study line bundles instead of ordinary complex manifolds?
+
+Two things make line bundles special:
+
+- **You can multiply them.** Two line bundles over $X$ have a tensor product that "adds their twists," giving a group structure on the set of isomorphism classes. This is the **Picard group**.
+- **Sections generalize functions — but with a twist.** On flat "graph paper" a section is the same as a function. On curved graph paper (like a Möbius strip) you cannot assign a consistent function value to every point — the bundle is **nontrivial**.
+
+<Callout kind="remark" title="Sections vs. functions">
+A function $f \colon X \to \mathbb{C}$ always has a graph living in the trivial bundle $\mathbb{C} \times X$. A <Term k="rs52section">section</Term> of a nontrivial bundle is a graph on "twisted graph paper." When the paper is flat, sections are functions; when it twists, there is genuinely new geometry.
+</Callout>
+
+</SlideLayout>

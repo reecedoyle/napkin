@@ -1,0 +1,23 @@
+---
+title: Visualizing 1-forms — quiver diagrams
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Visualizing 1-forms — quiver diagrams">
+
+A $1$-form $\omega$ on $\CC$ assigns, to each point $p$ and each tangent direction $v$, a complex number $\omega_p(v)$. How do we draw this?
+
+The natural visualization is a <Term k="rs50quiverDiagram">quiver diagram</Term>: at a grid of sample points, draw short arrows in several directions and label each arrow with the value $\omega_p(v)$.
+
+<Callout kind="remark" title="How to read a quiver diagram">
+The label on an arrow at point $p$ pointing in direction $v$ tells you:
+**"If I move along a tiny piece of curve in direction $v$ near $p$, the contribution to $\int_c \omega$ is approximately this value."**
+
+To integrate $\omega$ along a curve $c$, mentally "add up" the labels on arrows that match the direction of travel.
+</Callout>
+
+We will look at four key examples — two holomorphic and two non-holomorphic — to build intuition for what differentiates them.
+
+</SlideLayout>

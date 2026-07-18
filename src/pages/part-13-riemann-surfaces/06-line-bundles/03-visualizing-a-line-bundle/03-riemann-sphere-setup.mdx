@@ -1,0 +1,26 @@
+---
+title: "Moving to the Riemann sphere"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Moving to the Riemann sphere">
+
+Now let us consider a more interesting base space: the Riemann sphere $X = \mathbb{C}_\infty$.
+
+Viewed via its real part only, $\mathbb{C}_\infty$ looks like a circle. We parametrize it by two charts:
+- $z$ near the "south pole" ($z = 0$, the origin),
+- $t = 1/z$ near the "north pole" ($t = 0$, the point at infinity).
+
+The total space of the trivial bundle $\mathbb{C} \times \mathbb{C}_\infty$ is then a cylinder (looking only at real parts): a circle times a vertical line. Each point on the circle has a vertical copy of $\mathbb{R}$ (standing in for $\mathbb{C}$) sitting above it.
+
+The two charts fit together via the overlap condition: on the overlap where both $z$ and $t$ are defined ($z \neq 0, \infty$), the chart in the $z$-coordinate assigns $(y, z)$ to a point, and the chart in the $t$-coordinate assigns $(y, t) = (y, 1/z)$ to the same point. The transition function here is simply the identity on the fiber: $(y, z) \mapsto (y, 1/z)$ — the fiber value $y$ is unchanged.
+
+<Callout kind="remark" title="Visual check">
+The vertical lines of the $z$-chart and the $t$-chart must agree on the overlap. Since $t = 1/z$, the grid lines of the $t$-chart look "flipped" compared to the $z$-chart when viewed from outside the sphere: the spacing compresses where $z$ is large (i.e., $t$ is small).
+</Callout>
+
+This is the <Term k="rs52trivialBundle">trivial bundle</Term> $\mathbb{C} \times \mathbb{C}_\infty$, so far nothing surprising.
+
+</SlideLayout>

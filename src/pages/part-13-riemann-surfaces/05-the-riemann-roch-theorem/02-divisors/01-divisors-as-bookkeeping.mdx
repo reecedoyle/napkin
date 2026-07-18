@@ -1,0 +1,20 @@
+---
+title: Divisors as bookkeeping
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Divisors as bookkeeping">
+
+We want compact notation for conditions like "pole of order at most $4$ at $\infty$, and zero of order at least $1$ at $3$." The trick is to borrow the divisibility language from polynomials.
+
+For a polynomial $f$, we say $z^4 \mid f$ to mean "$f$ vanishes to order at least $4$ at the origin." We want to extend this to meromorphic functions on arbitrary Riemann surfaces and to arbitrary points — including $\infty$.
+
+<Callout kind="remark" title="The informal step">
+Write $(z - i)^{-3} \cdot (z - \infty)^{-4} \mid f$ to mean: "$f$ has a pole of order at most $3$ at $i$, and a pole of order at most $4$ at $\infty$."
+</Callout>
+
+The expression $(z - \infty)^{-4}$ has no literal meaning as a function — there is no "function whose zero at $\infty$ has order $-4$." But we can treat it as a formal object: a label that records the integer $-4$ at the point $\infty$. That is exactly the definition of a <Term k="rs51divisor">divisor</Term>.
+
+</SlideLayout>

@@ -1,0 +1,25 @@
+---
+title: Non-examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Non-examples">
+
+It is equally instructive to see what fails to be a Riemann surface.
+
+<Callout kind="example" title="Disconnected space">
+The **disjoint union of two Riemann spheres** is not a Riemann surface. It has a complex atlas (take the atlas of each sphere), but it is not connected. The connectedness condition is not vacuous.
+</Callout>
+
+This is purely a convention — connectedness is required for global theorems to have clean statements. Any space with a complex atlas but finitely many connected components decomposes as a disjoint union of Riemann surfaces (one per component).
+
+<Callout kind="example" title="Non-Hausdorff space">
+The "line with a doubled origin" — two copies of $\RR$ (or $\CC$) glued along the complement of the origin — has a complex atlas but fails to be Hausdorff. The two origins cannot be separated by disjoint open sets. This space is excluded by the Hausdorff condition.
+</Callout>
+
+<Callout kind="remark">
+The conditions in the definition of a Riemann surface — connected, second-countable, Hausdorff — are all necessary to make complex analysis behave as expected. Remove any one of them and you can construct exotic pathologies.
+</Callout>
+
+</SlideLayout>

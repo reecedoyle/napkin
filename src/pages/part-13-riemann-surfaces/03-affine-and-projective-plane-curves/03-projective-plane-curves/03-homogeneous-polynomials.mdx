@@ -1,0 +1,30 @@
+---
+title: Homogeneous polynomials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Homogeneous polynomials">
+
+To define a curve in $\mathbb{CP}^2$ as a zero set $\{g = 0\}$, we need $g([x:y:z]) = 0$ to be well-defined — independent of which representative $(x,y,z)$ we pick for the equivalence class.
+
+If we replace $(x,y,z)$ by $(\lambda x, \lambda y, \lambda z)$, then $g(\lambda x, \lambda y, \lambda z) = \lambda^d \cdot g(x,y,z)$ for a <Term k="rs49homogeneousPoly">**homogeneous polynomial**</Term> $g$ of degree $d$. So $g(x,y,z) = 0 \iff g(\lambda x, \lambda y, \lambda z) = 0$. The zero set is well-defined!
+
+<Callout kind="example" title="Non-example">
+The polynomial $g(x,y,z) = x - 1$ is not homogeneous: $g(1,0,0) = 0$ but $g(2,0,0) = 1 \neq 0$. So $\{x - 1 = 0\}$ is not well-defined in $\mathbb{CP}^2$.
+</Callout>
+
+**Homogenising an affine polynomial.** Given $f(z,w)$ of degree $d$, its homogenisation is:
+$$g(x,y,z) = z^d \cdot f\!\left(\frac{x}{z}, \frac{y}{z}\right)$$
+This clears all denominators, producing a degree-$d$ homogeneous polynomial with $g(x,y,1) = f(x,y)$.
+
+<NumericInput
+  client:load
+  id="rs49-proj-num-degree"
+  prompt="The affine polynomial f(z,w) = w² - z³ + z has degree 3. Its homogenisation g(x,y,z) = y² z - x³ + xz². What is the degree of g?"
+  expected="3"
+/>
+
+</SlideLayout>

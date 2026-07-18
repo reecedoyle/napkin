@@ -1,0 +1,23 @@
+---
+title: Type (1,0) and type (0,1) forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Type (1,0) and type (0,1) forms">
+
+Holomorphic forms are a special case of a more general classification.
+
+<Callout kind="definition" title="Type (1,0) and type (0,1)">
+A $1$-form $\omega$ on $U \subseteq \CC$ is of <Term k="rs50type10">type $(1, 0)$</Term> if it can be written locally as $f(z)\,dz$ for some **smooth** function $f$.
+
+It is of <Term k="rs50type01">type $(0, 1)$</Term> if it can be written locally as $f(z)\,d\ol{z}$ for some **smooth** function $f$.
+</Callout>
+
+Every complex $1$-form decomposes uniquely as a sum of a $(1,0)$ part and a $(0,1)$ part. Since $dz = d\Re + i\,d\Im$ and $d\ol{z} = d\Re - i\,d\Im$, we can invert:
+$$d\Re = \frac{dz + d\ol{z}}{2}, \qquad d\Im = \frac{dz - d\ol{z}}{2i}.$$
+
+So any $1$-form $f\,d\Re + g\,d\Im$ rewrites as $\frac{f - ig}{2}\,dz + \frac{f + ig}{2}\,d\ol{z}$, exhibiting its $(1,0)$ and $(0,1)$ parts explicitly.
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: Compact surfaces and finite support
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Compact surfaces and finite support">
+
+On a general Riemann surface $X$, a <Term k="rs51divisor">divisor</Term> $D$ is nonzero on a discrete set of points — but that set could in principle be infinite (like all the integers in the complex plane).
+
+On a **compact** Riemann surface, however, every discrete subset is automatically finite. So divisors on compact surfaces have **finite support**: only finitely many points have $D(p) \neq 0$.
+
+<Callout kind="remark" title="Why compactness matters">
+The Riemann sphere $\CC_\infty$ is compact. A torus is compact. Smooth algebraic curves over $\CC$ are compact. In all of these cases, every divisor has finite support, and we can sum $D(p)$ over all $p \in X$ to get a well-defined integer.
+</Callout>
+
+Finite support is the prerequisite for defining the **degree** of a divisor — the subject of the next slide.
+
+</SlideLayout>

@@ -1,0 +1,35 @@
+---
+title: Definition of degree
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Definition of degree">
+
+<Callout kind="definition" title="Degree of a divisor">
+For a divisor $D = \sum_p n_p \cdot p$ on a compact Riemann surface $X$, its <Term k="rs51degDiv">degree</Term> is
+
+$$
+\deg D = \sum_{p \in X} D(p) = \sum_p n_p.
+$$
+</Callout>
+
+The sum is finite because $D$ has finite support. Degree is a group homomorphism $\Div(X) \to \ZZ$: it is additive, $\deg(D_1 + D_2) = \deg D_1 + \deg D_2$.
+
+<Callout kind="example" title="Prototype">
+$$
+\deg\bigl((-3) \cdot i + (-4) \cdot \infty\bigr) = -3 + (-4) = -7.
+$$
+</Callout>
+
+<NumericInput
+  client:load
+  id="rs51-deg-num-degree"
+  prompt="What is deg(2·0 + (−5)·i + 3·∞) ?"
+  expected="0"
+  explanation="Add the integer coefficients: 2 + (−5) + 3 = 0. The degree is 0."
+/>
+
+</SlideLayout>

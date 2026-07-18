@@ -1,0 +1,41 @@
+---
+title: Order of a meromorphic function
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Order of a meromorphic function">
+
+To interpolate between "no poles allowed" and "arbitrary poles allowed" we need to measure how badly a meromorphic function blows up at each point. The <Term k="rs51ordP">order $\ord_p(f)$</Term> packs this into a single integer.
+
+<Callout kind="definition" title="Order of a meromorphic function at p">
+Let $f$ be meromorphic at $p$. Define
+
+$$
+\ord_p(f) = \begin{cases}
+  d & \text{if } f \text{ has a zero of multiplicity } d \text{ at } p, \\
+  -d & \text{if } f \text{ has a pole of order } d \text{ at } p, \\
+  0 & \text{otherwise.}
+\end{cases}
+$$
+</Callout>
+
+Zeros contribute positive order; poles contribute negative order. The function $\ord_p$ is like a signed multiplicity that treats zeros and poles uniformly.
+
+<MCQ
+  client:load
+  id="rs51-mot-mcq-ord"
+  prompt="Let f(z) = (z − 2)³ / (z − i)². What is ord_i(f)?"
+  options={[
+    { id: "a", label: "+2 (zero of multiplicity 2 at i)" },
+    { id: "b", label: "−2 (pole of order 2 at i)" },
+    { id: "c", label: "+3 (zero of multiplicity 3)" },
+    { id: "d", label: "0 (f is holomorphic at i)" },
+  ]}
+  correct="b"
+  explanation="f has a pole of order 2 at i because (z − i)² appears in the denominator, so ord_i(f) = −2. The factor (z − 2)³ in the numerator gives ord_2(f) = +3, not affecting i."
+/>
+
+</SlideLayout>

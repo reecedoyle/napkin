@@ -1,0 +1,28 @@
+---
+title: Open subsets of ℂ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Open subsets of ℂ">
+
+The simplest Riemann surfaces are the ones that need no welding at all.
+
+<Callout kind="example" title="Connected open subsets of ℂ">
+Any connected open subset $U \subseteq \CC$ is a Riemann surface. The atlas has exactly **one** chart: the identity map $\phi \colon U \to U \subseteq \CC$, which is trivially analytic.
+</Callout>
+
+Examples include:
+- The whole complex plane $\CC$
+- The open unit disk $\{ z \in \CC \mid \lvert z \rvert < 1 \}$
+- The upper half-plane $\{ z \in \CC \mid \operatorname{Im}(z) > 0 \}$
+- A punctured plane $\CC \setminus \{0\}$
+
+These are "boring" in the sense that no welding is needed — the space is already a piece of $\CC$. But they are the building blocks. More interesting Riemann surfaces arise when we weld multiple pieces together.
+
+<Callout kind="remark">
+Even these "trivial" examples are rich. The open unit disk and the upper half-plane are conformally equivalent (related by a Möbius transformation), so they carry the same complex structure — but neither is conformally equivalent to $\CC$ (Liouville's theorem). This is already a non-trivial fact.
+</Callout>
+
+</SlideLayout>

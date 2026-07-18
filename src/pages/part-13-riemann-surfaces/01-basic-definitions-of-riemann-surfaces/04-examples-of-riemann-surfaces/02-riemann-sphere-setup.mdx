@@ -1,0 +1,26 @@
+---
+title: The Riemann sphere — setup
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Riemann sphere — setup">
+
+The <Term k="rs47riemannSphere">**Riemann sphere**</Term> $\CC_\infty = \CC \cup \{\infty\}$ is the most important compact Riemann surface. As a smooth manifold it is the $2$-sphere $S^2$.
+
+To give it a complex structure, we embed the sphere in $\RR^3$ with two marked points:
+- $N = (0, 0, 1)$ — the **north pole**
+- $S = (0, 0, 0)$ — the **south pole**
+
+We define two planes:
+- $E_1$ = the $xy$-plane (a copy of $\CC$ via $z \mapsto (\operatorname{Re} z, \operatorname{Im} z, 0)$)
+- $E_2$ = the plane $\{z = 1\}$ (a copy of $\CC$ via $t \mapsto (\operatorname{Re} t, -\operatorname{Im} t, 1)$, note the sign!)
+
+<Callout kind="remark" title="Why the sign in E₂?">
+The minus sign in the imaginary part is essential. Without it, the transition map between the two charts would be $\phi_1(p) = 1/\overline{\phi_2(p)}$ — complex conjugation is involved, making it **not** analytic. The sign is chosen precisely to make the transition map $z \mapsto 1/z$, which is analytic.
+</Callout>
+
+Next we define the two charts by <Term k="rs47stereographicProjection">stereographic projection</Term>.
+
+</SlideLayout>

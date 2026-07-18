@@ -1,0 +1,32 @@
+---
+title: The correspondence between meromorphic and holomorphic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The correspondence between meromorphic and holomorphic">
+
+The previous slide's construction goes both ways.
+
+<Callout kind="proposition" title="Meromorphic ↔ holomorphic into ℂ∞">
+There is a one-to-one correspondence between <Term k="rs48meromorphicFunction">meromorphic functions</Term> $f \colon X \to \CC$ and holomorphic maps $g \colon X \to \CC_\infty$ such that $g$ is not identically $\infty$.
+</Callout>
+
+The moral is worth remembering:
+
+<Callout kind="remark" title="The key idea">
+Plugging in the hole at $\infty$ of $\CC$ allows us to analytically extend meromorphic functions to maps $X \to \CC \cup \{\infty\}$ that are holomorphic everywhere — no singularities, no special cases.
+</Callout>
+
+This reframes meromorphic functions as a special case of morphisms between Riemann surfaces, bringing them under the same framework we've just set up.
+
+<ProofReveal
+  client:load
+  id="rs48-sphere-proof-correspondence"
+  prompt="Why does the construction g ↦ f (recover f from g) work? What do we do when g takes the value ∞?"
+  solution="Given g: X → ℂ∞ that is not identically ∞, define f(z) = g(z) whenever g(z) ≠ ∞. At points where g(z) = ∞, f has a pole — and g is holomorphic near those points in the chart t = 1/w on ℂ∞, which means 1/f is holomorphic there, confirming that f has a genuine pole (not an essential singularity). So f is meromorphic."
+/>
+
+</SlideLayout>

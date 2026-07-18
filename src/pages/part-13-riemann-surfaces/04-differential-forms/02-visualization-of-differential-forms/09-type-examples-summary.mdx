@@ -1,0 +1,27 @@
+---
+title: Summary — types and holomorphicity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Summary — types and holomorphicity">
+
+Let us collect the four examples from the visualization section.
+
+| Form | Type | Holomorphic? |
+|------|------|--------------|
+| $dz$ | $(1,0)$ | Yes |
+| $2z\,dz$ | $(1,0)$ | Yes |
+| $\ol{z}\,dz$ | $(1,0)$ | No ($\ol{z}$ is not holomorphic) |
+| $d\ol{z}$ | $(0,1)$ | No |
+
+<Callout kind="remark" title="The hierarchy">
+The inclusion goes: **holomorphic** $\subset$ **type $(1,0)$** $\subset$ **smooth $1$-forms**.
+
+A <Term k="rs50holomorphicForm">holomorphic form</Term> $f(z)\,dz$ has a holomorphic coefficient. A <Term k="rs50type10">type $(1,0)$ form</Term> $f(z)\,dz$ allows any smooth coefficient $f$. A general smooth form can mix $dz$ and $d\ol{z}$ parts.
+</Callout>
+
+The type decomposition $(1,0)$ vs $(0,1)$ is the first step toward understanding the Dolbeault complex on Riemann surfaces — the appropriate generalization of the exterior derivative that respects complex structure.
+
+</SlideLayout>

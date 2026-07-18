@@ -1,0 +1,24 @@
+---
+title: "Isomorphisms require nonzero scaling"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Isomorphisms require nonzero scaling">
+
+In a morphism $\alpha \colon L_1 \to L_2$, the local scaling function $f(p)$ can be zero at some points. But an **isomorphism** forces $f$ to be everywhere nonzero.
+
+<Callout kind="exercise" title="Nonzero scaling for isomorphisms">
+Let $\alpha \colon L_1 \to L_2$ be a line bundle morphism that is also an isomorphism (it has a two-sided inverse). Show that the scaling function $f$ above must be nonzero on all of $U_1 \cap U_2$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="rs52-morph-proof-nonzero"
+  prompt="Prove that f(p) is nonzero for all p whenever α is an isomorphism."
+  solution="Let β: L₂ → L₁ be the inverse of α. In the same charts, β acts as (s, p) ↦ (g(p)·s, p) for some analytic g. Since β ∘ α = id_{L₁}, we get g(p)·f(p) = 1 for all p in the overlap. Therefore f(p) is nonzero everywhere, and g(p) = 1/f(p). Conversely, if f is everywhere nonzero, the map (s, p) ↦ (s/f(p), p) gives a well-defined inverse morphism, so nonvanishing of f is also sufficient for α to be an isomorphism locally."
+/>
+
+</SlideLayout>

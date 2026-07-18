@@ -1,0 +1,26 @@
+---
+title: Smooth structure vs topological structure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Smooth structure vs topological structure">
+
+Consider the open interval $(0, 2) \subseteq \RR$ as a topological manifold. We can define two homeomorphisms from $(0,2)$ to open subsets of $\RR$:
+
+$$
+\phi_1(x) = x, \qquad \phi_2(x) = \begin{cases} x & x \leq 1 \\ x + e^{-1/(x-1)} & x > 1 \end{cases}
+$$
+
+Both $\phi_1$ and $\phi_2$ are homeomorphisms — they preserve topological structure. But $\phi_2$ is **also** smooth! The transition map $\phi_1 \circ \phi_2^{-1}$ is smooth, so both charts belong to the same smooth atlas.
+
+<Callout kind="remark" title="The subtlety">
+A topological space does not come with a unique smooth structure. Two different atlases can give the **same** topological manifold **different** smooth structures. The smooth structure is extra data — it is encoded in the choice of atlas, not in the topology alone.
+</Callout>
+
+The definition of a smooth manifold bakes in smooth structure by requiring all transition maps to be smooth. This way, a single atlas determines the structure consistently.
+
+For Riemann surfaces, we replace "smooth" with "analytic" throughout.
+
+</SlideLayout>

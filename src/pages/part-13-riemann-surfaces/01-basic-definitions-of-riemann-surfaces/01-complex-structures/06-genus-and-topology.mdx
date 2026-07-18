@@ -1,0 +1,33 @@
+---
+title: Genus and topology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Genus and topology">
+
+As an orientable real $2$-manifold, every Riemann surface has a <Term k="rs47genus">**genus**</Term> — a purely topological invariant that counts the number of "handles" on the surface. A sphere has genus $0$; a torus has genus $1$; a pretzel surface has genus $2$.
+
+The remarkable fact is that the genus is **deeply connected to algebraic invariants**. You may have encountered elliptic curves in cryptography — they are Riemann surfaces of genus $1$. More generally, <Term k="rs47hyperellipticCurve">hyperelliptic curves</Term> form a family of Riemann surfaces of arbitrary genus $\geq 2$.
+
+<Callout kind="remark">
+Genus is a topological concept, yet it controls things like: how many independent holomorphic differential forms exist on the surface (the Riemann–Roch theorem), and which algebraic curves can be parametrized by which surfaces. Topology and algebra are intertwined in a way that has no analogue on the real line.
+</Callout>
+
+<MCQ
+  client:load
+  id="rs47-cs-mcq-structures"
+  prompt="Which type of manifold requires the smoothest (most constrained) transition maps?"
+  options={[
+    { id: "a", label: "Topological manifold" },
+    { id: "b", label: "Smooth manifold" },
+    { id: "c", label: "Riemann surface (complex manifold)" },
+    { id: "d", label: "All three require the same type of transition maps" },
+  ]}
+  correct="c"
+  explanation="Riemann surfaces require analytic transition maps — holomorphic functions. Smooth manifolds only require smooth (infinitely differentiable) transition maps. Topological manifolds only require continuous (homeomorphic) ones. Analytic implies smooth implies continuous, so complex manifolds are the most constrained."
+/>
+
+</SlideLayout>

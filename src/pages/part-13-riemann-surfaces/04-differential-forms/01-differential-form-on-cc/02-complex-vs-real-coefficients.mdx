@@ -1,0 +1,36 @@
+---
+title: Complex coefficients — mostly inconsequential
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Complex coefficients — mostly inconsequential">
+
+Allowing $f$ and $g$ to be complex-valued might seem like a major change. In fact, it is mostly cosmetic.
+
+<Callout kind="proposition" title="Projection principle">
+A complex-valued $1$-form $\omega = f(z)\,d\Re + g(z)\,d\Im$ is equivalent to a **pair** of real-valued $1$-forms: its real part $\Re\,\omega$ and its imaginary part $\Im\,\omega$.
+</Callout>
+
+Concretely, write $f = f_1 + if_2$ and $g = g_1 + ig_2$ with $f_1, f_2, g_1, g_2 : U \to \RR$. Then:
+$$\omega = (f_1\,d\Re + g_1\,d\Im) + i(f_2\,d\Re + g_2\,d\Im) = \Re\,\omega + i\cdot \Im\,\omega.$$
+
+So a complex $1$-form is just two real $1$-forms glued together. Any result that holds for a pair of real $1$-forms extends to complex $1$-forms by applying it to each component.
+
+<MCQ
+  client:load
+  id="rs50-s1-mcq-coefficients"
+  prompt="A complex 1-form on ℂ with complex coefficients f, g is equivalent to:"
+  options={[
+    { id: "a", label: "Two real-valued 1-forms (one for the real part, one for the imaginary part of the coefficients)" },
+    { id: "b", label: "A single real-valued 1-form obtained by discarding the imaginary parts of f and g" },
+    { id: "c", label: "A 2-form, because two real forms are needed" },
+    { id: "d", label: "Nothing — complex coefficients make the form undefined" },
+  ]}
+  correct="a"
+  explanation="By the projection principle, a complex 1-form ω = f dRe + g dIm splits as Re ω + i Im ω, i.e., two real-valued 1-forms. Complex coefficients are a convenient bookkeeping device, not a fundamentally new object."
+/>
+
+</SlideLayout>

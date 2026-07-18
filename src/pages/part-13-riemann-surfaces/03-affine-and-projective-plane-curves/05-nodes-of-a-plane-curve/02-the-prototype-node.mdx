@@ -1,0 +1,22 @@
+---
+title: The prototype node — x² − y² = 0
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The prototype node — x² − y² = 0">
+
+Let $f(x,y) = x^2 - y^2$. The zero set factors: $(x-y)(x+y) = 0$, so the curve consists of two lines $\ell_+ = \{y = x\}$ and $\ell_- = \{y = -x\}$ crossing at the origin.
+
+**Singular point check.** At $(0,0)$: $\partial f/\partial x = 2x = 0$ and $\partial f/\partial y = -2y = 0$. Both vanish, so the origin is a <Term k="rs49singularPoint">singular point</Term> of $f$.
+
+<Callout kind="remark" title="Two tangent lines">
+At the origin, the curve has two branches $\ell_+$ and $\ell_-$ with tangent directions $(1,1)$ and $(1,-1)$ — distinct and transversal. This is the hallmark of a <Term k="rs49node">node</Term>.
+</Callout>
+
+**What does this look like as a Riemann surface?** The curve $x^2 - y^2 = 0$ is **not** a Riemann surface — the origin is singular. But we can "resolve" the node: pull the two branches apart at the crossing. The result is two copies of $\mathbb{C}$ (or $\mathbb{CP}^1$ in the projective version), which are the smooth affine lines $y = x$ and $y = -x$ separately.
+
+Nodes are the simplest singularities in algebraic geometry: they can be resolved by pulling branches apart, and their local topology is completely understood.
+
+</SlideLayout>

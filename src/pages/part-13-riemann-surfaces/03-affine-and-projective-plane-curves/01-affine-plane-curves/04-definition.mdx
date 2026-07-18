@@ -1,0 +1,37 @@
+---
+title: Affine plane curves — definition
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Affine plane curves — definition">
+
+Two technical conditions prevent degenerate cases: singular points (handled by the smoothness condition) and disconnected zero sets (which would give multiple separate Riemann surfaces rather than one).
+
+<Callout kind="definition" title="Smooth affine plane curve">
+Given $f(z,w) \in \mathbb{C}[z,w]$, let $X = \{(z,w) \in \mathbb{C}^2 : f(z,w) = 0\}$. Suppose:
+1. $X$ is **connected**.
+2. For every $(z,w) \in X$: $\frac{\partial f}{\partial z}(z,w) \neq 0$ or $\frac{\partial f}{\partial w}(z,w) \neq 0$.
+
+Then $X$ is a Riemann surface, called a <Term k="rs49affineCurve">**smooth affine plane curve**</Term>. Complex charts: where $\partial f/\partial z \neq 0$ use $\phi = w$; where $\partial f/\partial w \neq 0$ use $\phi = z$.
+</Callout>
+
+We call it **affine** because $\mathbb{C}^2$ is "flat" — the affine plane. Later we will work in the projective plane $\mathbb{CP}^2$ to gain compactness.
+
+<MCQ
+  client:load
+  id="rs49-affine-mcq-smooth-condition"
+  prompt="Why do we require the smoothness condition (at least one partial derivative nonzero at every point)?"
+  options={[
+    { id: "a", label: "So that the zero set is bounded" },
+    { id: "b", label: "So that the implicit function theorem gives local analytic coordinates" },
+    { id: "c", label: "So that the polynomial f has no repeated factors" },
+    { id: "d", label: "So that X is compact" },
+  ]}
+  correct="b"
+  explanation="The implicit function theorem says: if ∂f/∂w ≠ 0 at a point, then locally the curve looks like the graph w = h(z) for an analytic h. This is exactly what gives us a complex chart. Without it, the curve can self-intersect (like x²-y²=0 at the origin) and fails to be a manifold."
+/>
+
+</SlideLayout>

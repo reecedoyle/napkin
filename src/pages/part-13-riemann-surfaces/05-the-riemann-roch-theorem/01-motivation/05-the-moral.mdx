@@ -1,0 +1,25 @@
+---
+title: The moral — interpolating between extremes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The moral — interpolating between extremes">
+
+We've seen two extremes and one middle:
+
+| Space | Functions | Dimension |
+|---|---|---|
+| Holomorphic $\CC \to \CC$ | All power series | ∞ |
+| $L(n \cdot \infty)$ on $\CC_\infty$ | Polynomials of degree $\leq n$ | $n + 1$ |
+| Holomorphic $\CC_\infty \to \CC$ | Constants only | $1$ |
+
+The $L(D)$ construction smoothly interpolates. By varying the divisor $D$ — which points we allow poles at, and how large those poles can be — we get every finite-dimensional space in between.
+
+<Callout kind="remark" title="The central moral">
+By allowing poles of bounded order at specified points, we produce finite-dimensional spaces of meromorphic functions. The Riemann-Roch theorem tells us the **exact dimension** of each such space in terms of the geometry of the surface.
+</Callout>
+
+In the next sections we make the notation precise by defining **divisors** — the bookkeeping device that tracks where poles and zeros are allowed, and by how much.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Constructing ℂℙ¹
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Constructing ℂℙ¹">
+
+A **complex line through the origin** in $\mathbb{C}^2$ is a one-dimensional subspace — the set of all scalar multiples of a nonzero vector $(x, y) \in \mathbb{C}^2$.
+
+Since scaling by $\lambda \neq 0$ gives the same line, we quotient:
+
+<Callout kind="definition" title="The projective line ℂℙ¹">
+<Term k="rs49CP1">$\mathbb{CP}^1$</Term> is the quotient $(\mathbb{C}^2 \setminus \{0\}) / {\sim}$ where $(x,y) \sim (\lambda x, \lambda y)$ for any $\lambda \in \mathbb{C}^{\times}$. We write the equivalence class of $(x,y)$ as <Term k="rs49homogeneousCoords">$[x : y]$</Term>.
+</Callout>
+
+Concretely: a point in $\mathbb{CP}^1$ is a "ratio" $x : y$, not an ordered pair. We have $[1 : 2] = [2 : 4]$, but $[1 : 2] \neq [2 : 1]$.
+
+**Topology.** $\mathbb{C}^2 \setminus \{0\}$ carries the subspace topology from $\mathbb{C}^2 \cong \mathbb{R}^4$, and $\mathbb{CP}^1$ gets the quotient topology.
+
+**Two patches.** Much of $\mathbb{CP}^1$ looks like $\mathbb{C}$:
+- Points with $x \neq 0$ can be written $[1 : w]$ where $w = y/x \in \mathbb{C}$ — this patch is a copy of $\mathbb{C}$.
+- Points with $y \neq 0$ can be written $[z : 1]$ where $z = x/y \in \mathbb{C}$ — another copy of $\mathbb{C}$.
+
+The only "missing" point in the first patch is $[0 : 1]$ — the point where $x = 0$. So $\mathbb{CP}^1 \cong \mathbb{C} \cup \{\infty\}$, the Riemann sphere!
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: "The twist — a nontrivial bundle"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The twist — a nontrivial bundle">
+
+We can build a **different** line bundle over $\mathbb{C}_\infty$ by changing how we weld the two chart pieces together.
+
+On the overlap where both $z$ and $t = 1/z$ are defined, consider two charts:
+- **Purple chart:** $(y, z)$ — the standard chart in the $z$-coordinate.
+- **Green chart:** $\bigl(\tfrac{y}{z},\, z\bigr)$ — scale the fiber by $1/z$.
+
+These two charts define the **same** line bundle structure on the overlap: the transition function $(y, z) \mapsto (y/z, z)$ is a $\mathbb{C}$-linear isomorphism (multiplication by $1/z$, which is analytic and nonzero there).
+
+Now weld the green chart $\bigl(\tfrac{y}{z}, z\bigr)$ to the red chart $(y, t)$ (the $t$-coordinate chart) instead of the purple chart. Since $t = 1/z$, this welding sends:
+$$\bigl(\tfrac{y}{z}, z\bigr) \longleftrightarrow (y, t) = (y, 1/z).$$
+
+**What goes wrong on the negative side?** When $z < 0$ and $t < 0$, the green chart's fiber coordinate $y/z$ is **negated** compared to what the trivial bundle would say. To make the graph paper continuous, we must "twist" it by $180°$ and glue the two halves with a flip.
+
+<Callout kind="remark" title="Möbius strip">
+The resulting total space — looked at over the real parts of $\mathbb{C}_\infty$ — is a <Term k="rs52mobiusBundle">Möbius strip</Term>. The twist in the fiber coordinate as you go around the circle corresponds exactly to the half-twist that defines the Möbius strip.
+</Callout>
+
+</SlideLayout>

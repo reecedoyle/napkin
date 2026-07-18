@@ -1,0 +1,23 @@
+---
+title: "The moral of the definition"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The moral of the definition">
+
+<Callout kind="remark" title="Moral">
+A <Term k="rs52lineBundle">line bundle</Term> is a set with two compatible structures baked in: an **analytic structure** (so we can talk about holomorphic maps) and a **$1$-dimensional $\mathbb{C}$-vector space structure on each fiber** (so we can add and scale points in the same fiber).
+</Callout>
+
+The transition maps serve the same role as the transition maps for Riemann surfaces: they weld together local pieces.
+
+- For a Riemann surface, overlapping charts must be related by biholomorphic maps.
+- For a line bundle, overlapping charts must be related by multiplication by a nonzero analytic function — the simplest possible $\mathbb{C}$-linear isomorphism on a $1$-dimensional space.
+
+<Callout kind="remark" title="Relation to sheaves">
+In most modern treatments, one first defines a **sheaf**, then declares that sections of the sheaf of analytic functions replace what we call "analytic sections." Line bundles and their sections are the concrete model that motivates the abstract sheaf language, which we will meet in the algebraic geometry section.
+</Callout>
+
+</SlideLayout>

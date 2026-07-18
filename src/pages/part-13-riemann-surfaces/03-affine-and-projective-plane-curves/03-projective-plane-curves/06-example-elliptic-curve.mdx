@@ -1,0 +1,24 @@
+---
+title: Example — compact elliptic curve
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — compact elliptic curve">
+
+<Callout kind="example" title="Homogenising the elliptic curve">
+Start with the affine <Term k="rs49ellipticCurve">elliptic curve</Term> $f(z,w) = w^2 - z^3 + z$ of degree 3. Its <Term k="rs49homogenisation">homogenisation</Term> is:
+$$g(x,y,z) = y^2 z - x^3 + xz^2$$
+Check: each term has degree 3. And $g(x,y,1) = y^2 - x^3 + x = f(x,y)$. ✓
+
+The zero set $X = \{g = 0\} \subseteq \mathbb{CP}^2$ is a compact Riemann surface. Its intersection with the affine chart $U_2$ (where $z \neq 0$) recovers the original affine elliptic curve.
+</Callout>
+
+**What did we add?** Points at infinity satisfy $z = 0$: plugging into $g$ gives $-x^3 = 0$, so $x = 0$. The unique point at infinity is $[0:1:0]$.
+
+**Genus.** The compact elliptic curve has genus 1 — topologically it is a torus. This means it is fundamentally different from the Riemann sphere (genus 0). We now have our first genuinely new compact Riemann surface.
+
+**Why not multiply by a higher power of $z$?** Replacing $g$ with $z^k \cdot g$ would add $[x:y:0]$ as singular points (where $g = 0$ and all partial derivatives of $z^k g$ vanish). The curve would no longer be smooth.
+
+</SlideLayout>
