@@ -90,6 +90,7 @@ export const partTitles: Record<string, string> = {
   'part-8-calculus': 'Part VIII — Calculus 101',
   'part-9-complex-analysis': 'Part IX — Complex Analysis',
   'part-10-measure-theory': 'Part X — Measure Theory',
+  'part-11-probability': 'Part XI — Probability',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -132,6 +133,9 @@ export const chapterTitles: Record<string, string> = {
   'part-10-measure-theory/03-lebesgue-integration': 'Chapter 37 — Lebesgue integration',
   'part-10-measure-theory/04-swapping-order-with-lebesgue-integrals': 'Chapter 38 — Swapping order with Lebesgue integrals',
   'part-10-measure-theory/05-bonus-a-hint-of-pontryagin-duality': 'Chapter 39 — Bonus: A hint of Pontryagin duality',
+  'part-11-probability/01-random-variables-to-do': 'Chapter 40 — Random variables (TO DO)',
+  'part-11-probability/02-large-number-laws-to-do': 'Chapter 41 — Large number laws (TO DO)',
+  'part-11-probability/03-stopped-martingales-to-do': 'Chapter 42 — Stopped martingales (TO DO)',
 };
 
 export const sectionTitles: Record<string, string> = {
