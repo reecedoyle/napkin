@@ -89,7 +89,7 @@ test.describe('Affine and projective plane curves — ProofReveal flow (circle c
     );
 
     await page.reload();
-    await expect(article.getByText(/valid complex chart/i)).toBeVisible();
+    await expect(article.getByText(/injective and analytic/i)).toBeVisible();
   });
 });
 
