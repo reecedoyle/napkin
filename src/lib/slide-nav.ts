@@ -91,6 +91,7 @@ export const partTitles: Record<string, string> = {
   'part-9-complex-analysis': 'Part IX — Complex Analysis',
   'part-10-measure-theory': 'Part X — Measure Theory',
   'part-11-probability': 'Part XI — Probability',
+  'part-12-differential-geometry': 'Part XII — Differential Geometry',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -136,6 +137,10 @@ export const chapterTitles: Record<string, string> = {
   'part-11-probability/01-random-variables-to-do': 'Chapter 40 — Random variables (TO DO)',
   'part-11-probability/02-large-number-laws-to-do': 'Chapter 41 — Large number laws (TO DO)',
   'part-11-probability/03-stopped-martingales-to-do': 'Chapter 42 — Stopped martingales (TO DO)',
+  'part-12-differential-geometry/01-multivariable-calculus-done-correctly': 'Chapter 43 — Multivariable calculus done correctly',
+  'part-12-differential-geometry/02-differential-forms': 'Chapter 44 — Differential forms',
+  'part-12-differential-geometry/03-integrating-differential-forms': 'Chapter 45 — Integrating differential forms',
+  'part-12-differential-geometry/04-a-bit-of-manifolds': 'Chapter 46 — A bit of manifolds',
 };
 
 export const sectionTitles: Record<string, string> = {
