@@ -148,13 +148,21 @@ for (const wt of agentTrees) {
 // shared files like glossary.ts.) No shared file except katex-macros is
 // ever touched.
 
-const ADDITIVE_GLOBS = ['src/pages/part-*/**', 'src/lib/glossary-chapters/*.ts', 'tests/e2e/*.spec.ts'];
+// These are git PATHSPECS, not shell globs — they MUST stay single-quoted in
+// the command string so /bin/sh passes them to git literally. If they leak
+// unquoted, the shell expands them against the working tree *first*, and since
+// the part being landed doesn't exist on main yet, the pattern matches only the
+// already-landed parts → git diffs unchanged files → zero new files extracted.
+// That silent drop is exactly the bug that hit Parts X and XI. As a git
+// pathspec, `src/pages/part-*` matches at any depth ('*' spans '/').
+const ADDITIVE_GLOBS = ['src/pages/part-*', 'src/lib/glossary-chapters/*.ts', 'tests/e2e/*.spec.ts'];
+const PATHSPEC = ADDITIVE_GLOBS.map((g) => `'${g}'`).join(' ');
 
 let extractedAny = false;
 for (const wt of agentTrees) {
   const base = sh(`git merge-base main ${wt.branch}`).trim();
   const files = sh(
-    `git diff --name-only --diff-filter=ACMR ${base} ${wt.branch} -- ${ADDITIVE_GLOBS.join(' ')}`,
+    `git diff --name-only --diff-filter=ACMR ${base} ${wt.branch} -- ${PATHSPEC}`,
   ).trim().split('\n').filter(Boolean);
 
   if (files.length === 0) {
@@ -179,6 +187,18 @@ for (const wt of agentTrees) {
 if (extractedAny) {
   sh('git add -A');
   sh('git commit -m "Land authored chapters from agent worktrees"');
+} else {
+  // We had worktrees (checked at step 1) but pulled nothing out of any of
+  // them. For chapter-authoring agents that's never legitimate — it means the
+  // pathspec matched no new files. Refuse to delete the worktrees so the work
+  // is recoverable, and fail loudly rather than silently "landing" an empty
+  // part (the Parts X/XI drop bug).
+  console.error(
+    '\nfinalize-part: ERROR — found agent worktrees but extracted zero additive\n' +
+      'files. Not deleting the worktrees. Check the ADDITIVE_GLOBS pathspec and\n' +
+      'that each branch actually added files under src/pages/part-*/.',
+  );
+  process.exit(1);
 }
 
 // ─── 4. clean up worktrees ────────────────────────────────────────────
