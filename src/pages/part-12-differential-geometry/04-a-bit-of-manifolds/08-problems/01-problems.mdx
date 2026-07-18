@@ -13,8 +13,8 @@ import Problem from '@/components/Problem';
   id="mfd-prob-zero-form-is-smooth-fn"
   difficulty="standard"
   prompt="Show that a differential 0-form on a smooth manifold M is the same thing as a smooth function M → ℝ."
-  hint="A 0-form is a collection of smooth functions {fᵢ} on each chart domain Eᵢ, compatible under transition maps. Unpack what the compatibility condition φᵢⱼ*(fᵢ) = fⱼ means for 0-forms (functions), and show this is exactly the definition of a smooth function M → ℝ."
-  solution="A differential 0-form on M is a collection {fᵢ} where each fᵢ: Eᵢ → ℝ is a smooth function on the chart domain, with the compatibility condition fⱼ = φᵢⱼ*(fᵢ) = fᵢ ∘ φᵢⱼ⁻¹ on overlaps.
+  hint="A 0-form is a collection of smooth functions {fᵢ} on each chart domain Eᵢ, compatible under transition maps. Unpack what the compatibility condition fⱼ = fᵢ ∘ φᵢⱼ⁻¹ means for 0-forms (functions), and show this is exactly the definition of a smooth function M → ℝ."
+  solution="A differential 0-form on M is a collection {fᵢ} where each fᵢ: Eᵢ → ℝ is a smooth function on the chart domain, with the compatibility condition fⱼ = fᵢ ∘ φᵢⱼ⁻¹ on overlaps.
 
 Given such a collection, define f: M → ℝ by f(p) = fᵢ(φᵢ(p)) for any chart (Uᵢ, φᵢ) with p ∈ Uᵢ. The compatibility condition ensures this is well-defined: if p ∈ Uᵢ ∩ Uⱼ, then fᵢ(φᵢ(p)) = fⱼ(φᵢⱼ(φᵢ(p))) = fⱼ(φⱼ(p)).
 
