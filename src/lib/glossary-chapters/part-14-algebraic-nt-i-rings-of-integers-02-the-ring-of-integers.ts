@@ -8,7 +8,7 @@
 
 import type { GlossaryEntry } from '../glossary';
 
-export const an54Glossary: Record<string, GlossaryEntry> = {
+const an54Glossary: Record<string, GlossaryEntry> = {
   // ────────────── Chapter 54 — The ring of integers ──────────────
 
   an54algebraicNumber: {
@@ -93,3 +93,5 @@ export const an54Glossary: Record<string, GlossaryEntry> = {
       'ℤ[√2] has power basis {1, √2}. ℤ[ζₚ] has power basis {1, ζₚ, …, ζₚ^{p−2}}.',
   },
 };
+
+export default an54Glossary;
