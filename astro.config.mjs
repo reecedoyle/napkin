@@ -22,6 +22,14 @@ const katexOptions = { macros: napkinKatexMacros, strict: 'ignore', output: 'htm
 const BASE_PATH = process.env.PUBLIC_BASE_PATH || undefined;
 const SCOPE = BASE_PATH ?? '/';
 
+// The PWA integration runs a workbox pass that precaches the whole dist/
+// (~1300 entries) on every build. That's only needed for the deployed,
+// installable site — it's dead weight for the build that feeds Playwright
+// (and for `npm run dev`). Gate it behind ENABLE_PWA=1, which the GH Pages
+// deploy workflow sets; local build / preview / e2e skip it and build faster.
+// No e2e or unit test depends on the service worker or manifest.
+const ENABLE_PWA = process.env.ENABLE_PWA === '1';
+
 export default defineConfig({
   site: 'https://reecedoyle.github.io',
   base: BASE_PATH,
@@ -32,7 +40,7 @@ export default defineConfig({
       remarkPlugins: [remarkMath],
       rehypePlugins: [[rehypeKatex, katexOptions]],
     }),
-    AstroPWA({
+    ...(ENABLE_PWA ? [AstroPWA({
       registerType: 'autoUpdate',
       base: SCOPE,
       scope: SCOPE,
@@ -68,7 +76,7 @@ export default defineConfig({
         // Don't precache anything > 4 MB (KaTeX fonts sit comfortably under).
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
       },
-    }),
+    })] : []),
   ],
   markdown: {
     remarkPlugins: [remarkMath],

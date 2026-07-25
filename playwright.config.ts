@@ -7,11 +7,14 @@ export default defineConfig({
   // so there is no shared state to serialize on. Run them in parallel —
   // ~60% of the suite is trivial "slide URL loads" checks that fan out
   // cleanly. CI gets a fixed worker count for reproducibility; locally we
-  // use half the cores (Playwright's `'50%'`).
+  // use two-thirds of the cores. The suite is memory- rather than
+  // CPU-bound (each Chromium context is cheap; the preview server is
+  // static), so on a 12-core / 8 GB dev box '66%' (~8 workers, ~2 GB of
+  // browser contexts) trims the ~2.5-min test phase without swapping.
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
-  workers: process.env.CI ? 4 : '50%',
+  workers: process.env.CI ? 4 : '66%',
   reporter: process.env.CI ? 'list' : [['list'], ['html', { open: 'never' }]],
   use: {
     baseURL: 'http://127.0.0.1:4323',

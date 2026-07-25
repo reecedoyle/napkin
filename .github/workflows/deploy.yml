@@ -35,6 +35,10 @@ jobs:
       - name: Build
         env:
           PUBLIC_BASE_PATH: /napkin/
+          # Emit the installable PWA (service worker + workbox precache) for
+          # the deployed site only. Local test/land builds leave this unset
+          # and skip the ~1300-entry precache pass — see astro.config.mjs.
+          ENABLE_PWA: '1'
           # The SSR "Building static entrypoints" phase (Rollup bundling every
           # KaTeX-heavy MDX module at once) peaks around 4GB and grows with the
           # page count. The `build` npm script caps the heap at 4096 to stay
