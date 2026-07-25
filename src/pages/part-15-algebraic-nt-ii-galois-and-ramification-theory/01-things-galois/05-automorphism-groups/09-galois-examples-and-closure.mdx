@@ -17,7 +17,7 @@ import MCQ from '@/components/MCQ';
 But we can always fix a non-Galois extension by throwing in the missing conjugates.
 
 <Callout kind="example" title="The Galois closure of ℚ(∛2)">
-Let $K = \QQ(\cbrt2,\omega)$, with $[K:\QQ] = 6$. Consider $\sigma \colon \cbrt2 \mapsto \omega\cbrt2, \omega \mapsto \omega$ and $\tau \colon \cbrt2 \mapsto \cbrt2, \omega \mapsto \omega^2$. Then $\sigma^3 = \tau^2 = \id$, and one can check $|\Aut(K/\QQ)| \le 6$ (Lagrange's theorem) while also $\ge 6$ — so $|\Aut(K/\QQ)| = 6 = [K:\QQ]$, and $K/\QQ$ **is** Galois! In fact $\Gal(K/\QQ) \cong S_3$, the symmetric group on 3 elements.
+Let $K = \QQ(\cbrt2,\omega)$, with $[K:\QQ] = 6$. Consider $\sigma \colon \cbrt2 \mapsto \omega\cbrt2, \omega \mapsto \omega$ and $\tau \colon \cbrt2 \mapsto \cbrt2, \omega \mapsto \omega^2$. Then $\sigma^3 = \tau^2 = \id$, and one can check $|\Aut(K/\QQ)| \le 6$ (it always divides $[K:\QQ] = 6$) while also $\ge 6$ (by Lagrange the orders $3$ and $2$ of $\sigma$ and $\tau$ each divide $|\Aut(K/\QQ)|$, forcing $6 \mid |\Aut(K/\QQ)|$) — so $|\Aut(K/\QQ)| = 6 = [K:\QQ]$, and $K/\QQ$ **is** Galois! In fact $\Gal(K/\QQ) \cong S_3$, the symmetric group on 3 elements.
 </Callout>
 
 Starting from a non-Galois extension $\QQ(\cbrt2)$, adjoining $\omega$ produced a <Term k="gal58GaloisClosure">Galois closure</Term> — the smallest Galois extension containing the original field.
