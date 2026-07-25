@@ -104,11 +104,11 @@ test.describe('Fundamental groups — Problem flow (hanging a picture with two n
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    // "never the identity" appears only inside the solution text, not the prompt/hint
-    await expect(article.getByText(/never the identity/i)).toBeHidden();
+    // "reduced word in the free group" appears only inside the solution text
+    await expect(article.getByText(/reduced word in the free group/i)).toBeHidden();
 
     await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/never the identity/i)).toBeVisible();
+    await expect(article.getByText(/reduced word in the free group/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();
