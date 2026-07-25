@@ -44,6 +44,11 @@ function analyzeSource(texPath) {
 function briefFor(ch) {
   const { sections, problems } = analyzeSource(ch.sourceTex);
   const slug = ch.dirSlug.replace(/^\d+-/, '');
+  // Deterministic per-chapter glossary-key prefix (slug initials + chapter
+  // number, e.g. "fundamental-groups" ch64 → "fg64"). Keys must be unique
+  // across the sibling chapters authored concurrently, which can't see each
+  // other's glossary files; a chapter-number suffix guarantees no collision.
+  const prefix = slug.split('-').filter(Boolean).slice(0, 3).map((w) => w[0]).join('') + ch.chapterNumber;
   const sectionList = sections.length
     ? sections.map((s, i) => `§${i + 1} ${s}`).join(', ')
     : '(read the source for section structure)';
@@ -64,19 +69,20 @@ Your chapter:
 - Chapter title (context only; the parent wires slide-nav.ts, NOT you): "${ch.chapterTitle}"
 - Sections in the source: ${sectionList}, plus a problems section if applicable. ${problemClause}
 
-Glossary: create ONE new file \`src/lib/glossary-chapters/${ch.chapterDir.replace('/', '-')}.ts\` (default-exporting a Record<string, GlossaryEntry>) — do NOT edit the shared src/lib/glossary.ts. Keys must be unique across the portal.
+Glossary: create ONE new file \`src/lib/glossary-chapters/${ch.chapterDir.replace('/', '-')}.ts\` (default-exporting a Record<string, GlossaryEntry>) — do NOT edit the shared src/lib/glossary.ts. **Prefix EVERY glossary key with \`${prefix}\`** (e.g. \`${prefix}Example\`) so keys stay unique across the sibling chapters authored in parallel, which can't see each other's files. Reuse existing portal keys for concepts already defined in earlier parts rather than redefining.
 
 Style exemplar: \`${EXEMPLAR}\`.
-Test spec: copy the shape of \`tests/e2e/ring-flavors.spec.ts\` → write \`tests/e2e/${slug}.spec.ts\`. Write ONLY the interactive flow blocks (KaTeX, MCQ, NumericInput, ProofReveal, Problem); do NOT write per-slide "loads URL" tests or a SLIDES list (a global smoke spec covers rendering). Every exercise island needs \`client:load\`. article.getByText assertions must be verbatim substrings of your slide prose.
+Test spec: copy the shape of \`tests/e2e/ring-flavors.spec.ts\` → write \`tests/e2e/${slug}.spec.ts\`. Write ONLY the interactive flow blocks (KaTeX, MCQ, NumericInput, ProofReveal, Problem); do NOT write per-slide "loads URL" tests or a SLIDES list (a global smoke spec covers rendering). Every exercise island needs \`client:load\`. article.getByText assertions must be verbatim substrings of your slide prose, and each reveal-flow anchor (a \`toBeHidden\`→reveal phrase) must appear ONLY in the hidden solution — not in the prompt/hint or another slide — or narrow the locator with \`.first()\`. When a getByRole('button', { name }) targets an MCQ option, copy the option label verbatim and make sure it matches exactly one option.
 
 Audience: a CS-trained adult rebuilding undergraduate math (knows abstraction, forgot the math). Frame concretely before formal. Match Evan Chen's conversational "we" voice.
 
 Work incrementally: author one section, add its glossary entries to your chapter glossary file, then \`git add -A && git commit -m "Author §N …"\`, before the next section.
 
 Before reporting done, run (fix anything they report):
-  node scripts/verify-chapter.mjs ${ch.chapterDir}
+  node scripts/verify-chapter.mjs ${ch.chapterDir} --tex ${ch.sourceTex}
   npm run check
   npm run build
+The verifier prints ERRORS (must fix: dead islands missing client:load, bad Callout kinds, unknown <Term> keys, an MCQ button matcher hitting ≥2 or 0 options, missing <Problem>s) and WARNINGS (getByText / reveal-anchor mismatches — fix the genuine ones; a few are false positives from KaTeX-rendered math). Aim for zero errors and no genuine warnings. This same gate runs fail-closed when the parent lands the part, so a chapter with errors will block the whole part.
 
 HARD CONSTRAINTS:
 - Do NOT edit src/lib/slide-nav.ts (parent wires it).
