@@ -7,7 +7,13 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { napkinKatexMacros } from './src/lib/katex-macros';
 
-const katexOptions = { macros: napkinKatexMacros, strict: 'ignore' };
+// `output: 'html'` renders each formula once (the visible HTML) instead of the
+// default 'htmlAndMathml', which also bakes a visually-hidden MathML copy into
+// every page. With ~1275 KaTeX-heavy MDX modules all held in one Rollup graph
+// during the build, that second copy pushed the peak heap past 4GB; dropping it
+// cuts the build peak ~5.2GB → ~4.0GB (builds under a 4096 cap) with no visual
+// change. Trade-off: screen readers no longer get semantic MathML.
+const katexOptions = { macros: napkinKatexMacros, strict: 'ignore', output: 'html' };
 
 // PUBLIC_BASE_PATH is set by the GH Pages workflow (e.g. "/napkin/").
 // Always pass it with a trailing slash so `${BASE_URL}foo` concatenates

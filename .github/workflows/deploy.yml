@@ -35,7 +35,14 @@ jobs:
       - name: Build
         env:
           PUBLIC_BASE_PATH: /napkin/
-        run: npm run build
+          # The SSR "Building static entrypoints" phase (Rollup bundling every
+          # KaTeX-heavy MDX module at once) peaks around 4GB and grows with the
+          # page count. The `build` npm script caps the heap at 4096 to stay
+          # lean on an 8GB dev laptop; ubuntu-latest has 16GB, so we invoke
+          # astro directly here with generous headroom for future growth
+          # instead of `npm run build` (whose inline cap would override this).
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: npx astro build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

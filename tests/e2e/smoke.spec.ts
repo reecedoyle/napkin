@@ -66,16 +66,17 @@ test.describe('NumericInput + ProofReveal (metric-topology smoke slide)', () => 
     await expect(page.locator('.katex-display').first()).toBeVisible();
   });
 
-  test('KaTeX MathML is visually hidden (no double-rendering)', async ({ page }) => {
+  test('KaTeX renders HTML-only (no MathML double-render)', async ({ page }) => {
     await page.goto(TOPOLOGY);
-    // KaTeX renders math twice: once as MathML for screen readers (must be
-    // visually hidden, ~1px clipped) and once as styled HTML. If the KaTeX
-    // CSS isn't loaded properly, the MathML leaks visually and you see
-    // every formula twice.
-    const mathmlBox = await page.locator('.katex-mathml').first().boundingBox();
-    expect(mathmlBox).not.toBeNull();
-    expect(mathmlBox!.width).toBeLessThanOrEqual(2);
-    expect(mathmlBox!.height).toBeLessThanOrEqual(2);
+    // We configure KaTeX with `output: 'html'` (see astro.config.mjs) so each
+    // formula is rendered exactly once, as styled HTML. The default
+    // 'htmlAndMathml' also emits a visually-hidden MathML copy, which roughly
+    // doubles the per-page markup and pushed the build's peak heap past 4GB.
+    // Assert the MathML copy is absent — this both confirms single-rendering
+    // (no risk of formulas leaking twice if CSS fails) and guards against
+    // silently reverting to 'htmlAndMathml'.
+    await expect(page.locator('.katex').first()).toBeVisible();
+    await expect(page.locator('.katex-mathml')).toHaveCount(0);
   });
 
   test('Figure component renders inline SVG with a caption', async ({ page }) => {
