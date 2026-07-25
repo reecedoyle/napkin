@@ -94,6 +94,7 @@ export const partTitles: Record<string, string> = {
   'part-12-differential-geometry': 'Part XII — Differential Geometry',
   'part-13-riemann-surfaces': 'Part XIII — Riemann Surfaces',
   'part-14-algebraic-nt-i-rings-of-integers': 'Part XIV — Algebraic NT I: Rings of Integers',
+  'part-15-algebraic-nt-ii-galois-and-ramification-theory': 'Part XV — Algebraic NT II: Galois and Ramification Theory',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -155,6 +156,11 @@ export const chapterTitles: Record<string, string> = {
   'part-14-algebraic-nt-i-rings-of-integers/04-minkowski-bound-and-class-groups': 'Chapter 56 — Minkowski bound and class groups',
   'part-14-algebraic-nt-i-rings-of-integers/05-more-properties-of-the-discriminant': 'Chapter 57 — More properties of the discriminant',
   'part-14-algebraic-nt-i-rings-of-integers/06-bonus-let-s-solve-pell-s-equation': "Chapter 58 — Bonus: Let's solve Pell's equation!",
+  'part-15-algebraic-nt-ii-galois-and-ramification-theory/01-things-galois': 'Chapter 58 — Things Galois',
+  'part-15-algebraic-nt-ii-galois-and-ramification-theory/02-finite-fields': 'Chapter 59 — Finite fields',
+  'part-15-algebraic-nt-ii-galois-and-ramification-theory/03-ramification-theory': 'Chapter 60 — Ramification theory',
+  'part-15-algebraic-nt-ii-galois-and-ramification-theory/04-the-frobenius-element': 'Chapter 61 — The Frobenius element',
+  'part-15-algebraic-nt-ii-galois-and-ramification-theory/05-bonus-a-bit-on-artin-reciprocity': 'Chapter 62 — Bonus: A Bit on Artin Reciprocity',
 };
 
 export const sectionTitles: Record<string, string> = {
