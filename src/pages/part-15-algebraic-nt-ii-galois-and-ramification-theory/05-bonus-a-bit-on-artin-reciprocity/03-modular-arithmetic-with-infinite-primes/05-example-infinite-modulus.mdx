@@ -1,0 +1,39 @@
+---
+title: 'Example: adding the infinite prime fixes the sign problem'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Example: adding the infinite prime fixes the sign problem">
+
+Still $K = \QQ$, with its one real infinite prime $\infty$. First take $\km = \infty$ alone. As before $I_\QQ(\infty) = \QQ^\times$, and by definition
+
+$$
+P_\QQ(\infty) = \left\{ \frac ab \ZZ \mid a/b > 0 \right\}.
+$$
+
+You might think this is $\QQ_{>0}$, but again — ideals don't see sign, so in fact $P_\QQ(\infty) = \QQ^\times$ still. So $C_\QQ(\infty)$ is still trivial: the infinite prime alone buys us nothing.
+
+Now combine both: let $\km = 8\infty$. As before $I_\QQ(8\infty) \cong \left\{ \frac ab\ZZ \mid a/b \equiv 1,3,5,7 \pmod 8 \right\}$, but now
+
+$$
+P_\QQ(8\infty) \cong \left\{ \frac ab\ZZ \mid a/b \equiv 1 \pmod 8 \ \text{and}\ a/b > 0 \right\}.
+$$
+
+<Callout kind="remark" title="This time the fix works">
+This time $7\ZZ \notin P_\QQ(8\infty)$: we have $7 \not\equiv 1 \pmod 8$, and also $-7 < 0$. Neither generator of $7\ZZ$ survives both conditions.
+</Callout>
+
+Working it out, $C_\QQ(8\infty) \cong \{1,3,5,7 \bmod 8\}/\{1 \bmod 8\} \cong \Zm{8}$, via the bijection $a\ZZ \mapsto |a| \bmod 8$. More generally, $C_\QQ(m\infty) = \Zm m$ — throwing in the infinite prime removes the sign ambiguity entirely, and we recover the familiar unit group.
+
+<NumericInput
+  client:load
+  id="artin-mod-num-order-c8inf"
+  prompt="What is the order (number of elements) of the ray class group C_ℚ(8∞)?"
+  expected="4"
+  explanation="C_ℚ(8∞) ≅ (ℤ/8ℤ)ˣ = {1,3,5,7 mod 8}, which has 4 elements."
+/>
+
+</SlideLayout>

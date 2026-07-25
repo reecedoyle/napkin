@@ -1,0 +1,22 @@
+---
+title: "Frobenius elements above p form a conjugacy class"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Frobenius elements above p form a conjugacy class">
+
+The previous slide generalizes cleanly: for a given unramified rational prime $p$, all the Frobenius elements over it fill out one entire <Term k="conjugacyClass">conjugacy class</Term> of $G$ — no more, no less.
+
+<Callout kind="theorem" title="Conjugacy classes in Galois groups">
+The set $\{ \Frob_\kp \mid \kp \text{ above } p \}$ is one of the conjugacy classes of $G$.
+</Callout>
+
+We've already shown $\Frob_{\kp_1}$ and $\Frob_{\kp_2}$ are conjugate whenever both lie above $p$, so the set is *contained* in some conjugacy class. For the reverse inclusion: given any $\Frob_\kp$ and any $\sigma \in G$, we just need $\sigma \circ \Frob_\kp \circ \sigma^{-1}$ to itself be a Frobenius element above $p$ — and indeed it equals $\Frob_{\kp'}$ for $\kp' = \sigma\kp$ (another prime above $p$, since $\sigma$ fixes $\QQ$). So every conjugate of $\Frob_\kp$ shows up in our set, and the set is exactly a conjugacy class.
+
+<Callout kind="remark" title="Moral">
+$\Frob_\kp$ is determined up to conjugation by the rational prime $p$ from which $\kp$ arises. So even though the Gothic letters $\kp$ look scary, the *content* of $\Frob_\kp$ really just comes from the friendlier, more familiar rational prime $p$.
+</Callout>
+
+</SlideLayout>

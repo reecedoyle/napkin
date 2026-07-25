@@ -1,0 +1,16 @@
+---
+title: The Galois group acts on the primes above p
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Galois group acts on the primes above p">
+
+Everything so far works for any number field $K$. Something *really* magical happens once we additionally assume $K/\QQ$ is <Term k="rt60galoisExtension">Galois</Term>: **all the inertial degrees and all the ramification indices turn out equal.**
+
+Let <Term k="rt60galoisGroup">$G = \Gal(K/\QQ)$</Term>. If $\kp \subseteq \OO_K$ is a prime above $p$, then for any $\sigma \in G$, the image $\sigma(\kp)$ is *also* a prime above $p$: it's prime because $\sigma$ is a ring automorphism, and $p \in \sigma(\kp)$ because $p \in \kp$ and $\sigma$ fixes $\QQ$ pointwise.
+
+So the pointwise mapping $\kp \mapsto \sigma(\kp)$ makes $G$ **act on the set of primes above $p$**. We write $\sigma \kp$ as shorthand for $\sigma(\kp)$ — the sigma is doing a group action, not just an arbitrary map.
+
+</SlideLayout>

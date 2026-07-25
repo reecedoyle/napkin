@@ -1,0 +1,22 @@
+---
+title: The Frobenius element
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Frobenius element">
+
+Here is the theorem promised on the last slide.
+
+<Callout kind="theorem" title="The Frobenius element">
+Assume $K/\QQ$ is Galois with Galois group $G$. Let $p$ be a rational prime unramified in $K$, and $\kp$ a prime above it. There is a **unique** element $\Frob_\kp \in G$ with the property that, for all $\alpha \in \OO_K$,
+$$
+\Frob_\kp(\alpha) \equiv \alpha^{p} \pmod{\kp}.
+$$
+It is called the <Term k="frob61FrobeniusElement">Frobenius element</Term> at $\kp$, and has order $f$.
+</Callout>
+
+The **uniqueness** part is pretty important: it means we can show a given $\sigma \in \Gal(K/\QQ)$ is the Frobenius element just by observing that it satisfies the functional equation above — we never have to reconstruct $\Frob_\kp$ from scratch, only verify a guess.
+
+</SlideLayout>

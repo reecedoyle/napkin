@@ -1,0 +1,24 @@
+---
+title: If nonzero, the characteristic is prime
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="If nonzero, the characteristic is prime">
+
+<Callout kind="lemma" title="Nonzero characteristic is prime">
+If the <Term k="ff59Characteristic">characteristic</Term> of a field $F$ isn't $0$, it must be a prime number.
+</Callout>
+
+Why can't the characteristic be, say, $6$? Because a field has no zero divisors — if $F$ had characteristic $ab$ with $1 < a, b < ab$, we could split the sum of $ab$ copies of $1_F$ into two nonzero pieces whose product is forced to vanish, which is impossible in a field.
+
+<ProofReveal
+  client:load
+  id="ff59-s2-proof-char-prime"
+  prompt="Try writing this out: suppose n = ab with 1 < a, b < n is the characteristic. Derive a contradiction."
+  solution="Let A = 1_F + ... + 1_F (a times) and B = 1_F + ... + 1_F (b times). Since a, b are both smaller than the characteristic n, neither A nor B is 0. But AB is n copies of 1_F added together (by distributing the sum), which equals 0 by definition of the characteristic. So AB = 0 with A ≠ 0 and B ≠ 0 — a zero divisor, contradicting that F is a field."
+/>
+
+</SlideLayout>

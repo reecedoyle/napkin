@@ -1,0 +1,33 @@
+---
+title: Field extensions and degree
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Field extensions and degree">
+
+Everything in §1 was really about number fields — extensions of $\QQ$ specifically. Let's generalize: one field can sit inside another, with no requirement that the smaller one be $\QQ$.
+
+<Callout kind="definition" title="Field extension, degree">
+Let $K$ and $F$ be fields. If $F \subseteq K$, we write <Term k="gal58FieldExtension">$K/F$</Term> and say $K$ is a field extension of $F$. Since $F \subseteq K$, $K$ is automatically an $F$-vector space (just like $\QQ(\sqrt2)$ is automatically a $\QQ$-vector space). The <Term k="gal58ExtensionDegree">degree</Term> $[K:F]$ is the dimension of this vector space. If $[K:F]$ is finite, $K/F$ is a **finite extension**.
+</Callout>
+
+That's really all there is — nothing tricky. A number field, as we've been using the term, is exactly a finite extension of $\QQ$.
+
+<MCQ
+  client:load
+  id="gal-ext-mcq-finite-ext-of-q"
+  prompt="What do we call a finite extension of ℚ?"
+  options={[
+    { id: "a", label: "An algebraic integer" },
+    { id: "b", label: "A number field" },
+    { id: "c", label: "A splitting field" },
+    { id: "d", label: "A Galois group" },
+  ]}
+  correct="b"
+  explanation="A number field is, by definition, a finite-degree field extension of ℚ. Algebraic integers are elements of number fields, not fields themselves."
+/>
+
+</SlideLayout>

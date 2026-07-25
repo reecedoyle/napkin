@@ -1,0 +1,24 @@
+---
+title: The inertia group and the efg tower
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The inertia group and the efg tower">
+
+<Callout kind="definition" title="Inertia group">
+The kernel of $\theta: D_\kp \to \Gal\left( (\OO_K/\kp)/\FF_p \right)$ is called the <Term k="rt60inertiaGroup">inertia group</Term> $I_\kp \subseteq D_\kp$; it has order $e$.
+</Callout>
+
+This gives a chain of subgroups $\{1\} \subseteq I \subseteq D \subseteq G$ (dropping the $\kp$ subscripts). Taking <Term k="rt60fixedField">fixed fields</Term> via the fundamental theorem of Galois theory turns this into a tower of fields $K \supseteq K^I \supseteq K^D \supseteq \QQ$, and the whole factorization process $1 \to efg$ splits into three clean stages:
+
+<Callout kind="remark" title="Split, then inert, then ramify">
+- Lifting $(p)$ from $\QQ$ to $K^D$: it **splits completely** into $g$ unramified primes, each of inertial degree $1$.
+- Lifting those primes from $K^D$ to $K^I$: they **stay inert**, now with inertial degree $f$.
+- Lifting from $K^I$ to $K$: they **ramify** with exponent $e$, but don't split any further.
+</Callout>
+
+(This all assumes $D \normalin G$ and $I \normalin G$ — the next two slides show what can go wrong.) In the typical unramified case, $K^I = K$, and only the split/inert stages matter.
+
+</SlideLayout>

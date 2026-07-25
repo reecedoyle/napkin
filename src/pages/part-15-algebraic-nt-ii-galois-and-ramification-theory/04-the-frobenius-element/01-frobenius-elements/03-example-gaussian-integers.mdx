@@ -1,0 +1,40 @@
+---
+title: 'Example: Frobenius elements of the Gaussian integers'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Example: Frobenius elements of the Gaussian integers">
+
+Let's actually compute some Frobenius elements for $K = \QQ(i)$, which has $\OO_K = \ZZ[i]$. This is a Galois extension, with $G = \Zm2$, corresponding to the identity and complex conjugation.
+
+<Callout kind="example" title="Frobenius elements of the Gaussian integers">
+If $p$ is an odd prime with $\kp$ above it, then $\Frob_\kp$ is the unique element such that
+$$
+(a+bi)^p \equiv \Frob_\kp(a+bi) \pmod{\kp}
+$$
+in $\ZZ[i]$. In particular,
+$$
+\Frob_\kp(i) = i^p = \begin{cases} i & p \equiv 1 \pmod 4 \\ -i & p \equiv 3 \pmod 4. \end{cases}
+$$
+From this we see that $\Frob_\kp$ is the identity when $p \equiv 1 \pmod 4$, and $\Frob_\kp$ is complex conjugation when $p \equiv 3 \pmod 4$.
+</Callout>
+
+Note that we really only needed to compute $\Frob_\kp$ on the generator $i$ — the next slide explains why that's always enough.
+
+<MCQ
+  client:load
+  id="frob-elem-mcq-gaussian-13"
+  prompt="Take p = 13 (so 13 ≡ 1 mod 4) and 𝔭 a prime above it in ℤ[i]. What is Frob_𝔭?"
+  options={[
+    { id: "a", label: "The identity" },
+    { id: "b", label: "Complex conjugation" },
+    { id: "c", label: "Frob_𝔭 does not exist since 13 is unramified" },
+  ]}
+  correct="a"
+  explanation="13 ≡ 1 (mod 4), so Frob_𝔭(i) = i^13 = i, meaning Frob_𝔭 fixes the generator i. Since Frob_𝔭 is a homomorphism fixing a generator of ℤ[i] over ℤ, it must be the identity."
+/>
+
+</SlideLayout>

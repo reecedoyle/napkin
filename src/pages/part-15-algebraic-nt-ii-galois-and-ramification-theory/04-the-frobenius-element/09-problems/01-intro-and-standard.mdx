@@ -1,0 +1,29 @@
+---
+title: 'Problems — Frobenius elements and Chebotarev'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Frobenius elements and Chebotarev">
+
+Two problems to consolidate the chapter. The first extends the quadratic reciprocity machinery to compute (2/p); the second is a slick application of Chebotarev to a purely algebraic question about polynomials.
+
+<Problem
+  client:load
+  id="frob-prob-two-over-p"
+  difficulty="standard"
+  prompt="Show that for an odd prime p, (2/p) = (−1)^((p²−1)/8)."
+  hint="Redo the end of the quadratic reciprocity proof with q replaced by p, and with the auxiliary rational prime taken to be 2 instead of a generic prime."
+  solution="Run the quadratic reciprocity argument with L = ℚ(ζ_p) and K = ℚ(√p*), where p* = ±p is chosen so that p* ≡ 1 (mod 4). Exactly as in the main proof, (2/p) = 1 iff σ_2 lies in the index-two subgroup H iff 2 splits in 𝒪_K = ℤ[½(1+√p*)] iff the polynomial t² − t − ¼(1−p*) factors mod 2, which happens iff p* ≡ 1 (mod 8). Translating back to p: if p ≡ 1 (mod 4) then p* = p, so this condition reads p ≡ 1 (mod 8); if p ≡ 3 (mod 4) then p* = −p, so it reads p ≡ 7 (mod 8). Combining both cases, (2/p) = 1 exactly when p ≡ ±1 (mod 8) — and checking all four odd residues mod 8 shows this matches (−1)^((p²−1)/8) exactly."
+/>
+
+<Problem
+  client:load
+  id="frob-prob-forces-linear-factors"
+  difficulty="standard"
+  prompt="Let f be a nonconstant polynomial with integer coefficients. Suppose f (mod p) splits completely into linear factors for all sufficiently large primes p. Show that f splits completely into linear factors over ℚ."
+  hint="Let K be the splitting field of f and G = Gal(K/ℚ). Use Chebotarev to show every element of G must act on the roots of f with every cycle of length 1."
+  solution="Let K be the splitting field of f and G = Gal(K/ℚ). By the theorem that Frobenius elements control polynomial factorization, for every sufficiently large unramified prime p, the factorization pattern of f mod p equals the cycle structure of Frob_𝔓 acting on the roots of f, for 𝔓 above p. By hypothesis f splits completely into linear factors mod p for all large p, so this cycle structure consists entirely of fixed points for all large p. By Chebotarev density, every element σ of G equals Frob_𝔓 for infinitely many primes p, in particular for arbitrarily large ones. So every σ ∈ G must fix every root of f. Since the roots of f generate K over ℚ, an automorphism fixing all of them fixes all of K, forcing σ = id. As σ was an arbitrary element of G, the group G is trivial, meaning K = ℚ — so all the roots of f already lie in ℚ, and f splits completely into linear factors over ℚ."
+/>
+
+</SlideLayout>

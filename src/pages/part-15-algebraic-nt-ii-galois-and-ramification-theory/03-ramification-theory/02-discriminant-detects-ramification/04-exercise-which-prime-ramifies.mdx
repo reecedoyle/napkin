@@ -1,0 +1,21 @@
+---
+title: Exercise — which prime ramifies?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Exercise — which prime ramifies?">
+
+Let $K = \QQ(\sqrt{-3})$. Its ring of integers is $\OO_K = \ZZ\!\left[\tfrac{1+\sqrt{-3}}{2}\right]$, and one can compute $\Delta_K = -3$.
+
+<NumericInput
+  client:load
+  id="rt60-s2-num-ramified-prime"
+  prompt="Which single rational prime p ramifies in 𝒪_K for K = ℚ(√-3)?"
+  expected="3"
+  explanation="Δ_K = -3, and the only prime factor of -3 is 3. By the theorem, p ramifies in 𝒪_K iff p | Δ_K, so 3 is the only ramified prime."
+/>
+
+</SlideLayout>

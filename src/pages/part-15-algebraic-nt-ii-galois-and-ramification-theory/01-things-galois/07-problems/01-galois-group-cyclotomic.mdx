@@ -1,0 +1,18 @@
+---
+title: Galois group of the cyclotomic field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Galois group of the cyclotomic field">
+
+<Problem
+  client:load
+  id="gal-prob-cyclotomic-galois-group"
+  difficulty="starred"
+  prompt="Let p be an odd rational prime and ζ_p a primitive pth root of unity. Let K = ℚ(ζ_p). Show that Gal(K/ℚ) is isomorphic to (ℤ/pℤ)ˣ."
+  hint="Look at the image of ζ_p under an automorphism."
+  solution="An automorphism σ ∈ Gal(K/ℚ) is determined entirely by σ(ζ_p), which must be another root of the minimal polynomial of ζ_p — that is, one of the p−1 primitive pth roots of unity ζ_p, ζ_p², …, ζ_p^(p−1). So for each a ∈ (ℤ/pℤ)ˣ there is exactly one automorphism σ_a sending ζ_p ↦ ζ_p^a, and every automorphism has this form. Composing gives σ_a(σ_b(ζ_p)) = σ_a(ζ_p^b) = (ζ_p^a)^b = ζ_p^(ab), so σ_a ∘ σ_b = σ_(ab mod p). This is exactly multiplication in (ℤ/pℤ)ˣ, so a ↦ σ_a is a group isomorphism Gal(K/ℚ) ≅ (ℤ/pℤ)ˣ, which is cyclic of order p−1."
+/>
+
+</SlideLayout>

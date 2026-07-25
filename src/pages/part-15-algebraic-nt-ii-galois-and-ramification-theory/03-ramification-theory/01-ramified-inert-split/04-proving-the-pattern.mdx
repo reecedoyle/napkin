@@ -1,0 +1,24 @@
+---
+title: Proving the mod-4 pattern
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Proving the mod-4 pattern">
+
+We already have the tool for this: $\ZZ[i] = \ZZ[\theta]$ for $\theta = i$, with minimal polynomial $f(x) = x^2+1$. The <Term k="an55factoringAlgorithm">Dedekind–Kummer theorem</Term> says: factor $x^2+1$ modulo $p$, and that mirrors how $(p)$ factors in $\ZZ[i]$.
+
+<ProofReveal
+  client:load
+  id="rt60-s1-proof-mod4-pattern"
+  prompt="Prove: p is ramified in ℤ[i] exactly when p=2; inert exactly when p ≡ 3 (mod 4); split exactly when p ≡ 1 (mod 4)."
+  solution="At p = 2: x²+1 ≡ (x+1)² (mod 2), a double root, so 2 ramifies. At odd p: x²+1 has a root mod p exactly when -1 is a quadratic residue mod p, which (by a standard fact about quadratic residues) holds exactly when p ≡ 1 (mod 4). If p ≡ 1 (mod 4), x²+1 splits into two distinct linear factors mod p, so (p) splits into two distinct prime ideals — p is split. If p ≡ 3 (mod 4), -1 is not a quadratic residue, x²+1 is irreducible mod p, so (p) stays prime — p is inert."
+/>
+
+<Callout kind="remark" title="A preview">
+Notice the recipe already used the fact that $-1$ is a <Term k="rt60quadraticResidue">quadratic residue</Term> mod $p$ iff $p \equiv 1 \pmod 4$. Later parts of the book turn this whole story around to *prove* Quadratic Reciprocity using ramification theory.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: 'Galois extensions give splitting fields'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Galois extensions give splitting fields">
+
+Now the converse: assume $K/F$ is Galois, i.e. $|\Aut(K/F)| = [K:F]$. We show $K$ is a splitting field.
+
+<Callout kind="lemma">
+Let $K/F$ be Galois, and $p \in F[x]$ irreducible. If any root of $p$ (in $\ol F$) lies in $K$, then **all** of them do, and moreover $p$ is separable.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="gal-opt-proof-galois-root-lemma"
+  prompt="Prove the lemma above, using Vieta's formulas and the root-shuffling lemma from §5."
+  solution="Let α ∈ K be the given root of p, and consider the orbit S = {σ(α) : σ ∈ Gal(K/F)} ⊆ K (note α ∈ S via σ = id). Every τ ∈ Gal(K/F) permutes S among itself, since τ(σ(α)) = (τσ)(α) is again some element of S. Build p̃(x) = ∏_(β∈S) (x−β); by Vieta's formulas its coefficients are symmetric functions of the elements of S, hence fixed by every τ ∈ Gal(K/F). By the equality case proved on the previous slide, the elements fixed by all of Aut(K/F) are exactly F — so p̃ has coefficients in F. By the root-shuffling lemma from §5, p̃ divides p (every root of p̃ is a Galois conjugate of α, hence a root of α's minimal polynomial p). But p is irreducible, so p is itself the minimal polynomial of α, forcing p to divide p̃ as well. Hence p = p̃, and since p̃ was built from the distinct elements of a set S, it's separable — and all of S, meaning all the roots of p, already lie in K."
+/>
+
+<Callout kind="remark" title="Finishing the proof">
+Pick a basis $\omega_1, \dots, \omega_n$ of $K/F$, with minimal polynomials $p_1, \dots, p_n$. By the lemma, each $p_i$ has all its roots already inside $K$. Let $P = p_1 p_2 \cdots p_n$ with repeated factors removed. The roots of $P$ include $\omega_1, \dots, \omega_n$ (plus possibly other elements of $K$), so $F(\omega_1,\dots,\omega_n) = K$ is exactly the splitting field of $P$.
+</Callout>
+
+That completes both directions: $|\Aut(K/F)| = [K:F]$ if and only if $K$ is the splitting field of a separable polynomial over $F$ — the theorem promised back in §5.
+
+</SlideLayout>

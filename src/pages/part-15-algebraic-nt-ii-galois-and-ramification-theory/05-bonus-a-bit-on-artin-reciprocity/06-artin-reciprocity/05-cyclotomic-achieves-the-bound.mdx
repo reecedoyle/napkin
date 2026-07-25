@@ -1,0 +1,25 @@
+---
+title: 'The cyclotomic field achieves the lower bound'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cyclotomic field achieves the lower bound">
+
+Artin reciprocity only *guarantees* $P_K(\km) \subseteq H(L/K,\km)$ — it doesn't promise equality. The cyclotomic case is the cleanest example where equality actually holds.
+
+Let $\zeta$ be a primitive $m$th root of unity. We'll show
+$$
+H(\QQ(\zeta)/\QQ, m\infty) = P_\QQ(m\infty) = \left\{ \frac ab \ZZ \mid a/b \equiv 1 \pmod m \right\}.
+$$
+
+Recall $\QQ(\zeta)/\QQ$ is unramified outside primes dividing $m$ (and $\infty$), so the Artin symbol is defined on $I_K(\km)$. The Artin map sends a prime $p$ to $x \mapsto x^p$, which corresponds to $p \bmod m$ under $\Gal(\QQ(\zeta)/\QQ) \cong \Zm m$.
+
+<Callout kind="remark" title="Reading off the kernel">
+The kernel of "$p \mapsto p \bmod m$" is trivial — it's exactly $\{1 \bmod m\}$, corresponding to the identity of the Galois group. Combined with our earlier computation of $P_\QQ(m\infty)$, this gives the claimed equality.
+</Callout>
+
+This is the *generic* example of achieving the lower bound in Artin reciprocity, and it also tells us $\kf(\QQ(\zeta)/\QQ) \mid m\infty$.
+
+</SlideLayout>

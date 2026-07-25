@@ -1,0 +1,32 @@
+---
+title: Classify a prime in ℤ[i]
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Classify a prime in ℤ[i]">
+
+Let's test the pattern on a specific prime. Since $13 = 4 + 9 = 2^2 + 3^2$, we can write
+
+$$
+13 = (2+3i)(2-3i)
+$$
+
+in $\ZZ[i]$, and one can check $(2+3i)$ and $(2-3i)$ are non-associate primes of $\ZZ[i]$.
+
+<MCQ
+  client:load
+  id="rt60-s1-mcq-classify-13"
+  prompt="Given that 13 = (2+3i)(2-3i) with (2+3i), (2-3i) non-associate primes of ℤ[i], how does the rational prime 13 behave?"
+  options={[
+    { id: "a", label: "Ramified" },
+    { id: "b", label: "Inert" },
+    { id: "c", label: "Split" },
+  ]}
+  correct="c"
+  explanation="(13) factors as a product of two distinct prime ideals (2+3i) and (2-3i), each to the first power — that's exactly g > 1, so 13 splits. And indeed 13 ≡ 1 (mod 4), matching the conjectured pattern."
+/>
+
+</SlideLayout>

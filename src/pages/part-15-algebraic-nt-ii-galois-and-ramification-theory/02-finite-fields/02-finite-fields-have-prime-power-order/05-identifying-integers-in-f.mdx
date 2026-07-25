@@ -1,0 +1,28 @@
+---
+title: Identifying integers inside F
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Identifying integers inside F">
+
+An important point buried in the previous proof deserves its own spotlight.
+
+<Callout kind="lemma" title="Finite fields are field extensions of 𝔽_p">
+If $|F| = p^n$ is a finite field, there is an isomorphic copy of $\mathbb{F}_p$ sitting inside $F$. Thus $F$ is a <Term k="field">field</Term> extension of $\mathbb{F}_p$.
+</Callout>
+
+We'll want to refer to this copy of $\mathbb{F}_p$ constantly, so let's set up a convenient abuse of notation.
+
+<Callout kind="remark" title="Abuse of notation">
+Every integer $n$ can be identified with an element of $F$, namely
+$$
+n \defeq \underbrace{1_F + \dots + 1_F}_{n \text{ times}}.
+$$
+This depends only on $n \bmod p$ — so "$3$" and "$3+p$" name the same element of $F$.
+</Callout>
+
+This is exactly how we already read expressions like $3x = 0$ back in the $\mathbb{F}_9$ example: the "$3$" there was really $1_F + 1_F + 1_F$.
+
+</SlideLayout>

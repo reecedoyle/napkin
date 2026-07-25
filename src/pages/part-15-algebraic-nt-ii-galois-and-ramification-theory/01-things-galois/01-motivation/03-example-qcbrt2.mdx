@@ -1,0 +1,39 @@
+---
+title: 'A deficient example: ℚ(∛2)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="A deficient example: ℚ(∛2)">
+
+Now try $K = \QQ(\cbrt2)$, and something new happens.
+
+<Callout kind="example" title="Embeddings of ℚ(∛2)">
+There are **three** embeddings of $K = \QQ(\cbrt2)$ into $\CC$, one for each root of $x^3-2$:
+
+- The identity: $1 \mapsto 1$, $\cbrt2 \mapsto \cbrt2$.
+- $1 \mapsto 1$, $\cbrt2 \mapsto \omega\cbrt2$, where $\omega = e^{2\pi i/3}$ is a primitive cube root of unity. (This one choice determines the whole map.)
+- $1 \mapsto 1$, $\cbrt2 \mapsto \omega^2\cbrt2$.
+</Callout>
+
+Here's the twist: $\QQ(\cbrt2) \subset \RR$ — it's a subfield of the real numbers! But two of its three embeddings send $\cbrt2$ to a genuinely *complex* number, $\omega\cbrt2$ or $\omega^2\cbrt2$. Those embeddings can't possibly land back inside $\QQ(\cbrt2) \subset \RR$; their image has to leave the field entirely.
+
+This is the opposite of what happened with $\QQ(\sqrt2)$ a moment ago, where every embedding's image stayed inside $\QQ(\sqrt2)$.
+
+<MCQ
+  client:load
+  id="gal-mot-mcq-cbrt2-count"
+  prompt="How many embeddings does ℚ(∛2) have into ℂ, and why?"
+  options={[
+    { id: "a", label: "1 — only the identity is a field homomorphism" },
+    { id: "b", label: "2 — matching the degree of ℚ(√2)" },
+    { id: "c", label: "3 — one per root of the minimal polynomial x³−2" },
+    { id: "d", label: "6 — one per permutation of the three roots" },
+  ]}
+  correct="c"
+  explanation="ℚ(∛2) has degree 3 over ℚ, and an embedding is determined by where it sends ∛2 — which must land on one of the 3 distinct roots of its minimal polynomial x³−2. That gives exactly 3 embeddings, matching the degree."
+/>
+
+</SlideLayout>

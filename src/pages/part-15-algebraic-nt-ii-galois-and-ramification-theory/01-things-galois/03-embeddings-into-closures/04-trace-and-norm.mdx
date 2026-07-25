@@ -1,0 +1,23 @@
+---
+title: Trace and norm, via embeddings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Trace and norm, via embeddings">
+
+Now that we know a number field always has exactly $n$ embeddings, we can restate the trace and norm cleanly, in terms of them.
+
+<Callout kind="definition" title="Trace and norm via embeddings">
+Given a number field $K$ of degree $n$ with embeddings $\sigma_1, \dots, \sigma_n \colon K \injto \CC$, we set
+$$
+\Tr_{K/\QQ}(\alpha) = \sum_{i=1}^n \sigma_i(\alpha)
+\quad\text{and}\quad
+\Norm_{K/\QQ}(\alpha) = \prod_{i=1}^n \sigma_i(\alpha).
+$$
+</Callout>
+
+This matches the definitions from the rings-of-integers chapters (there defined via a multiplication matrix) — the embeddings viewpoint is just a second, equally valid way to compute the same numbers, and it's the one that generalizes best to arbitrary base fields, as we'll see in §4.
+
+</SlideLayout>

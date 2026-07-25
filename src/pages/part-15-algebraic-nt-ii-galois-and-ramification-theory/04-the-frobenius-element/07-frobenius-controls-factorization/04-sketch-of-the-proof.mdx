@@ -1,0 +1,20 @@
+---
+title: 'Sketch of the proof'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sketch of the proof">
+
+Suppose for simplicity that $E = \QQ(\alpha)$ is monogenic, with $\alpha$ an algebraic integer of degree $n$ and minimal polynomial $f$, so $\OO_E = \ZZ[\alpha]$.
+
+<Callout kind="remark" title="Sketch of proof">
+By the <Term k="an55factoringAlgorithm">Dedekind–Kummer factoring algorithm</Term>, factoring $p$ in $E$ amounts to factoring $f \pmod p$: if $f \equiv f_1 \cdots f_g \pmod p$ (with $p$ unramified, so no repeated factors), then $n = \deg f_1 + \cdots + \deg f_g$ — another partition of $n$, the factorization pattern of $f \bmod p$.
+
+Now let $S = \{\alpha_1, \dots, \alpha_n\}$ be the roots of $f$ in $K$. There's a natural bijection between $S$ and the cosets $G/H$, sending $\tau H \mapsto \tau(\alpha)$ (since $H = \{\tau \in G : \tau(\alpha) = \alpha\}$ is exactly the stabilizer of $\alpha$). Letting $\Frob_{\kP}$ act on $S$ splits it into orbits $S_1, \dots, S_k$; building a polynomial $f_i$ from the roots in each $S_i$ gives a factorization $f = f_1 \cdots f_k$ over $E$. Reducing mod $\kP$, these become exactly the irreducible factors of $f \bmod p$ — because an orbit under $\Frob_{\kP}$ reduces to an orbit under the generator of the residue Galois group, and orbits under the full residue Galois group correspond exactly to irreducible factors over $\FF_p$.
+
+So: roots of $f$ $\leftrightarrow$ cosets of $H$, and orbits under $\Frob_{\kP}$ $\leftrightarrow$ irreducible factors mod $p$. That's precisely the claimed correspondence between cycle structure and factorization pattern.
+</Callout>
+
+</SlideLayout>

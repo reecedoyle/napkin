@@ -1,0 +1,24 @@
+---
+title: 'Warm-up: Fermat''s two-squares theorem'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Warm-up: Fermat's two-squares theorem">
+
+Let's put all this machinery to work on a genuinely classical question.
+
+<Callout kind="theorem" title="Fermat's theorem on sums of two squares">
+An odd prime $p$ can be written as $p = x^2 + y^2$ for integers $x, y$ if and only if $p \equiv 1 \pmod 4$.
+</Callout>
+
+Here's a proof sketch using $\ZZ[i]$, the ring of integers of $\QQ(i)$. Necessity is easy: if $p = x^2+y^2$ then $(x/y)^2 \equiv -1 \pmod p$, so $-1$ must be a quadratic residue mod $p$.
+
+<Callout kind="remark" title="Sufficiency">
+Let $a^2 \equiv -1 \pmod p$. Then $\Norm_{\QQ(i)/\QQ}(a+i) = a^2+1$ is divisible by $p$, while $\Norm_{\QQ(i)/\QQ}(p) = p^2$ — so $p$ divides $(a+i)(a-i)$ but divides neither factor, meaning $p$ is **not prime** in $\ZZ[i]$. Taking $x+yi = \gcd(p, a+i)$ extracts a genuine factor with $\Norm(x+yi) = p$, i.e. $p = x^2+y^2$. Finally, $-1$ is a quadratic residue mod $p$ exactly when $p \equiv 1 \pmod 4$.
+</Callout>
+
+The key move: turn an additive question ($p = x^2+y^2$) into a multiplicative one (does $p$ factor in $\ZZ[i]$?), then answer that with quadratic reciprocity.
+
+</SlideLayout>

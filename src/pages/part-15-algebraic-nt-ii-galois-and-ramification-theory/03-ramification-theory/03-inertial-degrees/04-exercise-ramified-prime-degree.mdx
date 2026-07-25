@@ -1,0 +1,26 @@
+---
+title: Exercise — inertial degree of a ramified prime
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Exercise — inertial degree of a ramified prime">
+
+In $\ZZ[i]$ (degree $n=2$), the prime $2$ ramifies: $(2) = (1+i)^2$, so $g=1$ and $e_1 = 2$.
+
+<MCQ
+  client:load
+  id="rt60-s3-mcq-ramified-degree"
+  prompt="What is the inertial degree f₁ of the single prime (1+i) above 2 in ℤ[i]?"
+  options={[
+    { id: "a", label: "f₁ = 1" },
+    { id: "b", label: "f₁ = 2" },
+    { id: "c", label: "f₁ = 4" },
+  ]}
+  correct="a"
+  explanation="The identity n = Σ eᵢfᵢ forces 2 = e₁f₁ = 2·f₁, so f₁ = 1. Indeed 𝒩((1+i)) = 2, matching p^{f₁} = 2^1."
+/>
+
+</SlideLayout>

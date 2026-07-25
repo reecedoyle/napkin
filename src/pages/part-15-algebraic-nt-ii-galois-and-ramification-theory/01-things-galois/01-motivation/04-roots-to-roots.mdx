@@ -1,0 +1,26 @@
+---
+title: Embeddings send roots to roots
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Embeddings send roots to roots">
+
+The pattern in every example so far — $i \mapsto \pm i$, $\sqrt2 \mapsto \pm\sqrt2$, $\cbrt2 \mapsto$ one of the three cube roots of $2$ — is not a coincidence. It's a theorem.
+
+<Callout kind="theorem" title="Roots go to roots">
+Suppose $\alpha$ has <Term k="an54minimalPolynomial">minimal polynomial</Term> $0 = c_n\alpha^n + c_{n-1}\alpha^{n-1} + \dots + c_1\alpha + c_0$ with the $c_i$ rational. Then for any embedding $\sigma$, $\sigma(\alpha)$ is also a root of this same polynomial.
+</Callout>
+
+The proof is one line: apply $\sigma$ to both sides.
+
+$$
+0 = \sigma(c_n\alpha^n + \dots + c_0) = c_n\sigma(\alpha)^n + \dots + c_1\sigma(\alpha) + c_0
+$$
+
+The key step is that each $c_i \in \QQ$ gets fixed by $\sigma$ (we showed this last slide), so it just slides outside the $\sigma(\cdot)$. What's left says exactly that $\sigma(\alpha)$ satisfies the same polynomial equation as $\alpha$ — in other words, $\sigma(\alpha)$ is one of $\alpha$'s <Term k="an54galoisConjugate">Galois conjugates</Term>.
+
+**So: embeddings permute roots of minimal polynomials around.** This one fact drives everything else in this chapter.
+
+</SlideLayout>

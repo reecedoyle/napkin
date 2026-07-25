@@ -1,0 +1,22 @@
+---
+title: The n embeddings of a number field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The n embeddings of a number field">
+
+Time to prove the pattern we noticed in §1: the number of embeddings always equals the degree.
+
+<Callout kind="theorem" title="The n embeddings of a number field">
+Let $K$ be a number field of degree $n$. Then there are exactly $n$ field homomorphisms $K \injto \CC$, say $\sigma_1, \dots, \sigma_n$, which fix $\QQ$.
+</Callout>
+
+<Callout kind="remark">
+A nontrivial homomorphism of fields is automatically injective (its kernel is an ideal, and a field has none but the trivial ones). This is why we can write "$\injto$" and call each $\sigma_i$ an embedding of $K$ into $\CC$.
+</Callout>
+
+It's common in number theory to see "let $K$ be a number field of degree $n$, and $\sigma_1, \dots, \sigma_n$ its $n$ embeddings" thrown around without further comment — this theorem is why that's always legitimate.
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Quadratic residues in 𝔽_17
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Quadratic residues in 𝔽_17">
+
+<Callout kind="example" title="The multiplicative group of 𝔽_17">
+
+$F^\times$ is cyclic of order $16$, so there's some generator $g \in F^\times$ with every nonzero element equal to $g^0 = 1, g^1, g^2, \dots, g^{15}$. Squaring every nonzero element gives (using $g^{16} = g^0 = 1$)
+$$
+g^0, g^2, g^4, \dots, g^{14}, \; g^0, g^2, \dots, g^{14}.
+$$
+
+</Callout>
+
+Each even exponent $g^0, g^2, \dots, g^{14}$ shows up exactly twice among the sixteen squares — so the *distinct* quadratic residues are just $g^0, g^2, g^4, \dots, g^{14}$, that is, half of $F^\times$.
+
+<NumericInput
+  client:load
+  id="ff59-s5-num-count-qr-f17"
+  prompt="F^× has 16 elements. Using the fact that exactly half of them are quadratic residues, how many nonzero quadratic residues does 𝔽_17 have?"
+  expected="8"
+  explanation="Half of 16 is 8: the quadratic residues are exactly {g^0, g^2, g^4, ..., g^14}, eight distinct even powers of the generator g."
+/>
+
+</SlideLayout>

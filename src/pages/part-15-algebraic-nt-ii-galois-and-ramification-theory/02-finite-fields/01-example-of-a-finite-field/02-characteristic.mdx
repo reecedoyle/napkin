@@ -1,0 +1,18 @@
+---
+title: The characteristic of a field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The characteristic of a field">
+
+In a field $F$ with multiplicative identity $1_F$, keep adding $1_F$ to itself: $1_F$, $1_F+1_F$, $1_F+1_F+1_F$, and so on. Two things can happen: this sequence never hits $0$, or it eventually does.
+
+<Callout kind="definition" title="Characteristic">
+The <Term k="ff59Characteristic">**characteristic**</Term> of a field $F$ is the smallest positive integer $p$ such that $\underbrace{1_F + \dots + 1_F}_{p \text{ times}} = 0$, or $0$ if no such integer exists.
+</Callout>
+
+$\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ all have characteristic $0$ — you can add $1$ to itself forever and never reach $0$. But a *finite* field can't afford that luxury: with only finitely many elements to work with, the sums $1_F, 1_F+1_F, 1_F+1_F+1_F, \dots$ must eventually repeat, which (as we'll soon see precisely) forces some multiple of $1_F$ to vanish.
+
+</SlideLayout>

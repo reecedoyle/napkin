@@ -1,0 +1,22 @@
+---
+title: 'An amusing alternate proof of (c)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="An amusing alternate proof of (c)">
+
+Here's a slicker way to see that $|F|$ has no prime factors other than $p$, using group theory instead of linear algebra.
+
+<Callout kind="remark" title="Alternate proof by contradiction">
+Suppose a prime $q \neq p$ divides $|F|$. By Cauchy's theorem applied to the group $(F,+)$, there is a nonzero element $x$ of <Term k="elementOrder">order</Term> $q$. Then
+$$
+x \cdot (\underbrace{1_F + \dots + 1_F}_{q \text{ times}}) = 0,
+$$
+but $x \neq 0$, so the bracketed sum of $q$ copies of $1_F$ must be $0$ — meaning the characteristic divides $q$. Since $q$ is prime and the characteristic is already the prime $p \neq q$, that's impossible.
+</Callout>
+
+Two totally different toolkits — linear algebra, and group theory — landing on the same fact. That's a good sign the fact is really true.
+
+</SlideLayout>

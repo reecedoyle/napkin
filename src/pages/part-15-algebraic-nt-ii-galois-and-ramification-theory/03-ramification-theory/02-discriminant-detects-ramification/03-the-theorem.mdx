@@ -1,0 +1,24 @@
+---
+title: Discriminant detects ramification
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Discriminant detects ramification">
+
+<Callout kind="theorem" title="Discriminant detects ramification">
+Let $p$ be a rational prime and $K$ a number field. Then $p$ is ramified in $\OO_K$ if and only if $p \mid \Delta_K$.
+</Callout>
+
+<Callout kind="example" title="Ramification in the Gaussian integers">
+Let $K = \QQ(i)$, so $\OO_K = \ZZ[i]$ and $\Delta_K = -4$. As predicted, the only prime ramifying in $\ZZ[i]$ is $2$ — the only prime factor of $\Delta_K$.
+</Callout>
+
+Since $\Delta_K$ is a fixed nonzero integer with only finitely many prime factors, we get a nice corollary for free:
+
+<Callout kind="remark" title="Only finitely many primes ramify">
+For any number field $K$, only finitely many rational primes ramify in $\OO_K$ — namely, the prime factors of $\Delta_K$.
+</Callout>
+
+</SlideLayout>

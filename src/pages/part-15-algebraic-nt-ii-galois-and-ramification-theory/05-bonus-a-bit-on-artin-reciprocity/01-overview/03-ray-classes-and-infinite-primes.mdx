@@ -1,0 +1,24 @@
+---
+title: Ray classes, and why we need infinite primes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Ray classes, and why we need infinite primes">
+
+To make "$\kp$ mod $\kf$" precise, we first need a notion of two **ideals** being congruent modulo something. We'll divide the ideals of $\OO_K$ coprime to $\kf$ into "residue classes modulo $\kf$" — which we'll call <Term k="gr62RayClassGroup">ray classes</Term> — designed so that:
+
+- **It generalizes the <Term k="an56classGroup">class group</Term>.** Two ideals in different ideal classes end up in different ray classes.
+- **It respects multiplication.** If $\kp$ is in the same ray class as $\kp'$, and $\kq$ is in the same ray class as $\kq'$, then $\kp \kq$ is in the same ray class as $\kp' \kq'$. The ray classes form an abelian group under multiplication.
+- **For a fixed modulus, there are only finitely many ray classes.**
+
+<Callout kind="remark" title="No addition for ideals">
+Notice there's no analogue of *adding* ideals the way we add integers mod n: for instance $(1) = (-1)$ as ideals, but $(1)+(1) \ne (1)+(-1)$ as sets. So "respects multiplication" really is the best structure we can ask ray classes to preserve.
+</Callout>
+
+Here's the subtlety that motivates the rest of this section. A single prime ideal $\kp$ already lets us divide the *elements* of $\OO_K$ into residue classes respecting $+$ and $\times$ — that's ordinary modular arithmetic. We want to generalize this to divide up **ideals**, not just elements, in a way that's compatible with a modulus $\km$.
+
+It turns out that using only *finite* primes in $\km$ is not enough to divide up the ideals the way we want (we'll see a concrete example of this gap in §3). To fix it, we need to enlarge our notion of "prime" to include so-called **infinite primes** — which is where we turn next.
+
+</SlideLayout>

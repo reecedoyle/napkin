@@ -1,0 +1,17 @@
+---
+title: 'Example application: IMO 2003 Problem 6'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Example application: IMO 2003 Problem 6">
+
+As a capstone example of the power we now have at our disposal, let's prove a genuine competition problem.
+
+<Callout kind="question" title="IMO 2003, Problem 6">
+Let $p$ be a prime number. Prove that there exists a prime number $q$ such that for every integer $n$, the number $n^p - p$ is not divisible by $q$.
+</Callout>
+
+We'll actually show something much stronger: there exist **infinitely many** primes $q$ such that $X^p - p$ is irreducible modulo $q$. (If $X^p - p$ is irreducible mod $q$, it certainly has no root mod $q$, so $n^p \not\equiv p \pmod q$ for every integer $n$ — that's exactly the competition statement.)
+
+</SlideLayout>

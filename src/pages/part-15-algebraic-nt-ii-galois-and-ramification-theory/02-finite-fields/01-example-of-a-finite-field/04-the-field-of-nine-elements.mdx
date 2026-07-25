@@ -1,0 +1,26 @@
+---
+title: 'Example: the field of nine elements'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: the field of nine elements">
+
+Here's a finite field that is *not* just "integers mod a prime."
+
+<Callout kind="example" title="The finite field of nine elements">
+
+Let $F \cong \mathbb{F}_3[X]/(X^2+1) \cong \mathbb{Z}[i]/(3)$, using the <Term k="quotientRing">quotient ring</Term> construction on the <Term k="gaussianIntegers">Gaussian integers</Term> $\mathbb{Z}[i]$. We can think of its elements concretely as
+
+$$
+\{ a + bi \mid 0 \le a, b \le 2 \}.
+$$
+
+Since $(3)$ is prime in $\mathbb{Z}[i]$ (the ring of integers of $\mathbb{Q}(i)$), the quotient $F$ is a field, and it has $3^2 = 9$ elements.
+
+</Callout>
+
+Nine elements, built by adjoining a square root of $-1$ to $\mathbb{F}_3$ instead of to $\mathbb{Q}$. The construction is exactly the one you'd use to build $\mathbb{C}$ from $\mathbb{R}$ — only now everything is taken mod $3$.
+
+</SlideLayout>

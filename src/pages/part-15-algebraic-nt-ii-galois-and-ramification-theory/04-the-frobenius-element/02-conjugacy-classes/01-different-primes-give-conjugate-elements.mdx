@@ -1,0 +1,28 @@
+---
+title: 'Different primes above p give conjugate Frobenius elements'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Different primes above p give conjugate Frobenius elements">
+
+Now suppose $\kp_1$ and $\kp_2$ are **two** primes above an unramified rational prime $p$. Then we get two Frobenius elements, $\Frob_{\kp_1}$ and $\Frob_{\kp_2}$ — and since the Galois group acts transitively on the primes above $p$, we can pick some $\sigma \in \Gal(K/\QQ)$ with $\sigma(\kp_1) = \kp_2$.
+
+<Callout kind="proposition" title="Frobenius elements above the same p are conjugate">
+With $\sigma$ as above,
+$$
+\Frob_{\kp_2} = \sigma \circ \Frob_{\kp_1} \circ \sigma^{-1}.
+$$
+This is an equation of group elements: $\Frob_{\kp_2}$ is the <Term k="conjugate">conjugate</Term> of $\Frob_{\kp_1}$ by $\sigma$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-conj-proof-two-primes"
+  prompt="Prove that Frob_𝔭₂ = σ ∘ Frob_𝔭₁ ∘ σ⁻¹ when σ(𝔭₁) = 𝔭₂."
+  solution="Write τ = σ ∘ Frob_𝔭₁ ∘ σ⁻¹. We check τ satisfies the defining functional equation for Frob_𝔭₂. For α ∈ 𝒪_K, apply σ⁻¹ first: σ⁻¹(α) ∈ 𝒪_K, and Frob_𝔭₁(σ⁻¹(α)) ≡ σ⁻¹(α)^p (mod 𝔭₁), since 𝔭₁ is where Frob_𝔭₁ is defined. Applying σ to both sides of this congruence (which sends 𝔭₁ to 𝔭₂) gives σFrob_𝔭₁σ⁻¹(α) ≡ σ(σ⁻¹(α)^p) = α^p (mod 𝔭₂), using that σ is a ring homomorphism. So τ satisfies the functional equation defining Frob_𝔭₂, and by the uniqueness part of the Frobenius element theorem, τ = Frob_𝔭₂."
+/>
+
+</SlideLayout>

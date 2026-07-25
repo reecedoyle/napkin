@@ -1,0 +1,22 @@
+---
+title: Beyond ℚ — general Galois extensions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Beyond ℚ — general Galois extensions">
+
+Everything in this chapter carries over verbatim if we replace $K/\QQ$ by any Galois extension $L/F$ of number fields. Instead of a rational prime $p$ breaking down in $\OO_K$, we have a prime ideal $\kp$ of $F$ breaking down as
+
+$$
+\kp \cdot \OO_L = \left( \kP_1 \cdots \kP_g \right)^e
+$$
+
+in $\OO_L$, where the $\kP_i$ are the primes of $L$ above $\kp$. Every result — the efg theorem, transitivity of the Galois action, the decomposition and inertia groups — holds with $\FF_p$ replaced by the residue field $\OO_F/\kp$.
+
+<Callout kind="remark" title="Why we stuck with ℚ">
+The only reason this chapter worked with $F=\QQ$ throughout is that capital Gothic $P$'s ($\kP$) look *really* terrifying.
+</Callout>
+
+</SlideLayout>

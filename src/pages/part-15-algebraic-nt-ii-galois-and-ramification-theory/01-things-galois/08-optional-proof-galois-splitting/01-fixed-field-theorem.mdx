@@ -1,0 +1,20 @@
+---
+title: '(Optional) The fixed field theorem'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="(Optional) The fixed field theorem">
+
+This section proves the theorem from §5 that $|\Aut(K/F)|$ divides $[K:F]$, with equality exactly when $K$ is a splitting field. It's optional — feel free to skip ahead if you're happy taking that theorem on faith.
+
+We start by extracting a useful fragment.
+
+<Callout kind="theorem" title="Fixed field theorem">
+Let $K$ be a field and $G$ a subgroup of $\Aut(K)$. Then $[K:K^G] = |G|$.
+</Callout>
+
+This says the fixed-field construction from §6 is "sharp": the degree of $K$ over the fixed field of $G$ is exactly the size of $G$, not merely bounded by it.
+
+</SlideLayout>

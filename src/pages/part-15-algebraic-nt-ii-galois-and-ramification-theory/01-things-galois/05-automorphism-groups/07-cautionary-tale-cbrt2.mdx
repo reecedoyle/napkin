@@ -1,0 +1,30 @@
+---
+title: 'A cautionary tale: x³−2 needs both extra roots'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="A cautionary tale: x³−2 needs both extra roots">
+
+$x^3-2$ breaks the pattern from last slide.
+
+<Callout kind="example" title="Splitting field of x³−2">
+The splitting field of $x^3-2$ over $\QQ$ is $\QQ(\cbrt2, \omega)$ — **not** just $\QQ(\cbrt2)$! You genuinely have to adjoin all three roots; they don't generate each other.
+
+- For $x^2-5$: adjoining $\sqrt5$ automatically includes $-\sqrt5$.
+- For $x^2+x+1$: adjoining $\omega$ automatically includes $\omega^2$.
+- For $x^3-2$: adjoining $\cbrt2$ does **not** give you $\omega\cbrt2$ or $\omega^2\cbrt2$ for free — after all, $\QQ(\cbrt2) \subset \RR$, and those two conjugates aren't real!
+</Callout>
+
+So the splitting field of $x^3-2$ over $\QQ$ has degree **six**, not three. In general, the splitting field of a degree-$n$ polynomial with no special relations among its roots can have degree as large as $n!$ — any permutation of the roots is achievable.
+
+<NumericInput
+  client:load
+  id="gal-aut-num-degree-splitting-cbrt2"
+  prompt="What is [ℚ(∛2, ω) : ℚ]?"
+  expected="6"
+/>
+
+</SlideLayout>

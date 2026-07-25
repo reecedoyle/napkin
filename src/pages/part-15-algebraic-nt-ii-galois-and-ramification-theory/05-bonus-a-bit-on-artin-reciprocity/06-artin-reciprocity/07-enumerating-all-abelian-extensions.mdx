@@ -1,0 +1,26 @@
+---
+title: Enumerating every abelian extension
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Enumerating every abelian extension">
+
+Step back and notice what we've actually built. Artin reciprocity plus the Takagi existence theorem don't just generalize quadratic reciprocity — together they enumerate **every abelian extension of $K$**.
+
+Given $K$, here's the recipe: list all moduli $\km$ of $K$, list all subgroups of $C_K(\km)$, and each such subgroup corresponds to exactly one abelian extension $L/K$. That's the entire classification, and it's built purely from data living inside $K$.
+
+<Callout kind="remark" title="The one hard part left">
+Of course, actually *computing* the field $L$ from a modulus and a congruence subgroup is still difficult in general. When $K = \QQ$, though, the Kronecker–Weber theorem (one of this chapter's problems) answers it completely: every finite abelian extension of $\QQ$ sits inside some cyclotomic field.
+</Callout>
+
+To close, here's Emil Artin himself, describing how he found the reciprocity law:
+
+<Callout kind="remark" title="Artin, in his own words">
+"I will tell you a story about the Reciprocity Law. After my thesis, I had the idea to define $L$-series for non-abelian extensions. But for them to agree with the $L$-series for abelian extensions, a certain isomorphism had to be true. I could show it implied all the standard reciprocity laws. So I called it the General Reciprocity Law and tried to prove it but couldn't, even after many tries. Then I showed it to the other number theorists, but they all laughed at it, and I remember Hasse in particular telling me it couldn't possibly be true.
+
+Still, I kept at it, but nothing I tried worked. Not a week went by — for three years! — that I did not try to prove the Reciprocity Law. It was discouraging, and meanwhile I turned to other things. Then one afternoon I had nothing special to do, so I said, 'Well, I try to prove the Reciprocity Law again.' So I went out and sat down in the garden. You see, from the very beginning I had the idea to use the cyclotomic fields, but they never worked, and now I suddenly saw that all this time I had been using them in the wrong way — and in half an hour I had it."
+</Callout>
+
+</SlideLayout>

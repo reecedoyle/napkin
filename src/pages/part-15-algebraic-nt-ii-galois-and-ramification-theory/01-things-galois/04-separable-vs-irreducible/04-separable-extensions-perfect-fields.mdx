@@ -1,0 +1,22 @@
+---
+title: Separable extensions and perfect fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Separable extensions and perfect fields">
+
+We really want this separability property at the level of extensions, not just single polynomials.
+
+<Callout kind="definition" title="Separable extension, perfect field">
+A <Term k="gal58SeparableExtension">separable extension</Term> $K/F$ is one where for every $\alpha \in K$, the minimal polynomial of $\alpha$ over $F$ is separable (automatic if $F$ has characteristic zero). A field $F$ is <Term k="gal58PerfectField">perfect</Term> if every finite extension $K/F$ is separable.
+</Callout>
+
+<Callout kind="theorem" title="Finite fields are perfect">
+Suppose $F$ is a field with finitely many elements. Then $F$ is perfect.
+</Callout>
+
+Combine these two facts and something reassuring falls out: **every field we'll ever see in this book is either finite or characteristic zero**, so it's automatically perfect, and every extension of it is automatically separable. The word "separable" in the theorems that follow is mostly a formality — you almost never have to check it.
+
+</SlideLayout>

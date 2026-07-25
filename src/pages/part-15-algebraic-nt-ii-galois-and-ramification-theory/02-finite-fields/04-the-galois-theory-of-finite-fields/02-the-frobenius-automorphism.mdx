@@ -1,0 +1,18 @@
+---
+title: The Frobenius automorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Frobenius automorphism">
+
+We exhibit an explicit element of the Galois group: the "raise everything to the $p$-th power" map.
+
+<Callout kind="theorem" title="The p-th power automorphism">
+The map $\sigma_p \colon \mathbb{F}_{p^n} \to \mathbb{F}_{p^n}$ defined by $\sigma_p(x) = x^p$ is a <Term k="ff59Automorphism">field automorphism</Term>, and moreover it fixes $\mathbb{F}_p$ pointwise.
+</Callout>
+
+This map is called the <Term k="ff59Frobenius">Frobenius automorphism</Term>. It will reappear later, in a much more general setting, whenever a field has characteristic $p$. For now, let's just check it does what we claim.
+
+</SlideLayout>

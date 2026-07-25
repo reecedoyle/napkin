@@ -1,0 +1,22 @@
+---
+title: Is −1 a square mod 17?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Is −1 a square mod 17?">
+
+Where does $-1$ sit in the sequence $g^0, g^1, \dots, g^{15}$? If you compute explicitly with $g = 3$, you'll find $g^8 = -1$. But we can see this *without* picking a specific $g$.
+
+<ProofReveal
+  client:load
+  id="ff59-s5-proof-minus-one-square"
+  prompt="The equation x² = 1 has only 2 roots in F^×: 1 and −1. Phrased as a statement about powers of g, what does this say about where −1 must sit — and why does that force g^8 = −1?"
+  solution="Writing x = g^k, the equation x^2 = 1 becomes g^(2k) = g^0, i.e. 2k ≡ 0 (mod 16), i.e. k ≡ 0 or k = 8 (mod 16). So the only two solutions to x^2 = 1 are g^0 = 1 and g^8. Since −1 is a solution to x^2 = 1 and −1 ≠ 1, it must be the other one: g^8 = −1. Then (g^4)^2 = (g^12)^2 = g^8 = −1, so x = g^4 (or g^12) solves x^2 = −1 — done."
+/>
+
+We have $g^8 = -1$, so $(g^4)^2 = -1$: yes, $-1$ is a square mod $17$. All of this followed from pure group theory — no arithmetic with $17$ required beyond knowing $F^\times$ has order $16$.
+
+</SlideLayout>

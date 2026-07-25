@@ -1,0 +1,17 @@
+---
+title: 'China – Hong Kong Olympiad: cos(2π/7)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="China – Hong Kong Olympiad: cos(2π/7)">
+
+<Problem
+  client:load
+  id="gal-prob-chk-cos2pi7"
+  difficulty="standard"
+  prompt="Prove that there are no rational numbers p, q, r satisfying cos(2π/7) = p + √q + ∛r."
+  solution="From the earlier problem, K = ℚ(cos(2π/7)) has degree 3 over ℚ, and its minimal polynomial (an irreducible cubic with three real roots) falls into the classical casus irreducibilis: none of its roots can be written using only real square roots and cube roots of rationals. Expressing cos(2π/7) as p + √q + ∛r would force it to lie inside ℚ(√q,∛r), a field whose degree over ℚ is a very restricted product of a power of 2 and a power of 3; matching that against the fact that K has prime degree 3, with no intermediate fields at all, rules out every possible case. This is a genuinely delicate olympiad-level case analysis, well beyond a one-line argument."
+/>
+
+</SlideLayout>

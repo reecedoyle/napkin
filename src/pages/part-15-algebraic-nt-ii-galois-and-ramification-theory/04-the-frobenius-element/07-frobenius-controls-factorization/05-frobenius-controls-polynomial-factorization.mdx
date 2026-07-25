@@ -1,0 +1,23 @@
+---
+title: 'Frobenius controls polynomial factorization'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Frobenius controls polynomial factorization">
+
+Dropping the "monogenic" assumption entirely, we get a clean three-way equivalence — arguably the single most useful packaging of everything in this chapter.
+
+<Callout kind="theorem" title="Frobenius controls polynomial factorization">
+Let $\alpha$ be an algebraic integer with minimal polynomial $f$, and let $E = \QQ(\alpha)$. Then for any prime $p$ unramified in the splitting field $K$ of $f$, the following coincide:
+
+(i) the factorization pattern of $p$ in $E$;
+
+(ii) the factorization pattern of $f \bmod p$;
+
+(iii) the cycle structure of $\Frob_{\kP}$ acting on the roots of $f$, where $\kP$ is above $p$ in $K$.
+</Callout>
+
+The equivalence (i) $\iff$ (iii) is the theorem from the previous slide. The equivalence (i) $\iff$ (ii) is the Dedekind–Kummer factoring algorithm from general Galois theory, holding whether or not $E$ happens to be monogenic. Put together: to factor $f$ modulo $p$, you only ever need to know one permutation's cycle type.
+
+</SlideLayout>

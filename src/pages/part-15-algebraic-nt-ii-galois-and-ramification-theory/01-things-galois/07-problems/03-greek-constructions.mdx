@@ -1,0 +1,18 @@
+---
+title: The three impossible Greek constructions
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="The three impossible Greek constructions">
+
+<Problem
+  client:load
+  id="gal-prob-greek-constructions"
+  difficulty="standard"
+  prompt="Prove that the three Greek constructions — (a) doubling the cube, (b) squaring the circle, and (c) trisecting an angle — are all impossible with straightedge and compass. (Assume π is transcendental.)"
+  hint="Repeated quadratic extensions have degree 2, so straightedge-and-compass constructions can only ever reach numbers of degree a power of two over ℚ."
+  solution="Every straightedge-and-compass construction builds a tower of fields ℚ = F₀ ⊆ F₁ ⊆ ⋯ ⊆ Fₖ where each step adjoins at most a square root, so [Fᵢ₊₁:Fᵢ] ≤ 2. By the tower law, any constructible number has degree over ℚ equal to a power of 2. (a) Doubling the cube needs ∛2, which has degree 3 over ℚ — not a power of 2, so it's not constructible. (b) Squaring the circle needs √π, and since π is transcendental, √π is transcendental too — infinite degree, certainly not a power of 2. (c) Trisecting a 60° angle needs cos(20°), a root of the irreducible cubic 8x³−6x−1, again degree 3. In every case the degree obstruction rules out the construction."
+/>
+
+</SlideLayout>

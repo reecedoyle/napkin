@@ -1,0 +1,37 @@
+---
+title: 'Finishing up'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Finishing up">
+
+We already know, by the cyclotomic Frobenius lemma, that $\Frob_{\kP} = \sigma_p \in H$ if and only if $p$ is a quadratic residue mod $q$ (recall $H$ is exactly the subgroup $\{\sigma_n : n \text{ a QR mod } q\}$). One more exercise closes the loop on the $K$ side.
+
+<Callout kind="exercise" title="Splitting in the quadratic field">
+Show that $p$ splits in $\OO_K = \ZZ\left[\tfrac12(1+\sqrt{q^\ast})\right]$ if and only if $\left(\frac{q^\ast}{p}\right) = 1$. (Use the factoring algorithm; you'll need $p \neq 2$ here.)
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-qr-proof-splits-in-quadratic-field"
+  prompt="Show p splits in 𝒪_K = ℤ[½(1+√q*)] iff (q*/p) = 1, for odd p."
+  solution="𝒪_K = ℤ[θ] where θ = ½(1+√q*) has minimal polynomial t² − t − ¼(1−q*). By the Dedekind–Kummer factoring algorithm, p splits in 𝒪_K iff this polynomial factors mod p (into two distinct linear factors, since p is unramified). Completing the square: the polynomial has roots ½(1±√q*), so mod p it splits iff q* is a nonzero square mod p, i.e. iff (q*/p) = 1 (using p ≠ 2 to divide by 4 safely)."
+/>
+
+Chaining everything together:
+$$
+\left( \frac pq \right) = 1
+\iff \sigma_p \in H
+\iff \Frob_{\kP} \in H
+\iff \Frob_\kp = \id_K
+\iff \ord(\Frob_\kp) = 1
+\iff f_\kp = 1
+\iff \text{$p$ splits in $\ZZ\!\left[\tfrac12(1+\sqrt{q^\ast})\right]$}
+\iff \left( \frac{q^\ast}{p} \right) = 1.
+$$
+
+That's the reformulated theorem — and by the exercise two slides back, it's equivalent to quadratic reciprocity itself. Notice how little "new" number theory went in: essentially every step was either the order lemma, the restriction theorem, or the cyclotomic Frobenius lemma, all proved earlier in this chapter.
+
+</SlideLayout>

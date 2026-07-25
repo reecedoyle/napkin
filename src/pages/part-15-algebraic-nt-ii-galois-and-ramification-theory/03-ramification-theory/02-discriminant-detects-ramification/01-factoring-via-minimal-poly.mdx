@@ -1,0 +1,20 @@
+---
+title: Ramification and the minimal polynomial
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Ramification and the minimal polynomial">
+
+The most unusual behavior above is ramification. Just like we don't expect a randomly chosen polynomial to have a repeated root, we don't expect a randomly chosen prime to be ramified. The key to understanding ramification is the **discriminant**.
+
+Suppose $K$ is <Term k="an55monogenic">monogenic</Term>, $\OO_K = \ZZ[\theta]$, where $\theta$ has minimal polynomial $f$. By the <Term k="an55factoringAlgorithm">Dedekind–Kummer theorem</Term>, if $f$ factors mod $p$ as $\bar f_1^{e_1} \cdots \bar f_g^{e_g}$, then
+
+$$
+p \cdot \OO_K = \prod_i \left( p,\ f_i(\theta) \right)^{e_i}.
+$$
+
+So $p$ ramifies exactly when **$f$ has a repeated root mod $p$** — i.e. some $e_i > 1$.
+
+</SlideLayout>

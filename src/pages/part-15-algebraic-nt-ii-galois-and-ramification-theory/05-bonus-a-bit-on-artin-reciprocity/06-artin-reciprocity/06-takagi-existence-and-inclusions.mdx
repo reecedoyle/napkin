@@ -1,0 +1,32 @@
+---
+title: Takagi existence, and inclusion-reversing subgroups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Takagi existence, and inclusion-reversing subgroups">
+
+Artin reciprocity has a converse, and it's just as important.
+
+<Callout kind="theorem" title="Takagi existence theorem">
+Fix $K$ and a modulus $\km$. Every congruence subgroup $H$ (i.e. $P_K(\km) \subseteq H \subseteq I_K(\km)$) equals $H(L/K, \km)$ for a **unique** abelian extension $L/K$.
+</Callout>
+
+So congruence subgroups and abelian extensions are in perfect bijection — once you fix a modulus, listing subgroups of $C_K(\km)$ is the same as listing abelian extensions.
+
+<Callout kind="lemma" title="Inclusion-reversing congruence subgroups">
+Fix $\km$. Let $L/K$ and $M/K$ be abelian, with $\km$ divisible by both of their conductors. Then $L \subseteq M$ if and only if $H(M/K, \km) \subseteq H(L/K, \km)$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="artin-recip-proof-inclusion-reversing"
+  prompt="Sketch why L ⊆ M iff H(M/K, 𝔪) ⊆ H(L/K, 𝔪)."
+  solution="Forward direction: if L ⊆ M, restriction gives a surjection Gal(M/K) ↠ Gal(L/K), and one checks the Artin maps for M/K and L/K commute with this restriction (it suffices to check on prime powers, which is just Frobenius elements behaving well under restriction to a subfield). A commuting triangle with a surjective right-hand map forces the kernel of the M/K Artin map to sit inside the kernel of the L/K Artin map, i.e. H(M/K,𝔪) ⊆ H(L/K,𝔪). The reverse direction is essentially the Takagi existence theorem: the smaller congruence subgroup pins down a unique bigger field, which must contain L."
+/>
+
+Bigger field, smaller congruence subgroup — the correspondence flips inclusions, exactly like the Galois correspondence it's generalizing.
+
+</SlideLayout>

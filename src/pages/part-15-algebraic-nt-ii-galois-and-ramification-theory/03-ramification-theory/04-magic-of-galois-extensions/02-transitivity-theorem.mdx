@@ -1,0 +1,20 @@
+---
+title: The action is transitive
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The action is transitive">
+
+Since every $\sigma$ is a bijection, primes in the same orbit of this action are closely related. But something much stronger is true: there's only **one orbit**.
+
+<Callout kind="theorem" title="Galois group acts transitively">
+Let $K/\QQ$ be Galois with $G = \Gal(K/\QQ)$, and let $\{\kp_i\}$ be the distinct primes above a rational prime $p$. Then $G$ acts transitively on the $\kp_i$: for every $i,j$ there is some $\sigma \in G$ with $\sigma \kp_i = \kp_j$.
+</Callout>
+
+<Callout kind="remark" title="Moral">
+All the $\kp_i$ above $p$ are Galois conjugates of each other.
+</Callout>
+
+</SlideLayout>

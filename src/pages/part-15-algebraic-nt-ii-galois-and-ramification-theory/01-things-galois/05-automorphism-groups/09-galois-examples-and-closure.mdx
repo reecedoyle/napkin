@@ -1,0 +1,39 @@
+---
+title: Galois closures
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Galois closures">
+
+<Callout kind="example" title="Examples and non-examples of Galois extensions">
+- $\QQ(\sqrt2)/\QQ$ is Galois — it's the splitting field of $x^2-2$. The Galois group has order $2$: $\sqrt2 \mapsto \pm\sqrt2$.
+- $\QQ(\sqrt2,\sqrt3)/\QQ$ is Galois — it's the splitting field of $(x^2-5)^2-6$. The Galois group is $\Zc2 \times \Zc2$ (the Klein four group from §5).
+- $\QQ(\cbrt2)/\QQ$ is **not** Galois.
+</Callout>
+
+But we can always fix a non-Galois extension by throwing in the missing conjugates.
+
+<Callout kind="example" title="The Galois closure of ℚ(∛2)">
+Let $K = \QQ(\cbrt2,\omega)$, with $[K:\QQ] = 6$. Consider $\sigma \colon \cbrt2 \mapsto \omega\cbrt2, \omega \mapsto \omega$ and $\tau \colon \cbrt2 \mapsto \cbrt2, \omega \mapsto \omega^2$. Then $\sigma^3 = \tau^2 = \id$, and one can check $|\Aut(K/\QQ)| \le 6$ (Lagrange's theorem) while also $\ge 6$ — so $|\Aut(K/\QQ)| = 6 = [K:\QQ]$, and $K/\QQ$ **is** Galois! In fact $\Gal(K/\QQ) \cong S_3$, the symmetric group on 3 elements.
+</Callout>
+
+Starting from a non-Galois extension $\QQ(\cbrt2)$, adjoining $\omega$ produced a <Term k="gal58GaloisClosure">Galois closure</Term> — the smallest Galois extension containing the original field.
+
+<MCQ
+  client:load
+  id="gal-aut-mcq-galois-closure"
+  prompt="What is the Galois group Gal(ℚ(∛2, ω)/ℚ) isomorphic to?"
+  options={[
+    { id: "a", label: "ℤ/6ℤ" },
+    { id: "b", label: "ℤ/2ℤ × ℤ/2ℤ" },
+    { id: "c", label: "S₃" },
+    { id: "d", label: "The trivial group" },
+  ]}
+  correct="c"
+  explanation="Gal(ℚ(∛2,ω)/ℚ) ≅ S₃, the symmetric group on 3 elements (order 6) — it permutes the three roots ∛2, ω∛2, ω²∛2 of x³−2 in every possible way."
+/>
+
+</SlideLayout>

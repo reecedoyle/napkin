@@ -1,0 +1,25 @@
+---
+title: 'Lemma: cyclotomic Frobenius elements'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lemma: cyclotomic Frobenius elements">
+
+<Callout kind="lemma" title="Cyclotomic Frobenius elements">
+In the cyclotomic setting $L = \QQ(\zeta_q)$, let $p$ be a rational unramified prime and $\kp$ above it. Then
+$$
+\Frob_\kp = \sigma_p.
+$$
+</Callout>
+
+The proof is a one-liner, and it's the whole point of the "uniqueness" remark from the very start of the chapter: **any** element of $\Gal(L/\QQ)$ satisfying the defining functional equation *is* the Frobenius element, no further work required.
+
+<Callout kind="remark" title="Proof">
+Observe that $\sigma_p$ satisfies the functional equation defining $\Frob_\kp$ — just check it on the generator $\zeta_q$: $\sigma_p(\zeta_q) = \zeta_q^p \equiv \zeta_q^p \pmod \kp$, trivially. By the "freshman's dream" argument from §1, checking on the generator $\zeta_q$ is enough. So $\sigma_p$ satisfies the same functional equation as $\Frob_\kp$, and by uniqueness, $\sigma_p = \Frob_\kp$. Done.
+</Callout>
+
+This is a wonderful shortcut: in the cyclotomic setting, we never have to think about decomposition groups or residue fields at all — the Frobenius element is just "raise everything to the $p$-th power symbolically."
+
+</SlideLayout>

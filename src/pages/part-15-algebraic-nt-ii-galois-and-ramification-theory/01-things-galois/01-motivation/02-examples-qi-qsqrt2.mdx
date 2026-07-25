@@ -1,0 +1,30 @@
+---
+title: 'Examples: embeddings of ℚ(i) and ℚ(√2)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples: embeddings of ℚ(i) and ℚ(√2)">
+
+Let's just enumerate embeddings for a couple of familiar fields.
+
+<Callout kind="example" title="Embeddings of ℚ(i)">
+$K = \QQ(i)$ has exactly two embeddings into $\CC$:
+
+- $z \mapsto z$ — the identity.
+- $z \mapsto \ol z$ — complex conjugation.
+</Callout>
+
+<Callout kind="example" title="Embeddings of ℚ(√2)">
+$K = \QQ(\sqrt2)$ also has exactly two embeddings into $\CC$:
+
+- $a + b\sqrt2 \mapsto a + b\sqrt2$ — the identity.
+- $a + b\sqrt2 \mapsto a - b\sqrt2$ — "conjugation" that flips the sign of $\sqrt2$.
+</Callout>
+
+Both embeddings here are forced: an embedding fixes $\QQ$ (previous slide), and once you decide where $i$ (respectively $\sqrt2$) goes, the rest of the map is determined by additivity and multiplicativity. There are exactly as many choices as there are roots of the minimal polynomial: $x^2+1$ has roots $\pm i$, and $x^2 - 2$ has roots $\pm\sqrt2$.
+
+Notice something else: in both examples, the image of the embedding **lands back inside $K$**. An embedding of $\QQ(\sqrt2)$ never needs to leave $\QQ(\sqrt2)$ to find somewhere to send $\sqrt2$.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: The complete classification of finite fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The complete classification of finite fields">
+
+Here's the "main surprise" of this chapter: for each allowed size $p^n$, there's only **one** finite field, up to isomorphism.
+
+<Callout kind="theorem" title="Complete classification of finite fields">
+A field $F$ is a finite field with $p^n$ elements if and only if it is a <Term k="ff59SplittingField">splitting field</Term> of $x^{p^n} - x$ over $\mathbb{F}_p$.
+</Callout>
+
+Splitting fields of a fixed polynomial over a fixed base field are always isomorphic to each other (a fact from general field theory) — so this theorem immediately gives us fact #3 from the chapter overview: any two finite fields of the same order $p^n$ are isomorphic.
+
+</SlideLayout>

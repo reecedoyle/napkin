@@ -1,0 +1,30 @@
+---
+title: 'From Frobenius to the Artin symbol'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From Frobenius to the Artin symbol">
+
+Class field theory is specifically about <Term k="gr62AbelianExt">abelian extensions</Term>: those where $\Gal(L/K)$ is abelian. Here the "up to conjugation" caveat from the last slide disappears entirely — every conjugacy class in an abelian group has size one.
+
+<Callout kind="definition" title="Artin symbol">
+Assume $L/K$ is abelian. For an unramified prime $\kp$ of $K$, the element $\Frob_\kP$ does **not** depend on the choice of $\kP$ above $\kp$. We denote this common value by the <Term k="gr62ArtinSymbol">Artin symbol</Term>, $\left( \frac{L/K}{\kp} \right)$.
+</Callout>
+
+The notation is written deliberately to echo the <Term k="gr62LegendreSymbol">Legendre symbol</Term>. Here's why: suppose we want to understand $\left( \frac 2p \right) \equiv 2^{\frac{p-1}{2}}$ for an odd prime $p$. Consider
+
+$$
+\left( \frac{\QQ(\sqrt 2)/\QQ}{p\ZZ} \right) \in \Gal(\QQ(\sqrt 2)/\QQ),
+$$
+
+which is determined entirely by where it sends $\sqrt 2$. Working modulo $\kP$ above $p$:
+
+$$
+\left( \frac{\QQ(\sqrt 2)/\QQ}{p\ZZ} \right)(\sqrt 2) \equiv (\sqrt 2)^p \equiv 2^{\frac{p-1}{2}} \cdot \sqrt 2 \equiv \left( \frac 2p \right) \sqrt 2 \pmod \kP.
+$$
+
+So the Artin symbol *is* the Legendre symbol here, dressed up in Galois-theoretic language.
+
+</SlideLayout>

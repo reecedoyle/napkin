@@ -1,0 +1,24 @@
+---
+title: 'A new example: Aut(ℚ(√2,√3)/ℚ)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A new example: Aut(ℚ(√2,√3)/ℚ)">
+
+Here's an example with a genuinely more interesting group.
+
+<Callout kind="example" title="Automorphism group of ℚ(√2,√3)">
+Let $K = \QQ(\sqrt2,\sqrt3)$. It turns out $\Aut(K/\QQ) = \{1,\sigma,\tau,\sigma\tau\}$, where
+$$
+\sigma \colon \sqrt2 \mapsto -\sqrt2,\ \sqrt3 \mapsto \sqrt3
+\qquad\text{and}\qquad
+\tau \colon \sqrt2 \mapsto \sqrt2,\ \sqrt3 \mapsto -\sqrt3.
+$$
+In other words, $\Aut(K/\QQ)$ is the Klein four group.
+</Callout>
+
+Each generator can independently be sent to $+$ or $-$ its value, and the two choices don't interfere with each other (unlike the $\cbrt2$ case, where sending $\cbrt2$ to a non-real conjugate dragged the whole map outside $K$). That independence is exactly why we get $2 \times 2 = 4$ automorphisms here, matching $[K:\QQ] = 4$.
+
+</SlideLayout>

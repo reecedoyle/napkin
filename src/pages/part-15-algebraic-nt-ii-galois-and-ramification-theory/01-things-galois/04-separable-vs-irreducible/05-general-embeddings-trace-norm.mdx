@@ -1,0 +1,28 @@
+---
+title: The n embeddings theorem, generalized
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The n embeddings theorem, generalized">
+
+With separability in hand, the §3 theorem generalizes verbatim to any base field.
+
+<Callout kind="theorem" title="The n embeddings of any separable extension">
+Let $K/F$ be a separable extension of degree $n$, and let $\ol F$ be an algebraic closure of $F$. Then there are exactly $n$ field homomorphisms $K \injto \ol F$, say $\sigma_1, \dots, \sigma_n$, which fix $F$.
+</Callout>
+
+And trace and norm follow along too, for any separable extension:
+
+<Callout kind="definition" title="Trace and norm for K/F">
+Let $K/F$ be separable of degree $n$ with embeddings $\sigma_1, \dots, \sigma_n$ into $\ol F$. Define
+$$
+\Tr_{K/F}(\alpha) = \sum_{i=1}^n \sigma_i(\alpha)
+\quad\text{and}\quad
+\Norm_{K/F}(\alpha) = \prod_{i=1}^n \sigma_i(\alpha).
+$$
+When $F = \QQ$ and $\ol F = \CC$, this is exactly the definition from §3.
+</Callout>
+
+</SlideLayout>

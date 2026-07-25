@@ -1,0 +1,26 @@
+---
+title: Defining the inertial degree
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining the inertial degree">
+
+Let $K$ have degree $n$ and look again at $p \cdot \OO_K = \kp_1^{e_1} \cdots \kp_g^{e_g}$. Taking ideal norms of both sides (the norm is completely multiplicative):
+
+$$
+p^n = \Norm(\kp_1)^{e_1} \cdots \Norm(\kp_g)^{e_g}.
+$$
+
+Since each $\Norm(\kp_i)$ is a power of $p$ (it has to divide $p^n$), we can write $\Norm(\kp_i) = p^{f_i}$ for some integer $f_i \ge 1$. Comparing exponents of $p$ on both sides gives the master identity
+
+$$
+n = \sum_{i=1}^g e_i f_i.
+$$
+
+<Callout kind="definition" title="Inertial degree, ramification index">
+We call $f_i$ the <Term k="rt60inertialDegree">inertial degree</Term> of $\kp_i$, and $e_i$ the <Term k="rt60ramificationIndex">ramification index</Term> of $\kp_i$.
+</Callout>
+
+</SlideLayout>

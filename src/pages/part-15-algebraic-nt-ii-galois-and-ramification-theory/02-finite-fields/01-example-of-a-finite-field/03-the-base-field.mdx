@@ -1,0 +1,18 @@
+---
+title: 'Example: the base field 𝔽_p'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: the base field 𝔽_p">
+
+The simplest finite fields are the ones you already know.
+
+<Callout kind="example" title="Base field">
+Let <Term k="finiteField">$\mathbb{F}_p$</Term> denote the field of integers modulo a prime $p$. This is a field with $p$ elements, and characteristic $p$: adding $1$ to itself $p$ times gives $p \equiv 0 \pmod p$.
+</Callout>
+
+Every finite field will turn out to contain a copy of some $\mathbb{F}_p$ sitting inside it — that's the content of the next section. But finite fields can be much bigger than $p$ elements while still having characteristic $p$, as the next example shows.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: 'Example: Frobenius elements in ℚ(∛2, ω)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: Frobenius elements in ℚ(∛2, ω)">
+
+With those remarks in hand, here's a more involved example. Let $K = \QQ(\cbrt2,\omega)$ be the splitting field of
+$$
+t^3-2 = (t-\cbrt2)(t-\omega\cbrt2)(t-\omega^2\cbrt2),
+$$
+so $K/\QQ$ is Galois. We've seen elsewhere that $\OO_K = \ZZ[\eps]$ where $\eps$ is a root of $t^6+3t^5-5t^3+3t+1$.
+
+Consider the prime $5$, which factors (trust this for now) as
+$$
+(5) = (5, \eps^2+\eps+2)(5, \eps^2+3\eps+3)(5, \eps^2+4\eps+1) = \kp_1 \kp_2 \kp_3.
+$$
+All three prime ideals have inertial degree $2$, so by our order lemma each $\Frob_{\kp_i}$ has order $2$.
+
+Now, $\Gal(K/\QQ)$ is the group of permutations of the three roots $\{\cbrt2,\omega\cbrt2,\omega^2\cbrt2\}$, so $\Gal(K/\QQ) \cong$ <Term k="Sn">$S_3$</Term>. In $S_3$ there are exactly $3$ elements of order two: each one fixes one root and swaps the other two. These correspond to each of $\Frob_{\kp_1}, \Frob_{\kp_2}, \Frob_{\kp_3}$.
+
+<Callout kind="remark" title="Conclusion">
+The conjugacy class $\{\Frob_{\kp_1}, \Frob_{\kp_2}, \Frob_{\kp_3}\}$ associated to $(5)$ is exactly the cycle type $(\bullet)(\bullet\ \bullet)$ in $S_3$ — one fixed point and one transposition.
+</Callout>
+
+</SlideLayout>

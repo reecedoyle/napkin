@@ -1,0 +1,30 @@
+---
+title: 'The quadratic subfield ℚ(√q*)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The quadratic subfield ℚ(√q*)">
+
+By the fundamental theorem of Galois theory, the subgroup $H \le G$ of index two corresponds to a degree-$2$ extension of $\QQ$ sitting inside $L = \QQ(\zeta_q)$ — a quadratic field. Call it $\QQ(\sqrt{q^\ast})$ for some squarefree integer $q^\ast$:
+
+$$
+L = \QQ(\zeta_q) \ \leftrightarrow\ \{1\}, \qquad K = \QQ(\sqrt{q^\ast}) \ \leftrightarrow\ H, \qquad \QQ \ \leftrightarrow\ G.
+$$
+
+<Callout kind="exercise" title="Pin down q*">
+Note that if a rational prime $\ell$ ramifies in $K$, then it ramifies in $L$. Use this to show that $q^\ast = \pm q$ and $q^\ast \equiv 1 \pmod 4$. Together, these two facts determine $q^\ast$ exactly.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-qr-proof-pin-down-qstar"
+  prompt="Using the fact that ramification in K forces ramification in L, show q* = ±q and q* ≡ 1 (mod 4)."
+  solution="Only q ramifies in L = ℚ(ζ_q) (its discriminant is ±q^(q−2), a power of q). Since ramification in K forces ramification in L, the only prime that can ramify in K = ℚ(√q*) is q itself. But the discriminant of ℚ(√q*) is q* if q* ≡ 1 (mod 4), or 4q* otherwise; for only q to divide this discriminant (and no other prime, in particular not 2), we need q* ≡ 1 (mod 4) and q* to have no prime factors besides q. Since q* is squarefree, this forces q* = ±q. Combining q* ≡ 1 (mod 4) with q* = ±q pins down the sign: q* = q if q ≡ 1 (mod 4), and q* = −q if q ≡ 3 (mod 4)."
+/>
+
+(In general it's true that $\Delta_K$ divides $\Delta_L$ in any tower $L/K/\QQ$ — that's what's doing the work above.)
+
+</SlideLayout>

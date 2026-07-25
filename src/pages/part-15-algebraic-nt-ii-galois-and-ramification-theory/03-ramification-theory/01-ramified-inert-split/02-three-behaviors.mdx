@@ -1,0 +1,28 @@
+---
+title: Ramified, inert, split
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Ramified, inert, split">
+
+Given $p \cdot \OO_K = \kp_1^{e_1} \cdots \kp_g^{e_g}$, there are three named behaviors:
+
+<Callout kind="definition" title="Ramified / inert / split">
+- $p$ is <Term k="rt60ramified">**ramified**</Term> if $e_i > 1$ for some $i$.
+- $p$ is <Term k="rt60inert">**inert**</Term> if $g = 1$ and $e_1 = 1$ — that is, $(p)$ stays prime in $\OO_K$.
+- $p$ is <Term k="rt60split">**split**</Term> if $g > 1$.
+</Callout>
+
+Back to $\ZZ[i]$:
+
+- $2$ is **ramified**: $(2) = (1+i)^2$, so $g=1$ but $e_1 = 2$.
+- $3$ is **inert**: $(3) = (3)$ stays prime, so $g=1$ and $e_1=1$.
+- $5$ is **split**: $(5) = (2+i)(2-i)$, so $g=2$.
+
+<Callout kind="question" title="A pattern in ℤ[i]">
+More generally, for a prime $p$ in $\ZZ[i]$: $p$ is ramified exactly when $p=2$; inert exactly when $p \equiv 3 \pmod 4$; split exactly when $p \equiv 1 \pmod 4$. We'll prove this over the next two slides.
+</Callout>
+
+</SlideLayout>

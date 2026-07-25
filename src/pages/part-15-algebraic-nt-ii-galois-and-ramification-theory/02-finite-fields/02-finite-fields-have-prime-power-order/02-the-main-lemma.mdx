@@ -1,0 +1,24 @@
+---
+title: Finite fields have prime power order
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Finite fields have prime power order">
+
+We're ready for the first of the four facts from the chapter overview.
+
+<Callout kind="lemma" title="Finite fields have prime power orders">
+
+Let $F$ be a finite field. Then:
+
+- (a) Its characteristic is nonzero, hence some prime $p$.
+- (b) $F$ is a finite extension of $\mathbb{F}_p$, and in particular an $\mathbb{F}_p$-<Term k="vectorSpace">vector space</Term>.
+- (c) $|F| = p^n$ for some prime $p$ and integer $n$.
+
+</Callout>
+
+We already showed the characteristic can't be a composite number two slides ago. Combined with the pigeonhole principle (only finitely many elements to work with), that forces the characteristic to be some prime $p$. The rest of the lemma follows from treating $F$ as a vector space — that's the proof on the next slide.
+
+</SlideLayout>

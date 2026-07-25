@@ -1,0 +1,20 @@
+---
+title: What this buys you
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What this buys you">
+
+<Callout kind="remark" title="A better lens on an old fact">
+
+If you've seen an elementary proof that there are exactly $\frac{p-1}{2}$ quadratic residues modulo a prime $p$, it probably used some version of "$x^d - 1$ has at most $d$ roots" — the same trick we just used. But stopping there, without exposing the cyclic structure of $F^\times$, hides *why* the count comes out to exactly half.
+
+The proposition takes that extra step. Now, without any computation, you also know that the finite field $\mathbb{F}_{17^2}$ has exactly $\frac{17^2 - 1}{2} = 144$ nonzero quadratic residues.
+
+</Callout>
+
+That's the last piece of structure theory for this chapter. Time for the one problem the source material poses.
+
+</SlideLayout>

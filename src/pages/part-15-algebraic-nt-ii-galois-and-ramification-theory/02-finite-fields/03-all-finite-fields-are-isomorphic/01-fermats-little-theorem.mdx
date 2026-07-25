@@ -1,0 +1,23 @@
+---
+title: "Fermat's little theorem in finite fields"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fermat's little theorem in finite fields">
+
+You've seen Fermat's little theorem for ordinary integers mod $p$. It generalizes verbatim to any finite field.
+
+<Callout kind="theorem" title="Fermat's little theorem in finite fields">
+Let $F$ be a finite field of order $p^n$. Then every element $x \in F$ satisfies
+$$
+x^{p^n} - x = 0.
+$$
+</Callout>
+
+The proof is one line: if $x = 0$ it's trivially true. Otherwise, apply Lagrange's theorem to the abelian group $(F, \times)$ of the $p^n - 1$ nonzero elements, which gives $x^{p^n - 1} = 1_F$ — and multiplying both sides by $x$ gives $x^{p^n} = x$.
+
+This single fact is the engine behind everything in this section: it tells us *every* element of a field of order $p^n$ is a root of one specific polynomial.
+
+</SlideLayout>

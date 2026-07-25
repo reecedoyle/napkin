@@ -1,0 +1,33 @@
+---
+title: Proving Frobenius is an automorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Proving Frobenius is an automorphism">
+
+Three things to check: $\sigma_p$ is a homomorphism, it's injective, and it fixes $\mathbb{F}_p$.
+
+**Homomorphism.** $\sigma_p$ fixes $1$, respects multiplication ($(xy)^p = x^p y^p$ trivially), and respects addition — that's exactly the <Term k="ff59FreshmansDream">Freshman's dream</Term> identity from earlier.
+
+<MCQ
+  client:load
+  id="ff59-s4-mcq-why-addition"
+  prompt="Why does σ_p(x) = x^p respect addition, i.e. why is (x+y)^p = x^p + y^p?"
+  options={[
+    { id: "a", label: "Because p-th powers always distribute over sums, in any ring" },
+    { id: "b", label: "Because the middle binomial coefficients C(p,i) all vanish mod p" },
+    { id: "c", label: "Because x and y commute" },
+    { id: "d", label: "It doesn't — this step is actually false in general" },
+  ]}
+  correct="b"
+  explanation="Expanding (x+y)^p with the binomial theorem gives a sum of p+1 terms; every middle term (0 < i < p) carries a factor of C(p,i), which is divisible by p and hence 0 in characteristic p. Only the two end terms x^p and y^p survive."
+/>
+
+**Injective.** If $x^p = y^p$ then $x^p - y^p = 0$, so $(x-y)^p = 0$ (Freshman's dream again, applied to $x + (-y)$), forcing $x = y$. Since $\mathbb{F}_{p^n}$ is finite, injective automatically means bijective.
+
+**Fixes $\mathbb{F}_p$.** This is just Fermat's little theorem: for $x \in \mathbb{F}_p \subset \mathbb{F}_{p^n}$, we already know $x^p = x$.
+
+</SlideLayout>

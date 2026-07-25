@@ -1,0 +1,35 @@
+---
+title: 'Example: Frobenius in ℚ(i)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Example: Frobenius in ℚ(i)">
+
+Let $L = \QQ(i)$, $K = \QQ$, so $\Gal(L/K) \cong \Zc{2}$.
+
+For an odd prime $p$ with $\kP$ above it, $\Frob_\kP$ is the unique element such that $(a+bi)^p \equiv \Frob_\kP(a+bi) \pmod \kP$ in $\ZZ[i]$. In particular,
+
+$$
+\Frob_\kP(i) = i^p = \begin{cases} i & p \equiv 1 \pmod 4 \\ -i & p \equiv 3 \pmod 4. \end{cases}
+$$
+
+So $\Frob_\kP$ is the identity when $p \equiv 1 \pmod 4$, and complex conjugation when $p \equiv 3 \pmod 4$.
+
+<MCQ
+  client:load
+  id="artin-frob-mcq-gaussian"
+  prompt="For an odd prime p ≡ 3 (mod 4), what is Frob_𝔓 as an element of Gal(ℚ(i)/ℚ)?"
+  options={[
+    { id: "a", label: "The identity" },
+    { id: "b", label: "Complex conjugation" },
+    { id: "c", label: "Multiplication by i" },
+    { id: "d", label: "It's undefined — p ramifies" },
+  ]}
+  correct="b"
+  explanation="Frob_𝔓(i) = i^p. When p ≡ 3 (mod 4), i^p = i^3 = -i, so Frob_𝔓 sends i ↦ -i — exactly complex conjugation. (Only p = 2 ramifies in ℚ(i); every odd p is unramified.)"
+/>
+
+</SlideLayout>

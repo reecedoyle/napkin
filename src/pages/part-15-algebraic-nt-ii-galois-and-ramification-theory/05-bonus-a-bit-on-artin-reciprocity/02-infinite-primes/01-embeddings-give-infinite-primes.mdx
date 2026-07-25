@@ -1,0 +1,27 @@
+---
+title: Embeddings give infinite primes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Embeddings give infinite primes">
+
+Let $K$ be a <Term k="an54numberField">number field</Term> of degree $n$ and <Term k="an56signature">signature</Term> $(r,s)$. We already know what a prime ideal of $\OO_K$ is. Now we allow for so-called **infinite primes**, which we'll describe using embeddings.
+
+Recall there are $n$ embeddings $\sigma \colon K \to \CC$, splitting into two kinds:
+
+- $r$ **real embeddings**, where $\sigma(K) \subseteq \RR$, and
+- $s$ pairs of conjugate **complex embeddings** (a pair $\sigma, \bar\sigma$ counts once, giving $2s$ embeddings total).
+
+So $r + 2s = n$.
+
+<Callout kind="definition" title="Infinite primes">
+Each real embedding is called a <Term k="gr62InfinitePrime">real infinite prime</Term>. Each conjugate pair of complex embeddings is called a **complex infinite prime**. Together these are the infinite primes of $K$.
+</Callout>
+
+<Callout kind="remark" title="Not quite the real definition">
+This isn't really the "correct" way to think about primes, finite or infinite — the honest definition is in terms of valuations. But it's enough for stating the theorems we're building toward.
+</Callout>
+
+</SlideLayout>

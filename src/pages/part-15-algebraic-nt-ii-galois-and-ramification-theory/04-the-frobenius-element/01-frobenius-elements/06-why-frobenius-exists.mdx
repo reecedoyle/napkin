@@ -1,0 +1,21 @@
+---
+title: 'Why the Frobenius element exists'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the Frobenius element exists">
+
+Let's sketch where $\Frob_\kp$ actually comes from — this only really makes sense once you know about decomposition groups, so feel free to skip to the next section if that's unfamiliar territory.
+
+The whole theorem is a rephrasing of a fact about the <Term k="frob61DecompositionGroup">decomposition group</Term> $D_\kp \subseteq G$: any $\sigma \in G$ fixing $\kp$ (as a set) descends to an automorphism of the residue field $\OO_K/\kp$ fixing $\FF_p$, since $\sigma(\alpha) \equiv 0 \pmod \kp$ whenever $\alpha \equiv 0 \pmod \kp$. This gives a natural map
+$$
+\theta \colon D_\kp \to \Gal\big( (\OO_K/\kp) / \FF_p \big).
+$$
+
+<Callout kind="remark" title="θ is an isomorphism when p is unramified">
+When $p$ is unramified, $\theta$ is an isomorphism. We already know the target group: it's $\Gal(\FF_{p^f}/\FF_p) \cong \langle T \rangle \cong \Zc{f}$, where $T$ is the finite-field Frobenius map $x \mapsto x^p$. So the unique element of $D_\kp$ (hence of $G$) mapping to $T$ under $\theta$ is exactly $\Frob_\kp$ — its existence and uniqueness are inherited directly from $\theta$ being a bijection.
+</Callout>
+
+</SlideLayout>

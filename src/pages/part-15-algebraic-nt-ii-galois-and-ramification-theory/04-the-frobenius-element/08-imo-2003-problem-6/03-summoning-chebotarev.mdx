@@ -1,0 +1,19 @@
+---
+title: 'Summoning Chebotarev'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Summoning Chebotarev">
+
+Now we cash in Chebotarev's density theorem. Since $\sigma \in G$ has order $p$, and Chebotarev guarantees every element of $G$ arises as a Frobenius element infinitely often, we get:
+
+<Callout kind="remark" title="Infinitely many candidate primes">
+By Chebotarev, there exist infinitely many rational (unramified) primes $q \neq p$ and primes $\kQ \subseteq \OO_K$ above $q$ such that $\Frob_{\kQ} = \sigma$.
+</Callout>
+
+We claim that **all** these primes $q$ work — i.e. each one makes $X^p - p$ irreducible mod $q$.
+
+By our "Frobenius controls polynomial factorization" theorem from §7, the factorization of $f = X^p - p$ modulo $q$ is controlled by the action of $\sigma = \Frob_{\kQ}$ on the roots of $f$.
+
+</SlideLayout>

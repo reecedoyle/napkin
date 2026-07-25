@@ -1,0 +1,26 @@
+---
+title: Factoring 5 in the non-Galois case
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Factoring 5 in the non-Galois case">
+
+Let's see the theorem fail exactly when its hypothesis fails. Let $p=5$ and $E = \QQ(\cbrt2)$, which is **not** Galois (it doesn't contain the other roots of $x^3-2$).
+
+One can show $\OO_E = \ZZ[\cbrt2]$, so we run the <Term k="an55factoringAlgorithm">Dedekind–Kummer</Term> recipe on the minimal polynomial $x^3-2$. Since
+
+$$
+x^3 - 2 \equiv (x-3)(x^2+3x+9) \pmod 5
+$$
+
+is the irreducible factorization mod $5$ (check: $3^3 = 27 \equiv 2 \pmod 5$), we get
+
+$$
+(5) = (5, \cbrt2 - 3)\,(5, \cbrt4 + 3\cbrt2 + 9),
+$$
+
+with inertial degrees $1$ and $2$ respectively. The fact that these are *different* reflects exactly that $E$ is not Galois — the efg theorem simply doesn't apply here.
+
+</SlideLayout>

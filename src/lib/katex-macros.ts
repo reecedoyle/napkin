@@ -120,4 +120,10 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\kp': '\\mathfrak{p}',
   '\\kq': '\\mathfrak{q}',
   '\\NmK': '\\operatorname{N}_{K/\\mathbb{Q}}',
+  '\\Frob': '\\operatorname{Frob}',
+  '\\kP': '\\mathfrak{P}',
+  '\\kQ': '\\mathfrak{Q}',
+  '\\km': '\\mathfrak{m}',
+  '\\kf': '\\mathfrak{f}',
+  '\\Ram': '\\operatorname{Ram}',
 };

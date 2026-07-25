@@ -1,0 +1,17 @@
+---
+title: A degree-three Galois extension of ℚ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="A degree-three Galois extension of ℚ">
+
+<Problem
+  client:load
+  id="gal-prob-degree-three-galois"
+  difficulty="standard"
+  prompt="Give an example of a degree-three Galois extension of ℚ."
+  solution="Let K = ℚ(ζ₇ + ζ₇⁻¹), where ζ₇ is a primitive 7th root of unity — equivalently K = ℚ(cos(2π/7)), the maximal real subfield of ℚ(ζ₇). Since Gal(ℚ(ζ₇)/ℚ) ≅ (ℤ/7ℤ)ˣ is cyclic of order 6, and complex conjugation is the unique element of order 2 in this cyclic group, K is the fixed field of that order-2 subgroup. By the fundamental theorem, [K:ℚ] = 6/2 = 3, and because the ambient group is cyclic (hence every subgroup is normal), K/ℚ is itself Galois, with Galois group cyclic of order 3."
+/>
+
+</SlideLayout>

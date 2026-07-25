@@ -1,0 +1,31 @@
+---
+title: 'Step 2: a reformulation'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Step 2: a reformulation">
+
+Rather than attack quadratic reciprocity head-on, we'll prove an equivalent-looking statement that turns out to be much more Frobenius-friendly.
+
+<Callout kind="theorem" title="Quadratic reciprocity, equivalent formulation">
+For distinct odd primes $p$, $q$:
+$$
+\left( \frac pq \right) = \left( \frac{q^\ast}{p} \right).
+$$
+</Callout>
+
+<Callout kind="exercise" title="Check the equivalence">
+Using the fact that $\left(\frac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}$, show that this reformulation is equivalent to quadratic reciprocity as we stated it.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-qr-proof-reformulation-equivalent"
+  prompt="Using (−1/p) = (−1)^((p−1)/2), show (p/q) = (q*/p) is equivalent to quadratic reciprocity."
+  solution="Recall q* = ±q with the sign chosen so q* ≡ 1 (mod 4); precisely q* = (−1)^((q−1)/2)·q. So (q*/p) = ((−1)^((q−1)/2)/p) · (q/p) = (−1/p)^((q−1)/2) · (q/p) = (−1)^((p−1)/2 · (q−1)/2) · (q/p), using (−1/p) = (−1)^((p−1)/2) and the multiplicativity of the Legendre symbol. So the reformulated statement (p/q) = (q*/p) becomes (p/q) = (−1)^((p−1)/2·(q−1)/2)·(q/p), i.e. (p/q)(q/p) = (−1)^((p−1)/2·(q−1)/2), which is exactly quadratic reciprocity."
+/>
+
+</SlideLayout>

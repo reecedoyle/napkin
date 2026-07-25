@@ -1,0 +1,26 @@
+---
+title: Why it's called a reciprocity theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why it's called a reciprocity theorem">
+
+Apply the theorem at $\km = \kf$ itself: it tells us $P_K(\kf) \subseteq H(L/K, \kf)$. So the Artin map factors through the quotient map $I_K(\kf) \surjto I_K(\kf)/P_K(\kf)$.
+
+Recalling that $C_K(\kf) = I_K(\kf)/P_K(\kf)$, we get a chain of surjections
+
+$$
+I_K(\kf) \;\surjto\; C_K(\kf) \;\surjto\; \Gal(L/K),
+$$
+
+where the second map is the composite of $C_K(\kf) \cong I_K(\kf)/H(L/K,\kf)$ with the isomorphism from the Artin map. Every arrow in this chain only depends on which coset of $\kf$ you're in.
+
+<Callout kind="remark" title="Moral">
+For primes $\kp \in I_K(\kf)$, the symbol $\left( \frac{L/K}{\kp} \right)$ depends only on "$\kp \pmod \kf$".
+</Callout>
+
+That's the reciprocity: a Galois-theoretic quantity (which conjugacy class of Frobenius you land in) is completely determined by a purely arithmetic congruence condition on $\kp$ — no reference to $L$ needed once you know $\kf$.
+
+</SlideLayout>

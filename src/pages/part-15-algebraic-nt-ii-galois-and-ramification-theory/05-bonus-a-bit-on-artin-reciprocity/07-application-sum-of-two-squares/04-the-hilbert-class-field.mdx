@@ -1,0 +1,34 @@
+---
+title: The Hilbert class field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The Hilbert class field">
+
+From now on, let $K = \QQ(\sqrt{-5})$, and let $L$ range over abelian extensions of $K$. Recall $H(L/K,\km) = \ker\left(\frac{L/K}{\bullet}\right)$, and Artin reciprocity guarantees $P_K(\km) \subseteq H(L/K,\km)$.
+
+Why bother with $H$ separately from the conductor moral? Because the *converse* is genuinely extra information:
+
+<Callout kind="remark" title="Moral">
+If $P_K(\kf) = H(L/K,\kf)$, then we can recover "$\kp \bmod \kf$" once we know $\left( \frac{L/K}{\kp} \right)$ — i.e. Artin reciprocity becomes an *if and only if*.
+</Callout>
+
+Take $L = K(i)$. It turns out (this is exactly the content of the Hilbert class field problem at the end of the chapter):
+
+<Callout kind="definition" title="Hilbert class field">
+$L = K(i)$ satisfies: $L/K$ is abelian, its conductor is $\kf(L/K) = 1$, and $H(L/K,1) = P_K(1)$. We call $L$ the <Term k="gr62HilbertClassField">Hilbert class field</Term> of $K$.
+</Callout>
+
+For a prime $\kp \subseteq K$, the following are all equivalent: $\kp$ is principal; $\left( \frac{L/K}{\kp} \right) = \id$; and $\kp$ <Term k="gr62SplitCompletely">splits completely</Term> when lifted to $L$.
+
+<ProofReveal
+  client:load
+  id="artin-app-proof-split-completely"
+  prompt="Why are 'the Artin symbol at 𝔭 is the identity' and '𝔭 splits completely in L' equivalent?"
+  solution="The Artin symbol at 𝔭 is Frob_𝔓 for any 𝔓 above 𝔭, and its order equals the inertial degree f(𝔓|𝔭). Frob_𝔓 = id exactly when this order is 1, i.e. f(𝔓|𝔭) = 1 for every 𝔓 above 𝔭 — and since 𝔭 is unramified (e=1) and there are [L:K] primes above it once f=1, that's exactly the condition for 𝔭 to split completely."
+/>
+
+</SlideLayout>

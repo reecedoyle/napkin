@@ -1,0 +1,33 @@
+---
+title: Preview — the Artin symbol
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Preview — the Artin symbol">
+
+By the end of §5 we will define, for an abelian extension $L/K$ and a prime ideal $\kp$ of $K$, the <Term k="gr62ArtinSymbol">Artin symbol</Term>
+
+$$
+\left( \frac{L/K}{\kp} \right).
+$$
+
+This notation is deliberately suggestive: it generalizes the <Term k="gr62LegendreSymbol">Legendre symbol</Term> $\left( \frac ap \right)$ from elementary number theory.
+
+<Callout kind="remark" title="The dictionary">
+- Above the solidus, instead of an integer $a$, we have a field extension $L/K$.
+- Below the solidus, instead of a rational prime $p$, we have a <Term k="an55primeIdealOK">prime ideal</Term> $\kp$ of $K$.
+</Callout>
+
+One catch: the symbol is only defined when $\kp$ does **not** ramify in $L/K$ — you'll recall from the earlier ramification chapters that some primes behave badly in an extension, and the Artin symbol simply refuses to be defined at those.
+
+We are heading toward the Artin reciprocity theorem, which — very roughly — says:
+
+<Callout kind="remark" title="Moral">
+For primes $\kp$, the symbol $\left( \frac{L/K}{\kp} \right)$ depends only on "$\kp$ modulo $\kf$" — where $\kf$ is a **modulus** depending only on the extension $L/K$, not on $\kp$.
+</Callout>
+
+The rest of the chapter is spent making "modulus" and "depends only on $\kp$ mod $\kf$" precise.
+
+</SlideLayout>

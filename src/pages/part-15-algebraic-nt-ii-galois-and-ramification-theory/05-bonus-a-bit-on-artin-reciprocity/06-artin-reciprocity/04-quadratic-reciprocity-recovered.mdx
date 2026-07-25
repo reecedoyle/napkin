@@ -1,0 +1,20 @@
+---
+title: Recovering quadratic reciprocity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Recovering quadratic reciprocity">
+
+Let's see how this connects to the quadratic reciprocity law you already know.
+
+<Callout kind="example" title="Artin reciprocity implies quadratic reciprocity">
+Quadratic reciprocity's big miracle is: for a fixed squarefree $a$, the Legendre symbol $\left( \frac ap \right)$ depends only on the residue of $p$ modulo *something*. Let's see why Artin reciprocity tells us this exists **a priori**.
+
+Let $L = \QQ(\sqrt a)$, $K = \QQ$. We've already seen $\left( \frac{\QQ(\sqrt a)/\QQ}{\bullet} \right)$ is the right generalization of the Legendre symbol. So Artin reciprocity tells us there's a conductor $\kf = \kf(\QQ(\sqrt a)/\QQ)$ such that $\left( \frac{\QQ(\sqrt a)/\QQ}{p} \right)$ depends only on $p \bmod \kf$ — exactly what we wanted.
+</Callout>
+
+Notice what we *didn't* have to do: no clever elementary argument, no case analysis on residues. The existence of a modulus controlling $\left( \frac ap \right)$ falls straight out of the general machinery, for free.
+
+</SlideLayout>

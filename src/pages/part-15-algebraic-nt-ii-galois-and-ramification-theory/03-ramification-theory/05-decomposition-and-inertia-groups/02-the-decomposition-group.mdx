@@ -1,0 +1,24 @@
+---
+title: The decomposition group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The decomposition group">
+
+Every $\sigma \in \Gal(K/\QQ)$ gives a map $\OO_K \to \OO_K/\kp$ by $\alpha \mapsto \sigma(\alpha) \bmod \kp$. For this to induce an honest automorphism of $\OO_K/\kp$ over $\FF_p$, we need $\sigma(\kp) \subseteq \kp$ — so we isolate exactly the $\sigma$'s that fix $\kp$.
+
+<Callout kind="definition" title="Decomposition group">
+Let $D_\kp \subseteq \Gal(K/\QQ)$ be the stabilizer of $\kp$ under the group action:
+$$
+D_\kp \defeq \left\{ \sigma \in \Gal(K/\QQ) \mid \sigma \kp = \kp \right\}.
+$$
+We call $D_\kp$ the <Term k="rt60decompositionGroup">decomposition group</Term> of $\kp$.
+</Callout>
+
+(This is equivalent to asking $\sigma(\kp) \subseteq \kp$, since a field automorphism preserves the ideal norm.)
+
+So there's a natural map $D_\kp \taking\theta \Gal\left( (\OO_K/\kp)/\FF_p \right)$ sending $\sigma \mapsto$ "$\sigma$ mod $\kp$" — well-defined precisely because $\sigma \in D_\kp$ fixes $\kp$.
+
+</SlideLayout>

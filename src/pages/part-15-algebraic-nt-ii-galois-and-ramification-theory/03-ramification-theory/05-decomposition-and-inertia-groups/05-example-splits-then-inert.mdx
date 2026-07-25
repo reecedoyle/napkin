@@ -1,0 +1,22 @@
+---
+title: Example — split, then inert
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example — split, then inert">
+
+Let $K = \QQ[\zeta_5]$ for $\zeta_5$ a primitive $5$th root of unity, so $\Gal(K/\QQ) \cong (\ZZ/5\ZZ)^\ast \cong \Zc4$. Take $p=19$.
+
+<Callout kind="example" title="19 in ℚ(ζ₅)">
+In $K$, $19$ factors as $19 = (2\sqrt5+1)(2\sqrt5-1)$; since $\OO_K$ is a PID, the ideal factors the same way: $(19) = \kp_1 \kp_2 = (2\sqrt5+1)(2\sqrt5-1)$.
+
+Here $K^{D_{\kp_1}} = K^D = \QQ(\sqrt5)$ and $K^I = K$. Indeed:
+- Lifting $(19)$ to $K^D = \QQ(\sqrt5)$: it already splits as $(2\sqrt5+1)(2\sqrt5-1)$, because $2\sqrt5+1 \in K^D$. Since $[K^D:\QQ]=2$ and $19$ already split into $2$ primes there, each has inertial degree $1$ over $\QQ$.
+- Lifting each of $(2\sqrt5+1)$, $(2\sqrt5-1)$ from $K^D$ to $K$: they remain inert. Since $[K:K^D]=2$, the inertial degree must be $2$.
+</Callout>
+
+Part of the general theorem is easy to see directly here: by the fundamental theorem of Galois theory, every automorphism in $D$ fixes $2\sqrt5+1$ — so tautologically $2\sqrt5+1$ lies in the fixed field $K^D$, which is exactly why $(19)$ already splits by the time it reaches $K^D$.
+
+</SlideLayout>

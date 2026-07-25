@@ -1,0 +1,20 @@
+---
+title: 'Factorization patterns'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Factorization patterns">
+
+The quadratic reciprocity proof used the fact that Frobenius elements behave well with restriction to relate the splitting of $p$ to properties of $\Frob_\kp$. There's a much stronger, more general statement lurking here — one that works for **any** intermediate field $\QQ \subseteq E \subseteq K$, even if $E/\QQ$ isn't Galois.
+
+Set $n = [E:\QQ]$, and let $p$ be a rational prime unramified in $K$. Then $p$ factors in $E$ as
+$$
+p \cdot \OO_E = \kp_1 \kp_2 \cdots \kp_g
+$$
+with inertial degrees $f_1, \dots, f_g$ (these can differ from one another, since $E/\QQ$ need not be Galois). The numbers $f_1 + \cdots + f_g = n$ form a partition of $n$, which we call the <Term k="frob61FactorizationPattern">factorization pattern</Term> of $p$ in $E$.
+
+For example, in the quadratic reciprocity proof we had $n = 2$, with possible patterns $1+1$ (if $p$ split) or $2$ (if $p$ was inert).
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Automorphisms shuffle roots
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Automorphisms shuffle roots">
+
+The same "roots go to roots" argument from §1 applies to $\Aut(K/F)$ too — it's really the same proof, just with $F$ in place of $\QQ$.
+
+<Callout kind="lemma" title="Root shuffling in Aut(K/F)">
+Let $f \in F[x]$, suppose $K/F$ is a finite extension, and $\alpha \in K$ is a root of $f$. Then for any $\sigma \in \Aut(K/F)$, $\sigma(\alpha)$ is also a root of $f$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="gal-aut-proof-root-shuffle"
+  prompt="Prove the root-shuffling lemma: write f(x) = c_n x^n + ⋯ + c_0 with c_i ∈ F, and show σ(α) is a root of f whenever α is."
+  solution="Apply σ to the equation 0 = f(α) = c_n α^n + ⋯ + c_0. Since σ is a field homomorphism, 0 = σ(f(α)) = σ(c_n)σ(α)^n + ⋯ + σ(c_0). Because each c_i ∈ F and σ fixes F pointwise, σ(c_i) = c_i. So 0 = c_n σ(α)^n + ⋯ + c_0 = f(σ(α)) — exactly the statement that σ(α) is a root of f."
+/>
+
+<Callout kind="remark" title="Moral">
+Taking $f$ to be the minimal polynomial of $\alpha$: an automorphism $\sigma \in \Aut(K/F)$ always sends $\alpha$ to one of its Galois conjugates over $F$ — never anywhere else.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: Ramification of infinite primes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Ramification of infinite primes">
+
+Only *real* infinite primes get to do anything interesting when we lift them:
+
+<Callout kind="definition" title="Ramified infinite prime">
+For a real infinite prime $\sigma$ of $K$, if any $\tau$ above it (in a Galois extension $L/K$) is complex, we say $\sigma$ <Term k="gr62RamifiedInfinite">ramifies</Term> in $L/K$. Otherwise $\sigma$ is unramified in $L/K$.
+</Callout>
+
+A complex infinite prime, by contrast, can never ramify further — a complex embedding only ever extends to complex embeddings. So the only thing that can happen along the way is: a *real* embedding of $K$ might fail to extend to a real embedding of $L$, becoming complex instead.
+
+<Callout kind="remark" title="Unramified Galois extension">
+Combining this with the ramification you already know for finite primes: we call $L/K$ an **unramified** Galois extension when *every* prime of $K$ — finite or infinite — is unramified in $L/K$.
+</Callout>
+
+</SlideLayout>

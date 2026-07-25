@@ -1,0 +1,17 @@
+---
+title: 'Beyond ℚ: general base fields'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Beyond ℚ: general base fields">
+
+Everything so far was stated for $K/\QQ$, but nothing about the argument is special to $\QQ$ as the base field.
+
+<Callout kind="remark" title="Chebotarev over an arbitrary number field">
+Happily, the density theorem (and all the preceding discussion of Frobenius elements) also works if we replace $K/\QQ$ with any Galois extension $K/F$ of number fields — we just replace "$\kp$ over $p$" with "$\kP$ over $\kp$" throughout. In that setting, we measure density using $\Norm(\kp) \le x$ rather than $p \le x$.
+</Callout>
+
+We'll use exactly this more general version later, when a Frobenius element sits several floors up a tower of number fields.
+
+</SlideLayout>

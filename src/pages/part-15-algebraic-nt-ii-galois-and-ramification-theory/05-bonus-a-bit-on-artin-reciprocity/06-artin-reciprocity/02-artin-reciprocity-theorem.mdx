@@ -1,0 +1,22 @@
+---
+title: The Artin reciprocity theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Artin reciprocity theorem">
+
+Here it is — the theorem this whole chapter has been building toward.
+
+<Callout kind="theorem" title="Artin reciprocity">
+Let $L/K$ be abelian. There is a modulus $\kf = \kf(L/K)$, divisible by exactly the primes of $\Ram(L/K)$, such that: for any modulus $\km$ divisible by all primes of $\Ram(L/K)$,
+$$
+P_K(\km) \subseteq H(L/K, \km) \subseteq I_K(\km) \quad\text{if and only if}\quad \kf \mid \km.
+$$
+We call $\kf$ the <Term k="gr62Conductor">conductor</Term> of $L/K$.
+</Callout>
+
+The conductor $\kf$ plays a role for the Artin map much like the discriminant plays for ramification in general: it's divisible by exactly the ramifying primes. And whenever $\km$ is divisible by $\kf$, the containment $P_K(\km) \subseteq H(L/K, \km)$ holds — meaning $H(L/K,\km)$ really is a <Term k="gr62CongruenceSubgroup">congruence subgroup</Term>, not just some subgroup of $I_K(\km)$.
+
+</SlideLayout>

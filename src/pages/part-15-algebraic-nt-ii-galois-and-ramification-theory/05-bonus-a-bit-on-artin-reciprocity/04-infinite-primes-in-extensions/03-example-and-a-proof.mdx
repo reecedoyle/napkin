@@ -1,0 +1,25 @@
+---
+title: 'Example: ∞ ramifying (or not)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Example: ∞ ramifying (or not)">
+
+Let $\infty$ be the real infinite prime of $\QQ$.
+
+<Callout kind="example" title="Ramified vs. unramified">
+- $\infty$ **ramifies** in $\QQ(\sqrt{-5})/\QQ$: the single embedding $\QQ \to \RR$ extends only to complex embeddings of $\QQ(\sqrt{-5})$ (since $\sqrt{-5} \notin \RR$).
+- $\infty$ is **unramified** in $\QQ(\sqrt{5})/\QQ$: it extends to two *real* embeddings of $\QQ(\sqrt{5})$ (both $\sqrt5 \mapsto \pm\sqrt5 \in \RR$).
+</Callout>
+
+<ProofReveal
+  client:load
+  id="artin-inf-proof-totally-complex-unramified"
+  prompt="If K is totally complex, show that every extension L/K is unramified at all infinite primes."
+  solution="K totally complex means every infinite prime of K is already complex. A complex infinite prime can never ramify further — only a real prime can 'become complex' when lifted. So there's nothing left to ramify: every infinite prime of a totally complex K is automatically unramified in any extension L/K."
+/>
+
+</SlideLayout>

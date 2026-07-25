@@ -1,0 +1,16 @@
+---
+title: Lifting infinite primes to an extension
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lifting infinite primes to an extension">
+
+Everything in §2–§3 is *intrinsic* to a single number field $K$. Now we bring in a second field: a <Term k="gr62AbelianExt">Galois extension</Term> $L/K$ of degree $m$. We already know how a finite prime ideal $\kp$ of $K$ breaks up into prime ideals $\kP$ of $L$ — we want the same story for infinite primes.
+
+This part is easy. Each infinite prime $\sigma \colon K \to \CC$ of $K$ lifts to $m$ infinite primes $\tau \colon L \to \CC$ of $L$: namely, all the embeddings $\tau$ of $L$ that extend $\sigma$ (i.e. $\tau$ restricted to $K$ equals $\sigma$).
+
+So exactly like the finite case, each infinite prime $\sigma$ of $K$ has $m$ infinite primes $\tau$ of $L$ lying above it — one for every way of extending $\sigma$ from $K$ up to $L$.
+
+</SlideLayout>

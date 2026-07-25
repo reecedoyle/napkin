@@ -1,0 +1,29 @@
+---
+title: 'Problems — Dirichlet and cyclotomic polynomials'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Dirichlet and cyclotomic polynomials">
+
+The first problem is a daggered (hard) capstone: Dirichlet's theorem on primes in arithmetic progressions falls right out of Chebotarev applied to a cyclotomic field. The second is a companion fact about when cyclotomic polynomials can be irreducible mod p.
+
+<Problem
+  client:load
+  id="frob-prob-dirichlet-density"
+  difficulty="daggered"
+  prompt="Let a and m be relatively prime positive integers. Show that the density of primes p ≡ a (mod m) is exactly 1/φ(m)."
+  hint="Apply the Chebotarev density theorem on ℚ(ζ_m)."
+  solution="Let K = ℚ(ζ_m). Exactly as in the cyclotomic setting, Gal(K/ℚ) ≅ (ℤ/mℤ)ˣ, of order φ(m). This group is abelian, so every conjugacy class is a singleton, giving φ(m) conjugacy classes total. For p sufficiently large — in particular unramified, since only primes dividing m ramify in K — we have σ_p = Frob_𝔭 for any 𝔭 above p, because the m-th roots of unity remain distinct modulo p (the derivative of x^m − 1 is m·x^(m−1), nonzero mod p once p does not divide m). By Chebotarev, the density of primes p with Frob_𝔭 = σ_a — equivalently, with p ≡ a (mod m), since σ_p = σ_a exactly when p ≡ a (mod m) — is |{σ_a}|/|G| = 1/φ(m)."
+/>
+
+<Problem
+  client:load
+  id="frob-prob-cyclotomic-not-irreducible"
+  difficulty="standard"
+  prompt="Let n be an odd integer that is not a prime power. Show that the n-th cyclotomic polynomial is not irreducible modulo any rational prime."
+  hint="Split into the cases p divides n and p does not divide n. For the second case, relate irreducibility of the cyclotomic polynomial mod p to p being a primitive root mod n, and show that (ℤ/nℤ)ˣ is never cyclic when n is odd and not a prime power."
+  solution="Write Φ_n for the n-th cyclotomic polynomial. First suppose p divides n. Then x^n − 1 and its derivative n·x^(n−1) share the common root 0 mod p, so x^n − 1 has a repeated root mod p, and Φ_n (which divides x^n − 1 and has degree φ(n) ≥ 2) cannot be separable mod p — but an irreducible polynomial over a finite field is always separable, so Φ_n mod p is not irreducible. Now suppose p does not divide n, so p is unramified in ℚ(ζ_n). By the cyclotomic Frobenius lemma, Frob_𝔭 = σ_p for 𝔭 above p, and Φ_n factors mod p into φ(n)/d irreducible factors of equal degree d, where d is the multiplicative order of p modulo n — this is exactly the cycle structure of multiplication-by-p acting on (ℤ/nℤ)ˣ. So Φ_n is irreducible mod p exactly when d = φ(n), i.e. exactly when p generates the group (ℤ/nℤ)ˣ, i.e. exactly when (ℤ/nℤ)ˣ is cyclic. But n is odd and not a prime power, so n has at least two distinct prime factors; by the Chinese remainder theorem, (ℤ/nℤ)ˣ decomposes as a direct product of the groups (ℤ/qℤ)ˣ for the prime power factors q of n, and each such factor is cyclic of even order (since q is an odd prime power). A direct product of two or more groups of even order always has more than one element of order dividing two, so it is never cyclic. Hence (ℤ/nℤ)ˣ is not cyclic, so no p generates it, and Φ_n is never irreducible modulo any prime not dividing n either. Combining both cases finishes the proof."
+/>
+
+</SlideLayout>

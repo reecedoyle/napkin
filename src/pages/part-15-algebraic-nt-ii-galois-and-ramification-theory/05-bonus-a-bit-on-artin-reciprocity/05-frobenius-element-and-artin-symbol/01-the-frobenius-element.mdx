@@ -1,0 +1,21 @@
+---
+title: The Frobenius element
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Frobenius element">
+
+Time to recall the key structural fact linking a prime's arithmetic to a Galois group.
+
+<Callout kind="theorem" title="Frobenius element">
+Let $L/K$ be a <Term k="gr62GaloisGroup">Galois</Term> extension. If $\kp$ is a prime of $K$ unramified in $L/K$, and $\kP$ is a prime of $L$ above it, then there is a **unique** element of $\Gal(L/K)$, denoted <Term k="gr62FrobElement">$\Frob_\kP$</Term>, satisfying
+$$
+\Frob_\kP(\alpha) \equiv \alpha^{\Norm(\kp)} \pmod{\kP} \qquad \forall \alpha \in \OO_L.
+$$
+</Callout>
+
+In words: $\Frob_\kP$ is the group element that acts on the residue field $\OO_L/\kP$ exactly like "raise to the $\Norm(\kp)$-th power" — the map you'd expect from Fermat's little theorem, generalized to a finite field of size $\Norm(\kp)$.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: 'The Chebotarev density theorem'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Chebotarev density theorem">
+
+<Callout kind="theorem" title="Chebotarev density theorem over ℚ">
+Let $C$ be a conjugacy class of $G = \Gal(K/\QQ)$. The <Term k="frob61PrimeDensity">density</Term> of unramified primes $p$ such that $\{\Frob_\kp \mid \kp \text{ above } p\} = C$ is exactly $\lvert C \rvert / \lvert G \rvert$. In particular, for any $\sigma \in G$ there are infinitely many rational primes $p$ with some $\kp$ above $p$ so that $\Frob_\kp = \sigma$.
+</Callout>
+
+By "density" here we mean the proportion of primes $p \le x$ that hit the class $C$ approaches $\lvert C \rvert / \lvert G \rvert$ as $x \to \infty$. We throw out the primes that ramify in $K$ — but that's no real loss, since only finitely many primes ever ramify (they're exactly the ones dividing the discriminant $\Delta_K$).
+
+<Term k="frob61ChebotarevDensity">Chebotarev's theorem</Term> is one of the deepest results in this chapter, and we'll take it as a black box — its proof needs analytic tools well beyond what we've built here.
+
+</SlideLayout>

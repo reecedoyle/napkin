@@ -1,0 +1,20 @@
+---
+title: When D is not normal, there's no single K^D
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="When D is not normal, there's no single K^D">
+
+The clean three-stage picture assumed $D \normalin G$. When that fails, each prime $\kp_i$ gets its own decomposition field $K^{D_{\kp_i}}$, and if $D \not\normalin G$, these subgroups are only *conjugate* to each other, not equal.
+
+<Callout kind="example" title="ℚ(∛2, ω): p = 5">
+Let $K = \QQ(\cbrt2, \omega)$, the splitting field of $x^3-2$. The rational prime $5$ splits as $(5) = \kp_1 \kp_2 \kp_3$ in $K$, each with inertial degree $2$, so $|D_{\kp_i}| = 2$ for each $i$.
+
+Since $\Gal(K/\QQ) \cong S_3$ and $S_3$ has no normal subgroup of order $2$, $D_{\kp_i}$ is **not** normal in $G$ — so there's no single decomposition field for all three primes at once.
+
+Concretely: lifting $(5)$ to $K^{D_{\kp_1}}$, it splits as $\kp_1' \kp_{23}'$, with $\kp_1$ above $\kp_1'$ and *both* $\kp_2,\kp_3$ above $\kp_{23}'$. In the extension $K^{D_{\kp_1}}/\QQ$, $\kp_1'$ has inertial degree $1$ as before, but $\kp_{23}'$ has inertial degree $2$.
+</Callout>
+
+</SlideLayout>

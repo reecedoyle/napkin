@@ -1,0 +1,25 @@
+---
+title: Check your understanding — applying the criterion
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Check your understanding — applying the criterion">
+
+Let's use the final theorem: $p = x^2+5y^2$ for a prime $p \nmid 20$ if and only if $p \bmod 20 \in \{1,9\}$.
+
+<Callout kind="example" title="Sanity check">
+$p = 29$: since $29 \bmod 20 = 9$, the theorem predicts $29$ is expressible as $x^2+5y^2$. Indeed $29 = 3^2 + 5\cdot 2^2$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="artin-app-num-p41"
+  prompt="Take p = 41. Compute p mod 20, and enter that residue (a number from 0 to 19)."
+  expected="1"
+  explanation="41 mod 20 = 1, which is in {1, 9} — so the theorem predicts 41 = x²+5y² is solvable. Indeed 41 = 6² + 5·1²."
+/>
+
+</SlideLayout>

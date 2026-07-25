@@ -1,0 +1,18 @@
+---
+title: 'Problem: why x² + 23y² has no such criterion'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: why x² + 23y² has no such criterion">
+
+<Problem
+  client:load
+  id="artin-prob-x2-23y2"
+  difficulty="standard"
+  prompt="There is no positive integer m such that whether a prime p ∤ m can be written as p = x² + 23y² depends only on p mod m. Guess why."
+  hint="The extension L/ℚ relevant to this quadratic form is not abelian."
+  solution="If such an m existed, representability by x²+23y² would have to be governed by an Artin symbol on some abelian extension L/ℚ, exactly as x²+5y² was governed by ℚ(√-5, i)/ℚ. But the extension actually controlling x²+23y² is the Hilbert class field of ℚ(√-23) — the class group of ℚ(√-23) has order 3, so this Hilbert class field has degree 3 over ℚ(√-23), degree 6 over ℚ — and its Galois group over ℚ is the full symmetric group S₃, which is non-abelian. Artin reciprocity is a theorem about abelian extensions; it simply doesn't apply when Gal(L/ℚ) is non-abelian, so there's no reason to expect a modulus m controlling p mod m here, and indeed none exists."
+/>
+
+</SlideLayout>

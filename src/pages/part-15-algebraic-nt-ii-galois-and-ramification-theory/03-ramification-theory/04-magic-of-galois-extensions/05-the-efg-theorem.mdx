@@ -1,0 +1,22 @@
+---
+title: The efg theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The efg theorem">
+
+<Callout kind="theorem" title="Inertial degrees and ramification indices are all equal">
+Assume $K/\QQ$ is Galois. Then for any rational prime $p$,
+
+$$
+p \cdot \OO_K = \left( \kp_1 \kp_2 \cdots \kp_g \right)^e
+$$
+
+for some single $e$, where the $\kp_i$ are distinct primes with the *same* inertial degree $f$. Hence $[K:\QQ] = efg$.
+</Callout>
+
+**Why the $f_i$ are all equal:** each $\sigma \in G$ induces a ring isomorphism $\OO_K/\kp \cong \OO_K/\sigma(\kp)$ (just reduce $\sigma$ mod $\kp$). Since these two quotients are isomorphic, they have the same size, so $\kp$ and $\sigma(\kp)$ have the same inertial degree. Because the action is transitive, *every* $\kp_i$ is $\sigma(\kp_1)$ for some $\sigma$ — so all the $f_i$ agree.
+
+</SlideLayout>

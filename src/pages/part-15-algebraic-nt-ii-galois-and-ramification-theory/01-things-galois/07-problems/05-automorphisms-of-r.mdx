@@ -1,0 +1,18 @@
+---
+title: The only automorphism of ℝ is the identity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="The only automorphism of ℝ is the identity">
+
+<Problem
+  client:load
+  id="gal-prob-aut-of-r"
+  difficulty="standard"
+  prompt="Show that the only automorphism of ℝ is the identity. Hence Aut(ℝ/ℚ) is the trivial group."
+  hint="Use σ(x²) = σ(x)² ≥ 0, together with Cauchy's Functional Equation."
+  solution="Any field automorphism σ of ℝ is additive, σ(x+y) = σ(x) + σ(y), which is Cauchy's functional equation. It also satisfies σ(x²) = σ(x)² ≥ 0, so σ sends every square — that is, every nonnegative real — to a nonnegative real. Consequently if x < y then y − x > 0, so σ(y) − σ(x) = σ(y−x) ≥ 0, meaning σ is order-preserving. An additive, order-preserving function on ℝ that fixes ℚ pointwise (which every field automorphism does, since it fixes 1 and hence every rational) must equal the identity everywhere: for any real x, squeeze it between rationals arbitrarily close to x, and order-preservation forces σ(x) arbitrarily close to x as well, so σ(x) = x. Hence Aut(ℝ/ℚ) contains only the identity."
+/>
+
+</SlideLayout>

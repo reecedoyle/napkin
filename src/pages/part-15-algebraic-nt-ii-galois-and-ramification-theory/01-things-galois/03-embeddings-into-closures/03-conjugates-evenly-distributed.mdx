@@ -1,0 +1,22 @@
+---
+title: Embeddings distribute evenly over conjugates
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Embeddings distribute evenly over conjugates">
+
+Here's a refinement: the $n$ embeddings don't just permute conjugates arbitrarily — they hit each conjugate the same number of times.
+
+<Callout kind="theorem" title="Embeddings are evenly distributed over conjugates">
+Let $K$ be a number field of degree $n$ with $n$ embeddings $\sigma_1, \dots, \sigma_n$, and let $\alpha \in K$ have $m$ <Term k="an54galoisConjugate">Galois conjugates</Term> over $\QQ$. Then for any conjugate $\beta$ of $\alpha$, exactly $\frac nm$ of the embeddings send $\alpha \mapsto \beta$.
+</Callout>
+
+<Callout kind="remark" title="Proof idea">
+Adjoin $\alpha_1 = \alpha$ first in the tower construction from the previous slide. The first step already gives $m$ choices (one per conjugate of $\alpha$), each extended in exactly $n/m$ ways by the remaining steps — by symmetry, every conjugate gets the same number of extensions.
+</Callout>
+
+Take $K = \QQ(\cbrt2, \omega)$ with $n = 6$: the element $\cbrt2$ has $m = 3$ conjugates ($\cbrt2$, $\omega\cbrt2$, $\omega^2\cbrt2$), so exactly $6/3 = 2$ of the 6 embeddings send $\cbrt2$ to each conjugate.
+
+</SlideLayout>

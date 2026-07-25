@@ -1,0 +1,33 @@
+---
+title: Fixed fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Fixed fields">
+
+Here's the headline idea of this section, stated informally before we get precise:
+
+<Callout kind="remark" title="Moral">
+If $K/F$ is Galois with Galois group $G$, then subgroups of $G$ correspond exactly to intermediate fields $E$ with $F \subseteq E \subseteq K$.
+</Callout>
+
+To make the correspondence explicit, we need to go from a subgroup to a field.
+
+<Callout kind="definition" title="Fixed field">
+Let $K$ be a field and $H$ a subgroup of $\Aut(K/F)$. The <Term k="gal58FixedField">fixed field</Term> of $H$, denoted $K^H$, is
+$$
+K^H \defeq \{\, x \in K : \sigma(x) = x \ \forall \sigma \in H \,\}.
+$$
+</Callout>
+
+<ProofReveal
+  client:load
+  id="gal-fun-proof-kh-is-field"
+  prompt="Verify quickly that K^H is actually a field."
+  solution="K^H contains 0 and 1, since every σ ∈ H fixes 0 and 1 (field homomorphisms do). If x, y ∈ K^H then σ(x+y) = σ(x)+σ(y) = x+y and σ(xy) = σ(x)σ(y) = xy for every σ ∈ H, so x+y and xy stay in K^H; similarly σ(−x) = −x and σ(x⁻¹) = σ(x)⁻¹ = x⁻¹ for nonzero x. So K^H is closed under all the field operations — it's a subfield of K."
+/>
+
+</SlideLayout>

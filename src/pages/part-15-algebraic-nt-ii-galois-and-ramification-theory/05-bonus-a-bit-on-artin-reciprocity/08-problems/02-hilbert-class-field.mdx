@@ -1,0 +1,18 @@
+---
+title: 'Problem: existence of the Hilbert class field'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: existence of the Hilbert class field">
+
+<Problem
+  client:load
+  id="artin-prob-hilbert-class-field"
+  difficulty="daggered"
+  prompt="Let K be any number field. Show there exists a unique abelian extension E/K, unramified at every prime (finite or infinite), such that: E/K is maximal by inclusion among such unramified abelian extensions; Gal(E/K) is isomorphic to the class group of K; and a prime 𝔭 of K splits completely in E if and only if 𝔭 is a principal ideal of 𝒪_K. (This E is the Hilbert class field of K.)"
+  hint="Apply the Takagi existence theorem with modulus 𝔪 = 1."
+  solution="Apply the Takagi existence theorem with 𝔪 = 1 to the congruence subgroup H = P_K(1): this produces a unique abelian extension E/K with H(E/K,1) = P_K(1), and 𝔪=1 divisible by nothing means E/K is unramified everywhere. Maximality: any other unramified abelian M/K has conductor 1 (no primes divide it), so P_K(1) = H(E/K,1) ⊆ H(M/K,1) ⊆ I_K(1), and the inclusion-reversing lemma gives M ⊆ E. Isomorphism with the class group: Gal(E/K) ≅ I_K(1)/H(E/K,1) = I_K(1)/P_K(1), which is exactly the class group of K by definition. Splitting criterion: this isomorphism is given by the Artin symbol, so 𝔭 splits completely in E iff the Artin symbol at 𝔭 is trivial iff 𝔭 is trivial in the class group, i.e. 𝔭 is principal."
+/>
+
+</SlideLayout>

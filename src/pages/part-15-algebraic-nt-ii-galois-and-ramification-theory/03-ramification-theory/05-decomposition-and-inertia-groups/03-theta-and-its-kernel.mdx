@@ -1,0 +1,30 @@
+---
+title: θ is onto, with kernel of order e
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="θ is onto, with kernel of order e">
+
+Surprisingly, *every* automorphism of the residue field extension arises this way.
+
+<Callout kind="theorem" title="Decomposition group and Galois group">
+With $\theta: D_\kp \to \Gal\left( (\OO_K/\kp)/\FF_p \right)$ as above:
+- $\theta$ is **surjective**, and
+- its kernel has order $e$, the ramification index.
+
+In particular, if $p$ is unramified then $D_\kp \cong \Gal\left( (\OO_K/\kp)/\FF_p \right)$.
+</Callout>
+
+(The proof is not hard but a bit long, and not very enlightening — we'll skip it.)
+
+Now, we already know what the target group is! Since $\OO_K/\kp \cong \FF_{p^f}$,
+
+$$
+\Gal\left( (\OO_K/\kp)/\FF_p \right) \cong \Gal(\FF_{p^f}/\FF_p) \cong \left< x \mapsto x^p \right> \cong \Zc f.
+$$
+
+So $D_\kp \cong \Zc f$ as well — the decomposition group is always cyclic of order $f$.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Setting the stage
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Setting the stage">
+
+Throughout this chapter, <Term k="frob61GaloisGroup">$K/\QQ$</Term> is a Galois extension with Galois group $G$, $p$ is an <Term k="frob61UnramifiedPrime">unramified</Term> rational prime, and $\kp$ is a <Term k="frob61PrimeAbove">prime above it</Term>. Picture the tower:
+
+$$
+K \supset \OO_K \supset \kp, \qquad \OO_K/\kp \cong \FF_{p^f}
+$$
+
+$$
+\QQ \supset \ZZ \supset (p), \qquad \ZZ/(p) = \FF_p
+$$
+
+The <Term k="frob61ResidueField">residue field</Term> $\OO_K/\kp$ is a finite field of size $p^f$, where $f$ is the <Term k="frob61InertialDegree">inertial degree</Term> of $\kp$.
+
+We recall that the $p$-th power map <Term k="frob61FrobeniusMapFiniteField">$\sigma \colon \FF_{p^f} \to \FF_{p^f}$</Term>, $\sigma(x) = x^p$, is an automorphism — it's called the Frobenius map on $\FF_{p^f}$. We can try to extend this to a map $K \to K$ by the same formula $\sigma(x) = x^p$, but this fails badly: raising to the $p$-th power is not additive in characteristic $0$, so it isn't a field automorphism of $K$ at all.
+
+<Callout kind="remark" title="Surprising rescue">
+Even though $x \mapsto x^p$ isn't a field automorphism of $K$, it turns out we can nevertheless find some genuine field automorphism $\sigma \in \Gal(K/\QQ)$ that agrees with it modulo $\kp$: $\sigma(\alpha) \equiv \alpha^p \pmod{\kp}$ for every $\alpha \in \OO_K$. That automorphism is what this chapter is about.
+</Callout>
+
+</SlideLayout>

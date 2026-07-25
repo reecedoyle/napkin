@@ -1,0 +1,20 @@
+---
+title: The bug, and the ideal-theoretic fix
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The bug, and the ideal-theoretic fix">
+
+The bug: the earlier proof assumed $\gcd(p, 1+\sqrt{-5})$ is an **element**. But $\OO_K$ for $K=\QQ(\sqrt{-5})$ is not a UFD, so "gcd" doesn't make sense at the element level.
+
+We do have all the tools of ideal theory to fix it, though. The ideal $(p) = (3) \subseteq \QQ$ splits, when lifted to $K$, as $(p) = \kp_1 \kp_2$ where $\kp_1 = (3, 1+\sqrt{-5})$ and $\kp_2 = (3, 1-\sqrt{-5})$.
+
+<Callout kind="proposition" title="The correct criterion">
+A prime $p \in \QQ$ can be written as $p = x^2+5y^2$ if and only if $(p)$ splits into $\kp_1 \kp_2$ when lifted to $\QQ(\sqrt{-5})$, with $\kp_1$ and $\kp_2$ both <Term k="principalIdeal">principal ideals</Term>.
+</Callout>
+
+This is exactly where Artin reciprocity and the Hilbert class field are going to shine: we want to determine the class of $\kp_1$ — in other words, "$\kp_1 \pmod 1$" — using the ray class group machinery from earlier in this chapter.
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: The Galois group is cyclic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Galois group is cyclic">
+
+Now we can finish fact #4 from the chapter overview.
+
+<Callout kind="theorem" title="Galois group of 𝔽_{p^n}/𝔽_p">
+$\operatorname{Gal}(\mathbb{F}_{p^n}/\mathbb{F}_p) \cong \mathbb{Z}/n\mathbb{Z}$, with generator $\sigma_p$.
+</Callout>
+
+Since $[\mathbb{F}_{p^n} : \mathbb{F}_p] = n$, the Galois group $G$ has <Term k="groupOrder">order</Term> $n$. So it suffices to show $\sigma_p \in G$ has order exactly $n$.
+
+Applying $\sigma_p$ $k$ times sends $x \mapsto x^{p^k}$. Applying it $n$ times gives the identity, since every element of $\mathbb{F}_{p^n}$ satisfies $x^{p^n} = x$ (Fermat's little theorem again). But if $k < n$, applying $\sigma_p$ $k$ times *can't* be the identity — that would mean every element of $\mathbb{F}_{p^n}$ satisfies $x^{p^k} - x = 0$, a polynomial of degree $p^k < p^n$ that can't have $p^n$ roots.
+
+So $\sigma_p$ really does have order $n$, generating all of $G$.
+
+</SlideLayout>

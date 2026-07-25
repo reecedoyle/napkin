@@ -1,0 +1,30 @@
+---
+title: 'Example: factoring x³ − 2 mod 5'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Example: factoring x³ − 2 mod 5">
+
+Let $\alpha = \cbrt2$ and $f = x^3-2$, so $E = \QQ(\cbrt2)$. Set $p = 5$, and let $K = \QQ(\cbrt2, \omega)$ be the splitting field, as in our earlier §2 example (where we computed $\Frob_{\kP}$ there has cycle type $(\bullet)(\bullet\ \bullet)$, i.e. it fixes one root of $x^3-2$ and swaps the other two).
+
+<Callout kind="example" title="All three descriptions agree">
+All three of the theorem's descriptions have shape $2+1$:
+
+(i) By the factoring algorithm, $(5) = (5, \cbrt2-3)(5, 9+3\cbrt2+\cbrt4)$ in $\OO_E$.
+
+(ii) We have $x^3-2 \equiv (x-3)(x^2+3x+9) \pmod 5$.
+
+(iii) We already saw $\Frob_{\kP} = (\bullet)(\bullet\ \bullet)$ in $S_3$, acting on the three roots of $x^3-2$.
+</Callout>
+
+<NumericInput
+  client:load
+  id="frob-fact-num-num-irreducible-factors"
+  prompt="How many irreducible factors does x³ − 2 have modulo 5?"
+  expected="2"
+  explanation="x³ − 2 ≡ (x−3)(x²+3x+9) (mod 5): one linear factor and one irreducible quadratic factor, matching the 1+2 factorization pattern."
+/>
+
+</SlideLayout>

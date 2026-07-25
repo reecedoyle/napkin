@@ -1,0 +1,33 @@
+---
+title: The characteristic of the field of nine elements
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The characteristic of the field of nine elements">
+
+Although $F$ (our field of nine elements) has $9$ elements, every element $x \in F$ satisfies
+
+$$
+3x = \underbrace{x + \dots + x}_{3 \text{ times}} = 0.
+$$
+
+In particular, $F$ has characteristic $3$ — the *size* of the field ($9$) and its *characteristic* ($3$) are different numbers, and that gap is exactly $p^n$ versus $p$.
+
+<MCQ
+  client:load
+  id="ff59-ex1-mcq-char-vs-size"
+  prompt="The field F above has 9 elements and characteristic 3. Which statement correctly describes the relationship?"
+  options={[
+    { id: "a", label: "The characteristic must always equal the number of elements" },
+    { id: "b", label: "The number of elements is a power of the characteristic" },
+    { id: "c", label: "The characteristic is unrelated to the number of elements" },
+    { id: "d", label: "The characteristic must always be even" },
+  ]}
+  correct="b"
+  explanation="9 = 3², i.e. |F| = p^n where p = char(F). That's the general pattern we're about to prove: every finite field has order p^n for its characteristic p."
+/>
+
+</SlideLayout>

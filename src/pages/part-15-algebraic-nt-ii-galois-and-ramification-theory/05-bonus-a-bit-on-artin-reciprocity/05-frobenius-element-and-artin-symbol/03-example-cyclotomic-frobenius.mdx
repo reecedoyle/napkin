@@ -1,0 +1,28 @@
+---
+title: 'Example: the cyclotomic Frobenius'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: the cyclotomic Frobenius">
+
+Generalizing the $\QQ(i)$ example: let $L = \QQ(\zeta)$, $K = \QQ$, with $\zeta$ a primitive $m$th root of unity. It's well known that $L/K$ is unramified outside $\infty$ and the prime factors of $m$, and that $\Gal(L/K) \cong \Zm{m}$: every automorphism has the form
+
+$$
+\sigma_n \colon \zeta \mapsto \zeta^n, \qquad \Gal(L/K) = \{ \sigma_n \mid n \in \Zm{m} \}.
+$$
+
+Then, just as before: if $p \nmid m$ is prime and $\kP$ lies above $p$,
+
+$$
+\Frob_\kP = \sigma_p.
+$$
+
+The Frobenius at $p$ is *literally* "raise $\zeta$ to the $p$-th power" — the cleanest possible description, and one we'll lean on heavily once we get to Artin reciprocity.
+
+<Callout kind="remark" title="Base field beyond ℚ">
+Everything above generalizes to a base field $K$ other than $\QQ$ — then $\kp$ is not necessarily a rational integer, and the induced map on the residue field is "raise to the $\Norm(\kp)$-th power" instead of "raise to the $p$-th power".
+</Callout>
+
+</SlideLayout>

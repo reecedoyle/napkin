@@ -1,0 +1,25 @@
+---
+title: Check your understanding — infinite primes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Check your understanding — infinite primes">
+
+Let's make sure the real/complex split is second nature before moving on.
+
+<MCQ
+  client:load
+  id="artin-inf-mcq-totally-complex"
+  prompt="Which of the following number fields is totally complex?"
+  options={[
+    { id: "a", label: "ℚ(√5)" },
+    { id: "b", label: "ℚ(√-5)" },
+    { id: "c", label: "ℚ" },
+    { id: "d", label: "ℚ(√2)" },
+  ]}
+  correct="b"
+  explanation="ℚ(√-5) has degree 2 with no real embeddings — complex conjugation is the only nontrivial automorphism, and neither embedding lands inside ℝ. So it has a single complex infinite prime and no real ones: totally complex. ℚ(√5), ℚ, and ℚ(√2) are all totally real (every embedding of a real quadratic field, or of ℚ itself, lands in ℝ)."
+/>
+
+</SlideLayout>

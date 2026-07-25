@@ -1,0 +1,24 @@
+---
+title: Proof that the action is transitive
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof that the action is transitive">
+
+Because the $\kp_i$ are distinct primes, the <Term k="rt60chineseRemainderTheorem">Chinese remainder theorem</Term> lets us find $x \in \OO_K$ with
+
+$$
+x \equiv 0 \pmod{\kp_1}, \qquad x \equiv 1 \pmod{\kp_i} \text{ for } i \ge 2.
+$$
+
+Now compute the norm $\NK(x) = \prod_{\sigma \in \Gal(K/\QQ)} \sigma(x)$ — every $\sigma(x)$ lands in $K$ because $K/\QQ$ is Galois.
+
+<Callout kind="remark" title="Finishing the argument">
+$\NK(x)$ is an integer divisible by $\kp_1$ (since $x \equiv 0$ there), hence divisible by $p$, hence divisible by $\kp_2$ as well. So some factor $\sigma(x)$ of the product must be divisible by $\kp_2$ — equivalently, $x$ is divisible by $\sigma\inv \kp_2$. But by construction, among the primes above $p$, $x$ is divisible only by $\kp_1$. So $\sigma\inv \kp_2 = \kp_1$, i.e. $\sigma \kp_1 = \kp_2$ — done.
+</Callout>
+
+The same argument works for any pair $\kp_i, \kp_j$, so the action is transitive.
+
+</SlideLayout>

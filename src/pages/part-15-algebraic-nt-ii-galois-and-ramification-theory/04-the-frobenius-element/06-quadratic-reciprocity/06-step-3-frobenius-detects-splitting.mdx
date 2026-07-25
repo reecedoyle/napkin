@@ -1,0 +1,24 @@
+---
+title: 'Step 3: Frobenius detects splitting in K'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Step 3: Frobenius detects splitting in K">
+
+Now we bring in the Frobenius element $\sigma_p = \Frob_{\kP} \in \Gal(L/\QQ)$ from the cyclotomic lemma.
+
+<Callout kind="proposition" title="Frobenius controls splitting in K">
+$$
+\Frob_{\kP} \in H \iff \text{$p$ splits in $K$}.
+$$
+</Callout>
+
+Here's why. $\Frob_{\kP}$ lies in $H$ exactly when it acts as the identity on $K$ (that's what the Galois correspondence $H \leftrightarrow K$ means). But by the restriction theorem from §5, $\Frob_{\kP}\restrict{K}$ *is* $\Frob_\kp$! So
+$$
+\Frob_{\kP} \in H \iff \Frob_\kp = \id_K.
+$$
+Finally, by the order lemma from §1, $\Frob_\kp$ has order $1$ exactly when $p$ splits in $K$ (inertial degree $1$), and order $2$ when $p$ is inert. This completes the chain of equivalences.
+
+</SlideLayout>

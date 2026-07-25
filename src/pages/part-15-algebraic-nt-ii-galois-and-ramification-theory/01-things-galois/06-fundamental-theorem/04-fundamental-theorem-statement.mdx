@@ -1,0 +1,26 @@
+---
+title: The Fundamental Theorem of Galois Theory
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Fundamental Theorem of Galois Theory">
+
+That, and much more, holds in complete generality — we won't prove it here, but it's worth seeing stated in full.
+
+<Callout kind="theorem" title="Fundamental theorem of Galois theory">
+Let $K/F$ be a Galois extension with Galois group $G = \Gal(K/F)$.
+
+(a) There is a bijection between field towers $F \subseteq E \subseteq K$ and subgroups $H \subseteq G$, sending $H$ to its fixed field $K^H$. The bijection is inclusion-reversing.
+
+(b) Under this bijection, $[K:E] = |H|$ and $[E:F] = |G/H|$.
+
+(c) $K/E$ is always Galois, with $\Gal(K/E) = H$.
+
+(d) $E/F$ is Galois if and only if $H$ is normal in $G$. If so, $\Gal(E/F) = G/H$.
+</Callout>
+
+Part (a) is the "lattice-matching" picture from last slide. Parts (b)–(d) say the matching respects *everything* you'd want it to: sizes, and even whether the sub-extension is itself Galois (exactly when the matching subgroup is normal).
+
+</SlideLayout>

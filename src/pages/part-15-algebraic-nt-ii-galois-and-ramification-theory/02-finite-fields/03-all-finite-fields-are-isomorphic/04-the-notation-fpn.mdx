@@ -1,0 +1,18 @@
+---
+title: 'The notation 𝔽_{p^n}'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The notation 𝔽_{p^n}">
+
+Since every finite field of order $p^n$ is the same up to isomorphism, we're free to give it a name and stop worrying about *which* copy we're using.
+
+<Callout kind="definition" title="The finite field 𝔽_{p^n}">
+For this reason, it's customary to denote *the* field with $p^n$ elements by <Term k="ff59Fpn">$\mathbb{F}_{p^n}$</Term>.
+</Callout>
+
+One subtlety worth flagging: the polynomial $x^{p^n} - x \pmod p$ is generally far from irreducible — it factors into many pieces (one for each element of every subfield). What our derivative computation showed is only that it's *separable*, not that it's irreducible. We'll see this factorization explicitly on the next slide.
+
+</SlideLayout>

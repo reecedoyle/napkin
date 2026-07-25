@@ -1,0 +1,28 @@
+---
+title: The Artin map
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Artin map">
+
+Now we capitalize fully on $\Gal(L/K)$ being abelian. Write <Term k="gr62RamSet">$\Ram(L/K)$</Term> for the set of primes of $K$ (finite or infinite) that ramify in $L$.
+
+<Callout kind="definition" title="Artin map">
+Let $L/K$ be abelian and let $\km$ be divisible by every prime in $\Ram(L/K)$. Since the Artin symbol is defined at every unramified prime, and $\Gal(L/K)$ is abelian, we can extend it *multiplicatively* to a map
+
+$$
+\left( \frac{L/K}{\bullet} \right) \colon I_K(\km) \surjto \Gal(L/K).
+$$
+
+This is the <Term k="gr62ArtinMap">Artin map</Term>. It's surjective — for instance by the Chebotarev density theorem, which says every element of $\Gal(L/K)$ arises as $\Frob_\kP$ for infinitely many $\kp$.
+</Callout>
+
+Let $H(L/K, \km) \subseteq I_K(\km)$ denote the kernel of this map — so <Term k="gr62HLK">$H(L/K,\km)$</Term> is a congruence subgroup, and
+
+$$
+\Gal(L/K) \cong I_K(\km) / H(L/K, \km).
+$$
+
+</SlideLayout>

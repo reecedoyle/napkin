@@ -1,0 +1,22 @@
+---
+title: Algebraically closed fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Algebraically closed fields">
+
+Given a field like $\QQ(\cbrt2)$, we want somewhere to embed it — for number fields, that was $\CC$. Let's ask what makes $\CC$ special for this purpose: it contains every root of every polynomial, no matter the coefficients.
+
+<Callout kind="definition" title="Algebraically closed">
+A field $E$ is <Term k="algClosed">algebraically closed</Term> if every polynomial with coefficients in $E$ factors as a product of linear polynomials over $E$ — equivalently, every non-constant polynomial in $E[x]$ has a root in $E$.
+</Callout>
+
+<Callout kind="example" title="ℂ is algebraically closed">
+This is the Fundamental Theorem of Algebra: every non-constant polynomial with complex coefficients has a complex root, and hence factors completely over $\CC$.
+</Callout>
+
+Contrast with $\RR$: $x^2+1$ has no real root, so $\RR$ is not algebraically closed. That's exactly why we embed number fields into $\CC$ rather than $\RR$.
+
+</SlideLayout>

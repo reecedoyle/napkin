@@ -1,0 +1,25 @@
+---
+title: 'Ruling out the bad case'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Ruling out the bad case">
+
+Since $\sigma$ has prime order $p$ in $G$, every cycle length in its cycle structure has to divide $p$ — and the only divisors of a prime are $1$ and $p$ itself. So the only possible factorization patterns of $f \bmod q$ are
+$$
+p = \underbrace{1 + 1 + \cdots + 1}_{p \text{ times}} \qquad \text{or} \qquad p = p.
+$$
+We just need to rule out the all-$1$s case — otherwise $f$ would split into linear factors mod $q$, and we'd have failed to make $f$ irreducible.
+
+<ProofReveal
+  client:load
+  id="frob-imo-proof-rule-out-linear"
+  prompt="Rule out the case where X^p − p splits into p linear factors mod q — i.e. show σ can't fix every root of f."
+  solution="If f splits into p linear factors mod q, its factorization pattern is 1+1+...+1, so by the correspondence, σ fixes every root of f individually (every cycle of σ acting on the roots has length 1). But the roots of f generate K over ℚ (K is the splitting field of f), so an automorphism fixing every root of f must fix all of K — meaning σ = id. This contradicts σ having order p > 1. So the all-linear-factors case is impossible, and f must be irreducible mod q (factorization pattern p = p)."
+/>
+
+So indeed $X^p - p$ is irreducible modulo every one of the infinitely many primes $q$ that Chebotarev handed us — completing the proof.
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: 'The theorem we are chasing'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The theorem we are chasing">
+
+Time to put all this machinery to work on a genuinely famous theorem — one you may have already met (and maybe proved by a completely different, more combinatorial route).
+
+<Callout kind="theorem" title="Quadratic reciprocity">
+Let $p$ and $q$ be distinct odd primes. Then
+$$
+\left( \frac pq \right)\left( \frac qp \right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}},
+$$
+where <Term k="frob61LegendreSymbol">$\left(\frac{a}{p}\right)$</Term> is the Legendre symbol.
+</Callout>
+
+<Term k="frob61QuadraticReciprocity">Quadratic reciprocity</Term> answers the question "if $q$ is a square mod $p$, does that tell us whether $p$ is a square mod $q$?" — remarkably, the two questions are (almost) the same question, up to a sign that depends only on $p, q \pmod 4$.
+
+We're going to derive this from Frobenius elements and Chebotarev — a genuinely different proof than the classical Eisenstein lattice-point argument.
+
+</SlideLayout>

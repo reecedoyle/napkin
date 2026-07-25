@@ -1,0 +1,20 @@
+---
+title: The residue field extension
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The residue field extension">
+
+This section is optional, but it's a beautiful refinement of the efg theorem. Fix a prime $p$, so $p \cdot \OO_K = (\kp_1 \cdots \kp_g)^e$ with every $\kp_i$ of inertial degree $f$. Fix one $\kp$ among the $\kp_i$.
+
+We can compare $\OO_K/\kp$ with $\ZZ/p = \FF_p$. Since $\OO_K/\kp$ is a finite field, it's naturally a field extension of $\FF_p$ — in fact $\OO_K/\kp \cong \FF_{p^f}$. Picture the tower: $K \supset \OO_K \supset \kp$ sitting above $\QQ \supset \ZZ \supset (p)$, with residue fields $\OO_K/\kp \cong \FF_{p^f}$ sitting above $\FF_p$.
+
+On the far right we have an extension of *finite fields*, which we already understand extremely well. So it's natural to ask:
+
+<Callout kind="question" title="The question of the section">
+How are $\Gal\left( (\OO_K/\kp) / \FF_p \right)$ and $\Gal(K/\QQ)$ related?
+</Callout>
+
+</SlideLayout>

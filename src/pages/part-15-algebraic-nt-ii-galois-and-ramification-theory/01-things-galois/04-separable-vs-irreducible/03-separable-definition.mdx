@@ -1,0 +1,26 @@
+---
+title: Separable polynomials
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Separable polynomials">
+
+Let's give a name to the property the derivative trick was trying to establish.
+
+<Callout kind="definition" title="Separable">
+A polynomial with no double roots is called <Term k="gal58Separable">separable</Term>. We want irreducible polynomials to always be separable — that's what made the "$n$ embeddings" proof in §3 work.
+</Callout>
+
+<Callout kind="lemma" title="Separability in characteristic zero">
+Any irreducible polynomial over a characteristic-zero field is separable.
+</Callout>
+
+This is exactly the derivative argument from before, and it works whenever the field has characteristic $0$ (so a nonconstant polynomial's derivative is never identically zero). It's false in general once you drop that hypothesis — our $\FF_3$ example was a warning sign, though it doesn't immediately produce an inseparable *irreducible* polynomial by itself.
+
+<Callout kind="remark">
+Why "separable"? Picture breaking a polynomial into irreducible factors. Normally a double root signals *reducibility* — the factor appears twice. In characteristic $p > 0$ this can fail: you can have a double root that genuinely can't be teased apart into two separate irreducible factors. Inseparable polynomials are the strange case where roots refuse to separate.
+</Callout>
+
+</SlideLayout>

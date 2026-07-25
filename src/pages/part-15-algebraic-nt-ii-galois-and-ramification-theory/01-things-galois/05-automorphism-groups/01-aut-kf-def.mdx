@@ -1,0 +1,22 @@
+---
+title: The automorphism group Aut(K/F)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The automorphism group Aut(K/F)">
+
+We're finally ready to make "$\QQ(\cbrt2)$ is deficient" precise. The key is to look at "internal" automorphisms — maps $K \to K$, not $K \to \CC$ — that fix the base field.
+
+<Callout kind="definition" title="Aut(K/F)">
+Suppose $K/F$ is a finite extension. Then <Term k="gal58AutKF">$\Aut(K/F)$</Term> is the set of field isomorphisms $\sigma \colon K \to K$ which fix $F$ pointwise:
+$$
+\Aut(K/F) = \{\, \sigma \colon K \to K \mid \sigma \text{ is the identity on } F \,\}.
+$$
+This is a group under function composition.
+</Callout>
+
+Notice the extra requirement this time: $\sigma$ must literally fix $F$, and $\sigma$'s codomain must be $K$ itself, not some ambient field like $\CC$. Back in §3 we got "$\sigma$ fixes $\QQ$" for free (any nontrivial field homomorphism fixes $\QQ$), but here that's a genuine constraint we have to impose, because $F$ need not be $\QQ$.
+
+</SlideLayout>

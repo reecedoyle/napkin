@@ -1,0 +1,20 @@
+---
+title: Why the roots are distinct
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the roots are distinct">
+
+Fermat's little theorem tells us every element of $F$ satisfies $x^{p^n} - x = 0$. To upgrade this to "$F$ **is** the splitting field," we need to show the $p^n$ roots of this polynomial are all *distinct* — i.e. that it's <Term k="ff59Separable">separable</Term>.
+
+Here's the trick: take the formal derivative of $x^{p^n} - x$, term by term, treating the exponent as an ordinary integer to bring down:
+$$
+p^n \cdot x^{p^n - 1} - 1 = -1,
+$$
+since $p^n \equiv 0$ in characteristic $p$. The derivative is the constant $-1$, which has no roots at all — so the original polynomial can't have any repeated roots (a repeated root of $f$ is always a common root of $f$ and $f'$).
+
+With $p^n$ distinct roots and $\deg(x^{p^n}-x) = p^n$, the polynomial splits completely into $p^n$ distinct linear factors — exactly the elements of $F$.
+
+</SlideLayout>

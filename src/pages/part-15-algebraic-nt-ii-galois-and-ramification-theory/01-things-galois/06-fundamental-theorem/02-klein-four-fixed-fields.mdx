@@ -1,0 +1,27 @@
+---
+title: Fixed fields of the Klein four group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Fixed fields of the Klein four group">
+
+Let's compute some fixed fields for our running example. Take $K = \QQ(\sqrt2,\sqrt3)$ with $G = \Gal(K/\QQ) = \{\id,\sigma,\tau,\sigma\tau\}$, the Klein four group, where $\sigma(\sqrt2) = -\sqrt2$, $\sigma(\sqrt3) = \sqrt3$, and $\tau$ goes the other way ($\tau(\sqrt2)=\sqrt2$, $\tau(\sqrt3)=-\sqrt3$).
+
+<MCQ
+  client:load
+  id="gal-fun-mcq-fixed-field-h"
+  prompt="Let H = {id, σ}. What is the fixed field K^H?"
+  options={[
+    { id: "a", label: "ℚ(√2)" },
+    { id: "b", label: "ℚ(√3)" },
+    { id: "c", label: "ℚ(√6)" },
+    { id: "d", label: "ℚ" },
+  ]}
+  correct="b"
+  explanation="σ fixes √3 but sends √2 to −√2. An element a + b√2 + c√3 + d√6 is fixed by σ exactly when its √2 and √6 parts vanish (b = d = 0), leaving a + c√3 — that is, K^H = ℚ(√3)."
+/>
+
+</SlideLayout>

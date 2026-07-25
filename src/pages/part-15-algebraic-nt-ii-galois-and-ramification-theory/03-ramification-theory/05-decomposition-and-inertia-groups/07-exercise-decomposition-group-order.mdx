@@ -1,0 +1,26 @@
+---
+title: Exercise — the order of D
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Exercise — the order of D">
+
+Recall: $\theta: D_\kp \to \Gal\left( (\OO_K/\kp)/\FF_p \right)$ is surjective with kernel $I_\kp$ of order $e$, and the target group has order $f$.
+
+<MCQ
+  client:load
+  id="rt60-s5-mcq-order-of-d"
+  prompt="From |ker θ| = e and θ surjective onto a group of order f, what is |D_𝔭| in general?"
+  options={[
+    { id: "a", label: "|D_𝔭| = e + f" },
+    { id: "b", label: "|D_𝔭| = ef" },
+    { id: "c", label: "|D_𝔭| = f/e" },
+  ]}
+  correct="b"
+  explanation="By the first isomorphism theorem, |D_𝔭| = |ker θ| · |image of θ| = e · f. In the ℚ(ζ₅) example with p=19, e=1 and f=2, so |D_{𝔭₁}| = 2, matching |D_{𝔭₁}| = 2 stated there."
+/>
+
+</SlideLayout>

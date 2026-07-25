@@ -1,0 +1,18 @@
+---
+title: 'Splitting fields give equality'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Splitting fields give equality">
+
+The easier direction of the equality case: assume $K = F(\alpha_1, \dots, \alpha_n)$ is the splitting field of a separable polynomial $p \in F[x]$ with $n$ distinct roots $\alpha_1, \dots, \alpha_n$.
+
+<Callout kind="remark" title="Adjoin the roots one at a time">
+Every map $K \to K$ fixing $F$ corresponds to a tower of choices $F \subseteq F(\alpha_1) \subseteq F(\alpha_1,\alpha_2) \subseteq \cdots \subseteq K$ — exactly the tower construction from §3's proof. There are $[F(\alpha_1):F]$ ways to pick where $\alpha_1$ goes (using separability of its minimal polynomial $p_1$, so all $\deg p_1$ roots are distinct), then $[F(\alpha_1,\alpha_2):F(\alpha_1)]$ ways to extend to $\alpha_2$, and so on.
+</Callout>
+
+Multiplying these counts telescopes, by the tower law, to exactly $[K:F]$ automorphisms — so $|\Aut(K/F)| = [K:F]$ whenever $K$ is a splitting field of a separable polynomial. That's one direction of the theorem done.
+
+</SlideLayout>

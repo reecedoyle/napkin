@@ -1,0 +1,28 @@
+---
+title: Warmup — the UFD case
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Warmup — the UFD case">
+
+Before proving the transitivity theorem, let's warm up with the easier problem of factoring *elements* instead of ideals.
+
+<Callout kind="question" title="Warmup">
+Suppose $\OO_K$ is a UFD, and $p$ factors as $u \, p_1 p_2 \cdots p_n$ in $\OO_K$, where the $p_i$ are <Term k="irreducible">irreducible</Term> and $u$ is a <Term k="unit">unit</Term>. Show that the $p_i$ are all conjugates of each other, up to multiplication by a unit.
+</Callout>
+
+Try it yourself first — hint: Galois theory, or take the norm of $p_1$.
+
+<ProofReveal
+  client:load
+  id="rt60-s4-proof-ufd-conjugates"
+  prompt="Show the p_i are all Galois conjugates of p_1, up to a unit."
+  solution="Let q = N_{K/ℚ}(p_1), the product of all Galois conjugates of p_1; since q is fixed by every automorphism, q ∈ ℚ, and since p_1 is an algebraic integer, q is actually an integer. Because p_1 divides p, taking norms shows q divides N(p) = p^n, so the only prime factor of q (as an integer) is p itself. On the other hand, every conjugate σ(p_1) divides σ(p) = p (p is rational, hence fixed by σ), so each conjugate is, up to a unit, one of p_1, …, p_n by unique factorization of p. Matching up the two factorizations of q forces every p_i to appear as some conjugate of p_1 (up to a unit) — so the p_i are exactly the Galois conjugates of p_1, up to units."
+/>
+
+Unfortunately, the product of all conjugates of an ideal $\kp_1$ is not necessarily of the form $p \cdot \OO_K$ — for instance in $K = \QQ(i)$, the ideal $(1+i)$ has no other conjugates. So proving the ideal version needs a different trick: picking a well-chosen representative $x$.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: Every field has an algebraic closure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Every field has an algebraic closure">
+
+$\CC$ works for $\QQ$ and its subfields. What about an arbitrary field $F$ that isn't a subfield of $\CC$ at all — say, $\FF_p$? We need a substitute for "$\CC$" that works in general.
+
+<Callout kind="theorem" title="Algebraic closures exist">
+Any field $F$ has algebraically closed field extensions. In fact there is a unique such extension, minimal by inclusion, called the <Term k="gal58AlgClosure">algebraic closure</Term> and denoted $\ol F$. ("Minimal" means any other algebraically closed extension of $F$ contains an isomorphic copy of $\ol F$.) Every element of $\ol F$ is the root of some polynomial with coefficients in $F$.
+</Callout>
+
+Usually we won't care what $\ol F$ looks like concretely — just that it exists. In fact, for number-field purposes we often don't even need the full algebraic closure; any sufficiently large field will do, and $\CC$ is a convenient one to reach for even when the smaller $\ol\QQ$ would technically suffice.
+
+</SlideLayout>

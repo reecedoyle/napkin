@@ -1,0 +1,16 @@
+---
+title: Setting up the Galois group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Setting up the Galois group">
+
+From here on we'll write $\mathbb{F}_{p^n}$ instead of the generic $F$, now that we know it names a specific field up to isomorphism.
+
+By the classification theorem, $\mathbb{F}_{p^n}$ is the splitting field of a separable polynomial over $\mathbb{F}_p$ — which is exactly the definition of a <Term k="ff59GaloisExtension">Galois extension</Term>. So $\mathbb{F}_{p^n}/\mathbb{F}_p$ is Galois, and it has a <Term k="ff59GaloisGroup">Galois group</Term> $\operatorname{Gal}(\mathbb{F}_{p^n}/\mathbb{F}_p)$ waiting to be identified.
+
+We're in luck: this group turns out to be as simple as possible — cyclic. The rest of this section finds an explicit generator.
+
+</SlideLayout>

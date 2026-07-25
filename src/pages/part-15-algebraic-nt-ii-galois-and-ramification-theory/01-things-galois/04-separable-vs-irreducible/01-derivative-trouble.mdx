@@ -1,0 +1,20 @@
+---
+title: Generalizing beyond ℚ — a snag
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Generalizing beyond ℚ — a snag">
+
+We'd like the "$n$ embeddings" theorem from §3 to hold for any field $F$ in place of $\QQ$. Looking back at the proof, there's exactly one place it uses anything special about $\QQ$: the claim that **irreducible polynomials over $F$ have no double roots**.
+
+We proved that fact for $\QQ$ by taking derivatives — if $f$ is irreducible and shares a root with $f'$, then $\gcd(f,f') \ne 1$ contradicts irreducibility, unless $f' = 0$ identically. Over $\QQ$, a nonconstant polynomial never has zero derivative. Should this argument work for any field?
+
+**Nope.** Consider $f(x) = 2x^3+24x+9$, with derivative $f'(x) = 6x^2+24$. Over $\CC$ this is obviously nonzero. But reduce the same polynomial modulo $3$, working in $\FF_3[x]$: now $6x^2+24 \equiv 0$. The derivative just vanished identically — and our proof strategy collapses.
+
+<Callout kind="remark">
+Something about characteristic $3$ (and more generally, positive characteristic) breaks the derivative trick. We need a name for what's actually going on.
+</Callout>
+
+</SlideLayout>

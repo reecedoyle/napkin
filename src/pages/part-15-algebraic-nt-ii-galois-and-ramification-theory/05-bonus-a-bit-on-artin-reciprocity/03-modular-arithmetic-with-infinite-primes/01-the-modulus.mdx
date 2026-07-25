@@ -1,0 +1,27 @@
+---
+title: The modulus
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The modulus">
+
+A <Term k="gr62Modulus">modulus</Term> (or *module*) of $K$ is a formal product
+
+$$
+\km = \prod_\kp \kp^{\nu(\kp)}
+$$
+
+where the product runs over **all** primes of $K$, finite and infinite, $\nu(\kp)$ is a nonnegative integer, and only finitely many $\nu(\kp)$ are nonzero.
+
+<Callout kind="remark" title="Two extra rules for infinite primes">
+- $\nu(\kp) = 0$ for any complex infinite prime $\kp$ (they never show up in a modulus).
+- $\nu(\kp) \le 1$ for any real infinite prime $\kp$ (they can only appear "to the first power", i.e. either present or absent).
+</Callout>
+
+Every modulus $\km$ splits as $\km = \km_0 \km_\infty$, separating the finite part $\km_0$ from the (real) infinite part $\km_\infty$.
+
+Think of $\km$ as bundling two pieces of information: an ordinary modulus $\km_0$ (a finite-prime factorization, exactly like $n = p_1^{e_1}\cdots p_k^{e_k}$) together with a chosen *subset* of the real infinite primes.
+
+</SlideLayout>

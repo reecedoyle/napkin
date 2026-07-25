@@ -1,0 +1,26 @@
+---
+title: 'Step 1: set up the cyclotomic field'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Step 1: set up the cyclotomic field">
+
+For this proof, fix $L = \QQ(\zeta_q)$, where $\zeta_q$ is a primitive $q$-th root of unity. Then $L/\QQ$ is Galois, with Galois group $G$.
+
+<Callout kind="question" title="A unique index-two subgroup">
+Show that $G$ has a unique subgroup $H$ of index two.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-qr-proof-unique-index-two"
+  prompt="Show that G = Gal(L/ℚ) has a unique subgroup H of index two."
+  solution="G ≅ (ℤ/qℤ)^× ≅ ℤ/(q−1)ℤ is cyclic of order q−1, which is even since q is an odd prime. A cyclic group of even order 2m has a unique subgroup of index 2, namely the unique subgroup of order m (cyclic groups have exactly one subgroup of each order dividing the group order). Concretely, viewing G ≅ ℤ/qℤ via σ_n ↔ n, H is the subgroup of squares mod q, i.e. H = {σ_n : n is a quadratic residue mod q}."
+/>
+
+We can describe $H$ exactly: viewing $G \cong \Zm q$, we have <Term k="frob61QuadraticSubfield">$H = \{\sigma_n \mid \text{$n$ a quadratic residue mod } q\}$</Term>.
+
+</SlideLayout>

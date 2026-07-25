@@ -1,0 +1,25 @@
+---
+title: Factoring 5 in the Galois closure
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Factoring 5 in the Galois closure">
+
+Now let $K = \QQ(\cbrt2, \omega)$, the splitting field of $x^3-2$ over $\QQ$ — this time $K/\QQ$ **is** Galois.
+
+<Callout kind="remark" title="A messier θ, but the same recipe">
+It turns out $\OO_K = \ZZ[\eps]$ where $\eps$ is a root of $t^6+3t^5-5t^3+3t+1$ (finding this takes real work, so we won't derive it here). Modulo $5$, this factors as
+$$
+(x^2+x+2)(x^2+3x+3)(x^2+4x+1) \pmod 5,
+$$
+so by Dedekind–Kummer,
+$$
+(5) = (5, \eps^2+\eps+2)\,(5, \eps^2+3\eps+3)\,(5, \eps^2+4\eps+1).
+$$
+</Callout>
+
+This time **all three** inertial degrees are $2$ — exactly as the efg theorem predicts for a Galois $K$. Compare with the previous slide: same prime $5$, same underlying cubic $x^3-2$, but going from the non-Galois $E$ to its Galois closure $K$ forces the inertial degrees to snap into uniformity.
+
+</SlideLayout>

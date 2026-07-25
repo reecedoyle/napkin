@@ -1,0 +1,26 @@
+---
+title: 'Recalling cyclotomic fields'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Recalling cyclotomic fields">
+
+Let $q$ be a prime, and consider <Term k="frob61CyclotomicField">$L = \QQ(\zeta_q)$</Term>, with $\zeta_q$ a <Term k="primitiveRootOfUnity">primitive $q$-th root of unity</Term>. You should recall (from earlier starred problems) that:
+
+- The discriminant is $\Delta_L = \pm q^{q-2}$.
+- $\OO_L = \ZZ[\zeta_q]$.
+- The map $\sigma_n \colon L \to L$ sending $\zeta_q \mapsto \zeta_q^n$ is an automorphism of $L$ whenever $\gcd(n,q)=1$, and depends only on $n \pmod q$.
+
+In other words, every automorphism of $L/\QQ$ just shuffles around the $q$-th roots of unity — and in fact the <Term k="frob61CyclotomicGaloisGroup">Galois group</Term> consists of *exactly* these elements:
+
+<Callout kind="remark" title="Galois group of a cyclotomic field">
+$$
+\Gal(L/\QQ) = \{ \sigma_n \mid n \not\equiv 0 \pmod q \}, \qquad \Gal(L/\QQ) = \Zm q \cong \Zcc{q-1}.
+$$
+</Callout>
+
+This is surprisingly convenient, because **elements of $\Gal(L/\QQ)$ already look a lot like Frobenius elements**.
+
+</SlideLayout>

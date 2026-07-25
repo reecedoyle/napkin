@@ -1,0 +1,20 @@
+---
+title: The big picture — class field theory
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The big picture — class field theory">
+
+This is a **bonus** chapter. We're going to state some of the biggest theorems in algebraic number theory without proof, and then use them to deduce some genuinely striking consequences — including a full generalization of Fermat's sum-of-two-squares theorem. Think of it as reading the documentation for a library instead of its source: we won't reprove global class field theory, but we'll see exactly what it buys us.
+
+<Callout kind="remark" title="Executive summary">
+Let $K$ be a <Term k="an54numberField">number field</Term>. Then every <Term k="gr62AbelianExt">abelian extension</Term> $L/K$ can be understood using data intrinsic to $K$ alone — namely, the **ray class groups**, which generalize the ordinary ideal class group.
+</Callout>
+
+By "abelian extension" we mean: $L/K$ is Galois, and its <Term k="gr62AbelianExt">Galois group</Term> $\Gal(L/K)$ is an <Term k="abelianGroup">abelian group</Term>. This is a huge class of extensions — every quadratic extension $\QQ(\sqrt d)/\QQ$ is abelian, for instance — and class field theory says we can list *all* of them (over a fixed $K$) using only arithmetic invariants of $K$ itself.
+
+That's a remarkable claim: it says the extensions living "above" $K$ are secretly encoded in objects living "inside" $K$. The rest of this chapter builds up exactly what those objects are.
+
+</SlideLayout>

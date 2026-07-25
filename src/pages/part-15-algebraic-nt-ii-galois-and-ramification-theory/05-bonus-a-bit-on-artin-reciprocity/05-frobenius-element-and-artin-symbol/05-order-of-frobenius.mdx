@@ -1,0 +1,30 @@
+---
+title: The order of the Frobenius element
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The order of the Frobenius element">
+
+The order of the Frobenius element tells you exactly how $\kp$ splits in $L$.
+
+<Callout kind="lemma" title="Order of the Frobenius element">
+$\Frob_\kP \in \Gal(L/K)$ has order equal to the <Term k="gr62InertialDegree">inertial degree</Term> of $\kP$:
+$$
+\ord \Frob_\kP = f(\kP \mid \kp).
+$$
+In particular, $\Frob_\kP = \id$ if and only if $\kp$ **splits completely** in $L/K$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="artin-frob-proof-order-lemma"
+  prompt="Sketch why ord(Frob_𝔓) = f(𝔓|𝔭)."
+  solution="We need the order of the map T: x ↦ x^(N(𝔭)) on the residue field O_L/𝔓. That field is isomorphic to the splitting field of X^(N(𝔓)) − X over 𝔽_p, by the Galois theory of finite fields — and the order of the p-power Frobenius on a degree-f extension of 𝔽_(N(𝔭)) is exactly f. Reading off exponents, this order is log base N(𝔭) of N(𝔓), which is f(𝔓|𝔭) by definition of the inertial degree."
+/>
+
+Also worth remembering: the Galois group acts transitively on the primes $\kP$ above a fixed $\kp$, and $\Frob_{\sigma(\kP)} = \sigma \circ \Frob_\kP \circ \sigma^{-1}$. So $\Frob_\kP$ is determined by $\kp$ **up to conjugation** — it can genuinely depend on which $\kP$ you pick, unless conjugacy classes in $\Gal(L/K)$ are trivial.
+
+</SlideLayout>

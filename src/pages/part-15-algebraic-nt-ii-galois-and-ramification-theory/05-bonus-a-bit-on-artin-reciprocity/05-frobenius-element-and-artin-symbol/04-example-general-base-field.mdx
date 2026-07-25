@@ -1,0 +1,22 @@
+---
+title: 'Example: a base field other than ℚ'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: a base field other than ℚ">
+
+Let $L = \QQ(\omega, \sqrt[3]{2})$ and $K = \QQ(\omega)$, where $\omega$ is a primitive cube root of unity.
+
+<Callout kind="example" title="Working it out">
+Consider $\kp = (5)$, which is prime in $K$, with $\Norm(\kp) = 25$. The residue field $\OO_K/\kp$ is isomorphic to $\FF_{25}$.
+
+In $L$, the ideal $\kp$ splits as $\kP_1 \kP_2 \kP_3$, and each residue field $\OO_L/\kP_i$ is also isomorphic to $\FF_{25}$.
+
+The Frobenius element $\Frob_\kP \in \Gal(L/K)$ induces the power-of-$25$ map on the residue field — but that's the *identity* map on $\FF_{25}$ (since every element of $\FF_{25}^\times$ has order dividing $24$, and Fermat's little theorem for finite fields gives $x^{25} = x$). So $\Frob_\kP = \id$.
+</Callout>
+
+The lesson: once you replace "raise to the $p$-th power" with "raise to the $\Norm(\kp)$-th power", the Frobenius machinery works over any number field base, not just $\QQ$.
+
+</SlideLayout>

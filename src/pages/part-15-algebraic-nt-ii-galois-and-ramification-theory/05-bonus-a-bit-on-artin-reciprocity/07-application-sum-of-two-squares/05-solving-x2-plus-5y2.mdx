@@ -1,0 +1,30 @@
+---
+title: 'Solving p = x² + 5y² completely'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Solving p = x² + 5y² completely">
+
+Chaining everything together: the condition "$(p) = \kp_1\kp_2$ with $\kp_1$ principal" is the same as "$(p) \subseteq \QQ$ splits completely when lifted to $L = K(i) = \QQ(\sqrt{-5}, i)$".
+
+Now switch base field again, to the extension $L/\QQ$. By the same reasoning as before (applied one level down), "$(p)$ splits completely in $L$" is equivalent to $\left( \frac{L/\QQ}{(p)} \right) = \id$. This time we don't get the "principal ideal" bullet point back — $L$ is **not** the Hilbert class field of $\QQ$ — but Artin reciprocity still tells us:
+
+<Callout kind="remark" title="Moral">
+$\left( \frac{L/\QQ}{(p)} \right)$ depends only on $(p) \bmod \kf(L/\QQ)$, and in this case the conductor works out to $\kf(L/\QQ) = 20\infty$.
+</Callout>
+
+Chaining every equivalence, we get:
+
+$$
+p = x^2+5y^2 \iff (p) \subseteq \QQ \text{ splits completely in } \QQ(\sqrt{-5},i) \iff (p \bmod 20) \in \{1,9\}.
+$$
+
+<Callout kind="theorem" title="Final result">
+Let $p$ be a prime with $p \nmid 20$. Then $p$ can be written as $x^2+5y^2$ if and only if $p \bmod 20 \in \{1,9\}$.
+</Callout>
+
+Compare this with the sum-of-two-squares theorem: same shape of answer (a congruence condition mod some fixed number), but this time the "fixed number" and the very existence of a clean answer both came from Artin reciprocity, not from an elementary UFD argument.
+
+</SlideLayout>

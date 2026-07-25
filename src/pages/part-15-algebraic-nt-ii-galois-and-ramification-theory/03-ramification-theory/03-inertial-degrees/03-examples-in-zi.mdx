@@ -1,0 +1,19 @@
+---
+title: Inertial degree — examples in ℤ[i]
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Inertial degree — examples in ℤ[i]">
+
+Work in $\ZZ[i]$, which has degree $n=2$. The inertial degree measures how "spacy" $\kp_i$ is when viewed inside $\OO_K$.
+
+<Callout kind="example" title="Two inertial degrees, side by side">
+- The prime $7 \cdot \ZZ[i]$ has inertial degree $2$. Indeed $\ZZ[i]/(7)$ has $7^2 = 49$ elements — those of the form $a+bi$ with $a,b$ modulo $7$. It gives "two degrees" of room.
+- Let $(5) = (2+i)(2-i)$. Both $(2+i)$ and $(2-i)$ have inertial degree $1$. Indeed $\ZZ[i]/(2+i)$ only gives "one degree" of room, since every element can be viewed as an integer modulo $5$: there are only $5^1=5$ elements.
+</Callout>
+
+If you can see why $\ZZ[i]/(7)$ is "twice as roomy" as $\ZZ[i]/(2+i)$, then the identity $\sum e_i f_i = n$ should feel intuitively right: $7$ is inert, so it contributes $e_1 f_1 = 1 \cdot 2 = 2 = n$ all by itself. $5$ splits into two primes each contributing $e_i f_i = 1 \cdot 1 = 1$, for a total of $2 = n$ as well.
+
+</SlideLayout>

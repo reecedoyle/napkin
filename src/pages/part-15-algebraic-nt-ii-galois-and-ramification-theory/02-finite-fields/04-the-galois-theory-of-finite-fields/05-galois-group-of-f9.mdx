@@ -1,0 +1,25 @@
+---
+title: 'Example: the Galois group of 𝔽_9'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Example: the Galois group of 𝔽_9">
+
+Back to $\mathbb{F}_9 = \mathbb{Z}[i]/(3)$, with $\sigma_3 \colon \mathbb{F}_9 \to \mathbb{F}_9$ given by $x \mapsto x^3$.
+
+<Callout kind="example" title="Galois group of the finite field of order 9">
+
+Watch what $\sigma_3$ does to all nine elements. The three elements $0$, $1$, $2$ are fixed — they live in $\mathbb{F}_3$, exactly as the theorem predicts. The other six elements pair up and swap: $\sigma_3$ exchanges $i \leftrightarrow -i$, $1+i \leftrightarrow 1-i$, and $2+i \leftrightarrow 2-i$.
+
+As predicted, the Galois group has order two:
+$$
+\operatorname{Gal}(\mathbb{F}_9/\mathbb{F}_3) = \{\operatorname{id}, \sigma_3\} \cong \mathbb{Z}/2\mathbb{Z}.
+$$
+
+</Callout>
+
+This concludes the proof of all four facts stated at the very start of the chapter.
+
+</SlideLayout>

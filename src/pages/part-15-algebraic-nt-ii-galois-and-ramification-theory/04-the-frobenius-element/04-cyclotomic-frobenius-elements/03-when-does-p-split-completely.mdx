@@ -1,0 +1,24 @@
+---
+title: 'When does p split completely in ℤ[ζ_q]?'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="When does p split completely in ℤ[ζ_q]?">
+
+Combining the cyclotomic Frobenius lemma with our earlier order lemma (order of $\Frob_\kp$ = inertial degree, and $\Frob_\kp = \id$ iff $p$ <Term k="frob61SplitsCompletely">splits completely</Term>) gives a clean numerical criterion.
+
+<Callout kind="question" title="Conclude">
+For which rational primes $p$ does $p$ split completely in $\OO_L = \ZZ[\zeta_q]$?
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-cyclo-proof-splits-completely"
+  prompt="Conclude that a rational prime p splits completely in 𝒪_L if and only if p ≡ 1 (mod q)."
+  solution="By the order lemma, p splits completely in 𝒪_L exactly when Frob_𝔭 = id for 𝔭 above p. By the cyclotomic Frobenius lemma, Frob_𝔭 = σ_p. So p splits completely iff σ_p = id, i.e. iff σ_p fixes ζ_q, i.e. iff ζ_q^p = ζ_q, i.e. iff p ≡ 1 (mod q)."
+/>
+
+</SlideLayout>

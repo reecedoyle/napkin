@@ -1,0 +1,20 @@
+---
+title: Totally real and totally complex fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Totally real and totally complex fields">
+
+We say $K$ is <Term k="gr62TotallyReal">totally real</Term> if all its infinite primes are real (i.e. $s = 0$), and <Term k="gr62TotallyComplex">totally complex</Term> if all its infinite primes are complex (i.e. $r = 0$).
+
+<Callout kind="example" title="Examples of infinite primes">
+- $\QQ$ has a single real infinite prime, often written $\infty$.
+- $\QQ(\sqrt{-5})$ has a single complex infinite prime and no real ones — it's totally complex.
+- $\QQ(\sqrt{5})$ has two real infinite primes and no complex ones — it's totally real.
+</Callout>
+
+These labels will matter shortly: an infinite prime can behave well or badly when we pass to a bigger field, exactly the way a finite prime can ramify or stay inert. Totally complex fields turn out to have an especially simple story here — every one of their infinite primes is automatically safe in any extension.
+
+</SlideLayout>

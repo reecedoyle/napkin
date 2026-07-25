@@ -1,0 +1,17 @@
+---
+title: Two questions about 𝔽_17
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Two questions about 𝔽_17">
+
+This last section proves a fact that isn't needed for the rest of the book, but is too pretty to skip. Consider the field $F$ of order $p = 17$, and ask:
+
+- How many nonzero elements of $F$ are <Term k="ff59QuadraticResidue">quadratic residues</Term> (squares of another element)?
+- Is there an element $x \in F$ with $x^2 = -1$?
+
+Both questions are answerable by brute-force computation with only 16 nonzero elements. But there's a structural fact that makes both questions easy *without* any computation at all.
+
+</SlideLayout>

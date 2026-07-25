@@ -1,0 +1,16 @@
+---
+title: 'Examples: closures of ℝ, ℂ, ℚ'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples: closures of ℝ, ℂ, ℚ">
+
+<Callout kind="example" title="ℝ̄ = ℂ̄ = ℂ ⊋ ℚ̄">
+$\CC$ is the algebraic closure of $\RR$ (and of itself, since it's already algebraically closed). But the algebraic closure $\ol\QQ$ of $\QQ$ — the field of algebraic numbers — is a **proper** subfield of $\CC$: some complex numbers, like $\pi$ and $e$, aren't the root of any polynomial with rational coefficients.
+</Callout>
+
+So $\ol\QQ \subsetneq \CC$, even though both are algebraically closed. This is exactly the distinction between "algebraic closure of $F$" (the smallest algebraically closed field containing $F$) and "some algebraically closed field containing $F$" (of which there can be many, of different sizes) — $\CC$ happens to be a convenient, oversized choice when $F = \QQ$.
+
+</SlideLayout>

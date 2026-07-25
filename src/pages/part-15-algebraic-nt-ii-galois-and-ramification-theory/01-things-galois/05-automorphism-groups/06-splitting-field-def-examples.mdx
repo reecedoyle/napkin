@@ -1,0 +1,22 @@
+---
+title: Splitting fields
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Splitting fields">
+
+<Callout kind="definition" title="Splitting field">
+Let $F$ be a field and $p(x) \in F[x]$ a polynomial of degree $n$, with roots $\alpha_1, \dots, \alpha_n$ in the algebraic closure of $F$. The <Term k="gal58SplittingField">splitting field</Term> of $p(x)$ over $F$ is $F(\alpha_1, \dots, \alpha_n)$ — the smallest field over $F$ in which $p(x)$ splits into linear factors.
+</Callout>
+
+<Callout kind="example" title="Examples of splitting fields">
+- The splitting field of $x^2-5$ over $\QQ$ is $\QQ(\sqrt5)$ — degree $2$.
+- The splitting field of $x^2+x+1$ over $\QQ$ is $\QQ(\omega)$, where $\omega$ is a cube root of unity — degree $2$.
+- The splitting field of $(x+1)(x+2) = x^2+3x+2$ over $\QQ$ is just $\QQ$ — there's nothing to do, both roots are already rational.
+</Callout>
+
+In the first two examples, adjoining *one* root automatically brought along the other: $\sqrt5$ drags in $-\sqrt5$ for free, and $\omega$ drags in $\omega^2$ for free.
+
+</SlideLayout>

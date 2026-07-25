@@ -1,0 +1,27 @@
+---
+title: 'The prime p in the tower'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The prime p in the tower">
+
+Now we bring in the second prime $p$. Look at $(p)$ in $\ZZ$: it either splits into two primes in $K = \QQ(\sqrt{q^\ast})$, or stays inert. Either way, let $\kp$ be a prime factor of $(p)$ in $\OO_K$ (so $\kp = p\OO_K$ if $p$ is inert, or one of the two factors if $p$ splits). Let $\kP$ be a prime of $\OO_L$ above $\kp$ — and $\kp$ could itself split further going up to $L$:
+
+$$
+\OO_L = \ZZ[\zeta_q] \supset \kP, \qquad \OO_K \supset \kp, \qquad \ZZ \supset (p).
+$$
+
+<Callout kind="question" title="Check the hypotheses">
+Why is $p$ not ramified in either $K$ or $L$?
+</Callout>
+
+<ProofReveal
+  client:load
+  id="frob-qr-proof-p-unramified"
+  prompt="Why is p not ramified in K or L?"
+  solution="The only prime that ramifies in L = ℚ(ζ_q) is q itself (its discriminant is ±q^(q−2)), and the only prime that can ramify in K is also q (shown two slides ago, since ramification in K forces ramification in L). Since p and q were chosen to be distinct odd primes, p ≠ q, so p is unramified in both K and L."
+/>
+
+</SlideLayout>

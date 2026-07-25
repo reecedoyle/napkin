@@ -1,0 +1,26 @@
+---
+title: "Freshman's dream"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Freshman's dream">
+
+Every algebra student has, at some point, guessed that $(a+b)^p = a^p + b^p$. Usually that's wrong. In characteristic $p$, it's a theorem.
+
+<Callout kind="theorem" title="Freshman's dream">
+For any $a, b \in F$ with $F$ of characteristic $p$, we have <Term k="ff59FreshmansDream">$(a+b)^p = a^p + b^p$</Term>.
+</Callout>
+
+The proof uses the binomial theorem: expand $(a+b)^p$ into $\sum_{i=0}^p \binom{p}{i} a^i b^{p-i}$, then note that $\binom{p}{i}$ is divisible by $p$ for every $0 < i < p$ — so every middle term vanishes in characteristic $p$, leaving just $a^p + b^p$.
+
+<ProofReveal
+  client:load
+  id="ff59-s2-proof-freshmans-dream"
+  prompt="Convince yourself this proof works: why exactly is C(p, i) divisible by p for 0 < i < p?"
+  solution="C(p, i) = p! / (i! (p-i)!). The numerator p! has exactly one factor of the prime p (from the single factor 'p' itself, since p is prime and 0 < i < p means both i! and (p-i)! are products of numbers strictly less than p, so neither contains a factor of p). That single factor of p in the numerator can't be cancelled by the denominator, so p divides C(p, i) whenever 0 < i < p."
+/>
+
+</SlideLayout>

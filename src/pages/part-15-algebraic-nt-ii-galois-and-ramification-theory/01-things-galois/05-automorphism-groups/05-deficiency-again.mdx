@@ -1,0 +1,18 @@
+---
+title: 'The deficiency of ℚ(∛2), precisely'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The deficiency of ℚ(∛2), precisely">
+
+Let's look once more at $K = \QQ(\cbrt2)$, and pin down exactly what's "deficient" about it, in two equivalent ways.
+
+**First**, of the three maps $\QQ(\cbrt2) \injto \CC$, only one lives in $\Aut(K/\QQ)$ — the identity. So $|\Aut(K/\QQ)|$ is **too small**: it's $1$, while $[K:\QQ] = 3$.
+
+**Second**, $K$ is missing some Galois conjugates: $\omega\cbrt2$ and $\omega^2\cbrt2$ aren't in $K$.
+
+These two symptoms are really the same disease. To capture the second one precisely, we need a name for "the smallest field containing all the roots of a given polynomial."
+
+</SlideLayout>

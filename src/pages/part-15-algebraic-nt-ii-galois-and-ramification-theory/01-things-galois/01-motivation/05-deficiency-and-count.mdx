@@ -1,0 +1,22 @@
+---
+title: Deficient fields, and a preview
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Deficient fields, and a preview">
+
+Let's name what went wrong with $\QQ(\cbrt2)$, and right with $\QQ(\sqrt2)$.
+
+<Callout kind="remark" title="Moral">
+The field $K = \QQ(\cbrt2)$ is "deficient" because its minimal polynomial $x^3-2$ has two other roots, $\omega\cbrt2$ and $\omega^2\cbrt2$, that are **not contained in $K$**. By contrast $K = \QQ(\sqrt2)$ is fine: both roots of $x^2-2$ already live inside $K$.
+</Callout>
+
+We can even patch the deficiency: completing $\QQ(\cbrt2)$ to $\QQ(\cbrt2, \omega)$ throws in the missing roots. Fields like $\QQ(i)$ or $\QQ(\sqrt2)$, which already contain all their own conjugates, are called **Galois extensions** — we'll make this precise in §5.
+
+One more pattern worth flagging before we build the general machinery: in every example, **the number of embeddings of $K$ into $\CC$ equals the degree of $K$**. $\QQ(i)$ and $\QQ(\sqrt2)$ each have degree 2 and 2 embeddings; $\QQ(\cbrt2)$ has degree 3 and 3 embeddings. This is a genuine theorem (not a coincidence of small examples), and we'll prove it in §3 for any number field.
+
+The rest of this chapter builds the vocabulary — field extensions, algebraic closures, separability, automorphism groups — needed to state and prove all of this properly, and for fields well beyond just $\QQ$.
+
+</SlideLayout>

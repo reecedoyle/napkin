@@ -1,0 +1,25 @@
+---
+title: Congruence modulo a prime, finite or infinite
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Congruence modulo a prime, finite or infinite">
+
+We say $a \equiv b \pmod \kp$ according to what kind of prime $\kp$ is:
+
+<Callout kind="definition" title="Congruence mod a prime">
+- If $\kp$ is a finite prime, then $a \equiv b \pmod{\kp^{\nu(\kp)}}$ means exactly what you'd expect: $a - b \in \kp^{\nu(\kp)}$.
+- If $\kp$ is a *real* infinite prime $\sigma \colon K \to \RR$, then $a \equiv b \pmod \kp$ means $\sigma(a/b) > 0$.
+</Callout>
+
+And $a \equiv b \pmod \km$ means $a \equiv b$ modulo every prime power appearing in $\km$ — just like combining congruences via the Chinese remainder theorem.
+
+<Callout kind="remark" title="Moral">
+A real infinite prime $\kp = \sigma$ divides the elements of $K^\times$ into two classes — $\{k \in K^\times \mid \sigma(k) > 0\}$ and $\{k \in K^\times \mid \sigma(k) < 0\}$ — and this division respects multiplication (positive times positive is positive, and so on).
+</Callout>
+
+So a real infinite prime is really just tracking a **sign**: which "side" of $\RR$ (under the embedding $\sigma$) an element falls on. That's the whole content of <Term k="gr62CongruenceMod">congruence mod an infinite prime</Term> — no algebra beyond sign-checking.
+
+</SlideLayout>

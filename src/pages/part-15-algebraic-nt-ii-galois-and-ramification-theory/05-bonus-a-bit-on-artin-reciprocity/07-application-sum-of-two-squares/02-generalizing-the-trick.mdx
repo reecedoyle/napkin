@@ -1,0 +1,26 @@
+---
+title: Generalizing the trick — and where it breaks
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Generalizing the trick — and where it breaks">
+
+The same method looks promising for other quadratic forms. Try to prove it yourself before reading on.
+
+<Callout kind="theorem" title="A sibling result">
+An odd prime $p > 7$ can be written as $p = x^2 + 7y^2$ if and only if $-7$ is a quadratic residue modulo $p$ — which, by quadratic reciprocity, boils down to $(p \bmod 7) \in \{1,2,4\}$.
+</Callout>
+
+This works because $\ZZ[\sqrt{-7}]$-like reasoning (really, the ring of integers of $\QQ(\sqrt{-7})$) is still a UFD, so the same gcd-extraction argument goes through unchanged.
+
+But it isn't always this nice.
+
+<Callout kind="example" title="A counterexample">
+Take $p=3$: then $1^2 \equiv -5 \pmod p$, so $-5$ is a quadratic residue mod $3$. Yet there are no integers $x,y$ with $3 = x^2+5y^2$.
+</Callout>
+
+Something in the proof must be using a property that $\QQ(\sqrt{-5})$ doesn't have. Try to spot it before the next slide.
+
+</SlideLayout>

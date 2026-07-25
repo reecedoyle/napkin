@@ -1,0 +1,24 @@
+---
+title: 'Intuition: throwing darts at G'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Intuition: throwing darts at G">
+
+Here's the picture to keep in your head: if you pick a random unramified prime $p$ and look at its resulting conjugacy class, it's a lot like throwing a dart at $G$ — the probability of landing in any particular conjugacy class depends only on how big that class is, nothing else about its "shape" or which elements it contains.
+
+<Callout kind="example" title="A group of order 32">
+Suppose $|G| = 32$ and it has four conjugacy classes of sizes $12, 12, 6, 2$. Chebotarev says a random unramified prime lands in the size-$12$ classes $37.5\%$ of the time each, the size-$6$ class $18.75\%$ of the time, and the size-$2$ class (which is a single central element, possibly the identity) just $6.25\%$ of the time.
+</Callout>
+
+<NumericInput
+  client:load
+  id="frob-cheb-num-density"
+  prompt="Suppose |G| = 24 and C is a conjugacy class with |C| = 4. What is the density of unramified primes p with {Frob_𝔭 : 𝔭 above p} = C? (Give a reduced fraction.)"
+  expected="1/6"
+  explanation="Chebotarev density is |C|/|G| = 4/24 = 1/6."
+/>
+
+</SlideLayout>

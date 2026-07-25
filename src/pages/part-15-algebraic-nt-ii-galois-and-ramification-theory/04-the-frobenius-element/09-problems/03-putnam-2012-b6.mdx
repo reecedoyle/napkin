@@ -1,0 +1,20 @@
+---
+title: 'Problem — Putnam 2012 B6'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — Putnam 2012 B6">
+
+A harder problem to close out the chapter — the parity of a cubing permutation, decided entirely by a single Frobenius element.
+
+<Problem
+  client:load
+  id="frob-prob-putnam-2012-b6"
+  difficulty="standard"
+  prompt="Let p be an odd prime with p ≡ 2 (mod 3). Let π be the permutation of 𝔽_p given by π(x) = x³ (mod p). Show that π is an even permutation if and only if p ≡ 3 (mod 4)."
+  hint="By primitive roots, this is the same question as the action of multiplication-by-3 on ℤ/(p−1)ℤ. Let ζ be a (p−1)-th root of unity, set d equal to the product of (ζ^i − ζ^j) over all i < j, and think about ℚ(d)."
+  solution="Choosing a primitive root mod p identifies π with the action of multiplication by 3 on ℤ/(p−1)ℤ, and p ≡ 2 (mod 3) exactly ensures x ↦ x³ is a bijection on 𝔽_p, so π is a genuine permutation. Let ζ be a primitive (p−1)-th root of unity and set d equal to the product of (ζ^i − ζ^j) over all pairs 0 ≤ i < j < p−1; this d is a square root of the discriminant of X^(p−1) − 1, so d² is an integer, and one can compute it explicitly as plus or minus (p−1)^(p−1). Take K = ℚ(d). If p ≡ 3 (mod 4), one finds d is already a rational integer, so K = ℚ. If p ≡ 1 (mod 4), one finds d equals i times a rational integer, so K = ℚ(i). Either way, let 𝔭 be a prime of 𝒪_K above the rational prime 3, and let σ = Frob_𝔭, the unique automorphism with σ(x) ≡ x³ (mod 𝔭) for every x. Multiplying all the indices i, j by 3 permutes the pairs (i,j) exactly according to the permutation π, so σ(d) is congruent mod 𝔭 to plus d if π is even, and to minus d if π is odd — an odd permutation of the factors in a product like d flips its overall sign. Now, if K = ℚ, then σ must be the identity (there is only one automorphism of ℚ), forcing σ(d) = d, so π is even; this is exactly the case p ≡ 3 (mod 4). If instead K = ℚ(i), then 3 is inert in ℤ[i] (since 3 ≡ 3 mod 4), so σ is the nontrivial automorphism, complex conjugation, giving σ(d) = −d, so π is odd; this is exactly the case p ≡ 1 (mod 4). Together, these show π is even if and only if p ≡ 3 (mod 4). The hypothesis p ≡ 2 (mod 3) is used only to guarantee π is genuinely a permutation (equivalently, that d is nonzero); it plays no further role in the argument."
+/>
+
+</SlideLayout>

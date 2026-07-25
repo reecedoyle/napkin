@@ -1,0 +1,18 @@
+---
+title: 'Problem: the Kronecker–Weber theorem'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: the Kronecker–Weber theorem">
+
+<Problem
+  client:load
+  id="artin-prob-kronecker-weber"
+  difficulty="daggered"
+  prompt="Let L be an abelian extension of ℚ. Show that L is contained in some cyclotomic field ℚ(ζ), where ζ is an m-th root of unity for some m."
+  hint="Pick m so that the conductor 𝔣(L/ℚ) divides m∞."
+  solution="Suppose 𝔣(L/ℚ) divides m∞ for some m. From the cyclotomic example worked out in the Artin reciprocity section, we have the chain of containments P_ℚ(m∞) = H(ℚ(ζ)/ℚ, m∞) ⊆ H(L/ℚ, m∞) ⊆ I_ℚ(m∞), where ζ is a primitive m-th root of unity. By the inclusion-reversing lemma applied to this chain, containment of the H-subgroups (with ℚ(ζ)'s subgroup smallest) forces the field containment L ⊆ ℚ(ζ). Done."
+/>
+
+</SlideLayout>

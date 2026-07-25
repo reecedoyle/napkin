@@ -1,0 +1,22 @@
+---
+title: 'A tower of primes'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A tower of primes">
+
+Let $L/\QQ$ and $K/\QQ$ both be Galois, sitting in a tower $\QQ \subseteq K \subseteq L$. Suppose $\kp$ is a prime of $\OO_K$ above $(p)$, and $\kP$ is a prime of $\OO_L$ above $\kp$:
+
+$$
+L \supset \kP \in \OO_L, \qquad K \supset \kp \in \OO_K, \qquad \QQ \supset (p).
+$$
+
+We get two Frobenius elements for the price of one tower: $\Frob_\kp \colon K \to K$ in $\Gal(K/\QQ)$, and $\Frob_{\kP} \colon L \to L$ in $\Gal(L/\QQ)$.
+
+<Callout kind="remark" title="What we'd expect">
+Both $\Frob_{\kP}$ and $\Frob_\kp$ induce the same power-of-$p$ map on the corresponding residue fields ($\OO_L/\kP$ and $\OO_K/\kp$ respectively), so we should expect them to be "naturally the same" automorphism — just one living upstairs in $L$, the other downstairs in $K$.
+</Callout>
+
+</SlideLayout>

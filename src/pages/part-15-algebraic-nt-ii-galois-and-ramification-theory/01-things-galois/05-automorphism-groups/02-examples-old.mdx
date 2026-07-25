@@ -1,0 +1,35 @@
+---
+title: 'Old examples, in new notation'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Old examples, in new notation">
+
+Let's reprise the §1 examples using $\Aut(K/\QQ)$.
+
+<Callout kind="example" title="Automorphism groups, revisited">
+- $\Aut(\QQ(i)/\QQ) \cong \Zc2$, with elements $z \mapsto z$ and $z \mapsto \ol z$.
+- $\Aut(\QQ(\sqrt2)/\QQ) \cong \Zc2$, the same way.
+- $\Aut(\QQ(\cbrt2)/\QQ)$ is the **trivial group** — only the identity.
+</Callout>
+
+The first two match what we found for embeddings into $\CC$ in §1, since every embedding of $\QQ(i)$ or $\QQ(\sqrt2)$ happened to land back inside the field. But $\QQ(\cbrt2)$ had three embeddings into $\CC$, and only one of them (the identity) maps $\QQ(\cbrt2)$ back into itself.
+
+<MCQ
+  client:load
+  id="gal-aut-mcq-cbrt2-trivial"
+  prompt="Why is Aut(ℚ(∛2)/ℚ) the trivial group, even though ℚ(∛2) has three embeddings into ℂ?"
+  options={[
+    { id: "a", label: "Because ℚ(∛2) has degree 3, and 3 is odd" },
+    { id: "b", label: "Because two of the three embeddings send ∛2 outside ℚ(∛2), so they aren't maps K → K" },
+    { id: "c", label: "Because ℚ(∛2) is not a field" },
+    { id: "d", label: "Because ℚ(∛2) contains no roots of unity" },
+  ]}
+  correct="b"
+  explanation="Aut(K/F) only counts isomorphisms K → K (landing back in K), not all embeddings K ↪ ℂ. Two of ℚ(∛2)'s three embeddings send ∛2 to a non-real complex number, which can't lie in ℚ(∛2) ⊂ ℝ — so those two don't qualify as automorphisms of K."
+/>
+
+</SlideLayout>

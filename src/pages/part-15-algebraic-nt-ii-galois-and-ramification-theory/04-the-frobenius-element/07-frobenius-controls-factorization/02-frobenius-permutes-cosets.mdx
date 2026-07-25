@@ -1,0 +1,18 @@
+---
+title: 'Frobenius permutes cosets'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Frobenius permutes cosets">
+
+Introduce a Frobenius element $\Frob_{\kP}$ above $(p)$, all the way up in $K$ — an element of $G = \Gal(K/\QQ)$. Let $H \le G$ be the subgroup corresponding to $E$ (so $[G:H] = n$).
+
+Since $\Frob_{\kP}$ is just an element of $G$, it acts on the $n$ left cosets $gH$ by left multiplication: $g H \mapsto \Frob_{\kP}\, g H$. This is a genuine permutation of a set of size $n$, so it has its own <Term k="frob61CycleStructure">cycle structure</Term> — a partition of $n$, exactly like a factorization pattern.
+
+<Callout kind="remark" title="Two partitions of n, side by side">
+On one hand: the factorization pattern of $p$ in $E$, a partition of $n$ coming from number theory. On the other: the cycle structure of $\Frob_{\kP}$ acting on $G/H$, a partition of $n$ coming from pure group theory. The theorem on the next slide says these are **the same partition**.
+</Callout>
+
+</SlideLayout>

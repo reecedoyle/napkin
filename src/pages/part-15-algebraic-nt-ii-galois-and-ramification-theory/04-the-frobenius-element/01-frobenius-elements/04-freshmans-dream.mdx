@@ -1,0 +1,17 @@
+---
+title: "Why checking generators is enough"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why checking generators is enough">
+
+If it seems too good to be true that we only had to check $\Frob_\kp(i) = i^p$ rather than verify the functional equation for every single $\alpha \in \ZZ[i]$, here's the philosophical reason: it's "freshman's dream" all over again.
+
+<Callout kind="remark" title="Freshman's dream">
+Working modulo a prime, $(x+y)^p \equiv x^p + y^p \pmod{p}$ — and hence also modulo $\kp$, since $p \in \kp$. So if $\sigma$ satisfies the functional equation $\sigma(\alpha) \equiv \alpha^p$ on a set of generators of $\OO_K$ (as a ring over $\ZZ$), it automatically satisfies it everywhere: sums and products of generators inherit the congruence for free.
+</Callout>
+
+This is why the Gaussian integers example was so short — $\ZZ[i]$ is generated over $\ZZ$ by the single element $i$, so pinning down $\Frob_\kp(i)$ pins down all of $\Frob_\kp$.
+
+</SlideLayout>

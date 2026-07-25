@@ -1,0 +1,25 @@
+---
+title: Degrees are multiplicative in towers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Degrees are multiplicative in towers">
+
+Stack three fields on top of each other, and the degrees chain together nicely.
+
+<Callout kind="theorem" title="Field extensions have multiplicative degree">
+Let $F \subseteq K \subseteq L$ be fields with $L/K$ and $K/F$ finite. Then
+$$
+[L:K][K:F] = [L:F].
+$$
+</Callout>
+
+<Callout kind="remark" title="Proof (basis bash)">
+Take a basis of $L$ over $K$, and a basis of $K$ over $F$. Multiplying every pair of basis elements together (one from each basis) produces a basis of $L$ over $F$ with $[L:K] \cdot [K:F]$ elements. Diligent readers can fill in why this product set is linearly independent and spanning.
+</Callout>
+
+For instance, $\QQ(\cbrt2, \omega) \supset \QQ(\cbrt2) \supset \QQ$: we have $[\QQ(\cbrt2):\QQ] = 3$ and $[\QQ(\cbrt2,\omega):\QQ(\cbrt2)] = 2$ (adjoining $\omega$, a root of $x^2+x+1$, to a real field). Multiplying gives $[\QQ(\cbrt2,\omega):\QQ] = 6$ — we'll see this number again.
+
+</SlideLayout>

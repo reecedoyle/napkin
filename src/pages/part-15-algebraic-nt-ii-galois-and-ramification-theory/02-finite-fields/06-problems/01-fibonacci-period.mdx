@@ -1,0 +1,26 @@
+---
+title: 'Problem: the Fibonacci period mod 127'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: the Fibonacci period mod 127">
+
+One problem to put the whole chapter to work: the Galois theory of finite fields turns a competition combinatorics question into a two-line computation.
+
+<Callout kind="remark" title="Why finite fields help here">
+The Fibonacci numbers mod a prime $p$ are eventually periodic (only finitely many pairs $(F_n, F_{n+1}) \bmod p$ exist). Finding the exact period by brute force means grinding through the recursion by hand. Working in the splitting field of $X^2 - X - 1$ over $\mathbb{F}_p$ turns this into applying the <Term k="ff59Frobenius">Frobenius automorphism</Term> to the two roots.
+</Callout>
+
+<Problem
+  client:load
+  id="ff59-prob-fibonacci-period-127"
+  difficulty="daggered"
+  prompt="What is the period of the Fibonacci sequence modulo 127?"
+  hint="The Fibonacci sequence is given by F_n = (α^n − β^n)/(α − β), where α = (1+√5)/2 and β = (1−√5)/2 are the two roots of P(X) = X^2 − X − 1. Show P(X) is irreducible modulo 127, then work in the splitting field of P, namely F_{p^2} for p = 127. Let σ be the nontrivial element of Gal(F_{p^2}/F_p), i.e. σ(t) = t^p. Since σ does not fix either root of the irreducible P, it must swap them: σ(α) = β and σ(β) = α. Use this to compute F_p, F_{p+1}, F_{2p+1}, F_{2p+2} by substituting σ(α) = α^p = β (and similarly for β) into the formula for F_n."
+  solution="Let p = 127 and work modulo p. Since (5/p) = (p/5) = (2/5) = −1 (by quadratic reciprocity and computing 2 is a non-residue mod 5), 5 is not a quadratic residue mod 127. So P(X) = X^2 − X − 1, viewed in F_p[X], is irreducible — intuitively α and β are not themselves elements of F_p. We therefore work in F_{p^2}, the F_p-splitting field of P(X), interpreting α and β as elements of F_{p^2} that do not lie in F_p. Let σ: F_{p^2} → F_{p^2}, t ↦ t^p, be the nontrivial element of Gal(F_{p^2}/F_p). Its fixed points are exactly F_p, so σ cannot fix either root of P; since σ permutes the two roots, it must swap them: α^p = σ(α) = β and β^p = σ(β) = α. Now compute directly: F_p = (α^p − β^p)/(α−β) = (β−α)/(α−β) = −1. F_{p+1} = (α^(p+1) − β^(p+1))/(α−β) = (αβ − βα)/(α−β) = 0. F_{2p+1} = (α^(2p+1) − β^(2p+1))/(α−β) = (β^2 α − α^2 β)/(α−β) = −αβ = 1 (since αβ = −1, the product of roots of X^2−X−1). F_{2p+2} = (α^(2p+2) − β^(2p+2))/(α−β) = (β^2 α^2 − α^2 β^2)/(α−β) = 0. So the period divides 2p+2 = 256 but not p+1 = 128. Since 256 = 2^8 and 128 = 2^7, and any divisor of 256 that fails to divide 128 must be 256 itself, the period is exactly 256."
+/>
+
+</SlideLayout>

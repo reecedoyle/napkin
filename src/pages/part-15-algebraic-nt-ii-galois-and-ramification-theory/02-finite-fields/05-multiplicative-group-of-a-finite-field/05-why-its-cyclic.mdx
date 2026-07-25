@@ -1,0 +1,33 @@
+---
+title: Why F× is cyclic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Why F× is cyclic">
+
+Let $F$ be a finite field of order $q$, a prime power. We use the same "at most $d$ roots" idea from earlier in the chapter, one more time.
+
+<Callout kind="question" title="Key counting fact">
+For any positive $d < |F^\times| = q - 1$, there are at most $d$ elements $x \in F^\times$ with $x^d = 1$.
+</Callout>
+
+<MCQ
+  client:load
+  id="ff59-s5-mcq-why-at-most-d-roots"
+  prompt="Why can a finite field F have at most d elements x with x^d = 1?"
+  options={[
+    { id: "a", label: "Because F^× is always cyclic, so this is circular reasoning" },
+    { id: "b", label: "Because x^d − 1 is a polynomial of degree d over a field, and a degree-d polynomial over a field has at most d roots" },
+    { id: "c", label: "Because F has characteristic p, and p always divides d" },
+    { id: "d", label: "It isn't true in general — only for d = q − 1" },
+  ]}
+  correct="b"
+  explanation="This is the general fact (used earlier for the separability of x^{p^n} − x): a nonzero polynomial of degree d over a field has at most d roots in that field, since each root contributes a distinct linear factor."
+/>
+
+Now, $F^\times$ is a <Term k="fgAbelian">finitely generated abelian group</Term> (it's finite!), so it decomposes as $\mathbb{Z}/q_1\mathbb{Z} \oplus \dots \oplus \mathbb{Z}/q_m\mathbb{Z}$. If $F^\times$ were *not* cyclic, then $L = \operatorname{lcm}(q_1, \dots, q_m)$ would be strictly smaller than $|F^\times|$, yet every element $x$ would satisfy $x^L = 1$ — giving more than $L$ roots of $x^L - 1$, contradicting the counting fact above. So $F^\times$ must be cyclic after all.
+
+</SlideLayout>

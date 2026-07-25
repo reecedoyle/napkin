@@ -1,0 +1,26 @@
+---
+title: Embeddings into ℂ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Embeddings into ℂ">
+
+Back in the rings-of-integers chapters, we kept running into the idea of a "conjugate" — √2 has a conjugate −√2, ∛2 has conjugates ∛2·ω and ∛2·ω². Galois theory gives us a clean way to organize all of this: instead of talking about conjugates one at a time, we talk about **all the ways to map a field into ℂ**.
+
+<Callout kind="definition" title="Embedding">
+Let $K$ be a <Term k="an54numberField">number field</Term>. An <Term k="gal58Embedding">embedding</Term> $\sigma \colon K \injto \CC$ is an injective field homomorphism: it preserves addition and multiplication, and in particular must send $1 \mapsto 1$.
+</Callout>
+
+Injectivity isn't really an extra condition — a nontrivial field homomorphism is automatically injective, since its kernel is an ideal of $K$, and a field's only ideals are $\{0\}$ and $K$ itself.
+
+<ProofReveal
+  client:load
+  id="gal-mot-proof-fix-q"
+  prompt="Show that any embedding σ: K ↪ ℂ fixes every rational number: σ(q) = q for all q ∈ ℚ."
+  solution="Since σ(1) = 1, additivity gives σ(n) = n for every positive integer n (add 1 to itself n times), and σ(0) = 0. Since σ(−x) = −σ(x), σ(n) = n for every integer n too. Finally for q = a/b with a, b integers, σ(a) = σ(b)σ(q) forces σ(q) = σ(a)/σ(b) = a/b = q. So σ fixes ℚ pointwise — embeddings never move rational numbers."
+/>
+
+</SlideLayout>

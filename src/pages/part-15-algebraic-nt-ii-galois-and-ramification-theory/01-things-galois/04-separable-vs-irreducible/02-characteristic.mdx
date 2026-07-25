@@ -1,0 +1,26 @@
+---
+title: The characteristic of a field
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The characteristic of a field">
+
+<Callout kind="definition" title="Characteristic">
+For a field $F$, the <Term k="gal58Characteristic">characteristic</Term> of $F$ is the smallest positive integer $p$ such that $\underbrace{1_F + \dots + 1_F}_{p \text{ times}} = 0$, or zero if no such integer exists.
+</Callout>
+
+<Callout kind="example" title="Field characteristics">
+Old friends $\RR$, $\QQ$, $\CC$ all have characteristic zero. But $\FF_p$, the integers modulo $p$, is a field of characteristic $p$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="gal-sep-proof-char-is-prime"
+  prompt="Let F be a field of characteristic p. Show that if p > 0, then p must be a prime number."
+  solution="Suppose p = ab with 1 < a, b < p. In F, (1+⋯+1, a times)·(1+⋯+1, b times) = 1+⋯+1 (p times) = 0, since multiplying out the sums and using distributivity gives the sum of p copies of 1. But F is a field, so it has no zero divisors: one of the two factors must already be 0. That means either the sum of a copies of 1 is 0, or the sum of b copies is 0 — contradicting that p was the smallest such positive integer, since a, b < p. So p has no nontrivial factorization: it's prime."
+/>
+
+</SlideLayout>

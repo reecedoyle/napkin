@@ -1,0 +1,22 @@
+---
+title: The two lattices line up
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The two lattices line up">
+
+Working out the fixed field of each subgroup of $G = \Gal(\QQ(\sqrt2,\sqrt3)/\QQ)$, we get a complete picture: the lattice of intermediate fields between $\QQ$ and $K$ matches, rung for rung, the lattice of subgroups of $G$.
+
+<Callout kind="example" title="Fields between ℚ and ℚ(√2,√3)">
+At the top, $\QQ(\sqrt2,\sqrt3)$ itself; one level down, the three degree-2 subfields $\QQ(\sqrt2)$, $\QQ(\sqrt6)$, $\QQ(\sqrt3)$; at the bottom, $\QQ$.
+</Callout>
+
+<Callout kind="example" title="Subgroups of G = {id, σ, τ, στ}">
+At the top, the trivial subgroup $\{\id\}$; one level down, the three order-2 subgroups $\{\id,\tau\}$, $\{\id,\sigma\tau\}$, $\{\id,\sigma\}$; at the bottom, all of $G$.
+</Callout>
+
+Line these up and the correspondence is exact — and it's *inclusion-reversing*: the biggest field ($K$ itself) corresponds to the smallest subgroup ($\{\id\}$), and the smallest field ($\QQ$) corresponds to the biggest subgroup ($G$). We saw $K^{\{\id,\sigma\}} = \QQ(\sqrt3)$ last slide; the other two pairings work out the same way, matching $\{\id,\tau\}$ to $\QQ(\sqrt2)$ and $\{\id,\sigma\tau\}$ to $\QQ(\sqrt6)$.
+
+</SlideLayout>
