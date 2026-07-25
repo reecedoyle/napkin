@@ -95,6 +95,7 @@ export const partTitles: Record<string, string> = {
   'part-13-riemann-surfaces': 'Part XIII — Riemann Surfaces',
   'part-14-algebraic-nt-i-rings-of-integers': 'Part XIV — Algebraic NT I: Rings of Integers',
   'part-15-algebraic-nt-ii-galois-and-ramification-theory': 'Part XV — Algebraic NT II: Galois and Ramification Theory',
+  'part-16-algebraic-topology-i-homotopy': 'Part XVI — Algebraic Topology I: Homotopy',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -161,6 +162,9 @@ export const chapterTitles: Record<string, string> = {
   'part-15-algebraic-nt-ii-galois-and-ramification-theory/03-ramification-theory': 'Chapter 60 — Ramification theory',
   'part-15-algebraic-nt-ii-galois-and-ramification-theory/04-the-frobenius-element': 'Chapter 61 — The Frobenius element',
   'part-15-algebraic-nt-ii-galois-and-ramification-theory/05-bonus-a-bit-on-artin-reciprocity': 'Chapter 62 — Bonus: A Bit on Artin Reciprocity',
+  'part-16-algebraic-topology-i-homotopy/01-some-topological-constructions': 'Chapter 63 — Some topological constructions',
+  'part-16-algebraic-topology-i-homotopy/02-fundamental-groups': 'Chapter 64 — Fundamental groups',
+  'part-16-algebraic-topology-i-homotopy/03-covering-projections': 'Chapter 65 — Covering projections',
 };
 
 export const sectionTitles: Record<string, string> = {
