@@ -1,0 +1,18 @@
+---
+title: Problem — a finite CW complex is compact
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — a finite CW complex is compact">
+
+<Problem
+  client:load
+  id="tc63-prob-finite-cw-compact"
+  difficulty="daggered"
+  prompt="Show that a finite CW complex is compact."
+  hint="Prove and use the fact that a quotient of a compact space remains compact."
+  solution="Induct on the dimension n of the finite CW complex X. Base case: X^0 is a finite set of points, which is compact. Inductive step: suppose X^{k-1} is compact. Since X is finite, only finitely many k-cells were attached at stage k, so X^{k-1} ⊔ (e^k_1 ⊔ ⋯ ⊔ e^k_m) is a disjoint union of the compact space X^{k-1} together with finitely many compact closed balls D^k — a finite disjoint union of compact spaces is compact. The skeleton X^k is the image of this compact space under the quotient map that glues each cell's boundary via its attaching map; since a quotient map is a continuous surjection, and the continuous image of a compact space is compact, X^k is compact. By induction X^n is compact, and since X is finite-dimensional, X = X^n. Hence X is compact."
+/>
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Fundamental groups don't depend on the basepoint
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fundamental groups don't depend on the basepoint">
+
+Just as we usually restrict graph theory to connected graphs (breaking a disconnected graph into its components), we generally restrict attention to <Term k="pathConnected">path-connected</Term> spaces — a space that isn't path-connected just splits into separate path-connected pieces with nothing to say to each other. The fundamental group of your phone has nothing to do with the fundamental group of your coffee mug if they're sitting apart on a desk (with the desk itself removed from the space).
+
+But within a single path-connected space, the fundamental groups at different basepoints turn out to be tightly related.
+
+<Callout kind="theorem" title="Basepoint independence">
+Let $X$ be path-connected. Then for any $x_1, x_2 \in X$, we have $\pi_1(X, x_1) \cong \pi_1(X, x_2)$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Let $\alpha$ be any path from $x_1$ to $x_2$ (it exists by path-connectedness), and $\overline\alpha$ its reverse. Define
+$$
+\pi_1(X, x_1) \to \pi_1(X, x_2) \quad \text{by} \quad [\gamma] \mapsto [\overline\alpha \ast \gamma \ast \alpha].
+$$
+In words: start at $x_2$, follow $\overline\alpha$ back to $x_1$, run $\gamma$, then follow $\alpha$ home to $x_2$ — this turns a loop at $x_1$ into a loop at $x_2$. It's a homomorphism because $(\overline\alpha \ast \gamma_1 \ast \alpha) \ast (\overline\alpha \ast \gamma_2 \ast \alpha) = \overline\alpha \ast \gamma_1 \ast \gamma_2 \ast \alpha$, since $\alpha \ast \overline\alpha$ is null-homotopic.
+
+Similarly $[\gamma] \mapsto [\alpha \ast \gamma \ast \overline\alpha]$ gives a homomorphism $\pi_1(X, x_2) \to \pi_1(X, x_1)$. The two maps are mutual inverses, so both are isomorphisms.
+</Callout>
+
+</SlideLayout>

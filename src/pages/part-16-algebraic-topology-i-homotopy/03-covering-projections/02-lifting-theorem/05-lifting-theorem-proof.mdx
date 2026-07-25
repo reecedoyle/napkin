@@ -1,0 +1,24 @@
+---
+title: Proof — the robot and the mouse
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Proof — the robot and the mouse">
+
+The proof is a "chop the path into finitely many pieces, then lift piece by piece" argument, using compactness of $[0,1]$ to guarantee only finitely many pieces are needed.
+
+<Callout kind="remark" title="Setting up the chop">
+For every $b \in B$, fix an evenly covered neighborhood $U_b$. The sets $\gamma\inv(U_b)$ form an open cover of $[0,1]$; since $[0,1]$ is compact, finitely many suffice. This lets us chop $[0,1] = I_1 \sqcup \cdots \sqcup I_N$ into finitely many closed intervals, in order, so that $\gamma(I_k)$ lies entirely inside some evenly covered $U_b$ for each $k$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="cp65-lift-thm-proof-robot-mouse"
+  prompt="Given this chopping of [0,1], how do we actually build the lifting γ̃, one interval at a time?"
+  solution="Place a robot at e₀ ∈ E and a mouse at b₀ ∈ B. On interval I₁, the mouse moves around however γ dictates, always staying inside some evenly covered U₁. Because U₁ is evenly covered, E has several disjoint sheets sitting over U₁, and p restricted to each is a homeomorphism back onto U₁ — so exactly one sheet, say V₁, contains our robot. The robot simply mimics the mouse's motion inside V₁ (using the homeomorphism p: V₁ → U₁ to translate the mouse's position into a robot position) until the end of I₁. At that point the mouse has entered a new evenly covered U₂, and we repeat: exactly one sheet over U₂ contains the robot's current position, so the next leg of the lift is again forced. Chaining these N legs together produces the full lifting γ̃, and at each stage the choice of sheet is unique — which is exactly why the lifting itself is unique once e₀ is fixed."
+/>
+
+</SlideLayout>

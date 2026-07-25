@@ -1,0 +1,26 @@
+---
+title: The general lifting criterion
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The general lifting criterion">
+
+The lifting theorem generalizes from paths (where the domain is $[0,1]$) to maps out of any sufficiently nice space $Y$. "Sufficiently nice" means:
+
+<Callout kind="definition" title="Locally path-connected">
+A space $Y$ is <Term k="cp65LocallyPathConnected">locally path-connected</Term> if, at any point $x \in Y$, every open neighborhood $U$ of $x$ contains a <Term k="pathConnected">path-connected</Term> open neighborhood $V \subseteq U$.
+</Callout>
+
+<Callout kind="theorem" title="General lifting criterion">
+Let $p \colon (E, e_0) \to (B, b_0)$ be a covering projection. If $Y$ is path-connected and locally path-connected, then for any continuous $f \colon (Y, y_0) \to (B, b_0)$, a <Term k="liftingThm">lifting</Term> $\tilde f$ with $\tilde f(y_0) = e_0$ exists if and only if
+$$
+f_\sharp\im(\pi_1(Y, y_0)) \subseteq p_\sharp\im(\pi_1(E, e_0)),
+$$
+where both sides are viewed as subgroups of $\pi_1(B, b_0)$. If a lifting exists, it is unique.
+</Callout>
+
+Setting $Y = [0,1]$ recovers the path-lifting theorem from the previous slide: $\pi_1([0,1])$ is trivial (an interval is simply connected), so the containment condition holds automatically, and we always get a lifting.
+
+</SlideLayout>

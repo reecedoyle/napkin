@@ -1,0 +1,20 @@
+---
+title: Surjectivity when E is path-connected
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Surjectivity when E is path-connected">
+
+The first half of the proposition — surjectivity — really is offensively easy once you know the lifting theorem.
+
+<ProofReveal
+  client:load
+  id="cp65-lift-corr-proof-surjectivity"
+  prompt="Prove: if E is path-connected, then Φ: π₁(B, b₀) → p⁻¹(b₀) is surjective."
+  solution="Take any point e in the fiber p⁻¹(b₀). Since E is path-connected, there's a path η from e₀ to e in E. Then p ∘ η is a loop in B based at b₀ (because p(e₀) = p(e) = b₀), and by construction η is itself the lifting of p ∘ η starting at e₀. So Φ([p ∘ η]) = η(1) = e. Since e was an arbitrary point of the fiber, Φ hits every point of p⁻¹(b₀) — it's surjective."
+/>
+
+</SlideLayout>

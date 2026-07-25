@@ -1,0 +1,20 @@
+---
+title: The product topology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The product topology">
+
+You've already met $\RR \times \RR = \RR^2$ as a set of pairs. What's the natural topology to put on a product of two topological spaces?
+
+<Callout kind="definition" title="Product topology">
+Given topological spaces $X$ and $Y$, the **product topology** on $X \times Y$ is the space whose
+- points are pairs $(x, y)$ with $x \in X$, $y \in Y$, and
+- topology has as a **<Term k="basisTop">basis</Term>** the sets $U \times V$, for $U \subseteq X$ open and $V \subseteq Y$ open.
+</Callout>
+
+That is: the basic open sets of $X \times Y$ are exactly the "rectangles" built from an open set of each factor, and a general open set of <Term k="productSpace">$X \times Y$</Term> is a union of such rectangles. This does exactly what you'd hope: $\RR \times \RR$ with the product topology recovers the ordinary topology on the plane.
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: A quick detour into categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A quick detour into categories">
+
+This section is a bonus for readers who've seen a little category theory — if you haven't, feel free to skip ahead to the problems, and come back later. (If you've written code against an interface without caring how it's implemented underneath, you already have the right instinct: category theory is exactly that idea, formalized.)
+
+<Callout kind="definition" title="Category">
+A <Term k="fg64Category">category</Term> consists of objects, and for each pair of objects a set of morphisms between them, together with an associative way to compose morphisms and an identity morphism at each object.
+</Callout>
+
+<Callout kind="definition" title="Functor">
+A <Term k="fg64Functor">functor</Term> is a structure-preserving map between categories — it sends objects to objects and morphisms to morphisms, respecting composition and identities. A key consequence: functors automatically send isomorphic objects to isomorphic objects.
+</Callout>
+
+We're about to see that $\pi_1$ is not just some assignment of a group to each space — it's a genuine functor. That single fact packages up several results from earlier in this chapter at once.
+
+</SlideLayout>

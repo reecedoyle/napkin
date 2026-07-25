@@ -1,0 +1,20 @@
+---
+title: Lifting a loop around the circle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lifting a loop around the circle">
+
+Take $p \colon \RR \to S^1 \subseteq \CC$, $\theta \mapsto e^{2\pi i \theta}$ again. Consider the <Term k="cp65Loop">loop</Term> $\gamma \colon [0,1] \to S^1$ by $t \mapsto e^{2\pi i t}$: it starts at $1 \in \CC$, wraps once counterclockwise around $S^1$, and returns to $1$.
+
+<Callout kind="example" title="Typical example of lifting">
+One lifting $\tilde\gamma$ of $\gamma$ is the path that walks from $0$ to $1$ along $\RR$. In fact, for *any* integer $n$, walking from $n$ to $n+1$ gives another lifting of $\gamma$.
+</Callout>
+
+Similarly, the counterclockwise path in $S^1$ from $1$ to $-1$ lifts to the path from $n$ to $n + \half$ in $\RR$, for any integer $n$.
+
+The pattern: given a path $\gamma$ in $B$ starting at $b_0$, we can start the lift at *any* point in the <Term k="cp65Fiber">fiber</Term> $p\inv(b_0)$ — in our example, $B = S^1$, $b_0 = 1$, and the fiber is exactly $\ZZ \subseteq \RR$. Once we've picked a starting point, we just trace along $\gamma$ and read off the corresponding path in $E$.
+
+</SlideLayout>

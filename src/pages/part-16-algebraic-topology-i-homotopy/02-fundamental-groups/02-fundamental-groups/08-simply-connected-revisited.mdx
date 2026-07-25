@@ -1,0 +1,24 @@
+---
+title: Simply connected, revisited
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Simply connected, revisited">
+
+Because $\pi_1(X, x_0)$ barely depends on $x_0$ (up to isomorphism) when $X$ is <Term k="pathConnected">path-connected</Term>, we usually drop the basepoint from the notation entirely and just write $\pi_1(X)$.
+
+Recall we originally defined <Term k="simplyConnected">simply connected</Term> as: any two paths with matching endpoints are homotopic. That definition can now be rephrased purely in terms of the fundamental group.
+
+<ProofReveal
+  client:load
+  id="fg64-fg-proof-simply-connected-iff-trivial"
+  prompt="Let X be path-connected. Prove that X is simply connected — meaning any two paths with the same endpoints are homotopic — if and only if π₁(X) is the trivial group. (One direction is easy; the other is a little trickier.)"
+  solution="(⇒) If any two paths with matching endpoints are homotopic, then every loop γ at x₀ is homotopic to the constant loop 1 at x₀, since both share the same two endpoints (x₀ at both ends) — so π₁(X, x₀) is trivial. (⇐) Suppose π₁(X, x₀) is trivial and α, β are any two paths from p to q. Form the loop α∗β̄ at p. Since π₁(X,p) is trivial, α∗β̄ is null-homotopic. Fusing β onto the right of both sides and using associativity up to homotopy gives (α∗β̄)∗β ≃ α∗(β̄∗β) ≃ α∗1 ≃ α, while also (α∗β̄)∗β ≃ 1∗β ≃ β because α∗β̄ ≃ 1. Chaining these two computations gives α ≃ β — any two paths between the same endpoints are homotopic, so X is simply connected."
+/>
+
+This is the "usual" definition of simply connected you'll see elsewhere: path-connected with trivial fundamental group.
+
+</SlideLayout>

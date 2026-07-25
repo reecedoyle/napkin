@@ -1,0 +1,29 @@
+---
+title: Homogeneous coordinates and ℝℙⁿ in general
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homogeneous coordinates and ℝℙⁿ in general">
+
+We can also describe $\RP^2$ purely with coordinates: it's the set of triples $(x:y:z)$ of real numbers, not all zero, up to overall scaling —
+$$
+(x:y:z) = (\lambda x : \lambda y : \lambda z) \quad \text{for any } \lambda \neq 0.
+$$
+The "lines through the origin" picture makes this coordinate choice transparent: a nonzero triple $(x,y,z)$ names the line through the origin and that point, and rescaling by $\lambda$ moves along the same line. The points at infinity are exactly those with $z = 0$; any point with $z \neq 0$ is an ordinary Cartesian point, since
+$$
+(x:y:z) = \left( \frac{x}{z} : \frac{y}{z} : 1 \right),
+$$
+which we read off as the Cartesian point $\left( \frac{x}{z}, \frac{y}{z} \right)$.
+
+This generalizes immediately to any dimension:
+
+<Callout kind="definition" title="Real projective n-space">
+<Term k="tc63RPn">$\RP^n$</Term> can be defined as any of:
+1. The set of lines through the origin in $\RR^{n+1}$,
+2. Tuples $(x_0 : \cdots : x_n)$ of reals, not all zero, up to a common nonzero scalar, or
+3. $\RR^n$ augmented with points at infinity, which themselves form a copy of $\RP^{n-1}$.
+</Callout>
+
+</SlideLayout>

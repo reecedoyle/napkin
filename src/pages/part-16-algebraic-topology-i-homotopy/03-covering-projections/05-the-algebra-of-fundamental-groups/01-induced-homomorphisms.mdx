@@ -1,0 +1,19 @@
+---
+title: Maps induce homomorphisms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Maps induce homomorphisms">
+
+We're going to turn continuous functions between spaces into homomorphisms of fundamental groups, and covering projections will give us an especially useful family of these.
+
+Recall from before: for $X$, $Y$ spaces and $f \colon (X, x_0) \to (Y, y_0)$ continuous, there's a group homomorphism
+$$
+f_\sharp \colon \pi_1(X, x_0) \to \pi_1(Y, y_0), \qquad [\gamma] \mapsto [f \circ \gamma].
+$$
+
+We write <Term k="cp65InducedHomomorphism">$f_\sharp$</Term> for this induced map. Applying this to a covering projection $p \colon E \to B$ gives $p_\sharp \colon \pi_1(E, e_0) \to \pi_1(B, b_0)$ — and this particular homomorphism has a special property, coming up next.
+
+</SlideLayout>

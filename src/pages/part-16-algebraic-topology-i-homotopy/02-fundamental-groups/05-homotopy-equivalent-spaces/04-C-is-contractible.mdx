@@ -1,0 +1,23 @@
+---
+title: ℂ is contractible
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="ℂ is contractible">
+
+<Callout kind="example" title="ℂ is contractible">
+Consider $\mathbb{C}$ and the one-point space $\{0\}$. These are homotopy equivalent: take $f \colon \mathbb{C} \to \{0\}$ sending everything to $0$, and $g \colon \{0\} \hookrightarrow \mathbb{C}$ the inclusion.
+
+- $f \circ g \colon \{0\} \to \{0\}$ sends $0 \mapsto 0 \mapsto 0$ — this *is* the identity on $\{0\}$, no homotopy needed.
+- $g \circ f \colon \mathbb{C} \to \mathbb{C}$ sends $z \mapsto 0 \mapsto 0$ — the zero map — which we already showed is homotopic to the identity on $\mathbb{C}$.
+</Callout>
+
+So $\mathbb{C}$ is <Term k="fg64Contractible">contractible</Term>.
+
+<Callout kind="remark" title="But not homeomorphic to a point">
+$\mathbb{C}$ cannot be *homeomorphic* to $\{0\}$ — there isn't even a bijection of sets between an infinite set and a one-element set. Contractibility is genuinely weaker than being a point.
+</Callout>
+
+</SlideLayout>

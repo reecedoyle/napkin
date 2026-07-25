@@ -1,0 +1,27 @@
+---
+title: Fundamental groups of contractible spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Fundamental groups of contractible spaces">
+
+<MCQ
+  client:load
+  id="fg64-he-mcq-contractible-pi1"
+  prompt="What is π₁(X) for a contractible space X?"
+  options={[
+    { id: "a", label: "The trivial group" },
+    { id: "b", label: "ℤ" },
+    { id: "c", label: "The free group on two generators" },
+    { id: "d", label: "It depends entirely on which contractible space X is" },
+  ]}
+  correct="a"
+  explanation="X is contractible means X is homotopy equivalent to a point, and a point has trivial πₙ for every n. By homotopy invariance, π₁(X) — indeed πₙ(X) for every n — must be trivial too, regardless of which contractible space X actually is."
+/>
+
+That means, for instance, that algebraic topology can't tell a disk apart from an annulus's *interior spine collapsed* view — or, informally, can't distinguish two subsets of $\mathbb{R}^2$ that are homotopic to each other even if they look nothing alike at a glance.
+
+</SlideLayout>

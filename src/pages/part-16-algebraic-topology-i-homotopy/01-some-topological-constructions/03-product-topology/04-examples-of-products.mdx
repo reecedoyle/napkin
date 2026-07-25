@@ -1,0 +1,35 @@
+---
+title: Examples of product spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of product spaces">
+
+A short list of products worth recognizing on sight:
+
+<Callout kind="example" title="Familiar products">
+- $\RR \times \RR$ is the Euclidean plane.
+- $S^1 \times [0,1]$ is a cylinder.
+- $S^1 \times S^1$ is a torus!
+</Callout>
+
+The first is immediate from the definition. The second is what you get sweeping a circle along a line segment. The third is worth pausing on: why should two circles multiplied together give a torus (a donut surface), rather than something else?
+
+<MCQ
+  client:load
+  id="tc63-prod-mcq-torus-as-product"
+  prompt="Why is S¹ × S¹ a torus?"
+  options={[
+    { id: "a", label: "Each point is a pair of angles (θ, φ); walking one circle sweeps a tube around the other" },
+    { id: "b", label: "S¹ × S¹ is defined to equal the torus by convention" },
+    { id: "c", label: "Because S¹ is itself already 2-dimensional" },
+    { id: "d", label: "Because the product topology forces every product of compact spaces to be a torus" },
+  ]}
+  correct="a"
+  explanation="A point of S¹ × S¹ is a pair of angles (θ, φ): θ locates you around a 'big' circle, and φ locates you around a 'small' circle threaded through every point of the big one. Sweeping the small circle all the way around the big one traces out exactly the surface of a donut — the torus. (b)-(d) don't explain the geometry; in particular S¹ is 1-dimensional, and plenty of products of compact spaces are not tori."
+/>
+
+</SlideLayout>

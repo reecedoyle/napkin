@@ -1,0 +1,20 @@
+---
+title: The tautological covering
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The tautological covering">
+
+Here is the silliest possible example of a covering projection — worth seeing once so you know what to rule out.
+
+<Callout kind="example" title="Tautological covering projection">
+Let $B$ be any space and take $n$ disconnected copies of it: formally $E = B \times \{1, \dots, n\}$, with the discrete topology on $\{1, \dots, n\}$. There is a tautological covering projection $E \to B$ by $(x, m) \mapsto x$ — we just project all $n$ copies down onto $B$ at once.
+</Callout>
+
+This works because *every* open set of $B$ is evenly covered: the preimage of $U$ is just $n$ disjoint copies of $U$, one in each layer.
+
+It's not a very interesting example, though, because $E = B \times \{1, \dots, n\}$ is never <Term k="pathConnected">path-connected</Term> (assuming $n > 1$) — the $n$ layers have nothing to do with each other. The interesting examples are the ones where $E$ itself is connected.
+
+</SlideLayout>

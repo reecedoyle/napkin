@@ -1,0 +1,28 @@
+---
+title: π₁ as a functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="π₁ as a functor">
+
+<Callout kind="theorem" title="Functorial interpretation of π₁">
+There is a <Term k="fg64Functor">functor</Term>
+$$
+\pi_1 \colon \mathbf{hTop}_\ast \to \mathbf{Grp}
+$$
+sending a pointed space $(X, x_0)$ to the group $\pi_1(X, x_0)$, and a homotopy class of based maps $f$ to the induced homomorphism $f_\sharp$.
+</Callout>
+
+Packaging $\pi_1$ as a functor — rather than just a rule assigning a group to each space — automatically gives us several facts we proved by hand earlier:
+
+- **Composition is respected**: $f_\sharp$ isn't an isolated gadget, it's literally $\pi_1(f)$, and $(f \circ g)_\sharp = f_\sharp \circ g_\sharp$ comes for free from functoriality.
+- **Homotopy equivalent spaces have isomorphic $\pi_1$** (§5's theorem) — since isomorphic objects in $\mathbf{hTop}_\ast$ are exactly homotopy equivalent spaces, and functors always send isomorphisms to isomorphisms.
+- **Homotopic maps induce the same homomorphism**: if $f \simeq g \colon (X,x_0) \to (Y,y_0)$, then $f_\sharp = g_\sharp$, since $f$ and $g$ are literally the *same* morphism in $\mathbf{hTop}_\ast$ (morphisms there are homotopy classes).
+
+<Callout kind="remark" title="A Yoneda-flavored aside">
+In fact $\pi_1(X, x_0)$ is exactly the set of morphisms $(S^1, 1) \to (X, x_0)$ in $\mathbf{hTop}_\ast$ — so this functor is a cousin of the covariant Yoneda embedding, just landing in $\mathbf{Grp}$ instead of sets.
+</Callout>
+
+</SlideLayout>

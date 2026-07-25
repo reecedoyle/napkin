@@ -1,0 +1,19 @@
+---
+title: Problems
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems">
+
+A few problems to consolidate this chapter's toolbox: quotients, products, wedges, and CW complexes.
+
+<Problem
+  client:load
+  id="tc63-prob-hausdorff-diagonal"
+  difficulty="standard"
+  prompt="Show that a space X is Hausdorff if and only if the diagonal {(x,x) : x in X} is closed in the product space X x X."
+  solution="(⇒) Suppose X is Hausdorff and (x,y) is a point of X × X not on the diagonal, so x ≠ y. Pick disjoint open neighborhoods U of x and V of y. Then U × V is an open neighborhood of (x,y) in X × X, and it's disjoint from the diagonal: any (u,v) in U × V with u = v would put u in both U and V, contradicting disjointness. So the complement of the diagonal is open, i.e. the diagonal is closed. (⇐) Suppose the diagonal is closed, and let x ≠ y be points of X. Then (x,y) lies in the open complement of the diagonal, so some basic open rectangle U × V (with x in U, y in V) is entirely disjoint from the diagonal. That means no u in U equals any v in V, i.e. U and V are disjoint open neighborhoods of x and y. So X is Hausdorff."
+/>
+
+</SlideLayout>

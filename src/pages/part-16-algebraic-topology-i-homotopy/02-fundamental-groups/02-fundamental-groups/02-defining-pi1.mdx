@@ -1,0 +1,24 @@
+---
+title: Defining π₁
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining π₁">
+
+We're now ready for the star of the chapter.
+
+<Callout kind="definition" title="Fundamental group">
+The <Term k="fg64FundamentalGroup">fundamental group</Term> of $X$ with basepoint $x_0$, denoted $\pi_1(X, x_0)$, is the set of homotopy classes
+
+$$
+\left\{ [\gamma] \mid \gamma \text{ a loop at } x_0 \right\}
+$$
+
+equipped with $\ast$ as a group operation.
+</Callout>
+
+It might come as a surprise that this is actually a group — a set of equivalence classes of functions, with an operation that stitches two of them together. In particular: what plays the role of the inverse?
+
+</SlideLayout>

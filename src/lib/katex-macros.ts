@@ -126,4 +126,6 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\km': '\\mathfrak{m}',
   '\\kf': '\\mathfrak{f}',
   '\\Ram': '\\operatorname{Ram}',
+  '\\RP': '\\mathbb{RP}',
+  '\\CP': '\\mathbb{CP}',
 };

@@ -1,0 +1,26 @@
+---
+title: Covering projections
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Covering projections">
+
+Now we can define the main object of the chapter.
+
+<Callout kind="definition" title="Covering projection">
+A <Term k="coveringProjection">covering projection</Term> $p \colon E \to B$ is a surjective continuous map such that every base point $b \in B$ has an open neighborhood $U \ni b$ which is <Term k="cp65EvenlyCovered">evenly covered</Term> by $p$.
+</Callout>
+
+Why require surjectivity? Without it, $p$ could simply miss an entire piece of $B$ and the definition above would still hold vacuously there.
+
+<ProofReveal
+  client:load
+  id="cp65-even-cov-proof-surjectivity"
+  prompt="Suppose p: E → B satisfies the covering-projection definition except that p need not be surjective. Show that the image of p is a disjoint union of connected components of B. Conclude that if B is connected and E is nonempty, p is automatically surjective."
+  solution="Every point b in the image of p has an evenly covered neighborhood U with p⁻¹(U) nonempty, and every point of U is covered too (since U is evenly covered, every point of U has a preimage). So the image of p is open. On the other hand, if b is a limit of points in the image, an evenly covered neighborhood of b must meet the image, and since that neighborhood is a union of homeomorphic sheets, b itself is covered — so the image is also closed. A set that is simultaneously open and closed in B is a union of connected components of B. Hence if B is connected, the image is either empty or all of B; since E is nonempty, it must be all of B, so p is surjective. This is why some authors drop the surjectivity hypothesis from the definition when B is assumed path-connected."
+/>
+
+</SlideLayout>

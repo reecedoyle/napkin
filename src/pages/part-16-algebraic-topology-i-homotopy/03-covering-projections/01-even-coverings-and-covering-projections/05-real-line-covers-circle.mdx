@@ -1,0 +1,35 @@
+---
+title: ℝ covers S¹
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="ℝ covers S¹">
+
+Here's the interesting example. Take $p \colon \RR \to S^1$ by $\theta \mapsto e^{2\pi i \theta}$, viewing $S^1$ as the unit circle in $\CC$. This wraps the real line into an infinite helix and projects it straight down onto the circle.
+
+<Callout kind="example" title="Covering projection of S¹">
+The map $p \colon \RR \to S^1$, $\theta \mapsto e^{2\pi i \theta}$, is a covering projection.
+</Callout>
+
+Consider the point $1 \in S^1$. A small open arc $U$ around $1$ has preimage $p\inv(U) = \bigcup_{n \in \ZZ} (n - \eps, n + \eps)$ for small $\eps$: a disjoint union of small intervals, one around every integer, and $p$ maps each homeomorphically back onto $U$. So $U$ is evenly covered, and the same argument works around every point of $S^1$.
+
+Not every open set works, though: if $U = S^1$ itself, its preimage under $p$ is all of $\RR$, which is not homeomorphic to $S^1$ (one is compact, the other isn't) — so $U = S^1$ is not evenly covered by $p$, even though $p$ is still a covering projection overall.
+
+<MCQ
+  client:load
+  id="cp65-even-cov-mcq-full-circle-not-evenly-covered"
+  prompt="For p: ℝ → S¹ by θ ↦ e^{2πiθ}, why does U = S¹ fail to be an evenly covered neighborhood, even though p is a covering projection?"
+  options={[
+    { id: "a", label: "p is not continuous on all of ℝ" },
+    { id: "b", label: "p⁻¹(S¹) = ℝ is not a disjoint union of sets homeomorphic to S¹" },
+    { id: "c", label: "S¹ is not an open set of itself" },
+    { id: "d", label: "p is not surjective onto S¹" },
+  ]}
+  correct="b"
+  explanation="p⁻¹(S¹) = ℝ, and ℝ is a single connected piece — it can't be split into copies of the (compact) circle S¹, let alone copies each mapped homeomorphically onto S¹ by p. The definition just requires SOME small enough neighborhood of every point to be evenly covered, which is satisfied by small arcs, not by all of S¹ at once."
+/>
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: The induced map on loops
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The induced map on loops">
+
+Let $f \colon (X, x_0) \to (Y, y_0)$. If $\gamma$ is a loop in $X$ at $x_0$, the composition
+
+$$
+[0,1] \xrightarrow{\ \gamma\ } (X, x_0) \xrightarrow{\ f\ } (Y, y_0)
+$$
+
+is a loop in $Y$ at $y_0$! Call this loop <Term k="fg64InducedHomomorphism">$f_\sharp \gamma$</Term>.
+
+<Callout kind="lemma" title="f♯ is homotopy invariant">
+If $\gamma_1 \simeq \gamma_2$, then $f_\sharp \gamma_1 \simeq f_\sharp \gamma_2$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Take the homotopy $h$ witnessing $\gamma_1 \simeq \gamma_2$, and post-compose with $f$: the map $f \circ h$ is a continuous deformation from $f_\sharp \gamma_1$ to $f_\sharp \gamma_2$.
+</Callout>
+
+So $f_\sharp$ is well-defined on homotopy classes: $[\gamma] \mapsto [f_\sharp \gamma]$ gives a map $\pi_1(X, x_0) \to \pi_1(Y, y_0)$. It's in fact a homomorphism, since $f_\sharp(\gamma_1 \ast \gamma_2) = (f_\sharp \gamma_1) \ast (f_\sharp \gamma_2)$ — composing with $f$ commutes with fusing paths.
+
+</SlideLayout>

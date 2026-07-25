@@ -1,0 +1,20 @@
+---
+title: Injectivity when E is simply connected
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Injectivity when E is simply connected">
+
+The second half needs a bit more work: this is where simple-connectedness of $E$ actually gets used.
+
+<Callout kind="example" title="Proof of injectivity">
+Suppose $\gamma_1$ and $\gamma_2$ are loops in $B$ at $b_0$ with $\Phi([\gamma_1]) = \Phi([\gamma_2])$. Lifting each, we get paths $\tilde\gamma_1$ and $\tilde\gamma_2$ in $E$, both starting at $e_0$ and — by assumption — both ending at the same point $e_1 \in E$.
+
+Since $E$ is <Term k="simplyConnected">simply connected</Term>, any two paths between the same two points are homotopic (rel endpoints), so there's a homotopy $F \colon [0,1] \times [0,1] \to E$ from $\tilde\gamma_1$ to $\tilde\gamma_2$. Composing with $p$ gives $p \circ F \colon [0,1] \times [0,1] \to B$, and you can check this is a homotopy from $\gamma_1$ to $\gamma_2$. Hence $[\gamma_1] = [\gamma_2]$ — so $\Phi$ is injective.
+</Callout>
+
+Put together with the previous slide: when $E$ is both path-connected and simply connected, $\Phi$ is a **bijection** between $\pi_1(B, b_0)$ and the <Term k="cp65Fiber">fiber</Term> $p\inv(b_0)$.
+
+</SlideLayout>

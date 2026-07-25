@@ -1,0 +1,26 @@
+---
+title: Homotopy classes of paths
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homotopy classes of paths">
+
+Recall that two paths $\alpha, \beta \colon [0,1] \to X$ with the same endpoints are <Term k="fg64PathHomotopy">path-homotopic</Term> — written $\alpha \simeq \beta$ — if there's a continuous deformation from one to the other that keeps the endpoints fixed the whole time.
+
+It is true (though we won't verify every detail) that:
+
+$$
+(\gamma_1 \ast \gamma_2) \ast \gamma_3 \simeq \gamma_1 \ast (\gamma_2 \ast \gamma_3),
+$$
+
+despite the two sides being different functions — they're path-homotopic via a reparametrization homotopy that slides the breakpoints from $\frac14, \frac12$ to $\frac12, \frac34$. It's also true that if $\alpha_1 \simeq \alpha_2$ and $\beta_1 \simeq \beta_2$ (with matching endpoints so the fusions make sense), then $\alpha_1 \ast \beta_1 \simeq \alpha_2 \ast \beta_2$.
+
+<Callout kind="remark" title="Homotopy is an equivalence relation">
+Being path-homotopic is reflexive, symmetric, and transitive. So every path $\gamma$ lives inside an equivalence class $[\gamma]$ — its **homotopy class** — and $\ast$ descends to a well-defined operation on these classes: $[\alpha] \ast [\beta] \defeq [\alpha \ast \beta]$.
+</Callout>
+
+**We can think of $\ast$ as an operation on homotopy classes of paths**, and by the facts above, this operation actually *is* associative: $([\gamma_1] \ast [\gamma_2]) \ast [\gamma_3] = [\gamma_1] \ast ([\gamma_2] \ast [\gamma_3])$. This is the operation we'll turn into a group next.
+
+</SlideLayout>

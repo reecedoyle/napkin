@@ -1,0 +1,22 @@
+---
+title: p♯ is always injective
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="p♯ is always injective">
+
+<Callout kind="proposition" title="Injectivity of p♯">
+Let $p \colon (E, e_0) \to (B, b_0)$ be a covering projection of path-connected spaces. Then $p_\sharp \colon \pi_1(E, e_0) \to \pi_1(B, b_0)$ is **injective**. Hence $p_\sharp\im(\pi_1(E, e_0))$ is an isomorphic copy of $\pi_1(E, e_0)$, sitting inside $\pi_1(B, b_0)$ as a subgroup.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="cp65-alg-pi1-proof-p-sharp-injective"
+  prompt="Prove that p♯ is injective, i.e. that its kernel is trivial."
+  solution="It suffices to show: if γ is a null-homotopic loop in B, its lifting is null-homotopic in E. By definition, a null-homotopic loop admits a homotopy F: [0,1] × [0,1] → B from γ to the constant loop 1_B. Lifting this homotopy (using the lifting-homotopies remark from §2) gives a homotopy F̃: [0,1] × [0,1] → E from γ̃ to some lift of the constant loop 1_B. But the constant loop at e₀ is itself a lift of 1_B, and lifts starting at a given point are unique — so F̃ exhibits γ̃ as null-homotopic. Hence the kernel of p♯ contains only the identity, so p♯ is injective."
+/>
+
+</SlideLayout>

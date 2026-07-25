@@ -1,0 +1,31 @@
+---
+title: Complex projective space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Complex projective space">
+
+Everything we did with real coordinates has a direct complex analogue.
+
+<Callout kind="definition" title="Complex projective space">
+<Term k="tc63CPn">$\CP^n$</Term> is defined like $\RP^n$, with coordinates $(z_0 : \cdots : z_n)$ under scaling — except now the $z_i$ are complex numbers. As before, $\CP^n$ is $\CC^n$ augmented with points at infinity, which form a copy of $\CP^{n-1}$.
+</Callout>
+
+<Callout kind="example" title="Small cases">
+- $\CP^0$ is a single point.
+- $\CP^1$ is $\CC$ plus a single point at infinity ("complex infinity"): $\CP^1 = \CC \cup \{\infty\}$. Picture taking the complex plane and adding one point that closes up the *entire* boundary at once — the result is the sphere $S^2$. This picture of $\CP^1$, with its natural coordinate system, is called the **Riemann sphere**.
+</Callout>
+
+<Callout kind="remark" title="For Euclidean geometers">
+While $\RP^2$ is the natural setting for projective geometry, circle inversion is instead usually done in $\CP^1$: an inversion sending generalized circles to generalized circles only needs a *single* point at infinity, which is exactly what $\CP^1$ (rather than $\CP^2$) provides.
+</Callout>
+
+Like $\RP^n$, the space $\CP^n$ is a CW complex, built inductively by welding the boundary of $\CC^n$ onto $\CP^{n-1}$. The difference is that $\CC^n \cong \RR^{2n} \cong D^{2n}$ — so the cells we attach are $D^0, D^2, D^4, \dots$, skipping every odd dimension.
+
+<Callout kind="proposition" title="One cell per even dimension">
+$\CP^n$ consists of one cell in each *even* dimension, from $0$ up to $2n$.
+</Callout>
+
+</SlideLayout>

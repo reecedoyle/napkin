@@ -1,0 +1,18 @@
+---
+title: A loop is a map from a circle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A loop is a map from a circle">
+
+Why the notation $\pi_1$ for the fundamental group? And what would $\pi_2$, $\pi_3, \dots$ even mean? The answer starts with a small rephrasing.
+
+<Callout kind="question" title="Convince yourself">
+A loop $\gamma \colon [0,1] \to X$ with $\gamma(0)=\gamma(1)=x_0$ is really the same thing as a continuous function <Term k="complexUnitCircle">$S^1$</Term> $\to X$ sending a fixed basepoint of $S^1$ to $x_0$: glue the two ends $0$ and $1$ of $[0,1]$ together to get a circle, and $\gamma$ descends to a well-defined map on the glued-up circle exactly because $\gamma(0) = \gamma(1)$.
+</Callout>
+
+So a loop is nothing more than a based map $S^1 \to X$. This reframing is the key that unlocks higher homotopy groups: replace $S^1$ with a higher-dimensional sphere.
+
+</SlideLayout>

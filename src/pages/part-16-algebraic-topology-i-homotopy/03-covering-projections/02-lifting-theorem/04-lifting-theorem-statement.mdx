@@ -1,0 +1,18 @@
+---
+title: The lifting theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The lifting theorem">
+
+The pattern from the previous slides holds in complete generality, for any covering projection and any path at all.
+
+<Callout kind="theorem" title="Lifting paths">
+Suppose $\gamma \colon [0,1] \to B$ is a path with $\gamma(0) = b_0$, and $p \colon (E, e_0) \to (B, b_0)$ is a <Term k="coveringProjection">covering projection</Term>. Then there exists a **unique** <Term k="cp65Lifting">lifting</Term> $\tilde\gamma \colon [0,1] \to E$ with $\tilde\gamma(0) = e_0$.
+</Callout>
+
+Note the two separate claims: a lifting always *exists* starting from any chosen point in the fiber, and it is *unique* once that starting point is fixed.
+
+</SlideLayout>

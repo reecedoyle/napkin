@@ -1,0 +1,25 @@
+---
+title: Fusing two paths
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fusing two paths">
+
+Recall a <Term k="path">path</Term> in $X$ is a continuous function $\gamma \colon [0,1] \to X$. Suppose we have paths $\gamma_1$ and $\gamma_2$ with $\gamma_1(1) = \gamma_2(0)$ — the first path ends exactly where the second one starts.
+
+We'd like to glue them into a single path $\gamma_1 \ast \gamma_2$: first travel along $\gamma_1$, then along $\gamma_2$. Easy, right? There's a small hitch: $\gamma_1$ and $\gamma_2$ are each defined on all of $[0,1]$, and a path must still be defined on $[0,1]$ — not $[0,2]$ — after we fuse them.
+
+The fix is to run twice as fast: allocate $[0, \half]$ to the first path and $[\half, 1]$ to the second.
+
+<Callout kind="definition" title="Fused path">
+Given paths $\gamma_1, \gamma_2 \colon [0,1] \to X$ with $\gamma_1(1) = \gamma_2(0)$, define <Term k="fg64PathConcatenation">$\gamma_1 \ast \gamma_2 \colon [0,1] \to X$</Term> by
+$$
+(\gamma_1 \ast \gamma_2)(t) = \begin{cases} \gamma_1(2t) & 0 \le t \le \half \\ \gamma_2(2t-1) & \half \le t \le 1. \end{cases}
+$$
+</Callout>
+
+At $t = \half$ both formulas agree — both give $\gamma_1(1) = \gamma_2(0)$ — so the two pieces really do glue into one continuous path.
+
+</SlideLayout>

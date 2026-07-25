@@ -1,0 +1,35 @@
+---
+title: A non-Hausdorff quotient
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="A non-Hausdorff quotient">
+
+All our examples so far collapsed a *closed* subset $A$. If $A$ isn't closed in $X$, the quotient $X/A$ can get genuinely weird — badly enough that it stops being <Term k="hausdorff">Hausdorff</Term>.
+
+<Callout kind="example" title="A weird quotient">
+Let $X = \RR$ and $A = (0, 1)$, an *open* interval. The quotient space $X/A$ consists of the points $(-\infty, 0] \cup \{A/A\} \cup [1, \infty)$, where $A/A$ denotes the single point that all of $(0,1)$ got collapsed to.
+
+Here, $0$ and $A/A$ are two distinct points of $X/A$ — but *every* open set containing $0$ also contains $A/A$. There is no way to separate them with disjoint open neighborhoods.
+</Callout>
+
+That failure — two distinct points that no pair of disjoint open sets can separate — is precisely the Hausdorff condition failing. This is a useful cautionary example: the quotient construction is powerful, but it doesn't automatically preserve the nice properties of the space you started with.
+
+<MCQ
+  client:load
+  id="tc63-quot-mcq-non-hausdorff-cause"
+  prompt="In X/A above (X = ℝ, A = (0,1)), why does the quotient space fail to be Hausdorff?"
+  options={[
+    { id: "a", label: "Because A is infinite" },
+    { id: "b", label: "Because A is not closed in X" },
+    { id: "c", label: "Because ℝ itself is not Hausdorff" },
+    { id: "d", label: "Because A/A is not a single point" },
+  ]}
+  correct="b"
+  explanation="ℝ is Hausdorff, and A/A really is a single collapsed point — the issue is that A = (0,1) is open, not closed, in X. Collapsing a non-closed subset can create a point (like A/A) that no open set can separate from a nearby boundary point (like 0), which is exactly what happens here."
+/>
+
+</SlideLayout>

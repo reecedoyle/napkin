@@ -1,0 +1,20 @@
+---
+title: Identifying points
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Identifying points">
+
+Here's a construction you've secretly used before, if you've ever taped two edges of paper together: given a space $X$, we can **identify** some of its points — glue them into one — using an equivalence relation $\sim$. For $x \in X$, write $[x]$ for its equivalence class: the set of all points glued to $x$.
+
+<Callout kind="definition" title="Quotient topology">
+Let $X$ be a topological space and $\sim$ an equivalence relation on the points of $X$. The **<Term k="tc63QuotientTopology">quotient space</Term>** $X / {\sim}$ is the space whose
+- points are the equivalence classes of $X$, and
+- a set $U \subseteq X/{\sim}$ is <Term k="openSetTop">open</Term> exactly when $\{x \in X \mid [x] \in U\}$ is open in $X$.
+</Callout>
+
+As a bare definition this is not very illuminating — the open-set clause is just what's needed to make the "obvious" projection map $X \to X/{\sim}$ continuous. The examples on the following slides are the real content.
+
+</SlideLayout>

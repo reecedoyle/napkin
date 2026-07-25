@@ -1,0 +1,31 @@
+---
+title: The fundamental group of S¹
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The fundamental group of S¹">
+
+We finally have the tool to compute the thing we couldn't compute before.
+
+<Callout kind="example" title="Fundamental group of S¹">
+Our usual $p \colon \RR \to S^1$ has $\RR$ simply connected, so it's a universal cover of $S^1$. The fiber of any point in $S^1$ is a copy of $\ZZ$ — naturally in bijection with loops in $S^1$, since a loop that winds $n$ times lifts to a path ending at the integer $n$.
+
+You can check that the bijection $\Phi \colon \pi_1(S^1) \leftrightarrow \ZZ$ is in fact a group homomorphism, once we equip $\ZZ$ with ordinary addition. A bijective homomorphism is an isomorphism, so
+$$
+\pi_1(S^1) \cong \ZZ.
+$$
+</Callout>
+
+This matches the intuition: a loop in $S^1$ is entirely characterized (up to homotopy) by its net winding number, and winding numbers add when you concatenate loops.
+
+<NumericInput
+  client:load
+  id="cp65-lift-corr-num-winding-number"
+  prompt="Under Φ: π₁(S¹) ↔ ℤ, a loop that winds counterclockwise around S¹ twice, then clockwise once, corresponds to which integer?"
+  expected="1"
+/>
+
+</SlideLayout>

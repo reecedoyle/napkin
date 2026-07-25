@@ -1,0 +1,22 @@
+---
+title: Attaching maps, formally
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Attaching maps, formally">
+
+The informal "weld the boundary onto the previous skeleton" phrasing has a precise meaning: it's just the quotient-by-a-subset construction from earlier, applied cell by cell.
+
+<Callout kind="definition" title="Attaching map">
+For each $k$-cell $e^k_\alpha$ we want to add to $X^{k-1}$, we take its boundary $S^{k-1}_\alpha$ and glue it onto $X^{k-1}$ via a continuous **<Term k="tc63AttachingMap">attaching map</Term>** $S^{k-1}_\alpha \to X^{k-1}$. Formally,
+$$
+X^k = \left( X^{k-1} \amalg \left(\coprod_\alpha e^k_\alpha\right) \right) / {\sim}
+$$
+where $\sim$ identifies each boundary point of $e^k_\alpha$ with its image under the attaching map.
+</Callout>
+
+Read the right-hand side piece by piece: $X^{k-1} \amalg (\coprod_\alpha e^k_\alpha)$ is just "the old skeleton, disjoint union with a pile of new disks" — and then the quotient $/{\sim}$ is exactly what glues each new disk's boundary sphere onto the old skeleton, per the attaching map. Every "weld boundary $A$ onto $B$" sentence in this chapter secretly unpacks to this formula.
+
+</SlideLayout>

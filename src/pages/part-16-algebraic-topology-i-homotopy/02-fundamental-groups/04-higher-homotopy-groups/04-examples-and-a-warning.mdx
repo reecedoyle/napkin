@@ -1,0 +1,24 @@
+---
+title: Examples — and a warning about chaos
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples — and a warning about chaos">
+
+<Callout kind="example" title="πₙ(Sⁿ) ≅ ℤ">
+Just as $\pi_1(S^1) \cong \mathbb{Z}$ (wrap a loop around the circle however many times you like), in general $\pi_n(S^n) \cong \mathbb{Z}$ for every $n$: given the base sphere $S^n$, you can wrap a second copy of $S^n$ around it any integer number of times.
+</Callout>
+
+<Callout kind="example" title="πₙ(Sᵐ) is trivial when n < m">
+We saw $\pi_1(S^2)$ is trivial, because a circle drawn on a sphere's surface can always be reeled in to a point. The same idea generalizes: any smaller-dimensional <Term k="unitSphere">sphere</Term> mapped into a bigger one can be reeled in on the ambient sphere's surface, so $\pi_n(S^m)$ is trivial whenever $n < m$.
+</Callout>
+
+Beyond these two clean patterns, the groups $\pi_n(S^m)$ behave surprisingly wildly — computing them for all $n$ and $m$ is essentially a lost cause in general (the actual table of known values, taken from Wikipedia, mixes recognizable patterns with what looks like total chaos: groups like $\mathbb{Z}/2\mathbb{Z}$, $\mathbb{Z}/12\mathbb{Z}$, $\mathbb{Z}/24\mathbb{Z} \times \mathbb{Z}/3\mathbb{Z}$ showing up with no obvious rule). We won't reproduce that table here — the two patterns above are the ones worth internalizing.
+
+<Callout kind="remark" title="A lost cause, but a productive one">
+It turns out that if you could compute $\pi_n(S^m)$ for every $m$ and $n$, you could essentially compute any homotopy classes at all. So this "lost cause" is really the central open problem of the whole subject.
+</Callout>
+
+</SlideLayout>

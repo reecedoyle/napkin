@@ -1,0 +1,38 @@
+---
+title: The torus, as a square
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="The torus, as a square">
+
+We now walk through four of the most important spaces built from everything above. First: the **torus**, which you can build by taking a square and gluing opposite edges together in matching directions — walk off the right edge, you reappear at the corresponding point on the left (think *Asteroids*).
+
+<Figure
+  alt="A square whose top and bottom edges are drawn solid pointing right (one identified pair), and whose left and right edges are drawn dashed pointing up (the other identified pair)"
+  caption="Identify opposite edges of a square in the same direction — solid edge with solid edge, dashed edge with dashed edge — to get a torus."
+>
+  <svg viewBox="0 0 100 100" width="220" height="220" aria-hidden="true">
+    <rect x="10" y="10" width="80" height="80" fill="currentColor" opacity="0.08" />
+    <line x1="10" y1="10" x2="85" y2="10" stroke="currentColor" stroke-width="1.4" marker-end="url(#a1)" />
+    <line x1="10" y1="90" x2="85" y2="90" stroke="currentColor" stroke-width="1.4" marker-end="url(#a2)" />
+    <line x1="10" y1="90" x2="10" y2="15" stroke="currentColor" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#a3)" />
+    <line x1="90" y1="90" x2="90" y2="15" stroke="currentColor" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#a4)" />
+    <defs>
+      <marker id="a1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+      <marker id="a2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+      <marker id="a3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+      <marker id="a4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+    </defs>
+  </svg>
+</Figure>
+
+<Callout kind="remark" title="Torus = square / edge identifications">
+The <Term k="tc63Torus">torus</Term> is $(\RR/\ZZ)^2 \cong S^1 \times S^1$. Note that all four corners of the square get identified together to a single point.
+</Callout>
+
+You can realize this in actual 3-space: treat the square as a sheet of paper, tape the solid edges together to make a cylinder, then bend the cylinder around and fuse the two dashed-edge circles at its ends — that's the familiar donut surface.
+
+</SlideLayout>

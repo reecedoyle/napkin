@@ -1,0 +1,20 @@
+---
+title: Every subgroup of ℤ is a covering
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Every subgroup of ℤ is a covering">
+
+Let's use injectivity of $p_\sharp$ to organize the covering projections of $S^1$ by subgroup of $\pi_1(S^1) \cong \ZZ$.
+
+<Callout kind="example" title="Subgroups of ℤ">
+$\ZZ$ has exactly two kinds of subgroups:
+- **The trivial subgroup.** This corresponds to $\RR \to S^1$: since $\RR$ is simply connected, $\pi_1(\RR)$ is trivial, so its image under $p_\sharp$ in $\ZZ$ is trivial.
+- **$n\ZZ$ for $n \geq 1$.** This corresponds to the covering projection $S^1 \to S^1$ by $z \mapsto z^n$. The image of a loop in the covering circle is a loop that winds a multiple of $n$ times in the base circle.
+</Callout>
+
+It turns out these really are the *only* covering projections of $S^1$ by path-connected spaces: one for each subgroup of $\ZZ$. Making sense of "one for each subgroup" precisely needs a notion of when two covering projections should count as the same, which is the next slide.
+
+</SlideLayout>

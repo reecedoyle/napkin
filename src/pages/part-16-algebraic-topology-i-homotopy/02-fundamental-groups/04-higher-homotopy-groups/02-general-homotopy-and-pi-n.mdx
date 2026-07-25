@@ -1,0 +1,18 @@
+---
+title: General homotopy and πₙ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="General homotopy and πₙ">
+
+It turns out we can define homotopy for functions other than paths. Two functions $f, g \colon Y \to X$ are <Term k="homotopic">homotopic</Term> if there's a continuous <Term k="homotopy">homotopy</Term> $Y \times [0,1] \to X$ continuously deforming $f$ to $g$. Everything we've done so far was just the special case $Y = S^1$ (with basepoints tracked).
+
+<Callout kind="definition" title="Higher homotopy group">
+For $n \ge 1$, <Term k="fg64HigherHomotopyGroup">$\pi_n(X)$</Term> is the group of homotopy classes of based maps $S^n \to X$.
+</Callout>
+
+The group operation is harder to picture directly, but here's the idea: $S^n$ is homeomorphic to the cube $[0,1]^n$ with its boundary fused together in a specific pattern (for example, $S^1$ is $[0,1]$ with $0$ fused to $1$ — exactly our loop picture). Once you have two such cubes, you can merge them along a shared face, generalizing how we fused two paths along a shared endpoint.
+
+</SlideLayout>

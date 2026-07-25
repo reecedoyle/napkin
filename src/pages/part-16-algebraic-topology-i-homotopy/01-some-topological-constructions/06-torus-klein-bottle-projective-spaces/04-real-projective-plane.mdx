@@ -1,0 +1,45 @@
+---
+title: The real projective plane
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="The real projective plane">
+
+One more square-edge trick: reverse *both* pairs of edges (instead of zero or one), and we get <Term k="tc63RPn">$\RP^2$</Term>.
+
+<Figure
+  alt="A square whose top and bottom edges point in opposite directions, and whose left and right edges also point in opposite directions"
+  caption="Reversing both pairs of edges gives the real projective plane RP^2."
+>
+  <svg viewBox="0 0 100 100" width="220" height="220" aria-hidden="true">
+    <rect x="10" y="10" width="80" height="80" fill="currentColor" opacity="0.08" />
+    <line x1="10" y1="90" x2="85" y2="90" stroke="currentColor" stroke-width="1.4" marker-end="url(#c1)" />
+    <line x1="85" y1="10" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" marker-end="url(#c2)" />
+    <line x1="10" y1="90" x2="10" y2="15" stroke="currentColor" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#c3)" />
+    <line x1="90" y1="15" x2="90" y2="90" stroke="currentColor" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#c4)" />
+    <defs>
+      <marker id="c1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+      <marker id="c2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+      <marker id="c3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+      <marker id="c4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor" /></marker>
+    </defs>
+  </svg>
+</Figure>
+
+Once both directions are reversed, the fact that we started with a *square* becomes irrelevant — a solid and a dashed edge can be merged into a single edge, and equivalently we can picture $\RP^2$ as a circle with half its circumference identified with the other half (antipodal points glued together).
+
+Geometrically, $\RP^2$ has two standard interpretations:
+
+<Callout kind="example" title="Two ways to picture RP²">
+- **Lines through the origin.** Each point of $\RP^2$ is a line through the origin in $\RR^3$. Identifying each line with a point of $S^2$ (where it pierces the sphere) almost works, except antipodal points of $S^2$ correspond to the *same* line — so $\RP^2$ is "half a sphere," flattened out.
+- **Points at infinity.** Take $\RR^2$ and add a "point at infinity" for every direction a line can point. Now any two lines meet: at an ordinary point if they're not parallel, or at their shared point at infinity if they are. All these points at infinity together form the boundary "line at infinity."
+</Callout>
+
+<Callout kind="exercise" title="The two pictures agree">
+Convince yourself these two formulations are equivalent, by considering the plane $z = 1$ in $\RR^3$ and intersecting each line from the first picture with that plane.
+</Callout>
+
+</SlideLayout>

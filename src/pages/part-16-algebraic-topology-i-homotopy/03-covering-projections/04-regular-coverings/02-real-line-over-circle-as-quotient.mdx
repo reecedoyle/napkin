@@ -1,0 +1,20 @@
+---
+title: ℝ/ℤ is the circle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="ℝ/ℤ is the circle">
+
+Let's revisit our favorite example through this new lens.
+
+<Callout kind="example" title="ℝ → S¹ is regular">
+Let $G = \ZZ$ act on $X = \RR$ by $n \cdot x = n + x$. No nonidentity integer fixes any real number, so the stabilizers are all trivial. The quotient $X/G$ is "real numbers modulo $1$": $[0,1)$ is a complete set of orbit representatives, with $0$ and $1$ identified.
+
+We can identify $X/G$ with $S^1$, and the regular projection $X \to X/G$ is exactly our usual map $\theta \mapsto e^{2\pi i \theta}$.
+</Callout>
+
+This quotient $\RR/\ZZ$ already has a name — the <Term k="circleGroup">circle group</Term> $\TT$ — and it's literally the same object as $S^1$, just built by "wrapping" $\RR$ around instead of viewing it as a subset of $\CC$.
+
+</SlideLayout>

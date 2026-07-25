@@ -1,0 +1,20 @@
+---
+title: Why covering projections?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why covering projections?">
+
+A few chapters ago we defined the <Term k="fundamentalGroup">fundamental group</Term> $\pi_1(X, x_0)$, but we never actually computed one — except for the trivial case of a simply connected space, where $\pi_1$ is just the trivial group.
+
+In this chapter we introduce **covering projections**: a way of projecting a big space $E$ down onto a base space $B$ so that, locally, $E$ just looks like several stacked copies of $B$. This turns out to be exactly the right tool for computing $\pi_1$.
+
+<Callout kind="remark" title="The plan">
+We'll interpret loops in $B$ as paths in $E$. If $E$ happens to have simple fundamental group (or none at all), this lets us understand $\pi_1(B)$ by "unrolling" it into $E$.
+</Callout>
+
+The prototype to keep in mind for this entire chapter: $\RR$ covers $S^1$. We'll make this precise shortly.
+
+</SlideLayout>

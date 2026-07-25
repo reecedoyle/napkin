@@ -1,0 +1,22 @@
+---
+title: Homeomorphic ⇒ homotopy equivalent
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Homeomorphic ⇒ homotopy equivalent">
+
+Homotopy equivalence is meant to be a *weaker* relation than <Term k="homeomorphismTop">homeomorphism</Term> — every homeomorphic pair of spaces should already be homotopy equivalent.
+
+<ProofReveal
+  client:load
+  id="fg64-he-proof-homeo-implies-equiv"
+  prompt="Why are two homeomorphic spaces automatically homotopy equivalent?"
+  solution="If f: X→Y and g: Y→X are mutually inverse homeomorphisms, then f∘g equals the identity on Y exactly — on the nose, not just up to homotopy — and any map is trivially homotopic to itself via the constant homotopy F(y,s) = f(g(y)) for every s. Likewise g∘f equals the identity on X exactly. So f and g already satisfy the (weaker) homotopy-equivalence condition, with plain equality standing in for homotopy."
+/>
+
+So homotopy equivalence really is more permissive: it includes every homeomorphic pair, plus pairs like $\mathbb{C}$ and a single point, which have no hope of being homeomorphic (there isn't even a bijection between them).
+
+</SlideLayout>

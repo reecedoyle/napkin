@@ -1,0 +1,22 @@
+---
+title: Homeomorphic spaces have isomorphic π₁
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homeomorphic spaces have isomorphic π₁">
+
+This is exactly the tool we need to show $\pi_1$ is a genuine topological invariant.
+
+<Callout kind="theorem" title="Homeomorphism invariance of π₁">
+If $X$ and $Y$ are <Term k="homeomorphismTop">homeomorphic</Term>, then $\pi_1(X, x_0) \cong \pi_1(Y, y_0)$ for corresponding basepoints.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Let $f \colon X \to Y$ and $g \colon Y \to X$ be mutually inverse continuous maps with $f(x_0) = y_0$ and $g(y_0) = x_0$. Then $f_\sharp \colon \pi_1(X, x_0) \to \pi_1(Y, y_0)$ and $g_\sharp \colon \pi_1(Y, y_0) \to \pi_1(X, x_0)$ are mutually inverse homomorphisms (since $g \circ f = \id_X$ and $f \circ g = \id_Y$ induce the identity on $\pi_1$), so both are isomorphisms.
+</Callout>
+
+So: if two spaces have non-isomorphic fundamental groups, they cannot be homeomorphic. This gives us our first real invariant for telling topological spaces apart — exactly the goal we started the chapter with.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: When are two coverings "the same"?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title='When are two coverings "the same"?'>
+
+Fix a base space $B$. Given two covering projections $p_1 \colon E_1 \to B$ and $p_2 \colon E_2 \to B$:
+
+<Callout kind="definition" title="Map of covering projections">
+A <Term k="cp65MapOfCoveringProjections">map of covering projections</Term> is a continuous $f \colon E_1 \to E_2$ with $p_2 \circ f = p_1$. Two covering projections $p_1, p_2$ are **isomorphic** if there are such maps $f \colon E_1 \to E_2$ and $g \colon E_2 \to E_1$ with $f \circ g = \id_{E_2}$ and $g \circ f = \id_{E_1}$.
+</Callout>
+
+In other words, an isomorphism of covering projections is a homeomorphism $E_1 \to E_2$ that respects the projections down to $B$ on the nose — not just up to homeomorphism of $E_1$ and $E_2$ on their own. (For the categorically minded: covering projections of a fixed $B$ form a category this way, with these maps as morphisms.)
+
+</SlideLayout>

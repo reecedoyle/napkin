@@ -1,0 +1,31 @@
+---
+title: More quotient spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="More quotient spaces">
+
+The same "glue and see what happens" idea generalizes readily. Convince yourself of each of these — they're all worth carrying around as reflexes:
+
+<Callout kind="example" title="Quotient spaces you'll see again">
+- Generalizing the last slide: $D^n$ modulo its boundary $S^{n-1}$ is $S^n$.
+- Take a square $ABCD$ and identify segment $AB$ with $DC$ (same direction). The result is a **cylinder** — literally what you get taping two opposite edges of a sheet of paper.
+- Starting from that cylinder, if we *also* identify $BC$ with $DA$, we get a **torus**: take the cylinder and fuse its two circular ends together.
+- Let $X = \RR$, and let $x \sim y$ whenever $y - x \in \ZZ$ (i.e., glue every integer-spaced pair of points together). Then $X/{\sim} \cong S^1$ as well — this is "wrap the real line around a circle of circumference 1."
+</Callout>
+
+We already singled out the "collapse a subset to a point" special case:
+
+<Callout kind="definition" title="Quotient by a subset">
+Let $A \subseteq X$. Identify all points of $A$ with each other (and leave every other point alone): $x \sim y$ iff $x = y$ or $x, y \in A$. The resulting quotient space is written <Term k="tc63QuotientByA">$X/A$</Term>.
+</Callout>
+
+In this notation, the sphere example from above reads $D^n / S^{n-1} = S^n$.
+
+<Callout kind="remark" title="A standard abuse of notation">
+Strictly, we should say "$D^n/S^{n-1}$ is *homeomorphic to* $S^n$", not "$D^n/S^{n-1}$ *is* $S^n$" or "$D^n/S^{n-1} = S^n$". But mathematicians are relentlessly sloppy about this: once two spaces are homeomorphic, we typically stop distinguishing them, the same way we stop distinguishing isomorphic groups. We'll keep doing this throughout the chapter.
+</Callout>
+
+</SlideLayout>

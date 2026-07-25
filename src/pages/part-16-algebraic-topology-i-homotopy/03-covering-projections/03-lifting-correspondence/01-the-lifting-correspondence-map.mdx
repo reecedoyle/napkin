@@ -1,0 +1,26 @@
+---
+title: The lifting correspondence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The lifting correspondence">
+
+Let's return to computing fundamental groups. Fix a covering projection $p \colon (E, e_0) \to (B, b_0)$.
+
+A loop $\gamma$ in $B$ lifts uniquely to $\tilde\gamma$ in $E$ starting at $e_0$, and $\tilde\gamma$ ends at some point of the <Term k="cp65Fiber">fiber</Term> $p\inv(b_0)$. This endpoint doesn't change if we replace $\gamma$ by a homotopic loop $\gamma'$ — lifted homotopies (previous slide) stay in the fiber over $b_0$ at both ends. So every homotopy class $[\gamma] \in \pi_1(B, b_0)$ determines a well-defined point of the fiber.
+
+<Callout kind="proposition" title="The lifting correspondence Φ">
+Let $p \colon (E, e_0) \to (B, b_0)$ be a covering projection. There is a function of sets
+$$
+\Phi \colon \pi_1(B, b_0) \to p\inv(b_0), \qquad [\gamma] \mapsto \tilde\gamma(1),
+$$
+where $\tilde\gamma$ is the unique lifting of $\gamma$ starting at $e_0$. Furthermore:
+- If $E$ is path-connected, $\Phi$ is surjective.
+- If $E$ is simply connected, $\Phi$ is injective.
+</Callout>
+
+We call $\Phi$ the <Term k="cp65LiftingCorrespondence">lifting correspondence</Term>.
+
+</SlideLayout>

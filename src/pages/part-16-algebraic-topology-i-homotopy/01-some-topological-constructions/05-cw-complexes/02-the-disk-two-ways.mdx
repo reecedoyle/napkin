@@ -1,0 +1,43 @@
+---
+title: Example — the disk, two ways
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="Example — the disk, two ways">
+
+The same space can be realized as a CW complex in more than one way — with more or fewer cells. Here's $D^2$ built two different ways.
+
+<Callout kind="example" title="D² with 2+2+1 cells">
+Start with $X^0$ having two points $e^0_a, e^0_b$. Join them with two 1-cells $e^1_c, e^1_d$, whose endpoints get attached to distinct points of $X^0$ — so $X^1 \cong S^1$. Finally weld in one 2-cell $e^2$, whose boundary fits around that $S^1$.
+</Callout>
+
+<Callout kind="example" title="D² with 1+1+1 cells">
+Start with a single point $e^0$. Attach one 1-cell $e^1$, with *both* its endpoints glued to that single point (so $X^1 \cong S^1$, using just one loop). Then weld in one 2-cell $e^2$ as before.
+</Callout>
+
+<Figure
+  alt="Left: a filled disk with two blue boundary points and two green arcs between them, and a yellow interior labeled e-squared. Right: a filled disk with one blue point, one green loop back to itself, and a yellow interior."
+  caption="Two CW structures on the same disk D^2: 2+2+1 cells (left) versus 1+1+1 cells (right)."
+>
+  <svg viewBox="0 0 260 120" width="380" height="180" aria-hidden="true">
+    <circle cx="65" cy="60" r="45" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="1" />
+    <circle cx="65" cy="15" r="2.4" fill="currentColor" />
+    <circle cx="65" cy="105" r="2.4" fill="currentColor" />
+    <text x="65" y="60" font-size="7" fill="currentColor" text-anchor="middle">e²</text>
+    <text x="80" y="12" font-size="6" fill="currentColor">e⁰ₐ</text>
+    <text x="80" y="112" font-size="6" fill="currentColor">e⁰ᵦ</text>
+    <text x="20" y="60" font-size="6" fill="currentColor">e¹𝒸</text>
+    <text x="105" y="60" font-size="6" fill="currentColor">e¹𝒹</text>
+
+    <circle cx="195" cy="60" r="45" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="1" />
+    <circle cx="195" cy="15" r="2.4" fill="currentColor" />
+    <text x="195" y="60" font-size="7" fill="currentColor" text-anchor="middle">e²</text>
+    <text x="210" y="12" font-size="6" fill="currentColor">e⁰</text>
+    <text x="215" y="60" font-size="6" fill="currentColor">e¹</text>
+  </svg>
+</Figure>
+
+</SlideLayout>

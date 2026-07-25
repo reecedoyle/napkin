@@ -1,0 +1,21 @@
+---
+title: 'Problem: harmonic fan'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: harmonic fan">
+
+Path-connectedness is a strong condition — but it doesn't upgrade to niceness *nearby* a point automatically. This problem asks you to build a counterexample.
+
+<Problem
+  client:load
+  id="fg64-prob-harmonic-fan"
+  difficulty="standard"
+  prompt="Exhibit a subspace X of the metric space ℝ² which is path-connected, but for which a point p can be found such that every r-neighborhood of p with r < 1 is not path-connected."
+  hint="Try a subspace built from infinitely many line segments that all meet at one single point, with their far endpoints clustering near — but never equal to — a second, different point."
+  solution="Let L₀ be the segment from (0,0) to (1,0), and for each n = 1, 2, 3, ... let Lₙ be the segment from (0,0) to (1, 1/n). Let X be the union of all these segments — every segment starts at the common point (0,0), and their far endpoints (1,1/n) cluster toward (1,0) as n grows. X is path-connected: any point can reach (0,0) by walking along its own segment. Now take p = (1,0), the limit point of the far endpoints (note p is not itself one of the special clustering points, it's the tip of L₀). The distance from (0,0) — the only point shared by all the segments — to p is exactly 1, so for any r < 1, the r-neighborhood of p excludes (0,0) entirely. Inside that neighborhood, all we see are small disjoint arcs: a piece of L₀ near its tip, plus a piece of Lₙ near its own tip for every n large enough that 1/n < r. Any path in X between two of these arcs must pass back through (0,0) to switch segments, which means leaving the r-neighborhood. So the r-neighborhood of p, as a subspace of X, is not path-connected, even though X itself is."
+/>
+
+</SlideLayout>

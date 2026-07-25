@@ -1,0 +1,20 @@
+---
+title: The real projective plane
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The real projective plane">
+
+A more surprising example comes from the antipodal action on a sphere.
+
+<Callout kind="example" title="ℝP² as a quotient of S²">
+Let $G = \Zc 2 = \langle T \mid T^2 = 1 \rangle$ act on $X = S^2 \subseteq \RR^3$ by $T \cdot \vec x = -\vec x$. No point of the sphere equals its own antipode, so stabilizers are trivial. Every orbit has size exactly two — pairs of opposite points, like the North and South poles.
+</Callout>
+
+Concretely: every point below the equator gets fused with a point above it, and points on the equator get fused in pairs with each other. Flattening the whole picture, you can think of the result as a disk with only half of its boundary circle attached — this space is called the <Term k="cp65RealProjectivePlane">real projective plane</Term> $\RP^2$.
+
+This gives us a covering projection $S^2 \to \RP^2$: the preimage of a small patch on $\RP^2$ is exactly two disjoint copies of it on $S^2$.
+
+</SlideLayout>

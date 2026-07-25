@@ -1,0 +1,18 @@
+---
+title: The pointed homotopy category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The pointed homotopy category">
+
+<Callout kind="definition" title="Pointed homotopy category">
+The <Term k="fg64PointedHomotopyCategory">pointed homotopy category</Term> $\mathbf{hTop}_\ast$ has:
+- **objects**: pointed spaces $(X, x_0)$ — a space $X$ with a chosen basepoint,
+- **morphisms**: homotopy classes of continuous based maps $(X, x_0) \to (Y, y_0)$.
+</Callout>
+
+In particular, two path-connected spaces are isomorphic in $\mathbf{hTop}_\ast$ exactly when they are <Term k="fg64HomotopyEquivalence">homotopy equivalent</Term> — everything from §5 was really a statement about isomorphism in this category.
+
+</SlideLayout>

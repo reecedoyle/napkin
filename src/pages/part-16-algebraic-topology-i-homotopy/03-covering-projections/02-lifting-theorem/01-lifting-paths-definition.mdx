@@ -1,0 +1,18 @@
+---
+title: Lifting paths
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lifting paths">
+
+Here's the key idea of the whole chapter: we're going to reinterpret loops in $B$ as paths in $E$. This is often much simpler — for instance, we have no idea (yet) how to compute $\pi_1(S^1)$, but $\pi_1(\RR)$ is just the trivial group, since $\RR$ is <Term k="simplyConnected">simply connected</Term>. If we can turn loops in $S^1$ into paths in $\RR$, computing $\pi_1(S^1)$ should become tractable.
+
+<Callout kind="definition" title="Lifting">
+Let $\gamma \colon [0,1] \to B$ be a <Term k="path">path</Term> and $p \colon E \to B$ a <Term k="coveringProjection">covering projection</Term>. A <Term k="cp65Lifting">lifting</Term> of $\gamma$ is a path $\tilde\gamma \colon [0,1] \to E$ such that $p \circ \tilde\gamma = \gamma$.
+</Callout>
+
+In other words, $\tilde\gamma$ is a path living "upstairs" in $E$ that projects down onto exactly $\gamma$.
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: The reverse path
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The reverse path">
+
+To find the inverse in $\pi_1(X, x_0)$, we need a way to "undo" a loop.
+
+<Callout kind="definition" title="Reverse path">
+Given a path $\alpha \colon [0,1] \to X$, define the <Term k="fg64ReversePath">reverse path</Term> $\overline\alpha$ by $\overline\alpha(t) = \alpha(1-t)$. This "runs $\alpha$ backwards" — it starts at $\alpha$'s endpoint and ends at $\alpha$'s start.
+</Callout>
+
+The natural guess is that fusing a path with its own reverse should collapse to doing nothing at all.
+
+<ProofReveal
+  client:load
+  id="fg64-fg-proof-alpha-abar"
+  prompt="Show that for any path α, the fused path α∗ᾱ is path-homotopic to the do-nothing loop at α(0). (Picture walking partway along α and then immediately walking back.)"
+  solution="Build a homotopy that, at time s ∈ [0,1], only walks a fraction s of the way out along α before immediately retracing those same steps back. At s = 0 this stands still the whole time — exactly the do-nothing loop. At s = 1 it walks all the way out along α and all the way back along ᾱ — exactly α∗ᾱ. Every intermediate stage is continuous in both t and s, since 'walk out partway, then walk straight back' only ever revisits points already covered, so this is a genuine path homotopy fixing both endpoints, and it shrinks α∗ᾱ down to the constant loop."
+/>
+
+</SlideLayout>

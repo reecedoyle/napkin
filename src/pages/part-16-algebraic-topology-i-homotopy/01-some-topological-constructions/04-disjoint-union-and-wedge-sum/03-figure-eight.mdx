@@ -1,0 +1,30 @@
+---
+title: Example — the figure eight
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="Example — the figure eight">
+
+The prototype wedge sum, and one you should picture immediately whenever you see the notation $X \vee Y$:
+
+<Callout kind="example" title="S¹ ∨ S¹ is a figure eight">
+Let $X = S^1$ and $Y = S^1$, with $x_0 \in X$ and $y_0 \in Y$ any points. Then $X \vee Y$ is a "figure eight": two circles fused together at a single point.
+</Callout>
+
+<Figure
+  alt="Two circles side by side, touching at a single shared point in the middle, forming a figure-eight shape"
+  caption="S^1 v S^1: two circles glued at one basepoint, forming a figure eight."
+>
+  <svg viewBox="0 0 200 100" width="320" height="160" aria-hidden="true">
+    <circle cx="65" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" />
+    <circle cx="135" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" />
+    <circle cx="100" cy="50" r="2.4" fill="currentColor" />
+  </svg>
+</Figure>
+
+Notice this is genuinely different from the disjoint union $S^1 \amalg S^1$ (two separate, disconnected circles) — the wedge sum's single shared point makes $S^1 \vee S^1$ connected, and in fact it becomes the basic example used to study spaces with "more than one independent loop," which is exactly the kind of question the fundamental group (coming up soon) is built to answer.
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Exactly one lifting per starting point
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Exactly one lifting per starting point">
+
+Take a path $\gamma$ in $S^1$ with $\gamma(0) = 1 \in \CC$. Convince yourself that once we select an integer $n \in \RR$ as a starting point, there is exactly **one** lifting of $\gamma$ starting at $n$.
+
+Why? Locally, an evenly covered neighborhood $U$ of $\gamma(0)$ has finitely (or countably) many disjoint sheets in $\RR$ sitting over it, and $n$ picks out exactly one of them. As $\gamma$ moves, the lift is forced to stay in that one sheet — mimicking $\gamma$'s motion — until $\gamma$ leaves $U$, at which point the next evenly covered neighborhood again forces a single choice. There's never a branch point.
+
+<MCQ
+  client:load
+  id="cp65-lift-thm-mcq-uniqueness-source"
+  prompt="What ultimately forces a lifting of γ starting at a chosen point of the fiber to be unique, rather than just one option among several?"
+  options={[
+    { id: "a", label: "γ is required to be a smooth path, not merely continuous" },
+    { id: "b", label: "p restricted to each sheet of an evenly covered neighborhood is a homeomorphism, so the sheet containing the current lift determines the lift's next position uniquely" },
+    { id: "c", label: "B is required to be simply connected" },
+    { id: "d", label: "E is required to be compact" },
+  ]}
+  correct="b"
+  explanation="The evenly-covered condition says p is a homeomorphism on each sheet — so given which sheet the lift is currently in, its position is pinned down exactly by γ's position downstairs. Neither smoothness of γ, simple-connectedness of B, nor compactness of E is assumed or needed here."
+/>
+
+</SlideLayout>

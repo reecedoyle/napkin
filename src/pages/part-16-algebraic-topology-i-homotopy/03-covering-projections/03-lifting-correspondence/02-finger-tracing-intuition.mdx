@@ -1,0 +1,20 @@
+---
+title: A finger-tracing exercise
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A finger-tracing exercise">
+
+Here's a physical way to feel why $\Phi$ is well-defined on homotopy classes, using our usual $p \colon \RR \to S^1$.
+
+<Callout kind="question" title="Try it with your fingers">
+Put one finger at $1 \in S^1$ and one finger at $0 \in \RR$. Trace out, with the first finger, any loop in $S^1$ homotopic to "one full counterclockwise turn" — you're free to go backwards and forwards, as long as you net out to exactly one full counterclockwise rotation. Follow along with your second finger in $\RR$, moving it exactly the way the covering projection dictates.
+
+Convince yourself that no matter which such loop you trace, your second finger always ends at $1 \in \RR$.
+</Callout>
+
+That invariance — the ending point of the lift only depends on the homotopy class $[\gamma]$, not on $\gamma$ itself — is exactly what makes $\Phi$ a well-defined function on $\pi_1(B, b_0)$ rather than just on individual loops.
+
+</SlideLayout>

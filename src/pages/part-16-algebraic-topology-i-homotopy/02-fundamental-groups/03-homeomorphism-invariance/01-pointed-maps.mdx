@@ -1,0 +1,18 @@
+---
+title: Pointed maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pointed maps">
+
+We now want to relate the fundamental groups of two different spaces $X$ and $Y$. To do that cleanly, it helps to introduce one piece of shorthand.
+
+<Callout kind="definition" title="Pointed map">
+By <Term k="fg64PointedMap">$f \colon (X, x_0) \to (Y, y_0)$</Term> we mean that $f \colon X \to Y$ is a <Term k="continuousTop">continuous function</Term> which also sends the basepoint $x_0$ to the basepoint $y_0$.
+</Callout>
+
+This is exactly the kind of function we need: it takes loops at $x_0$ to loops at $y_0$, since a loop $\gamma$ at $x_0$ satisfies $\gamma(0) = \gamma(1) = x_0$, and composing with $f$ gives $(f \circ \gamma)(0) = (f \circ \gamma)(1) = f(x_0) = y_0$.
+
+</SlideLayout>

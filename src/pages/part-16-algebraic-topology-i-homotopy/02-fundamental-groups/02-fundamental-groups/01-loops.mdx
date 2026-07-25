@@ -1,0 +1,28 @@
+---
+title: Loops
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Loops">
+
+Keeping track of endpoints is annoying, so let's specialize to paths that start and end at the same point.
+
+<Callout kind="definition" title="Loop">
+A <Term k="fg64Loop">loop</Term> is a path $\gamma$ with $\gamma(0) = \gamma(1)$. The shared point $x_0$ is the loop's **basepoint**.
+</Callout>
+
+If we restrict attention to loops based at a single point $x_0$, we no longer have to worry about matching endpoints when fusing — everything already starts and ends at $x_0$. There's a canonical loop to go with this: the <Term k="fg64ConstantLoop">"do-nothing" loop</Term>, which just stands still at $x_0$ for the whole interval $[0,1]$.
+
+<Callout kind="definition" title="Null-homotopic">
+A loop $\gamma$ is <Term k="fg64NulHomotopic">null-homotopic</Term> if $\gamma \simeq 1$, i.e. it's path-homotopic to the do-nothing loop.
+</Callout>
+
+Visualize null-homotopy as "reeling in" the loop until it collapses to a point. For example, every loop in the sphere $S^2$ is null-homotopic: you can always contract a loop drawn on a sphere's surface down to a single dot without ever leaving the surface.
+
+<Callout kind="remark" title="Why this matters">
+Showing a space is <Term k="simplyConnected">simply connected</Term> comes down to showing every loop in it is null-homotopic — so understanding loops is the whole game.
+</Callout>
+
+</SlideLayout>

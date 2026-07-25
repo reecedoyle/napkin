@@ -1,0 +1,49 @@
+---
+title: Spheres and balls
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="Spheres and balls">
+
+This chapter is a toolbox: a handful of standard constructions — spheres, quotients, products, wedges, CW complexes — that show up constantly once we start doing algebraic topology. None of it is deep on its own; the payoff is having the vocabulary ready.
+
+We start with the two shapes you already know from calculus, but now viewed purely as topological spaces.
+
+<Callout kind="definition" title="Sphere and closed ball">
+The **<Term k="tc63Sphere">$n$-sphere</Term>** is
+$$
+S^n = \left\{ (x_0, \dots, x_n) \mid x_0^2 + \dots + x_n^2 = 1 \right\} \subset \RR^{n+1}.
+$$
+The **<Term k="tc63ClosedBall">closed ball</Term>** is
+$$
+D^{n+1} = \left\{ (x_0, \dots, x_n) \mid x_0^2 + \dots + x_n^2 \le 1 \right\} \subset \RR^{n+1}.
+$$
+</Callout>
+
+So $S^n$ is only the *surface* — the shell — while $D^{n+1}$ is the solid ball including its interior. Note the index shift: $S^n$ is the boundary of $D^{n+1}$, one dimension up.
+
+Two small cases are worth having a mental picture of immediately: $D^2$ is an ordinary disk in the plane, and $S^1$ is the unit circle bounding it. One dimension down, $S^0$ is just the two points $\{-1, 1\}$, and $D^1$ is the interval $[-1, 1]$ that they bound.
+
+<Figure
+  alt="A unit circle S^1 with two red dots at its top and bottom labeled S^1 and D^2, and to the left, a line segment with two red endpoints labeled S^0 and D^1"
+  caption="Left: S^0 is two points, D^1 is the segment between them. Right: S^1 is the circle, D^2 is the disk it bounds."
+>
+  <svg viewBox="0 0 240 100" width="360" height="150" aria-hidden="true">
+    {/* Left: S^0 and D^1 */}
+    <line x1="20" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="1" />
+    <circle cx="20" cy="50" r="2.2" fill="currentColor" />
+    <circle cx="90" cy="50" r="2.2" fill="currentColor" />
+    <text x="55" y="40" font-size="7" fill="currentColor" text-anchor="middle">D^1</text>
+    <text x="55" y="65" font-size="7" fill="currentColor" text-anchor="middle">S^0 = endpoints</text>
+
+    {/* Right: S^1 and D^2 */}
+    <circle cx="175" cy="50" r="35" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="1" />
+    <text x="175" y="53" font-size="7" fill="currentColor" text-anchor="middle">D^2</text>
+    <text x="175" y="8" font-size="7" fill="currentColor" text-anchor="middle">S^1</text>
+  </svg>
+</Figure>
+
+</SlideLayout>

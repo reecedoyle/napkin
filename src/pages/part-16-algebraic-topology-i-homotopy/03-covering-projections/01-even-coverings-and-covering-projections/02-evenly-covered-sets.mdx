@@ -1,0 +1,18 @@
+---
+title: Evenly covered sets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Evenly covered sets">
+
+We want to say that a big space $E$ sits over a base space $B$ "in a nice way": locally, the preimage of a piece of $B$ should look like several disjoint stacked copies of that piece — like a stack of pancakes, all identical to the pancake below them.
+
+<Callout kind="definition" title="Evenly covered">
+Let $p \colon E \to B$ be continuous and let $U$ be an <Term k="openSetTop">open set</Term> of $B$. We call $U$ <Term k="cp65EvenlyCovered">evenly covered</Term> (by $p$) if $p\inv(U)$ is a disjoint union of open sets of $E$ — possibly infinitely many — such that $p$ restricted to any one of them is a <Term k="homeomorphismTop">homeomorphism</Term> onto $U$.
+</Callout>
+
+So $U$ is evenly covered exactly when its preimage is a bunch of copies of $U$: not merely homeomorphic copies floating in $E$, but copies where $p$ itself realizes each homeomorphism back down to $U$.
+
+</SlideLayout>

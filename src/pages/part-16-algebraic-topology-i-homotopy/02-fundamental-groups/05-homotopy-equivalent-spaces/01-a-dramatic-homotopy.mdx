@@ -1,0 +1,24 @@
+---
+title: A dramatic homotopy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A dramatic homotopy">
+
+So far, every time we said two things were "homotopic," we meant *path*-homotopic — a deformation that fixes both endpoints. From here on we'll use the fully general notion of <Term k="homotopy">homotopy</Term>: a continuous $F \colon X \times [0,1] \to Y$ with $F(\cdot, 0) = f$ and $F(\cdot, 1) = g$, for arbitrary continuous $f, g \colon X \to Y$ — no endpoints to keep fixed at all.
+
+This general notion of <Term k="homotopic">homotopic</Term> maps can be dramatic:
+
+<Callout kind="example" title="The zero map is homotopic to the identity on ℂ">
+The zero function $z \mapsto 0$ and the identity function $z \mapsto z$ are homotopic as maps <Term k="CC">$\mathbb{C}$</Term> $\to \mathbb{C}$. The deformation is
+$$
+[0,1] \times \mathbb{C} \to \mathbb{C} \quad \text{by} \quad (s, z) \mapsto sz.
+$$
+At $s=0$ everything is squashed to $0$; at $s=1$ we recover the identity.
+</Callout>
+
+If a map that collapses the entire plane to a point can be continuously deformed into the identity map, then "homotopic" is clearly a much coarser relation than "equal," or even "path-homotopic."
+
+</SlideLayout>

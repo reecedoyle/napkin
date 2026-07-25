@@ -1,0 +1,22 @@
+---
+title: The punctured plane is homotopy equivalent to S¹
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The punctured plane is homotopy equivalent to S¹">
+
+<Callout kind="example" title="ℂ∖{0} ≃ S¹">
+Consider the <Term k="fg64PuncturedPlane">punctured plane</Term> $\mathbb{C} \setminus \{0\}$ and the circle <Term k="complexUnitCircle">$S^1$</Term> viewed as a subset of $\mathbb{C}$. These are homotopy equivalent, via the inclusion $S^1 \hookrightarrow \mathbb{C} \setminus \{0\}$ and the map
+$$
+\mathbb{C} \setminus \{0\} \to S^1 \quad \text{by} \quad z \mapsto \frac{z}{\abs{z}}.
+$$
+You can check the two composites are each homotopic to the corresponding identity map (the second composite, "project to $S^1$ then include back," slides every point radially onto the unit circle without ever hitting the missing origin).
+</Callout>
+
+<Callout kind="remark" title="But not homeomorphic">
+$\mathbb{C} \setminus \{0\}$ cannot be homeomorphic to $S^1$: you can disconnect $S^1$ by deleting two points, but the punctured plane stays connected no matter which two points you delete. Homotopy equivalence really is a coarser relation than homeomorphism.
+</Callout>
+
+</SlideLayout>

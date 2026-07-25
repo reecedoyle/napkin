@@ -1,0 +1,37 @@
+---
+title: Spheres as CW complexes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Spheres as CW complexes">
+
+Two different CW recipes for $S^n$ ($n \geq 1$), each useful in different arguments later on.
+
+<Callout kind="example" title="Two cells: the minimal recipe">
+Take a single point $e^0$ for $X^0$, then take $D^n$ and weld its *entire* boundary into that one point $e^0$. We already saw this at the very start of the chapter: $S^2$ is what you get fusing the boundary of $D^2$ to a point.
+</Callout>
+
+<Callout kind="example" title="Hemispheres: the inductive recipe">
+Alternatively, build $S^n$ inductively with two cells in *each* dimension up to $n$: $S^0$ is two points; $S^1$ is obtained by joining those two points with two 1-cells (two arcs); $S^2$ is obtained by gluing two hemispheres (each a 2-cell) with that $S^1$ as their shared equator; and so on.
+</Callout>
+
+Both recipes build the same space $S^n$ — they're just different bookkeeping for how many cells you use and in what dimensions.
+
+<MCQ
+  client:load
+  id="tc63-cw-mcq-sphere-min-cells"
+  prompt="How many cells does the minimal CW structure on S^n (n ≥ 1) use in total?"
+  options={[
+    { id: "a", label: "1" },
+    { id: "b", label: "2" },
+    { id: "c", label: "n" },
+    { id: "d", label: "2n" },
+  ]}
+  correct="b"
+  explanation="Just 2: a single 0-cell e^0, plus a single n-cell whose entire boundary S^{n-1} is collapsed onto that point. The hemisphere recipe uses more cells (2 in every dimension up to n), but the minimal recipe always needs only 2 cells regardless of n."
+/>
+
+</SlideLayout>

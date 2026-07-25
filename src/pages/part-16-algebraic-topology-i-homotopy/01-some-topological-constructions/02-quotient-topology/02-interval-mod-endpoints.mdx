@@ -1,0 +1,43 @@
+---
+title: Example — the interval mod its endpoints
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="Example — the interval mod its endpoints">
+
+Take $D^1 = [-1, 1]$, and quotient by the equivalence relation that identifies only the two endpoints: $x \sim y$ iff $x = y$, or $\{x, y\} = \{-1, 1\}$. Gluing the two ends of a segment together gives exactly what you'd guess from folding a strip of paper into a loop:
+
+<Callout kind="example" title="Interval modulo endpoints">
+$D^1 / {\sim} \cong S^1$, where $\sim$ identifies $-1$ and $1$.
+</Callout>
+
+<Figure
+  alt="A horizontal segment with endpoints -1 and 1 on the left, mapped by an arrow to a circle on the right where those two endpoints have been fused into one point"
+  caption="D^1, with its endpoints -1 and 1 glued together, becomes the circle S^1."
+>
+  <svg viewBox="0 0 240 100" width="360" height="150" aria-hidden="true">
+    <line x1="20" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="1" />
+    <circle cx="20" cy="50" r="2.2" fill="currentColor" />
+    <circle cx="90" cy="50" r="2.2" fill="currentColor" />
+    <text x="20" y="35" font-size="7" fill="currentColor" text-anchor="middle">-1</text>
+    <text x="90" y="35" font-size="7" fill="currentColor" text-anchor="middle">1</text>
+
+    <path d="M 105 50 L 130 50" stroke="currentColor" stroke-width="1" marker-end="url(#arrow63)" />
+    <defs>
+      <marker id="arrow63" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 z" fill="currentColor" />
+      </marker>
+    </defs>
+
+    <circle cx="185" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" />
+    <circle cx="185" cy="15" r="2.2" fill="currentColor" />
+    <text x="185" y="5" font-size="7" fill="currentColor" text-anchor="middle">-1 ~ 1</text>
+  </svg>
+</Figure>
+
+Here's the key thing to notice: a small open neighborhood of the glued point $[-1] = [1]$ in the quotient space corresponds, back in $D^1$, to *two* separate half-open intervals — one near $-1$, one near $1$. That's exactly the kind of set the definition on the last slide declares open, and it's the detail that makes the quotient topology the "right" one rather than an arbitrary bookkeeping choice.
+
+</SlideLayout>

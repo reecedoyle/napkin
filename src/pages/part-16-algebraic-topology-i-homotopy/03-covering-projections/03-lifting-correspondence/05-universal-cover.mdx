@@ -1,0 +1,24 @@
+---
+title: Universal covers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Universal covers">
+
+The case where $\Phi$ is a bijection — $E$ simply connected — is important enough to name.
+
+<Callout kind="definition" title="Universal cover">
+A <Term k="universalCover">universal cover</Term> of a space $B$ is a covering projection $p \colon E \to B$ where $E$ is simply connected (and in particular path-connected).
+</Callout>
+
+When $p$ is understood from context, people often just say "$E$ is the universal cover of $B$" and leave $p$ implicit.
+
+This is where the payoff is: if $E$ is a universal cover of $B$, the lifting correspondence gives a genuine **bijection**
+$$
+\Phi \colon \pi_1(B, b_0) \leftrightarrow p\inv(b_0).
+$$
+Computing $\pi_1(B)$ reduces to understanding a single fiber of a (hopefully simpler) space $E$.
+
+</SlideLayout>

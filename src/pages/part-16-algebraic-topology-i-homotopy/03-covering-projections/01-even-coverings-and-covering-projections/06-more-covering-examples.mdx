@@ -1,0 +1,24 @@
+---
+title: More covering examples
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="More covering examples">
+
+Covering projections aren't limited to $\RR \to S^1$. Here are a few more, all built from wrapping one space around another finitely or infinitely many times.
+
+<Callout kind="example" title="A circle covering itself">
+The map $S^1 \to S^1$ by $z \mapsto z^3$ is a covering projection. Every point $w \in S^1$ has three cube roots, and a small enough arc around $w$ has a preimage consisting of three disjoint small arcs, one around each cube root, each mapped homeomorphically back onto the arc around $w$.
+</Callout>
+
+<Callout kind="example" title="Covering projections of the punctured plane">
+For $\CC \setminus \{0\}$, two more covering projections show up constantly:
+- The exponential map $\exp \colon \CC \to \CC \setminus \{0\}$.
+- For each $n$, the $n$th power map $z \mapsto z^n$ on $\CC \setminus \{0\}$.
+</Callout>
+
+Notice the pattern: $\RR \to S^1$ and $\exp \colon \CC \to \CC \setminus \{0\}$ both have *infinite* fibers (they "unroll" a loop completely), while $z \mapsto z^n$ has *finite* fibers of size $n$ (it wraps a loop around $n$ times without ever fully unrolling it). We'll see in §3 that this distinction — infinite unrolling vs. finite wrapping — corresponds exactly to whether the covering space is simply connected.
+
+</SlideLayout>

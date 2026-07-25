@@ -1,0 +1,40 @@
+---
+title: Exercise — the unit square
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Figure from '@/components/Figure.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Exercise — the unit square">
+
+Let $X = [0,1]$ and consider $X \times X$ — of course we expect this to just be the unit square. Below is a basis element $U \times V$ pictured inside it.
+
+<Figure
+  alt="A unit square with a smaller shaded rectangle U-by-V inside it, formed as the product of a horizontal open interval U and a vertical open interval V"
+  caption="A basis element U x V of the product topology on X x X, for X = [0,1]: a rectangle built from an open sub-interval U on one axis and V on the other."
+>
+  <svg viewBox="0 0 120 120" width="260" height="260" aria-hidden="true">
+    <rect x="10" y="10" width="100" height="100" fill="none" stroke="currentColor" stroke-width="0.8" />
+    <rect x="35" y="45" width="45" height="35" fill="currentColor" opacity="0.18" />
+    <line x1="35" y1="10" x2="35" y2="110" stroke="currentColor" stroke-width="0.4" stroke-dasharray="2 2" />
+    <line x1="80" y1="10" x2="80" y2="110" stroke="currentColor" stroke-width="0.4" stroke-dasharray="2 2" />
+    <line x1="10" y1="45" x2="110" y2="45" stroke="currentColor" stroke-width="0.4" stroke-dasharray="2 2" />
+    <line x1="10" y1="80" x2="110" y2="80" stroke="currentColor" stroke-width="0.4" stroke-dasharray="2 2" />
+    <text x="57" y="20" font-size="7" fill="currentColor" text-anchor="middle">U</text>
+    <text x="20" y="65" font-size="7" fill="currentColor" text-anchor="middle">V</text>
+    <text x="57" y="65" font-size="7" fill="currentColor" text-anchor="middle">U × V</text>
+  </svg>
+</Figure>
+
+You've also met a completely different-looking topology on $X \times X$ before: the one induced by the <Term k="productMetric">product metric</Term> (say, ordinary Euclidean distance on pairs). These two constructions had better agree, or "product topology" would be a badly-chosen name.
+
+<ProofReveal
+  client:load
+  id="tc63-prod-proof-basis-matches-metric"
+  prompt="Convince yourself the basis {U × V} gives the same topology on X × X as the product metric does. (So this really is the 'right' definition.)"
+  solution="Each basis rectangle U × V is a union of metric balls: around any point (x,y) in U × V, since U and V are open in the metric on X, we can find a small enough radius r so that the metric ball of radius r around (x,y) sits inside U × V (take r to be the smaller of the two 'room to spare' distances in each coordinate). Conversely, every metric ball is a union of rectangles U × V, since we can inscribe a small square (a product of two open intervals) inside any metric ball around a point. Since each topology's basis elements are unions of the other's, the two topologies coincide."
+/>
+
+</SlideLayout>

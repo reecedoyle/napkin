@@ -1,0 +1,32 @@
+---
+title: Associativity is a lie (sort of)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Associativity is a lie (sort of)">
+
+This "run twice as fast" hack has an unfortunate side effect: $\ast$ is **not associative**. If we form $(\gamma_1 \ast \gamma_2) \ast \gamma_3$, unwinding the definition shows $[0,\frac14]$, $[\frac14,\frac12]$, and $[\frac12,1]$ are the time intervals allocated to $\gamma_1$, $\gamma_2$, $\gamma_3$ respectively.
+
+<MCQ
+  client:load
+  id="fg64-fuse-mcq-assoc-times"
+  prompt="Unwinding the definition of ∗, what time intervals does γ₁∗(γ₂∗γ₃) allocate to γ₁, γ₂, γ₃ respectively?"
+  options={[
+    { id: "a", label: "[0, 1/4], [1/4, 1/2], [1/2, 1]" },
+    { id: "b", label: "[0, 1/2], [1/2, 3/4], [3/4, 1]" },
+    { id: "c", label: "[0, 1/3], [1/3, 2/3], [2/3, 1]" },
+    { id: "d", label: "[0, 1/2], [1/2, 1], [1/2, 1]" },
+  ]}
+  correct="b"
+  explanation="γ₁∗(γ₂∗γ₃) first splits [0,1] into [0,1/2] for γ₁ and [1/2,1] for the inner fused path γ₂∗γ₃, then splits that second half again in two: [1/2,3/4] for γ₂ and [3/4,1] for γ₃. This is a different split from (γ₁∗γ₂)∗γ₃'s [0,1/4], [1/4,1/2], [1/2,1] — so the two paths are literally different functions, even though both traverse γ₁ then γ₂ then γ₃."
+/>
+
+But the *reason* $\ast$ fails to be associative is kind of silly: it's purely a matter of how fast we run through each piece. The picture $(\gamma_1 \ast \gamma_2) \ast \gamma_3$ traces out and the picture $\gamma_1 \ast (\gamma_2 \ast \gamma_3)$ traces out are the *same route through $X$*, just parametrized differently.
+
+<Callout kind="remark" title="The fix: stop caring about [0,1] itself">
+So as long as we're fusing paths, we shouldn't take the parametrization $[0,1]$ too seriously. We only consider paths up to reparametrization — which is exactly what path homotopy gives us.
+</Callout>
+
+</SlideLayout>

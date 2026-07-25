@@ -1,0 +1,24 @@
+---
+title: Checking the group axioms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Checking the group axioms">
+
+Let's assemble the pieces into an actual proof that $\pi_1(X, x_0)$ is a group.
+
+<Callout kind="theorem" title="π₁(X, x₀) is a group">
+With $\ast$ as its operation, $\pi_1(X, x_0)$ is a group.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Fusing two loops at $x_0$ clearly produces another loop at $x_0$, and we already saw $\ast$ is associative on homotopy classes. Two things remain: an identity, and inverses.
+
+- **Identity.** The do-nothing loop $1$ works: for any loop $\gamma$, $\gamma \simeq \gamma \ast 1 \simeq 1 \ast \gamma$ (running $\gamma$ then standing still, or standing still then running $\gamma$, is just a reparametrization of $\gamma$).
+- **Inverses.** For a loop $\gamma$, its reverse $\overline\gamma$ satisfies $\gamma \ast \overline\gamma \simeq 1 \simeq \overline\gamma \ast \gamma$ — exactly the fact from the previous slide.
+
+Hence $\pi_1(X, x_0)$ is a group, with identity $[1]$ and inverse $[\gamma]^{-1} = [\overline\gamma]$.
+</Callout>
+
+</SlideLayout>

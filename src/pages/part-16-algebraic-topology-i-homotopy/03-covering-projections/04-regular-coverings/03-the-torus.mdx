@@ -1,0 +1,18 @@
+---
+title: The torus as a quotient
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The torus as a quotient">
+
+The same idea, one dimension up, builds the torus.
+
+<Callout kind="example" title="The torus">
+Let $G = \ZZ \times \ZZ$ act on $X = \RR^2$ by $(m,n) \cdot (x,y) = (m+x, n+y)$. Again every stabilizer is trivial. Since $[0,1)^2$ is a complete set of orbit representatives, you can picture $X/G$ as a unit square with opposite edges identified — glue the left edge to the right edge, then glue the top edge to the bottom.
+</Callout>
+
+This produces the <Term k="cp65Torus">torus</Term> $S^1 \times S^1$, together with a covering projection $\RR^2 \to S^1 \times S^1$. Just as $\RR$ was the universal cover of $S^1$, $\RR^2$ is the universal cover of the torus — it's simply connected, being all of the plane.
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: 'Problem: a special case of Seifert–van Kampen'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: a special case of Seifert–van Kampen">
+
+<Problem
+  client:load
+  id="fg64-prob-svk-special-case"
+  difficulty="daggered"
+  prompt="Let X be a topological space. Suppose U and V are connected open subsets of X with X = U ∪ V, such that U ∩ V is nonempty and path-connected. Prove that if π₁(U) = π₁(V) = {1} then π₁(X) = {1}."
+  hint="Cut an arbitrary loop in X into finitely many pieces using compactness of [0,1], so that each piece lands entirely in U or entirely in V."
+  solution="By compactness of [0,1], the open cover {γ⁻¹(U), γ⁻¹(V)} of [0,1] has a Lebesgue number, so [0,1] splits into finitely many consecutive subintervals, each sent entirely into U or entirely into V by γ. Merging consecutive subintervals landing in the same set, we may assume the pieces alternate between U and V, so every interior division point is exactly where a U-piece meets a V-piece, and hence lies in U ∩ V. Since U ∩ V is path-connected, join each division point to the basepoint by a path lying entirely inside U ∩ V. Inserting each such path immediately followed by its own reverse at the matching division point doesn't change the homotopy class of γ, but it lets us regroup γ as a concatenation of loops based at the basepoint, each one lying entirely inside U or entirely inside V. Every one of these loops is null-homotopic, because π₁(U) and π₁(V) are both trivial. A concatenation of null-homotopic loops is null-homotopic, so γ itself is null-homotopic. As γ was an arbitrary loop in X, π₁(X) is trivial."
+/>
+
+<Callout kind="remark" title="This is a special case of a much bigger theorem">
+The full <Term k="fg64SeifertVanKampen">Seifert–van Kampen theorem</Term> generalizes this to arbitrary $\pi_1(U)$ and $\pi_1(V)$, giving a formula for $\pi_1(X)$ in terms of $\pi_1(U)$, $\pi_1(V)$, and $\pi_1(U \cap V)$ — the proof is much the same idea. Unfortunately it can't be used to compute $\pi_1(S^1)$, since $S^1$ can't be written as $U \cup V$ with $U \cap V$ connected.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: Homotopy equivalence and contractibility
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homotopy equivalence and contractibility">
+
+That last example motivates a more generous notion of "the same shape" than homeomorphism.
+
+<Callout kind="definition" title="Homotopy equivalence">
+Spaces $X$ and $Y$ are <Term k="fg64HomotopyEquivalence">homotopy equivalent</Term> if there exist continuous $f \colon X \to Y$ and $g \colon Y \to X$ such that $f \circ g$ is homotopic to $\id_Y$ and $g \circ f$ is homotopic to $\id_X$. If a space is homotopy equivalent to a single point, it's called <Term k="fg64Contractible">contractible</Term>.
+</Callout>
+
+Think of this as a more generous form of stretching and bending than homeomorphism: we're now allowed to compress huge (even infinite-dimensional) spaces down into single points, as long as we can also inflate the point back out into something homotopic to the identity.
+
+</SlideLayout>

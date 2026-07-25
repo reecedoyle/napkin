@@ -1,0 +1,20 @@
+---
+title: ℝℙⁿ as a cell complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="ℝℙⁿ as a cell complex">
+
+Since $\RP^n$ is "$\RR^n$ (or $D^n$) with $\RP^{n-1}$ as its boundary at infinity," we can build it as a CW complex inductively, one dimension at a time. The pattern that falls out is clean:
+
+<Callout kind="example" title="ℝℙⁿ has one cell in each dimension">
+- $\RP^0$ is a single point.
+- $\RP^1 \cong S^1$ is a circle — as a CW complex, one $0$-cell plus one $1$-cell.
+- $\RP^2$ is formed by taking a $2$-cell and wrapping its perimeter *twice* around a copy of $\RP^1$.
+</Callout>
+
+In general, $\RP^n$ consists of exactly **one cell in each dimension from $0$ to $n$** — a strikingly economical CW structure, and one we'll lean on again once we start computing invariants of these spaces.
+
+</SlideLayout>

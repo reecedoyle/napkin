@@ -1,0 +1,22 @@
+---
+title: Homotopy equivalent spaces have isomorphic homotopy groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homotopy equivalent spaces have isomorphic homotopy groups">
+
+We can now upgrade the homeomorphism-invariance result from §3 to the much more general homotopy-equivalence setting.
+
+<Callout kind="theorem" title="Homotopy invariance of πₙ">
+Let $X$ and $Y$ be path-connected, homotopy-equivalent spaces. Then <Term k="fg64HigherHomotopyGroup">$\pi_n(X) \cong \pi_n(Y)$</Term> for every $n \ge 1$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Let $f \colon X \to Y$ and $g \colon Y \to X$ witness the homotopy equivalence (so $f \circ g \simeq \id_Y$ and $g \circ f \simeq \id_X$). For a based map $\gamma \colon S^n \to X$, the composition $f \circ \gamma \colon S^n \to Y$ gives an induced homomorphism $\pi_n(X) \to \pi_n(Y)$, and similarly $g$ induces $\pi_n(Y) \to \pi_n(X)$. Since $f \circ g \simeq \id_Y$ and $g \circ f \simeq \id_X$, these two induced maps are inverse to each other — hence both are isomorphisms.
+</Callout>
+
+Compare this proof with the homeomorphism-invariance proof from §3: they're secretly the same argument, just with "equal" loosened to "homotopic" throughout.
+
+</SlideLayout>

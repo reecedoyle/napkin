@@ -1,0 +1,38 @@
+---
+title: Example — real projective 1-space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Example — real projective 1-space">
+
+The $n=1$ case is small enough to see completely, and it's a good sanity check on all three definitions from the last slide.
+
+<Callout kind="example" title="ℝℙ¹, three ways">
+$\RP^1$ is $S^1$ modulo the relation that identifies antipodal points. Projecting onto a tangent line, we get a copy of $\RR$ plus a single point at infinity (corresponding to the one direction parallel to that tangent line).
+
+So the points of $\RP^1$ come in two forms: $(x:1)$, which we think of as the real number $x$, and $(1:0)$, which we think of as $1/0 = \infty$. Literally,
+$$
+\RP^1 = \RR \cup \{\infty\}.
+$$
+</Callout>
+
+Topologically, $\RP^1 \cong S^1$ — it's "the real line with its two ends fused together into a single point at infinity." (This also matches the boundary of $\RP^2$ from the last slide's edge-square picture: a circle with antipodal points identified is exactly what a single edge, doubled back on itself, produces.)
+
+<MCQ
+  client:load
+  id="tc63-rp-mcq-rp1-identify"
+  prompt="Which space is ℝℙ¹ homeomorphic to?"
+  options={[
+    { id: "a", label: "ℝ" },
+    { id: "b", label: "S¹" },
+    { id: "c", label: "S⁰" },
+    { id: "d", label: "The Klein bottle" },
+  ]}
+  correct="b"
+  explanation="ℝℙ¹ = ℝ ∪ {∞}, i.e. the real line with its two 'ends' fused into a single point — exactly the construction that turns ℝ into a circle. So ℝℙ¹ ≅ S¹."
+/>
+
+</SlideLayout>

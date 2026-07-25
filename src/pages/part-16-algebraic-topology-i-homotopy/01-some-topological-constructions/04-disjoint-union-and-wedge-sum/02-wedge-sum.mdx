@@ -1,0 +1,25 @@
+---
+title: The wedge sum
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The wedge sum">
+
+More interesting than the disjoint union is fusing two spaces together at a *single* point — enough contact to make the result connected, but nothing more.
+
+<Callout kind="definition" title="Wedge sum">
+Let $X, Y$ be topological spaces with chosen points $x_0 \in X$, $y_0 \in Y$. Define $\sim$ on $X \amalg Y$ by declaring $x_0 \sim y_0$ only. Then the **<Term k="tc63WedgeSum">wedge sum</Term>** is
+$$
+X \vee Y = (X \amalg Y) / {\sim}.
+$$
+</Callout>
+
+So: take the disjoint union, then glue exactly one point of $X$ to exactly one point of $Y$. The choice of basepoints $x_0, y_0$ is often unimportant — we frequently drop them from the notation when they're understood or irrelevant, and just write $X \vee Y$.
+
+<Callout kind="remark" title="A LaTeX joke that stuck">
+Annoyingly, the LaTeX command `\wedge` produces $\wedge$, not $\vee$ (that's `\vee`). So "wedge sum" really should be called the "vee sum" — but the name was already too entrenched by the time anyone noticed.
+</Callout>
+
+</SlideLayout>

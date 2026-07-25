@@ -1,0 +1,30 @@
+---
+title: The classification theorem for covering spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The classification theorem for covering spaces">
+
+It's a genuine miracle that the "subgroups of ℤ" story from $S^1$ generalizes completely, under two mild hypotheses.
+
+<Callout kind="definition" title="Locally connected">
+A space $X$ is <Term k="cp65LocallyConnected">locally connected</Term> if for each point $x \in X$ and open neighborhood $V$ of $x$, there is a connected open set $U$ with $x \in U \subseteq V$.
+</Callout>
+
+<Callout kind="definition" title="Semi-locally simply connected">
+A space $X$ is <Term k="cp65SemiLocallySimplyConnected">semi-locally simply connected</Term> if every point has an open neighborhood $U$ such that every loop in $U$ is <Term k="cp65NullHomotopic">null-homotopic</Term> in $X$ — the contraction is allowed to happen outside $U$.
+</Callout>
+
+Pretty much every space you've ever seen has both properties — they just rule out truly pathological spaces.
+
+<Callout kind="theorem" title="Group theory via covering spaces">
+Suppose $B$ is locally connected and semi-locally simply connected. Then:
+- Every subgroup $H \subseteq \pi_1(B)$ corresponds to exactly one covering projection $p \colon E \to B$ with $E$ path-connected, up to isomorphism. (Specifically, $H$ is the image of $\pi_1(E)$ under $p_\sharp$.)
+- The *normal* subgroups of $\pi_1(B)$ correspond exactly to the <Term k="cp65RegularProjection">regular</Term> covering projections.
+</Callout>
+
+So the group theory of $\pi_1(B)$ is completely readable off the covering projections of $B$, and vice versa.
+
+</SlideLayout>

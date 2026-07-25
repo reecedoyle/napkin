@@ -1,0 +1,26 @@
+---
+title: Building up spaces, stage by stage
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Building up spaces, stage by stage">
+
+We now have enough tools — quotients, disjoint unions, wedges — to start actually building interesting spaces. The single most useful recipe is the **CW complex**: build a space by attaching balls of increasing dimension, one dimension at a time.
+
+<Callout kind="definition" title="CW complex, informally">
+A <Term k="tc63CWComplex">CW complex</Term> is built as follows:
+- Start with a set of points $X^0$.
+- Form $X^1$ by taking some copies of $D^1$ (line segments) and gluing their endpoints (copies of $S^0$) onto $X^0$.
+- Form $X^2$ by taking copies of $D^2$ (disks) and welding their boundary (a copy of $S^1$) onto $X^1$.
+- Repeat, up to some finite stage $n$ — we then say $X$ is **$n$-dimensional**.
+</Callout>
+
+Each intermediate space $X^k$ is called the **<Term k="tc63Skeleton">$k$-skeleton</Term>** of $X$, and each copy of $D^k$ used along the way is a **<Term k="tc63Cell">$k$-cell</Term>**, usually denoted $e^k_\alpha$ for some index $\alpha$ distinguishing multiple cells in the same dimension. We call $X$ **finite** if only finitely many cells were used overall.
+
+<Callout kind="remark" title="Infinite-dimensional CW complexes exist, but not here">
+Most references (Hatcher, for one) allow CW complexes with cells in every dimension, going on forever. We won't need any such spaces in this book — every example here stops at some finite stage.
+</Callout>
+
+</SlideLayout>

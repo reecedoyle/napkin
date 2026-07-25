@@ -1,0 +1,28 @@
+---
+title: Disjoint union
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Disjoint union">
+
+Sometimes we want to combine two spaces without gluing anything — just place them side by side, entirely separate. The formal definition is a bit of overkill for something this intuitive, but here it is:
+
+<Callout kind="definition" title="Disjoint union">
+Let $X$ and $Y$ be topological spaces. The **<Term k="tc63DisjointUnion">disjoint union</Term>**, written $X \amalg Y$, is the space whose
+- points are the disjoint union of the point sets of $X$ and $Y$, and
+- a subset $U \subseteq X \amalg Y$ is open iff $U \cap X$ and $U \cap Y$ are each open (in $X$, resp. $Y$).
+</Callout>
+
+That's exactly "two spaces drawn next to each other, not touching." One immediate consequence: gluing nothing together means there's no path from one piece to the other.
+
+<ProofReveal
+  client:load
+  id="tc63-wedge-proof-disjoint-union-disconnected"
+  prompt="Show that the disjoint union of two nonempty spaces is disconnected."
+  solution="If X and Y are both nonempty, then X itself is open in X ⊔ Y (since X ∩ X = X is open in X and X ∩ Y = ∅ is open in Y), and likewise Y is open in X ⊔ Y. These two open sets are disjoint, nonempty, and cover all of X ⊔ Y — exactly the definition of a disconnection. So X ⊔ Y is disconnected whenever both pieces are nonempty."
+/>
+
+</SlideLayout>

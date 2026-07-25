@@ -1,0 +1,20 @@
+---
+title: The torus as a CW complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The torus as a CW complex">
+
+The square picture translates directly into a CW structure with just three cells total.
+
+<Callout kind="example" title="Torus, cell by cell">
+- A $0$-skeleton with a single point $e^0$ (all four corners of the square became one point).
+- A $1$-skeleton with two $1$-cells $e^1_a$, $e^1_b$ — one for the solid-edge pair, one for the dashed-edge pair, both attached with their endpoints fused into $e^0$.
+- A $2$-skeleton with a single $2$-cell $e^2$, whose boundary circle is divided into four quarters and welded onto the $1$-skeleton "via $aba^{-1}b^{-1}$": wrap a quarter around $e^1_a$, then a quarter around $e^1_b$, then a quarter around $e^1_a$ *backwards*, then a quarter around $e^1_b$ backwards.
+</Callout>
+
+We call $aba^{-1}b^{-1}$ the **<Term k="tc63AttachingWord">attaching word</Term>** of the torus — convenient shorthand we'll reuse for the next example.
+
+</SlideLayout>

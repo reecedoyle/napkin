@@ -1,0 +1,18 @@
+---
+title: πₙ is abelian for n ≥ 2
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="πₙ is abelian for n ≥ 2">
+
+For $n \neq 1$, $\pi_n$ behaves rather differently from $\pi_1$ — which shouldn't be too surprising, since $S^n$ is simply connected for every $n \ge 2$, but $S^1$ is not.
+
+<Callout kind="remark" title="A key structural fact">
+For every $n \ge 2$, <Term k="fg64HigherHomotopyGroup">$\pi_n(X)$</Term> is an <Term k="abelianGroup">abelian group</Term> — unlike $\pi_1(X)$, which (as the figure-eight example showed) can be as non-abelian as a free group.
+</Callout>
+
+Intuitively, once you have two dimensions of "wiggle room" inside the domain sphere, you can slide one map's contribution past another's without them ever needing to interact — this is roughly why the extra dimension forces commutativity.
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: Where the name "universal cover" comes from
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title='Where the name "universal cover" comes from'>
+
+This is where the <Term k="universalCover">universal cover</Term> finally earns its name: it is the covering projection corresponding to the **trivial** subgroup of $\pi_1(B)$, under the classification theorem from the previous slide.
+
+<Callout kind="remark" title="The universal cover covers everything">
+If $p \colon E \to B$ is any covering projection, the universal cover of $B$ in turn covers $E$. More generally, if $H_1 \subseteq H_2 \subseteq \pi_1(B)$ are subgroups, then the covering space corresponding to $H_2$ is covered by the covering space corresponding to $H_1$.
+</Callout>
+
+So the whole lattice of subgroups of $\pi_1(B)$ mirrors a lattice of covering spaces sitting one on top of another, with the universal cover at the very top — covering every other covering space of $B$.
+
+That's the chapter: covering projections turned "compute $\pi_1(S^1)$" and "compute $\pi_1(\RP^2)$" into simple counting arguments, and the classification theorem tells us this correspondence between subgroups and covering spaces is essentially the whole story.
+
+</SlideLayout>

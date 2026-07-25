@@ -1,0 +1,16 @@
+---
+title: Disk = point, annulus = circle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Disk = point, annulus = circle">
+
+By the same reasoning: a disk is homotopy equivalent to a point (radially collapse it inward), and an annulus is homotopy equivalent to a circle (radially collapse it onto its core circle). These are a little easier to visualize than the plane examples, since they're finite.
+
+<Callout kind="remark" title="Moral: algebraic topology can't tell homotopy equivalent spaces apart">
+Algebraic topology's invariants (like $\pi_1$) can distinguish spaces that aren't <Term k="fg64HomotopyEquivalence">homotopy equivalent</Term>, but they're blind to any distinction *within* a homotopy equivalence class. A disk and a single point look identical to $\pi_1$; so do an annulus and a circle.
+</Callout>
+
+</SlideLayout>

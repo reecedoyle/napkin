@@ -1,0 +1,20 @@
+---
+title: Why we need a basis, not just rectangles
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why we need a basis, not just rectangles">
+
+It's not hard to check that we only need to check basis elements of $X$ and $Y$ themselves — that is,
+$$
+\left\{ U \times V \mid U, V \text{ basis elements for } X, Y \right\}
+$$
+is *also* a basis for $X \times Y$. But notice we really did need to allow unions of rectangles, rather than declaring only the rectangles $U \times V$ themselves to be "the" open sets.
+
+<Callout kind="remark" title="An open disk is not a rectangle">
+In $\RR \times \RR$, an open unit disk had better be an open set — and it is, as a union of infinitely many open rectangles. But the disk itself is *not* of the form $U \times V$ for any open $U, V \subseteq \RR$. So the basis elements are the building blocks, not the complete list of open sets.
+</Callout>
+
+</SlideLayout>

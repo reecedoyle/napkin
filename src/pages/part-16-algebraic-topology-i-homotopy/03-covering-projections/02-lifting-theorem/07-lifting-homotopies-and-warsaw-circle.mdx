@@ -1,0 +1,18 @@
+---
+title: Lifting homotopies, and why local path-connectedness matters
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Lifting homotopies, and why local path-connectedness matters">
+
+One useful special case of the general lifting criterion: a <Term k="homotopy">homotopy</Term> can be encoded as a continuous map $[0,1] \times [0,1] \to X$, and the square $[0,1]^2$ is simply connected. So given a homotopy $\gamma_1 \simeq \gamma_2$ in the base $B$, we can always lift it to a homotopy $\tilde\gamma_1 \simeq \tilde\gamma_2$ in $E$.
+
+<Callout kind="remark" title="Local path-connectedness really is necessary">
+Let $Y$ be the *Warsaw circle*: the graph of $y = \sin(1/x)$ for $0 < x < 1/\pi$, together with the segment $\{0\} \times [-1,1]$ and a curve closing everything up. This space is simply connected, so the lifting criterion's subgroup condition is trivially satisfied — but the map $f \colon Y \to S^1$ that collapses the oscillating part vertically does **not** lift to a map $\tilde f \colon Y \to \RR$. The theorem doesn't apply here because $Y$ fails to be locally path-connected at the origin: no matter how small a neighborhood of the origin you take, it contains infinitely many disconnected wiggles of the sine curve.
+</Callout>
+
+This is why the general lifting criterion needs the extra hypothesis — it's not just decoration.
+
+</SlideLayout>

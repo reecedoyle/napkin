@@ -1,0 +1,31 @@
+---
+title: Each group element acts by a homeomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Each group element acts by a homeomorphism">
+
+One loose end from the setup: we required each map $x \mapsto g \cdot x$ to be continuous, but it's actually much more — a homeomorphism of $X$ with itself.
+
+<Callout kind="question" title="Find the inverse">
+Show that each continuous map $x \mapsto g \cdot x$ is in fact a <Term k="homeomorphismTop">homeomorphism</Term>. (Name a continuous inverse for it.)
+</Callout>
+
+<MCQ
+  client:load
+  id="cp65-reg-cov-mcq-inverse-map"
+  prompt="Which map is the continuous inverse of x ↦ g · x?"
+  options={[
+    { id: "a", label: "x ↦ x (the identity map)" },
+    { id: "b", label: "x ↦ g⁻¹ · x" },
+    { id: "c", label: "x ↦ g · g · x" },
+    { id: "d", label: "There is no continuous inverse in general" },
+  ]}
+  correct="b"
+  explanation="The map x ↦ g⁻¹ · x is continuous by the same hypothesis applied to g⁻¹ ∈ G, and by the group action axioms g⁻¹ · (g · x) = (g⁻¹g) · x = 1_G · x = x, and likewise g · (g⁻¹ · x) = x. So x ↦ g⁻¹ · x really is a two-sided continuous inverse, making x ↦ g · x a homeomorphism for every g ∈ G."
+/>
+
+</SlideLayout>

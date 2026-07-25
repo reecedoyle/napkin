@@ -1,0 +1,30 @@
+---
+title: The fundamental group of ℝP²
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The fundamental group of ℝP²">
+
+The lifting correspondence machinery from §3 lets us compute $\pi_1(\RP^2)$ immediately.
+
+<Callout kind="example" title="Fundamental group of ℝP²">
+We saw the covering projection $S^2 \to \RP^2$, with every fiber of size two. Since $S^2$ is simply connected, it's the universal cover, so the lifting correspondence gives a bijection between $\pi_1(\RP^2)$ and a set of size two:
+$$
+\left\lvert \pi_1(\RP^2) \right\rvert = 2.
+$$
+There's only one group of order two, so $\pi_1(\RP^2) \cong \Zc 2$.
+</Callout>
+
+This is a strikingly clean way to pin down a fundamental group without ever writing down an explicit loop: just count the fiber of a known universal cover.
+
+<NumericInput
+  client:load
+  id="cp65-reg-cov-num-order-pi1-rp2"
+  prompt="What is the order of π₁(ℝP²)?"
+  expected="2"
+/>
+
+</SlideLayout>

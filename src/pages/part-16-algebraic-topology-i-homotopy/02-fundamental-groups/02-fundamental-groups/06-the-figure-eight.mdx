@@ -1,0 +1,28 @@
+---
+title: The figure eight
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The figure eight">
+
+Here's an example with a genuinely non-abelian fundamental group. Consider a figure eight $S^1 \vee S^1$ — two circles glued at a single point $x_0$ — with basepoint $x_0$.
+
+<Callout kind="example" title="π₁ of the figure eight">
+$$
+\pi_1(S^1 \vee S^1, x_0) \cong \langle a, b \rangle,
+$$
+the <Term k="freeGroup">free group</Term> on two generators. One loop of the eight is $a$, the other is $b$; since the two loops don't "talk to each other" (there's no relation forcing, say, $ab = ba$), $\pi_1$ is generated freely by $a$ and $b$ (and their inverses $\overline a$, $\overline b$).
+</Callout>
+
+<NumericInput
+  client:load
+  id="fg64-fg-num-figure-eight-generators"
+  prompt="How many generators does the free group π₁(S¹ ∨ S¹) have?"
+  expected="2"
+  explanation="One generator per circle in the figure eight — a going around the left loop, b going around the right loop."
+/>
+
+</SlideLayout>

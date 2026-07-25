@@ -1,0 +1,25 @@
+---
+title: Telling spaces apart
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Telling spaces apart">
+
+Topologists like to say they can't tell the difference between a coffee cup and a doughnut — both are, after all, homeomorphic (a solid with one handle-hole). So how do you tell *anything* apart?
+
+One strategy: find *invariants* — quantities attached to a space that agree whenever two spaces are <Term k="homeomorphismTop">homeomorphic</Term>. Compare with groups: two groups are clearly non-isomorphic if they have different orders, or if one is simple and the other isn't.
+
+Two major invariants for a <Term k="topologicalSpace">topological space</Term> $X$ are:
+
+- **Homology groups** $H_1(X), H_2(X), \dots$ — hard to define, easier to compute.
+- **Homotopy groups** $\pi_1(X), \pi_2(X), \dots$ — easy to define, harder to compute.
+
+This chapter is about the first and most important homotopy group: the **fundamental group** $\pi_1$.
+
+<Callout kind="remark" title="Where we're headed">
+We'll build $\pi_1(X)$ out of loops in $X$ that start and end at the same point, glued together like a group. Along the way we'll see why $\pi_1(\mathbb{C}) $ is trivial while $\pi_1(\mathbb{C} \setminus \{0\})$ is a copy of <Term k="ZZ">$\mathbb{Z}$</Term> — the "winding number" group.
+</Callout>
+
+</SlideLayout>
