@@ -77,10 +77,16 @@ or do them inline, then re-run that chapter's `verify-chapter` + `check`.
 ## 4. Land it (one command)
 
 ```sh
-node scripts/land-part.mjs        # extract → wire → commit metadata → build → e2e
+node scripts/land-part.mjs        # extract → verify → wire → commit → build → e2e
 ```
 
-This collapses the whole deterministic tail. Under the hood it
+This collapses the whole deterministic tail. After extraction it runs
+`verify-chapter` on every landed chapter as a **fail-closed gate** (this used
+to be advisory, and Part XIV shipped 4 broken e2e anchors because nothing
+enforced it). Mechanical defects — dead islands, bad `Callout` kinds, unknown
+`<Term>` keys, MCQ button matchers that hit ≥2 options — fail here in ~1 s per
+chapter, before the ~1-min build. Assertion-text mismatches print as warnings;
+the full e2e run at the end is their authoritative gate. Under the hood it
 **extracts each branch's additive files** (slides, `glossary-chapters/*.ts`,
 the e2e spec) onto main rather than 3-way merging — agent worktrees have
 branched from a *stale* base commit, which would make a real merge conflict

@@ -33,6 +33,17 @@ const plan = JSON.parse(capture('node', [resolve(ROOT, 'scripts/plan-part.mjs'),
 // 1. extract chapter files from worktrees (no-op if already done)
 run('node', [resolve(ROOT, 'scripts/finalize-part.mjs')]);
 
+// 1b. verify each landed chapter before the expensive build+e2e. This is the
+// gate that was only advisory when Part XIV shipped 4 broken e2e anchors:
+// mechanical errors (dead islands, bad Callout kinds, unknown Term keys,
+// ambiguous MCQ button matchers) fail here in ~1s/chapter instead of after a
+// ~1-min build. Assertion mismatches print as warnings — the e2e run below is
+// their authoritative gate.
+for (const ch of plan.chapters) {
+  const texArgs = ch.sourceTex ? ['--tex', ch.sourceTex] : [];
+  run('node', [resolve(ROOT, 'scripts/verify-chapter.mjs'), ch.chapterDir, ...texArgs]);
+}
+
 // 2. wire metadata, commit if it changed anything
 run('node', [resolve(ROOT, 'scripts/wire-part.mjs'), ...partArgs]);
 const dirty = capture('git', ['status', '--porcelain', 'src/lib/slide-nav.ts']).trim();
