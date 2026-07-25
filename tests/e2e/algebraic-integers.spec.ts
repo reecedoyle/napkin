@@ -102,11 +102,12 @@ test.describe('Algebraic integers — Problem flow (Kronecker\'s theorem)', () =
     await page.goto(SLIDE);
 
     const article = page.getByRole('article');
-    // "pigeonhole" only appears inside the solution text, not the prompt/hint
-    await expect(article.getByText(/pigeonhole/i)).toBeHidden();
+    // "Tracing the Galois action" only appears inside the solution text. (The
+    // hint also says "Pigeonhole", so anchor on a truly solution-only phrase.)
+    await expect(article.getByText(/Tracing the Galois action/i)).toBeHidden();
 
     await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/pigeonhole/i)).toBeVisible();
+    await expect(article.getByText(/Tracing the Galois action/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();

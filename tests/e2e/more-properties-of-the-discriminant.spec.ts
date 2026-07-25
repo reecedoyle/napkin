@@ -22,8 +22,8 @@ test.describe('More properties of the discriminant — MCQ flow (discriminant of
 
   test('correct answer persists across reload', async ({ page }) => {
     await page.goto(SLIDE);
-    // Correct answer is "d" — −3, because −3 ≡ 1 mod 4
-    await page.getByRole('button', { name: /−3, because −3 ≡ 1 mod 4/i }).click();
+    // Correct answer is "d" — −3, since −3 ≡ 1 mod 4
+    await page.getByRole('button', { name: /−3 \(since −3 ≡ 1 mod 4/i }).click();
     await expect(page.getByText('Why:').first()).toBeVisible();
     expect(await page.evaluate((k) => window.localStorage.getItem(k), MCQ_KEY)).toContain(
       '"outcome":"correct"',
@@ -34,8 +34,9 @@ test.describe('More properties of the discriminant — MCQ flow (discriminant of
 
   test('wrong answer is recorded as incorrect', async ({ page }) => {
     await page.goto(SLIDE);
-    // Clicking "−12" is wrong
-    await page.getByRole('button', { name: /−12/i }).click();
+    // Clicking option (b) "−12 (using the d ≡ 2,3 case…)" is wrong. Anchor on
+    // that parenthetical — option (a) also contains "−12" in its label text.
+    await page.getByRole('button', { name: /−12 \(using the d ≡ 2,3 case/i }).click();
     await expect(page.getByText('Why:').first()).toBeVisible();
     expect(await page.evaluate((k) => window.localStorage.getItem(k), MCQ_KEY)).toContain(
       '"outcome":"incorrect"',
@@ -52,11 +53,12 @@ test.describe('More properties of the discriminant — Problem flow (cyclotomic 
     await page.goto(SLIDE);
     const article = page.getByRole('article');
 
-    // "Vandermonde determinant formula" only appears inside the solution text
-    await expect(article.getByText(/Vandermonde determinant formula/i)).toBeHidden();
+    // "complex conjugate pairs" only appears inside the solution text. (The
+    // hint says "Vandermonde-like", so anchor on a truly solution-only phrase.)
+    await expect(article.getByText(/complex conjugate pairs/i)).toBeHidden();
 
     await page.getByRole('button', { name: /show solution/i }).first().click();
-    await expect(article.getByText(/Vandermonde determinant formula/i)).toBeVisible();
+    await expect(article.getByText(/complex conjugate pairs/i)).toBeVisible();
 
     const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
     expect(stored).not.toBeNull();
