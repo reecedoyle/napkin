@@ -1,0 +1,27 @@
+---
+title: Groups are one-object categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Groups are one-object categories">
+
+Here's a second important non-concrete example, and one of the most striking small facts in category theory.
+
+<Callout kind="example" title="A group as a category">
+A group $G$ can be interpreted as a category $\mathcal{G}$ with exactly *one* object $\ast$, all of whose arrows $\ast \to \ast$ are isomorphisms. The arrows are the elements of $G$, composition is the group operation, and $\id_\ast$ is the identity element.
+</Callout>
+
+<Callout kind="remark" title="Imagine learning it backwards">
+Suppose your education had been shuffled, and you met category theory before groups. Someone says: "a group is what you get when you collect together all the symmetries of a thing — invertible ways of mapping an object into itself." You'd reply: "Oh, that's a special case of an idea I already know. A category is lots of objects and maps between them, not necessarily invertible. A group is the special case with only *one* object, where every map happens to be invertible."
+</Callout>
+
+<ProofReveal
+  client:load
+  id="oam-cat-proof-group-cat-equiv"
+  prompt="Verify this: show that the data of a one-object category in which every arrow is an isomorphism is exactly the same as the data of a group."
+  solution="Given such a category with sole object *, let G be the set Hom(*, *). Composition ∘ gives G a binary operation, associative because categorical composition is always associative. id_* is a two-sided identity for ∘, matching the group identity axiom. Every arrow being an isomorphism means every g in G has an inverse g^{-1} with g∘g^{-1} = g^{-1}∘g = id_*, matching the group inverse axiom. Conversely, given a group G, build a category with one object * and Hom(*, *) = G, composition = the group operation, and id_* = the group identity; associativity and inverses transfer directly. The two constructions are mutually inverse, so the data agree exactly."
+/>
+
+</SlideLayout>

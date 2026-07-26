@@ -1,0 +1,19 @@
+---
+title: Epic but not surjective
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Epic but not surjective">
+
+Unlike monic/injective, the epic/surjective gap shows up in more everyday categories — not just an exotic one like $\catname{DivAbGrp}$.
+
+<Callout kind="example" title="Two standard counterexamples">
+- In $\catname{CRing}$, the inclusion $\ZZ \injto \QQ$ is epic (and certainly not surjective). If two ring homomorphisms $\QQ \to A$ agree on every integer, they agree everywhere: any homomorphism is forced to send $1/n$ to the inverse of the image of $n$, so agreement on $\ZZ$ pins down the whole map.
+- In the category of Hausdorff topological spaces (every two points have disjoint open neighborhoods), epic turns out to be equivalent to having **dense image** — like $\QQ \injto \RR$.
+</Callout>
+
+The pattern behind both failures: a function $f \colon X \to Y$ can be determined entirely by its values on a subset of $X$ that isn't all of $X$ — so post-composing with $f$ can be "right-cancellable" without $f$ hitting every point of $Y$.
+
+</SlideLayout>

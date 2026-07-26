@@ -1,0 +1,24 @@
+---
+title: Faithful and full functors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Faithful and full functors">
+
+Functors have notions of "injective" and "surjective" too — but applied to arrows, not objects.
+
+<Callout kind="definition" title="Faithful, full">
+A functor $F \colon \cA \to \cB$ is <Term k="fan67Faithful">faithful</Term> (resp. <Term k="fan67Full">full</Term>) if for every $A_1, A_2 \in \cA$, the map $F \colon \Hom_\cA(A_1,A_2) \to \Hom_\cB(FA_1,FA_2)$ is injective (resp. surjective).
+</Callout>
+
+Every forgetful functor we've met is faithful: two different homomorphisms never collapse to the same underlying function. None of them are full, though — a random function between underlying sets almost never happens to respect the extra structure.
+
+This lets us finally pin down a term we've been using loosely:
+
+<Callout kind="remark" title="Concrete category, precisely">
+A <Term k="fan67ConcreteCategory">concrete category</Term> is a category equipped with a faithful functor $U \colon \cA \to \Set$. "Faithful" is exactly the condition that makes "$U(A)$ is the underlying set of $A$" a meaningful sentence — no information about arrows is thrown away, only extra structure is.
+</Callout>
+
+</SlideLayout>

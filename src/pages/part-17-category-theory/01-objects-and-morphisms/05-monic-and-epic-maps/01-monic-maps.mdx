@@ -1,0 +1,18 @@
+---
+title: Monic maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Monic maps">
+
+"Injective" doesn't make literal sense in an arbitrary category, since arrows need not be functions — think of the poset category, where arrows are just instances of $\le$. We need a purely arrow-based substitute.
+
+<Callout kind="definition" title="Monic">
+A map $X \taking{f} Y$ is <Term k="oam66Monic">monic</Term> (or a monomorphism) if for any commutative diagram with $g, h \colon A \to X$ satisfying $f \circ g = f \circ h$, we must have $g = h$. In other words, $f$ is left-cancellable: $f \circ g = f \circ h \implies g = h$.
+</Callout>
+
+The idea: if post-composing with $f$ can never merge two distinct arrows into one, $f$ itself must not be "losing information" — which is exactly the spirit of injectivity, phrased with no reference to elements at all.
+
+</SlideLayout>

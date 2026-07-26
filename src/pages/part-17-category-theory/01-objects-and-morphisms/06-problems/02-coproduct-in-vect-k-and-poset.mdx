@@ -1,0 +1,18 @@
+---
+title: 'Problem: coproducts in Vect_k and a poset'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: coproducts in Vect_k and a poset">
+
+<Problem
+  client:load
+  id="oam-prob-problem-coproduct-vect-poset"
+  difficulty="daggered"
+  prompt="What is the coproduct X + Y in the categories Vect_k, and a poset?"
+  hint="In Vect_k, try checking whether the direct sum satisfies the coproduct's universal property directly. In a poset, dualize the product (which was the greatest lower bound)."
+  solution="In Vect_k, the coproduct X + Y is the direct sum X ⊕ Y, with inclusions ι_X(x) = (x, 0), ι_Y(y) = (0, y). Given linear maps g: X → A, h: Y → A, the map f(x, y) = g(x) + h(y) is linear, satisfies f∘ι_X = g and f∘ι_Y = h, and is the unique such map (since every (x,y) = ι_X(x) + ι_Y(y), linearity of f forces this formula). Notably this is the same underlying object as the product X × Y — in Vect_k, finite products and coproducts coincide (a 'biproduct'). In a poset viewed as a category, the coproduct of x and y is the dual of the product: since the product was the greatest lower bound (meet), the coproduct is the least upper bound (join), i.e. sup{x, y} when it exists — the smallest element that both x and y map into."
+/>
+
+</SlideLayout>

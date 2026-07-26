@@ -1,0 +1,20 @@
+---
+title: The Yoneda lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Yoneda lemma">
+
+<Callout kind="theorem" title="Yoneda lemma">
+Let $\cA$ be a category, pick $A \in \cA$, and let $H_A$ be its <Term k="fan67ContravariantYoneda">contravariant Yoneda functor</Term>. Let $X \colon \cA\op \to \Set$ be any presheaf. Then the map
+$$
+\{ \text{natural transformations } \alpha \colon H_A \Rightarrow X \} \;\longrightarrow\; X(A), \qquad \alpha \longmapsto \alpha_A(\id_A)
+$$
+is a bijection. Moreover, viewing both sides as functors $\cA\op \times [\cA\op,\Set] \to \Set$, this bijection is itself <Term k="fan67YonedaLemma">natural</Term>.
+</Callout>
+
+The inverse map is exactly what §7.4 forced on us: given $x \in X(A)$, define $\alpha^x$ by $\alpha^x_B(f) \defeq X(f)(x)$ for each $f \colon B \to A$. Checking that $\alpha^x$ is natural, and that these two maps are mutually inverse, is Problem 3 in this chapter's problem set.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: What are the maps between functors?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What are the maps between functors?">
+
+We built categories to organize objects and maps. We asked "what are the maps between categories?" and got functors. The next question writes itself: "what are the maps between functors?"
+
+It sounds like we're drawing arrows between arrows-between-things, but the underlying idea is an old one from topology. Given two paths $\alpha, \beta \colon [0,1] \to X$, a path-homotopy continuously deforms $\alpha$ into $\beta$ — really a function $[0,1] \times [0,1] \to X$, sliding each point $\alpha(t)$ over to $\beta(t)$.
+
+<Callout kind="remark" title="The idea">
+A <Term k="fan67NaturalTransformation">natural transformation</Term> does the same job for functors: it "pulls" $F$ over to $G$ along a coherent family of arrows in the target category $\cB$, one arrow $F(A) \to G(A)$ for every object $A$.
+</Callout>
+
+</SlideLayout>

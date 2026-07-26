@@ -1,0 +1,24 @@
+---
+title: When monic and injective split apart
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="When monic and injective split apart">
+
+So far monic and injective have coincided everywhere we've checked. Here's the standard example where they come apart — the moral being that "monic" only reads as "injective on $\Hom_{\mathcal{A}}(A, X)$," and that description can fail to see everything an ordinary function does.
+
+<Callout kind="definition" title="Divisible abelian group">
+Let $\catname{DivAbGrp}$ be the category of <Term k="oam66DivisibleGroup">divisible</Term> additive abelian groups $G$ — every $x \in G$ and $n > 0$ has some $y \in G$ with $ny = x$ — with group homomorphisms as arrows.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="oam-monep-proof-divisible-counterex"
+  prompt="Show that the projection ℚ → ℚ/ℤ is monic but not injective in DivAbGrp."
+  solution="ℚ and ℚ/ℤ are both divisible: in ℚ any x/n' works as the nth part of x, and in ℚ/ℤ the class of x/n works. The projection π: ℚ → ℚ/ℤ is clearly not injective — every integer maps to the zero class, so π(0) = π(1) with 0 ≠ 1. To see π is monic, suppose g, h: A → ℚ are homomorphisms from a divisible group A with π∘g = π∘h. Then g − h: A → ℚ has image inside ker(π) = ℤ. But A is divisible: for any a ∈ A and any n, there is a' ∈ A with na' = a, so (g−h)(a) = n·(g−h)(a') ∈ nℤ. Since this holds for every n > 0, (g−h)(a) is an integer divisible by arbitrarily large n, forcing (g−h)(a) = 0. So g = h, and π is monic despite not being injective."
+/>
+
+</SlideLayout>

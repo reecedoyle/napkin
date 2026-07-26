@@ -1,0 +1,22 @@
+---
+title: Equivalence of categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Equivalence of categories">
+
+<Callout kind="definition" title="Equivalence of categories">
+An <Term k="fan67EquivalenceOfCategories">equivalence of categories</Term> is a functor $F \colon \cA \to \cB$ for which there exists a functor $G \colon \cB \to \cA$ with $G \circ F \cong \id_\cA$ and $F \circ G \cong \id_\cB$ — isomorphic *as functors*, not necessarily equal on the nose. (We'll make "isomorphic as functors" precise with natural isomorphisms in §6; for now, read $\cong$ here as "matches up to a coherent family of isomorphisms.")
+</Callout>
+
+The payoff is a clean, checkable criterion — no need to construct $G$ by hand:
+
+<Callout kind="theorem" title="Testing for equivalence">
+A functor $F \colon \cA \to \cB$ is an equivalence of categories if and only if it is fully faithful and essentially surjective.
+</Callout>
+
+We won't prove this here (it needs the axiom of choice to build $G$ object-by-object, plus the naturality machinery from §6), but it's the criterion you'll use in practice: check two much more local, arrow-level conditions instead of hunting for an explicit inverse functor.
+
+</SlideLayout>

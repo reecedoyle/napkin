@@ -1,0 +1,21 @@
+---
+title: Elements as arrows — free objects
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Elements as arrows — free objects">
+
+Category theory forbids you from talking about "what's inside" an object — only arrows are allowed. But in a <Term k="oam66ConcreteCategory">concrete category</Term>, where objects really are "sets with extra structure," you can still recover elements: just look at arrows out of the right special object.
+
+<Callout kind="example" title="Elements, recast as arrows">
+- In $\catname{Set}$, arrows from $\{\ast\}$ to $S$ correspond to elements of $S$.
+- In $\catname{Top}$, arrows from $\{\ast\}$ to $X$ correspond to points of $X$.
+- In $\catname{Grp}$, arrows from $\ZZ$ to $G$ correspond to elements of $G$ — send $1 \mapsto g$ for whichever $g \in G$ you want.
+- In $\catname{CRing}$, arrows from $\ZZ[x]$ to $R$ correspond to elements of $R$ — send $x \mapsto r$.
+</Callout>
+
+In each of these, the source object ($\{\ast\}$, $\ZZ$, $\ZZ[x]$) is called a <Term k="oam66FreeObject">free object</Term>. So in most concrete categories, you can think of an "element" of an object as a function from a special free object into it — one more instance of replacing "what's inside" with "what maps in."
+
+</SlideLayout>

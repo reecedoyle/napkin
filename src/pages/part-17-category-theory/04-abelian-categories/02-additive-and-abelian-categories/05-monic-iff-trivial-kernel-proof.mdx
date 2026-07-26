@@ -1,0 +1,20 @@
+---
+title: The converse — trivial kernel ⟹ monic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The converse — trivial kernel ⟹ monic">
+
+For the converse we finally get to use the extra structure of an abelian category: the ability to subtract morphisms.
+
+<Callout kind="remark" title="Proof of the converse direction">
+Assume $0 \to A$ is a kernel of $A \taking f B$. Suppose $g, h \colon Z \to A$ satisfy $fg = fh$. Then $f \circ (g - h) = fg - fh = 0$, using that composition distributes over the subtraction available in an additive category. So $g - h$ is a map $Z \to A$ whose $f$-composite is $0$.
+
+But $0 \to A$ is a kernel of $f$, which means it's universal among such maps — so $g - h$ factors uniquely through the zero object, forcing $g - h = 0$, i.e. $g = h$. That's exactly the definition of $f$ being monic.
+</Callout>
+
+Combined with the easy direction, we get the full equivalence: monic $\iff$ kernel is $0 \to A$, and dually, epic $\iff$ cokernel is $B \to 0$.
+
+</SlideLayout>

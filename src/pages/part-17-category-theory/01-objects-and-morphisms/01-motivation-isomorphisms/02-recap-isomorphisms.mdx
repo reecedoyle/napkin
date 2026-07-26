@@ -1,0 +1,21 @@
+---
+title: Recall — isomorphisms everywhere
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Recall — isomorphisms everywhere">
+
+Let's recall how "isomorphic" was defined in each setting we've studied so far. In every case, the definition is really about a *pair of mutually inverse maps*, not about the objects' internal contents.
+
+<Callout kind="example" title="Isomorphisms, setting by setting">
+- Two groups $G$ and $H$ are <Term k="isomorphic">isomorphic</Term> if there is a bijective <Term k="homomorphism">homomorphism</Term>: equivalently, homomorphisms $\phi \colon G \to H$ and $\psi \colon H \to G$ with $\phi \circ \psi = \id_H$ and $\psi \circ \phi = \id_G$.
+- Two metric or <Term k="topologicalSpace">topological spaces</Term> $X$ and $Y$ are isomorphic if there is a <Term k="continuous">continuous</Term> bijection $f \colon X \to Y$ whose inverse $f^{-1}$ is also continuous.
+- Two <Term k="vectorSpace">vector spaces</Term> $V$ and $W$ are isomorphic if there is a bijective <Term k="linearMap">linear map</Term> $T \colon V \to W$ — equivalently, $T$ and $T^{-1}$ are both linear.
+- Two rings $R$ and $S$ are isomorphic if there is a bijective ring homomorphism $\phi$ — equivalently, two mutually inverse ring homomorphisms.
+</Callout>
+
+Notice the pattern repeating: in each bullet, we have some collection of objects, some maps between them, and "isomorphic" means a pair of maps that compose (in both orders) to the identity. Nothing here refers to what the objects are *made of* — only to the maps.
+
+</SlideLayout>

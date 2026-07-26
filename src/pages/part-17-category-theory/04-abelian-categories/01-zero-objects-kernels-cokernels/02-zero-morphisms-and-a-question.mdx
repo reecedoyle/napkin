@@ -1,0 +1,28 @@
+---
+title: Zero morphisms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Zero morphisms">
+
+Once a category $\AA$ has a zero object $0$, any two objects $A$ and $B$ get a canonical map between them for free: compose the unique map $A \to 0$ with the unique map $0 \to B$.
+
+<Callout kind="definition" title="Zero morphism">
+The composite <Term k="ac69ZeroMorphism">$A \to 0 \to B$</Term> is called the **zero morphism** from $A$ to $B$, and is also denoted $0$.
+</Callout>
+
+In $\catname{Grp}$, this is exactly the trivial homomorphism $A \to B$ sending every element of $A$ to the identity of $B$ — nothing new, just a name that will let us phrase kernels and cokernels without ever mentioning elements.
+
+Not every category has a zero object, though — <Term k="ac69Set">$\catname{Set}$</Term> and <Term k="ac69Top">$\catname{Top}$</Term> don't.
+
+<ProofReveal
+  client:load
+  id="abcat-01-proof-no-zero-object"
+  prompt="Show that Set and Top don't have zero objects."
+  solution="The only candidate for an initial object of Set is the empty set ∅: there is exactly one (vacuous) function ∅ → X for every set X. But ∅ is not terminal — if X is nonempty there is no function X → ∅ at all, since every element of X would need somewhere to land. The only candidates for a terminal object are one-point sets {*}: there is exactly one function X → {*} for every X, sending everything to *. But {*} is not initial — once |X| ≥ 2, there is more than one function {*} → X (one for each choice of target point), so the map is not unique. Since the unique initial-object candidate fails to be terminal and the terminal-object candidates fail to be initial, no object of Set is both, so Set has no zero object. The identical argument works in Top, using the empty space and a one-point space with its unique topology."
+/>
+
+</SlideLayout>

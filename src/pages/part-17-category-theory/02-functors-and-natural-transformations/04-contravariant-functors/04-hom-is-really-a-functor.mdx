@@ -1,0 +1,20 @@
+---
+title: Checking Hom really is a bifunctor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Checking Hom really is a bifunctor">
+
+Back in §1 we claimed, without proof, that $(A_1,A_2) \mapsto \Hom(A_1,A_2)$ is a functor $\cA\op \times \cA \to \Set$. Now that both variances are on the table, let's actually check it.
+
+<ProofReveal
+  client:load
+  id="fan67-contra-proof-hom-bifunctor"
+  prompt="Verify that (A₁, A₂) ↦ Hom_𝒜(A₁, A₂) is indeed a functor 𝒜ᵒᵖ × 𝒜 → Set. An arrow (A₁,A₂) → (A₁',A₂') in 𝒜ᵒᵖ × 𝒜 is a pair (p, q) with p : A₁' → A₁ in 𝒜 and q : A₂ → A₂' in 𝒜 — check the induced map on Hom-sets respects identities and composition."
+  solution="Send (p,q) to the map Hom(A₁,A₂) → Hom(A₁',A₂') given by f ↦ q ∘ f ∘ p. Identities: taking p = id and q = id gives f ↦ f, the identity map on Hom(A₁,A₂), as required. Composition: given a second arrow (p',q') : (A₁',A₂') → (A₁'',A₂''), applying (p,q) then (p',q') sends f to q' ∘ (q ∘ f ∘ p) ∘ p' = (q'q) ∘ f ∘ (pp'), which is exactly the image of f under the single combined arrow (p p', q' q) — matching how composition works in the product category 𝒜ᵒᵖ × 𝒜 (recall composition in 𝒜ᵒᵖ reverses order, which is why the p's compose as p p' rather than p' p). So both functor axioms hold."
+/>
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: More short exact sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="More short exact sequences">
+
+<Callout kind="example" title="More exact sequences">
+The sequence $0 \to \ZZ \taking{\times 3} \ZZ \to \Zc3 \to 0$ is short exact. So is $0 \to \ZZ \taking{\times 5} \ZZ \to \Zc5 \to 0$.
+</Callout>
+
+As these examples show, the slogan "$C \cong B/A$" from the last slide isn't the *whole* story — the map $A \to B$ matters in determining what $C$ actually is. This is exactly the common notation at work: the image of $\ZZ \taking{\times 3} \ZZ$ is usually written $3\ZZ$, so $\Zc3 = \ZZ / 3\ZZ$.
+
+<NumericInput
+  client:load
+  id="abcat-03-num-cokernel-size"
+  prompt="In the short exact sequence 0 → ℤ →(×12) ℤ → C → 0, how many elements does the quotient group C have?"
+  expected="12"
+/>
+
+</SlideLayout>

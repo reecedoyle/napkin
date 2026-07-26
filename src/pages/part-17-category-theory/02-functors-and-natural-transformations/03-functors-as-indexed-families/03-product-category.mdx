@@ -1,0 +1,24 @@
+---
+title: The product category, and a product-space functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The product category, and a product-space functor">
+
+<Callout kind="definition" title="Product category">
+The <Term k="fan67ProductCategory">product category</Term> $\cA \times \cA$ has objects $(A_1,A_2)$ with $A_1, A_2 \in \cA$, and arrows $(A_1,A_2) \to (A_1',A_2')$ given by pairs of arrows $A_1 \to A_1'$ and $A_2 \to A_2'$, composed coordinatewise.
+</Callout>
+
+Here's a worked example living in $\Top^2$:
+
+<ProofReveal
+  client:load
+  id="fan67-idx-proof-top-squared-product"
+  prompt="For X, Y ∈ Top, we can form the product space X × Y. This gives a functor Top² → Top. Given a pair of continuous maps (f,g) : (X₁,Y₁) → (X₂,Y₂), construct the induced map X₁ × Y₁ → X₂ × Y₂ and check it is a morphism in Top (i.e. continuous)."
+  solution="Define the induced map by acting on each coordinate: (x,y) ↦ (f(x), g(y)). This clearly sends X₁ × Y₁ into X₂ × Y₂. For continuity: a map into a product space is continuous exactly when each of its coordinate projections is continuous. The first coordinate of our map is x ↦ f(x) (continuous, since f is), and the second is y ↦ g(y) (continuous, since g is) — so the pairing is continuous. Checking functoriality (identities to identities, composition to composition) is immediate since everything acts coordinatewise."
+/>
+
+</SlideLayout>

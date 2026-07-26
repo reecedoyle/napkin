@@ -1,0 +1,33 @@
+---
+title: Natural isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Natural isomorphism">
+
+Suppose every component $\alpha_A$ of a natural transformation $\alpha \colon F \Rightarrow G$ happens to be an isomorphism in $\cB$.
+
+<Callout kind="definition" title="Natural isomorphism">
+In that case, the componentwise inverses $\beta_A \defeq \alpha_A^{-1}$ assemble into a natural transformation $\beta \colon G \Rightarrow F$ (naturality of $\beta$ follows from naturality of $\alpha$ by inverting both sides of each square). We call $\alpha$ a <Term k="fan67NaturalIsomorphism">natural isomorphism</Term>, write $F \cong G$, and say $F(A) \cong G(A)$ **naturally** in $A$.
+</Callout>
+
+This means $F$ and $G$ are "really the same" functor: not only is each $F(A)$ isomorphic to $G(A)$, but the whole family of isomorphisms is compatible with every arrow of $\cA$ at once — nothing was chosen ad hoc, object by object.
+
+<MCQ
+  client:load
+  id="fan67-nat-mcq-natural-iso-vs-pointwise"
+  prompt="Suppose F(A) ≅ G(A) for every single object A ∈ 𝒜 (just as sets/groups/spaces, chosen independently for each A). Does this automatically make F naturally isomorphic to G?"
+  options={[
+    { id: "a", label: "Yes — pointwise isomorphism is exactly the same as natural isomorphism" },
+    { id: "b", label: "No — the isomorphisms also need to form a natural transformation, i.e. satisfy the naturality squares for every arrow of 𝒜" },
+    { id: "c", label: "No — natural isomorphism additionally requires 𝒜 to be small" },
+    { id: "d", label: "No — natural isomorphism only makes sense when F = G" },
+  ]}
+  correct="b"
+  explanation="A family of isomorphisms chosen independently at each object need not commute with the arrows of 𝒜 — that extra compatibility (the naturality squares) is exactly the content that 'natural' adds on top of 'pointwise'. This is exactly the gap Problem 2 in this chapter's problem set is built to expose."
+/>
+
+</SlideLayout>

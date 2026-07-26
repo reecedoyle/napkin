@@ -1,0 +1,20 @@
+---
+title: A worked example — the determinant is natural
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="A worked example — the determinant is natural">
+
+Abstract squares are easier to trust once you've checked one concretely. Let $F, G \colon \CRing \to \Grp$ be the functors $F(R) = \GL_n(R)$ (invertible $n \times n$ matrices over $R$) and $G(R) = R^\times$ (units of $R$). Define $\alpha_R \colon \GL_n(R) \to R^\times$ by $\alpha_R(M) = \det(M)$.
+
+<ProofReveal
+  client:load
+  id="fan67-nat-proof-determinant-natural"
+  prompt="Check that α (the determinant) is a natural transformation F ⇒ G. That is, for a ring homomorphism φ : R → S, check that the naturality square commutes: applying φ entrywise to a matrix and then taking the determinant in S agrees with taking the determinant in R and then applying φ."
+  solution="Here F(φ) : GL_n(R) → GL_n(S) applies φ to every matrix entry, and G(φ) : R^× → S^× is just φ restricted to units. Naturality asks G(φ)(α_R(M)) = α_S(F(φ)(M)), i.e. φ(det M) = det(φ(M)), where φ(M) means φ applied entrywise. This holds because the determinant is a fixed polynomial formula in the matrix entries (a sum of signed products), and ring homomorphisms preserve sums and products — so applying φ to each entry first and then evaluating that polynomial gives the same answer as evaluating the polynomial first and then applying φ. This is exactly why 'determinant commutes with ring homomorphisms' is a familiar fact: it's the naturality square for α."
+/>
+
+</SlideLayout>

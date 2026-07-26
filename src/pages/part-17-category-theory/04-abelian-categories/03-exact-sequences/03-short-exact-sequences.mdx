@@ -1,0 +1,22 @@
+---
+title: Short exact sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Short exact sequences">
+
+The prototype example from last slide, $0 \to G \to G \times H \to H \to 0$, is an instance of the single most useful shape an exact sequence can take.
+
+<Callout kind="definition" title="Short exact sequence">
+A <Term k="ac69ShortExactSequence">**short exact sequence**</Term> is an exact sequence of the form $0 \to A \to B \to C \to 0$.
+</Callout>
+
+<Callout kind="remark" title="Moral">
+A short exact sequence is basically just an equation $C = B/A$.
+</Callout>
+
+Whenever you read "there is a short exact sequence $0 \to A \to B \to C \to 0$," you can mentally translate it as "$C \cong B/A$." But there's a real difference: a group carries more structure than a number, so the sequence also records *which* maps realize this — the map identifying $A$ with a subgroup of $B$, and the map identifying $C$ with the quotient $B/A$.
+
+</SlideLayout>

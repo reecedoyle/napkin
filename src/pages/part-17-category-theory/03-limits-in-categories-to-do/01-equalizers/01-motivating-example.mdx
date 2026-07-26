@@ -1,0 +1,23 @@
+---
+title: The equalizer of two maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The equalizer of two maps">
+
+Early in category theory we built products by drawing a bunch of arrows and asking for a universal one. That trick generalizes a lot further than products — let's see a second instance of it.
+
+Start concretely, in $\mathrm{Set}$. Given two sets $X$ and $Y$, and two maps $X \taking{f,g} Y$ (drawn side by side, both going from $X$ to $Y$), we can ask: on which inputs do $f$ and $g$ agree?
+
+<Callout kind="definition" title="Equalizer, concretely">
+Given $f, g \colon X \to Y$, their <Term k="lim68Equalizer">**equalizer**</Term> is the set
+$$
+\{ x \in X \mid f(x) = g(x) \}.
+$$
+</Callout>
+
+That's a fine definition inside $\mathrm{Set}$, but it talks about elements — it won't make sense once we move to a category whose objects aren't sets. Just like with products, we'd like a purely arrow-based description of this same construction, one phrased entirely in terms of objects and maps.
+
+</SlideLayout>

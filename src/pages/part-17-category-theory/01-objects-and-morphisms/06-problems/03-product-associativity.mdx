@@ -1,0 +1,18 @@
+---
+title: 'Problem: products are associative'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: products are associative">
+
+<Problem
+  client:load
+  id="oam-prob-problem-product-associativity"
+  difficulty="standard"
+  prompt="In any category A where all products exist, show that (X × Y) × Z ≅ X × (Y × Z), where X, Y, Z are arbitrary objects."
+  hint="Show that (X × Y) × Z satisfies the universal property that characterizes the product of X, Y, and Z all at once — then do the same for X × (Y × Z), and invoke uniqueness of products."
+  solution="Write P = (X × Y) × Z, with projections π_{XY}: P → X×Y and π_Z: P → Z, and let π_X = π_X∘π_{XY}, π_Y = π_Y∘π_{XY} (the two projections X×Y → X, Y composed in). Claim: P, with the three arrows π_X, π_Y, π_Z, is a product of X, Y, Z in the three-fold sense — i.e. for any A with arrows g: A → X, h: A → Y, k: A → Z, there is a unique f: A → P with π_X∘f = g, π_Y∘f = h, π_Z∘f = k. Indeed, the universal property of X×Y gives a unique m: A → X×Y with π_X∘m = g, π_Y∘m = h; then the universal property of P = (X×Y)×Z gives a unique f: A → P with π_{XY}∘f = m, π_Z∘f = k, and this f automatically satisfies π_X∘f = g, π_Y∘f = h, π_Z∘f = k, and is the unique such arrow (any other f' giving the same triple would force π_{XY}∘f' = m by uniqueness in X×Y's universal property, and then f' = f by uniqueness in P's). By the identical argument, X×(Y×Z) also satisfies this same three-fold universal property. Since products (in this generalized three-object sense) are unique up to isomorphism whenever they exist — exactly the argument from the binary uniqueness proposition, run with three factors instead of two — we conclude (X×Y)×Z ≅ X×(Y×Z)."
+/>
+
+</SlideLayout>

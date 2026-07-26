@@ -1,0 +1,22 @@
+---
+title: Uniqueness, again — via duality
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Uniqueness, again — via duality">
+
+Terminal objects are also unique up to unique isomorphism. You could repeat the exact proof from the initial-object slide with all the arrows reversed — but the <Term k="oam66OppositeCategory">opposite category</Term> lets us get this for free, no new work required.
+
+<ProofReveal
+  client:load
+  id="oam-spec-proof-terminal-duality"
+  prompt="Verify that terminal objects of 𝒜 are equivalent to initial objects of 𝒜^op. Conclude that terminal objects of 𝒜 are unique up to isomorphism."
+  solution="An object T is terminal in 𝒜 exactly when, for every A ∈ 𝒜, there is a unique arrow A → T in 𝒜. Reversing every arrow to pass to 𝒜^op, this says exactly: for every A ∈ 𝒜^op, there is a unique arrow T → A in 𝒜^op — which is precisely the statement that T is initial in 𝒜^op. Since we already proved initial objects are unique up to unique isomorphism in any category, applying that result to 𝒜^op shows terminal objects of 𝒜 are unique up to unique isomorphism too — no new proof needed, just the dictionary between 𝒜 and 𝒜^op."
+/>
+
+In general, any categorical notion about $\mathcal{A}$ translates to a dual notion about $\mathcal{A}^{\op}$ — often signaled by adding "co-" to the name. We'll meet this again shortly with products and coproducts.
+
+</SlideLayout>

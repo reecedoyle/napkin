@@ -1,0 +1,19 @@
+---
+title: Initial objects are unique
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Initial objects are unique">
+
+We keep saying "the" initial object, as if there's only one. Strictly, there could be several — but here's why that never matters.
+
+<ProofReveal
+  client:load
+  id="oam-spec-proof-initial-unique"
+  prompt="Important! Show that any two initial objects A₁, A₂ of 𝒜 are uniquely isomorphic — there is exactly one isomorphism between them."
+  solution="Since A₁ is initial, there is a unique arrow f: A₁ → A₂. Since A₂ is initial, there is a unique arrow g: A₂ → A₁. Consider g∘f: A₁ → A₁. Since A₁ is initial, there is exactly one arrow A₁ → A₁, and id_{A₁} is one such arrow, so g∘f = id_{A₁}. Symmetrically, f∘g: A₂ → A₂ must equal id_{A₂}, since A₂ is initial and there is only one arrow A₂ → A₂. So f and g are mutually inverse, giving an isomorphism A₁ ≅ A₂. It is unique because f was already the unique arrow A₁ → A₂ to begin with — there was never a second candidate to compare it to."
+/>
+
+</SlideLayout>

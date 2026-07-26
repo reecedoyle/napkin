@@ -1,0 +1,20 @@
+---
+title: Exactness, in a general abelian category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Exactness, in a general abelian category">
+
+Now let's mimic the group definition inside a general abelian category $\AA$, where we can't talk about "elements" of $A_n$ at all.
+
+The first requirement is easy to state: for $A \taking f B \taking g C$, we need $g \circ f = 0$, encoding "$\Img f \subseteq \Ker g$." Since $\Img f \surjto$ is epic (we're in an abelian category) and factors through $B$, the vanishing of $g \circ f$ forces the composite $\Img f \to B \to C$ to vanish too — which produces a canonical map $\Img f \to \Ker g$ (the unique one making everything commute, by the universal property of $\Ker g$).
+
+<Callout kind="definition" title="Exactness in an abelian category">
+The sequence $\cdots \to A_{n-1} \taking{f_n} A_n \taking{f_{n+1}} A_{n+1} \to \cdots$ is <Term k="ac69ExactAt">**exact**</Term> at $A_n$ if $f_{n+1} \circ f_n = 0$ and the canonical map $\Img f_n \to \Ker f_{n+1}$ is an isomorphism. The whole sequence is exact if it's exact at every $A_i$. (For finite sequences, we don't impose any condition at the very first or very last object.)
+</Callout>
+
+When $\Img f_n = \Ker f_{n+1}$ literally as subgroups (the group-theory picture), the canonical map is just an inclusion that happens to be onto — an isomorphism exactly when the two subgroups coincide. So this recovers the group definition from the start of this section, phrased with no elements at all.
+
+</SlideLayout>

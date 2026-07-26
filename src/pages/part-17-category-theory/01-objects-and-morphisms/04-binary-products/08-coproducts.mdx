@@ -1,0 +1,28 @@
+---
+title: The dual construction — coproducts
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The dual construction — coproducts">
+
+Reverse every arrow in the definition of a product, and — exactly as with initial/terminal objects — you get its dual, the coproduct.
+
+<Callout kind="definition" title="Coproduct">
+Given objects $X$ and $Y$, the <Term k="oam66Coproduct">coproduct</Term> $X + Y$ comes with arrows $X \taking{\iota_X} X+Y$ and $Y \taking{\iota_Y} X+Y$ (think "inclusion"), such that for any object $A$ and arrows $X \taking{g} A$, $Y \taking{h} A$, there is a unique arrow $f \colon X+Y \to A$ with $f \circ \iota_X = g$ and $f \circ \iota_Y = h$.
+</Callout>
+
+A coproduct is exactly a product computed in $\mathcal{A}^{\op}$ — a <Term k="oam66Cocone">cocone</Term> is the dual of a cone, and a coproduct is a universal cocone, just as a product is a universal cone.
+
+<ProofReveal
+  client:load
+  id="oam-prod-proof-coproduct-set"
+  prompt="Describe the coproduct in Set."
+  solution="The coproduct of sets X and Y in Set is their disjoint union X ⊔ Y, with ι_X, ι_Y the two inclusion maps into the disjoint union. Given any g: X → A and h: Y → A, define f: X ⊔ Y → A by f(x) = g(x) for elements coming from X and f(y) = h(y) for elements coming from Y; this is the unique map with f∘ι_X = g and f∘ι_Y = h, since every element of X ⊔ Y comes from exactly one of X or Y."
+/>
+
+Spoiler for later: this cone/cocone construction generalizes enormously, to so-called "limits" and "colimits" — products and coproducts are just the simplest examples.
+
+</SlideLayout>

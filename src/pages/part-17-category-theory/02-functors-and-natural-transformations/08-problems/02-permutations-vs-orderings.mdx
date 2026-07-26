@@ -1,0 +1,23 @@
+---
+title: Problems — permutations vs. orderings, isomorphic but not naturally
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — permutations vs. orderings, isomorphic but not naturally">
+
+<Callout kind="remark" title="A note on this problem's solution">
+The source material this chapter follows flags its problems as missing official solutions. The solution below is a standard, self-contained argument written for this chapter rather than a verbatim reproduction — it is correct but is not lifted from an answer key.
+</Callout>
+
+<Problem
+  client:load
+  id="fan67-prob-perms-vs-orderings"
+  difficulty="standard"
+  prompt="Let 𝒜 be the category of finite sets whose arrows are bijections between sets. For A ∈ 𝒜, let F(A) be the set of permutations of A (bijections A → A), and let G(A) be the set of orderings of A (bijections {1,...,n} → A, where n is the size of A). Extend F and G to functors 𝒜 → Set, and show that F(A) ≅ G(A) for every A, but that this isomorphism cannot be chosen naturally in A."
+  solution="Extend F by conjugation: a bijection f : A → B acts on F(A) = Perm(A) by σ ↦ f∘σ∘f⁻¹ ∈ Perm(B); checking F(g∘f) = F(g)∘F(f) is direct from associativity of composition, and F(id) is visibly the identity. Extend G by postcomposition: f : A → B sends an ordering τ : {1,...,n} → A to f∘τ ∈ G(B); functoriality is immediate since postcomposition respects composition and identities. For fixed A with |A| = n, both F(A) and G(A) have exactly n! elements, so some bijection between them exists — for instance, fix one ordering τ₀ ∈ G(A) and send σ ∈ F(A) to σ∘τ₀ ∈ G(A), which is a bijection because Perm(A) acts freely and transitively on orderings by postcomposition. This particular bijection depends on the arbitrary choice of τ₀, and in fact no natural choice exists at all. Suppose φ_A : F(A) → G(A) were natural in A. Apply naturality to an arrow f : A → A that is itself a permutation of A, so F(f) is conjugation by f and G(f) is postcomposition by f. Naturality forces φ_A(f∘σ∘f⁻¹) = f∘φ_A(σ) for every σ and every f ∈ Perm(A); taking σ = id_A gives φ_A(id_A) = f∘φ_A(id_A) for every single f ∈ Perm(A). But postcomposition by Perm(A) acts freely on orderings, so f∘θ = θ forces f = id — meaning this equation can hold for every f ∈ Perm(A) only when Perm(A) has just one element, i.e. |A| ≤ 1. So for any A with at least two elements, no natural transformation φ can exist, let alone a natural isomorphism."
+/>
+
+</SlideLayout>

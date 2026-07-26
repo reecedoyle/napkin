@@ -1,0 +1,18 @@
+---
+title: Abelian categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Abelian categories">
+
+Additive categories give us addition of morphisms, but the earlier definitions of kernel, cokernel, and image only make full sense — and only interact the way we expect — under one more assumption.
+
+<Callout kind="definition" title="Abelian category">
+An <Term k="ac69AbelianCategory">**abelian category**</Term> $\AA$ is an additive category where, for every morphism $A \taking f B$: the kernel and cokernel of $f$ both exist, and $f$ factors through its image $\Img f$ in such a way that $\img f \colon A \surjto \Img f$ is epic.
+</Callout>
+
+Unwinding this: we get a factorization $A \surjto \Img f \injto B$ where the first map is epic and the second is the monic inclusion $\Img f \injto B$ coming from $\Img f = \Ker(\coker f)$. That is, *every* morphism in an abelian category splits as "epic onto its image, then monic into the codomain" — precisely the "surjective onto the image, then injective" picture you already know from functions.
+
+</SlideLayout>

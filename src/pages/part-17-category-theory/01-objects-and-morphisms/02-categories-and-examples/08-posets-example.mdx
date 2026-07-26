@@ -1,0 +1,32 @@
+---
+title: A concrete poset category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import NumericInput from '@/components/NumericInput';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="A concrete poset category">
+
+Take the poset $\mathcal{P}$ on four elements $\{a, b, c, d\}$ with relations $a \le b$ and $a \le c \le d$ (and nothing else, beyond what those force).
+
+<Callout kind="example" title="Working out the arrows">
+Every element gets an identity arrow: $\id_a, \id_b, \id_c, \id_d$. Beyond those, transitivity of $\le$ forces $a \le d$ as well (from $a \le c \le d$), and there's exactly one non-identity arrow for every pair with $p \le q$: $a \to b$, $a \to c$, $a \to d$, and $c \to d$. There is no relation between $b$ and any of $c, d$, so no arrow connects them.
+</Callout>
+
+<NumericInput
+  client:load
+  id="oam-cat-num-poset-arrow-count"
+  prompt="How many non-identity arrows does this poset category have in total?"
+  expected="4"
+  explanation="a → b, a → c, a → d, and c → d — four non-identity arrows. (b is unrelated to c and d, so no arrows connect them.)"
+/>
+
+<ProofReveal
+  client:load
+  id="oam-cat-proof-poset-distinct"
+  prompt="Check that no two distinct objects of a poset (viewed as a category) are isomorphic."
+  solution="Suppose p ≠ q were isomorphic: an arrow p → q exists only if p ≤ q, and its inverse q → p exists only if q ≤ p. Antisymmetry of a partial order says p ≤ q and q ≤ p together force p = q, contradicting p ≠ q. So distinct elements of a poset are never isomorphic as objects of the poset category."
+/>
+
+</SlideLayout>

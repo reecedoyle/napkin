@@ -1,0 +1,23 @@
+---
+title: A concrete equivalence — finite-dimensional vector spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A concrete equivalence — finite-dimensional vector spaces">
+
+Let's revisit the motivating example from before and check it against the criterion.
+
+<Callout kind="example" title="FDVect_k is equivalent to its skeleton">
+Let $\cA$ be the category with one object $k^n$ for each $n \ge 0$ and $\Hom(k^n,k^m)$ the $m \times n$ matrices. Let $\cB = \FDVect_k$, all finite-dimensional vector spaces over $k$. The inclusion $F \colon \cA \to \cB$ is:
+
+- **Fully faithful** — linear maps $k^n \to k^m$ *are* $m \times n$ matrices, so this is a bijection on Hom-sets, not just an embedding.
+- **Essentially surjective** — every finite-dimensional vector space has a basis, hence is isomorphic to $k^n$ for $n = \dim V$.
+
+So $F$ is an equivalence, even though it is nowhere close to a bijection on objects ($\cB$ has vastly more literal objects than $\cA$ does).
+</Callout>
+
+This is the standard justification for the slogan "every finite-dimensional vector space is (basically) $k^n$" — a slogan that's dangerous unless you keep track of exactly what "basically" means. It means equivalent, not isomorphic, and it's this section's theorem that lets you get away with it.
+
+</SlideLayout>

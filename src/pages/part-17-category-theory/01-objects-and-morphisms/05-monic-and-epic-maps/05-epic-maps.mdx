@@ -1,0 +1,18 @@
+---
+title: Epic maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Epic maps">
+
+Dualize monic — reverse the arrows — and you get the categorical analogue of surjective.
+
+<Callout kind="definition" title="Epic">
+A map $X \taking{f} Y$ is <Term k="oam66Epic">epic</Term> (or an epimorphism) if for any $g, h \colon Y \to A$ with $g \circ f = h \circ f$, we must have $g = h$. In other words, $f$ is right-cancellable: $g \circ f = h \circ f \implies g = h$.
+</Callout>
+
+This is kind of like surjectivity, though — as we're about to see — the resemblance is a little looser than monic/injective was. In concrete categories, surjective always implies epic (dual to injective $\implies$ monic), by essentially the same one-line argument.
+
+</SlideLayout>

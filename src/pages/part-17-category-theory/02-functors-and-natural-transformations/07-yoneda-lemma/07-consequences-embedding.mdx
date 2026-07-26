@@ -1,0 +1,22 @@
+---
+title: Consequence — the Yoneda embedding is fully faithful
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Consequence — the Yoneda embedding is fully faithful">
+
+Two payoffs drop straight out of the Yoneda lemma, with proofs we'll only sketch (full details in the source material this chapter follows).
+
+<Callout kind="proposition" title="The Yoneda embedding">
+The functor $H^\bullet \colon \cA \to [\cA\op,\Set]$ is <Term k="fan67FullyFaithful">fully faithful</Term>. It embeds $\cA$ itself into a functor category, much like Cayley's theorem embeds every group into a permutation group.
+</Callout>
+
+<Callout kind="proposition" title="Representable functors detect isomorphism">
+For $X, Y \in \cA$: $H_X \cong H_Y \iff X \cong Y \iff H^X \cong H^Y$.
+</Callout>
+
+To see why the second fact should be believable, take $\cA = \Grp$. Suppose groups $X, Y$ satisfy $H_X(A) \cong H_Y(A)$ (as sets) for *every* group $A$ — that is, $\Hom(A,X)$ and $\Hom(A,Y)$ always have the same size. Testing $A = \ZZ$ tells us $|X| = |Y|$; testing $A = \Zc{2}$ tells us $X$ and $Y$ have the same number of elements of order $2$; and so on for every $A$. Each single test only reveals a little, but the *whole* natural isomorphism (holding for every $A$ at once, compatibly) turns out to be strong enough to force $X \cong Y$ outright.
+
+</SlideLayout>

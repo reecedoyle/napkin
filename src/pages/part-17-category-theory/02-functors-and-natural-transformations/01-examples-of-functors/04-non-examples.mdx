@@ -1,0 +1,21 @@
+---
+title: Non-examples — when 'obvious' constructions aren't functors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Non-examples — when 'obvious' constructions aren't functors">
+
+Not every object-to-object recipe is a functor. Two instructive failures:
+
+- **Automorphism group.** Given a group $G$, you can build $\Aut(G)$. But there's no natural way to turn a homomorphism $G_1 \to G_2$ into a map $\Aut(G_1) \to \Aut(G_2)$ — nothing tells you what to do with an automorphism of $G_1$ once $G_2$ is bigger or smaller.
+- **Center.** Given a group $G$, you can build its center $Z(G)$ (the elements commuting with everything). Again, this isn't functorial in any natural way — a homomorphism doesn't have to send central elements to central elements.
+
+<Callout kind="remark" title="Why this matters">
+When a theorem tells you "$F$ is a functor," read it as "$F$ has a deep hidden symmetry — this is genuinely useful," not as "this is a trivial bookkeeping remark." Functoriality is a real, checkable property that most naive constructions actually *fail*.
+</Callout>
+
+One more (subtler) non-example for now: the dual-space operation $V \mapsto V^\vee$ *is* functorial — but not as a covariant functor $\Vect_k \to \Vect_k$. It only becomes a functor once we let arrows flip direction, which is exactly what the next two sections build up to.
+
+</SlideLayout>

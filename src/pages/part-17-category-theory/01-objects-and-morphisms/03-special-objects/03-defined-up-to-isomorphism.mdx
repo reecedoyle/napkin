@@ -1,0 +1,17 @@
+---
+title: Unique up to isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Unique up to isomorphism">
+
+The previous slide's proof pattern is going to recur constantly in category theory, so it's worth naming the phenomenon it exhibits.
+
+<Callout kind="remark" title="Equal vs. isomorphic">
+In mathematics we usually neither know nor care whether two objects are actually equal, only whether they're isomorphic. There are many competing constructions of $\RR$ (Dedekind cuts, Cauchy sequences, ...), yet we still just say "the" real numbers — because any two constructions come out isomorphic.
+</Callout>
+
+So whenever we define a categorical notion, the right question to ask isn't "is it unique?" but "is it unique up to isomorphism?" This turns out to be true remarkably often, and for elegant reasons like the argument on the last slide — the definition itself, phrased purely in terms of arrows, forces uniqueness up to a *canonical* isomorphism.
+
+</SlideLayout>

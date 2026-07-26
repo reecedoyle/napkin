@@ -1,0 +1,21 @@
+---
+title: Composing natural transformations
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Composing natural transformations">
+
+Naturally (sorry), two natural transformations can be composed. If $\alpha \colon F \Rightarrow G$ and $\beta \colon G \Rightarrow H$ are natural transformations between functors $\cA \to \cB$, define their composite $\beta \circ \alpha \colon F \Rightarrow H$ componentwise:
+$$
+(\beta \circ \alpha)_A \defeq \beta_A \circ \alpha_A \colon F(A) \to H(A).
+$$
+
+<Callout kind="remark" title="Why this is well-defined">
+The composite is automatically natural: for $f \colon A_1 \to A_2$, both squares (for $\alpha$ and for $\beta$) already commute individually, and stacking two commuting squares on top of each other gives a commuting rectangle — exactly the naturality condition for $\beta \circ \alpha$.
+</Callout>
+
+This is precisely what makes $[\cA,\cB]$ — the collection of functors $\cA \to \cB$ with natural transformations as arrows — into a genuine category, which we'll name properly in §7.
+
+</SlideLayout>

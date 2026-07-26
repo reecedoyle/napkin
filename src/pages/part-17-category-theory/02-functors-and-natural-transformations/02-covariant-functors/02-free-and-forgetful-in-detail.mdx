@@ -1,0 +1,20 @@
+---
+title: Free and forgetful functors, arrow by arrow
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Free and forgetful functors, arrow by arrow">
+
+Let's check the definition against the two running examples from §1 — this time tracking arrows explicitly, not just objects. Both "free" and "forgetful" are informal names; neither has one rigid definition.
+
+<Callout kind="example" title="Forgetful functor, in detail">
+Let $U \colon \Vect_k \to \Set$ send a vector space to its underlying set. Given a linear map $T \colon V_1 \to V_2$, there's an obvious $U(T) \colon U(V_1) \to U(V_2)$: the same map, just viewed as a function of sets. Checking the functor axioms is immediate — $U$ doesn't change anything about how maps compose, it just stops remembering linearity. The same recipe gives forgetful functors $\Grp \to \Set$, $\CRing \to \Set$, and even $\CRing \to \Grp$ (sending a ring $R$ to the abelian group $(R,+)$).
+</Callout>
+
+<Callout kind="example" title="Free functor, in detail">
+Let $F \colon \Set \to \Vect_k$ send a set $S$ to the vector space with basis $S$. Given a function $f \colon S \to T$, what's the obvious linear map $F(S) \to F(T)$? Send each basis vector $s \in S$ to the basis vector $f(s) \in T$, and extend linearly. The same idea builds a free functor $\Set \to \Grp$ using free groups instead of free vector spaces.
+</Callout>
+
+</SlideLayout>

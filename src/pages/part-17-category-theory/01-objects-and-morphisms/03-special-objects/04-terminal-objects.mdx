@@ -1,0 +1,26 @@
+---
+title: Terminal objects
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Terminal objects">
+
+Take the "dual" notion — reverse every arrow in the definition of initial object, and you get a terminal object.
+
+<Callout kind="definition" title="Terminal object">
+A <Term k="oam66TerminalObject">terminal object</Term> of $\mathcal{A}$ is an object $A_{\text{final}} \in \mathcal{A}$ such that for any $A \in \mathcal{A}$ (possibly $A = A_{\text{final}}$), there is *exactly one* arrow from $A$ to $A_{\text{final}}$.
+</Callout>
+
+<Callout kind="example" title="Terminal objects, category by category">
+- The terminal object of $\catname{Set}$ is a singleton set $\{\ast\}$. (There are many singleton sets, but as sets they're all isomorphic.)
+- The terminal object of $\catname{Grp}$ is the trivial group $\{1\}$ — the same object that was initial!
+- The terminal object of $\catname{CRing}$ is the zero ring $0$, since a ring homomorphism $R \to S$ must send $1_R \mapsto 1_S$, which is only possible into $0$ unconditionally.
+- The terminal object of $\catname{Top}$ is the single-point space.
+- The terminal object of a poset is its maximal element, if one exists.
+</Callout>
+
+The prototype: $\catname{Set}$ has terminal object $\{\ast\}$, and — as we'll use heavily soon — an arrow $\{\ast\} \to S$ corresponds precisely to an element of $S$.
+
+</SlideLayout>

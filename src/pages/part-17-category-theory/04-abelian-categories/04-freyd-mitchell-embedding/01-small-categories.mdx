@@ -1,0 +1,18 @@
+---
+title: Small categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Small categories">
+
+Before stating the big theorem of this section, we need one technical condition.
+
+<Callout kind="definition" title="Small category">
+A category $\AA$ is <Term k="ac69SmallCategory">**small**</Term> if $\obj(\AA)$ is a set (as opposed to a proper class) — there really is "a set of all objects in $\AA$."
+</Callout>
+
+<Term k="ac69Set">$\catname{Set}$</Term> itself is *not* small: there is no set of all sets (that's Russell's paradox territory). The same goes for $\catname{Grp}$, $\catname{Vect}_k$, $\catname{Top}$, and most of the categories we've met so far — they're all "too big" to be small.
+
+</SlideLayout>

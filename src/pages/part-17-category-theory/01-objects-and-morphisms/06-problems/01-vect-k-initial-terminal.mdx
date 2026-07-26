@@ -1,0 +1,20 @@
+---
+title: 'Problem: initial and terminal objects of Vect_k'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: initial and terminal objects of Vect_k">
+
+Four problems close out this chapter, pulling together categories, universal properties, and monic/epic. Plain "Problem" is standard difficulty; a ✦ marks one that's noticeably harder.
+
+<Problem
+  client:load
+  id="oam-prob-problem-vect-initial-terminal"
+  difficulty="standard"
+  prompt="In the category Vect_k of k-vector spaces (for a field k), what are the initial and terminal objects?"
+  hint="Think about what a linear map out of, or into, the zero vector space {0} must look like."
+  solution="Both the initial and the terminal object of Vect_k are the zero vector space {0}. Initial: for any vector space V, there is exactly one linear map {0} → V, namely 0 ↦ 0_V (linearity forces this, since {0} has only one element to map). Terminal: for any vector space V, there is exactly one linear map V → {0}, namely the zero map sending everything to 0 (there's nowhere else to send it). So {0} is simultaneously initial and terminal — an example of what's called a zero object, which we'll use again in the last problem."
+/>
+
+</SlideLayout>

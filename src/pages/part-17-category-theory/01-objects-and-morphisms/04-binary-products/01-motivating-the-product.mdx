@@ -1,0 +1,20 @@
+---
+title: Motivating the product, arrows-only
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Motivating the product, arrows-only">
+
+Now for the flagship example of a <Term k="oam66UniversalProperty">universal property</Term>, in the style we just saw with initial and terminal objects. Suppose we're in $\catname{Set}$, with two sets $X$ and $Y$, and we want to reconstruct the Cartesian product $X \times Y$ using only maps — never referring to elements or pairs directly.
+
+Let's think about maps *into* $X \times Y$.
+
+<Callout kind="remark" title="Moral">
+A function $A \taking{f} X \times Y$ amounts to exactly a pair of functions $\left( A \taking{g} X,\ A \taking{h} Y \right)$.
+</Callout>
+
+That's really just saying: to specify where $a \in A$ lands in $X \times Y$, it suffices (and is necessary) to specify its $X$-coordinate and its $Y$-coordinate separately. This "pairing" bijection between maps-in and pairs-of-maps is exactly the arrows-only handle we need.
+
+</SlideLayout>

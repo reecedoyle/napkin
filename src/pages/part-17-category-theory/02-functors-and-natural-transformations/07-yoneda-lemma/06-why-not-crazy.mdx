@@ -1,0 +1,18 @@
+---
+title: Why the Yoneda lemma isn't as crazy as it looks
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the Yoneda lemma isn't as crazy as it looks">
+
+The Yoneda lemma can feel like a magic trick the first time you see it. Here's an unsatisfying-but-honest way to make it feel less crazy.
+
+<Callout kind="remark" title="A rule of thumb">
+In category theory, two objects of the same "type" that are built naturally out of the same ingredients are probably secretly the same object. We've already seen this theme: composing functors, composing natural transformations — none of that needed any arbitrary choices.
+</Callout>
+
+Now apply the rule of thumb here. We start with a pair of ingredients: an object $A \in \cA$ and a presheaf $X \in [\cA\op,\Set]$. From these two ingredients, we built a *set* of natural transformations $\Hom(H_A, X)$ — but is there another, more obvious way to manufacture a set out of the same two ingredients? Yes: just evaluate, and look at $X(A)$ directly. The Yoneda lemma is telling us our heuristic holds up: these two "obviously constructed" sets from the same raw materials are, in fact, one and the same.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: The category 2 and functors that pick a pair
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The category 2 and functors that pick a pair">
+
+Let $\cA$ be a category, and consider the product category $\cA \times \cA = \cA^2$ (objects: pairs $(A_1,A_2)$; arrows: pairs of arrows, composed coordinatewise). By analogy with the set-level picture, each object of $\cA^2$ should correspond to a function $\mathbf 2 \to \cA$. But the codomain $\cA$ is a *category*, so that "function" needs to be a functor.
+
+<Callout kind="definition" title="The category 2">
+Let <Term k="fan67CategoryTwo">$\mathbf{2}$</Term> be the category with objects $\{0,1\}$ and no arrows besides the identities $\id_0, \id_1$.
+</Callout>
+
+A functor $F \colon \mathbf 2 \to \cA$ is then nothing more than a choice of the pair $(F(0), F(1)) \in \cA \times \cA$ — there are no non-identity arrows in $\mathbf 2$, so there's nothing else to specify and no compatibility to check.
+
+<Callout kind="remark" title="A warning from the source material">
+This $\mathbf 2$ (a *discrete* category, no arrow between $0$ and $1$) is different from another two-object category we'll build in §6 for natural transformations, which *does* have a nontrivial arrow $0 \le 1$. Same underlying objects, different arrows — don't mix them up.
+</Callout>
+
+More generally:
+
+<Callout kind="remark" title="The moral">
+A functor $F \colon \cA \to \cB$ can be viewed as an indexed collection of objects $\{ B_A \}_{A \in \cA}$ of $\cB$ — one object for each $A$, glued together by the arrow-level data of $F$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: Problems — two definitions of natural transformation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — two definitions of natural transformation">
+
+Time to put §6 and §7 to work. These three problems cover, in order: the two equivalent definitions of natural transformation from §6, a cautionary example showing that "isomorphic object by object" is much weaker than "naturally isomorphic," and a from-scratch proof of the Yoneda lemma itself.
+
+<Problem
+  client:load
+  id="fan67-prob-nat-transf-two-definitions"
+  difficulty="standard"
+  prompt="Show that the two definitions of natural transformation — one in terms of a functor 𝒜 × 𝟐 → 𝓑, and one in terms of components F(A) → G(A) satisfying naturality squares — are equivalent."
+  hint="The category 𝒜 × 𝟐 has redundant arrows: every arrow (f, 0 ≤ 1) can be written as a composite of a same-copy arrow (f, id) and a crossing arrow (id, 0 ≤ 1), in either order."
+  solution="The arrows of 𝒜 × 𝟐 come in three families: (f, id) living inside one copy of 𝒜, (id_A, 0 ≤ 1) crossing between the two copies at a fixed object A, and the mixed arrows (f, 0 ≤ 1), which are redundant — each factors two ways, as (f,id) composed with (id, 0≤1) in either order. So specifying a functor α : 𝒜 × 𝟐 → 𝓑 reduces to specifying where the first two families go. Functoriality already forces (f,id) in the 𝒜 × {0} copy to go to F(f), and in the 𝒜 × {1} copy to go to G(f); specifying where (id_A, 0 ≤ 1) goes is exactly specifying a component α_A : F(A) → G(A). The redundancy in the mixed arrows — which must agree however you factor them — is precisely the naturality square G(f) ∘ α_A = α_{A'} ∘ F(f). So a functor 𝒜 × 𝟐 → 𝓑 restricting correctly to F and G on the two copies is exactly the same data as a natural transformation, with the naturality squares arising from the one relation among generators of 𝒜 × 𝟐. The same argument works for products of categories in general: you only ever need to think about arrows of the form (f, id) and (id, g), since a general arrow factors as (f,g) = (f,id) ∘ (id,g) = (id,g) ∘ (f,id)."
+/>
+
+</SlideLayout>

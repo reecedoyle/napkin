@@ -1,0 +1,18 @@
+---
+title: Colimits — the dual notion
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Colimits — the dual notion">
+
+Category theory loves to dualize: reverse every arrow in a definition, and you usually get an equally useful notion. Limits are no exception.
+
+<Callout kind="definition" title="Colimit">
+Reversing every arrow in the definition of a cone gives a **co-cone**: an object $A$ with an arrow *from* each object of $D$ *into* $A$, commuting with the arrows of $D$. A <Term k="lim68Colimit">**colimit**</Term> of $D$ is the universal co-cone — the one every other co-cone factors through uniquely.
+</Callout>
+
+Equivalently: a colimit of $D$ in a category $\mathcal{C}$ is the same thing as a limit of $D$ in the opposite category $\mathcal{C}^{\mathrm{op}}$. Like limits, colimits (when they exist) are unique up to unique isomorphism.
+
+</SlideLayout>

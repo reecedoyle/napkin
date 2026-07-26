@@ -1,0 +1,18 @@
+---
+title: Building intuition before the theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Building intuition before the theorem">
+
+Fix $A \in \cA$ and a presheaf $X \colon \cA\op \to \Set$. Suppose we're handed a natural transformation $\alpha \colon H_A \Rightarrow X$. What data does $\alpha$ actually carry?
+
+Naturality says: for any arrow $f \colon B \to A$ (an element of $H_A(B) = \Hom(B,A)$), the component $\alpha_B$ must satisfy $\alpha_B(f) = X(f)\big(\alpha_A(\id_A)\big)$. Every input $f$ to every component $\alpha_B$ is forced, purely by naturality, once we know the single value $\alpha_A(\id_A) \in X(A)$.
+
+<Callout kind="remark" title="The punchline, before we state it">
+So the *entire* natural transformation $\alpha$ — infinitely many components, one set-map per object of $\cA$ — collapses down to one single piece of data: the element $\alpha_A(\id_A) \in X(A)$. That's a startling amount of compression, and it's exactly what the Yoneda lemma makes precise.
+</Callout>
+
+</SlideLayout>

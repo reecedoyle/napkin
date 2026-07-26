@@ -1,0 +1,20 @@
+---
+title: The converse, in familiar categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The converse, in familiar categories">
+
+We showed injective $\implies$ monic in any concrete category. In *most* familiar categories the converse also holds, using the <Term k="oam66FreeObject">free objects</Term> from earlier as a source of test arrows.
+
+<ProofReveal
+  client:load
+  id="oam-monep-proof-monic-injective"
+  prompt="Show that in Set, Grp, CRing, monic implies injective. (Hint: take A = {∗}, A = ℤ, A = ℤ[x] respectively.)"
+  solution="In Set: suppose f: X → Y is monic but f(x₁) = f(x₂) for x₁ ≠ x₂. Define g, h: {∗} → X by g(∗) = x₁, h(∗) = x₂. Then f∘g and f∘h are both the constant map to f(x₁) = f(x₂), so f∘g = f∘h, but g ≠ h since x₁ ≠ x₂ — contradicting monic. So f must be injective. In Grp: recall arrows ℤ → G correspond to elements of G (send 1 to that element). If f: G → H is monic but not injective, pick g₁ ≠ g₂ ∈ G with f(g₁) = f(g₂), let φ₁, φ₂: ℤ → G send 1 to g₁, g₂ respectively; then f∘φ₁ = f∘φ₂ but φ₁ ≠ φ₂, contradicting monic. In CRing: identically, using that arrows ℤ[x] → R correspond to elements of R (send x to that element) — the same argument with ℤ[x] in place of ℤ shows monic implies injective."
+/>
+
+</SlideLayout>

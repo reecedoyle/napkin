@@ -1,0 +1,39 @@
+---
+title: Posets are categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Posets are categories">
+
+Here's a trickier example that isn't built from functions at all. Let $\mathcal{P}$ be a partially ordered set.
+
+<Callout kind="example" title="A poset as a category">
+Build a <Term k="oam66Poset">category $P$</Term> from $\mathcal{P}$ as follows:
+
+- The objects of $P$ are the elements of $\mathcal{P}$.
+- For every object $p$, add an identity arrow $\id_p$.
+- For any pair of *distinct* objects $p \le q$, add a single arrow $p \to q$. There are no other arrows.
+</Callout>
+
+There's only one possible way to define composition here — arrows aren't functions you could compose in several ways, they're just witnesses to the relation $\le$.
+
+<MCQ
+  client:load
+  id="oam-cat-mcq-poset-composition"
+  prompt="If p ≤ q and q ≤ r are two arrows in the poset category, what must their composite p → r be?"
+  options={[
+    { id: "a", label: "The unique arrow p → r, since p ≤ r by transitivity" },
+    { id: "b", label: "Undefined — posets don't have composition" },
+    { id: "c", label: "Whichever of the two arrows has the larger label" },
+    { id: "d", label: "Two different arrows, one for each order the relations were given" },
+  ]}
+  correct="a"
+  explanation="Transitivity of ≤ gives p ≤ r, and by construction there is exactly one arrow p → r in the poset category. Since there's only one candidate arrow at all, it must be the composite — there is no choice to make."
+/>
+
+This illustrates the point that the arrows of a category can be totally different from functions. A category whose arrows really are structure-preserving maps between sets, like $\catname{Grp}$ or $\catname{Top}$, is called <Term k="oam66ConcreteCategory">concrete</Term>; a poset category is a natural example of one that is *not* concrete.
+
+</SlideLayout>

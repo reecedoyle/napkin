@@ -1,0 +1,18 @@
+---
+title: Monic and epic maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Monic and epic maps">
+
+Before defining categorical kernels we need the categorical stand-ins for "injective" and "surjective" — notions that, like everything else in category theory, must be phrased purely in terms of maps, never elements.
+
+<Callout kind="definition" title="Monic and epic">
+A map $A \taking f B$ is <Term k="ac69Monic">**monic**</Term> if for every pair of maps $g, h \colon Z \to A$, $fg = fh$ implies $g = h$ (you can "cancel $f$" on the left). Dually, $f$ is <Term k="ac69Epic">**epic**</Term> if for every pair of maps $g, h \colon B \to Z$, $gf = hf$ implies $g = h$ (you can cancel $f$ on the right).
+</Callout>
+
+In $\catname{Grp}$ and $\catname{Vect}_k$, monic coincides exactly with "injective as a function," and epic coincides with "surjective as a function." That agreement is why we'll use the arrow $\injto$ for monic maps and $\surjto$ for epic maps throughout — the notation is meant to evoke the concrete picture even in categories with no elements to speak of.
+
+</SlideLayout>

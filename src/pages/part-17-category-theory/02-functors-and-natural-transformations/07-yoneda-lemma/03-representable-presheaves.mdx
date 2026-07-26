@@ -1,0 +1,24 @@
+---
+title: Presheaves, formally, and what 'representable' means
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Presheaves, formally, and what 'representable' means">
+
+We used the word "presheaf" informally back in §3. Let's pin it down, alongside the natural question it raises.
+
+<Callout kind="definition" title="Presheaf, representable">
+A <Term k="fan67Presheaf">presheaf</Term> $X$ on $\cA$ is just a contravariant functor $X \colon \cA\op \to \Set$. It is <Term k="fan67Representable">representable</Term> if $X \cong H_A$ for some object $A \in \cA$.
+</Callout>
+
+So asking "is $X$ representable?" is asking a very concrete question:
+
+<Callout kind="remark" title="The question representability asks">
+What kind of presheaves are already "built in" to the category $\cA$, in the sense of literally being some object's $\Hom$-out-of functor?
+</Callout>
+
+Most presheaves are *not* representable — representability is a real, restrictive condition. One way to probe it: given a presheaf $X$ and a candidate object $A$, look at the set of natural transformations $\Hom(H_A, X)$ in the functor category $[\cA\op,\Set]$, and see what we can learn. It turns out this set has an astonishingly simple description — that's next.
+
+</SlideLayout>

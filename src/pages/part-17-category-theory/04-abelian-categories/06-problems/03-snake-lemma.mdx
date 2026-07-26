@@ -1,0 +1,26 @@
+---
+title: Problem — the snake lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — the snake lemma">
+
+The most famous diagram chase of all — the one Aluffi was joking about a few slides back.
+
+<Callout kind="remark" title="Setup">
+In an abelian category, consider a diagram with a map $A \taking f B \taking g C \to 0$ on top (exact, $g$ epic) and $0 \to A' \taking{f'} B' \taking{g'} C'$ on the bottom (exact, $f'$ monic), connected by vertical maps $\alpha \colon A \to A'$, $\beta \colon B \to B'$, $\gamma \colon C \to C'$ making both squares commute.
+</Callout>
+
+<Problem
+  client:load
+  id="abcat-06-prob-snake-lemma"
+  difficulty="starred"
+  prompt="Prove that there is an exact sequence Ker α → Ker β → Ker γ → Coker α → Coker β → Coker γ."
+  hint="The three left-hand maps and three right-hand maps are just f, g, f', g' restricted (resp. induced) on kernels and cokernels — the commuting squares guarantee these restrictions/inductions are well-defined. The interesting part is building the middle 'connecting' map Ker γ → Coker α: given z ∈ Ker γ, use that g is epic to lift z to B, push forward with β, and use that f' is monic to pull the result back to A' uniquely."
+  solution="Since the squares commute, f and g restrict to maps Ker α → Ker β → Ker γ (an element killed by α, resp. β, is sent by f, resp. g, to an element killed by β, resp. γ), and dually f', g' descend to maps Coker α → Coker β → Coker γ on quotients. This gives the four outer maps of the six-term sequence for free. The connecting map δ: Ker γ → Coker α is built by a diagram chase: given z ∈ Ker γ ⊆ C, use that g is epic to choose y ∈ B with g(y) = z. Then g'(β(y)) = γ(g(y)) = γ(z) = 0, so β(y) ∈ Ker g' = Img f' (bottom row exact), giving a unique x' ∈ A' with f'(x') = β(y) — unique because f' is monic. Define δ(z) to be the class of x' in Coker α = A'/Img α. A short check shows δ(z) doesn't depend on the choice of lift y (any two lifts of z differ by an element of Ker g = Img f, and tracing that difference through β and f' lands it in Img α, so the two candidate classes in Coker α agree), and that δ is a well-defined homomorphism. Exactness of the resulting six-term sequence at each of its six spots — Ker α, Ker β, Ker γ, Coker α, Coker β, Coker γ — is then a routine but lengthy chase in the same style as the four lemma, checking at each stage that 'image equals kernel' by pushing elements through the diagram; we omit the full verification (as Aluffi warns, writing out every step in public is its own punishment), but every step follows the same pattern as the four-lemma proof from the previous problem."
+/>
+
+</SlideLayout>

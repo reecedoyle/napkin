@@ -1,0 +1,26 @@
+---
+title: Functors preserve isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Functors preserve isomorphism">
+
+Here's why we should care about all this. Consider the "obvious" fact: if groups $G$ and $H$ are isomorphic, then they have the same size. We can restate this using the forgetful functor $U \colon \Grp \to \Set$: if $G \cong H$, then $U(G) \cong U(H)$ (isomorphic sets, i.e. same cardinality). The beauty of category theory is that this works *for any functor whatsoever*, and the proof only uses arrows.
+
+<Callout kind="theorem" title="Functors preserve isomorphism">
+If $A_1 \cong A_2$ are <Term k="isomorphic">isomorphic</Term> objects in $\cA$ and $F \colon \cA \to \cB$ is a functor, then $F(A_1) \cong F(A_2)$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="fan67-cov-proof-functors-preserve-iso"
+  prompt="Try proving this yourself before revealing: given an isomorphism f : A₁ → A₂ with inverse g : A₂ → A₁, show F(f) : F(A₁) → F(A₂) is an isomorphism."
+  solution="Apply F to both f and g to get F(f) : F(A₁) → F(A₂) and F(g) : F(A₂) → F(A₁). Since g ∘ f = id_{A₁}, functoriality gives F(g) ∘ F(f) = F(g ∘ f) = F(id_{A₁}) = id_{F(A₁)}. Symmetrically F(f) ∘ F(g) = id_{F(A₂)}. So F(g) is a two-sided inverse of F(f), making F(f) an isomorphism — using exactly the two functor axioms, preservation of composition and of identities."
+/>
+
+Since almost every operation we perform *is* a functor, and functors always preserve isomorphism, we get isomorphism-invariance for free, all over mathematics. (This is exactly why homotopic spaces have isomorphic fundamental groups — $\pi_1$ is a functor.)
+
+</SlideLayout>

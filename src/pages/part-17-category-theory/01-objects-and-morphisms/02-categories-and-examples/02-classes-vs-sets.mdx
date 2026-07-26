@@ -1,0 +1,18 @@
+---
+title: A note on classes vs. sets
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A note on classes vs. sets">
+
+You may have noticed we said "class of objects" rather than "set of objects" — that's deliberate, not sloppy notation.
+
+<Callout kind="remark" title="Why 'class' and not 'set'">
+You can mostly think of a <Term k="oam66Class">class</Term> as just "set." The reason we can't literally say "set" is Cantor's paradox: there is no set of all sets, so a collection like "all groups" is too large to be a set. "Class" sidesteps this paradox.
+</Callout>
+
+From now on, when we write $A \in \mathcal{A}$ we mean $A \in \obj(\mathcal{A})$ — objects of $\mathcal{A}$ may not form a set. But we will always assume our categories are <Term k="oam66LocallySmall">locally small</Term>: the Hom-set $\Hom_{\mathcal{A}}(A_1, A_2)$ between two *given* objects is always a genuine set. This is the assumption that lets us keep talking about "the set of arrows from $A_1$ to $A_2$" without paradox.
+
+</SlideLayout>

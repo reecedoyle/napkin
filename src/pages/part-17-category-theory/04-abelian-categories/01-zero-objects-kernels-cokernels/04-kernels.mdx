@@ -1,0 +1,18 @@
+---
+title: Kernels, categorically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Kernels, categorically">
+
+You already know the kernel of a group homomorphism $\phi \colon G \to H$: the elements sent to the identity. The categorical definition has to get there without mentioning elements — it does so as a universal property.
+
+<Callout kind="definition" title="Kernel">
+Consider a map $A \taking f B$. The <Term k="ac69Kernel">**kernel**</Term> is a map $\ker f \colon \Ker f \injto A$ such that $f \circ (\ker f) = 0$, and moreover any other map $Z \to A$ with $f$-composite $0$ factors *uniquely* through $\Ker f$. In other words, $\Ker f$ is the equalizer of $f$ and the zero map $A \to B$.
+</Callout>
+
+This universal property forces $\ker f$ to be monic — which is exactly why we draw it as $\Ker f \injto A$. In $\catname{Grp}$ or $\catname{Ab}$, unwinding the universal property recovers the familiar kernel subgroup $\{a \in A : f(a) = 0\}$, with $\ker f$ its inclusion map: any homomorphism $Z \to A$ landing entirely inside that subgroup is exactly one that becomes $0$ after composing with $f$.
+
+</SlideLayout>

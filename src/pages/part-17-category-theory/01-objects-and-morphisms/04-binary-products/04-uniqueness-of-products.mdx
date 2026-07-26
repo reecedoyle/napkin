@@ -1,0 +1,23 @@
+---
+title: Products are unique up to isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Products are unique up to isomorphism">
+
+Right on schedule, products obey the same "unique up to isomorphism" pattern we saw for initial and terminal objects.
+
+<Callout kind="proposition" title="Uniqueness of products">
+When they exist, products are unique up to isomorphism: given two products $P_1$ and $P_2$ of $X$ and $Y$, there is an isomorphism between the two objects.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="oam-prod-proof-uniqueness"
+  prompt="Prove the proposition above."
+  solution="Let P1 and P2 both be products of X and Y, with projections π¹_X, π¹_Y (for P1) and π²_X, π²_Y (for P2). Since P1 is a product and we have arrows π²_X: P2 → X, π²_Y: P2 → Y, the universal property of P1 gives a unique arrow f: P2 → P1 with π¹_X∘f = π²_X and π¹_Y∘f = π²_Y. Symmetrically, the universal property of P2 gives a unique g: P1 → P2 with π²_X∘g = π¹_X and π²_Y∘g = π¹_Y. Now consider f∘g: P1 → P1. It satisfies π¹_X∘(f∘g) = π¹_X and π¹_Y∘(f∘g) = π¹_Y — the same equations id_{P1} satisfies. By the uniqueness clause of P1's universal property (applied with A = P1, the pair of arrows being π¹_X, π¹_Y themselves), there is only one arrow P1 → P1 compatible with those projections, so f∘g = id_{P1}. The mirror argument gives g∘f = id_{P2}. Hence f and g are mutually inverse, and P1 ≅ P2."
+/>
+
+</SlideLayout>

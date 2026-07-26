@@ -1,0 +1,18 @@
+---
+title: Isomorphism ⟺ monic and epic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Isomorphism ⟺ monic and epic">
+
+One more sanity check that abelian categories behave the way "injective + surjective = bijective" would lead you to expect.
+
+<Callout kind="proposition" title="Isomorphism ⟺ monic and epic">
+In an abelian category, a map is an <Term k="ac69CategoricalIso">isomorphism</Term> if and only if it is both monic and epic.
+</Callout>
+
+We'll leave the proof aside — the Freyd-Mitchell embedding theorem, coming up next, will let us reduce this (and most other "obvious" facts about abelian categories) to a statement about $R$-modules, where "injective and surjective functions between sets" makes the claim immediate.
+
+</SlideLayout>

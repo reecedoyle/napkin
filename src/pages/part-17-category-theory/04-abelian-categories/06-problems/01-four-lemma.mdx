@@ -1,0 +1,26 @@
+---
+title: Problem — the four lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — the four lemma">
+
+Time to chase some diagrams yourself. This first one is a warm-up for the five lemma and snake lemma still to come — and its proof is a template you can reuse for both.
+
+<Callout kind="remark" title="Setup">
+In an abelian category, consider a commutative diagram with two rows $A \taking p B \taking q C \taking r D$ and $A' \taking{p'} B' \taking{q'} C' \taking{r'} D'$, connected by vertical maps $\alpha \colon A \to A'$, $\beta \colon B \to B'$, $\gamma \colon C \to C'$, $\delta \colon D \to D'$ making every square commute. Assume both rows are exact.
+</Callout>
+
+<Problem
+  client:load
+  id="abcat-06-prob-four-lemma"
+  difficulty="standard"
+  prompt="In the setup above, suppose α is epic, and β and δ are monic. Prove that γ is monic."
+  hint="Start from c ∈ C with γ(c) = 0 and chase it backwards along the top row, forwards along the vertical maps, and back down to a contradiction unless c = 0. You'll use exactness of the top row twice and injectivity of β, δ once each."
+  solution="Let c ∈ C with γ(c) = 0; we show c = 0. First, 0 = r'(γ(c)) = δ(r(c)) by commutativity of the right square, and since δ is monic (injective), r(c) = 0. Since the top row is exact at C, r(c) = 0 means c = q(b) for some b ∈ B. Now q'(β(b)) = γ(q(b)) = γ(c) = 0 by commutativity of the middle square, so β(b) ∈ Ker q' = Img p' (bottom row exact at B'), giving some a' ∈ A' with p'(a') = β(b). Since α is epic, there is a ∈ A with α(a) = a'. By commutativity of the left square, β(p(a)) = p'(α(a)) = p'(a') = β(b), and since β is monic we may cancel it to get p(a) = b. Finally, since the top row is exact at B, b = p(a) lies in Img p = Ker q, so q(b) = 0 — but q(b) = c, so c = 0, as needed."
+/>
+
+</SlideLayout>

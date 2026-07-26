@@ -1,0 +1,30 @@
+---
+title: Isomorphism, categorically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Isomorphism, categorically">
+
+Now that we have a formal notion of category, we can finally define isomorphism in one shot, for *any* category at all.
+
+<Callout kind="definition" title="Isomorphism">
+An arrow $A_1 \taking{f} A_2$ is an <Term k="oam66CategoricalIsomorphism">isomorphism</Term> if there exists $A_2 \taking{g} A_1$ such that $f \circ g = \id_{A_2}$ and $g \circ f = \id_{A_1}$. We then say $A_1$ and $A_2$ are isomorphic, written $A_1 \cong A_2$.
+</Callout>
+
+This single definition specializes down to every isomorphism notion from the recap slide, depending only on which category we're working in.
+
+<Callout kind="remark" title="Set">
+In $\catname{Set}$, $X \cong Y \iff \left\lvert X \right\rvert = \left\lvert Y \right\rvert$ — two sets are isomorphic exactly when they have the same size.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="oam-cat-proof-self-iso"
+  prompt="Check that every object in a category is isomorphic to itself. (This is offensively easy.)"
+  solution="Take f = id_A and g = id_A. Then f∘g = id_A∘id_A = id_A and g∘f = id_A, using the identity law twice. So id_A is its own two-sided inverse, and A ≅ A."
+/>
+
+</SlideLayout>

@@ -1,0 +1,20 @@
+---
+title: Basic examples — pointed spaces, vector spaces, Set
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basic examples — pointed spaces, vector spaces, Set">
+
+A few more, including one where the objects carry a little extra data.
+
+<Callout kind="example" title="More examples">
+- <Term k="oam66CatTopStar">$\catname{Top}_\ast$</Term>: objects are pairs $(X, x_0)$, a topological space $X$ together with a distinguished basepoint $x_0 \in X$. Arrows $f \colon X \to Y$ must satisfy $f(x_0) = y_0$ — they preserve the basepoint.
+- <Term k="oam66CatVect">$\catname{Vect}_k$</Term>: objects are vector spaces (possibly infinite-dimensional) over a field $k$, arrows are linear maps. Restricting to finite-dimensional spaces gives <Term k="oam66CatFDVect">$\catname{FDVect}_k$</Term>.
+- <Term k="oam66CatSet">$\catname{Set}$</Term>: objects are sets, and arrows are *any* functions at all — there's no structure left to preserve.
+</Callout>
+
+$\catname{Set}$ is worth pausing on: it's the category with the loosest possible notion of arrow, and it will keep reappearing as the natural "yardstick" category for talking about elements, sizes, and universal constructions.
+
+</SlideLayout>

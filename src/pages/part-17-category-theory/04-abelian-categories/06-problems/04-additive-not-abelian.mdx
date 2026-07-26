@@ -1,0 +1,26 @@
+---
+title: Problem — an additive category that isn't abelian
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — an additive category that isn't abelian">
+
+We end the chapter by confirming that "additive" is genuinely weaker than "abelian" — there's a category satisfying the first without the second.
+
+<Callout kind="remark" title="Setup">
+Consider the category whose objects are pairs $(B, A)$ of abelian groups with $A$ a subgroup of $B$, and whose morphisms $(B, A) \to (B', A')$ are group maps $f \colon B \to B'$ with $f(A) \subseteq A'$. (Equivalently: the category of short exact sequences $0 \to A \to B \to B/A \to 0$ of abelian groups.) This category is additive — you can check $\Hom$ inherits an abelian group structure from $\Hom_{\catname{Ab}}(B,B')$, with zero object $(0,0)$.
+</Callout>
+
+<Problem
+  client:load
+  id="abcat-06-prob-additive-not-abelian"
+  difficulty="standard"
+  prompt="Show that the arrow (X, 0) → (X, X), induced by the identity map on X, is monic and epic but not an isomorphism. Conclude that this category is not abelian."
+  hint="Everything about this arrow's monic/epic-ness reduces to the identity map on X being injective and surjective in Ab. The obstruction to being an isomorphism is about which morphisms are ALLOWED in this category, not about the underlying map."
+  solution="The morphism (X,0) → (X,X) is the identity map id_X: X → X, which is a valid morphism here since id_X(0) = {0} ⊆ X trivially. It is monic: if g, h: (Z,W) → (X,0) satisfy id_X∘g = id_X∘h as maps Z → X, then g = h as underlying group maps, hence as morphisms in this category (morphisms carry no extra data beyond the underlying map). It is epic by the same argument applied on the other side, using that id_X is already a bijection. However, it is not an isomorphism: an inverse morphism (X,X) → (X,0) would have to be a group map f: X → X with f(X) ⊆ 0 — i.e. the zero map — while also being a two-sided inverse to id_X as underlying maps, forcing f = id_X. These are only consistent when X = 0. So whenever X ≠ 0, (X,0) → (X,X) is monic and epic without being an isomorphism. Since we proved earlier in this chapter that monic-and-epic implies isomorphism in any abelian category, this category — despite being additive — cannot be abelian."
+/>
+
+</SlideLayout>

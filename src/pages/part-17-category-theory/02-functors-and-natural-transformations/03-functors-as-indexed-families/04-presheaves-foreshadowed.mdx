@@ -1,0 +1,18 @@
+---
+title: Foreshadowing presheaves
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Foreshadowing presheaves">
+
+The "functor as indexed family" viewpoint is most useful when the source category encodes some indexing structure richer than a discrete set. Here's the motivating example, even though we won't unpack it fully until later:
+
+<Callout kind="example" title="A family of rings indexed by open sets">
+A <Term k="fan67Presheaf">presheaf</Term> — a contravariant functor $\Opens(X)\op \to \CRing$ — means "a family of rings indexed by the open sets of a space $X$, satisfying certain compatibility (restriction) conditions." Reading it as a functor rather than a bare indexed family is what buys us those compatibility conditions for free: they're exactly the requirement that the functor respect composition of inclusions.
+</Callout>
+
+Just as $\cA^2$ is itself a category, it turns out the functors $\mathbf 2 \to \cA$ also assemble into a category (their arrows are natural transformations, which we build in §6). We'll need that functor category again when we get to the Yoneda lemma in §7.
+
+</SlideLayout>

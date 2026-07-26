@@ -1,0 +1,18 @@
+---
+title: Contravariant functors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Contravariant functors">
+
+Time to explain those $\cA\op$'s from §1. In every functor we've built so far, an arrow $A_1 \to A_2$ became an arrow $F(A_1) \to F(A_2)$ — same direction. Sometimes, though, the natural construction sends the arrow the *other* way: we get $F(A_2) \to F(A_1)$ instead.
+
+<Callout kind="definition" title="Contravariant functor">
+A **contravariant functor** from $\cA$ to $\cB$ is a functor $F \colon \cA\op \to \cB$. (We never write "contravariant functor $F \colon \cA \to \cB$" — that phrasing would clash with the fact that arrows should always match the stated domain and codomain.)
+</Callout>
+
+For emphasis, an ordinary functor is often called a **covariant functor** — and "functor" with no adjective always means covariant. All the machinery is the same as before; a contravariant functor $\cA \to \cB$ is just an ordinary (covariant) functor out of the opposite category $\cA\op$, so it still preserves identities and composition, just with arrows pre-flipped.
+
+</SlideLayout>

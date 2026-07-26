@@ -1,0 +1,25 @@
+---
+title: Two quick facts about monic maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Two quick facts about monic maps">
+
+Two small warm-up checks before we look at how monic relates to injective in specific categories.
+
+<ProofReveal
+  client:load
+  id="oam-monep-proof-injective-concrete"
+  prompt="Convince yourself that in a concrete category, injective ⟹ monic."
+  solution="Suppose f: X → Y is injective (as a function on underlying sets) and f∘g = f∘h for arrows g, h: A → X. Then for every element a of A, f(g(a)) = f(h(a)). Since f is injective, this forces g(a) = h(a) for every a, i.e. g = h as functions. So f is left-cancellable, hence monic."
+/>
+
+<ProofReveal
+  client:load
+  id="oam-monep-proof-monic-composition"
+  prompt="Show that the composition of two monic maps is monic."
+  solution="Let f: X → Y and f': Y → Z both be monic, and suppose (f'∘f)∘g = (f'∘f)∘h for arrows g, h: A → X. Regrouping, f'∘(f∘g) = f'∘(f∘h). Since f' is monic, this cancels to f∘g = f∘h. Since f is monic, this in turn cancels to g = h. So f'∘f is left-cancellable, hence monic."
+/>
+
+</SlideLayout>

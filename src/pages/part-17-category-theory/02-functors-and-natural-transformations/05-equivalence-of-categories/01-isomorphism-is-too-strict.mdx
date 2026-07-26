@@ -1,0 +1,16 @@
+---
+title: Isomorphism of categories is too strict
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Isomorphism of categories is too strict">
+
+We now know $\Cat$ is a category, so it has its own notion of isomorphism: $\cA \cong \cB$ would mean functors $F \colon \cA \to \cB$ and $G \colon \cB \to \cA$ with $G \circ F = \id_\cA$ and $F \circ G = \id_\cB$ *on the nose*.
+
+That turns out to be a bad definition in practice. Consider the category of finite-dimensional vector spaces over $k$, and the much smaller category with one object $k^n$ for each $n \ge 0$ (and $\Hom(k^n,k^m)$ the $m \times n$ matrices). These categories capture exactly the same mathematical content — every finite-dimensional space is isomorphic to some $k^n$ — but they are *not* isomorphic as categories: the first has vastly more objects (every finite-dimensional space, not just the specific ones $k^n$), so no functor between them can be literally invertible.
+
+We want a notion of "the same category" that's blind to this kind of bureaucratic difference in how many isomorphic copies of each object you happened to include. That's what equivalence of categories will give us.
+
+</SlideLayout>

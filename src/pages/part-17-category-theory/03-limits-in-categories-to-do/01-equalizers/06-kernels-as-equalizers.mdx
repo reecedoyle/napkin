@@ -1,0 +1,28 @@
+---
+title: Kernels are a special case of equalizers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Kernels are a special case of equalizers">
+
+<Callout kind="remark" title="Kernels, generalized">
+Whenever a category has a distinguished "trivial map" between any two objects (as $\mathrm{Grp}$ does — the map sending everything to the identity), equalizers give us a categorical notion of **kernel**: the kernel of $\phi \colon G \to H$ is just the equalizer of $\phi$ and the trivial homomorphism $G \to H$. We'll flesh this idea out properly in the chapter on abelian categories.
+</Callout>
+
+<MCQ
+  client:load
+  id="lim68-eq-mcq-kernel-equalizer"
+  prompt="Given a group homomorphism φ: G → H, the inclusion ker φ ↪ G is the equalizer of φ and which other map?"
+  options={[
+    { id: "a", label: "The trivial homomorphism G → H" },
+    { id: "b", label: "The identity map G → G" },
+    { id: "c", label: "The inclusion H ↪ G" },
+    { id: "d", label: "φ composed with itself" },
+  ]}
+  correct="a"
+  explanation="ker φ is exactly the set of g on which φ agrees with the trivial homomorphism (the map sending every element of G to 1_H) — that's precisely the equalizer condition f(x) = g(x) applied to these two maps."
+/>
+
+</SlideLayout>

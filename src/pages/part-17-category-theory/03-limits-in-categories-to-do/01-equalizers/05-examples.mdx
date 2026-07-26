@@ -1,0 +1,19 @@
+---
+title: "Equalizers in Set, Top, and Grp"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Equalizers in Set, Top, and Grp">
+
+The categorical definition should reduce to the concrete one we started with, and it does.
+
+<Callout kind="example" title="Equalizers, category by category">
+- In $\mathrm{Set}$, given $X \taking{f,g} Y$, the equalizer $E$ can be realized as $E = \{x \in X \mid f(x) = g(x)\}$, with the inclusion $e \colon E \injto X$ as the arrow. By abuse of language, we usually just call the set $E$ itself "the equalizer".
+- The same works in $\mathrm{Top}$ and $\mathrm{Grp}$ — you just have to check the substructure is preserved. For example, in $\mathrm{Grp}$, given <Term k="homomorphism">homomorphisms</Term> $\phi, \psi \colon G \to H$, one checks that $\{g \in G \mid \phi(g) = \psi(g)\}$ is actually a subgroup of $G$, not just a subset.
+</Callout>
+
+There's a nice special case worth calling out on its own: given a single homomorphism $\phi \colon G \to H$, the inclusion $\ker\phi \injto G$ is the equalizer of $\phi$ and the **trivial homomorphism** $G \to H$ (the map sending everything to $1_H$). Every element of the <Term k="kernel">**kernel**</Term> is exactly the set of $g$ where $\phi$ and the trivial map agree.
+
+</SlideLayout>

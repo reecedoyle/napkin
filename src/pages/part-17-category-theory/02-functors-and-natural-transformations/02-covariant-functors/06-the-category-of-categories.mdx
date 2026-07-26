@@ -1,0 +1,18 @@
+---
+title: The category of categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The category of categories">
+
+We now have objects (categories) and arrows between them (functors) that compose associatively and have identities — the identity functor and composition of functors both trivially satisfy the axioms. So there's nothing stopping us from doing the obviously recursive thing:
+
+<Callout kind="remark" title="Cat">
+Categories and functors themselves form a category, <Term k="fan67Cat">$\Cat$</Term>: objects are categories, arrows are functors, composition is composition of functors.
+</Callout>
+
+This is a good moment to sit with how self-referential category theory is willing to get — and it's exactly the kind of self-reference that will let us build a *functor category* in §7, whose objects are themselves functors.
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: 0 → A → B exact ⟺ monic
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="0 → A → B exact ⟺ monic">
+
+The two special cases we memorized for groups earlier — $0 \to A \to B$ exact iff injective, and $A \to B \to 0$ exact iff surjective — carry over verbatim to any abelian category, with "injective/surjective" replaced by "monic/epic."
+
+<ProofReveal
+  client:load
+  id="abcat-03-proof-exact-iff-monic"
+  prompt="Show that, as before, 0 → A → B is exact if and only if A → B is monic."
+  solution="Exactness at A in 0 → A →f B means: the composite f∘(0-map) = 0 (automatic), and the canonical map Img(0 → A) → Ker f is an isomorphism. But Img(0 → A) = Ker(coker(0 → A)); since 0 → A is already the zero morphism into A, its cokernel is id_A, so Img(0 → A) = Ker(id_A) = 0. So the canonical map is 0 → Ker f, and exactness says precisely that this is an isomorphism, i.e. Ker f = 0 → A. By the monic-iff-trivial-kernel proposition proved earlier this section, Ker f = 0 → A exactly when f is monic. Chasing through the definitions, 0 → A → B is exact iff f is monic."
+/>
+
+This equivalence is the categorical justification for a habit you'll see everywhere: writing "$0 \to A \to B$" as shorthand for "$A \to B$ is monic," and "$A \to B \to 0$" as shorthand for "$A \to B$ is epic."
+
+</SlideLayout>

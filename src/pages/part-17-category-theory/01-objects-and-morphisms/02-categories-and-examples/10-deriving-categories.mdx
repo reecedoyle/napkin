@@ -1,0 +1,21 @@
+---
+title: Building new categories from old
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Building new categories from old">
+
+We close out this section with two simple ways to manufacture new categories out of ones we already have.
+
+<Callout kind="example" title="Two constructions">
+- Given a category $\mathcal{A}$, the <Term k="oam66OppositeCategory">opposite category</Term> $\mathcal{A}^{\op}$ is the same as $\mathcal{A}$ but with every arrow reversed.
+- Given categories $\mathcal{A}$ and $\mathcal{B}$, the <Term k="oam66ProductCategory">product category</Term> $\mathcal{A} \times \mathcal{B}$ has objects the pairs $(A, B)$ for $A \in \mathcal{A}$, $B \in \mathcal{B}$, and arrows from $(A_1, B_1)$ to $(A_2, B_2)$ given by pairs $\left( A_1 \taking{f} A_2,\ B_1 \taking{g} B_2 \right)$.
+</Callout>
+
+In the product category, composition and identities are exactly what you'd guess: compose each coordinate separately, $(f_2, g_2) \circ (f_1, g_1) = (f_2 \circ f_1,\ g_2 \circ g_1)$, and $\id_{(A,B)} = (\id_A, \id_B)$.
+
+The opposite category will turn out to be a remarkably useful bookkeeping device: any definition or theorem about a category $\mathcal{A}$ automatically gives a "dual" statement about $\mathcal{A}^{\op}$, often named with a "co-" prefix. We'll see our first example of this duality in the very next section.
+
+</SlideLayout>

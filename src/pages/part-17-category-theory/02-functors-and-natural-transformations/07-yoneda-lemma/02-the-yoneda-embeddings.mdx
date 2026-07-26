@@ -1,0 +1,21 @@
+---
+title: Two Yoneda embeddings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Two Yoneda embeddings">
+
+Recall from §1 and §4 that fixing $A \in \cA$ gives us two functors: the covariant $H^A \colon \cA \to \Set$ and the contravariant $H_A \colon \cA\op \to \Set$. Now that $A$ itself is allowed to vary, each assembles into a functor between functor categories:
+
+- $A \mapsto H_A$ gives a functor $\cA \to [\cA\op, \Set]$, which we call $H_\bullet$.
+- $A \mapsto H^A$ gives a functor $\cA\op \to [\cA, \Set]$, which we call $H^\bullet$.
+
+Notice we get an opposite category *either* way: $H^\bullet$ looks tempting because $H^A$ itself is covariant, but the assembled functor $H^\bullet$ ends up contravariant in $A$. So for what's ahead, we'll standardize on $H_\bullet$ (no opposite category needed on the outside).
+
+<Callout kind="remark" title="Where this is heading">
+$H_\bullet$ hands us a family of *special* presheaves $\cA\op \to \Set$ that are already built in to $\cA$ — one for each object. The Yoneda lemma is the tool for understanding exactly how special they are.
+</Callout>
+
+</SlideLayout>

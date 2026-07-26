@@ -1,0 +1,25 @@
+---
+title: The formal definition of a functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The formal definition of a functor">
+
+Category theorists are always asking "what are the maps?" — so now that we have categories, let's define maps between them.
+
+<Callout kind="definition" title="Functor">
+Let $\cA$ and $\cB$ be categories. A <Term k="fan67Functor">functor</Term> $F$ takes every object of $\cA$ to an object of $\cB$, and every arrow $A_1 \taking{f} A_2$ to an arrow $F(A_1) \taking{F(f)} F(A_2)$, subject to two requirements:
+
+- **Identities go to identities:** for every identity arrow $\id_A$, we have $F(\id_A) = \id_{F(A)}$.
+- **Composition is respected:** if $A_1 \taking{f} A_2 \taking{g} A_3$ are arrows in $\cA$, then $F(g \circ f) = F(g) \circ F(f)$.
+</Callout>
+
+Picture it as two parallel copies of the same "shape" living in different categories: an arrow $f$ in $\cA$ gets redrawn as an arrow $F(f)$ in $\cB$, with $F(A_1)$ and $F(A_2)$ standing in for $A_1$ and $A_2$.
+
+<Callout kind="remark" title="The moral">
+Whenever we naturally turn an object $A \in \cA$ into an object $B \in \cB$, there should usually be a natural way to turn a map $A_1 \to A_2$ into a map $B_1 \to B_2$ too. That pairing — object-level recipe *plus* a compatible arrow-level recipe — is the whole content of "functor."
+</Callout>
+
+</SlideLayout>

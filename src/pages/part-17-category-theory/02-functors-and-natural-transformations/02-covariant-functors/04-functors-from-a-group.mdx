@@ -1,0 +1,35 @@
+---
+title: Functors out of a one-object category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Functors out of a one-object category">
+
+Here's a slick example that recovers something you already know. Let $G$ be a group, and let $\cG = \{\ast\}$ be the <Term k="fan67OneObjectCategory">one-object category</Term> associated to it: one object $\ast$, and arrows $\ast \to \ast$ given by the elements of $G$.
+
+<Callout kind="example" title="Functors from 𝒢 recover group actions">
+Consider a functor $F \colon \cG \to \Set$, and let $S = F(\ast)$. Every arrow $g \colon \ast \to \ast$ becomes a function $F(g) \colon S \to S$, and functoriality forces $F(g_1 g_2) = F(g_1) \circ F(g_2)$ and $F(1_G) = \id_S$. That's *exactly* the data of a <Term k="groupAction">group action</Term> of $G$ on $S$.
+
+The same idea with target $\FDVect_k$ instead of $\Set$ recovers a linear representation of $G$: a functor $\cG \to \FDVect_k$ is the same data as embedding $G$ into the invertible $n \times n$ matrices.
+</Callout>
+
+So "a group acting on a set" and "a functor out of the one-object category" are two descriptions of the same phenomenon — one emphasizes the action, the other emphasizes that it's a structure-preserving map of categories.
+
+<MCQ
+  client:load
+  id="fan67-cov-mcq-functor-from-poset"
+  prompt="If P and Q are posets, each viewed as a category (objects = elements, one arrow x → y exactly when x ≤ y), what does a functor F : P → Q correspond to?"
+  options={[
+    { id: "a", label: "An order-preserving (monotone) function P → Q" },
+    { id: "b", label: "An order-reversing function P → Q" },
+    { id: "c", label: "Any bijection between the underlying sets" },
+    { id: "d", label: "A subset of P" },
+  ]}
+  correct="a"
+  explanation="A functor must send the arrow x → y (which exists exactly when x ≤ y) to an arrow F(x) → F(y) in Q, i.e. F(x) ≤ F(y). That's precisely the definition of a monotone (order-preserving) function."
+/>
+
+</SlideLayout>

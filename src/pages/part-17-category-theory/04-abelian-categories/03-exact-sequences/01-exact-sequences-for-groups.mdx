@@ -1,0 +1,18 @@
+---
+title: Exact sequences, for groups first
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Exact sequences, for groups first">
+
+Exact sequences will feel unmotivated until you've seen them do real work (homology groups are the classic payoff), but the *definition* is worth nailing down now, starting concretely with groups.
+
+<Callout kind="definition" title="Exact sequence of groups">
+A sequence of groups $G_0 \taking{f_1} G_1 \taking{f_2} G_2 \taking{f_3} \cdots \taking{f_n} G_n$ is **exact at $G_k$** if the image of $f_k$ equals the kernel of $f_{k+1}$. The whole sequence is exact if it's exact at $G_k$ for every $k = 1, \dots, n-1$.
+</Callout>
+
+Intuitively: exactness at $G_k$ says "everything that gets killed by the next map is exactly everything that just got hit by the previous map" — no more, no less. That single condition, repeated all along a chain, is what "exact sequence" means.
+
+</SlideLayout>

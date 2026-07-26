@@ -1,0 +1,31 @@
+---
+title: Which categories are abelian?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Which categories are abelian?">
+
+<Callout kind="example" title="Examples of abelian categories">
+<Term k="ac69VectK">$\catname{Vect}_k$</Term> and <Term k="ac69Ab">$\catname{Ab}$</Term> are abelian categories, where $f + g$ takes its usual pointwise meaning. Generalizing both, the category <Term k="ac69ModR">$\catname{Mod}_R$</Term> of $R$-modules is abelian for any ring $R$. On the other hand, <Term k="ac69Grp">$\catname{Grp}$</Term> is not even additive, because there is no way to assign a commutative addition to pairs of homomorphisms between (possibly non-abelian) groups.
+</Callout>
+
+From here on, additive categories mostly recede into the background — essentially everything we do lives in an abelian category. Once you know a category is abelian, all the properties you'd hope kernels, cokernels, and images have actually do hold.
+
+<MCQ
+  client:load
+  id="abcat-02-mcq-not-additive"
+  prompt="Which of the following is NOT an additive category?"
+  options={[
+    { id: "a", label: "Ab (abelian groups)" },
+    { id: "b", label: "Vect_k (k-vector spaces)" },
+    { id: "c", label: "Mod_R (R-modules)" },
+    { id: "d", label: "Grp (all groups)" },
+  ]}
+  correct="d"
+  explanation="Grp fails to be additive: there's no way to make Hom(G, H) into an abelian group in general, since for non-abelian G or H, pointwise 'addition' of two homomorphisms need not be a homomorphism at all. Ab, Vect_k, and Mod_R are all additive (in fact abelian)."
+/>
+
+</SlideLayout>

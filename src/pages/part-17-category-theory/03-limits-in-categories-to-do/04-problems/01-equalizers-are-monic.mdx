@@ -1,0 +1,20 @@
+---
+title: "Problem: equalizers are monic"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: equalizers are monic">
+
+One problem to close out this chapter, showing that the equalizer construction always produces a <Term k="lim68Monic">monic</Term> arrow — the categorical analogue of an injective map.
+
+<Problem
+  client:load
+  id="lim68-prob-equalizers-monic"
+  difficulty="starred"
+  prompt="Let e: E → X be the equalizer of f, g: X → Y. Show that e is monic: for any object Z and any two arrows u, v: Z → E with e∘u = e∘v, we must have u = v."
+  solution="Write q = e∘u = e∘v, a map Z → X. Then f∘q = f∘e∘u = g∘e∘u = g∘q, using f∘e = g∘e (the defining property of the equalizer) in the middle step. So (Z, q) is a fork through X — a cone over f, g with apex Z. By the universal property of the equalizer, there is a UNIQUE map h: Z → E with e∘h = q. But both u and v satisfy e∘u = q and e∘v = q, so by uniqueness, u = h = v. Hence e is monic."
+/>
+
+</SlideLayout>

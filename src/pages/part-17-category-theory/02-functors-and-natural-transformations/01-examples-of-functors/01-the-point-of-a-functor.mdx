@@ -1,0 +1,20 @@
+---
+title: The point of a functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The point of a functor">
+
+Categories give us objects and arrows within a single mathematical world. The next question a category theorist always asks is: what are the *maps between* categories? That's a <Term k="fan67Functor">functor</Term>.
+
+<Callout kind="remark" title="The moral">
+Pretty much any time you make an object out of another object, you get a functor.
+</Callout>
+
+Here's the everyday version of that moral. Given a group $G$, you can take its underlying set — just forget the multiplication and remember the elements. That's not just *an* operation, it's a **functorial** one: it also tells you what to do with a homomorphism $\phi \colon G_1 \to G_2$ (namely, view $\phi$ as a plain function between the underlying sets). The object-level operation and the arrow-level operation travel together, and that pairing is exactly what a functor is.
+
+Before giving the formal definition, let's build up intuition with a long list of examples — some familiar, some new. You'll notice a few involve <Term k="fan67OppositeCategory">opposite categories</Term> $\cA\op$; don't worry about those yet, we'll explain why they show up once we hit contravariant functors.
+
+</SlideLayout>

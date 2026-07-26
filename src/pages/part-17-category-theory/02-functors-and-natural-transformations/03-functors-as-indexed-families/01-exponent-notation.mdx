@@ -1,0 +1,20 @@
+---
+title: Why A^B sometimes means Hom(B, A)
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why A^B sometimes means Hom(B, A)">
+
+So far we've treated a functor as a *function*: feed it objects and arrows, get out objects and arrows. There's a second, equally useful way to view a functor — as an *object* (or family of objects) in its own right. Let's motivate it with ordinary sets first.
+
+For sets $A$ and $B$, the notation $A^B$ is sometimes used for $\Hom(B,A)$, the set of all functions $B \to A$. This is natural because, for finite sets, $|\Hom(B,A)| = |A|^{|B|}$ — literally an exponent.
+
+But the product $A \times A$ is *also* sometimes written $A^2$. Is that a coincidence? Not at all: let $\mathbf{2} = \{0,1\}$ be any two-element set. Then $|\mathbf 2| = 2$, and there's a natural correspondence between $A \times A$ and $\Hom(\mathbf 2, A)$ — a function $\mathbf 2 \to A$ is exactly a choice of two elements of $A$ (the images of $0$ and $1$), which is exactly a pair.
+
+<Callout kind="remark" title="Where this is going">
+So "$A$ indexed by $\mathbf 2$" and "a function out of $\mathbf 2$ into $A$" say the same thing. We're about to do the same trick one level up: replace the two-element *set* $\mathbf 2$ with a two-object *category*, and replace $A$ with a whole category $\cA$.
+</Callout>
+
+</SlideLayout>

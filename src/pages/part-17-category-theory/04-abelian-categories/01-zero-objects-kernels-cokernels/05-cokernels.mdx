@@ -1,0 +1,24 @@
+---
+title: Cokernels, categorically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cokernels, categorically">
+
+The cokernel is the dual notion: the "coequalizer" of $f$ and $0$, universal among maps that vanish precomposed with $f$.
+
+<Callout kind="definition" title="Cokernel">
+Consider a map $A \taking f B$. The <Term k="ac69Cokernel">**cokernel**</Term> of $f$ is a map $\coker f \colon B \surjto \Coker f$ such that $(\coker f) \circ f = 0$, and moreover any other map out of $B$ with $f$-composite $0$ factors uniquely through $\Coker f$.
+</Callout>
+
+Think of $\Coker f$ as "$B$ modulo the image of $f$." Dually to the kernel case, this universal property forces $\coker f$ to be epic — hence $B \surjto \Coker f$.
+
+<Callout kind="example" title="Cokernel of ℤ/6ℤ → D₁₂">
+Consider the map <Term k="ac69Grp">$\catname{Grp}$</Term> $\Zc6 \to D_{12} = \langle r, s \mid r^6 = s^2 = 1,\ rs = sr\inv \rangle$ sending the generator of $\Zc6$ to $r$. Its cokernel is $D_{12} / \langle r \rangle \cong \Zc2$.
+</Callout>
+
+This doesn't always work out as cleanly as we'd like: the image of a homomorphism need not be a *normal* subgroup of the codomain, so "modulo the image" isn't always literally a quotient group. Nonetheless, the cokernel construction goes through in general — that subtlety is exactly what motivates the categorical definition of *image* next.
+
+</SlideLayout>

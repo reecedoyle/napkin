@@ -1,0 +1,27 @@
+---
+title: Consequence — representing the forgetful functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Consequence — representing the forgetful functor">
+
+Here's a covariant flavor of the same idea. Consider the forgetful functor $U \colon \Grp \to \Set$. It turns out $U$ is representable by $\ZZ$:
+$$
+\Hom_{\Grp}(\ZZ, G) \cong U(G), \qquad \phi \longmapsto \phi(1).
+$$
+Elements of $G$ correspond bijectively to homomorphisms $\ZZ \to G$, determined entirely by where $1 \in \ZZ$ lands. So "$U$ is represented by $\ZZ$" packages up something you already knew (a homomorphism out of $\ZZ$ is just a choice of one element) as an instance of the Yoneda machinery.
+
+The general pattern: for a functor $X \colon \cA \to \Set$, a representation $H^A \cong X$ is a pair $(A, u)$ with $u \in X(A)$ satisfying a universal condition — for every $A'$ and every $x \in X(A')$, there's a *unique* $f \colon A \to A'$ with $(Xf)(u) = x$. Here, $A = \ZZ$ and $u = 1 \in U(\ZZ)$.
+
+<NumericInput
+  client:load
+  id="fan67-yon-num-hom-z-to-z5"
+  prompt="Using Hom_Grp(ℤ, G) ≅ U(G) (elements of G correspond to homomorphisms ℤ → G via φ ↦ φ(1)), how many homomorphisms ℤ → ℤ/5ℤ are there?"
+  expected="5"
+  explanation="By the correspondence φ ↦ φ(1), homomorphisms ℤ → ℤ/5ℤ are in bijection with elements of ℤ/5ℤ, of which there are 5 — one homomorphism sending 1 to each of 0, 1, 2, 3, 4."
+/>
+
+</SlideLayout>

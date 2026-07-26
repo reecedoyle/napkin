@@ -1,0 +1,18 @@
+---
+title: The short five lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The short five lemma">
+
+Let's use Freyd–Mitchell right away, on a genuinely useful statement.
+
+<Callout kind="lemma" title="Short five lemma">
+In an abelian category, suppose we have two short exact sequences $0 \to A \taking p B \taking q C \to 0$ and $0 \to A' \taking{p'} B' \taking{q'} C' \to 0$, connected by vertical maps $\alpha \colon A \to A'$, $\beta \colon B \to B'$, $\gamma \colon C \to C'$ making both squares commute ($p'\alpha = \beta p$ and $q'\beta = \gamma q$). If $\alpha$ and $\gamma$ are isomorphisms, then so is $\beta$.
+</Callout>
+
+Picture two "$C \cong B/A$"-style short exact sequences stacked on top of each other, glued together by three vertical maps. The lemma says: if the outer two vertical maps are isomorphisms, the middle one is forced to be an isomorphism too — you can't have $A \cong A'$ and $C \cong C'$ without $B \cong B'$.
+
+</SlideLayout>

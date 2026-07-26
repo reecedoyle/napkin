@@ -1,0 +1,23 @@
+---
+title: What is a category?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is a category?">
+
+Time to make the pattern from the last slide precise. The prototype to keep in mind throughout is $\catname{Grp}$, the groups-and-homomorphisms story — it's arguably the most natural example of everything below.
+
+<Callout kind="definition" title="Category">
+A <Term k="oam66Category">category</Term> $\mathcal{A}$ consists of:
+
+- A class of <Term k="oam66Object">objects</Term>, denoted $\obj(\mathcal{A})$.
+- For any two objects $A_1, A_2 \in \obj(\mathcal{A})$, a class of <Term k="oam66Arrow">arrows</Term> (also called morphisms or maps) between them, forming the <Term k="oam66HomSet">Hom-set</Term> $\Hom_{\mathcal{A}}(A_1, A_2)$.
+- A <Term k="oam66Composition">composition</Term> rule: an arrow $f \colon A_1 \to A_2$ and an arrow $g \colon A_2 \to A_3$ combine to give an arrow $g \circ f \colon A_1 \to A_3$. When $h = g \circ f$ we say $h$ <Term k="oam66Factors">factors through</Term> $A_2$. Composition must be associative.
+- An <Term k="oam66IdentityArrow">identity arrow</Term> $\id_A$ for every object $A$, satisfying $\id_A \circ f = f$ and $g \circ \id_A = g$ whenever these composites make sense.
+</Callout>
+
+That's the entire definition — objects, arrows, an associative composition, and identities. Everything else in category theory is built from just these four ingredients.
+
+</SlideLayout>

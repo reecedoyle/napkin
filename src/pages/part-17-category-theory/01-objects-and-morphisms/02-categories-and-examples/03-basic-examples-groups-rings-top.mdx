@@ -1,0 +1,20 @@
+---
+title: Basic examples — Grp, CRing, Top
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Basic examples — Grp, CRing, Top">
+
+Let's formalize the motivating examples as categories. In each case we just need to say: what are the objects, what are the arrows, and what is composition?
+
+<Callout kind="example" title="Three familiar categories">
+- <Term k="oam66CatGrp">$\catname{Grp}$</Term>: objects are groups, arrows are group homomorphisms, and composition is ordinary function composition.
+- <Term k="oam66CatCRing">$\catname{CRing}$</Term>: objects are (commutative) rings, arrows are ring homomorphisms.
+- <Term k="oam66CatTop">$\catname{Top}$</Term>: objects are topological spaces, arrows are continuous maps.
+</Callout>
+
+In each of these, composition is literally just composing functions, and the identity arrow on an object is the identity function. Checking the category axioms (associativity, identity laws) is exactly the fact we already knew: function composition is associative, and composing with the identity function does nothing.
+
+</SlideLayout>

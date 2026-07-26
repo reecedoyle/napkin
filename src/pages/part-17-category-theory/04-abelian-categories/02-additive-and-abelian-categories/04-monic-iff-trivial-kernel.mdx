@@ -1,0 +1,28 @@
+---
+title: Monic ⟺ trivial kernel
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Monic ⟺ trivial kernel">
+
+Here's the first payoff of assuming we're in an abelian category: the properties you'd guess hold for kernels and cokernels really do.
+
+<Callout kind="proposition" title="Monic ⟺ trivial kernel">
+A map $A \taking f B$ is monic if and only if its kernel is $0 \to A$. Dually, $f$ is epic if and only if its cokernel is $B \to 0$.
+</Callout>
+
+The easy half doesn't even need the abelian assumption:
+
+<ProofReveal
+  client:load
+  id="abcat-02-proof-monic-implies-zero-kernel"
+  prompt="Show that if A → B is monic, then 0 → A is a kernel of f. (This holds even in non-abelian categories.)"
+  solution="Suppose g: Z → A satisfies f∘g = 0 = f∘(0-map from Z). Since f is monic, f∘g = f∘0 forces g = 0, i.e. g factors (uniquely, being the zero map) through the zero object. So 0 → A satisfies the universal property of Ker f: it's the map through which every f-composite-zero map factors uniquely. Hence Ker f = 0 → A."
+/>
+
+Since kernels are unique up to isomorphism, this gives one direction immediately: monic $\implies$ kernel is $0 \to A$.
+
+</SlideLayout>

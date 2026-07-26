@@ -1,0 +1,22 @@
+---
+title: The common pattern
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The common pattern">
+
+In each case from the last slide we have:
+
+1. A collection of **objects** (groups, spaces, vector spaces, rings).
+2. A collection of **maps** between pairs of objects (homomorphisms, continuous maps, linear maps, ring homomorphisms).
+3. A way to **compose** two maps into a new one, and an **identity** map on each object.
+4. A notion of **isomorphism**, defined purely in terms of maps: a map with a two-sided inverse.
+
+<Callout kind="remark" title="Moral">
+One can learn everything relevant about objects by looking only at the maps between them. If we abstract away *what* the objects and maps actually are, and remember only that maps compose associatively and every object has an identity map, we arrive at the definition of a **category**.
+</Callout>
+
+That's exactly what we do next: strip away the specifics of groups, spaces, and rings, and keep only the shared skeleton — objects, arrows, composition, identity.
+
+</SlideLayout>

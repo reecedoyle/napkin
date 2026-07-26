@@ -1,0 +1,26 @@
+---
+title: Proving the short five lemma, by chasing elements
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proving the short five lemma, by chasing elements">
+
+By Freyd–Mitchell, we may as well treat the whole category as $R$-modules for some ring $R$ — which means we're allowed to pick elements and chase them around the diagram.
+
+<Callout kind="remark" title="Proof (that β is epic)">
+We show $\beta$ is epic; a mirror-image chase shows $\beta$ is monic, and monic + epic gives isomorphism.
+
+Let $b' \in B'$. Since $\gamma$ is an isomorphism, there is $c \in C$ with $\gamma(c) = q'(b')$. Since $q$ is epic (top row exact), there is $b \in B$ with $q(b) = c$.
+
+It needn't be true that $\beta(b) = b'$ — but by commutativity of the right square, $q'(\beta(b)) = \gamma(q(b)) = \gamma(c) = q'(b')$. So $q'\big(b' - \beta(b)\big) = 0$, meaning $b' - \beta(b) \in \Ker q' = \Img p'$ (bottom row exact). Pick $a' \in A'$ with $p'(a') = b' - \beta(b)$, then use that $\alpha$ is an isomorphism to find $a \in A$ with $\alpha(a) = a'$.
+
+Now compute, using commutativity of the left square ($p'\alpha = \beta p$):
+$$
+\beta\big(b + p(a)\big) = \beta(b) + \beta(p(a)) = \beta(b) + p'(\alpha(a)) = \beta(b) + p'(a') = \beta(b) + \big(b' - \beta(b)\big) = b'.
+$$
+So $b' \in \Img \beta$. Since $b'$ was arbitrary, $\beta$ is epic.
+</Callout>
+
+</SlideLayout>

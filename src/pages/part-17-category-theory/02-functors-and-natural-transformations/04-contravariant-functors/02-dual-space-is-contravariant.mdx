@@ -1,0 +1,24 @@
+---
+title: Why V ↦ V* is contravariant
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why V ↦ V* is contravariant">
+
+Let's finally settle the dual-space example from §1.
+
+<Callout kind="example" title="Dual space, worked out">
+Consider $V \mapsto V^\vee$ on $\Vect_k$. If this were a *covariant* functor, we'd need, for every linear map $T \colon V_1 \to V_2$, a linear map $T^\vee \colon V_1^\vee \to V_2^\vee$ going the same way. But $V_1^\vee = \Hom(V_1,k)$ and $V_2^\vee = \Hom(V_2,k)$ — there's no obvious recipe from left to right.
+
+There *is* an obvious recipe from right to left: given a functional $\xi_2 \colon V_2 \to k$, compose it with $T$ to get a functional on $V_1$. So a map $T \colon V_1 \to V_2$ induces a <Term k="dualMap">dual map</Term> $T^\vee \colon V_2^\vee \to V_1^\vee$ — in the *opposite* direction.
+</Callout>
+
+That's precisely the contravariant pattern: $V \mapsto V^\vee$ is a genuine (covariant) functor $\Vect_k\op \to \Vect_k$, sending an arrow $V_1 \taking{T} V_2$ of $\Vect_k\op$ (which is really $T \colon V_1 \to V_2$ in $\Vect_k$, arrow reversed) to $T^\vee \colon <Term k="dualSpace">$V_2^\vee$</Term> $\to V_1^\vee$.
+
+<Callout kind="remark" title="The general pattern">
+Replace the base field $k$ with any fixed object $A \in \cA$, and the same "compose with the map" recipe generalizes to any category — that's exactly the contravariant Yoneda functor, next.
+</Callout>
+
+</SlideLayout>

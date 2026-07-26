@@ -1,0 +1,35 @@
+---
+title: Images, categorically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Images, categorically">
+
+We now have both halves of the machine we need: a kernel construction and a cokernel construction. Composing them gives the categorical notion of image.
+
+<Callout kind="definition" title="Image">
+The <Term k="ac69Image">**image**</Term> of $A \taking f B$ is the kernel of its cokernel: $\Img f = \Ker(\coker f)$. This gives a unique map $\img f \colon A \to \Img f$ making everything commute, by universality of $\Img f$.
+</Callout>
+
+When it exists, $\Img f$ coincides with our concrete notion of "image." For a group homomorphism $\phi \colon G \to H$ with $\phi(G)$ normal in $H$, the cokernel is the honest quotient $H/\phi(G)$, and taking its kernel recovers $\phi(G)$ exactly — so $\Img \phi \cong \phi(G)$. This is precisely the well-behaved case flagged on the previous slide.
+
+In $\catname{Ab}$ and $\catname{Mod}_R$, every subgroup is normal, so this subtlety never bites — the categorical image always agrees with the ordinary one.
+
+<MCQ
+  client:load
+  id="abcat-01-mcq-image-def"
+  prompt="By definition, Img f is built from f as which composite construction?"
+  options={[
+    { id: "a", label: "The kernel of the cokernel of f" },
+    { id: "b", label: "The cokernel of the kernel of f" },
+    { id: "c", label: "The kernel of f composed with itself" },
+    { id: "d", label: "The zero morphism associated to f" },
+  ]}
+  correct="a"
+  explanation="Img f := Ker(coker f) — first take the cokernel B ↠ Coker f, then take the kernel of that map. This is the definition from this slide's Callout."
+/>
+
+</SlideLayout>

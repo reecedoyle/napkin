@@ -1,0 +1,22 @@
+---
+title: Zero objects
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Zero objects">
+
+We're about to translate a handful of familiar group-theory concepts — kernels, cokernels, images, exact sequences — into the language of categories. The payoff is that once a statement is proved *categorically*, it applies verbatim to abelian groups, vector spaces, R-modules, sheaves, chain complexes, and more, all at once.
+
+The running example throughout this chapter is <Term k="ac69Grp">$\catname{Grp}$</Term> (groups and homomorphisms), and even more so <Term k="ac69Ab">$\catname{Ab}$</Term> (abelian groups) and <Term k="ac69ModR">$\catname{Mod}_R$</Term> ($R$-modules). Keep translating each new definition back to "what does this mean for abelian groups?" as you read.
+
+<Callout kind="definition" title="Zero object">
+A <Term k="ac69ZeroObject">**zero object**</Term> of a category is an object $0$ that is simultaneously initial (a unique map out of it to every object) and terminal (a unique map into it from every object). It's unique up to unique isomorphism when it exists.
+</Callout>
+
+Concretely: in $\catname{Grp}$ the zero object is the trivial group $\{1\}$ — there's exactly one homomorphism from $\{1\}$ to any group $G$ (send $1 \mapsto 1_G$), and exactly one homomorphism from any $G$ to $\{1\}$ (send everything to $1$). In $\catname{Vect}_k$ the zero object is the zero-dimensional vector space $\{0\}$.
+
+For the rest of this chapter, every category we discuss is assumed to have a zero object.
+
+</SlideLayout>

@@ -1,0 +1,21 @@
+---
+title: The universal property of the equalizer
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The universal property of the equalizer">
+
+Now we do to forks exactly what we did to cones over a family of objects: demand a *universal* one.
+
+<Callout kind="definition" title="Equalizer, categorically">
+The **equalizer** of $X \taking{f,g} Y$ is an object $E$ together with a map $E \taking{e} X$, satisfying $f \circ e = g \circ e$, such that for every fork $A \taking{q} X$ (with $f \circ q = g \circ q$) there is a **unique** map $A \taking{h} E$ with
+$$
+e \circ h = q.
+$$
+</Callout>
+
+In words: every fork through $X$ must factor uniquely through $E$. This is the same shape of statement we saw for products — $E$ is the <Term k="lim68UniversalProperty">**universal**</Term> fork, the one every other fork maps into in exactly one way. And just as with products, an equalizer need not exist in an arbitrary category; but when it does, it is pinned down up to a unique isomorphism, since it's characterized entirely by this universal property rather than by what its elements "are".
+
+</SlideLayout>

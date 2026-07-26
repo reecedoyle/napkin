@@ -1,0 +1,19 @@
+---
+title: Projections and the universal arrow
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Projections and the universal arrow">
+
+Put another way, $X \times Y$ comes with two natural projection maps, $\pi_X \colon X \times Y \to X$ and $\pi_Y \colon X \times Y \to Y$ (the usual "take the first/second coordinate"). We have to phrase everything in terms of these projection maps, rather than elements, because category theory only lets us talk about arrows.
+
+So how do we add an arbitrary object $A$ into this picture? The point is that there is a bijection between functions $A \taking{f} X \times Y$ and pairs $(g, h)$ of functions $A \taking{g} X$, $A \taking{h} Y$.
+
+<Callout kind="remark" title="The universal picture">
+For *any* set $A$, giving functions $g \colon A \to X$ and $h \colon A \to Y$ lets you build a *unique* function $f \colon A \to X \times Y$ with $\pi_X \circ f = g$ and $\pi_Y \circ f = h$ — namely $f(a) = (g(a), h(a))$.
+</Callout>
+
+$X \times Y$ is special precisely because it is "universal" in this sense: it's the object through which every compatible pair of maps out of $A$ factors, uniquely. That's the entire content we're about to generalize to any category.
+
+</SlideLayout>

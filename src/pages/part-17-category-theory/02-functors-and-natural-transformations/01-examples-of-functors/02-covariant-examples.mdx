@@ -1,0 +1,22 @@
+---
+title: A parade of covariant functors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A parade of covariant functors">
+
+Here's an informal tour. In each case, ask yourself: what happens to the objects, and what happens to the arrows?
+
+- **Underlying set.** Given a group (or vector space, or field, …), take its underlying set. This is a <Term k="fan67Forgetful">forgetful functor</Term> $\Grp \to \Set$.
+- **Free vector space.** Given a set $S$, build the vector space with basis $S$. This is a <Term k="fan67Free">free functor</Term> $\Set \to \Vect_k$.
+- **Power set.** Given a set $S$, build its power set $\mathcal P(S)$ (the set of all subsets). This is a functor $\Set \to \Set$: an arrow $f \colon S \to T$ becomes the "take images" map $\mathcal P(S) \to \mathcal P(T)$.
+- **Algebraic topology.** Given a topological space $X$, build its first homology group $H_1(X)$ or its fundamental group $\pi_1(X)$. Both constructions are functors $\Top \to \Grp$ — a continuous map of spaces induces a homomorphism of the associated groups.
+- **Tensor product.** Given two vector spaces $V_1, V_2$ over $k$, form $V_1 \otimes V_2$. This is a functor out of the product category $\Vect_k \times \Vect_k \to \Vect_k$.
+
+<Callout kind="remark" title="A functor with a twist coming">
+Dual spaces $V \mapsto V^\vee$ also look like a functor $\Vect_k \to \Vect_k$ at first glance — but the arrows go the wrong way. We'll come back to this once we've defined contravariant functors.
+</Callout>
+
+</SlideLayout>

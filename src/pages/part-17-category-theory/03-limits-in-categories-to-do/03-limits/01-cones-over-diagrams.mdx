@@ -1,0 +1,18 @@
+---
+title: Cones over an arbitrary diagram
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cones over an arbitrary diagram">
+
+We've now built cones over two shapes: a discrete family of objects $X_i$ (which gave products), and a parallel pair $X \taking{f,g} Y$ (which gave the fork behind equalizers). The pattern generalizes completely: a <Term k="lim68Diagram">**diagram**</Term> is just some choice of objects and arrows between them, and we can take a cone over *any* diagram.
+
+<Callout kind="definition" title="Cone over a diagram">
+A **cone** over a diagram $D$ is an object $A$ together with a projection arrow from $A$ to each object of $D$, chosen so that every projection commutes with every arrow of $D$: composing the projection to the source of an arrow with that arrow always gives the projection to its target.
+</Callout>
+
+When $D$ is discrete (no arrows), this is exactly the product cone. When $D$ is the parallel pair $X \taking{f,g} Y$, this is exactly the fork.
+
+</SlideLayout>

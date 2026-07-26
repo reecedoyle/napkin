@@ -1,0 +1,20 @@
+---
+title: Beyond two — cones and general products
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Beyond two — cones and general products">
+
+Nothing about the universal property forced us to stop at two objects. Consider a family of objects $(X_i)_{i \in I}$ in a category $\mathcal{A}$, indexed by any set $I$ (finite or infinite).
+
+<Callout kind="definition" title="Cone">
+A <Term k="oam66Cone">cone</Term> on the $X_i$ is an object $A$ together with a "projection" arrow $A \to X_i$ for every $i \in I$.
+</Callout>
+
+The product of the $(X_i)_{i \in I}$ is then a cone $P$ that is *universal*: given any other cone $A$, there is a unique arrow $A \to P$ making every triangle in sight commute. In short, a product is a **universal cone**.
+
+This is exactly the binary case with $I = \{1, 2\}$ — a cone on $(X, Y)$ is an object with two projections, and the product is the universal one. The same idea scales up to any index set with no extra work.
+
+</SlideLayout>

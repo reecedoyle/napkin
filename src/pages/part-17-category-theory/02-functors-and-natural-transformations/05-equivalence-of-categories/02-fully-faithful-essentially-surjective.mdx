@@ -1,0 +1,20 @@
+---
+title: Fully faithful and essentially surjective
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fully faithful and essentially surjective">
+
+We already have "faithful" and "full" from §2. Combining them, and adding one more idea to handle objects, gives us the two properties equivalence needs.
+
+<Callout kind="definition" title="Fully faithful, essentially surjective">
+A functor $F \colon \cA \to \cB$ is <Term k="fan67FullyFaithful">fully faithful</Term> if it is both full and faithful — the map $\Hom_\cA(A_1,A_2) \to \Hom_\cB(FA_1,FA_2)$ is a bijection for every $A_1, A_2$.
+
+It is <Term k="fan67EssentiallySurjective">essentially surjective</Term> if every object of $\cB$ is isomorphic (not necessarily equal) to $F(A)$ for some $A \in \cA$.
+</Callout>
+
+Think of fully faithful as "$F$ doesn't lose or invent any arrows between objects it hits," and essentially surjective as "$F$ hits every isomorphism class of $\cB$, even if it misses some literal objects." Neither condition demands $F$ be a bijection on objects — that's the slack we were missing above.
+
+</SlideLayout>

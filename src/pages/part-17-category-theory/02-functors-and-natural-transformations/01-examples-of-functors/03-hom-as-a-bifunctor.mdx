@@ -1,0 +1,37 @@
+---
+title: Hom-sets as a bifunctor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Hom-sets as a bifunctor">
+
+Here's the richest example on the list. Let $\cA$ be any category, and consider pairs of objects $(A_1, A_2)$. We can build the <Term k="fan67HomSet">Hom-set</Term> $\Hom_{\cA}(A_1, A_2)$ — the set of arrows from $A_1$ to $A_2$. This turns out to be a functor
+$$
+\cA\op \times \cA \to \Set.
+$$
+Why the $\cA\op$ on the first slot? Given arrows $A_1' \taking{p} A_1$ and $A_2 \taking{q} A_2'$, an arrow $f \in \Hom(A_1,A_2)$ turns into $q \circ f \circ p \in \Hom(A_1', A_2')$. Post-composing with $q$ goes the same direction as $q$ (covariant in the second slot); pre-composing with $p$ goes *against* the direction of $p$ (contravariant in the first slot).
+
+If we "pre-fill" the first slot at a fixed object $A$, we get a functor with only one slot left:
+$$
+H^A \colon \cA \to \Set, \qquad H^A(A_1) \defeq \Hom_{\cA}(A, A_1).
+$$
+This is the <Term k="fan67CovariantYoneda">covariant Yoneda functor</Term> — informally, $H^A$ records how $A$ sees the rest of the category. We'll spend all of §7 on why this innocuous-looking functor is such a big deal.
+
+<MCQ
+  client:load
+  id="fan67-ex-mcq-hom-variance"
+  prompt="In the bifunctor Hom_𝒜(A₁, A₂), which slot is contravariant?"
+  options={[
+    { id: "a", label: "The first slot, A₁" },
+    { id: "b", label: "The second slot, A₂" },
+    { id: "c", label: "Both slots" },
+    { id: "d", label: "Neither — Hom is covariant in both" },
+  ]}
+  correct="a"
+  explanation="Given p : A₁' → A₁, an arrow f : A₁ → A₂ becomes f ∘ p : A₁' → A₂ — precomposition reverses the direction, so the first slot is contravariant. The second slot is covariant: postcomposing with q : A₂ → A₂' sends f to q ∘ f, which goes the same way as q."
+/>
+
+</SlideLayout>

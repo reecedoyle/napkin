@@ -1,0 +1,26 @@
+---
+title: Problem — the five lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — the five lemma">
+
+Extend the previous diagram by one object on each end, and the four lemma becomes strong enough to prove a full isomorphism.
+
+<Callout kind="remark" title="Setup">
+In an abelian category, consider a commutative diagram with two rows $A \taking p B \taking q C \taking r D \taking s E$ and $A' \taking{p'} B' \taking{q'} C' \taking{r'} D' \taking{s'} E'$, connected by vertical maps $\alpha, \beta, \gamma, \delta, \eps$ making every square commute, both rows exact.
+</Callout>
+
+<Problem
+  client:load
+  id="abcat-06-prob-five-lemma"
+  difficulty="standard"
+  prompt="Suppose β and δ are isomorphisms, α is epic, and ε is monic. Prove that γ is an isomorphism."
+  hint="You don't need a fresh diagram chase — the four lemma already proves γ monic when applied to the left four objects. Look for a dual statement (epic instead of monic, with the hypotheses mirrored) that applies to the right four objects."
+  solution="This follows from the four lemma applied twice, once directly and once dually. First, restrict attention to the sub-diagram on A, B, C, D (forgetting E, E'): its hypotheses are exactly those of the four lemma, since α is epic and β, δ are monic (isomorphisms are in particular monic). The four lemma gives γ monic. Second, apply the dual of the four lemma (reverse all arrows and swap the roles of monic/epic) to the sub-diagram on B, C, D, E: its hypotheses become β, δ epic (isomorphisms are in particular epic) and ε monic, which is exactly the dual four lemma's hypotheses, yielding γ epic. Since γ is both monic and epic in an abelian category, γ is an isomorphism, by the monic-and-epic-iff-isomorphism proposition from earlier in this chapter."
+/>
+
+</SlideLayout>

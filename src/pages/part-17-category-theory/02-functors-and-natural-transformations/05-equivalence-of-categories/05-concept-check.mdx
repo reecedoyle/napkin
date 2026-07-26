@@ -1,0 +1,25 @@
+---
+title: Concept check — what equivalence does not require
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Concept check — what equivalence does not require">
+
+<MCQ
+  client:load
+  id="fan67-equiv-mcq-not-required"
+  prompt="Which of the following is NOT required for F : 𝒜 → 𝓑 to be an equivalence of categories?"
+  options={[
+    { id: "a", label: "F is fully faithful" },
+    { id: "b", label: "F is essentially surjective" },
+    { id: "c", label: "F is a bijection on objects" },
+    { id: "d", label: "There is a functor G : 𝓑 → 𝒜 with GF ≅ id and FG ≅ id" },
+  ]}
+  correct="c"
+  explanation="Equivalence needs F fully faithful and essentially surjective (equivalently, a quasi-inverse G with GF ≅ id_𝒜 and FG ≅ id_𝓑). A bijection on objects is exactly the extra strictness that isomorphism of categories demands but equivalence deliberately drops — 'essentially surjective' only asks for a hit up to isomorphism, not on the nose."
+/>
+
+</SlideLayout>

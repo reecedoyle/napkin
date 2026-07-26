@@ -1,0 +1,19 @@
+---
+title: Sharpening it — unique isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Sharpening it — unique isomorphism">
+
+Just as with initial objects, we can sharpen "isomorphic" to "*uniquely* isomorphic," respecting the projections.
+
+<ProofReveal
+  client:load
+  id="oam-prod-proof-unique-iso"
+  prompt="Show that products are unique up to unique isomorphism: the f and g constructed on the previous slide are the only isomorphisms between P1 and P2 respecting the projections."
+  solution="Suppose f': P2 → P1 is any arrow with π¹_X∘f' = π²_X and π¹_Y∘f' = π²_Y — i.e. any arrow respecting the projections, not necessarily the f we built. But the universal property of P1 says there is exactly one arrow P2 → P1 satisfying those two equations. Since our f already satisfies them, f' = f. So f was already the unique projection-respecting arrow P2 → P1, and symmetrically g is the unique projection-respecting arrow P1 → P2. The isomorphism between P1 and P2 respecting projections is therefore unique — not just some isomorphism, but the specific pair (f, g) forced by the universal property."
+/>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: What 'canonical isomorphism' really means — the double dual
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What 'canonical isomorphism' really means — the double dual">
+
+You may have seen the claim that there's a **canonical isomorphism** $(V^\vee)^\vee \cong V$ for finite-dimensional $V$ — with some hand-waving about "not needing to pick a basis," unlike the isomorphism $V \cong V^\vee$ itself (which does need a basis, or at least an inner product). Category theory lets us say exactly what "canonical" means here.
+
+<Callout kind="example" title="The double-dual natural isomorphism">
+Consider the two functors $\id$ and $(\bullet^\vee)^\vee$ on $\FDVect_k$. Define $\eps \colon \id \Rightarrow (\bullet^\vee)^\vee$ by
+$$
+\eps_V \colon V \to (V^\vee)^\vee, \qquad \eps_V(v) = \opname{ev}_v,
+$$
+where $\opname{ev}_v$ is "evaluate a functional at $v$": the map sending $\xi \in V^\vee$ to $\xi(v) \in k$. Since $V$ and $(V^\vee)^\vee$ have equal dimension and $\eps_V$ is injective (a nonzero $v$ always has *some* functional not vanishing on it), each $\eps_V$ is an isomorphism — so $\eps$ is a <Term k="fan67NaturalIsomorphism">natural isomorphism</Term>.
+</Callout>
+
+The point of building $\eps_V$ from evaluation, with no basis in sight, is exactly what makes the isomorphism "canonical" — it's natural in $V$, so it doesn't secretly depend on an arbitrary choice the way a basis-dependent isomorphism $V \cong V^\vee$ would.
+
+</SlideLayout>

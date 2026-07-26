@@ -1,0 +1,20 @@
+---
+title: The contravariant Yoneda functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The contravariant Yoneda functor">
+
+Generalizing the dual-space trick to any category: replace $k$ by any fixed object $A \in \cA$.
+
+<Callout kind="definition" title="Contravariant Yoneda functor">
+The <Term k="fan67ContravariantYoneda">contravariant Yoneda functor</Term> on $\cA$, denoted $H_A \colon \cA\op \to \Set$, describes how objects of $\cA$ see $A$. For each $X \in \cA$, put $H_A(X) \defeq \Hom_\cA(X,A)$. For an arrow $X \taking{f} Y$, the map $H_A(f)$ sends each $p \colon Y \to A$ to the composite $f$ then $p$, i.e. $X \taking{f} Y \taking{p} A$.
+</Callout>
+
+So $H_A(f)$ is an arrow from $\Hom_\cA(Y,A)$ to $\Hom_\cA(X,A)$ — notice the flip: an arrow $X \to Y$ induces a map going from $Y$'s arrows-into-$A$ to $X$'s arrows-into-$A$. This is exactly the earlier <Term k="fan67CovariantYoneda">covariant Yoneda functor</Term> $H^A$, but built from the *other* slot of $\Hom$.
+
+Compare: $H^A$ (covariant) records how $A$ sees the world; $H_A$ (contravariant) records how the world sees $A$. Both will resurface heavily once we reach the Yoneda lemma.
+
+</SlideLayout>

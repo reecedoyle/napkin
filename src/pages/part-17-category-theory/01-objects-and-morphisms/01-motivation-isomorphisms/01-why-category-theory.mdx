@@ -1,0 +1,19 @@
+---
+title: Why category theory?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why category theory?">
+
+Over the last several parts we've built up groups, rings, vector spaces, and topological spaces, each with its own flavor of "structure-preserving map" — homomorphisms, linear maps, continuous maps. Category theory is the observation that all of these stories are, at a high enough altitude, *the same story*.
+
+We're not going to try to do category theory full justice here — that's a subject with its own napkin's worth of chapters. Instead this chapter gives a high-level overview of how the concepts you've already met can be recast in categorical language: a single vocabulary of **objects** and **arrows** that applies uniformly to groups, rings, spaces, sets, and posets alike.
+
+<Callout kind="remark" title="A CS-shaped way to think about it">
+If you've worked with typed functional programming, this move should feel familiar: instead of asking "what is this value made of?", you ask "what operations can I do with it, and how do they compose?" Category theory does exactly this to the whole of mathematics — it studies objects entirely through the arrows between them.
+</Callout>
+
+We'll draw examples from every previous part. Feel free to skim over any example built from a topic you haven't seen yet — the categorical pattern will still make sense.
+
+</SlideLayout>

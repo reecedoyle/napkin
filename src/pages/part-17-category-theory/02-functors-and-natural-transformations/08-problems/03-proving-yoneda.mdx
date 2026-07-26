@@ -1,0 +1,24 @@
+---
+title: Problems — proving the Yoneda lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — proving the Yoneda lemma">
+
+<Callout kind="remark" title="A note on this problem's solution">
+The source material this chapter follows does not include a worked solution for this problem (only a brief commented outline of the construction). Part (a) below is proved in full; part (b) is presented as a sketch of the key reduction, clearly labeled as such, rather than the full diagram chase.
+</Callout>
+
+<Problem
+  client:load
+  id="fan67-prob-proving-yoneda"
+  difficulty="standard"
+  prompt="In the context of the Yoneda lemma: (a) prove that the map sending a natural transformation α : H_A ⇒ X to α_A(id_A) ∈ X(A) is in fact a bijection — you will probably need to write down the inverse map explicitly. (b) Prove that this bijection is natural, viewed as a map of functors 𝒜ᵒᵖ × [𝒜ᵒᵖ,Set] → Set. Part (b) is long-winded but not conceptually difficult — from start to finish there is essentially only one computation you can perform."
+  hint="For part (a), given x ∈ X(A), try to build a natural transformation out of H_A using x and the action of X on arrows into A."
+  solution="Part (a): define an inverse map Psi from X(A) to Nat(H_A, X) by sending x to the natural transformation with components defined by (alpha^x)_B(f) := X(f)(x) for each arrow f : B to A (recalling H_A(B) = Hom(B,A)). First, alpha^x is natural: for g : B' to B, naturality asks (alpha^x)_B'(f-compose-g) = X(g) applied to (alpha^x)_B(f); the left side is X(f-compose-g)(x) by definition, and contravariant functoriality of X gives X(f-compose-g) = X(g)-compose-X(f), so both sides equal X(g)(X(f)(x)) — naturality holds. Next, the two maps are mutually inverse. Starting from a natural transformation alpha: applying the theorem's map then Psi sends alpha to alpha^{alpha_A(id_A)}, whose component at B sends f to X(f)(alpha_A(id_A)); naturality of alpha applied to the arrow f : B to A says this equals alpha_B(H_A(f)(id_A)) = alpha_B(id_A-compose-f) = alpha_B(f), so alpha^{alpha_A(id_A)} equals alpha exactly. Starting from x in X(A): applying Psi then the theorem's map sends x to alpha^x, then to (alpha^x)_A(id_A) = X(id_A)(x) = x, using that X preserves identities. So the two maps are mutually inverse bijections, as required. Part (b), sketch only: naturality of the bijection in A means that for an arrow h : A' to A, restricting a natural transformation out of H_A along H_h and then evaluating at id_{A'} agrees with evaluating at id_A and then applying X(h); naturality in X means the analogous compatibility holds when X is replaced along a natural transformation beta : X to Y. Both reductions come down to the single computation that evaluating a composite of natural transformations at the identity arrow agrees with composing the individual evaluations — which is immediate from how composition of natural transformations is defined componentwise. Filling in every arrow and every naming choice in that computation is the long-winded part the source material warns about, but the idea genuinely is just this one identity, applied twice."
+/>
+
+</SlideLayout>

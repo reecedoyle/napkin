@@ -1,0 +1,22 @@
+---
+title: Products, category by category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Products, category by category">
+
+The whole point of a universal property is that you *don't* need to construct the object explicitly to know it's essentially unique — but concrete descriptions are still good to have on hand.
+
+<Callout kind="example" title="Products, worked out">
+- In $\catname{Set}$, the product of $X$ and $Y$ is their Cartesian product $X \times Y$.
+- In $\catname{Grp}$, the product of $G$, $H$ is the group direct product $G \times H$.
+- In $\catname{Vect}_k$, the product of $V$ and $W$ is the direct sum $V \oplus W$.
+- In $\catname{CRing}$, the product of $R$ and $S$ is the ring product $R \times S$.
+- In a poset viewed as a category, the product of $x$ and $y$ is the greatest lower bound: $\min\{x, y\}$ in $(\RR, \le)$; $x \cap y$ for subsets ordered by inclusion; $\gcd(x, y)$ for positive integers ordered by division.
+</Callout>
+
+Notice how different "the product" looks concretely in each row — Cartesian product, direct sum, greatest common divisor — yet each one satisfies exactly the same <Term k="oam66UniversalProperty">universal property</Term>. That's the payoff of working arrows-only: one definition, many faces.
+
+</SlideLayout>

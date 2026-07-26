@@ -1,0 +1,22 @@
+---
+title: Breaking a long exact sequence apart
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Breaking a long exact sequence apart">
+
+Here's the payoff of the last slide: any exact sequence, however long, is really just a chain of short exact sequences glued end to end.
+
+Take an exact sequence $\cdots \to A_{n-1} \taking{f_{n-1}} A_n \taking{f_n} A_{n+1} \to \cdots$, and set $C_k \defeq \Img f_{k-1} = \Ker f_k$ for every $k$ (the two agree precisely because the sequence is exact at $A_k$). By the previous proposition applied to each $f_k$ in turn, we get a short exact sequence
+$$
+0 \to C_k \to A_k \to C_{k+1} \to 0
+$$
+for every $k$. Stringing these together — $C_k$ is simultaneously the image "coming out of" $A_{k-1}$ and the kernel "going into" $A_{k+1}$ — reconstructs the entire original long exact sequence as an interleaved chain of short exact sequences, one per term.
+
+<Callout kind="remark" title="Why this matters">
+It means induction is available: many facts about long exact sequences can be proved one short exact sequence at a time, using the tools (kernel/cokernel/image, the short five lemma, diagram chasing via Freyd–Mitchell) we've already built for the short case.
+</Callout>
+
+</SlideLayout>

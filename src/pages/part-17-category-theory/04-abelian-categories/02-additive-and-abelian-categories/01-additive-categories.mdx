@@ -1,0 +1,24 @@
+---
+title: Additive categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Additive categories">
+
+Kernels and cokernels are useful in exactly the categories where you can also *add* morphisms — that's what lets us form things like $g - h$ and ask when it's zero. Let's name that structure.
+
+<Callout kind="definition" title="Additive category">
+An <Term k="ac69AdditiveCategory">**additive category**</Term> $\AA$ is one where: (1) $\AA$ has a zero object, and any two objects have a product; and (2) every $\Hom_{\AA}(A,B)$ forms an abelian group (written additively), with composition distributing over addition: $(g+h) \circ f = g \circ f + h \circ f$ and $f \circ (g+h) = f \circ g + f \circ h$. The zero map is the identity element of each Hom-group.
+</Callout>
+
+The moral is simple:
+
+<Callout kind="remark" title="Moral">
+In an additive category, you can add two morphisms.
+</Callout>
+
+Which is really the only definition that makes sense — we've committed to never talking about "elements" of objects, so "add two morphisms" is the closest categorical analogue of "add two homomorphisms pointwise."
+
+</SlideLayout>

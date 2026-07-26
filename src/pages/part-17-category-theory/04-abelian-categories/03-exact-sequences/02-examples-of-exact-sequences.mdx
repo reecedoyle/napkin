@@ -1,0 +1,37 @@
+---
+title: Examples of exact sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of exact sequences">
+
+<Callout kind="example" title="Exact sequences">
+The sequence $0 \to \Zc3 \overset{\times 5}{\injto} \Zc{15} \surjto \Zc5 \to 0$ is exact. More generally, $0 \to G \injto G \times H \surjto H \to 0$ is exact for any groups $G, H$ (here $0$ denotes the trivial group).
+</Callout>
+
+Two special cases are worth memorizing on their own, since they'll recur constantly:
+
+<Callout kind="example" title="Exactness at the ends">
+For groups, $0 \to A \to B$ is exact if and only if $A \to B$ is injective. Dually, $A \to B \to 0$ is exact if and only if $A \to B$ is surjective.
+</Callout>
+
+Both follow directly from the definition: exactness at $A$ in $0 \to A \to B$ says $\Img(0 \to A) = \Ker(A \to B)$, i.e. $\Ker(A \to B) = \{1\}$, i.e. injective. Exactness at $B$ in $A \to B \to 0$ says $\Img(A \to B) = \Ker(B \to 0) = B$, i.e. surjective.
+
+<MCQ
+  client:load
+  id="abcat-03-mcq-exact-ends"
+  prompt="The sequence A → B → 0 is exact exactly when the map A → B is:"
+  options={[
+    { id: "a", label: "Injective" },
+    { id: "b", label: "Surjective" },
+    { id: "c", label: "An isomorphism" },
+    { id: "d", label: "The zero map" },
+  ]}
+  correct="b"
+  explanation="Exactness at B means Img(A → B) = Ker(B → 0) = B, i.e. the map A → B is onto all of B — surjective. (The dual fact, 0 → A → B exact iff injective, is the mirror statement.)"
+/>
+
+</SlideLayout>

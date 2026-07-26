@@ -1,0 +1,24 @@
+---
+title: The functor category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The functor category">
+
+With natural transformations in hand, we can finally build the object we've been foreshadowing since §3.
+
+<Callout kind="definition" title="Functor category">
+The <Term k="fan67FunctorCategory">functor category</Term> of two categories $\cA$ and $\cB$, written $[\cA,\cB]$, has as objects the (covariant) functors $F \colon \cA \to \cB$, and as arrows the natural transformations $\alpha \colon F \Rightarrow G$.
+</Callout>
+
+Composition of arrows is composition of natural transformations (§6), and the identity on $F$ is the natural transformation with every component $\id_{F(A)}$ — both of which we already checked make sense. So $[\cA,\cB]$ really is a category, just like $\Cat$ itself.
+
+<Callout kind="question" title="A question to sit with">
+When are two objects $F, G \in [\cA,\cB]$ isomorphic — i.e., what does "isomorphic in $[\cA,\cB]$" unpack to, in terms of $F$ and $G$ directly?
+</Callout>
+
+(If you said "naturally isomorphic," you're exactly right — isomorphism in the functor category *is* natural isomorphism, by definition of what an arrow in $[\cA,\cB]$ even is.)
+
+</SlideLayout>

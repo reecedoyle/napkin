@@ -1,0 +1,18 @@
+---
+title: Epic vs. surjective, in familiar categories
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Epic vs. surjective, in familiar categories">
+
+Just as with monic, the categories we've spent the most time with are well-behaved: epic and surjective coincide there.
+
+<ProofReveal
+  client:load
+  id="oam-monep-proof-epic-surjective"
+  prompt="Show that in Set, Grp, Ab, Vect_k, Top, the notions of epic and surjective coincide. (Hint for Set: take A = {0, 1}.)"
+  solution="Surjective ⟹ epic holds in any concrete category by the dual of the injective ⟹ monic argument: if f is surjective and g∘f = h∘f, then for any y ∈ Y pick x with f(x) = y, so g(y) = g(f(x)) = h(f(x)) = h(y); since y was arbitrary, g = h. For the converse (epic ⟹ surjective) in Set: suppose f: X → Y is epic but not surjective, so some y₀ ∈ Y is missed. Let A = {0, 1} and define g: Y → A to be constant 0, and h: Y → A to send y₀ to 1 and everything else to 0. Then g∘f = h∘f (both constant 0 on X, since f never hits y₀), but g ≠ h — contradicting epic. So f must be surjective. The same style of argument (using an appropriate two-element or quotient target) carries the epic ⟹ surjective direction through Grp, Ab, Vect_k, and Top, since in each of those categories one can build a pair of distinct maps out of Y that agree exactly on the image of f."
+/>
+
+</SlideLayout>

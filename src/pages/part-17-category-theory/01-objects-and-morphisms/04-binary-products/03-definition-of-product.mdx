@@ -1,0 +1,22 @@
+---
+title: The product, in any category
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The product, in any category">
+
+We can now do this construction in any category at all, not just $\catname{Set}$.
+
+<Callout kind="definition" title="Product">
+Let $X$ and $Y$ be objects in a category $\mathcal{A}$. The <Term k="oam66Product">product</Term> consists of an object $X \times Y$ and arrows $\pi_X, \pi_Y$ to $X$ and $Y$ respectively (thought of as projections). We require that for any object $A$ and arrows $A \taking{g} X$, $A \taking{h} Y$, there is a *unique* arrow $A \taking{f} X \times Y$ with $\pi_X \circ f = g$ and $\pi_Y \circ f = h$.
+</Callout>
+
+<Callout kind="remark" title="A pedantic but important point">
+Strictly, the product is the *pair* of the object $X \times Y$ together with the projections $\pi_X, \pi_Y$ — not the object alone. But when the projections are understood from context, we'll often sloppily call $X \times Y$ itself "the product."
+</Callout>
+
+Products don't always exist — take a category with just two objects and no non-identity arrows between them, and there's nothing that could serve as their product. But when a product does exist, it's essentially unique, which is what we check next.
+
+</SlideLayout>

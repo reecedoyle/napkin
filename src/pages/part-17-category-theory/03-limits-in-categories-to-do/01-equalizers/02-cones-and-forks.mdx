@@ -1,0 +1,21 @@
+---
+title: Cones and forks
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cones and forks">
+
+Consider two objects $X$ and $Y$ in any category, with two parallel arrows $X \taking{f,g} Y$ between them. We're going to build a "cone" over this little diagram, the same way we built a cone over a family of objects to define products.
+
+<Callout kind="definition" title="Cone over a parallel pair">
+A <Term k="lim68Cone">**cone**</Term> over $X \taking{f,g} Y$ is an object $A$ together with an arrow $A \taking{q} X$, chosen so that the two composites to $Y$ agree:
+$$
+f \circ q = g \circ q \colon A \to Y.
+$$
+</Callout>
+
+Notice we only had to specify the arrow $q$ landing on $X$ — the arrow to $Y$ isn't extra data, it's forced to be $f \circ q$ (which we're requiring to equal $g \circ q$). Following the source Napkin draws on, we call such a cone a <Term k="lim68Fork">**fork**</Term>: if you write $A \to X \rightrightarrows Y$ all on one line, the picture looks like the tines of a fork, even though we usually draw it bent into a triangle-and-arrows shape to emphasize that it's a cone.
+
+</SlideLayout>

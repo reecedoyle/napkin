@@ -1,0 +1,26 @@
+---
+title: Initial objects
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Initial objects">
+
+Certain objects in a category have special properties defined purely by the arrows in and out of them — no reference to their internal contents needed. The first example: an object that maps into everything, uniquely.
+
+<Callout kind="definition" title="Initial object">
+An <Term k="oam66InitialObject">initial object</Term> of $\mathcal{A}$ is an object $A_{\text{init}} \in \mathcal{A}$ such that for any $A \in \mathcal{A}$ (possibly $A = A_{\text{init}}$), there is *exactly one* arrow from $A_{\text{init}}$ to $A$.
+</Callout>
+
+<Callout kind="example" title="Initial objects, category by category">
+- The initial object of $\catname{Set}$ is the empty set $\varnothing$: there's exactly one function $\varnothing \to S$ for any set $S$, the empty function.
+- The initial object of $\catname{Grp}$ is the trivial group $\{1\}$.
+- The initial object of $\catname{CRing}$ is $\ZZ$ — recall ring homomorphisms $R \to S$ must send $1_R \mapsto 1_S$, and a homomorphism $\ZZ \to R$ is then forced.
+- The initial object of $\catname{Top}$ is the empty space.
+- The initial object of a poset (as a category) is its smallest element, if one exists.
+</Callout>
+
+The prototype to hold onto: $\catname{Set}$ has initial object $\varnothing$ — there's a unique way to map "nothing" into anything.
+
+</SlideLayout>

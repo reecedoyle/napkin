@@ -1,0 +1,19 @@
+---
+title: Equalizers are unique up to isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Equalizers are unique up to isomorphism">
+
+Because the equalizer is defined purely by a universal property, the usual "two universal objects must agree" argument applies here too.
+
+<ProofReveal
+  client:load
+  id="lim68-eq-proof-uniqueness"
+  prompt="Suppose E → X (via e) and E′ → X (via e′) are both equalizers of f, g: X → Y. Show that E ≅ E′."
+  solution="Since E′ is a fork through X (it satisfies f∘e′ = g∘e′), universality of E gives a unique map h: E′ → E with e∘h = e′. Symmetrically, universality of E′ gives a unique map h′: E → E′ with e′∘h′ = e. Composing, e∘(h∘h′) = e′∘h′ = e; but the defining universal property of E says only one map E → E satisfies e∘(that map) = e, and the identity is one such map, so h∘h′ must be the identity on E. The same argument with the roles swapped gives h′∘h is the identity on E′. So h and h′ are mutually inverse, and E ≅ E′."
+/>
+
+</SlideLayout>
