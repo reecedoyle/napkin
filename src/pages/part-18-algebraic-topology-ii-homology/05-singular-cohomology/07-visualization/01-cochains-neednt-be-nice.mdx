@@ -1,0 +1,20 @@
+---
+title: Cochains don't have to be nice, and it doesn't matter
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Cochains don't have to be nice, and it doesn't matter">
+
+Let's make sense of $C^n(X;G)$ and $H^n(X;G)$ geometrically, for higher $n$. Recall $C_n(X)$ is the free abelian group on $n$-simplices in $X$, so a cochain $f \in C^n(X;G)$ is a function assigning a value in $G$ to each $n$-simplex (extended linearly to sums).
+
+This assignment need not have any nice properties. Recall a singular $n$-simplex is just a continuous map $\sigma \colon \Delta^n \to X$, and two maps $\sigma_1 \neq \sigma_2$ count as *different* simplices even if their images agree. In particular:
+
+- If $[v_0,v_1,v_2]$ is a singular $2$-simplex, it need not hold that $f([v_0,v_1,v_2]) + f([v_0,v_2,v_1]) = 0$ (swapping orientation doesn't automatically flip the sign).
+- A singular $n$-simplex ($n \geq 1$) whose image is a single point need not be sent to $0$ by $f$.
+
+<Callout kind="remark">
+It doesn't matter that elements of $C^n(X)$ can be this badly-behaved! Once we pass to cohomology (quotienting by coboundaries), all of this "noise" gets absorbed — that's what the rest of this section explains.
+</Callout>
+
+</SlideLayout>

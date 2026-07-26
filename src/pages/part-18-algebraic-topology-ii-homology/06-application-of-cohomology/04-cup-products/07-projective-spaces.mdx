@@ -1,0 +1,21 @@
+---
+title: Cohomology rings of projective space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cohomology rings of projective space">
+
+<Callout kind="example" title="Real and complex projective space">
+$$
+H^\bullet(\RP^n; \Zc2) \cong \Zc2[\alpha]/(\alpha^{n+1}), \qquad H^\bullet(\CP^n;\ZZ) \cong \ZZ[\beta]/(\beta^{n+1}),
+$$
+where $|\alpha|=1$ generates $H^1(\RP^n;\Zc2)$ and $|\beta|=2$ generates $H^2(\CP^n;\ZZ)$.
+</Callout>
+
+Both rings here are again confusingly both commutative *and* anticommutative — but for two different reasons. For $\RP^n$, we're working over $\Zc2$, where $1 = -1$, so anticommutative and commutative say the same thing. For $\CP^n$, every nonzero homogeneous element has *even* degree $2, 4, \dots$, so every sign $(-1)^{|r||s|}$ is automatically $+1$.
+
+This is where the cup product finally does something the wedge product on forms couldn't easily show us on its own: unlike $S^n$, here the generators satisfy $\alpha \smile \alpha \neq 0$ (for $n \ge 2$) and $\beta \smile \beta \neq 0$ — genuinely new information, not forced to vanish by a degree argument.
+
+</SlideLayout>

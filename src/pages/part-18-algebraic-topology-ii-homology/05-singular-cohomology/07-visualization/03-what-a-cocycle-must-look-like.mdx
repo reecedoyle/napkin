@@ -1,0 +1,28 @@
+---
+title: What a cocycle must look like
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What a cocycle must look like">
+
+Let's see what being a cocycle actually forces.
+
+<Callout kind="remark" title="Moral">
+Homotopic chains with the same boundary are mapped to the same value by cocycles.
+</Callout>
+
+Picture a $1$-simplex from a point $p$ to a point $q$: any two paths from $p$ to $q$ that can be continuously slid into one another (keeping the endpoints $p$, $q$ fixed) are <Term k="sc74HomotopicSimplices">homotopic</Term>. A path that can't be slid to match — say, one that loops the "wrong way" around a hole — is not homotopic to the others. Any cocycle must assign the *same* value to homotopic $1$-simplices: their difference is always expressible as the boundary of the region swept out between them, and a cocycle kills boundaries.
+
+Next, here's the complementary observation:
+
+<Callout kind="remark" title="Moral">
+By adding or subtracting a coboundary to a given cochain, we can adjust the value assigned to most chains however we want — except on cycles, where the value is locked in.
+</Callout>
+
+Concretely: start with a $0$-cochain assigning the value $1$ to a single point $p$ and $0$ everywhere else. Its coboundary $\delta$ assigns $+1$ to every edge pointing *away* from $p$ and $-1$ to every edge pointing *into* $p$. Adding this coboundary to any $1$-cochain shifts the values on edges touching $p$ — but leaves the value on any full cycle unchanged, since a cycle's edges cancel around $p$ exactly the way $\partial$ cancels.
+
+So: cycles that are themselves boundaries always get value $0$ from a cocycle — that's just the field-coefficient characterization from the previous slide, a cocycle kills boundaries. More generally, <Term k="sc74HomologousCycles">homologous cycles</Term> — cycles differing by a boundary — always get the *same* value from any fixed cocycle, since a cocycle can't distinguish two cycles whose difference it's forced to send to $0$.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Why forms see holes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why forms see holes">
+
+Why should differential forms know anything about topology? Here's the intuition, via a concrete example.
+
+Let $M = S^1$ and consider the <Term k="angleForm">angle form</Term> $\alpha$. It is closed but not exact, because you can run a full circle around $S^1$ — there's a hole in the way of writing $\alpha = df$ globally. This failure of $\alpha$ to be exact is exactly what's detected by $H_1(S^1) \cong \ZZ$.
+
+More generally: a $k$-form can be interpreted as a function sending each smooth $k$-dimensional piece $S$ of $M$ to a number $\int_S \omega$. Pretending simplices are smooth, this makes forms into a special *subset* of the $k$-cochains — ones satisfying extra linearity and smoothness constraints (vanishing on degenerate simplices, changing sign under a vertex swap, additivity under gluing along a shared face).
+
+<Callout kind="remark" title="Both sides shrink together">
+Restricting from all cochains down to just the differential forms shrinks both the numerator and the denominator of
+$$
+H^k(M;\RR) = \frac{\text{cocycles}}{\text{coboundaries}}
+$$
+to
+$$
+\frac{\text{cocycles} \cap \text{forms}}{\text{coboundaries} \cap \text{forms}} = \HdR^k(M),
+$$
+and remarkably the quotient comes out isomorphic either way. This is the same shape of argument as the second isomorphism theorem: cutting a numerator and denominator down by intersecting with a common subgroup can leave the quotient unchanged.
+</Callout>
+
+</SlideLayout>

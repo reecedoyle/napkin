@@ -1,0 +1,25 @@
+---
+title: Check your understanding — spotting a good pair
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Check your understanding — spotting a good pair">
+
+<MCQ
+  client:load
+  id="ear72-excision-mcq-good-pair-condition"
+  prompt="Which condition on the pair (X, A) is needed for H_n(X,A) ≅ H̃_n(X/A) to be guaranteed by the good pair theorem?"
+  options={[
+    { id: "a", label: "A is closed and a deformation retract of some open set V ⊆ X" },
+    { id: "b", label: "A is open in X" },
+    { id: "c", label: "X is compact" },
+    { id: "d", label: "A is countable" },
+  ]}
+  correct="a"
+  explanation="The good pair theorem requires A to be closed in X, together with A being a deformation retract of some open neighborhood V of A inside X. Openness of A (option b) is exactly what breaks the guess in the D² / A = X∖{0} counterexample from §1; compactness and countability aren't part of the hypothesis at all."
+/>
+
+</SlideLayout>

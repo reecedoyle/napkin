@@ -1,0 +1,25 @@
+---
+title: 'd_k for k > 1: degrees of attach-then-collapse'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="d_k for k > 1: degrees of attach-then-collapse">
+
+For higher $k$, the differential is built entirely out of the notion of <Term k="bch73Degree">degree</Term> from the start of this chapter.
+
+<Callout kind="theorem" title="Cellular boundary formula for k > 1">
+Let $k > 1$. Let $e^k$ be a $k$-cell, and let $\{e_\beta^{k-1}\}_\beta$ be all the $(k-1)$-cells of $X$. Then $d_k \colon \Cells_k(X) \to \Cells_{k-1}(X)$ is given on basis elements by the <Term k="bch73CellularBoundaryFormula">cellular boundary formula</Term>
+$$
+d_k(e^k) = \sum_\beta d_\beta\, e_\beta^{k-1}
+$$
+where $d_\beta$ is the degree of the composed map
+$$
+S^{k-1} = \partial e^k \xrightarrow{\ \text{attach}\ } X^{k-1} \twoheadrightarrow S_\beta^{k-1}.
+$$
+</Callout>
+
+Here the first arrow is the <Term k="bch73AttachingMap">attaching map</Term> of $e^k$, and the second is the <Term k="bch73CollapseMap">collapse map</Term> that crushes $X^{k-1} \setminus e_\beta^{k-1}$ down to a point, leaving a sphere built from $e_\beta^{k-1}$ alone.
+
+</SlideLayout>

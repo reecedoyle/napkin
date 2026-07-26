@@ -1,0 +1,18 @@
+---
+title: "Problem: relative homology of a punctured ball"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: relative homology of a punctured ball">
+
+<Problem
+  client:load
+  id="tle71-prob-relative-punctured"
+  difficulty="starred"
+  prompt="Let n ≥ 1 and k ≥ 0 be integers. Compute H_k(ℝ^n, ℝ^n minus the origin)."
+  hint="Use the long exact sequence for relative homology. Note that ℝ^n minus the origin is homotopy equivalent to S^{n-1}."
+  solution="The answer is ℤ for k = n, and 0 for every other k. Write A = ℝ^n minus the origin, X = ℝ^n. The long exact sequence for relative homology gives ⋯ → H_k(A) → H_k(X) → H_k(X,A) → H_{k-1}(A) → H_{k-1}(X) → ⋯. Since X = ℝ^n is contractible, H_k(X) = 0 for k ≥ 1 and H_0(X) ≅ ℤ; using reduced homology throughout removes the k=0 bookkeeping, since reduced H̃_k(X) = 0 for all k. So the sequence becomes 0 = H̃_k(X) → H_k(X,A) → H̃_{k-1}(A) → H̃_{k-1}(X) = 0 for every k, meaning H_k(X,A) ≅ H̃_{k-1}(A) for every k. Since A ≃ S^{n-1}, H̃_{k-1}(A) ≅ H̃_{k-1}(S^{n-1}), which by the sphere theorem is ℤ exactly when k-1 = n-1, i.e. k = n, and 0 otherwise. So H_k(ℝ^n, ℝ^n minus the origin) is ℤ for k = n and 0 otherwise."
+/>
+
+</SlideLayout>

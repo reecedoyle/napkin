@@ -1,0 +1,45 @@
+---
+title: The Klein bottle — same cells, one sign flipped
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The Klein bottle — same cells, one sign flipped">
+
+The <Term k="bch73KleinBottle">Klein bottle</Term> $X$ has exactly the same cell counts as the torus — $e^0$, $e^1_a$, $e^1_b$, $e^2$ — but $e^2$ is attached along $abab^{-1}$ instead of $aba^{-1}b^{-1}$: only the last letter's sign changed.
+
+<Figure
+  alt="A square with top and bottom edges labeled a, both arrows pointing right; left edge labeled b pointing up; right edge labeled b pointing down"
+  caption="The Klein bottle's attaching word abab⁻¹: the two b-edges point in opposite directions around the square."
+>
+  <svg viewBox="-10 -10 120 120" width="220" height="220" aria-hidden="true">
+    <defs>
+      <marker id="kbArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
+      </marker>
+    </defs>
+    <rect x="0" y="0" width="100" height="100" fill="currentColor" opacity="0.08" />
+    <line x1="0" y1="100" x2="95" y2="100" stroke="#d33" stroke-width="2.5" marker-end="url(#kbArrow)" />
+    <line x1="0" y1="0" x2="95" y2="0" stroke="#d33" stroke-width="2.5" marker-end="url(#kbArrow)" />
+    <line x1="0" y1="0" x2="0" y2="95" stroke="#36c" stroke-width="2.5" marker-end="url(#kbArrow)" />
+    <line x1="100" y1="100" x2="100" y2="5" stroke="#36c" stroke-width="2.5" marker-end="url(#kbArrow)" />
+  </svg>
+</Figure>
+
+$d_1$ is still zero (both $e^1_a$, $e^1_b$ are still loops), but this time
+
+<Callout kind="example" title="A different d_2">
+$d_2(e^2) = 2 e^1_a$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="bch73-boundary-proof-klein-d2-coefficient"
+  prompt="Why does d_2(e^2) = 2e^1_a for the Klein bottle's abab⁻¹ attaching word?"
+  solution="Trace abab⁻¹ around the square and collapse e^1_b to a point (to read off the e^1_a-coefficient). The two a-traversals both survive the collapse, and this time — because the two b-edges are identified in opposite orientations rather than the torus's matching orientation — the two a-traversals occur with the SAME sign instead of cancelling. So the degree of the collapsed map is 1 + 1 = 2, giving d_2(e^2) = 2e^1_a. Collapsing e^1_a instead shows the e^1_b-coefficient is 0, by the same cancellation argument as the torus."
+/>
+
+</SlideLayout>

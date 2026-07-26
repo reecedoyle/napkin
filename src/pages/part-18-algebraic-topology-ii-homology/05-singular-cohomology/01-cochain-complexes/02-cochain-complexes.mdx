@@ -1,0 +1,31 @@
+---
+title: Cochain complexes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cochain complexes">
+
+A **cochain complex** is the same kind of gadget as a chain complex, just running the other way: the maps raise the index instead of lowering it.
+
+<Callout kind="definition" title="Cochain complex">
+A <Term k="sc74CochainComplex">cochain complex</Term> $A^\bullet$ is a sequence of abelian groups
+$$
+\dots \taking\delta A^{n-1} \taking\delta A^n \taking\delta A^{n+1} \taking\delta \dots
+$$
+such that $\delta^2 = 0$. We write superscripts instead of subscripts, and use <Term k="sc74Delta">$\delta$</Term> rather than $\partial$, purely as a notational signal that we're now in "co-" land.
+</Callout>
+
+Since $\delta^2 = 0$ still holds, we get to recycle the whole cycles-modulo-boundaries idea from homology, just with the arrows flipped.
+
+<Callout kind="definition" title="Cohomology group of a cochain complex">
+We define the <Term k="sc74CohomologyOfComplex">cohomology group</Term>
+$$
+H^n(A^\bullet) = \ker\left( A^n \taking\delta A^{n+1} \right) / \img\left( A^{n-1} \taking\delta A^n \right).
+$$
+</Callout>
+
+This is *literally* the same formula as $H_n(A_\bullet) = \ker(\partial)/\img(\partial)$, with every arrow reversed. Nothing new algebraically — the content of this chapter is entirely about *where cochain complexes come from* and *what they mean geometrically*.
+
+</SlideLayout>

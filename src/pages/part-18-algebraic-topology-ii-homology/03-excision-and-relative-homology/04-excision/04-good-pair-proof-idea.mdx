@@ -1,0 +1,18 @@
+---
+title: Proof idea for the good pair theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof idea for the good pair theorem">
+
+It is *not* generally true that $H(X,A) \cong H(X/A, A/A)$ directly — we've already seen two counterexamples where that naive comparison breaks. The proof has to work around this.
+
+<Callout kind="remark" title="Proof idea">
+Cutting out $A$ entirely is easy: trivially $H(X-A, A-A) \cong H(X/A - A/A,\, A/A - A/A)$, since outside of $A$ the quotient map is just the identity. Unfortunately this group isn't yet the one we want. We fix that by inserting the open set $V$ from the hypothesis as an intermediate stop: excision (applied to both $X$ and its quotient) lets us relate $H(X,A)$ to $H(X-A, V-A)$, and separately relate $H(X/A, A/A)$ to $H(X/A - A/A,\, V/A - A/A)$ — and *these* two groups agree, because away from $A$ the quotient map is again just the identity.
+</Callout>
+
+So the proof is a chain of isomorphisms threading through four groups: $H(X,A)$, $H(X,V)$, $H(X-A,V-A)$, and their quotient-space counterparts — with excision supplying two of the links and the deformation retract $r \colon (V,A) \to (A,A)$ supplying the other two (via the long exact sequence of the triple $A \subseteq V \subseteq X$, exactly as in the exercise from §3).
+
+</SlideLayout>

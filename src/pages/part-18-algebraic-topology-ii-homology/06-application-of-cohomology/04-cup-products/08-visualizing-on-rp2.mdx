@@ -1,0 +1,26 @@
+---
+title: Visualizing the cup product on ℝP²
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Visualizing the cup product on ℝP²">
+
+Let's see $\alpha \smile \alpha \neq 0$ concretely on $\RP^2$: the real projective plane is a $2$-sphere with opposite points on the boundary glued (or a $2$-sphere with antipodal points identified, depending how you build it). The formula above gives $H^\bullet(\RP^2;\Zc2) \cong \Zc2[\alpha]/(\alpha^3)$: a single nonzero element in each of $H^0$, $H^1$, $H^2$, and nothing above that.
+
+There's a $1$-cycle on $\RP^2$ that isn't homologous to $0$ — informally, a loop that can't be contracted or filled in without leaving $\RP^2$. Every such loop turns out to be homologous to every other one, and running around it *twice* is homologous to $0$. So $H_1(\RP^2;\Zc2) \cong \Zc2$, and the nonzero class $\alpha \in H^1(\RP^2;\Zc2) \cong \Hom(H_1(\RP^2),\Zc2)$ is the function sending that loop to $1$.
+
+<Callout kind="remark" title="Why α ⌣ α is nonzero">
+Picture $\RP^2$ as a square with both pairs of opposite edges identified appropriately (one pair straight, one pair reversed). The class $\alpha$ acts like *both* "$dx$" and "$dy$" simultaneously — both boundary directions get assigned the value $1$. So $\alpha \smile \alpha$ assigns $1$ to the whole surface, exactly the way $dx \smile dy$ assigned a nonzero value to the whole torus. Since it's nonzero on the fundamental class, $\alpha \smile \alpha \neq 0$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="aoc75-cp-proof-rp2-cup-square"
+  prompt="Manually compute the cup product α ⌣ α on ℝP² to verify it's nonzero. (Divide the surface into triangles; [a,c,d] + [a,d,b] − [c,c,d] + [c,d,c] is a working choice of 2-chain to test against. Verify the coboundary of α computed this way is nonzero as an integer cochain, but divisible by 2 — consistent with α ⌣ α vanishing only after reducing mod 2 is NOT what happens; rather working directly over ℤ/2 the sum comes out to 1.)"
+  solution="Label the square's corners a (top-left), b (top-right), c (bottom-left), d (bottom-right), with the identification gluing the left edge to the right edge reversed and the top edge to the bottom edge reversed (the standard ℝP² gluing). Triangulate with the 2-chain [a,c,d] + [a,d,b] − [c,c,d] + [c,d,c] representing the fundamental class. Evaluating the cup product formula (φ⌣ψ)([v0,v1,v2]) = φ([v0,v1])·ψ([v1,v2]) on each triangle, using the ℤ/2-valued cocycle α that assigns 1 to edges crossing the identified boundary, the front-face and back-face contributions add up to 1 mod 2 on the whole 2-chain representing the surface. Over ℤ the corresponding integer sum is even (divisible by 2), which is exactly consistent with it reducing to the nonzero element 1 in ℤ/2 — confirming α ⌣ α ≠ 0 in H²(ℝP²; ℤ/2)."
+/>
+
+</SlideLayout>

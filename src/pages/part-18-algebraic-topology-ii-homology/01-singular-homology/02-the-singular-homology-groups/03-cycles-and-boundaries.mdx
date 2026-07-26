@@ -1,0 +1,30 @@
+---
+title: Cycles and boundaries
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Cycles and boundaries">
+
+We can capture the annulus idea in any dimension.
+
+<Callout kind="definition" title="Cycles and boundaries">
+Given the singular chain complex $\dots \taking{\partial} C_2(X) \taking{\partial} C_1(X) \taking{\partial} C_0(X) \taking{\partial} 0$, we say $c \in C_n(X)$ is:
+- a <Term k="sh70Cycle">cycle</Term> if $c \in \ker\left( C_n(X) \taking{\partial} C_{n-1}(X) \right)$, and
+- a <Term k="sh70BoundaryGroup">boundary</Term> if $c \in \img\left( C_{n+1}(X) \taking{\partial} C_n(X) \right)$.
+
+We denote the cycles and boundaries by $Z_n(X), B_n(X) \subseteq C_n(X)$ respectively. ($Z$ comes from the German *Zyklus*, since $C$ is already taken.)
+</Callout>
+
+Since $\partial \circ \partial = 0$, every boundary is automatically a cycle — a chain that's already the boundary of something has, itself, zero boundary. That inclusion $B_n(X) \subseteq Z_n(X)$ is the whole reason the next definition makes sense.
+
+<ProofReveal
+  client:load
+  id="sh70-hom-proof-zn-bn-subgroups"
+  prompt="Check that Zₙ(X) and Bₙ(X) are themselves abelian groups, and that Bₙ(X) ⊆ Zₙ(X) ⊆ Cₙ(X)."
+  solution="Cₙ(X) is abelian (it's a free abelian group), and Zₙ(X) = ker(∂) and Bₙ(X) = im(∂) are both subgroups of an abelian group, hence abelian themselves — kernels and images of group homomorphisms are always subgroups. For the inclusion: Bₙ(X) ⊆ Zₙ(X) because if c = ∂(d) for some (n+1)-chain d, then ∂(c) = ∂(∂(d)) = 0, so c is a cycle. And Zₙ(X) ⊆ Cₙ(X) by definition, since Zₙ(X) is defined as a subset (the kernel) of Cₙ(X)."
+/>
+
+</SlideLayout>

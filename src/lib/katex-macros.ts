@@ -145,4 +145,7 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\Coker': '\\operatorname{Coker}',
   '\\coker': '\\operatorname{coker}',
   '\\Img': '\\operatorname{Img}',
+  '\\Ext': '\\operatorname{Ext}',
+  '\\Cells': '\\operatorname{Cells}',
+  '\\HdR': 'H_{\\mathrm{dR}}',
 };

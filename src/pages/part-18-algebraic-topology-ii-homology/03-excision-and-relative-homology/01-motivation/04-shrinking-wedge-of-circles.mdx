@@ -1,0 +1,20 @@
+---
+title: Even closed A can go wrong — infinitely many circles
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Even closed A can go wrong — infinitely many circles">
+
+So "$A$ closed" isn't even enough by itself. Here's a subtler counterexample where infinitely many pieces are involved.
+
+<Callout kind="example" title="The shrinking wedge of circles">
+Let $X = [0,1]$ and let $A = \{ 1/n \mid n \in \ZZ^+ \} \cup \{0\}$ — a closed, countably infinite set of points accumulating at $0$. The quotient $X/A$ turns out to be homeomorphic to the *shrinking wedge of circles*: infinitely many circles of shrinking radius, all glued at one common point.
+
+It turns out that $H_1(X,A) \not\cong \wt{H}_1(X/A)$ here.
+</Callout>
+
+What goes wrong is genuinely about infinity: every relative $1$-cycle in $C(X,A)$ is (up to a boundary) built from **finitely many** $1$-simplices, each covering a segment of $X$. So every class in $H_1(X,A)$ can only "see" finitely many of the shrinking circles at once. But $\wt{H}_1(X/A)$ has room for classes that wind around *infinitely many* circles simultaneously — something no finite chain in $X$ can produce. Formally, the quotient maps induce $q_\ast \colon H_1(X,A) \to H_1(X/A, A/A)$, and $q_\ast$ fails to be injective.
+
+</SlideLayout>

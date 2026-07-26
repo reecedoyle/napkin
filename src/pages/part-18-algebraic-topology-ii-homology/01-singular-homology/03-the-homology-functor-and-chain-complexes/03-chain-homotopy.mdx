@@ -1,0 +1,24 @@
+---
+title: Chain homotopy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Chain homotopy">
+
+We also want an algebraic stand-in for "homotopic maps," so that "homotopic spaces" will eventually translate into "the induced chain maps agree on homology."
+
+<Callout kind="definition" title="Chain homotopy">
+Let $f, g \colon A_\bullet \to B_\bullet$ be chain maps. Suppose there exist maps $P_n \colon A_n \to B_{n+1}$ for every $n$ such that
+$$
+g_n - f_n = \partial_B \circ P_n + P_{n-1} \circ \partial_A.
+$$
+Then $P$ is a <Term k="sh70ChainHomotopy">chain homotopy</Term> from $f$ to $g$, and $f, g$ are *chain homotopic*.
+</Callout>
+
+The picture to keep in mind: $P_n$ is a "diagonal" map that doesn't commute with anything else in the diagram — it's not part of the chain-map structure. Instead, in every "parallelogram" of the ladder, the difference $g - f$ is exactly the sum of the two diagonal compositions through $P_n$ and $P_{n-1}$.
+
+This equation looks unmotivated right now — we're about to show it does the right algebraic job, and later we'll see its real justification: geometric homotopy of maps of spaces will *produce* exactly this kind of chain homotopy.
+
+</SlideLayout>

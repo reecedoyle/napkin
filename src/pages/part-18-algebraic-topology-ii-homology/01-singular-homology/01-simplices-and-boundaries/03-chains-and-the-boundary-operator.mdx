@@ -1,0 +1,30 @@
+---
+title: Chains and the boundary operator
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Chains and the boundary operator">
+
+This is going to feel like our earlier work with Stokes' theorem: we're going to put a **boundary operator** $\partial$ on singular $n$-simplices. First we need somewhere for the output to live — formal linear sums of $n$-simplices.
+
+<Callout kind="definition" title="n-chain">
+A <Term k="sh70Chain">$n$-chain</Term> is a formal $\ZZ$-linear combination $\sum_k a_k \sigma_k$ of singular $n$-simplices $\sigma_k \colon \Delta^n \to X$.
+</Callout>
+
+Think of chains exactly like formal sums of basis vectors: the simplices themselves are the "basis", and we're allowed to add and scale them by integers without any geometric meaning attached to the sum — $3\sigma - \tau$ is just a label for "three copies of $\sigma$ minus one copy of $\tau$".
+
+Given a singular $n$-simplex $\sigma$ with vertices $[v_0, \dots, v_n]$, for every $i$ we get an $(n-1)$-simplex $[v_0, \dots, v_{i-1}, v_{i+1}, \dots, v_n]$ by deleting the $i$th vertex.
+
+<Callout kind="definition" title="Boundary operator">
+The <Term k="sh70BoundaryOperator">boundary operator</Term> $\partial$ sends a singular $n$-simplex $\sigma$ to
+$$
+\partial(\sigma) \defeq \sum_i (-1)^i \left[ v_0, \dots, v_{i-1}, v_{i+1}, \dots, v_n \right],
+$$
+and extends linearly to chains: $\partial\left( \sum_k a_k \sigma_k \right) \defeq \sum_k a_k\, \partial(\sigma_k)$. By convention, a $0$-chain has boundary $0$.
+</Callout>
+
+The alternating $(-1)^i$ signs are exactly what will make everything cancel correctly once we take the boundary twice — that's the theorem we're heading toward next.
+
+</SlideLayout>

@@ -1,0 +1,31 @@
+---
+title: The relative chain short exact sequence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The relative chain short exact sequence">
+
+Our second family of examples comes from a subspace $A \subseteq X$. Recall <Term k="tle71RelChain">relative chains</Term> are defined by $C_n(X,A) \defeq C_n(X) / C_n(A)$ — chains of $X$, with anything supported entirely in $A$ declared to be zero. That quotient is, by construction, exactly a short exact sequence:
+
+<Callout kind="example" title="Relative chain short exact sequence">
+For every space $X$ and subspace $A$, there is a short exact sequence of chain complexes
+$$
+0 \to C_\bullet(A) \injto C_\bullet(X) \surjto C_\bullet(X,A) \to 0.
+$$
+</Callout>
+
+The maps are the obvious ones: $C_n(A) \injto C_n(X)$ is inclusion, and $C_n(X) \surjto C_n(X,A)$ is the quotient projection.
+
+This one augments too, exactly as before — appending $0 \to \ZZ \taking{\id} \ZZ \to 0 \to 0$ underneath (note $C_0(X,A) \to \ZZ$ is the *zero* map, since every relative chain augments to $0$):
+
+$$
+0 \to \wt C_\bullet(A) \injto \wt C_\bullet(X) \surjto C_\bullet(X,A) \to 0.
+$$
+
+Notice the relative piece $C_\bullet(X,A)$ doesn't change under augmentation — there's nothing to reduce, since $A$ already absorbs the "extra" basepoint information.
+
+We now have four short exact sequences of chain complexes on the table: Mayer–Vietoris, its augmentation, the relative sequence, and its augmentation. Every one of them is about to produce a long exact sequence of homology groups.
+
+</SlideLayout>

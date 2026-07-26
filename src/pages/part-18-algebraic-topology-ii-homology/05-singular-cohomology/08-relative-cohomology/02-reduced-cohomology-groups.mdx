@@ -1,0 +1,26 @@
+---
+title: Reduced cohomology groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Reduced cohomology groups">
+
+We can also define reduced cohomology, mirroring reduced homology. One way: take the augmented singular chain complex
+$$
+\dots \taking\partial C_1(X) \taking\partial C_0(X) \taking\eps \ZZ \to 0
+$$
+and dualize it to get
+$$
+\dots \xleftarrow\delta C^1(X;G) \xleftarrow\delta C^0(X;G) \xleftarrow{\eps^\vee} \underbrace{\Hom(\ZZ,G)}_{\cong G} \leftarrow 0.
+$$
+Since the extra $\ZZ$ we tacked on is also free, the universal coefficient theorem still applies to this augmented complex — so this construction genuinely gives reduced cohomology groups.
+
+However, since we've already defined relative cohomology, it's cleanest to just define reduced cohomology in terms of it:
+
+<Callout kind="definition" title="Reduced cohomology groups">
+The <Term k="sc74ReducedCohomology">reduced cohomology groups</Term> of a nonempty space $X$, denoted $\wt H^n(X;G)$, are defined as $H^n(X, \{\ast\}; G)$ for some chosen point $\ast \in X$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,21 @@
+---
+title: Why a (−1)-simplex?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why a (−1)-simplex?">
+
+Here's the "generalize backwards" reasoning that justifies $\eps$. Recall an $n$-simplex is given by $n+1$ vertices, $[v_0, \dots, v_n]$. That suggests a $(-1)$-simplex should be given by $0$ vertices: the empty list $[\,]$.
+
+We reach the same conclusion starting from the formula for $\Delta^n$ directly. Setting $n=-1$: $\Delta^{-1}$ must be the subset of $\RR^0$ (a single point, coordinates summing to $1$ and all nonnegative) — but there are no coordinates to sum, so no such point exists, and $\Delta^{-1} = \emptyset$. A singular $(-1)$-simplex in $X$ is then a function $\emptyset \to X$, and there is exactly one such function: the *empty function*.
+
+<Callout kind="remark" title="The (−1)st chain group">
+Every nonempty topological space $X$ has exactly one $(-1)$-simplex — the empty function, identified with $[\,]$. So the $(-1)$st chain group is free abelian on one generator: $\wt C_{-1}(X) \cong \ZZ$ (identifying $[\,]$ with $1$).
+</Callout>
+
+What about boundaries into this new group? To take the boundary of $[v_0, \dots, v_n]$ we remove each vertex in turn and take the alternating sum, so $\partial([v]) = [\,]$. Extended linearly, $\partial\left( \sum_i n_i p_i \right) = \sum_i n_i \cdot [\,]$ — under the identification $[\,] \leftrightarrow 1$, this is exactly $\eps$. So $\eps$ *is* the boundary map $\wt C_0(X) \taking{\partial} \wt C_{-1}(X)$, generalized rather than invented.
+
+(For $n \le -2$: an $n$-simplex needs a vertex list of length $n+1 < 0$, and there's no such list, so there are zero $(-2)$-simplices — the free abelian group on zero generators is trivial, $\wt C_{-2}(X) \cong \mathbf{0}$, and in particular $\partial([\,]) = 0$.)
+
+</SlideLayout>

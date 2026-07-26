@@ -1,0 +1,21 @@
+---
+title: Induced maps on homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Induced maps on homology">
+
+Start with any <Term k="tle71ChainSES">short exact sequence of chain complexes</Term> $0 \to A_\bullet \taking{f} B_\bullet \taking{g} C_\bullet \to 0$.
+
+Since $f$ and $g$ are chain maps (they commute with the boundary operators), they carry cycles to cycles and boundaries to boundaries. So they descend to maps on homology groups: for every $n$,
+$$
+H_n(A_\bullet) \taking{f_\ast} H_n(B_\bullet) \taking{g_\ast} H_n(C_\bullet).
+$$
+
+Stacking these for every degree $n$ gives us a whole grid of horizontal maps — one row per $n$, each row looking like $H_n(A_\bullet) \to H_n(B_\bullet) \to H_n(C_\bullet)$. That much is easy: chain maps always induce maps on homology.
+
+The genuinely new content of this chapter is that when the original sequence of chain complexes is *short exact*, these rows are not isolated — they can be stitched into a single infinite exact sequence, threading down through every degree $n$ one at a time. That's the long exact sequence, and it is the single most useful computational tool in this subject.
+
+</SlideLayout>

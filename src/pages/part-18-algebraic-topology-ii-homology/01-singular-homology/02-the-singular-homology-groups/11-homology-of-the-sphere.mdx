@@ -1,0 +1,33 @@
+---
+title: Homology of the spheres
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Homology of the spheres">
+
+Consider $S^2$, the ordinary $2$-dimensional sphere.
+
+<Callout kind="example" title="Homology groups of S²">
+Since $S^2$ is path connected, $H_0(S^2) \cong \ZZ$. We also have $H_1(S^2) = 0$, for the same reason $\pi_1(S^2)$ is trivial. But
+$$
+H_2(S^2) \cong \ZZ.
+$$
+Elements of $H_2(S^2)$ correspond to wrapping $S^2$ in a "tetrahedral bag" — once, twice, three times, and so on. So $H_2$ detects the spherical cavity of $S^2$, a hole that $\pi_2$ also detects, but (unlike $\pi_2$) $H_2$ detects *other* kinds of cavities too, not just spherical ones.
+</Callout>
+
+More generally, it turns out that for the $m$-dimensional sphere $S^m$:
+
+<Callout kind="theorem" title="Homology of spheres">
+$$
+H_n(S^m) \cong
+\begin{cases}
+\ZZ & n = m \text{ or } n = 0 \\
+0 & \text{otherwise.}
+\end{cases}
+$$
+</Callout>
+
+One $\ZZ$ for "the space is path-connected" ($n=0$), and one more $\ZZ$ exactly in the sphere's own dimension ($n=m$), detecting the single $m$-dimensional cavity that $S^m$ bounds. Every other homology group vanishes.
+
+</SlideLayout>

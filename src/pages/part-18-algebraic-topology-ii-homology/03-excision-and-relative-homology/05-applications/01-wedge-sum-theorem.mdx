@@ -1,0 +1,21 @@
+---
+title: Homology of a wedge sum
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homology of a wedge sum">
+
+A first payoff of excision: computing the homology of a <Term k="ear72WedgeSum">wedge sum</Term> $X \vee Y$ from the homologies of $X$ and $Y$ separately.
+
+<Callout kind="theorem" title="Homology of wedge sums">
+Let $X$ and $Y$ be spaces with basepoints $x_0 \in X$ and $y_0 \in Y$, each a deformation retract of some open neighborhood. Then for every $n$,
+$$
+\wt{H}_n(X \vee Y) = \wt{H}_n(X) \oplus \wt{H}_n(Y).
+$$
+</Callout>
+
+This matches intuition: a wedge sum glues $X$ and $Y$ at a single point, so their "holes" shouldn't interact at all — the homology of the whole is just the direct sum of the two pieces.
+
+</SlideLayout>

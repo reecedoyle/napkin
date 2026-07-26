@@ -1,0 +1,31 @@
+---
+title: Check your understanding — homology of a pair with itself
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Check your understanding — homology of a pair with itself">
+
+One more degenerate case worth internalizing before we move on: what happens when $A = X$?
+
+<Callout kind="remark">
+Take $A = X$ in the contractible-subspace lemma's proof pattern. Since $C_n(X,X) = C_n(X)/C_n(X) = 0$ for every $n$, the relative chain complex is entirely zero, so its homology vanishes identically — no long exact sequence needed at all.
+</Callout>
+
+<MCQ
+  client:load
+  id="ear72-les-mcq-hn-x-x"
+  prompt="What is H_n(X, X) for any space X and any n?"
+  options={[
+    { id: "a", label: "0 for every n" },
+    { id: "b", label: "Hₙ(X) for every n" },
+    { id: "c", label: "ℤ when n = 0, and 0 otherwise" },
+    { id: "d", label: "It depends on X" },
+  ]}
+  correct="a"
+  explanation="C_n(X,X) = C_n(X)/C_n(X) is the zero group in every degree, since every chain in X is 'supported inside X'. The zero chain complex has zero homology, independent of X — so Hₙ(X,X) = 0 for every n and every space X."
+/>
+
+</SlideLayout>

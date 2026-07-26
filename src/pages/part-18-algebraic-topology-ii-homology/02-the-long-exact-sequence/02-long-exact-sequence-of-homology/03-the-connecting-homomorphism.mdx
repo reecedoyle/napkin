@@ -1,0 +1,25 @@
+---
+title: The connecting homomorphism, explicitly
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The connecting homomorphism, explicitly">
+
+The map $\partial \colon H_n(C_\bullet) \to H_{n-1}(A_\bullet)$ can be pinned down completely, using only the sub-diagram in degrees $n$ and $n-1$:
+
+$$
+B_n \taking{g_n} C_n, \qquad A_{n-1} \injto B_{n-1} \taking{g_{n-1}} C_{n-1}, \qquad \partial_B \colon B_n \to B_{n-1}.
+$$
+
+Recall $H_n$ is <Term k="tle71Cycle">cycles</Term> modulo <Term k="tle71Boundary">boundaries</Term>, so we need to send every cycle of $C_n$ to a cycle of $A_{n-1}$. Here is the recipe — "**left, down, left**":
+
+1. Start with a cycle $c \in C_n$ (so $\partial_C(c) = 0$).
+2. **Left:** by surjectivity of $g_n$, lift $c$ to some $b \in B_n$ with $g_n(b) = c$.
+3. **Down:** apply the boundary map, giving $\partial_B(b) \in B_{n-1}$.
+4. **Left:** the image of $\partial_B(b)$ under $g_{n-1}$ is zero — by commutativity of the square, $g_{n-1}(\partial_B(b)) = \partial_C(g_n(b)) = \partial_C(c) = 0$ — so by exactness at $B_{n-1}$, $\partial_B(b)$ is in the image of $f_{n-1}$, and $f_{n-1}$ is injective. So there is a *unique* $a \in A_{n-1}$ with $f_{n-1}(a) = \partial_B(b)$.
+
+We set $\partial([c]) = [a]$. (There's a pile of "well-definedness" to check — that $a$ doesn't depend on the choice of lift $b$, and that it only depends on the homology class $[c]$ — which we won't belabor here.)
+
+</SlideLayout>

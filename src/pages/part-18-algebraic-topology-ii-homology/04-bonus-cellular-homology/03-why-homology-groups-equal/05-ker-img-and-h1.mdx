@@ -1,0 +1,24 @@
+---
+title: Cellular cycles, cellular boundaries, and H_1
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cellular cycles, cellular boundaries, and H_1">
+
+Now the last step: taking homology of the cellular chain complex itself.
+
+- An element of $\ker\!\big(\Cells_1(X) \xrightarrow{\partial} \Cells_0(X)\big)$ is a "cellular cycle" — an aligned representative of an honest $1$-cycle in $Z_1(X)$.
+- An element of $\img\!\big(\Cells_2(X) \xrightarrow{\partial} \Cells_1(X)\big)$ is a "cellular boundary" — an aligned representative of an honest $1$-boundary in $B_1(X)$. (Careful: this is not the same group as $B_1(X^1, X^0)$ from before! Think about why.)
+
+<Callout kind="definition" title="H_1 of the cellular chain complex">
+$$
+H_1(\Cells_\bullet(X)) = \frac{\ker\!\big(\Cells_1(X) \xrightarrow{\partial} \Cells_0(X)\big)}{\img\!\big(\Cells_2(X) \xrightarrow{\partial} \Cells_1(X)\big)},
+$$
+which is exactly $\dfrac{\text{aligned cycle}}{\text{aligned boundary}}$ from the slogan.
+</Callout>
+
+With a suitable formalization (choosing a canonical simplex for every cell, which technically needs a $\Delta$-complex structure on $X$), this argument can be made fully rigorous.
+
+</SlideLayout>

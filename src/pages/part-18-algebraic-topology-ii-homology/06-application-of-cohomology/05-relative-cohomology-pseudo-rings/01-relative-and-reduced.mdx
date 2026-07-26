@@ -1,0 +1,28 @@
+---
+title: Relative and reduced cohomology pseudo-rings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Relative and reduced cohomology pseudo-rings">
+
+For $A \subseteq X$, the cup product also makes sense relatively:
+$$
+H^k(X,A;R) \times H^\ell(X,A;R) \to H^{k+\ell}(X,A;R).
+$$
+
+The reason this works: if a cochain vanishes on every chain living inside $A$, so does its cup product with anything — vanishing is "absorbing" under $\smile$.
+
+This gives us two more graded structures:
+
+<Callout kind="definition" title="Relative and reduced cohomology pseudo-rings">
+The <Term k="aoc75RelativeCohomologyPseudoRing">relative cohomology pseudo-ring</Term> of the pair $(X,A)$ and the <Term k="aoc75ReducedCohomologyPseudoRing">reduced cohomology pseudo-ring</Term> (the special case $A = \{\ast\}$) are
+$$
+H^\bullet(X,A;R) = \bigoplus_{k\ge0} H^k(X,A;R), \qquad \wt H^\bullet(X;R) = \bigoplus_{k \ge 0} \wt H^k(X;R).
+$$
+</Callout>
+
+Both are only **anticommutative pseudo-rings** — not full rings. The obstruction is real: it's common to have $\wt H^0(X;R) = 0$, so there's often no identity element at all to be found anywhere in $\wt H^\bullet(X;R)$.
+
+</SlideLayout>

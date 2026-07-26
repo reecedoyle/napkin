@@ -1,0 +1,25 @@
+---
+title: The identity cochain
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The identity cochain">
+
+Since $R$ has a multiplicative identity, we should ask: what plays the role of "$1$" for $\smile$?
+
+<MCQ
+  client:load
+  id="aoc75-cp-mcq-identity-cochain"
+  prompt="Assuming R has a 1, which 0-cochain ε ∈ C⁰(X;R) is the identity for the cup product ⌣?"
+  options={[
+    { id: "a", label: "The 0-cochain sending every vertex to 0 ∈ R" },
+    { id: "b", label: "The 0-cochain sending every vertex to 1 ∈ R" },
+    { id: "c", label: "There is no such 0-cochain in general" },
+  ]}
+  correct="b"
+  explanation="Take ε to send every vertex to 1 ∈ R. For φ ∈ C^k(X;R), (ε ⌣ φ)([v_0,…,v_k]) = ε([v_0]) · φ([v_0,…,v_k]) = 1 · φ(…) = φ(…), and similarly for φ ⌣ ε using the back-face vertex. So the constant-1 vertex function is a two-sided identity."
+/>
+
+</SlideLayout>

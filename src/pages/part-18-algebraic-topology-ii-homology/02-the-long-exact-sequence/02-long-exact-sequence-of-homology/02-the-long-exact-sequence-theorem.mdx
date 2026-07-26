@@ -1,0 +1,26 @@
+---
+title: The long exact sequence theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The long exact sequence theorem">
+
+Here is the theorem that makes homology computable.
+
+<Callout kind="theorem" title="Short exact ⟹ long exact">
+Let $0 \to A_\bullet \taking{f} B_\bullet \taking{g} C_\bullet \to 0$ be *any* short exact sequence of chain complexes. Then there is an <Term k="tle71LongExact">exact sequence</Term>
+$$
+\cdots \to H_{n+1}(C_\bullet) \taking{\partial} H_n(A_\bullet) \taking{f_\ast} H_n(B_\bullet) \taking{g_\ast} H_n(C_\bullet) \taking{\partial} H_{n-1}(A_\bullet) \to \cdots
+$$
+called the <Term k="tle71LongExact">long exact sequence</Term> of homology groups.
+</Callout>
+
+Read it as an infinite zigzag: two ordinary induced maps $f_\ast, g_\ast$, then a new <Term k="tle71ConnectingHom">connecting map</Term> $\partial$ that drops down a degree and jumps back to $A_\bullet$, then repeat forever in both directions.
+
+<Callout kind="remark" title="Proof">
+This is a long diagram chase, valid in any abelian category — the same argument works whether $A_\bullet, B_\bullet, C_\bullet$ are chain complexes of abelian groups, vector spaces, or modules. (Equivalently, it follows from applying the <Term k="tle71SnakeLemma">snake lemma</Term> twice, once for each pair of adjacent degrees.) We omit the chase itself and instead pin down what the one genuinely new map, $\partial$, looks like.
+</Callout>
+
+</SlideLayout>

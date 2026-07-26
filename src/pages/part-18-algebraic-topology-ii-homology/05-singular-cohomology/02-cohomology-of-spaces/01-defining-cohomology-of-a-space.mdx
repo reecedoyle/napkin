@@ -1,0 +1,27 @@
+---
+title: Cohomology of a space
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cohomology of a space">
+
+Now for the geometric case we actually care about: dualize the singular chain complex $C_\bullet(X)$ of a space $X$.
+
+<Callout kind="definition" title="Singular cochain complex">
+For a space $X$ and abelian group $G$, define <Term k="sc74SingularCochain">$C^\bullet(X;G)$</Term> to be the dual of the singular chain complex $C_\bullet(X)$ — the **singular cochain complex** of $X$. Its elements are called **cochains**.
+</Callout>
+
+<Callout kind="definition" title="Cohomology groups of a space">
+The <Term k="sc74HnXG">cohomology groups</Term> of $X$ are
+$$
+H^n(X; G) \defeq H^n(C_\bullet(X); G) = H^n(C^\bullet(X;G)).
+$$
+</Callout>
+
+<Callout kind="remark" title="G-module structure">
+If $G$ is also a ring (like $\ZZ$ or $\RR$), then <Term k="sc74GModule">$H^n(X;G)$</Term> is not just an abelian group — it's a $G$-module.
+</Callout>
+
+</SlideLayout>

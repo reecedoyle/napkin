@@ -1,0 +1,71 @@
+---
+title: Examples of singular simplices
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of singular simplices">
+
+Let's unpack what a singular $n$-simplex $\sigma \colon \Delta^n \to X$ looks like for small $n$.
+
+<Callout kind="example" title="Singular simplices">
+- Since $\Delta^0 = [v_0]$ is just a point, a singular $0$-simplex in $X$ is just **a point of $X$**.
+- Since $\Delta^1 = [v_0, v_1]$ is an interval, a singular $1$-simplex in $X$ is just **a path in $X$**.
+- Since $\Delta^2 = [v_0, v_1, v_2]$ is an equilateral triangle, a singular $2$-simplex in $X$ looks like **a "disk" in $X$**.
+</Callout>
+
+<Figure
+  alt="A blob labelled X containing a dot labelled sigma-0, a curved arrow labelled sigma-1 running between two green vertices v0 and v1, and a shaded triangle labelled sigma-2 with red vertices v0, v1, v2 and arrows tracing its boundary."
+  caption="A 0-simplex (point), 1-simplex (path), and 2-simplex (disk) sitting inside a space X."
+>
+  <svg viewBox="0 0 340 220" width="480" height="310" aria-hidden="true">
+    <path
+      d="M 20 110 C 15 60, 80 20, 160 25 C 250 30, 320 60, 315 115 C 310 170, 240 205, 160 200 C 80 196, 25 165, 20 110 Z"
+      fill="none" stroke="currentColor" stroke-width="1"
+    />
+    <text x="270" y="45" font-size="13" fill="currentColor" font-style="italic">X</text>
+
+    <circle cx="55" cy="60" r="2.4" fill="currentColor" />
+    <text x="45" y="48" font-size="11" fill="currentColor" font-style="italic">σ⁰</text>
+
+    <path d="M 55 100 C 48 120, 45 140, 52 160" fill="none" stroke="#3a8a5c" stroke-width="1.4" marker-end="url(#arrow-g)" />
+    <circle cx="55" cy="100" r="2" fill="#3a8a5c" />
+    <circle cx="52" cy="160" r="2" fill="#3a8a5c" />
+    <text x="38" y="98" font-size="10" fill="#3a8a5c">v₀</text>
+    <text x="38" y="172" font-size="10" fill="#3a8a5c">v₁</text>
+    <text x="20" y="130" font-size="11" fill="#3a8a5c" font-style="italic">σ¹</text>
+
+    <polygon points="160,60 130,150 220,140" fill="#c0554d" fill-opacity="0.18" stroke="#c0554d" stroke-width="1.2" />
+    <text x="155" y="52" font-size="10" fill="#c0554d">v₀</text>
+    <text x="112" y="158" font-size="10" fill="#c0554d">v₁</text>
+    <text x="226" y="140" font-size="10" fill="#c0554d">v₂</text>
+    <text x="168" y="115" font-size="11" fill="#c0554d" font-style="italic">σ²</text>
+
+    <defs>
+      <marker id="arrow-g" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#3a8a5c" />
+      </marker>
+    </defs>
+  </svg>
+</Figure>
+
+The arrows on $\sigma^1$ and around the edges of $\sigma^2$ aren't required by the definition — but they're a useful reminder that we've fixed an *order* on the vertices $v_0, v_1, v_2$. That order is exactly what will let us build a boundary operator in a moment.
+
+<MCQ
+  client:load
+  id="sh70-simp-mcq-two-simplex"
+  prompt="A singular 2-simplex σ: Δ² → X is best described as which of the following?"
+  options={[
+    { id: "a", label: "A point of X" },
+    { id: "b", label: "A path in X" },
+    { id: "c", label: "A continuous image of a triangle in X" },
+    { id: "d", label: "An open subset of X" },
+  ]}
+  correct="c"
+  explanation="Δ² is a solid triangle, so a singular 2-simplex is a continuous map from that triangle into X — its image can look like a (possibly folded or pinched) disk sitting in X."
+/>
+
+</SlideLayout>

@@ -1,0 +1,29 @@
+---
+title: Proof — rank is additive along exact sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof — rank is additive along exact sequences">
+
+The key input is a fact about exact sequences of finitely generated abelian groups:
+
+<Callout kind="remark" title="Fact used">
+If $0 \to A \to B \to C \to D \to 0$ is exact, then $\operatorname{rank} B + \operatorname{rank} D = \operatorname{rank} A + \operatorname{rank} C$.
+</Callout>
+
+Apply this to the row of the cellular diagram at level $k$:
+$$
+\underbrace{H_k(X^{k-1})}_{=0} \to H_k(X^k) \hookrightarrow H_k(X^k, X^{k-1}) \twoheadrightarrow H_{k-1}(X^{k-1}) \to \underbrace{H_{k-1}(X^k)}_{\cong H_{k-1}(X)} \to \underbrace{H_{k-1}(X^k, X^{k-1})}_{=0}.
+$$
+
+<Callout kind="remark" title="Proof">
+Rank-additivity along this exact row gives
+$$
+\#(k\text{-cells}) + \operatorname{rank} H_{k-1}(X) = \operatorname{rank} H_k(X^k) + \operatorname{rank} H_{k-1}(X^{k-1}),
+$$
+using $\Cells_k(X) = H_k(X^k, X^{k-1}) \cong \ZZ^{\oplus \#(k\text{-cells})}$. This also holds at $k=0$ if we drop the $H_{-1}$ terms, since $\#(0\text{-cells}) = \operatorname{rank} H_0(X^0)$ is immediate. Multiplying by $(-1)^k$ and summing over all $k \ge 0$, everything telescopes and we get exactly $\chi(X) = \sum_n (-1)^n \operatorname{rank} H_n(X)$.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,25 @@
+---
+title: Homology can't tell these spaces apart
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homology can't tell these spaces apart">
+
+Here's an unpleasant fact. It turns out that:
+
+- $H_n(\CP^2) \cong H_n(S^2 \vee S^4)$ for every $n$.
+- $H_n(\CP^3) \cong H_n(S^2 \times S^4)$ for every $n$.
+
+Here <Term k="sc74ProjectiveSpace">$\CP^2$</Term> and <Term k="sc74ProjectiveSpace">$\CP^3$</Term> are complex projective spaces, <Term k="sc74Sphere">$S^2$</Term> and <Term k="sc74Sphere">$S^4$</Term> are spheres, <Term k="sc74WedgeSum">$S^2 \vee S^4$</Term> is a wedge sum, and $S^2 \times S^4$ is an ordinary product of spaces.
+
+<Callout kind="remark" title="Why this is annoying">
+We would love to be able to tell $\CP^2$ apart from $S^2 \vee S^4$ (and $\CP^3$ apart from $S^2 \times S^4$), because these spaces are genuinely different — they are not <Term k="sc74HomotopyEquivSpaces">homotopy equivalent</Term>. But the homology groups agree in every degree, so homology alone cannot distinguish them.
+</Callout>
+
+In this chapter we define a new invariant, the **cohomology group** $H^n(X)$. On its own, $H^n$ turns out to carry exactly the same information as $H_n$ — no more, no less — via a result called the **universal coefficient theorem**. So taken one degree at a time, cohomology won't help us either.
+
+The payoff comes from a fact we save for the next chapter: all the cohomology groups of $X$ can be assembled into a single **cohomology ring** $H^\bullet(X)$, and it *is* possible to have $H^\bullet(X) \not\cong H^\bullet(Y)$ as rings even when every individual $H^n(X) \cong H^n(Y)$. That extra multiplicative structure is exactly what distinguishes $\CP^2$ from $S^2 \vee S^4$.
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: Composing the functors
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Composing the functors">
+
+<Callout kind="question" title="Hⁿ as a functor">
+Interpret <Term k="sc74HnAsFunctor">$H^n \colon \catname{CoCmplx} \to \catname{Grp}$</Term> as a functor: a cochain map $A^\bullet \to B^\bullet$ induces a homomorphism $H^n(A^\bullet) \to H^n(B^\bullet)$.
+</Callout>
+
+Compose the two functors from the previous slide with this one:
+
+$$
+\catname{Cmplx}\op \taking{\Hom(-,G)} \catname{CoCmplx} \taking{H^n} \catname{Grp}
+$$
+
+to get a single contravariant functor $H^n(-;G) \colon \catname{Cmplx}\op \to \catname{Grp}$.
+
+Now stack $C_\bullet \colon \catname{Top} \to \catname{Cmplx}$ on the front, and we have assembled all the pieces needed to send a *space* (contravariantly) to a group.
+
+</SlideLayout>

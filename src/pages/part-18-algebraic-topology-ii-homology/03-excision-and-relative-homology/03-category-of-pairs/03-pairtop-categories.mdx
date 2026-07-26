@@ -1,0 +1,23 @@
+---
+title: PairTop and hPairTop
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="PairTop and hPairTop">
+
+This gives us two <Term k="ear72Category">categories</Term>, mirroring $\catname{Top}$ and $\catname{hTop}$ for ordinary spaces:
+
+- $\catname{PairTop}$, the category of pairs of topological spaces, with maps of pairs as morphisms.
+- $\catname{hPairTop}$, the same category but with morphisms identified whenever they're pair-homotopic.
+
+<Callout kind="definition" title="Pair-homotopy equivalence">
+Pairs $(X,A)$ and $(Y,B)$ are <Term k="ear72PairHomotopyEquivalence">pair-homotopy equivalent</Term> if they are isomorphic in $\catname{hPairTop}$. An isomorphism of $\catname{hPairTop}$ is called a pair-homotopy equivalence.
+</Callout>
+
+<Callout kind="remark">
+Pair-homotopy equivalence is the natural generalization of ordinary homotopy equivalence of spaces: taking $A = B = \varnothing$, a map of pairs is just an ordinary map $X \to Y$, and $X$ is homotopy equivalent to $Y$ exactly when $(X,\varnothing)$ is pair-homotopy equivalent to $(Y,\varnothing)$.
+</Callout>
+
+</SlideLayout>

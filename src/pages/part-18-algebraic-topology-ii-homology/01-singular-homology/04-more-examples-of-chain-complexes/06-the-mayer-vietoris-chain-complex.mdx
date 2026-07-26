@@ -1,0 +1,26 @@
+---
+title: The Mayer–Vietoris chain complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Mayer–Vietoris chain complex">
+
+One last variant, useful when a space is naturally covered by two open pieces.
+
+<Callout kind="definition" title="Chains subordinate to a cover">
+Suppose $X$ is covered by two open sets $U$ and $V$. Define $C_n(U+V)$ to consist of chains where each individual simplex has image entirely inside $U$, or entirely inside $V$ (or both).
+</Callout>
+
+The usual $\partial$ restricts to give another chain complex on these,
+$$
+\dots \taking{\partial} C_{n+1}(U+V) \taking{\partial} C_n(U+V) \taking{\partial} C_{n-1}(U+V) \taking{\partial} \dots,
+$$
+and hence homology groups $H_n(U+V)$, built from exactly the same recipe as before — just applied to a smaller sub-complex of chains.
+
+<Callout kind="remark" title="A near-miracle">
+It will turn out that $H_n(U+V) \cong H_n(X)$: restricting attention to simplices that fit entirely inside $U$ or entirely inside $V$ loses no homological information at all. This fact is the engine behind the <Term k="sh70MayerVietorisComplex">Mayer–Vietoris sequence</Term>, one of the most powerful computational tools in the subject — we'll put it to work in the next chapter.
+</Callout>
+
+</SlideLayout>

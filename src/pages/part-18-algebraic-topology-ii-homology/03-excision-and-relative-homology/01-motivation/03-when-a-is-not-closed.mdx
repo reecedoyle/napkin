@@ -1,0 +1,22 @@
+---
+title: When A is not closed, the guess can fail
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="When A is not closed, the guess can fail">
+
+The guess $H_n(X,A) \cong \wt{H}_n(X/A)$ is not a theorem for arbitrary $A \subseteq X$ — it needs hypotheses. Here is a case where dropping "closed" breaks it.
+
+<Callout kind="example" title="H_n(X,A) where A is open in X">
+Let $X = D^2$ be the <Term k="ear72ClosedDisk">closed disk</Term>.
+
+If $A$ is reasonably nice — say $A = S^1$, the boundary circle — then $H_2(X,A) \cong H_2(X/A) \cong \ZZ$, as the guess predicts.
+
+But if instead $A = X \setminus \{0\}$ (everything except the center point), which is open rather than closed in $X$, then $H_2(X,A)$ is *still* isomorphic to $\ZZ$ — yet $H_2(X/A) \cong 0$. The two sides have come apart.
+</Callout>
+
+The failure is believable once you see why: $X/A$ collapses "almost all of the disk" to a point, leaving a bizarre, non-Hausdorff quotient space that no longer resembles $D^2$ at all, whereas $H_2(X,A)$ is computed purely algebraically from the chain complex and doesn't notice how pathological the quotient's topology has become.
+
+</SlideLayout>

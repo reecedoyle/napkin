@@ -1,0 +1,25 @@
+---
+title: 0-cochains and 1-cochains
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="0-cochains and 1-cochains">
+
+Let's get our hands dirty with the two lowest-degree pieces of $C^\bullet(X;G)$.
+
+- $C_0(X)$ is the free abelian group on the points of $X$, so $C^0(X) = \Hom(C_0(X), G)$: a **0-cochain** is simply a function that sends every point of $X$ to an element of $G$.
+- $C_1(X)$ is the free abelian group on 1-simplices in $X$, so a **1-cochain** must assign an element of $G$ to every 1-simplex.
+
+Now let's understand $\delta \colon C^0(X) \to C^1(X)$. Given a 0-cochain $\phi \in C^0(X)$ (a homomorphism $\phi \colon C_0(X) \to G$), what is $\delta\phi \colon C_1(X) \to G$? Unwinding $\delta \phi = \phi \circ \partial$ on a 1-simplex $[v_0, v_1]$ (whose boundary is $v_1 - v_0$) gives:
+
+$$
+\delta\phi \colon [v_0, v_1] \mapsto \phi([v_0]) - \phi([v_1]).
+$$
+
+<Callout kind="example" title="H⁰ is the constant cochains">
+A 0-cochain $\phi$ lies in $\ker(C^0 \taking\delta C^1)$ exactly when $\delta\phi = 0$, i.e. $\phi([v_0]) = \phi([v_1])$ for every edge $[v_0,v_1]$. Since edges connect points within a path component, this says $\phi$ is **constant on each path-connected component** — so $\ker(C^0 \taking\delta C^1) \cong H^0(X;G)$ consists of exactly those cochains.
+</Callout>
+
+</SlideLayout>

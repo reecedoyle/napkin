@@ -1,0 +1,28 @@
+---
+title: Short exact sequences of chain complexes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Short exact sequences of chain complexes">
+
+We already know what a map of chain complexes is: a family of group homomorphisms $f_n \colon A_n \to B_n$ commuting with all the boundary maps. Now we impose exactness in every single degree at once.
+
+<Callout kind="definition" title="Short exact sequence of chain complexes">
+A map of chain complexes $0 \to A_\bullet \taking{f} B_\bullet \taking{g} C_\bullet \to 0$ is <Term k="tle71ChainSES">short exact</Term> if, for every $n$, the row
+$$
+0 \to A_n \taking{f_n} B_n \taking{g_n} C_n \to 0
+$$
+is a short exact sequence of groups — and these rows are stacked so that the boundary maps of $A_\bullet$, $B_\bullet$, $C_\bullet$ all commute with $f$ and $g$.
+</Callout>
+
+Picture it as an infinite tower of short exact rows, one for every degree $n$, with the vertical boundary maps $\partial_A, \partial_B, \partial_C$ commuting with the horizontal inclusions and projections.
+
+<Callout kind="remark" title="Moral">
+This basically says $C_\bullet = B_\bullet / A_\bullet$: apply "mod out by $A$" in every single degree, and the boundary maps descend automatically.
+</Callout>
+
+The whole rest of this chapter is driven by finding natural examples of such sequences, then converting them into information about homology groups.
+
+</SlideLayout>

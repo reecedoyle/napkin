@@ -1,0 +1,51 @@
+---
+title: Detecting holes in an annulus
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="Detecting holes in an annulus">
+
+How does the chain complex let us detect holes? Let $X$ be an annulus (a disk with a smaller disk removed from its center), and draw a $1$-chain $c$ going around it: three arcs $v_0 \to v_1 \to v_2 \to v_0$, forming a loop around the hole.
+
+<Figure
+  alt="An annulus (blue ring) with a red triangular loop of three arrows drawn inside it, wrapping once around the central hole, with vertices v0, v1, v2."
+  caption="A 1-chain c wrapping once around the hole of the annulus X."
+>
+  <svg viewBox="0 0 240 240" width="360" height="360" aria-hidden="true">
+    <circle cx="120" cy="120" r="95" fill="none" stroke="currentColor" stroke-width="1" />
+    <circle cx="120" cy="120" r="95" fill="#4a7fb5" fill-opacity="0.12" />
+    <circle cx="120" cy="120" r="28" fill="white" stroke="currentColor" stroke-width="1" />
+    <text x="205" y="45" font-size="13" fill="currentColor" font-style="italic">X</text>
+
+    <circle cx="120" cy="35" r="2.4" fill="#c0554d" />
+    <text x="126" y="30" font-size="10" fill="#c0554d">v₀</text>
+    <circle cx="45" cy="165" r="2.4" fill="#c0554d" />
+    <text x="20" y="180" font-size="10" fill="#c0554d">v₁</text>
+    <circle cx="190" cy="185" r="2.4" fill="#c0554d" />
+    <text x="196" y="200" font-size="10" fill="#c0554d">v₂</text>
+
+    <path d="M 120 35 C 85 55, 60 105, 45 165" fill="none" stroke="#c0554d" stroke-width="1.4" marker-end="url(#arr2)" />
+    <path d="M 45 165 C 90 195, 145 200, 190 185" fill="none" stroke="#c0554d" stroke-width="1.4" marker-end="url(#arr2)" />
+    <path d="M 190 185 C 200 120, 170 65, 120 35" fill="none" stroke="#c0554d" stroke-width="1.4" marker-end="url(#arr2)" />
+
+    <defs>
+      <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#c0554d" />
+      </marker>
+    </defs>
+  </svg>
+</Figure>
+
+Computing directly, $\partial c = ([v_1]-[v_0]) - ([v_2]-[v_0]) + ([v_2]-[v_1]) = 0$, so $c$ has trivial boundary — it's a "cycle". But $c$ is *not* itself the boundary of any $2$-chain: because of the hole in the middle, there's no way to "fill in" the interior of $c$ with a disk-shaped $2$-chain in $X$.
+
+So we've detected the hole by a purely algebraic fact:
+$$
+c \in \ker\left( C_1(X) \taking{\partial} C_0(X) \right)
+\qquad\text{but}\qquad
+c \notin \img \left( C_2(X) \taking{\partial} C_1(X) \right).
+$$
+If the hole weren't there, $c$ *would* bound a disk, and this statement would be false. This kernel-vs-image gap is exactly what we're about to name and generalize.
+
+</SlideLayout>

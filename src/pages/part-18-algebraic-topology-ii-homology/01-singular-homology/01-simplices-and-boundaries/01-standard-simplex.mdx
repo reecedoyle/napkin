@@ -1,0 +1,32 @@
+---
+title: The standard simplex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The standard simplex">
+
+We've now built the fundamental group $\pi_1(X)$, a first way of detecting "holes" in a space $X$. We're about to build a second, different tool for the same job: the **homology groups** $H_n(X)$. The payoff is that $H_n$ groups are much easier to compute in practice than $\pi_n$ groups — but the definition takes real setup, and it gets more algebraic before it gets geometric again.
+
+The basic building block is a shape we already know from calculus: the simplex.
+
+<Callout kind="definition" title="Standard n-simplex">
+The <Term k="sh70StandardSimplex">standard $n$-simplex</Term> $\Delta^n$ is
+$$
+\Delta^n \defeq \left\{ (x_0, x_1, \dots, x_n) \mid x_i \ge 0,\ x_0 + \dots + x_n = 1 \right\}.
+$$
+Equivalently, $\Delta^n$ is the convex hull of $n+1$ vertices $[v_0, \dots, v_n]$, where we keep track of the *order* of the vertices — that ordering will matter soon.
+</Callout>
+
+Concretely: $\Delta^0$ is a single point, $\Delta^1$ is a line segment, $\Delta^2$ is a solid (filled-in) triangle, and $\Delta^3$ is a solid tetrahedron. Each one is the "simplest" solid shape of its dimension.
+
+Now we bring in the topological space $X$ we actually care about, by mapping simplices into it:
+
+<Callout kind="definition" title="Singular n-simplex">
+Given a topological space $X$, a <Term k="sh70SingularSimplex">singular $n$-simplex</Term> is a (continuous) map $\sigma \colon \Delta^n \to X$.
+</Callout>
+
+The word "singular" is a warning label, not praise: $\sigma$ is allowed to be a wild map — pinching the simplex to a point, folding it over itself, whatever continuity permits. We're not requiring an embedding, just a continuous image of $\Delta^n$ sitting inside $X$.
+
+</SlideLayout>

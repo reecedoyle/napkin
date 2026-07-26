@@ -1,0 +1,19 @@
+---
+title: Checking the connecting map lands on a cycle
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Checking the connecting map lands on a cycle">
+
+Before we can even claim $\partial([c]) = [a]$ makes sense as a homology class of $A_{n-1}$, we owe ourselves one basic sanity check: is $a$ actually a <Term k="tle71Cycle">cycle</Term>, i.e. is $\partial_A(a) = 0$?
+
+<ProofReveal
+  client:load
+  id="tle71-s2-proof-a-is-a-cycle"
+  prompt="With a, b, c as on the previous slide (g_n(b) = c, f_{n-1}(a) = ∂_B(b)), show that ∂_A(a) = 0. You'll need one more row of the diagram, going down to degree n−2, and the identity ∂_B ∘ ∂_B = 0."
+  solution="Apply f_{n-2} to ∂_A(a). Since f is a chain map, f_{n-2} commutes with the boundary maps, so f_{n-2}(∂_A(a)) = ∂_B(f_{n-1}(a)). But f_{n-1}(a) = ∂_B(b) by construction, so this equals ∂_B(∂_B(b)) = 0, since ∂_B ∘ ∂_B = 0 for any chain complex. So f_{n-2}(∂_A(a)) = 0. Now f_{n-2} is injective (it's the left-hand map of a short exact row), so ∂_A(a) = 0 itself — meaning a really is a cycle, and [a] is a legitimate homology class in H_{n-1}(A_bullet)."
+/>
+
+</SlideLayout>

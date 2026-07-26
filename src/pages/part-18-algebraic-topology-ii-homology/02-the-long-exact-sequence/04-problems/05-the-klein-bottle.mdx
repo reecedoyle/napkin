@@ -1,0 +1,18 @@
+---
+title: "Problem: the Klein bottle"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: the Klein bottle">
+
+<Problem
+  client:load
+  id="tle71-prob-klein-bottle"
+  difficulty="starred"
+  prompt="Show that the reduced homology groups of the Klein bottle K are H̃_1(K) ≅ ℤ ⊕ ℤ/2ℤ, and H̃_n(K) = 0 for every other n."
+  hint="Use two cylinders U and V, exactly as in the torus computation. This time the matrix describing φ on H_1(U ∩ V) is [[1,1],[1,-1]] or some variant, up to choice of generators — in particular, this matrix is injective, so H̃_2(K) = 0."
+  solution="Represent K as a square with edges identified as usual for the Klein bottle (one pair glued directly, one pair glued with a flip). As with the torus, let U and V be two cylinders covering K, meeting in two circles, so H̃_1(U ∩ V) ≅ ℤ ⊕ ℤ, H̃_1(U) ≅ H̃_1(V) ≅ ℤ, and for n ≥ 3 the same sandwiching argument as the torus gives H̃_n(K) = 0. The only change from the torus is that the flipped gluing makes the connecting map φ: H̃_1(U ∩ V) → H̃_1(U) ⊕ H̃_1(V) send the two generators z_1, z_2 to α_U + α_V and α_U − α_V respectively (rather than both landing on the same combination as in the torus) — a matrix [[1,1],[1,-1]] in these bases. This matrix has trivial kernel: if x(1,1) + y(1,-1) = 0 then x+y=0 and x-y=0, forcing x=y=0. So φ is injective, and since H̃_2(K) embeds into ker φ via the connecting map (exactly as for the torus), H̃_2(K) = 0. For H̃_1(K): the cokernel of φ (as an integer matrix of determinant −2) has Smith normal form diag(1,2), so (H̃_1(U) ⊕ H̃_1(V))/img φ ≅ ℤ/2ℤ. Running the same exact-sequence argument as the torus's H_1 computation, we get a short exact sequence 0 → ℤ/2ℤ → H̃_1(K) → ℤ → 0, where the ℤ/2ℤ plays the role that ℤ played in the torus's kernel-of-∂ term, and the quotient ℤ again comes from the surjection onto H̃_0(U ∩ V). This sequence splits because the quotient ℤ is free, giving H̃_1(K) ≅ ℤ/2ℤ ⊕ ℤ, as claimed."
+/>
+
+</SlideLayout>

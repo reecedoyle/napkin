@@ -1,0 +1,24 @@
+---
+title: Cocycles and coboundaries
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cocycles and coboundaries">
+
+Recall the homology picture: $Z_n(X) \defeq \ker(\partial \colon C_n(X) \to C_{n-1}(X))$ are the **cycles**, $B_n(X) \defeq \img(\partial \colon C_{n+1}(X) \to C_n(X))$ are the **boundaries**, and $H_n(X) = Z_n(X)/B_n(X)$.
+
+For this section, define the dual notions:
+
+<Callout kind="definition" title="Cocycles and coboundaries">
+$Z^n(X;G) \defeq \ker(\delta \colon C^n(X;G) \to C^{n+1}(X;G))$ — the <Term k="sc74Cocycle">cocycles</Term>. $B^n(X;G) \defeq \img(\delta \colon C^{n-1}(X;G) \to C^n(X;G))$ — the <Term k="sc74Coboundary">coboundaries</Term>. Once again $H^n(X;G) = Z^n(X;G)/B^n(X;G)$.
+</Callout>
+
+The names are less obviously geometric than "cycle" and "boundary," but they become clear when $G$ is a **field** (group operation = field addition):
+
+<Callout kind="remark" title="Field-coefficient characterization">
+When $G$ is a field: an $n$-cocycle is a cochain that sends every $n$-boundary to $0$. An $n$-coboundary is a cochain that sends every $n$-cycle to $0$ — though only in one direction: a coboundary always kills cycles, but (as we'll see with the Klein bottle) a cochain that kills every cycle need not itself be a coboundary.
+</Callout>
+
+</SlideLayout>

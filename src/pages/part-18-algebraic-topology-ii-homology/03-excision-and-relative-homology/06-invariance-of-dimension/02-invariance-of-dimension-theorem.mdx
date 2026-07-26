@@ -1,0 +1,18 @@
+---
+title: Invariance of dimension
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Invariance of dimension">
+
+A question that sounds like it should be obvious, but genuinely isn't without algebraic topology: could an open subset of $\RR^2$ be homeomorphic to an open subset of $\RR^3$? Local homology groups let us answer this cleanly, via <Term k="ear72InvarianceOfDimension">invariance of dimension</Term>.
+
+<Callout kind="theorem" title="Invariance of dimension (Brouwer, 1910)">
+Let $U \subseteq \RR^n$ and $V \subseteq \RR^m$ be nonempty open sets. If $U$ and $V$ are <Term k="homeomorphism">homeomorphic</Term>, then $m = n$.
+</Callout>
+
+This is exactly the fact you probably assumed all along — "$n$-dimensional space really is $n$-dimensional, not $m$-dimensional for any other $m$" — but it's genuinely a theorem about the topology of $\RR^n$, not a triviality of linear algebra (which only tells you $\RR^n \cong \RR^m$ as *vector spaces* iff $n=m$; it says nothing directly about continuous, non-linear homeomorphisms).
+
+</SlideLayout>

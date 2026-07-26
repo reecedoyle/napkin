@@ -1,0 +1,37 @@
+---
+title: De Rham cohomology, and a sanity check
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="De Rham cohomology, and a sanity check">
+
+Not every cochain complex is a dualized chain complex. The oldest example predates this whole story:
+
+<Callout kind="example" title="De Rham cohomology">
+Let $M$ be a smooth manifold and $\Omega^k(M)$ the additive group of $k$-forms on $M$. Then
+$$
+0 \taking d \Omega^0(M) \taking d \Omega^1(M) \taking d \Omega^2(M) \taking d \dots
+$$
+is a cochain complex (with $\delta = d$, the exterior derivative — recall $d^2 = 0$). The resulting cohomology is <Term k="sc74DeRham">de Rham cohomology</Term>.
+</Callout>
+
+From here on, though, we set de Rham cohomology aside and focus entirely on cochain complexes built by dualizing — that's where the geometry we care about lives.
+
+<MCQ
+  client:load
+  id="sc74-cochain-mcq-index-direction"
+  prompt="A chain complex has maps ∂: Aₙ → Aₙ₋₁ (indices decrease). After applying Hom(−,G), what happens to the indices of the resulting maps δ?"
+  options={[
+    { id: "a", label: "They still decrease: δ: Aⁿ → Aⁿ⁻¹" },
+    { id: "b", label: "They increase: δ: Aⁿ → Aⁿ⁺¹" },
+    { id: "c", label: "They stay the same degree, δ: Aⁿ → Aⁿ" },
+    { id: "d", label: "Indices disappear entirely" },
+  ]}
+  correct="b"
+  explanation="Hom(−,G) is contravariant, so it reverses every arrow. A chain complex's decreasing maps ∂: Aₙ → Aₙ₋₁ become increasing maps δ: Hom(Aₙ₋₁,G) → Hom(Aₙ,G), i.e. δ: Aⁿ⁻¹ → Aⁿ. That's exactly the 'co-' in cochain complex."
+/>
+
+</SlideLayout>

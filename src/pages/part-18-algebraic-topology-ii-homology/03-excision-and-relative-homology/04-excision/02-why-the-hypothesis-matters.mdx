@@ -1,0 +1,18 @@
+---
+title: Why the closure-in-interior hypothesis matters
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the closure-in-interior hypothesis matters">
+
+Excision can feel almost too obvious at first: for a "relative cycle modulo relative boundary" in $H_n(X,A)$, just nudge the part of the cycle that lies inside $A$ until it no longer touches $Z$. But it isn't always possible — you might accidentally cut a cycle apart in the process.
+
+<Callout kind="example" title="Excision can fail cycles apart without the hypothesis">
+Picture $X$ as two overlapping disks glued along a lens-shaped region $A$ in the middle, with $Z$ a single point sitting right at the edge of that lens (not safely inside its interior). A cycle that winds through the lens, passing near $Z$, can't be pushed off of $Z$ without breaking it into two separate pieces — precisely because $Z$ isn't surrounded by interior of $A$ on all sides.
+</Callout>
+
+This is exactly why the theorem demands $\overline{Z} \subseteq \operatorname{int}(A)$: it guarantees there's genuine breathing room around $Z$ inside $A$, so any cycle touching $A$ can be pushed away from $Z$ without tearing.
+
+</SlideLayout>

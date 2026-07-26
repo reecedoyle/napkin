@@ -1,0 +1,26 @@
+---
+title: Abstract chain complexes
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Abstract chain complexes">
+
+We already know the homology groups are homotopy invariant, and we want to prove it — the same "song and dance" as building $\pi_1$ into a functor $\mathrm{hTop}_\ast \to \mathrm{Grp}$. This time, rather than working up to the category theory at the end, we'll start with it right away.
+
+The first move is to strip away everything geometric and study the *algebra* of $C_\bullet(X)$ on its own terms — this works for any sequence of abelian groups (in fact for any category, not just abelian groups, though we won't need that generality).
+
+<Callout kind="definition" title="Chain complex">
+A <Term k="sh70ChainComplexAbstract">chain complex</Term> is a sequence of groups $A_n$ and maps
+$$
+\dots \taking{\partial} A_{n+1} \taking{\partial} A_n \taking{\partial} A_{n-1} \taking{\partial} \dots
+$$
+such that the composition of any two adjacent maps is the zero morphism. We denote this by $A_\bullet$.
+
+The $n$th homology group $H_n(A_\bullet)$ is defined as $\ker(A_n \to A_{n-1}) / \img(A_{n+1} \to A_n)$. Cycles and boundaries are defined exactly as before.
+</Callout>
+
+This is just an algebraic generalization of the singular chain complex $C_\bullet(X)$ we already built, with all the original geometric content stripped away — a chain complex is any sequence of groups with a "$\partial^2 = 0$" map running through it.
+
+</SlideLayout>

@@ -1,0 +1,16 @@
+---
+title: The isomorphism, concretely
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The isomorphism, concretely">
+
+The isomorphism is close to the most trivial one imaginable. A cochain $f \in C^\bullet(X\vee Y;R)$ assigns a value to every chain in $X \vee Y$; in particular, it assigns a value to every chain inside $X$, since every chain in $X$ is automatically a chain in $X \vee Y$. That's the whole map: restrict $f$ to $X$, and separately restrict it to $Y$. Formally, the embeddings $X \hookrightarrow X \vee Y$ and $Y \hookrightarrow X \vee Y$ induce the map, and it respects the cup product on both sides.
+
+<Callout kind="example" title="A degree-1 computation">
+Let $X$ be a square (contractible) and $Y$ a circle, glued at a point to form $X \vee Y$. Suppose $f \in \wt H^1(X;\ZZ)$ assigns $f(X) = 2$ to the whole square, and $g \in \wt H^1(Y;\ZZ)$ assigns $g(Y) = 3$ to the whole circle. Then the corresponding element $(f,g) \in \wt H^1(X;\ZZ) \times \wt H^1(Y;\ZZ) \cong \wt H^1(X \vee Y;\ZZ)$ assigns $2 + 3 = 5$ to the cocycle representing the whole wedge sum $X \vee Y$.
+</Callout>
+
+</SlideLayout>

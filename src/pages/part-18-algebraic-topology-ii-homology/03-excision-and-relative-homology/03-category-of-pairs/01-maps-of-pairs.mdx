@@ -1,0 +1,22 @@
+---
+title: Maps of pairs
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Maps of pairs">
+
+We now have $H_n(X,A)$ instead of just $H_n(X)$. To get the same functorial setup we enjoyed for ordinary homology, we need a suitable category whose objects are <Term k="ear72PairOfSpaces">pairs of spaces</Term> $(X,A)$.
+
+<Callout kind="definition" title="Map of pairs">
+Let $\varnothing \neq A \subseteq X$ and $\varnothing \neq B \subseteq Y$ be subspaces, and let $f \colon X \to Y$ be continuous. If $f(A) \subseteq B$, we write
+$$
+f \colon (X,A) \to (Y,B)
+$$
+and call $f$ a <Term k="ear72MapOfPairs">map of pairs</Term> between $(X,A)$ and $(Y,B)$.
+</Callout>
+
+Concretely: $f$ must send every point of $A$ into $B$ — it's an ordinary continuous map $X \to Y$ with one extra constraint on where $A$ is allowed to land.
+
+</SlideLayout>

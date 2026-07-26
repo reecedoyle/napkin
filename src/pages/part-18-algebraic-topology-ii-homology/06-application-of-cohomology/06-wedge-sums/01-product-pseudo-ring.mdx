@@ -1,0 +1,30 @@
+---
+title: Multiplying two graded pseudo-rings together
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Multiplying two graded pseudo-rings together">
+
+Our goal for this section: compute $\wt H^\bullet(X \vee Y)$, the reduced cohomology ring of a <Term k="aoc75WedgeSum">wedge sum</Term>. First we need to know what it even means to combine two graded pseudo-rings.
+
+<Callout kind="definition" title="Product pseudo-ring">
+Let $R$ and $S$ be graded pseudo-rings. The <Term k="aoc75ProductPseudoRing">product pseudo-ring</Term> $R \times S$ has underlying abelian group
+$$
+R \oplus S = \bigoplus_{d\ge0}(R^d \oplus S^d),
+$$
+with multiplication coming from $R$ and $S$ separately, plus the rule $r \cdot s = 0$ for $r \in R$, $s \in S$ (cross terms between the two factors vanish).
+</Callout>
+
+This is the graded analogue of the ordinary product ring construction you've already seen for plain rings.
+
+<ProofReveal
+  client:load
+  id="aoc75-ws-proof-product-ring-has-identity"
+  prompt="Show that if R and S are graded rings (meaning they have identities 1_R and 1_S), then so is R × S."
+  solution="The cross-term rule forces (a,b)·(c,d) = (ac, bd) for (a,b),(c,d) ∈ R × S: the R-part only sees products within R, the S-part only sees products within S, and every mixed term (an R-element times an S-element) is declared 0. Consider (1_R, 1_S) ∈ R⁰ ⊕ S⁰. For any (r,s) ∈ R × S, (1_R,1_S)·(r,s) = (1_R·r, 1_S·s) = (r,s), and likewise (r,s)·(1_R,1_S) = (r·1_R, s·1_S) = (r,s). So (1_R, 1_S) is a two-sided multiplicative identity for R × S."
+/>
+
+</SlideLayout>

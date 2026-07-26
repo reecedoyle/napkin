@@ -1,0 +1,24 @@
+---
+title: Defining the cup product
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining the cup product">
+
+We want a product on $\bigoplus_{k \ge 0} H^k(X; R)$ for *any* topological space $X$ and any commutative ring $R$ with $1$ — not just manifolds with real coefficients. The tool that does this is the <Term k="aoc75CupProduct">cup product</Term>, written $\smile$.
+
+It starts at the level of cochains, not yet cohomology classes:
+
+<Callout kind="definition" title="Cup product">
+Suppose $\phi \in C^k(X;R)$ and $\psi \in C^\ell(X;R)$. Their cup product $\phi \smile \psi \in C^{k+\ell}(X;R)$ is defined on a $(k+\ell)$-simplex $[v_0, \dots, v_{k+\ell}]$ by
+$$
+(\phi\smile\psi)([v_0, \dots, v_{k+\ell}]) = \phi\left([v_0, \dots, v_k]\right) \cdot \psi\left([v_k, \dots, v_{k+\ell}]\right),
+$$
+where the multiplication on the right happens inside $R$.
+</Callout>
+
+In words: to evaluate $\phi \smile \psi$ on a big simplex, restrict $\phi$ to the "front face" spanned by the first $k+1$ vertices, restrict $\psi$ to the "back face" spanned by the last $\ell+1$ vertices (they overlap in exactly the vertex $v_k$), and multiply the two numbers you get in $R$.
+
+</SlideLayout>

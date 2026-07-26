@@ -1,0 +1,17 @@
+---
+title: Problem — Moore spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — Moore spaces">
+
+<Problem
+  client:load
+  id="bch73-problems-standard-moore-spaces"
+  difficulty="standard"
+  prompt="Let G₁, G₂, …, G_N be a sequence of finitely generated abelian groups. Construct a space X such that the reduced homology H̃_n(X) is isomorphic to G_n for 1 ≤ n ≤ N, and zero otherwise."
+  solution="Build X as a wedge sum X₁ ∨ X₂ ∨ ⋯ ∨ X_N, where each X_n is a Moore space realizing G_n in degree n; reduced homology of a wedge is the direct sum of the reduced homologies of the pieces, so it suffices to build one piece per group. For a single finitely generated abelian group G_n, choose a presentation G_n ≅ ℤ^r ⊕ (ℤ/d₁ℤ) ⊕ ⋯ ⊕ (ℤ/d_mℤ). Build X_n by starting with a wedge of r copies of Sⁿ (giving the free part ℤ^r in degree n as its cellular chains), then for each cyclic factor ℤ/d_iℤ attach an (n+1)-cell to a chosen n-sphere in the wedge via a degree-d_i self-map of Sⁿ. By the cellular boundary formula, this (n+1)-cell contributes a differential that is multiplication by d_i onto that sphere's ℤ summand and zero on the others, since the attaching map only touches one wedge factor. The resulting cellular chain complex is concentrated in degrees n+1 and n; computing ker/img gives H_n(X_n) ≅ ℤ^r ⊕ ℤ/d₁ℤ ⊕ ⋯ ⊕ ℤ/d_mℤ ≅ G_n exactly, with all other reduced homology groups of X_n vanishing since X_n has no other cells. Taking X = X₁ ∨ ⋯ ∨ X_N realizes every G_n simultaneously, each in its own degree."
+/>
+
+</SlideLayout>

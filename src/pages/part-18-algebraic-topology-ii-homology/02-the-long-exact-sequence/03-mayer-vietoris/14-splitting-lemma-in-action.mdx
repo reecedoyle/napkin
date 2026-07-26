@@ -1,0 +1,21 @@
+---
+title: Splitting lemma, in action
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Splitting lemma, in action">
+
+The splitting lemma's clause "(b) holds whenever $C$ is free" is exactly the engine behind the torus computation. Let's see why it's true in general — it's the reason free abelian groups on the right-hand side are always the easy case.
+
+<ProofReveal
+  client:load
+  id="tle71-s3-proof-free-splits"
+  prompt="Let 0 → A → B → C → 0 be a short exact sequence of abelian groups with C free abelian, say with basis c_1, ..., c_k. Show that it splits, i.e. construct s: C → B with g∘s = id_C."
+  solution="Since g: B → C is surjective, for each basis element c_i pick any preimage b_i in B with g(b_i) = c_i — this uses no more than the axiom of choice applied to a finite (or free) index set, one choice per basis vector. Because C is free on c_1, ..., c_k, every element of C is a unique integer combination n_1 c_1 + ... + n_k c_k, so we may define s(n_1 c_1 + ... + n_k c_k) = n_1 b_1 + ... + n_k b_k. This is a well-defined homomorphism precisely because the c_i form a basis with no relations to respect. Checking the defining property: g(s(n_1 c_1 + ... + n_k c_k)) = n_1 g(b_1) + ... + n_k g(b_k) = n_1 c_1 + ... + n_k c_k, so g∘s = id_C, exactly condition (b) of the splitting lemma. Freeness is what let us choose preimages of a basis and extend linearly without hitting any consistency obstruction."
+/>
+
+Contrast this with the non-splitting example $0 \to \Zc 2 \to \Zc 4 \to \Zc 2 \to 0$: the quotient $\Zc 2$ is *not* free (it has torsion), so there's no basis to lift, and indeed no splitting exists.
+
+</SlideLayout>

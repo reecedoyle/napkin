@@ -1,0 +1,39 @@
+---
+title: Contractible spaces and the torus
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Contractible spaces and the torus">
+
+Two more data points before we get back to the algebra.
+
+<Callout kind="example" title="Contractible spaces">
+Given any <Term k="sh70Contractible">contractible</Term> space $X$,
+$$
+H_n(X) \cong
+\begin{cases}
+\ZZ & n = 0 \\
+0 & \text{otherwise.}
+\end{cases}
+$$
+The reason: homology groups turn out to be homotopy invariant, just like homotopy groups (we'll prove this in the next section). So a contractible space has the same homology groups as a one-point space — and those are the ones above, with no interesting holes anywhere.
+</Callout>
+
+<Callout kind="example" title="Homology of the torus">
+For the torus $S^1 \times S^1$,
+$$
+H_n(S^1 \times S^1) \cong
+\begin{cases}
+\ZZ & n = 0, 2 \\
+\ZZ^{\oplus 2} & n = 1 \\
+0 & \text{otherwise.}
+\end{cases}
+$$
+The $n=1$ group matches $\pi_1(S^1 \times S^1) \cong \ZZ^2$ (already abelian, so Hurewicz changes nothing), and the $n=2$ group detects the torus's enclosed cavity — the same phenomenon we saw for $S^2$.
+</Callout>
+
+We haven't proven either of these yet — that requires machinery we build over the next two sections. But keep them in mind as target computations: everything from here is in service of actually being able to compute $H_n(X)$ for spaces like these.
+
+</SlideLayout>

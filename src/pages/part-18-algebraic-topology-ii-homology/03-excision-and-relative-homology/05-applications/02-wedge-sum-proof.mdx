@@ -1,0 +1,26 @@
+---
+title: Proving the wedge sum formula
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proving the wedge sum formula">
+
+<Callout kind="remark" title="Proof">
+Apply the good pair theorem to the disjoint union $X \amalg Y$ with the two-point subset $\{x_0, y_0\}$:
+$$
+\wt{H}_n(X \vee Y)
+\cong \wt{H}_n\big( (X \amalg Y)/\{x_0,y_0\} \big)
+\cong H_n(X \amalg Y, \{x_0,y_0\}).
+$$
+Since $X \amalg Y$ is a disjoint union, its relative homology splits along the two components:
+$$
+H_n(X \amalg Y, \{x_0,y_0\}) \cong H_n(X,\{x_0\}) \oplus H_n(Y,\{y_0\}) \cong \wt{H}_n(X) \oplus \wt{H}_n(Y),
+$$
+using "relative homology generalizes absolute homology" from §2 in the last step.
+</Callout>
+
+Each arrow in this chain is one of the tools we've already built: the good pair theorem, disjoint-union additivity of relative homology, and the point-relative lemma.
+
+</SlideLayout>

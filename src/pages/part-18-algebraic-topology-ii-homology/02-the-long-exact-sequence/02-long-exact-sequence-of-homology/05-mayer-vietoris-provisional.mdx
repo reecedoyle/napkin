@@ -1,0 +1,28 @@
+---
+title: The Mayer–Vietoris sequence, provisionally
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Mayer–Vietoris sequence, provisionally">
+
+<Callout kind="remark" title="Moral">
+Short exact sequences of chain complexes give long exact sequences of homology groups.
+</Callout>
+
+Let's cash this in on our four examples from the last section. Feeding the <Term k="tle71MVShortExact">Mayer–Vietoris short exact sequence</Term> into the long exact sequence theorem gives, for $X = U \cup V$ an open cover:
+
+<Callout kind="example" title="Mayer–Vietoris long exact sequence, provisional version">
+$$
+\dots \to H_n(U \cap V) \to H_n(U) \oplus H_n(V) \to H_n(U+V) \to H_{n-1}(U \cap V) \to \dots
+$$
+and its reduced version
+$$
+\dots \to \wt H_n(U \cap V) \to \wt H_n(U) \oplus \wt H_n(V) \to \wt H_n(U+V) \to \wt H_{n-1}(U \cap V) \to \dots
+$$
+</Callout>
+
+We call this version "provisional" because $H_n(U+V)$ — chains subordinate to the cover — is an awkward group to think about directly. In the next section we'll show it's secretly just $H_n(X)$, which turns this into the sequence you actually want to use.
+
+</SlideLayout>

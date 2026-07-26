@@ -1,0 +1,26 @@
+---
+title: The duality theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The duality theorem">
+
+Here is the precise statement. Recall a <Term k="smoothManifold">smooth manifold</Term> that is also <Term k="orientableManifold">orientable</Term> and <Term k="compact">compact</Term> is about as "nice" as a space gets.
+
+<Callout kind="theorem" title="Poincaré duality">
+If $M$ is a smooth oriented compact $n$-manifold, then there is a natural isomorphism
+$$
+H^k(M; \ZZ) \cong H_{n-k}(M)
+$$
+for every $k$. In particular, $H^k(M) = 0$ for $k > n$.
+</Callout>
+
+Read this as: on a nice enough manifold, cohomology in degree $k$ is "the same as" homology in the complementary degree $n - k$. The two theories, which a priori measure different things, turn out to carry identical information for these spaces.
+
+The last sentence of the theorem is a sanity check: an $n$-manifold has no interesting $k$-dimensional holes once $k$ exceeds its own dimension $n$ — there's no room. Poincaré duality confirms this by matching $H^k(M)$ with $H_{n-k}(M)$, which is automatically $0$ once $n - k < 0$.
+
+We won't prove this (it requires machinery — Čech cohomology or a cap product with a fundamental class — beyond our scope here). But we'll use it immediately.
+
+</SlideLayout>

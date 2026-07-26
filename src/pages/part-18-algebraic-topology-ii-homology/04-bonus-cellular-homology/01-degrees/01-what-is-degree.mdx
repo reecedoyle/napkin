@@ -1,0 +1,24 @@
+---
+title: What is the degree of a map?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What is the degree of a map?">
+
+We already know $H_n(S^n) \cong \ZZ$ for $n > 0$. That single fact turns out to be a measuring stick for continuous self-maps of the sphere.
+
+For any $n > 0$ and any continuous map $f \colon S^n \to S^n$, functoriality of homology gives us an induced map
+$$
+f_\ast \colon \underbrace{H_n(S^n)}_{\cong\, \ZZ} \to \underbrace{H_n(S^n)}_{\cong\, \ZZ}.
+$$
+Any homomorphism $\ZZ \to \ZZ$ is just multiplication by some fixed integer — there's no other kind. So $f_\ast$ is "multiply by $d$" for some integer $d$.
+
+<Callout kind="definition" title="Degree">
+This integer $d$ is called the <Term k="bch73Degree">degree</Term> of $f$, written $\deg f$.
+</Callout>
+
+The prototype to keep in mind: viewing $S^1 \subseteq \CC$, the map $z \mapsto z^d$ has degree $d$. Winding around the circle $d$ times multiplies $H_1(S^1)$ by $d$.
+
+</SlideLayout>

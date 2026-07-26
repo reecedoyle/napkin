@@ -1,0 +1,21 @@
+---
+title: 'Problem: local homology groups of a manifold'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: local homology groups of a manifold">
+
+Recall a <Term k="topologicalManifold">topological n-manifold</Term> is a space that locally looks like $\RR^n$ everywhere.
+
+<Problem
+  client:load
+  id="ear72-prob-local-homology-manifold"
+  difficulty="starred"
+  prompt="What are the local homology groups of a topological n-manifold?"
+  solution="A topological n-manifold M is, by definition, a space that is locally homeomorphic to ℝⁿ at every point: every p ∈ M has an open neighborhood U with U ≅ V for some open V ⊆ ℝⁿ. Local homology only depends on an arbitrarily small neighborhood of the point (that's the whole content of the excision fact from this section), so H_k(M, M \ {p}) ≅ H_k(U, U \ {p}) ≅ H_k(V, V \ {q}) for the corresponding point q ∈ V ⊆ ℝⁿ. By the computation used in the invariance-of-dimension proof, this is ℤ when k = n and 0 otherwise. So every point of an n-manifold has the same local homology groups as a point of ℝⁿ: ℤ in degree n, and 0 in every other degree — regardless of which point of M you pick."
+/>
+
+</SlideLayout>

@@ -1,0 +1,19 @@
+---
+title: Quick check — sphere homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Quick check — sphere homology">
+
+A quick sanity check on the theorem before we move to more interesting spaces.
+
+<NumericInput
+  client:load
+  id="tle71-s3-num-sphere-check"
+  prompt="According to the theorem, H̃_n(S^5) is isomorphic to ℤ for exactly one value of n, and 0 for every other n. What is that value of n?"
+  expected="5"
+  explanation="H̃_n(S^m) is ℤ exactly when n = m and 0 otherwise. For the 5-sphere S^5, that single nonzero degree is n = 5."
+/>
+
+</SlideLayout>

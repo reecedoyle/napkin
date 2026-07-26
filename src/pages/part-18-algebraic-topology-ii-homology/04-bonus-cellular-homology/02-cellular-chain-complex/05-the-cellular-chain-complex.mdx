@@ -1,0 +1,21 @@
+---
+title: The cellular chain complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cellular chain complex">
+
+Since consecutive composites vanish, we get an honest chain complex:
+$$
+\cdots \xrightarrow{d_5} \Cells_4(X) \xrightarrow{d_4} \Cells_3(X) \xrightarrow{d_3} \Cells_2(X) \xrightarrow{d_2} \Cells_1(X) \xrightarrow{d_1} \Cells_0(X) \xrightarrow{d_0} 0.
+$$
+
+<Callout kind="definition" title="Cellular chain complex">
+This is called the <Term k="bch73CellularChainComplex">cellular chain complex</Term> of $X$.
+</Callout>
+
+Every term is free abelian (basis: the cells), and for any reasonable CW complex it's also finitely generated — a world apart from the unwieldy singular chain complex $C_\bullet(X)$. In other words, $\Cells_\bullet(X)$ is a small, concrete model built entirely out of counting cells and computing a handful of degree maps.
+
+</SlideLayout>

@@ -1,0 +1,24 @@
+---
+title: de Rham's theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="de Rham's theorem">
+
+Here's the payoff: the two cohomology theories we just set up — singular cohomology with real coefficients, and de Rham cohomology built from differential forms — are the *same*.
+
+<Callout kind="theorem" title="de Rham's theorem">
+For any smooth manifold $M$, there is a natural isomorphism
+$$
+H^k(M; \RR) \cong \HdR^k(M).
+$$
+</Callout>
+
+So the real cohomology groups of a manifold are literally governed by the behavior of its differential forms — an object you already have geometric intuition for from calculus.
+
+<Callout kind="remark" title="Moral">
+One can metaphorically think of elements of cohomology groups as $G$-valued differential forms on the space.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: Hopf's classifying theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Hopf's classifying theorem">
+
+Since homotopic maps induce the same map on homology (that's baked into how homology is a functor on the homotopy category), we get for free:
+
+If $f \simeq g$ (f is <Term k="homotopic">homotopic</Term> to $g$), then $\deg f = \deg g$.
+
+What's genuinely surprising is that the converse also holds:
+
+<Callout kind="theorem" title="Hopf's classifying theorem">
+Two maps $f, g \colon S^n \to S^n$ are homotopic if and only if $\deg f = \deg g$.
+</Callout>
+
+So the single integer $\deg f$ is a **complete** invariant: it doesn't just detect *some* difference between self-maps of $S^n$ up to homotopy, it detects *all* of it. There is exactly one homotopy class of self-map of $S^n$ for every integer.
+
+</SlideLayout>

@@ -1,0 +1,32 @@
+---
+title: Dualizing a chain complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Dualizing a chain complex">
+
+Aside from de Rham's complex (next slide), **the most common way to produce a cochain complex is to dualize a chain complex.**
+
+Pick an abelian group $G$. Recall $\Hom(-, G)$ is a *contravariant* functor: it turns a map $f \colon A \to B$ into a map $f^\vee \colon \Hom(B,G) \to \Hom(A,G)$ going the other way. Applying it to every group and every map in a chain complex
+$$
+\dots \taking\partial A_{n+1} \taking\partial A_n \taking\partial A_{n-1} \taking\partial \dots
+$$
+flips all the arrows, turning it into a cochain complex
+$$
+\dots \taking\delta A^{n-1} \taking\delta A^n \taking\delta A^{n+1} \taking\delta \dots
+$$
+where $A^n \defeq \Hom(A_n, G)$, and $\delta$ is defined by $\delta(A_n \taking{f} G) = A_{n+1} \taking\partial A_n \taking{f} G$ — in words, $\delta f = f \circ \partial$.
+
+<Callout kind="remark" title="Why Hom(−,G) is the natural dualizing functor">
+This construction, <Term k="sc74HomDualFunctor">$\Hom(-,G)$</Term>, is exactly what lets us go from "chain complex" language (built from geometric simplices) to "cochain complex" language (built from functions on those simplices) without inventing anything new — every step is forced once you fix $G$.
+</Callout>
+
+Because these are the cohomology groups we'll study almost exclusively, they get their own notation.
+
+<Callout kind="definition" title="Cohomology with coefficients in G">
+Given a chain complex $A_\bullet$ of abelian groups and another abelian group $G$, we let <Term k="sc74HnAG">$H^n(A_\bullet; G)$</Term> denote the cohomology groups of the dual cochain complex $A^\bullet$ obtained by applying $\Hom(-,G)$. In other words, $H^n(A_\bullet; G) = H^n(A^\bullet)$.
+</Callout>
+
+</SlideLayout>

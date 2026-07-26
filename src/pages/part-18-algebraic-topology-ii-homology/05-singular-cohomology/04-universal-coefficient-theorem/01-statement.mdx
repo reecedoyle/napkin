@@ -1,0 +1,27 @@
+---
+title: The universal coefficient theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The universal coefficient theorem">
+
+Here's the theorem that ties $H^n$ back to $H_n$: given the homology of a chain complex, we can extract its cohomology.
+
+<Callout kind="theorem" title="Universal coefficient theorem">
+Let $A_\bullet$ be a chain complex of **free** abelian groups, and $G$ another abelian group. Then there is a natural short exact sequence
+$$
+0 \to \Ext(H_{n-1}(A_\bullet), G) \to H^n(A_\bullet; G) \taking{h} \Hom(H_n(A_\bullet), G) \to 0.
+$$
+Moreover, this sequence **splits**, so
+$$
+H^n(A_\bullet; G) \cong \Ext(H_{n-1}(A_\bullet), G) \oplus \Hom(H_n(A_\bullet), G).
+$$
+</Callout>
+
+This is the <Term k="sc74UCT">universal coefficient theorem</Term>. Fortunately, our case of interest — $A_\bullet = C_\bullet(X)$, the singular chain complex — is free by definition, so the theorem always applies to $H^n(X;G)$.
+
+There are two pieces we still owe an explanation: the map $h$, and the mysterious functor $\Ext$.
+
+</SlideLayout>

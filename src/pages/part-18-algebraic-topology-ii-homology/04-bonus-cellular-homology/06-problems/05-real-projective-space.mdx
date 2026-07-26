@@ -1,0 +1,18 @@
+---
+title: Problem — homology of ℝPⁿ
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — homology of ℝPⁿ">
+
+<Problem
+  client:load
+  id="bch73-problems-daggered-rpn-homology"
+  difficulty="daggered"
+  prompt="Let n be a positive integer. Show that H_k(ℝPⁿ) ≅ ℤ if k = 0, or if k = n and n is odd; H_k(ℝPⁿ) ≅ ℤ/2ℤ if k is odd and 0 < k < n; and H_k(ℝPⁿ) = 0 otherwise."
+  hint="ℝPⁿ has exactly one cell in each dimension 0, 1, …, n. Show that the degree of d_k is deg(id) + deg(−id) on the attaching sphere, hence d_k is zero or multiplication by 2 depending on whether k is even or odd."
+  solution="ℝPⁿ has one k-cell e^k for each 0 ≤ k ≤ n, obtained from ℝPᵏ⁻¹ by attaching a k-cell via the double cover Sᵏ⁻¹ → ℝPᵏ⁻¹. Since this attaching map covers ℝPᵏ⁻¹ exactly twice — once via the identity on a hemisphere and once via the antipodal map on the other — the cellular differential d_k: ℤ → ℤ (both cellular chain groups are ℤ in this range) works out to multiplication by deg(id) + deg(−id) on Sᵏ⁻¹. Since deg(−id) on Sᵏ⁻¹ is (−1)^k, this is 1 + (−1)^k: equal to 2 when k is even, and 0 when k is odd. So the cellular chain complex alternates between the zero map (odd k) and multiplication by 2 (even k). Computing ker/img at each spot: H₀ = ℤ always. For 0 < k < n: if k is odd, d_k = 0 so ker d_k = ℤ, while d_{k+1} is multiplication by 2 so im d_{k+1} = 2ℤ, giving H_k ≅ ℤ/2ℤ; if k is even, d_k is multiplication by 2 (injective), so ker d_k = 0 and H_k = 0. At the top, k = n has no (n+1)-cell to supply d_{n+1}, so H_n = ker d_n outright: if n is odd, d_n = 0 so H_n ≅ ℤ; if n is even, d_n is multiplication by 2 (injective) so H_n = 0. This matches the claimed formula exactly."
+/>
+
+</SlideLayout>

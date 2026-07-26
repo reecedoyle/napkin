@@ -1,0 +1,21 @@
+---
+title: 'Answering the guess: which pairs are good?'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Answering the guess: which pairs are good?">
+
+We can finally answer the "reasonable guess" from §1 — precisely when does $H_n(X,A) \cong \wt{H}_n(X/A)$?
+
+<Callout kind="theorem" title="Relative homology implies quotient space">
+Let $X$ be a space and $A$ a closed subspace such that $A$ is a <Term k="ear72DeformationRetract">deformation retract</Term> of some open set $V \subseteq X$. Then the <Term k="ear72QuotientSpace">quotient map</Term> $q \colon X \to X/A$ induces an isomorphism
+$$
+H_n(X,A) \cong H_n(X/A, A/A) \cong \wt{H}_n(X/A).
+$$
+</Callout>
+
+Every one of the earlier counterexamples fails this hypothesis: in the "open $A$" example, $A$ wasn't closed; in the shrinking wedge of circles, the point $0 \in A$ has no open neighborhood in $X$ that deformation retracts onto all of $A$ (any such neighborhood would have to swallow infinitely many of the accumulating points, and no finite deformation can retract that onto $A$ cleanly). Pairs satisfying this hypothesis are often called **good pairs**, and they cover essentially every space that shows up in practice — including every pair built from CW complexes.
+
+</SlideLayout>

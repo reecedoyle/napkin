@@ -1,0 +1,18 @@
+---
+title: Pair-homotopy
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Pair-homotopy">
+
+For ordinary spaces, "the same up to homotopy" was the right notion of equivalence for computing homology. We want the analog for pairs.
+
+<Callout kind="definition" title="Pair-homotopic">
+We say $f, g \colon (X,A) \to (Y,B)$ are <Term k="ear72PairHomotopy">pair-homotopic</Term> if they are "homotopic through maps of pairs". Formally, a pair-homotopy is a map $F \colon [0,1] \times X \to Y$ — written $F_t(x)$ — such that $F$ is an ordinary homotopy between $f$ and $g$, and **every** intermediate map $F_t \colon X \to Y$ is itself a map of pairs $(X,A) \to (Y,B)$.
+</Callout>
+
+That last clause is the whole point: it's not enough for $f$ and $g$ to individually respect $A \subseteq B$-mapping and for the homotopy to connect them as plain maps $X \to Y$ — every snapshot $F_t$ along the way must *also* send $A$ into $B$. So the deformation is never allowed to let a point of $A$ wander outside $B$, even briefly.
+
+</SlideLayout>

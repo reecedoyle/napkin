@@ -1,0 +1,34 @@
+---
+title: Examples of Betti numbers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of Betti numbers">
+
+<Callout kind="example" title="Betti numbers of familiar spaces">
+- The Betti numbers of $S^n$ are $b_0 = b_n = 1$, and zero elsewhere. So $\chi(S^n) = 1 + (-1)^n$.
+- The Betti numbers of the <Term k="bch73Torus">torus</Term> $S^1 \times S^1$ are $b_0 = 1$, $b_1 = 2$, $b_2 = 1$, and zero elsewhere. So $\chi = 0$.
+- The Betti numbers of <Term k="bch73CPn">$\CP^n$</Term> are $b_0 = b_2 = \cdots = b_{2n} = 1$, and zero elsewhere. So $\chi = n+1$.
+- The Betti numbers of the <Term k="bch73KleinBottle">Klein bottle</Term> are $b_0 = 1$, $b_1 = 1$, and zero elsewhere. So $\chi = 0$ — the same as the sphere, and also the same as the torus's cell count structure.
+</Callout>
+
+Notice: in $S^n$, the torus, and $\CP^n$, the Betti numbers are symmetric, $b_k = b_{n-k}$. This isn't a coincidence — it's a shadow of Poincaré duality, which we'll see more of later.
+
+<MCQ
+  client:load
+  id="bch73-euler-mcq-torus-chi"
+  prompt="What is χ(torus)?"
+  options={[
+    { id: "a", label: "2" },
+    { id: "b", label: "0" },
+    { id: "c", label: "-2" },
+    { id: "d", label: "4" },
+  ]}
+  correct="b"
+  explanation="χ(torus) = b₀ - b₁ + b₂ = 1 - 2 + 1 = 0."
+/>
+
+</SlideLayout>

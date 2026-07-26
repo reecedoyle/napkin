@@ -1,0 +1,28 @@
+---
+title: Anticommutative, and matching de Rham exactly
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Anticommutative, and matching de Rham exactly">
+
+The cohomology ring inherits the same sign behavior as the wedge product, even though we just saw the cup product isn't literally the wedge product at the cochain level.
+
+<Callout kind="proposition" title="Cohomology is anticommutative">
+$H^\bullet(X;R)$ is an anticommutative ring: $\phi \smile \psi = (-1)^{k\ell}\psi\smile\phi$ for $\phi \in H^k(X;R)$, $\psi \in H^\ell(X;R)$.
+</Callout>
+
+We omit the proof (see Hatcher's *Algebraic Topology*, Theorem 3.11). And the isomorphism with <Term k="deRhamCohomology">de Rham cohomology</Term> isn't just an isomorphism of groups in each degree — it respects the whole ring structure at once:
+
+<Callout kind="theorem" title="de Rham extends to a ring isomorphism">
+For any smooth manifold $M$, the isomorphism of de Rham cohomology groups to singular cohomology groups is in fact an isomorphism
+$$
+H^\bullet(M;\RR) \cong \HdR^\bullet(M)
+$$
+of **anticommutative rings**.
+</Callout>
+
+So: if "differential forms" is how you should picture elements of a cohomology group, the wedge product is the correct way to picture the cup product.
+
+</SlideLayout>

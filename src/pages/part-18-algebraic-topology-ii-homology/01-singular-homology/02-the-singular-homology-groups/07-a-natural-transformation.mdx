@@ -1,0 +1,22 @@
+---
+title: Digression — a natural transformation
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Digression — a natural transformation">
+
+The Hurewicz theorem actually says more than "these two groups happen to be related for each $X$" — it says the relationship is compatible with maps between spaces, which is worth naming in category-theoretic language.
+
+For each pointed space $(X, x_0)$ there's a map $\pi_1(X, x_0) \taking{\phi} H_1(X)$ — send a loop's homotopy class to its homology class. This map is *natural*: for any map of pointed spaces $h \colon (X, x_0) \to (Y, y_0)$, the induced maps on $\pi_1$ and $H_1$ commute with $\phi$, i.e. $\phi \circ h_\sharp = h_\ast \circ \phi$.
+
+In other words, $\phi$ is a <Term k="sh70NaturalTransformation">natural transformation</Term> from the functor $\pi_1$ to the functor $H_1$. Concretely: we have two families of groups indexed by pointed spaces,
+$$
+\{\pi_1(X, x_0)\} \qquad \text{and} \qquad \{H_1(X)\},
+$$
+and $\phi$ is a family of homomorphisms $\{\phi \colon \pi_1(X,x_0) \to H_1(X)\}$, one for each pointed space, satisfying that naturality (commuting-square) condition.
+
+Of course $\pi_1$ being a *functor* already means $\{\pi_1(X, x_0)\}$ is more than just a family of groups indexed by spaces — it also remembers what happens to maps between spaces. We'll make the same point about $H_n$ itself in the next section.
+
+</SlideLayout>

@@ -1,0 +1,19 @@
+---
+title: Why bother with relative homology at all?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why bother with relative homology at all?">
+
+Despite the counterexamples, for *nice* pairs $A \subseteq X$ — the ones where $H_n(X,A) \cong \wt{H}_n(X/A)$ genuinely holds — relative homology becomes a computational engine. The point is that $A$ and $X/A$ are each, in some sense, smaller and simpler than $X$: you compute $H_n(A)$ and $\wt{H}_n(X/A)$ separately (often by induction on a simpler space), then splice the two computations together to get $H_n(X)$.
+
+The rest of this chapter builds the tools to make this precise:
+
+- §2 sets up the <Term k="ear72LongExactSequenceOfPair">long exact sequence of a pair</Term>, the algebraic engine that relates $H_n(A)$, $H_n(X)$, and $H_n(X,A)$.
+- §3 packages pairs $(X,A)$ into a category, so relative homology becomes a genuine functor.
+- §4 states **excision**, the key geometric fact that makes the quotient guess provable — and pins down exactly which pairs are "nice".
+- §5–§6 cash in excision on concrete computations: wedge sums, spheres, and a proof that dimension itself is a topological invariant.
+
+</SlideLayout>

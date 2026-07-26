@@ -1,0 +1,18 @@
+---
+title: From chains to relative cycles and boundaries
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="From chains to relative cycles and boundaries">
+
+Walk through the groups feeding into $\Cells_1(X) = H_1(X^1, X^0)$, in order of increasing "alignment":
+
+- A typical element of <Term k="bch73SingularChainGroup">$C_1(X^1)$</Term> is just a formal sum of maps $\Delta^1 \to X^1$ — arbitrary paths inside the red skeleton, wiggling however they like, remembering exactly how each path is parametrized.
+- A typical element of <Term k="bch73RelativeCycle">$Z_1(X^1, X^0)$</Term> is a relative cycle: its boundary is allowed to land anywhere in $X^0$ (the vertices), rather than having to cancel exactly. Since we're working in the quotient $C_1(X^1)/C_1(X^0)$, chains entirely inside $X^0$ are already "modded out."
+- A typical element of <Term k="bch73RelativeBoundary">$B_1(X^1, X^0)$</Term> is a relative boundary: something that is $\partial$ of some $2$-chain living in $(X^1, X^0)$.
+
+None of this cares yet about the actual cell structure — it's all still expressed in terms of arbitrary singular simplices. The alignment happens next.
+
+</SlideLayout>

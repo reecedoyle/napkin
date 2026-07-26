@@ -1,0 +1,24 @@
+---
+title: Computing the circle via Mayer–Vietoris
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Computing the circle via Mayer–Vietoris">
+
+Decompose $S^1$ into two overlapping open arcs $U$ and $V$, each a bit more than a semicircle, so that $U \cup V = S^1$.
+
+Each of $U$ and $V$ is <Term k="tle71Contractible">contractible</Term> (each is just an arc, homotopy equivalent to a point), so all their reduced homology groups vanish. Meanwhile $U \cap V$ consists of two disjoint short arcs — it's <Term k="tle71HomotopyEquivalent">homotopy equivalent</Term> to two points, so
+$$
+\wt H_n(U \cap V) \cong \begin{cases} \ZZ & n = 0 \\ 0 & \text{otherwise.} \end{cases}
+$$
+
+Now look at the relevant segment of the Mayer–Vietoris sequence:
+$$
+\dots \to \underbrace{\wt H_n(U) \oplus \wt H_n(V)}_{=0} \to \wt H_n(S^1) \taking{\partial} \wt H_{n-1}(U \cap V) \to \underbrace{\wt H_{n-1}(U) \oplus \wt H_{n-1}(V)}_{=0} \to \dots
+$$
+
+Both flanking terms are zero, so exactness forces $\partial$ itself to be an isomorphism $\wt H_n(S^1) \xrightarrow{\ \cong\ } \wt H_{n-1}(U \cap V)$ for every $n$. Plugging in the computation of $\wt H_\bullet(U \cap V)$ above: $\wt H_n(S^1) \cong \ZZ$ when $n - 1 = 0$, i.e. $n = 1$, and $0$ for every other $n$ — exactly matching the theorem.
+
+</SlideLayout>

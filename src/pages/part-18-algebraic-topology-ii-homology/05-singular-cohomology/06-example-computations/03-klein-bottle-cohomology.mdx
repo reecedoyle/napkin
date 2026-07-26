@@ -1,0 +1,35 @@
+---
+title: Cohomology of the Klein bottle — Ext finally shows up
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cohomology of the Klein bottle — Ext finally shows up">
+
+Recall the <Term k="sc74KleinBottle">Klein bottle</Term> $K$ has $H_0(K) = \ZZ$, $H_1(K) = \ZZ \oplus \Zc2$, and $H_n(K) = 0$ for $n \geq 2$.
+
+- $n=0$: $H^0(K;G) \cong \Hom(\ZZ,G) \cong G$, as always.
+- $n=1$: the $\Ext$ term is $\Ext(H_0(K),G) = \Ext(\ZZ,G) = 0$ (since $H_0$ is free), so $H^1(K;G) \cong \Hom(\ZZ \oplus \Zc2, G) \cong G \oplus \Hom(\Zc2,G)$. Here $\Hom(\Zc2,G)$ is the subgroup of elements of order dividing $2$ in $G$.
+- $n=2$: **now** we hit a genuine $\Ext$ term. The short exact sequence is
+$$
+0 \to \Ext(\ZZ \oplus \Zc2, G) \to H^2(K;G) \to \underbrace{H_2(K)}_{=0} \to 0,
+$$
+so $H^2(K;G) \cong \Ext(\ZZ,G) \oplus \Ext(\Zc2,G) \cong 0 \oplus G/2G = G/2G$.
+
+<Callout kind="theorem" title="Summary">
+Putting the three degrees together, the full <Term k="sc74HnKlein">cohomology of the Klein bottle</Term> is:
+$$
+H^n(K;G) \cong
+\begin{cases}
+G & n=0 \\
+G \oplus \Hom(\Zc2,G) & n = 1 \\
+G/2G & n = 2 \\
+0 & n \geq 3.
+\end{cases}
+$$
+</Callout>
+
+This is the chapter's first interesting example of the phenomenon from "Point 1" two sections ago: $H_2(K) = 0$, yet $H^2(K;G)$ is generically *nonzero* (e.g. $\ZZ/2\ZZ$ when $G=\ZZ$) — purely because of the $\Ext$ correction coming from $H_1(K)$.
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: Brouwer fixed point theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Brouwer fixed point theorem">
+
+<Problem
+  client:load
+  id="sh70-prob-brouwer-fixed-point"
+  difficulty="standard"
+  prompt="Use the previous problem to prove the Brouwer fixed point theorem: any continuous function f: D^n → D^n has a fixed point."
+  hint="Build F as follows: for a point x with f(x) ≠ x, draw the ray from f(x) through x, and let F(x) be where that ray hits the boundary S^(n−1)."
+  solution="Suppose for contradiction that f: D^n → D^n is continuous with no fixed point, so f(x) ≠ x for every x. Define F(x) to be the unique point where the ray starting at f(x) and passing through x first exits D^n, i.e. where it hits the boundary sphere S^(n−1); this is well defined and continuous precisely because f(x) ≠ x everywhere (the ray direction never degenerates), and it can be written by an explicit continuous formula in x and f(x). Now restrict F to the boundary S^(n−1): if x is already on S^(n−1), the segment from f(x) to x lies inside the convex disk D^n, and continuing that ray past x immediately exits the disk — so the first exit point is x itself. Hence F restricted to S^(n−1) is the identity map. But F is defined and continuous on all of D^n, so F, together with the inclusion S^(n−1) into D^n, gives a composition S^(n−1) ↪ D^n →F→ S^(n−1) equal to the identity on S^(n−1) — exactly what the previous problem showed is impossible. This contradiction means no fixed-point-free continuous f can exist, so every continuous f: D^n → D^n has a fixed point."
+/>
+
+</SlideLayout>

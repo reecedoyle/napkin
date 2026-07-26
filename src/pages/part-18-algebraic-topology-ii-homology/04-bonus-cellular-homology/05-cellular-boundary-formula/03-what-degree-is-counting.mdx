@@ -1,0 +1,33 @@
+---
+title: What the degree is really counting
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="What the degree is really counting">
+
+A basis element $e^k \in \Cells_k(X)$ is just a $k$-cell, and morally its "boundary" should be the cells that form its edge. But in a CW complex, the boundary of a $k$-cell can fold onto *arbitrary points* of $X^{k-1}$ — so an edge of a $k$-cell need not even be an entire $(k-1)$-cell, and worse, edges can be duplicated.
+
+<Figure
+  alt="A unit square with its four edges colored and arrowed: top and bottom edges red pointing the same way, left and right edges blue pointing the same way, illustrating identified edges of the Klein bottle"
+  caption="Opposite edges identified in different orientations — as in the Klein bottle — means a single 1-cell can appear as more than one edge of a 2-cell's boundary."
+>
+  <svg viewBox="-10 -10 120 120" width="220" height="220" aria-hidden="true">
+    <defs>
+      <marker id="cbfArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
+      </marker>
+    </defs>
+    <rect x="0" y="0" width="100" height="100" fill="currentColor" opacity="0.08" />
+    <line x1="0" y1="100" x2="95" y2="100" stroke="#d33" stroke-width="2.5" marker-end="url(#cbfArrow)" />
+    <line x1="100" y1="0" x2="5" y2="0" stroke="#d33" stroke-width="2.5" marker-end="url(#cbfArrow)" />
+    <line x1="0" y1="0" x2="0" y2="95" stroke="#36c" stroke-width="2.5" marker-end="url(#cbfArrow)" />
+    <line x1="100" y1="100" x2="100" y2="5" stroke="#36c" stroke-width="2.5" marker-end="url(#cbfArrow)" />
+  </svg>
+</Figure>
+
+In the Klein bottle, each pair of opposing edges shown above is actually **the same edge**, traversed in possibly different orientations. So when we compute $d_k(e^k)$, we can't just count "how many $(k-1)$-cells border $e^k$" — we need to count the **multiplicity** with which the boundary wraps around each $(k-1)$-cell, accounting for cancellation from opposite orientations. That multiplicity is exactly what the degree of the attach-then-collapse map measures.
+
+</SlideLayout>

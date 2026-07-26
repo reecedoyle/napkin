@@ -1,0 +1,34 @@
+---
+title: The cup product descends to cohomology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cup product descends to cohomology">
+
+Just as with the wedge product, we need the coboundary map $\delta$ to interact predictably with $\smile$ before it can descend to a product on cohomology classes.
+
+<Callout kind="lemma" title="δ with cup products">
+$$
+\delta(\phi\smile\psi) = \delta\phi\smile\psi + (-1)^k\phi\smile\delta\psi
+$$
+for $\phi \in C^k(X;R)$.
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Direct computation: expand both sides as sums over the vertices of a $(k+\ell+1)$-simplex and match terms. We omit the bookkeeping.
+</Callout>
+
+By the exact same routine used for de Rham cohomology (cup two cocycles, get a cocycle; cup a cocycle with a coboundary, get a coboundary), this induces a well-defined map
+$$
+\smile \colon H^k(X;R) \times H^\ell(X;R) \to H^{k+\ell}(X;R).
+$$
+
+We then define the <Term k="aoc75CohomologyRing">singular cohomology ring</Term>
+$$
+H^\bullet(X;R) = \bigoplus_{k \ge 0} H^k(X;R),
+$$
+with multiplication given by $\smile$. It's a graded ring with identity $1_R \in R = H^0(X;R)$ (constant functions), or more precisely the class represented by the constant-$1_R$ $0$-cochain from two slides ago.
+
+</SlideLayout>

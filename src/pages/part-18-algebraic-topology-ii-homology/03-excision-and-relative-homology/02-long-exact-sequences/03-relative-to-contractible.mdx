@@ -1,0 +1,27 @@
+---
+title: Relative homology with a contractible subspace
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Relative homology with a contractible subspace">
+
+A first payoff of the reduced long exact sequence: relative homology "does nothing" when the subspace being modded out is contractible.
+
+<Callout kind="lemma" title="Homology relative to contractible spaces">
+Let $X$ be a topological space and let $A \subseteq X$ be <Term k="ear72Contractible">contractible</Term>. Then for all $n$,
+$$
+H_n(X,A) \cong \wt{H}_n(X).
+$$
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Since $A$ is contractible, $\wt{H}_n(A) = 0$ for every $n$. Plugging this into the reduced long exact sequence of the pair gives, for each $n$, a segment
+$$
+\dots \to \underbrace{\wt{H}_n(A)}_{=0} \to \wt{H}_n(X) \to H_n(X,A) \to \underbrace{\wt{H}_{n-1}(A)}_{=0} \to \dots.
+$$
+Exactness at $H_n(X,A)$ says the image of the map in equals its kernel — but the map in from $\wt{H}_n(X)$ has all of $\wt{H}_n(X)$ as its image (since the previous group is $0$, the map out of it is the zero map, so exactness forces the map $\wt{H}_n(X) \to H_n(X,A)$ to be injective), and the map out to $\wt{H}_{n-1}(A) = 0$ is automatically surjective onto its image. So $0 \to \wt{H}_n(X) \to H_n(X,A) \to 0$ is exact, meaning $H_n(X,A) \cong \wt{H}_n(X)$.
+</Callout>
+
+</SlideLayout>

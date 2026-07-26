@@ -1,0 +1,18 @@
+---
+title: Problem — the full diagram chase
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — the full diagram chase">
+
+<Problem
+  client:load
+  id="bch73-problems-standard-diagram-chase"
+  difficulty="standard"
+  prompt="Prove the theorem that the homology groups of X coincide with the homology groups of the cellular chain complex."
+  hint="You won't need to refer to any elements. Start with H₂(X) ≅ H₂(X³) ≅ H₂(X²) / ker[H₂(X²) ↠ H₂(X³)], say. Take note of the marked injective and surjective arrows in the interlocking diagram."
+  solution="For concreteness, look at the homology at H₂(X², X¹) and show it's isomorphic to H₂(X). According to the diagram: H₂(X) ≅ H₂(X³) ≅ H₂(X²)/ker[H₂(X²) ↠ H₂(X³)] ≅ H₂(X²)/im ∂₃ ≅ im[H₂(X²) ↪ H₂(X²,X¹)] / im ∂₃ ≅ ker(∂₂)/im ∂₃ ≅ ker d₂ / im d₃. Reading off the coefficients of this chain of isomorphisms at every other level k, using the same marked injective and surjective arrows, always identifies H_k(X) with ker d_k / im d_{k+1} — which is exactly H_k of the cellular chain complex by definition."
+/>
+
+</SlideLayout>

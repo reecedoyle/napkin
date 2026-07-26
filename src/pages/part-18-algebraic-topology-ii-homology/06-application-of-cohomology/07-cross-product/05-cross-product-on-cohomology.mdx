@@ -1,0 +1,23 @@
+---
+title: The cross product on cellular cohomology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cross product on cellular cohomology">
+
+Same idea, dualized. Homology and cohomology genuinely differ here — for $K$ the Klein bottle, $H_2(K) = 0$ but $H^2(K;\ZZ) \neq 0$ — so it's worth spelling out the cohomology version separately.
+
+Given cellular cochains $f \in \Hom(\Cells_m(X);R)$ and $g \in \Hom(\Cells_n(Y);R)$, define $f \times g \in \Hom(\Cells_{m+n}(X\times Y);R)$ the natural way: for a cell $e^m$ of $X$ and cell $e^n$ of $Y$,
+$$
+(f\times g)(e^m \times e^n) = f(e^m)\cdot g(e^n).
+$$
+Not every $(m+n)$-cell of $X\times Y$ is a product of an $m$-cell of $X$ and an $n$-cell of $Y$, though — for those, we just declare $(f\times g)$ to be $0$.
+
+As usual, this induces an $R$-module homomorphism on cohomology:
+$$
+\times \colon H^m(X;R) \otimes_R H^n(Y;R) \to H^{m+n}(X\times Y;R).
+$$
+
+</SlideLayout>

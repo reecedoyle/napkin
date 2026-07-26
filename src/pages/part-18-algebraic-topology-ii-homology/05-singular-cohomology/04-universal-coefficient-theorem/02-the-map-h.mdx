@@ -1,0 +1,18 @@
+---
+title: The map h
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The map h">
+
+It's not too hard to guess how <Term k="sc74MapH">$h \colon H^n(A_\bullet;G) \to \Hom(H_n(A_\bullet),G)$</Term> is defined.
+
+An element of $H^n(A_\bullet;G)$ is represented by a cochain — a function that sends a cycle in $A_n$ to an element of $G$. Since $h$ just remembers "what this cochain does to cycles" (forgetting how it acts on the rest of $A_n$), it lands in $\Hom(H_n(A_\bullet), G)$ rather than $\Hom(A_n, G)$: a cochain that's a coboundary acts as $0$ on cycles, so the map is well-defined on the quotient $H_n = Z_n/B_n$.
+
+<Callout kind="remark" title="The actual content of the theorem">
+Defining $h$ is the easy part. The substance of the universal coefficient theorem is proving that $h$ is **surjective**, with **kernel** exactly $\Ext(H_{n-1}(A_\bullet), G)$.
+</Callout>
+
+</SlideLayout>

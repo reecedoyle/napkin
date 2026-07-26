@@ -1,0 +1,27 @@
+---
+title: The long exact sequence for relative homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The long exact sequence for relative homology">
+
+Doing the same thing to the relative chain short exact sequence $0 \to C_\bullet(A) \to C_\bullet(X) \to C_\bullet(X,A) \to 0$ gives our other main tool:
+
+<Callout kind="theorem" title="Long exact sequence for relative homology">
+Let $X$ be a space and $A \subseteq X$ a subspace. There are long exact sequences
+$$
+\dots \to H_n(A) \to H_n(X) \to H_n(X,A) \to H_{n-1}(A) \to \dots
+$$
+and
+$$
+\dots \to \wt H_n(A) \to \wt H_n(X) \to H_n(X,A) \to \wt H_{n-1}(A) \to \dots
+$$
+</Callout>
+
+(The relative term $H_n(X,A)$ doesn't change between the two versions — there's no basepoint to reduce away, since it was already quotiented out.)
+
+Between the two long exact sequences we've now built, we have tons of information about $H_n(X)$ — *if* only we knew what $H_n(U+V)$ or $H_n(X,A)$ looked like on its own. Pinning those down geometrically is exactly the point of the rest of this chapter, and of the next one.
+
+</SlideLayout>

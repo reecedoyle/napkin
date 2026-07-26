@@ -1,0 +1,32 @@
+---
+title: Fixing linearity with the tensor product
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Fixing linearity with the tensor product">
+
+There's a wrinkle. Write $\times(a,b)$ for $a \times b$ where $a \in C_m(X)$, $b \in C_n(Y)$, and $(a,b)$ for the corresponding element of the product $\ZZ$-module $C_m(X) \times C_n(Y)$. As a map out of that product, $\times$ is **not** a $\ZZ$-module homomorphism:
+
+<Callout kind="example" title="Cross product isn't linear on the product module">
+For nonzero $a \in C_m(X)$, $b \in C_n(Y)$:
+$$
+\times(a,b) = a\times b, \qquad 2\cdot(a,b) = (2a,2b), \qquad \times(2\cdot(a,b)) = 4(a\times b).
+$$
+Scaling the input by $2$ scaled the output by $4$, not $2$ — a homomorphism would need the output to scale by exactly $2$.
+</Callout>
+
+The fix: $\times$ is *bilinear*, and bilinear maps are exactly what the <Term k="tensorProduct">tensor product</Term> is built to linearize. So instead we consider
+$$
+\times \colon C_m(X) \otimes_\ZZ C_n(Y) \to C_{m+n}(X\times Y), \qquad \times(a \otimes b) = a \times b.
+$$
+Now $\times(a\otimes b + c \otimes d) = a\times b + c\times d$ holds by construction — the tensor product absorbed the nonlinearity.
+
+Restating the earlier (unnamed) theorem in this corrected language:
+
+<Callout kind="theorem" title="Cross product on homology, corrected">
+If $X$ and $Y$ are CW complexes, then $\times \colon H_m(X) \otimes_\ZZ H_n(Y) \to H_{m+n}(X\times Y)$ is an injective $\ZZ$-module homomorphism.
+</Callout>
+
+</SlideLayout>

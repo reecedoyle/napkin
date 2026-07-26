@@ -1,0 +1,34 @@
+---
+title: The Ext functor
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Ext functor">
+
+$\Ext(-,G)$ is called the **Ext functor**, defined via a free resolution.
+
+<Callout kind="definition" title="Free resolution">
+A <Term k="sc74FreeResolution">free resolution</Term> of an abelian group $H$ is an exact sequence
+$$
+\dots \taking{f_2} F_1 \taking{f_1} F_0 \taking{f_0} H \to 0
+$$
+with each $F_i$ free.
+</Callout>
+
+Applying $\Hom(-,G)$ turns this into a cochain complex
+$$
+\dots \xleftarrow{f_2^\vee} \Hom(F_1, G) \xleftarrow{f_1^\vee} \Hom(F_0, G) \xleftarrow{f_0^\vee} \Hom(H,G) \leftarrow 0,
+$$
+but — and this is the whole point — **this complex need not be exact**: $\Hom(-,G)$ doesn't preserve exactness.
+
+<Callout kind="definition" title="Ext functor">
+We define <Term k="sc74ExtFunctor">$\Ext(H,G) \defeq \ker(f_2^\vee) / \img(f_1^\vee)$</Term>. It's a (nontrivial) theorem that this doesn't depend on which free resolution you picked.
+</Callout>
+
+<Callout kind="remark" title="Intuition">
+You've seen a free resolution before in disguise: the structure theorem for finitely generated modules over a PID writes $M \cong R^{\oplus d}/K$ with both $R^{\oplus d}$ and $K$ free, giving the free resolution $0 \to K \injto R^{\oplus d} \surjto M \to 0$. Intuitively, $\Ext$ measures "maps that should be there but aren't" — you'll get a feel for this from the examples ahead.
+</Callout>
+
+</SlideLayout>

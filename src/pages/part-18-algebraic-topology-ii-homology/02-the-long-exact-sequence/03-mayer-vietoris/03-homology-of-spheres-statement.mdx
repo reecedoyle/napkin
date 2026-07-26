@@ -1,0 +1,22 @@
+---
+title: The homology groups of spheres
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The homology groups of spheres">
+
+At long last, we can compute the homology of spheres — the computation that has been dangling since we first defined homology.
+
+<Callout kind="theorem" title="The homology groups of S^m">
+For integers $m \ge 0$ and $n$,
+$$
+\wt H_n(S^m) \cong \begin{cases} \ZZ & n = m \\ 0 & \text{otherwise.} \end{cases}
+$$
+The generator of $\wt H_n(S^n)$ is an $n$-cell that covers $S^n$ exactly once — for example, the generator of $\wt H_1(S^1)$ is a loop that wraps around $S^1$ once.
+</Callout>
+
+In words: a sphere $S^m$ has exactly one "hole," and it's felt in dimension $m$ — precisely the dimension of the sphere itself. Every other reduced homology group vanishes. We'll spoil the proof only for the case $m=1$ (the circle) here; the general induction on $m$ is one of this chapter's problems.
+
+</SlideLayout>

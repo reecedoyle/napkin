@@ -1,0 +1,25 @@
+---
+title: Why the lemma is true
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the lemma is true">
+
+The first half of the lemma is the easy part, given the machinery we already have.
+
+<Callout kind="remark" title="Proof idea, part 1">
+$(X^n, X^{n-1})$ is a <Term k="bch73GoodPair">good pair</Term>, so $H_k(X^n, X^{n-1}) \cong \widetilde H_k(X^n/X^{n-1})$. But collapsing $X^{n-1}$ to a point turns every $n$-cell into its own sphere: $X^n / X^{n-1}$ is a wedge of $n$-spheres, one per $n$-cell. And we already know $\widetilde H_k$ of a wedge of $n$-spheres is $\ZZ^{\oplus(\#\text{spheres})}$ concentrated in degree $n$, and zero elsewhere.
+</Callout>
+
+The second half follows by chasing the long exact sequence of the pair $(X^n, X^{n-1})$. Fix $k$. Whenever $n \le k-1$ or $n \ge k+2$, both relative groups flanking $H_k(X^{n-1}) \to H_k(X^n)$ vanish by the first half, so the map is forced to be an isomorphism:
+$$
+\underbrace{H_{k+1}(X^n, X^{n-1})}_{=0} \to H_k(X^{n-1}) \to H_k(X^n) \to \underbrace{H_k(X^n, X^{n-1})}_{=0}.
+$$
+
+<Callout kind="remark" title="Proof idea, part 2">
+Stringing these isomorphisms together in one direction gives $H_k(X^{k-1}) \cong H_k(X^{k-2}) \cong \cdots \cong H_k(X^0) = 0$, and in the other direction gives $H_k(X^{k+1}) \cong H_k(X^{k+2}) \cong \cdots \cong H_k(X)$.
+</Callout>
+
+</SlideLayout>

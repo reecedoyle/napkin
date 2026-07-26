@@ -1,0 +1,37 @@
+---
+title: Chain maps and induced homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Chain maps and induced homology">
+
+To compare chain complexes we need morphisms between them.
+
+<Callout kind="definition" title="Morphism of chain complexes">
+A <Term k="sh70ChainMap">morphism of chain complexes</Term> (or *chain map*) $f \colon A_\bullet \to B_\bullet$ is a sequence of maps $f_n \colon A_n \to B_n$ for every $n$ such that every square in the ladder
+$$
+\begin{aligned}
+&\dots \to A_{n+1} \to A_n \to A_{n-1} \to \dots \\
+&\dots \to B_{n+1} \to B_n \to B_{n-1} \to \dots
+\end{aligned}
+$$
+(vertical maps $f_{n+1}, f_n, f_{n-1}$, horizontal maps $\partial$) commutes. Chain complexes and chain maps form a category, <Term k="sh70CmplxCategory">$\mathrm{Cmplx}$</Term>.
+</Callout>
+
+Since the squares commute, $f$ sends cycles to cycles and boundaries to boundaries: if $\partial_A(c) = 0$ then $\partial_B(f_n(c)) = f_{n-1}(\partial_A(c)) = 0$, and similarly if $c = \partial_A(d)$ then $f_n(c) = \partial_B(f_{n+1}(d))$. So:
+
+<Callout kind="proposition" title="Chain maps induce homology maps">
+Every chain map $f \colon A_\bullet \to B_\bullet$ gives a map $f_\ast \colon H_n(A_\bullet) \to H_n(B_\bullet)$ for every $n$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="sh70-func-proof-hn-functor-cmplx"
+  prompt="Interpret Hₙ as a functor Cmplx → Grp."
+  solution="Send each chain complex A• to its group Hₙ(A•), and send each chain map f: A• → B• to the induced map f∗: Hₙ(A•) → Hₙ(B•) constructed above (well-defined since f sends cycles to cycles and boundaries to boundaries, so it descends to the quotient Zₙ/Bₙ). Functoriality is immediate: the identity chain map induces the identity on Hₙ, and (g∘f)∗ = g∗∘f∗ because everything is computed levelwise on representatives before passing to the quotient."
+/>
+
+</SlideLayout>

@@ -1,0 +1,25 @@
+---
+title: Homology as a functor on pairs
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homology as a functor on pairs">
+
+Running the same prism-operator argument used for ordinary homotopy invariance (just applied one dimension up, to pairs) gives:
+
+<Callout kind="lemma" title="Induced maps of relative homology">
+$H_n$ is a <Term k="ear72Functor">functor</Term>
+$$
+H_n \colon \catname{hPairTop} \to \catname{Grp}.
+$$
+</Callout>
+
+Spelled out: a map of pairs $f \colon (X,A) \to (Y,B)$ induces a group homomorphism
+$$
+f_\ast \colon H_n(X,A) \to H_n(Y,B),
+$$
+and if $f, g \colon (X,A) \to (Y,B)$ are pair-homotopic, then $f_\ast = g_\ast$ — pair-homotopic maps induce identical maps on relative homology. This is exactly what lets us replace a geometric argument (deforming a map of pairs) with an algebraic one (comparing induced homomorphisms).
+
+</SlideLayout>

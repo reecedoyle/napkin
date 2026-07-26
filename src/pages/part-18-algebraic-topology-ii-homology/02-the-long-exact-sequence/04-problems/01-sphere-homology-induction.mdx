@@ -1,0 +1,20 @@
+---
+title: "Problem: sphere homology for all m and n"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: sphere homology for all m and n">
+
+We only spoiled the case $m = 1$ of the sphere homology theorem in the text. Time to finish the job.
+
+<Problem
+  client:load
+  id="tle71-prob-sphere-induction"
+  difficulty="standard"
+  prompt="Complete the proof that H̃_n(S^m) is ℤ for n = m and 0 otherwise, for every integer m ≥ 0. (Try doing m = 2 first, and you'll see how to proceed for general m.)"
+  hint="Induct on m, splitting S^m into two open hemispheres U and V (each slightly overlapping the equator). Each hemisphere is contractible, and U ∩ V deformation retracts onto the equator S^{m-1}."
+  solution="Base case m = 0: S^0 is two points, so H̃_n(S^0) is ℤ for n = 0 and 0 otherwise (one of the two points is the 'extra' basepoint copy). Inductive step: write S^m = U ∪ V with U, V the two open hemispheres (each thickened slightly past the equator so they're open and their union is all of S^m). Each of U, V is contractible (a hemisphere deformation retracts to its center point), so all their reduced homology groups vanish. The intersection U ∩ V deformation retracts onto the equator, which is a copy of S^{m-1}. The Mayer-Vietoris sequence gives, for every n, a segment 0 = H̃_n(U) ⊕ H̃_n(V) → H̃_n(S^m) → H̃_{n-1}(U ∩ V) → H̃_{n-1}(U) ⊕ H̃_{n-1}(V) = 0, so the connecting map is an isomorphism H̃_n(S^m) ≅ H̃_{n-1}(S^{m-1}) for every n. By the inductive hypothesis H̃_{n-1}(S^{m-1}) is ℤ exactly when n-1 = m-1, i.e. n = m, and 0 otherwise. So H̃_n(S^m) has exactly the same description, completing the induction."
+/>
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: Two key points to take away
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Two key points to take away">
+
+There's a lot of unfamiliar notation in the last section, which might make you want to scream: *"I don't care if $\CP^2$ and $S^2 \vee S^4$ are distinct anymore! What are these spaces anyway?"*
+
+It's not as bad as it looks. Two things are worth reading off the theorem:
+
+<Callout kind="remark" title="Point 1 — cohomology can be nonzero even when homology vanishes">
+Even if $H_n(A_\bullet) = 0$, it's still possible for $H^n(A_\bullet;G) \neq 0$, as long as $\Ext(H_{n-1}(A_\bullet), G) \neq 0$. We'll visualize exactly why in the next section, using the Klein bottle.
+</Callout>
+
+<Callout kind="remark" title="Point 2 — Hⁿ only depends on Hₙ, not on A_bullet itself">
+$H^n(A_\bullet; G)$ is uniquely determined by $H_n(A_\bullet)$ and $G$ — regardless of what $A_\bullet$ actually is, as long as every $A_n$ is free.
+</Callout>
+
+Point 2 is the more surprising one: it means we're free to swap in *any* convenient free chain complex with the right homology, and get the same cohomology answer.
+
+</SlideLayout>

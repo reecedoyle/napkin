@@ -1,0 +1,22 @@
+---
+title: The augmented chain complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The augmented chain complex">
+
+We close the chapter with a few more chain complexes built out of the singular one — useful bookkeeping devices we'll lean on repeatedly. First up: tidying away the special role $n=0$ keeps playing.
+
+<Callout kind="definition" title="Augmented singular chain complex">
+Suppose $X$ is a nonempty space. The <Term k="sh70AugmentedComplex">augmented singular chain complex</Term> $\wt C_\bullet(X)$ is
+$$
+\dots \to C_1(X) \to C_0(X) \taking{\eps} \ZZ \to 0,
+$$
+where $\eps\left( \sum_i n_i p_i \right) = \sum_i n_i$ for points $p_i \in X$ (recall a $0$-chain is just a formal sum of points).
+</Callout>
+
+At first glance $\eps$ looks like a random bolt-on. But it's actually forced on us if we push the simplex definitions one dimension further back — which is what the next slide does.
+
+</SlideLayout>

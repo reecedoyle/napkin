@@ -1,0 +1,48 @@
+---
+title: Exactness and short exact sequences
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Exactness and short exact sequences">
+
+So far we can compute the homology groups of a <Term k="tle71ChainComplex">chain complex</Term> one space at a time, from scratch. That's slow. This chapter introduces the single algebraic fact that turns homology into something you can actually *compute with*: the long exact sequence. It lets you deduce the homology of a complicated space from the homology of simpler pieces.
+
+Everything rests on one idea from group theory, restated in homology language.
+
+<Callout kind="definition" title="Exact sequence">
+A sequence of group homomorphisms $\dots \to G_{n+1} \to G_n \to G_{n-1} \to \dots$ is <Term k="tle71Exact">exact</Term> if the image of every arrow equals the kernel of the next arrow.
+</Callout>
+
+Two special cases are worth memorizing, since they'll recur constantly:
+
+- $0 \to A \to B$ is exact if and only if $A \to B$ is injective (the kernel of $A \to B$ must equal the image of $0 \to A$, which is just $\{0\}$).
+- $A \to B \to 0$ is exact if and only if $A \to B$ is surjective (the image of $A \to B$ must equal the kernel of $B \to 0$, which is all of $B$).
+
+Now recall that a <Term k="tle71Homology">homology group</Term> $H_n(C_\bullet)$ is <Term k="tle71Cycle">cycles</Term> modulo <Term k="tle71Boundary">boundaries</Term> — it measures the failure of a chain complex to be exact at spot $n$. So a chain complex whose homology groups are *all* trivial is exactly one that is exact all the way along, in the sense above.
+
+<MCQ
+  client:load
+  id="tle71-s1-mcq-exact-complex"
+  prompt="What do you call a chain complex whose homology groups are all trivial?"
+  options={[
+    { id: "a", label: "Exact" },
+    { id: "b", label: "Split" },
+    { id: "c", label: "Free" },
+    { id: "d", label: "Augmented" },
+  ]}
+  correct="a"
+  explanation="A chain complex has H_n = 0 for every n exactly when the image of each boundary map equals the kernel of the next — which is the definition of an exact sequence. Napkin calls such a complex exact."
+/>
+
+The workhorse shape for this chapter is a sequence with exactly three nonzero terms:
+
+<Callout kind="definition" title="Short exact sequence">
+A <Term k="tle71ShortExact">short exact sequence</Term> is an exact sequence of the form $0 \to A \injto B \surjto C \to 0$.
+</Callout>
+
+Unpacking the definition: $A \to B$ is injective, $B \to C$ is surjective, and $\img(A \to B) = \ker(B \to C)$. Every short exact sequence you'll meet in this chapter is secretly saying "$C$ is what's left of $B$ once you collapse the copy of $A$ inside it" — i.e. $C \cong B/A$.
+
+</SlideLayout>

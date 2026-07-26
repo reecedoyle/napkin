@@ -1,0 +1,25 @@
+---
+title: Relative homology generalizes absolute homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Relative homology generalizes absolute homology">
+
+Two special cases of the previous lemma (and one degenerate case beyond it) are worth isolating, since we'll use them constantly.
+
+<Callout kind="lemma" title="Relative homology generalizes absolute homology">
+Let $X$ be any space and $\ast \in X$ a point. Then for all $n$,
+$$
+H_n(X, \{\ast\}) \cong \wt{H}_n(X)
+\qquad\text{and}\qquad
+H_n(X, \varnothing) = H_n(X).
+$$
+</Callout>
+
+The first equation is just the contractible-subspace lemma applied to $A = \{\ast\}$ — a single point is trivially contractible. The second is not really a theorem at all: with $A = \varnothing$, the relative chain complex $C_n(X,A) = C_n(X)/C_n(\varnothing) = C_n(X)/0$ is literally the same complex as $C_n(X)$, so the two homologies are equal on the nose, not just isomorphic.
+
+Together these say relative homology $H_n(X,A)$ is a common generalization of both ordinary homology $H_n(X)$ (take $A = \varnothing$) and reduced homology $\wt{H}_n(X)$ (take $A$ to be a single point).
+
+</SlideLayout>

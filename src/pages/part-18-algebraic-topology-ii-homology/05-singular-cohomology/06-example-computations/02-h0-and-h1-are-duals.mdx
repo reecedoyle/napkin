@@ -1,0 +1,20 @@
+---
+title: H⁰ and H¹ are always just duals
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="H⁰ and H¹ are always just duals">
+
+Both examples on the last slide had $H^0 \cong \Hom(H_0,-)$ and $H^1 \cong \Hom(H_1,-)$ with no $\Ext$ correction. That's not a coincidence — it always happens in these two lowest degrees.
+
+<Callout kind="lemma" title="0th and 1st cohomology groups are just duals">
+For $n = 0$ and $n = 1$, <Term k="sc74H0H1Duals">$H^n(X;G) \cong \Hom(H_n(X), G)$</Term> — with no $\Ext$ term, for *every* space $X$.
+</Callout>
+
+The proof is short: for $n=0$ we already saw this (the $\Ext$ term involves $H_{-1}$, which is $0$ by convention, and $\Ext(0,G)=0$). For $n=1$: the $\Ext$ term involves $H_0(X)$, and $H_0(X)$ is *always free* (it's a direct sum of copies of $\ZZ$, one per path component) — so $\Ext(H_0(X), G) = 0$ by part (b) of the Ext lemma.
+
+The first place an $\Ext$ term can possibly survive is $n = 2$, since that's the first degree whose correction term $\Ext(H_{n-1}(X),G) = \Ext(H_1(X),G)$ involves a homology group ($H_1$) that need not be free. We'll see this happen next, with the Klein bottle.
+
+</SlideLayout>

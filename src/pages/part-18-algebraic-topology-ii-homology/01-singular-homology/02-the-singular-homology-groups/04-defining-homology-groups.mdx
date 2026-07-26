@@ -1,0 +1,23 @@
+---
+title: Defining the homology groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Defining the homology groups">
+
+Now for the main definition of the chapter.
+
+<Callout kind="definition" title="Homology group">
+The <Term k="sh70HomologyGroup">$n$th homology group</Term> $H_n(X)$ is defined as
+$$
+H_n(X) \defeq Z_n(X) / B_n(X).
+$$
+</Callout>
+
+In words: $H_n(X)$ is "cycles, modulo the ones that are boundaries." A nonzero element of $H_n(X)$ is a cycle that fails to bound anything — exactly the algebraic witness of an $n$-dimensional hole, generalizing what we saw with the annulus.
+
+Two cycles $c, c'$ represent the *same* element of $H_n(X)$ exactly when $c - c'$ is a boundary — we call this "$c$ and $c'$ are homologous." Everything about $H_n(X)$ is quotient-group bookkeeping once you have $Z_n(X)$ and $B_n(X)$ in hand.
+
+</SlideLayout>

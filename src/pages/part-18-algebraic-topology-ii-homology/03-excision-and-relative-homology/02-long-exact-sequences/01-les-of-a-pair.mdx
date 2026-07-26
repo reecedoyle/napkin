@@ -1,0 +1,25 @@
+---
+title: The long exact sequence of a pair
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The long exact sequence of a pair">
+
+The short exact sequence of chain complexes $0 \to C_n(A) \injto C_n(X) \surjto C_n(X,A) \to 0$ from the last section gives rise (by the standard machinery relating short exact sequences of complexes to long exact sequences on homology) to:
+
+<Callout kind="theorem" title="Long exact sequence of a pair">
+For $A \subseteq X$, there is a <Term k="ear72LongExactSequence">long exact sequence</Term>
+$$
+\dots \to H_n(A) \to H_n(X) \to H_n(X,A) \to H_{n-1}(A) \to \dots
+$$
+and a reduced version,
+$$
+\dots \to \wt{H}_n(A) \to \wt{H}_n(X) \to H_n(X,A) \to \wt{H}_{n-1}(A) \to \dots.
+$$
+</Callout>
+
+This is exactly the tool we used (informally) in the interval-mod-endpoints computation: knowing two of the three groups $H_n(A)$, $H_n(X)$, $H_n(X,A)$ (or that they vanish) frequently pins down the third by exactness.
+
+</SlideLayout>

@@ -1,0 +1,30 @@
+---
+title: Check your understanding — H⁰
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Check your understanding — H⁰">
+
+Let's test the picture from the last two slides.
+
+<MCQ
+  client:load
+  id="sc74-cohom-spaces-mcq-h0-five-components"
+  prompt="Let X be a space with exactly 5 path-connected components, and let G = ℤ. What is H⁰(X; ℤ)?"
+  options={[
+    { id: "a", label: "ℤ" },
+    { id: "b", label: "ℤ⁵ (five copies of ℤ)" },
+    { id: "c", label: "ℤ/5ℤ" },
+    { id: "d", label: "0" },
+  ]}
+  correct="b"
+  explanation="With finitely many (here 5) path components, H⁰(X;G) ≅ G^⊕r with r the number of components — one independent copy of G per component. So H⁰(X;ℤ) ≅ ℤ⁵."
+/>
+
+<Callout kind="remark">
+Notice this is *exactly* the analogous fact for $H_0$ — a genuinely new invariant hasn't shown up yet. The interesting divergence between $H_n$ and $H^n$ only starts once $\Ext$ enters the picture, in the universal coefficient theorem below.
+</Callout>
+
+</SlideLayout>

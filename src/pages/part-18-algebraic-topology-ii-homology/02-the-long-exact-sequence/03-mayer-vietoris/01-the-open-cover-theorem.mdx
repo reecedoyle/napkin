@@ -1,0 +1,25 @@
+---
+title: The open cover theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The open cover theorem">
+
+We've done a lot of algebra; time to bring in some geometry. There are two major geometric inputs used throughout this part of the Napkin — the excision theorem (next chapter) and the one below, which unlocks the Mayer–Vietoris sequence. Both proofs are involved enough that we omit them and just use the statements (see Hatcher for the full argument). As a preview of what they're for: this section's prototype application is computing $H_n(S^m)$ by splitting the sphere into two hemispheres.
+
+The awkward term in our provisional Mayer–Vietoris sequence was $H_n(U+V)$ — homology of chains subordinate to the cover. It turns out this is redundant:
+
+<Callout kind="theorem" title="Open cover homology theorem">
+Consider the inclusion $\iota \colon C_\bullet(U+V) \injto C_\bullet(X)$. Then $\iota$ induces an isomorphism
+$$
+H_n(U+V) \cong H_n(X).
+$$
+</Callout>
+
+<Callout kind="remark">
+This holds for *any* open cover of $X$ (even an uncountable one), not just a cover by two sets. We only state the two-set case here because that's what the Mayer–Vietoris short exact sequence needs.
+</Callout>
+
+</SlideLayout>

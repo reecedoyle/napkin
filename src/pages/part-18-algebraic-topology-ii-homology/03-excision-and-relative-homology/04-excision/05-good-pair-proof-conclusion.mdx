@@ -1,0 +1,20 @@
+---
+title: Assembling the isomorphism
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Assembling the isomorphism">
+
+Putting the pieces from the last slide together completes the proof.
+
+<Callout kind="remark" title="Assembling the four isomorphisms">
+Write $f \colon H_n(X,A) \to H_n(X,V)$ and $g \colon H_n(X/A,A/A) \to H_n(X/A,V/A)$ for the maps coming from the long exact sequence of the triple. Because $r \colon (V,A) \to (A,A)$ is a pair-homotopy equivalence and $H_n(A,A) = H_{n-1}(A,A) = 0$, the triple long exact sequence forces both $f$ and (by the identical argument applied to the quotient) $g$ to be isomorphisms.
+
+Now compare $H_n(X,A) \xrightarrow{f} H_n(X,V) \xleftarrow{\text{excise}} H_n(X-A,V-A)$ with the matching diagram one level down at $X/A$. The rightmost group $H_n(X-A,V-A)$ maps isomorphically to $H_n(X/A - A/A,\, V/A - A/A)$, since outside of $A$ the quotient map is the identity. Since $f$, $g$, and both excision maps are isomorphisms, chasing the resulting commutative square shows the map $q_\ast \colon H_n(X,A) \to H_n(X/A,A/A)$ induced by the quotient map must be an isomorphism too.
+</Callout>
+
+Finally, $H_n(X/A, A/A) \cong \wt{H}_n(X/A)$ by the "relative homology relative to a point" lemma from §2 — since $A/A$ is a single point. That completes the chain $H_n(X,A) \cong H_n(X/A, A/A) \cong \wt{H}_n(X/A)$.
+
+</SlideLayout>

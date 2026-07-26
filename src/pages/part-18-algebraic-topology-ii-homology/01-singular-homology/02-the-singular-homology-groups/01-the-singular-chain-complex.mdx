@@ -1,0 +1,22 @@
+---
+title: The singular chain complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The singular chain complex">
+
+Let $X$ be a topological space, and let $C_n(X)$ be the free abelian group of $n$-chains of $X$ — exactly the object we built in the last section.
+
+<Callout kind="definition" title="Singular chain complex">
+The <Term k="sh70BoundaryOperator">boundary operator</Term> $\partial$ gives us a sequence of maps
+$$
+\dots \taking{\partial} C_3(X) \taking{\partial} C_2(X) \taking{\partial} C_1(X) \taking{\partial} C_0(X) \taking{\partial} 0,
+$$
+(writing $0$ for the trivial group, standard notation for abelian groups). We call this the <Term k="sh70SingularChainComplex">singular chain complex</Term> of $X$.
+</Callout>
+
+We already know $\partial \circ \partial = 0$ everywhere along this sequence. The whole rest of this chapter is about squeezing topological information out of that one algebraic fact.
+
+</SlideLayout>

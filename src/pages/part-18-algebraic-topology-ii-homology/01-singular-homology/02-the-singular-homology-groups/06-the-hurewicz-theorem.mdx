@@ -1,0 +1,24 @@
+---
+title: The Hurewicz theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Hurewicz theorem">
+
+Now let's connect $H_1$ back to the fundamental group $\pi_1$ we already know.
+
+<Callout kind="theorem" title="Hurewicz theorem">
+Let $X$ be path-connected. Then $H_1(X)$ is the <Term k="sh70Abelianization">abelianization</Term> of $\pi_1(X, x_0)$.
+</Callout>
+
+We won't prove this, but it's believable from what we already know: a cycle in $Z_1(X)$ is the same kind of object as a loop we studied in $\pi_1(X, x_0)$, and the boundaries in $B_1(X)$ (the things we mod out by) are exactly the nulhomotopic loops. The difference is that $H_1(X)$ lets loops commute, while $\pi_1(X, x_0)$ does not — that's the *only* extra thing we're quotienting by to pass from one to the other.
+
+This is about the best result one could hope for: $H_1(X)$ must be abelian, while $\pi_1(X, x_0)$ need not be. It's still possible for $\pi_1(X, x_0)$ to be nontrivial while $H_1(X)$ is trivial — abelianization can collapse a nonabelian group all the way to the trivial group.
+
+<Callout kind="remark" title="Two different notions of hole">
+Homotopy and homology detect slightly different things. For a torus $T$, every map $S^2 \to T$ is nulhomotopic, so $\pi_2(T)$ is trivial — but $H_2(T) \cong \ZZ$, as we'll see later this chapter. Homology is picking up a cavity that homotopy groups in low degree miss.
+</Callout>
+
+</SlideLayout>

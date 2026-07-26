@@ -1,0 +1,25 @@
+---
+title: The excision theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The excision theorem">
+
+Here is the key geometric input for this chapter — the analog, for relative homology, of the fact that $H_n(U+V) \cong H_n(X)$ used in Mayer–Vietoris.
+
+<Callout kind="theorem" title="Excision">
+Let $Z \subseteq A \subseteq X$ be subspaces such that the closure of $Z$ is contained in the <Term k="ear72Interior">interior</Term> of $A$. Then the inclusion
+$$
+\iota \colon (X \setminus Z,\, A \setminus Z) \injto (X,A)
+$$
+(viewed as a map of pairs) induces an isomorphism of relative homology groups
+$$
+H_n(X \setminus Z, A \setminus Z) \cong H_n(X,A).
+$$
+</Callout>
+
+We call this <Term k="ear72Excision">excision</Term>: we've "excised" (deleted) the subset $Z$ from both $X$ and $A$, and the relative homology groups didn't notice. This matches the intuition that since we're already modding out by all of $A$, the internal structure of $A$ — including whatever sits well inside it — shouldn't matter.
+
+</SlideLayout>

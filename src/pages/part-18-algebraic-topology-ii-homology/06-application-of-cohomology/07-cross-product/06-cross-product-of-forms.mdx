@@ -1,0 +1,29 @@
+---
+title: The cross product of differential forms
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cross product of differential forms">
+
+The same idea works for differential forms too — and it turns out to give a clean way of *defining* the wedge product, rather than the other way around.
+
+<Callout kind="example" title="Cross products of forms">
+- If $X$ is the $x$-axis and $Y$ is the $y$-axis, then $dx \times 2dy = 2(dx\wedge dy)$: $dx$ assigns $1$ to $\ee{1}$ and $2dy$ assigns $2$ to $\ee{2}$, so their cross product assigns $1 \cdot 2 = 2$ to the unit square spanned by $\ee{1}, \ee{2}$ — that is, to $\ee{1} \wedge \ee{2}$.
+- If $X$ is the $xy$-plane and $Y$ is the $z$-axis, consider $dx \times dz$. We need $(dx\times dz)(\ee{1}\wedge\ee{3}) = 1$ and $(dx\times dz)(\ee{2}\wedge\ee{3})=0$ — but that alone doesn't pin down the value on $\ee{1} \wedge \ee{2}$. We simply declare $(dx\times dz)(\ee{1}\wedge\ee{2}) = 0$. With that convention, $dx \times dz = dx \wedge dz$.
+</Callout>
+
+More generally, you can define a cross product by picking a basis for $X$ and $Y$ and specifying the values on basis elements, exactly as above. This lets us go the other direction and define $\wedge$ *from* $\times$:
+
+<Callout kind="definition" title="Wedge product via the cross product">
+For a real vector space $X$, let $\alpha \in \left(\bigwedge^m(X)\right)^\vee$ and $\beta \in \left(\bigwedge^n(X)\right)^\vee$. Define
+$$
+\alpha \wedge \beta = \Delta^*(\alpha \times \beta),
+$$
+where $\Delta \colon X \to X\times X$, $\Delta(x) = (x,x)$ is the diagonal map, and $\Delta^*$ is the <Term k="pullback">pullback</Term>.
+</Callout>
+
+In words: to evaluate $\alpha \wedge \beta$ on an $(m+n)$-wedge in $X$, push it into $X \times X$ via the diagonal map, and hand it to $\alpha \times \beta$.
+
+</SlideLayout>

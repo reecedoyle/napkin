@@ -1,0 +1,18 @@
+---
+title: A symmetry worth flagging
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A symmetry worth flagging">
+
+The symmetric pattern of Betti numbers we just saw — $b_k = b_{n-k}$ for these "nice" $n$-dimensional spaces — is not a coincidence of the examples we happened to pick. It holds much more generally for closed, orientable $n$-manifolds, and is one of the most useful facts in the subject: **Poincaré duality**.
+
+We won't prove Poincaré duality in this chapter (it needs more machinery than cellular homology alone), but keep the pattern in mind — you'll recognize it again.
+
+<Callout kind="remark" title="Where this is headed">
+Every space we computed Betti numbers for above — $S^n$, the <Term k="bch73Torus">torus</Term>, $\CP^n$ — is a closed orientable manifold, which is exactly the setting where Poincaré duality applies. The Klein bottle, notably, is *not* orientable, and its Betti numbers ($b_0=1$, $b_1=1$, $b_2=0$) do **not** satisfy $b_k = b_{2-k}$ (we'd need $b_2 = b_0 = 1$, but $b_2 = 0$) — a hint that orientability is doing real work here.
+</Callout>
+
+</SlideLayout>

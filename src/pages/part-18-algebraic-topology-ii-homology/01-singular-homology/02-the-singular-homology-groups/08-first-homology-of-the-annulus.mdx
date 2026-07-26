@@ -1,0 +1,21 @@
+---
+title: The first homology group of the annulus
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The first homology group of the annulus">
+
+Let's return to the annulus $X$ from before, with the $1$-chain $c$ that wrapped once around the hole.
+
+<Callout kind="example" title="H₁ of the annulus">
+It turns out that
+$$
+H_1(X) = \langle c \rangle \cong \ZZ,
+$$
+meaning the chains $c, 2c, 3c, \dots$ are all genuinely *different* elements of $H_1(X)$ — wrapping around twice is not homologous to wrapping around once — but every other $1$-chain in $X$ is homologous to some multiple of $c$.
+</Callout>
+
+This matches our intuition perfectly: the annulus deformation-retracts onto a circle, and this computation is really just capturing the fact that $X$ is "really just" $S^1$. Winding number, recovered algebraically.
+
+</SlideLayout>

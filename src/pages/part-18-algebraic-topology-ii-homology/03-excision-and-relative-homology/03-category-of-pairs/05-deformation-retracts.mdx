@@ -1,0 +1,22 @@
+---
+title: Deformation retracts — the analog of contractible
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Deformation retracts — the analog of contractible">
+
+For ordinary spaces, "contractible" meant homotopy equivalent to a point — and gave vanishing reduced homology. We want the analog for pairs: pairs $(X,A)$ with $H_n(X,A) = 0$ for all $n$.
+
+<Callout kind="definition" title="Deformation retract">
+Let $A \subseteq X$. We say $A$ is a <Term k="ear72DeformationRetract">deformation retract</Term> of $X$ if there is a map of pairs $r \colon (X,A) \to (A,A)$ that is a pair-homotopy equivalence.
+</Callout>
+
+Informally: you can continuously squash all of $X$ down onto $A$, never moving any point that was already in $A$. When this holds,
+$$
+H_n(X,A) \cong H_n(A,A) = 0
+$$
+for every $n$ — we already showed $H_n$ of any pair $(Z,Z)$ vanishes, and $r$ being a pair-homotopy equivalence means it induces an isomorphism on relative homology.
+
+</SlideLayout>

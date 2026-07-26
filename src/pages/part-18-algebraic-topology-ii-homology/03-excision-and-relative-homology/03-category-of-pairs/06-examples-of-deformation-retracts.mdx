@@ -1,0 +1,35 @@
+---
+title: Examples of deformation retracts
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Examples of deformation retracts">
+
+<Callout kind="example" title="Examples of deformation retracts">
+(a) If a single point $p$ is a deformation retract of $X$, then $X$ is <Term k="ear72Contractible">contractible</Term>: the retraction $r \colon X \to \{p\}$, viewed as a map $X \to X$, is homotopic to $\id_X$.
+
+(b) The punctured disk $D^2 \setminus \{0\}$ deformation retracts onto its boundary $S^1$.
+
+(c) More generally, $D^n \setminus \{0\}$ deformation retracts onto its boundary $S^{n-1}$.
+
+(d) Similarly, $\RR^n \setminus \{0\}$ deformation retracts onto a sphere $S^{n-1}$.
+</Callout>
+
+<MCQ
+  client:load
+  id="ear72-pairs-mcq-deformation-retract-example"
+  prompt="Which of the following is a deformation retract of the punctured plane ℝ² \ {0}?"
+  options={[
+    { id: "a", label: "The unit circle S¹" },
+    { id: "b", label: "A single point" },
+    { id: "c", label: "The whole plane ℝ²" },
+    { id: "d", label: "The empty set" },
+  ]}
+  correct="a"
+  explanation="ℝ² \ {0} deformation retracts radially onto the unit circle S¹: push every point outward or inward along its ray from the origin until it lands on S¹. A single point would make ℝ² \ {0} contractible, which it isn't (it has nontrivial H₁); ℝ² itself and ∅ aren't even subspaces that could serve as a deformation retract here in the relevant sense."
+/>
+
+</SlideLayout>

@@ -1,0 +1,18 @@
+---
+title: 'Problem — homology of ℂPⁿ'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — homology of ℂPⁿ">
+
+<Problem
+  client:load
+  id="bch73-problems-daggered-cpn-homology"
+  difficulty="daggered"
+  prompt="Let n be a positive integer. Show that H_k(ℂPⁿ) ≅ ℤ for k = 0, 2, 4, …, 2n, and H_k(ℂPⁿ) = 0 otherwise."
+  hint="ℂPⁿ has a CW structure with exactly one cell in each even dimension 0, 2, …, 2n and no cells in odd dimensions, so no two cells sit in adjacent dimensions."
+  solution="ℂPⁿ has one k-cell only for k = 0, 2, 4, …, 2n, and none in odd dimensions. So the cellular chain group Cells_k(ℂPⁿ) is ℤ when k is even and 0 ≤ k ≤ 2n, and 0 otherwise — meaning no two consecutive cellular chain groups are both nonzero. Every differential d_k: Cells_k → Cells_{k-1} therefore has either a zero source or a zero target, so every d_k = 0. With all differentials zero, each homology group of the cellular chain complex equals the chain group itself: H_k(cellular complex) = Cells_k(ℂPⁿ), which is ℤ for k = 0, 2, …, 2n and 0 otherwise. Since cellular homology computes singular homology, H_k(ℂPⁿ) ≅ ℤ for even 0 ≤ k ≤ 2n and 0 otherwise."
+/>
+
+</SlideLayout>

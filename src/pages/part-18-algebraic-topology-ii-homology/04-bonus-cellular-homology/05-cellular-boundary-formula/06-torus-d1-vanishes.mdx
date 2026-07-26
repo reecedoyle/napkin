@@ -1,0 +1,24 @@
+---
+title: 'Torus: the chain complex and d_1'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Torus: the chain complex and d_1">
+
+With one $0$-cell, two $1$-cells, and one $2$-cell, the cellular chain complex is
+$$
+0 \to \ZZ e^2 \xrightarrow{d_2} \ZZ e^1_a \oplus \ZZ e^1_b \xrightarrow{d_1} \ZZ e^0 \to 0.
+$$
+
+By the $k=1$ formula, $d_1(e^1)$ is the difference of the endpoints of $e^1$. But both $e^1_a$ and $e^1_b$ are *loops* — both endpoints are $e^0$ itself. So
+$$
+d_1(e^1_a) = e^0 - e^0 = 0, \qquad d_1(e^1_b) = e^0 - e^0 = 0,
+$$
+
+<Callout kind="remark" title="Conclusion so far">
+$d_1 = 0$ on the torus. Every $1$-chain is automatically a cycle.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,23 @@
+---
+title: Torus — setup and the easy degrees
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Torus — setup and the easy degrees">
+
+Represent the torus as a square with opposite edges identified. Let $U$ be a band around the middle (a cylinder), and let $V$ be the union of the two edge strips — which, once you remember the left and right edges are glued together, forms a *second* cylinder wrapping the other way. Then $U \cup V = X$, and each of $U, V$ is homotopy equivalent to $S^1$.
+
+The intersection $U \cap V$ is two disjoint circles (the two dashed seams), so
+$$
+\wt H_1(U \cap V) \cong \ZZ \oplus \ZZ, \qquad \wt H_0(U \cap V) \cong \ZZ.
+$$
+
+For $n \ge 3$, both $\wt H_n(U \cap V)$ and $\wt H_{n-1}(U \cap V)$ vanish (a disjoint union of circles has no homology above degree $1$), so the Mayer–Vietoris sequence
+$$
+\dots \to \underbrace{\wt H_n(U \cap V)}_{=0} \to \wt H_n(U) \oplus \wt H_n(V) \to \wt H_n(X) \to \underbrace{\wt H_{n-1}(U \cap V)}_{=0} \to \dots
+$$
+sandwiches $\wt H_n(X)$ between two zeros, so $H_n(X) \cong 0$ for $n \ge 3$. Also $H_0(X) \cong \ZZ$, since the torus is path-connected. That leaves exactly two groups to pin down: $H_2(X)$ and $H_1(X)$.
+
+</SlideLayout>

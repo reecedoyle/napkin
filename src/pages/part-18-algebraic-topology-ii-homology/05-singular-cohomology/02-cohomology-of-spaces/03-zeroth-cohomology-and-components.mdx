@@ -1,0 +1,26 @@
+---
+title: H⁰ counts path components — with a twist
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="H⁰ counts path components — with a twist">
+
+Just as with $H_0(X)$, we get:
+
+<Callout kind="theorem" title="H⁰ of a space with finitely many components">
+If $X$ has $r$ path-connected components, then <Term k="sc74H0Constant">$H^0(X) \cong G^{\oplus r}$</Term> — one independent copy of $G$ per component, recording the constant value assigned there.
+</Callout>
+
+Here's the twist, and it's the *first* hint that cohomology isn't a carbon copy of homology. Suppose $X = \coprod_\alpha X_\alpha$ has **infinitely many** path components, indexed by some infinite set. Then:
+
+$$
+H_0(X) = \bigoplus_\alpha G \qquad \text{while} \qquad H^0(X) = \prod_\alpha G.
+$$
+
+Homology gives a **direct sum**; cohomology gives a **direct product**. These genuinely differ for infinite index sets — a direct sum only allows finitely many nonzero terms, while a product allows all of them to be nonzero.
+
+The reason traces straight back to the definitions: $C_0(X)$ is built from *formal sums* (always finite, by convention), so $H_0$ inherits that finiteness. But a cochain in $C^0(X)$ is a *function* from each component to $G$ — with no restriction on how many components get a nonzero value.
+
+</SlideLayout>

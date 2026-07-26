@@ -1,0 +1,25 @@
+---
+title: Local homology groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Local homology groups">
+
+Excision has one more striking application: detecting local structure of a space around a single point.
+
+<Callout kind="definition" title="Local homology group">
+Let $X$ be a space and $p \in X$ a point. The $k$-th <Term k="ear72LocalHomologyGroup">local homology group</Term> of $p$ in $X$ is
+$$
+H_k(X, X \setminus \{p\}).
+$$
+</Callout>
+
+For any open neighborhood $U$ of $p$, excision (with $Z = X \setminus U$) gives
+$$
+H_k(X, X \setminus \{p\}) \cong H_k(U, U \setminus \{p\}).
+$$
+So the local homology group only depends on an arbitrarily small neighborhood of $p$ — it's a genuinely *local* invariant, even though it's built using all of $X$.
+
+</SlideLayout>

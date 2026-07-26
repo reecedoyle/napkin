@@ -1,0 +1,32 @@
+---
+title: Symmetric Betti numbers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Symmetric Betti numbers">
+
+Recall the <Term k="aoc75BettiNumber">Betti number</Term> $b_k$ of a space is the rank of $H_k$ (informally, the number of independent $k$-dimensional holes, ignoring torsion). Poincaré duality forces these to be symmetric.
+
+<Callout kind="corollary" title="Symmetry of Betti numbers">
+Let $M$ be a smooth oriented compact $n$-manifold, and let $b_k$ denote its Betti number. Then
+$$
+b_k = b_{n-k}.
+$$
+</Callout>
+
+This matches our warm-up: the torus ($n=2$) had ranks $1, 2, 1$, and $S^2$ ($n=2$) had ranks $1, 0, 1$ — both symmetric about the middle. The proof combines Poincaré duality with the universal coefficient theorem (which relates the *rank* of $H^k(M;\ZZ)$ to the rank of $H_k(M)$); we leave the full argument as a problem at the end of the chapter.
+
+Since the corollary pins down $b_{n-k}$ once you know $b_k$, a single Betti number close to the "top" of the space tells you one near the bottom for free.
+
+<NumericInput
+  client:load
+  id="aoc75-pd-num-betti-symmetry"
+  prompt="Let M be a smooth oriented compact 4-manifold with b_1(M) = 3. By the symmetry of Betti numbers, what is b_3(M)?"
+  expected="3"
+  explanation="Symmetry gives b_k = b_{n-k} with n = 4, so b_3 = b_{4-3} = b_1 = 3."
+/>
+
+</SlideLayout>

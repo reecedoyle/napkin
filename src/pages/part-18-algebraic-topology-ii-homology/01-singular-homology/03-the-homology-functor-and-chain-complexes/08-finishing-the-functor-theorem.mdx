@@ -1,0 +1,26 @@
+---
+title: Finishing the functor theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Finishing the functor theorem">
+
+The whole point of the prism operator is that it satisfies exactly the chain homotopy identity we need.
+
+<Callout kind="theorem" title="The prism identity">
+For every singular simplex $\sigma$,
+$$
+\partial_Y(P_n(\sigma)) = g(\sigma) - f(\sigma) - P_{n-1}(\partial_X \sigma).
+$$
+</Callout>
+
+Reading the identity geometrically: $\partial_Y \circ P_n$ is the boundary of the whole prism. That boundary consists of the top face $g(\sigma)$, the bottom face $f(\sigma)$, and the "sides" traced out by the homotopy along $\partial_X \sigma$ — with the internal diagonal faces cancelling out, exactly as promised. Rearranging the identity into the chain-homotopy shape from before,
+$$
+g(\sigma) - f(\sigma) = \partial_Y(P_n(\sigma)) + P_{n-1}(\partial_X \sigma),
+$$
+we recognize this as *precisely* the chain homotopy equation $g_n - f_n = \partial_B \circ P_n + P_{n-1} \circ \partial_A$, with $A_\bullet = C_\bullet(X)$ and $B_\bullet = C_\bullet(Y)$. One can verify the identity itself by writing down the $\sum$ signs on both sides and checking the terms match — routine but not enlightening, so we won't reproduce it here.
+
+So: homotopic maps $f, g \colon X \to Y$ induce chain homotopic maps on singular chains, hence (by the algebra proposition from before) the *same* map on homology, $f_\ast = g_\ast \colon H_n(X) \to H_n(Y)$. Combined with the chain map construction from two slides ago, this completes the proof that $H_n$ is a well-defined functor $\mathrm{hTop} \to \mathrm{Ab}$ for every $n$ — exactly the theorem we set out to prove.
+
+</SlideLayout>

@@ -1,0 +1,17 @@
+---
+title: The other extreme, and putting it together
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The other extreme, and putting it together">
+
+Now the complementary extreme case: suppose instead $H_k = 0$ for every $k$ except $H_n \neq 0$. Then $H^n \cong \Hom(H_n, G)$ — no $\Ext$ term shows up at all, because there's no $H_{n-1}$ around to feed it.
+
+<Callout kind="remark" title="The general case is just the sum of the two extremes">
+The universal coefficient theorem says exactly this: the choice of free resolution (equivalently, the choice of $A_\bullet$) doesn't matter, and when *both* $H_{n-1}$ and $H_n$ can be nonzero, $H^n$ is the direct sum of the two extreme-case answers above — one $\Ext$ term contributed by $H_{n-1}$, one $\Hom$ term contributed by $H_n$.
+</Callout>
+
+If you're curious, the fact that the choice of free resolution never matters is provable from scratch — it boils down to constructing maps between any two free resolutions (not hard, since the groups are free: you can send basis elements wherever you like and ensure the diagram commutes) and then showing any two such choices are chain homotopic. We won't need the details; the two extreme cases above already tell us everything about where the formula comes from.
+
+</SlideLayout>

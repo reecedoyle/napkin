@@ -1,0 +1,24 @@
+---
+title: The generator of the circle's homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The generator of the circle's homology">
+
+It's worth tracing through *which* cycle generates $\wt H_1(S^1) \cong \ZZ$, since the connecting homomorphism $\partial$ built it for us via "left, down, left."
+
+Mark two points $a$ and $b$ in the two components of $U \cap V$. Then $a - b$ is a $0$-cycle representing the generator of $\wt H_0(U \cap V)$. Let $c$ be the arc from $a$ to $b$ contained in $U$, and $d$ the arc from $a$ to $b$ contained in $V$. Running the "left, down, left" recipe backwards from $a - b$:
+
+- **Left** (lift through $U_1 \oplus V_1 \to (U+V)_1$): the pair $(c, d)$ maps to $c - d$ in $C_1(U+V)$.
+- **Down** (apply $\partial \oplus \partial$): the boundary of $(c,d)$ is $(a-b, a-b)$.
+- **Left** (already sitting in $C_0(U \cap V)$): this is exactly $a - b$.
+
+So $\partial(c - d) = a - b$, meaning $c - d$ is a $1$-cycle generating $\wt H_1(S^1)$. Geometrically, $c - d$ is precisely the loop that goes around $S^1$ once counterclockwise — matching the "$n$-cell covering $S^n$ once" description from the theorem.
+
+<Callout kind="remark" title="Moral">
+Mayer–Vietoris lets us compute $H_n(X)$ by splitting $X$ into two open sets.
+</Callout>
+
+</SlideLayout>

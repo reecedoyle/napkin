@@ -1,0 +1,29 @@
+---
+title: Augmenting the Mayer–Vietoris sequence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Augmenting the Mayer–Vietoris sequence">
+
+Recall that <Term k="tle71ReducedHomology">reduced homology</Term> comes from <Term k="tle71Augmented">augmenting</Term> a chain complex — tacking on an extra $\ZZ$ in degree $-1$ via the map $\eps \colon C_0 \to \ZZ$ that sends every $0$-simplex to $1$.
+
+We can augment all three complexes in the Mayer–Vietoris sequence at once, since the augmentation maps commute with everything already in sight:
+
+$$
+0 \to \ZZ \to \ZZ \oplus \ZZ \to \ZZ \to 0
+$$
+
+sits underneath $0 \to C_0(U \cap V) \to C_0(U) \oplus C_0(V) \to C_0(U+V) \to 0$, compatibly with each $\eps$.
+
+<Callout kind="example" title="Augmented Mayer–Vietoris sequence">
+Appending this extra row to the bottom of the Mayer–Vietoris short exact sequence gives another short exact sequence of chain complexes:
+$$
+0 \to \wt C_\bullet(U \cap V) \injto \wt C_\bullet(U) \oplus \wt C_\bullet(V) \surjto \wt C_\bullet(U+V) \to 0.
+$$
+</Callout>
+
+We'll want both the plain and augmented versions on hand — the plain one gives ordinary homology, the augmented one gives reduced homology, and reduced homology is usually the cleaner bookkeeping device.
+
+</SlideLayout>

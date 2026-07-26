@@ -1,0 +1,22 @@
+---
+title: The Euler characteristic, cell-counting version
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Euler characteristic, cell-counting version">
+
+A nice application of cellular chains: defining the Euler characteristic of a finite CW complex.
+
+<Callout kind="definition" title="Euler characteristic (cell count)">
+For a finite CW complex <Term k="bch73EulerCharacteristic">$X$</Term>,
+$$
+\chi(X) = \sum_n (-1)^n \cdot \#(n\text{-cells of } X),
+$$
+generalizing the familiar $V - E + F$ formula for polyhedra ($0$-cells $-$ $1$-cells $+$ $2$-cells).
+</Callout>
+
+There's an obvious problem with this definition: it's phrased purely in terms of a *choice* of CW structure on $X$. Different CW structures on the same space could, in principle, give different cell counts and hence different $\chi(X)$ — but we want $\chi(X)$ to be a genuine invariant of the space, not an artifact of how we built it.
+
+</SlideLayout>

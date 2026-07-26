@@ -1,0 +1,30 @@
+---
+title: Proof of invariance of dimension
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Proof of invariance of dimension">
+
+The proof pins down the local homology groups of $\RR^n$ exactly, then compares.
+
+<Callout kind="remark" title="Proof">
+Fix $x \in U$. By excision (using the local homology group fact from the previous slide),
+$$
+H_k(\RR^n, \RR^n \setminus \{x\}) \cong H_k(U, U \setminus \{x\}).
+$$
+Since $S^{n-1}$ is a <Term k="ear72DeformationRetract">deformation retract</Term> of $\RR^n \setminus \{x\}$ (§3, example (d), shifted to be centered at $x$), the long exact sequence of the pair $(\RR^n, \RR^n \setminus \{x\})$ — using $\wt{H}_k(\RR^n) = 0$ for all $k$ — collapses to
+$$
+H_k(\RR^n, \RR^n \setminus \{x\}) \cong \wt{H}_{k-1}(S^{n-1}) \cong
+\begin{cases}
+\ZZ & k = n \\
+0 & \text{otherwise.}
+\end{cases}
+$$
+Analogously, for $y \in V$ we get $H_k(\RR^m, \RR^m \setminus \{y\}) \cong H_k(V, V \setminus \{y\})$, which is $\ZZ$ exactly when $k = m$ and $0$ otherwise.
+
+If $U \cong V$, a homeomorphism carries the local homology groups of $x$ to those of its image, so $H_k(\RR^n, \RR^n\setminus\{x\}) \cong H_k(\RR^m, \RR^m\setminus\{y\})$ for **every** $k$. Comparing the two "exactly one nonzero degree" patterns, this forces $n = m$.
+</Callout>
+
+</SlideLayout>

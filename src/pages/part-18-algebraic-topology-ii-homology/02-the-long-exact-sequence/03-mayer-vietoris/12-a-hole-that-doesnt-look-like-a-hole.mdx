@@ -1,0 +1,23 @@
+---
+title: A hole that doesn't look like a hole
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A hole that doesn't look like a hole">
+
+Here's a puzzle worth pausing on. Homotopy famously finds *no* 2-dimensional hole in the torus — $\pi_2(X)$ is trivial. So why is $H_2(X) \cong \ZZ$?
+
+You can chase an actual generator through the computation. We wanted a nontrivial element of $\ker\phi \subseteq \wt H_1(U \cap V)$, and found one: $z_1 - z_2$. To find its preimage under $\partial$, run "right, up, right" instead of "left, down, left": find a closed $1$-chain in $U \cap V$ representing $z_1 - z_2$, then move it up to a $2$-chain in $C_2(X)$ via the diagram
+$$
+C_1(U \cap V) \injto C_1(U) \oplus C_1(V), \qquad C_2(U) \oplus C_2(V) \surjto C_2(X).
+$$
+
+If you carry this out carefully, the resulting $2$-chain turns out to be *the entire torus* — every $2$-simplex in the triangulation, once. So the generator of $H_2(X)$ isn't a little sphere-like patch tucked somewhere inside $X$; it's the whole surface, viewed as a single closed $2$-dimensional cycle.
+
+<Callout kind="remark" title="Moral">
+A "hole" detected by homology need not look like the interior of $S^n$.
+</Callout>
+
+</SlideLayout>

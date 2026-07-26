@@ -1,0 +1,22 @@
+---
+title: 'A slogan: cycle over boundary, minus the fuzz'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A slogan: cycle over boundary, minus the fuzz">
+
+The diagram chase in the last section proves $H_k(\Cells_\bullet(X)) \cong H_k(X)$, but it doesn't really tell you *why* — it's just formal bookkeeping. This section is an optional digression giving geometric intuition instead.
+
+Here's the slogan:
+
+<Callout kind="remark" title="Slogan">
+$$
+H_k(\Cells_\bullet(X)) = \frac{\text{aligned cycle}}{\text{aligned boundary}} = \frac{\text{aligned cycle} \times \text{fuzz}}{\text{aligned boundary} \times \text{fuzz}} = \frac{\text{cycle}}{\text{boundary}} = H_k(X).
+$$
+</Callout>
+
+The idea: every singular cycle in $X$ can be "aligned" to run exactly along the cells of $X$, at the cost of some harmless wiggle-room we call **fuzz**. The cellular chain complex only sees the aligned part; the fuzz cancels top and bottom. Let's unpack this with a picture over the next few slides.
+
+</SlideLayout>

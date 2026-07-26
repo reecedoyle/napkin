@@ -1,0 +1,32 @@
+---
+title: Categorizing what we already have
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Categorizing what we already have">
+
+We now check that cohomology has the same nice functorial behavior that homology did. First, let's name the categories involved.
+
+<Callout kind="question" title="Define CoCmplx">
+Define <Term k="sc74CoCmplxCat">$\catname{CoCmplx}$</Term>, the category of cochain complexes (objects: cochain complexes; morphisms: degree-0 maps commuting with $\delta$).
+</Callout>
+
+<Callout kind="exercise" title="Hom(−,G) is a contravariant functor">
+Interpret $\Hom(-,G)$ as a contravariant functor
+$$
+\Hom(-,G) \colon \catname{Cmplx}\op \to \catname{CoCmplx}.
+$$
+This means: given a chain map $f \colon A_\bullet \to B_\bullet$, we naturally obtain a dual map $f^\vee \colon B^\bullet \to A^\bullet$ going the other way.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="sc74-func-proof-hom-contravariant"
+  prompt="Convince yourself f ↦ f∨ really is a contravariant functor: check it sends identities to identities and reverses composition, (f∘g)∨ = g∨∘f∨."
+  solution="On objects, Aₙ ↦ Hom(Aₙ,G). On a chain map f: A_bullet → B_bullet, define f∨ degreewise by precomposition: f∨(φ) = φ∘f for φ ∈ Hom(Bₙ,G). Then id∨ = id since φ∘id = φ. And (f∘g)∨(φ) = φ∘(f∘g) = (φ∘f)∘g = g∨(φ∘f) = g∨(f∨(φ)) = (g∨∘f∨)(φ), so (f∘g)∨ = g∨∘f∨ — composition order flips, which is exactly what makes this contravariant."
+/>
+
+</SlideLayout>

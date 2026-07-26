@@ -1,0 +1,18 @@
+---
+title: Piecing the cohomology groups together
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Piecing the cohomology groups together">
+
+We have the $R$-module homomorphism $\times \colon H^m(X;R)\otimes_R H^n(Y;R) \to H^{m+n}(X\times Y;R)$ from two slides ago, one for each pair of degrees $(m,n)$. Just like we did for the cup product, we want to glue all of these together into a single map between the two full cohomology *rings* — not just between individual graded pieces.
+
+$$
+\times \colon H^\bullet(X;R) \otimes_R H^\bullet(Y;R) \to H^\bullet(X\times Y;R).
+$$
+
+We haven't yet said what the tensor product of two *graded rings* means — only the tensor product of two graded pieces at a time. That's the last piece of machinery we need, and it's exactly what the next (final) section sets up, on the way to the Künneth formula.
+
+</SlideLayout>

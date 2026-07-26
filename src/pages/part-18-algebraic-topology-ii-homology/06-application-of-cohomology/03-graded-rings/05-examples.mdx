@@ -1,0 +1,19 @@
+---
+title: Examples of graded rings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Examples of graded rings">
+
+<Callout kind="example" title="Four graded rings">
+- $R = \ZZ[x]$: a **commutative graded ring**, with degree-$d$ piece the multiples of $x^d$.
+- $R = \ZZ[x,y,z]$: a **commutative graded ring**, with degree-$d$ piece the homogeneous degree-$d$ polynomials (and $0$).
+- For a vector space $V$, the exterior algebra $\bigwedge^\bullet(V) = \bigoplus_{d\ge0}\bigwedge^d(V)$ with product $\wedge$: an **anticommutative ring**. (A typical element mixes degrees, e.g. $e_1 + (e_2 \wedge e_3)$.)
+- $\Omega^\bullet(M) = \bigoplus_{d \ge 0}\Omega^d(M)$ with product $\wedge$: also an **anticommutative ring**.
+</Callout>
+
+All four examples have a multiplicative identity — they're graded rings, not merely graded pseudo-rings. The exterior algebra $\bigwedge^\bullet(V)$ is exactly the target of the wedge product you met when we defined the <Term k="wedgeProduct">wedge product</Term> and <Term k="determinant">determinant</Term>; it fits perfectly into this more general framework.
+
+</SlideLayout>

@@ -1,0 +1,19 @@
+---
+title: 'Problem: local homology groups of the half-plane'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: local homology groups of the half-plane">
+
+<Problem
+  client:load
+  id="ear72-prob-half-plane-local-homology"
+  difficulty="standard"
+  prompt="Let X = {(x,y) : x ≥ 0} ⊆ ℝ² denote the closed half-plane. What are the local homology groups of points in X?"
+  solution="Split into two cases by where the point sits. For an interior point p = (x,y) with x > 0, a small enough disk around p lies entirely inside X and is an open subset of ℝ², so the local homology matches that of a point of ℝ²: H_k(X, X \ {p}) ≅ ℤ when k = 2, and 0 otherwise — exactly like an ordinary point of the plane. For a boundary point p = (0,y), a small neighborhood of p in X is homeomorphic to a half-disk {(x,y) : x ≥ 0, x²+y² < ε²}. This half-disk minus the point p deformation retracts onto a single point (you can straight-line-homotope any point of the punctured half-disk to a fixed interior point, since removing p from the boundary of a half-disk does not disconnect it or create a loop the way removing an interior point of a full disk would), so it is contractible; hence H_k(X, X \ {p}) = 0 for every k. So the local homology group distinguishes the two kinds of points exactly: nonzero (in degree 2) at interior points, and zero in every degree at boundary points — this is precisely how one defines the boundary of a manifold with boundary using algebraic topology alone."
+/>
+
+</SlideLayout>

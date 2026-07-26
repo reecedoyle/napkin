@@ -1,0 +1,29 @@
+---
+title: Stringing the maps together
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Stringing the maps together">
+
+Now we want maps $\Cells_k(X) \to \Cells_{k-1}(X)$. Each skeleton pair $(X^n, X^{n-1})$ gives us a long exact sequence, and these sequences overlap: the group $H_k(X^k)$ sits between the sequence for $(X^{k+1}, X^k)$ and the sequence for $(X^k, X^{k-1})$. Composing the connecting map $\Cells_{k+1}(X) = H_{k+1}(X^{k+1}, X^k) \to H_k(X^k)$ with the map $H_k(X^k) \to H_k(X^k, X^{k-1}) = \Cells_k(X)$ gives a map
+$$
+d_k \colon \Cells_k(X) \to \Cells_{k-1}(X).
+$$
+
+Doing this at every level produces a full chain of maps $\cdots \to \Cells_{k+1}(X) \to \Cells_k(X) \to \Cells_{k-1}(X) \to \cdots$
+
+<Callout kind="question" title="Composites vanish">
+Show that the composition of two adjacent maps, $d_k \circ d_{k+1} \colon \Cells_{k+1}(X) \to \Cells_{k-1}(X)$, is zero.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="bch73-cellular-chain-proof-composite-zero"
+  prompt="Why is d_k ∘ d_{k+1} = 0?"
+  solution="Each d_k factors through H_k(X^k): explicitly d_{k+1} is the composite Cells_{k+1}(X) → H_k(X^k) → Cells_k(X), and d_k is the composite Cells_k(X) → H_{k-1}(X^{k-1}) → Cells_{k-1}(X). The middle step of d_k starts by mapping Cells_k(X) = H_k(X^k, X^{k-1}) via the connecting homomorphism into H_{k-1}(X^{k-1}), but that connecting homomorphism is preceded, in the same long exact sequence, by the map H_k(X^k) → H_k(X^k, X^{k-1}) — and two consecutive maps in a long exact sequence always compose to zero, because the image of one equals the kernel of the next. So the composite factors through a zero map, hence d_k ∘ d_{k+1} = 0."
+/>
+
+</SlideLayout>

@@ -1,0 +1,21 @@
+---
+title: Check your understanding — sphere homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Check your understanding — sphere homology">
+
+Use $\wt{H}_n(S^m) \cong \ZZ$ when $m = n$ and $0$ otherwise to answer the following.
+
+<NumericInput
+  client:load
+  id="ear72-applications-num-h4-s4-rank"
+  prompt="H̃₄(S⁴) is a free abelian group of some rank r (i.e. isomorphic to ℤ^r). What is r?"
+  expected="1"
+  explanation="H̃₄(S⁴) ≅ ℤ since m = n = 4, and ℤ has rank 1."
+/>
+
+</SlideLayout>

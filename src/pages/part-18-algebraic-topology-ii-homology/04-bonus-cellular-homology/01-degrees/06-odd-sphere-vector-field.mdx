@@ -1,0 +1,41 @@
+---
+title: What goes wrong when n is odd
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Figure from '@/components/Figure.astro';
+
+<SlideLayout title="What goes wrong when n is odd">
+
+For $n = 1$, a nonvanishing tangent vector field on $S^1$ is easy to draw: just point along the circle, everywhere in the same rotational direction. No cowlick is ever forced.
+
+<Figure
+  alt="The circle S1 with five tangent arrows all pointing counterclockwise, never vanishing"
+  caption="A nonvanishing tangent vector field on S¹ — always possible, since 1 is odd."
+>
+  <svg viewBox="-60 -60 120 120" width="260" height="260" aria-hidden="true">
+    <defs>
+      <marker id="hairyBallArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
+      </marker>
+    </defs>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="currentColor" stroke-width="1.5" />
+    <text x="0" y="-46" font-size="10" text-anchor="middle" fill="currentColor">S¹</text>
+    <circle cx="40" cy="0" r="2" fill="currentColor" />
+    <line x1="40" y1="0" x2="40" y2="-22" stroke="currentColor" stroke-width="1.5" marker-end="url(#hairyBallArrow)" />
+    <circle cx="25.72" cy="-30.64" r="2" fill="currentColor" />
+    <line x1="25.72" y1="-30.64" x2="8.87" y2="-44.79" stroke="currentColor" stroke-width="1.5" marker-end="url(#hairyBallArrow)" />
+    <circle cx="-30.64" cy="-25.72" r="2" fill="currentColor" />
+    <line x1="-30.64" y1="-25.72" x2="-44.79" y2="-8.87" stroke="currentColor" stroke-width="1.5" marker-end="url(#hairyBallArrow)" />
+    <circle cx="-34.64" cy="20" r="2" fill="currentColor" />
+    <line x1="-34.64" y1="20" x2="-23.64" y2="39.05" stroke="currentColor" stroke-width="1.5" marker-end="url(#hairyBallArrow)" />
+    <circle cx="20" cy="34.64" r="2" fill="currentColor" />
+    <line x1="20" y1="34.64" x2="39.05" y2="23.64" stroke="currentColor" stroke-width="1.5" marker-end="url(#hairyBallArrow)" />
+  </svg>
+</Figure>
+
+<Callout kind="remark" title="Why even dimension is essential">
+The hairy ball argument only forced a contradiction from $\deg(\id) = \deg(-\id)$ when $n$ is even. For odd $n$, $\deg(-\id) = (-1)^{n+1} = 1 = \deg(\id)$ already — no contradiction, and indeed nonvanishing fields exist. This is why the theorem is specifically about even-dimensional spheres: $S^1$, $S^3$, $S^5, \dots$ can all be combed flat, but $S^2$, $S^4, \dots$ cannot.
+</Callout>
+
+</SlideLayout>

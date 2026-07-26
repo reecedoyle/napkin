@@ -1,0 +1,22 @@
+---
+title: 'A worked example: (D^2, S^1)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A worked example: (D^2, S^1)">
+
+A second application: a new way to compute $H_n(S^m)$, using the pair $X = D^2$, $A = S^1$.
+
+<Callout kind="example" title="The long exact sequence for (D^2, S^1)">
+$D^2$ is <Term k="ear72Contractible">contractible</Term> with boundary $S^1$. The boundary $S^1$ is a deformation retract of $D^2 \setminus \{0\}$, and collapsing all of the boundary to a point gives $D^2/S^1 \cong S^2$, so by the good pair theorem $H_n(D^2,S^1) \cong \wt{H}_n(S^2)$.
+
+Feed this into the reduced long exact sequence of the pair $(D^2,S^1)$. Since $\wt{H}_n(D^2) = 0$ for every $n$ ($D^2$ is contractible), each segment
+$$
+\underbrace{\wt{H}_n(D^2)}_{=0} \to \wt{H}_n(S^2) \to \wt{H}_{n-1}(S^1) \to \underbrace{\wt{H}_{n-1}(D^2)}_{=0}
+$$
+is squeezed between two zero groups, forcing the middle map to be an isomorphism: $\wt{H}_n(S^2) \cong \wt{H}_{n-1}(S^1)$ for every $n$. Concretely, $\wt{H}_3(S^2) \cong \wt{H}_2(S^1)$, $\wt{H}_2(S^2) \cong \wt{H}_1(S^1)$, and $\wt{H}_1(S^2) \cong \wt{H}_0(S^1)$.
+</Callout>
+
+</SlideLayout>

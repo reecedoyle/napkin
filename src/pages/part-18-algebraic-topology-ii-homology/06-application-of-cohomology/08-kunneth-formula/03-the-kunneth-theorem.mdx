@@ -1,0 +1,23 @@
+---
+title: The Künneth theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Künneth theorem">
+
+<Callout kind="theorem" title="Künneth formula">
+Let $X$ and $Y$ be CW complexes such that $H^k(Y;R)$ is a finitely generated free $R$-module for every $k$. Then the cross product is an isomorphism of anticommutative rings
+$$
+H^\bullet(X;R) \otimes_R H^\bullet(Y;R) \to H^\bullet(X\times Y;R).
+$$
+</Callout>
+
+<Callout kind="remark" title="Moral">
+There is a one-to-one correspondence between pairs of holes in $X$ and $Y$, and holes of $X\times Y$ — and the correspondence respects the cup product. Here "holes" means "generators of cohomology groups".
+</Callout>
+
+This finally makes precise the informal moral from the start of the section — a $m$-hole in $X$ and an $n$-hole in $Y$ really do combine into an $(m+n)$-hole in $X\times Y$, and moreover the *ring* structure (not just the raw groups) transfers over cleanly.
+
+</SlideLayout>

@@ -1,0 +1,22 @@
+---
+title: 'Problem: Brouwer-Jordan separation theorem'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: Brouwer-Jordan separation theorem">
+
+This last problem generalizes the classical Jordan curve theorem (a simple closed curve in the plane separates it into inside and outside) to every dimension. It's the hardest problem in this chapter — expect it to take real effort.
+
+<Problem
+  client:load
+  id="ear72-prob-brouwer-jordan-separation"
+  difficulty="standard"
+  prompt="Let X ⊆ ℝⁿ be a subset homeomorphic to S^(n-1) (an (n-1)-sphere). Prove that ℝⁿ \ X has exactly two path-connected components. (Brouwer-Jordan separation theorem, generalizing the Jordan curve theorem — one of the hardest problems in this chapter.)"
+  hint="For any n, prove by induction on k = 1, …, n−1 that: (a) if X is a subset of Sⁿ homeomorphic to a closed disk D^k then H̃_i(Sⁿ \ X) = 0 for all i; (b) if X is a subset of Sⁿ homeomorphic to a sphere S^k then H̃_i(Sⁿ \ X) = ℤ for i = n−k−1 and 0 otherwise."
+  solution="Run the two-part induction from the hint using Mayer-Vietoris and excision to split X into two disk-shaped or sphere-shaped halves at each step, reducing the k-dimensional case to the (k−1)-dimensional case. Once part (b) is established for k = n−1, it says H̃_i(Sⁿ \ X) = ℤ for i = 0 and 0 otherwise (identifying ℝⁿ with Sⁿ minus a point away from X), which means Sⁿ \ X — and hence ℝⁿ \ X — has reduced H̃₀ equal to ℤ, i.e. exactly two path components. The full details of this induction are carried out in Section 2.B of Hatcher's Algebraic Topology, which this chapter's excision machinery is building directly toward."
+/>
+
+</SlideLayout>

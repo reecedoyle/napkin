@@ -1,0 +1,25 @@
+---
+title: The long exact sequence of a triple
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The long exact sequence of a triple">
+
+The pair version generalizes further: nest a third space in between.
+
+<Callout kind="theorem" title="Long exact sequence of a triple">
+For subspaces $A \subseteq B \subseteq X$, there is a <Term k="ear72LongExactSequenceOfTriple">long exact sequence</Term>
+$$
+\dots \to H_n(B,A) \to H_n(X,A) \to H_n(X,B) \to H_{n-1}(B,A) \to \dots.
+$$
+</Callout>
+
+Taking $A = \varnothing$ recovers the ordinary long exact sequence of the pair $(X,B)$; taking $B = X$ recovers the pair $(X, A)$. So the triple version is the more general statement.
+
+<Callout kind="remark" title="Moral">
+This is the algebraic shadow of a fact about quotients: $X/B$ is homeomorphic to $\dfrac{X/A}{B/A}$ — collapsing $X$ by $B$ all at once is the same as first collapsing by $A$, then collapsing what remains by $B/A$. We're "cancelling the common factor in the fraction."
+</Callout>
+
+</SlideLayout>

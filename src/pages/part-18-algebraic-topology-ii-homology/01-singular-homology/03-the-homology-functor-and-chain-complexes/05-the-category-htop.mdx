@@ -1,0 +1,32 @@
+---
+title: The category hTop
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The category hTop">
+
+Now let's state exactly what we're aiming to prove, in category-theoretic language.
+
+<Callout kind="definition" title="The category hTop">
+The category <Term k="sh70hTopCategory">$\mathrm{hTop}$</Term> has:
+- Objects: topological spaces.
+- Morphisms: *homotopy classes* of continuous maps $X \to Y$.
+
+In particular, $X$ and $Y$ are isomorphic in $\mathrm{hTop}$ exactly when they are homotopy equivalent.
+</Callout>
+
+This is the same idea as $\mathrm{hTop}_\ast$ (used to build $\pi_1$ as a functor), just without basepoints.
+
+<Callout kind="theorem" title="Homology is a functor hTop → Ab">
+For any $n$, $H_n$ is a functor $\mathrm{hTop} \to \mathrm{Ab}$. In particular:
+- Given any map $f \colon X \to Y$, we get an induced map $f_\ast \colon H_n(X) \to H_n(Y)$.
+- For homotopic maps $f, g \colon X \to Y$, $f_\ast = g_\ast$.
+- Homotopy-equivalent spaces $X, Y$ have isomorphic homology groups: if $f \colon X \to Y$ is a homotopy equivalence, $f_\ast \colon H_n(X) \to H_n(Y)$ is an isomorphism.
+- (Insert your favorite general fact about functors here.)
+</Callout>
+
+To prove this, we need to (1) turn a map $f \colon X \to Y$ into a map $H_n(f) \colon H_n(X) \to H_n(Y)$, and (2) show this doesn't depend on the choice of homotopy representing $f$'s class. Step (1) is easy — we did the analogous thing for $f_\sharp$ back when building $\pi_1$. Step (2) is the hard part, and it's where we go back to the chain complex $C_\bullet(X)$.
+
+</SlideLayout>

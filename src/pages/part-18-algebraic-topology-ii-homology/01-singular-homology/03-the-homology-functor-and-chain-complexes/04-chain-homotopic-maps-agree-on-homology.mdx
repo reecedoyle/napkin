@@ -1,0 +1,29 @@
+---
+title: Chain homotopic maps agree on homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Chain homotopic maps agree on homology">
+
+Here's the payoff of the definition:
+
+<Callout kind="proposition" title="Chain homotopic maps induce the same map on homology">
+Let $f, g \colon A_\bullet \to B_\bullet$ be chain homotopic. Then the induced maps $f_\ast, g_\ast \colon H_n(A_\bullet) \to H_n(B_\bullet)$ coincide for every $n$.
+</Callout>
+
+It's equivalent to show $g - f$ induces the zero map on homology — i.e. that every cycle of $A_n$ becomes a boundary of $B_n$ under $g - f$. Take a cycle $c \in A_n$, so $\partial_A c = 0$. Then by the chain homotopy identity,
+$$
+(g-f)(c) = \partial_B(P_n(c)) + P_{n-1}(\partial_A(c)) = \partial_B(P_n(c)) + P_{n-1}(0) = \partial_B(P_n(c)),
+$$
+which is manifestly a boundary in $B_n$. So $(g-f)(c) = 0$ in $H_n(B_\bullet)$, i.e. $f_\ast(c) = g_\ast(c)$.
+
+<ProofReveal
+  client:load
+  id="sh70-func-proof-chain-homotopy-zero"
+  prompt="Verify directly: if c ∈ Aₙ is a cycle (∂c = 0) and P is a chain homotopy from f to g, why is (g−f)(c) automatically a boundary in Bₙ?"
+  solution="By definition of chain homotopy, (g−f)(c) = ∂_B(P_n(c)) + P_{n−1}(∂_A(c)). Since c is a cycle, ∂_A(c) = 0, so the second term vanishes and (g−f)(c) = ∂_B(P_n(c)) — literally the boundary of the (n+1)-chain P_n(c). So (g−f)(c) lies in B_n(B_bullet), meaning it represents 0 in H_n(B_bullet), so f and g induce the same map on homology."
+/>
+
+</SlideLayout>

@@ -1,0 +1,26 @@
+---
+title: 'Torus: d_2 vanishes too, so we read off the homology'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="Torus: d_2 vanishes too, so we read off the homology">
+
+Now compute $d_2(e^2)$'s coefficient on $e^1_a$: this is the degree of $\partial e^2 = aba^{-1}b^{-1}$, attached to $X^1$, then collapsed onto the $S^1$ built from $e^1_a$ alone. Tracing the word $aba^{-1}b^{-1}$: we wrap once around $e^1_a$, once around $e^1_b$, once around $e^1_a$ **backwards**, and once around $e^1_b$ backwards.
+
+Once we collapse all of $e^1_b$ to a point, the two $b$-traversals disappear, and we're left with one trip around $e^1_a$ forwards and one trip around $e^1_a$ backwards — net degree $0$. By the symmetric argument, the coefficient on $e^1_b$ is also $0$. So $d_2(e^2) = 0$, i.e. $d_2 = 0$.
+
+<Callout kind="remark" title="Reading off the homology">
+With $d_1 = d_2 = 0$, every map in the complex has kernel equal to the whole group and image $\{0\}$. So $H_0 = \ZZ$, $H_1 = \ZZ \oplus \ZZ = \ZZ^{\oplus 2}$, and $H_2 = \ZZ$ — matching what we already knew about the torus.
+</Callout>
+
+<NumericInput
+  client:load
+  id="bch73-boundary-num-torus-h1-rank"
+  prompt="What is the rank of H_1(torus) as computed above?"
+  expected="2"
+/>
+
+</SlideLayout>

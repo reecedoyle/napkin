@@ -1,0 +1,18 @@
+---
+title: "Problem: the triple long exact sequence"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: the triple long exact sequence">
+
+<Problem
+  client:load
+  id="tle71-prob-triple-les"
+  difficulty="starred"
+  prompt="Let A ⊆ B ⊆ X be subspaces. Show that there is a long exact sequence ⋯ → H_n(B,A) → H_n(X,A) → H_n(X,B) → H_{n-1}(B,A) → ⋯."
+  hint="Find a new short exact sequence of chain complexes to feed into the long exact sequence theorem."
+  solution="Use the short exact sequence of chain complexes 0 → C_bullet(B,A) → C_bullet(X,A) → C_bullet(X,B) → 0. To see it really is short exact in each degree n: C_n(B,A) = C_n(B)/C_n(A) sits inside C_n(X,A) = C_n(X)/C_n(A) as the subgroup of cosets represented by chains supported in B — this inclusion is injective because C_n(B) ∩ C_n(A)-cosets behave consistently (a chain in B that lands in C_n(A) after quotienting by A was already accounted for). The quotient of C_n(X,A) by this copy of C_n(B,A) is (C_n(X)/C_n(A)) / (C_n(B)/C_n(A)), which by the third isomorphism theorem is isomorphic to C_n(X)/C_n(B) = C_n(X,B). So each row 0 → C_n(B,A) → C_n(X,A) → C_n(X,B) → 0 is short exact, and the maps commute with the boundary operators since they're all induced by the inclusions A ⊆ B ⊆ X. Applying the long exact sequence theorem to this short exact sequence of chain complexes immediately produces ⋯ → H_n(B,A) → H_n(X,A) → H_n(X,B) → H_{n-1}(B,A) → ⋯, as required."
+/>
+
+</SlideLayout>

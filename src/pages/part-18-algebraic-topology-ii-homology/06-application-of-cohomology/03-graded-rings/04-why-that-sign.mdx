@@ -1,0 +1,17 @@
+---
+title: Why that sign, and not just −1?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Why that sign, and not just −1?">
+
+Why $rs = (-1)^{|r||s|}sr$, rather than the simpler $rs = -sr$? The definition is reverse-engineered from the wedge product.
+
+<Callout kind="remark" title="Where the exponent comes from">
+Take $r$-many $0$-forms $f_1, \dots, f_r$ and $s$-many $0$-forms $g_1, \dots, g_s$, and form $f = df_1 \wedge \cdots \wedge df_r$ (an $r$-form) and $g = dg_1 \wedge \cdots \wedge dg_s$ (an $s$-form). To rearrange $f \wedge g$ into $g \wedge f$, you swap adjacent factors one at a time; each adjacent swap of two $1$-forms contributes a single $-1$, and turning $f \wedge g$ into $g \wedge f$ takes exactly $rs$ such swaps (each of the $r$ factors of $f$ has to hop past each of the $s$ factors of $g$). Hence $f \wedge g = (-1)^{rs} g \wedge f$. By linearity this extends to every $r$-form $f$ and $s$-form $g$, not just wedges of $1$-forms.
+</Callout>
+
+So the exponent $|r||s|$ isn't an arbitrary choice — it's counting adjacent transpositions, and that count really does depend on both degrees, not just on whether they're equal.
+
+</SlideLayout>

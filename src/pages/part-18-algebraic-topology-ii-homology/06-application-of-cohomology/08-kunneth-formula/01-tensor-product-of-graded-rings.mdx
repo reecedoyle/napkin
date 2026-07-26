@@ -1,0 +1,22 @@
+---
+title: Tensor product of graded rings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Tensor product of graded rings">
+
+We want a formula for $H^n(X\times Y;R)$ in terms of $H^n(X;R)$ and $H^n(Y;R)$ — a <Term k="aoc75KunnethFormula">Künneth formula</Term>. The version we'll prove needs one last ingredient: what it means to tensor two graded *rings* together, not just two vector spaces or two graded pieces.
+
+<Callout kind="definition" title="Tensor product of graded rings">
+Let $A$ and $B$ be graded rings that are also $R$-modules ($R$ commutative with $1$). The <Term k="aoc75TensorProductGradedRing">tensor product</Term> $A \otimes_R B$ has underlying abelian group
+$$
+A \otimes_R B = \bigoplus_{d\ge0}\left(\bigoplus_{k=0}^d A^k \otimes_R B^{d-k}\right),
+$$
+with multiplication on basis elements given by $(a_1\otimes b_1)(a_2\otimes b_2) = (a_1a_2)\otimes(b_1b_2)$. The identity is $1_A \otimes 1_B$.
+</Callout>
+
+So a degree-$d$ piece of $A\otimes_R B$ mixes every way of splitting $d$ between the two factors — $A^0 \otimes B^d$, $A^1 \otimes B^{d-1}$, …, $A^d \otimes B^0$ — all summed together.
+
+</SlideLayout>

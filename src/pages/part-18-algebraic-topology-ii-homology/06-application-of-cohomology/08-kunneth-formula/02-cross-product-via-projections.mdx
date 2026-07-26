@@ -1,0 +1,24 @@
+---
+title: The cross product, restated via projections
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The cross product, restated via projections">
+
+Given a product $X\times Y$ with its two projection maps $\pi_X \colon X\times Y \to X$ and $\pi_Y \colon X \times Y \to Y$, functoriality of $H^k(-;R)$ gives induced maps $\pi_X^\ast \colon H^k(X\times Y;R)\to H^k(X;R)$ and $\pi_Y^\ast \colon H^k(X\times Y;R)\to H^k(Y;R)$ for every $k$.
+
+This lets us rebuild the cross product entirely from the cup product:
+
+<Callout kind="definition" title="Cross product via cup product and projections">
+For a ring $R$ and spaces $X, Y$ with projections $\pi_X, \pi_Y$ from $X\times Y$, the cross product is the map
+$$
+H^\bullet(X;R)\otimes_R H^\bullet(Y;R) \xrightarrow{\times} H^\bullet(X\times Y;R)
+$$
+acting on cocycles by $\phi \times \psi = \pi_X^\ast(\phi) \smile \pi_Y^\ast(\psi)$.
+</Callout>
+
+Read it as: pull a $k$-cocycle on $X$ and an $\ell$-cocycle on $Y$ both back to $X\times Y$ (where they automatically live in complementary "directions"), then cup them together — the most natural way to build a $(k+\ell)$-cocycle on the product space out of pieces from the two factors. This definition agrees with the cellular-cohomology cross product from before (we omit the proof).
+
+</SlideLayout>

@@ -1,0 +1,25 @@
+---
+title: The Mayer–Vietoris long exact sequence
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The Mayer–Vietoris long exact sequence">
+
+Combine the open cover theorem with the provisional Mayer–Vietoris sequence from the last section — every $H_n(U+V)$ and $\wt H_n(U+V)$ can now be rewritten as $H_n(X)$ and $\wt H_n(X)$:
+
+<Callout kind="theorem" title="Mayer–Vietoris long exact sequence">
+If $X = U \cup V$ is an open cover, then there are <Term k="tle71MVLES">long exact sequences</Term>
+$$
+\dots \to H_n(U \cap V) \to H_n(U) \oplus H_n(V) \to H_n(X) \to H_{n-1}(U \cap V) \to \dots
+$$
+and
+$$
+\dots \to \wt H_n(U \cap V) \to \wt H_n(U) \oplus \wt H_n(V) \to \wt H_n(X) \to \wt H_{n-1}(U \cap V) \to \dots
+$$
+</Callout>
+
+This is the sequence you'll actually use in practice: it directly relates the homology of $X$ to the homology of two (hopefully simpler) open pieces $U, V$, and their intersection. Everything from here on is applying it to specific spaces.
+
+</SlideLayout>

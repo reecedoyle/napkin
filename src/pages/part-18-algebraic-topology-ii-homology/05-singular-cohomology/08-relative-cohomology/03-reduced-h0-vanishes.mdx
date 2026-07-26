@@ -1,0 +1,24 @@
+---
+title: A sanity check on reduced cohomology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+
+<SlideLayout title="A sanity check on reduced cohomology">
+
+Reduced homology satisfies $\wt H_0(X) = 0$ whenever $X$ is path-connected (one path component means the reduced version of "count the components" gives $0$, not $1$). The same should be true dually for reduced cohomology.
+
+<ProofReveal
+  client:load
+  id="sc74-relative-proof-reduced-h0-vanishes"
+  prompt="Show that if X is path-connected, then the reduced cohomology group H̃⁰(X;G) is 0, for any abelian group G."
+  solution="Path-connectedness means every 0-chain with total coefficient sum s is homologous to s times a single fixed point, so the reduced homology group H̃₀(X) — homology of the augmented complex ⋯ → C₁(X) → C₀(X) →[ε] ℤ → 0 at the C₀(X) spot — vanishes. The augmented complex is still built from free abelian groups (C₀(X), C₁(X), … and the extra ℤ are all free), so the universal coefficient theorem applies to it exactly as before: H̃⁰(X;G) sits in a split short exact sequence with Ext(H̃₋₁(X),G) on one side and Hom(H̃₀(X),G) on the other. The augmented complex has nothing below degree 0, so that Ext term is simply absent, leaving H̃⁰(X;G) ≅ Hom(H̃₀(X),G) = Hom(0,G) = 0."
+/>
+
+<Callout kind="remark">
+This matches ordinary $H^0(X;G) \cong G$ for path-connected $X$ minus exactly the one extra copy of $G$ that "reduced" is designed to strip out — consistent with how $\wt H^0(X) \oplus G \cong H^0(X)$ in general.
+</Callout>
+
+</SlideLayout>

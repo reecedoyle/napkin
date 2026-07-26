@@ -1,0 +1,35 @@
+---
+title: A lemma about skeletons
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A lemma about skeletons">
+
+Every CW complex $X$ is built in layers: the <Term k="bch73Skeleton">$n$-skeleton</Term> $X^n$ is the union of all cells of dimension $\le n$, and $X^0 \subseteq X^1 \subseteq X^2 \subseteq \cdots$ with $X = \bigcup_n X^n$.
+
+Before doing anything else, we record what homology looks like at each layer:
+
+<Callout kind="lemma" title="CW homology groups">
+Let $X$ be a CW complex. Then
+$$
+H_k(X^n, X^{n-1}) \cong
+\begin{cases}
+\ZZ^{\oplus \#(n\text{-cells of } X)} & k = n \\
+0 & \text{otherwise},
+\end{cases}
+$$
+and
+$$
+H_k(X^n) \cong
+\begin{cases}
+H_k(X) & k \le n-1 \\
+0 & k \ge n+1.
+\end{cases}
+$$
+</Callout>
+
+In words: the relative homology of consecutive skeletons is concentrated in exactly one degree (and it's free abelian, with basis the cells), while the absolute homology of a skeleton $X^n$ already agrees with $H_k(X)$ once $n$ is comfortably above $k$, and vanishes once $n$ is comfortably below $k$.
+
+</SlideLayout>

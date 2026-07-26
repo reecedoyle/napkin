@@ -1,0 +1,30 @@
+---
+title: The functoriality theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The functoriality theorem">
+
+In exact analogy with $H_n \colon \catname{hTop} \to \catname{Grp}$, we get:
+
+<Callout kind="theorem" title="Hⁿ(−;G): hTopᵒᵖ → Grp">
+For every $n$, <Term k="sc74CohomFunctorial">$H^n(-;G)$</Term> is a contravariant functor from $\catname{hTop}\op$ to $\catname{Grp}$.
+</Callout>
+
+<Callout kind="remark" title="Proof idea">
+First build the whole chain of functors on the nose (no homotopy quotient yet):
+$$
+\catname{Top}\op \taking{C_\bullet} \catname{Cmplx}\op \taking{\Hom(-,G)} \catname{CoCmplx} \taking{H^n} \catname{Grp}.
+$$
+A continuous map $f \colon X \to Y$ produces, in turn, a chain map $f_\sharp \colon C_\bullet(X) \to C_\bullet(Y)$, a dual cochain map $f^\sharp = (f_\sharp)^\vee \colon C^\bullet(Y;G) \to C^\bullet(X;G)$, and finally an induced map $f^\ast \colon H^n(Y;G) \to H^n(X;G)$.
+
+The one thing left to show is that this descends to a functor out of $\catname{hTop}$: if $f \simeq g$, we need $f^\ast = g^\ast$. Recall the *prism operator* $P$ gives $f_\sharp - g_\sharp = P\partial + \partial P$ on chains. Applying the whole functor $\Hom(-,G)$ to this identity dualizes it to
+$$
+f^\sharp - g^\sharp = \delta P^\vee + P^\vee \delta,
+$$
+i.e. $f^\sharp$ and $g^\sharp$ are <Term k="sc74CochainHomotopic">chain homotopic</Term> cochain maps. Chain homotopic maps always induce the same map on cohomology, so $f^\ast = g^\ast$.
+</Callout>
+
+</SlideLayout>

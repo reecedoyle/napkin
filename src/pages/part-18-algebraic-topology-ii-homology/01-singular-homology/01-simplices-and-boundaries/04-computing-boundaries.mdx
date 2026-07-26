@@ -1,0 +1,29 @@
+---
+title: Computing some boundaries
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Computing some boundaries">
+
+Let's compute $\partial$ on the three simplices $\sigma^0, \sigma^1, \sigma^2$ from before.
+
+<Callout kind="example" title="Boundary operator">
+- $\partial \sigma^0 = 0$ — points have no boundary, by convention.
+- $\partial(\sigma^1) = [v_1] - [v_0]$: the "difference" of the endpoint and the start point, as $0$-chains.
+- $\partial(\sigma^2) = [v_0,v_1] - [v_0,v_2] + [v_1,v_2]$: the sum of the three oriented edges making up the sides of the triangle.
+</Callout>
+
+Notice what happens if we take the boundary *again*, starting from $\sigma^2$:
+$$
+\begin{aligned}
+\partial(\partial(\sigma^2))
+&= \partial([v_0,v_1]) - \partial([v_0,v_2]) + \partial([v_1,v_2]) \\
+&= \left( [v_1]-[v_0] \right) - \left( [v_2]-[v_0] \right) + \left( [v_2]-[v_1] \right) \\
+&= 0.
+\end{aligned}
+$$
+
+Every vertex-difference cancels exactly once against another — $[v_0]$, $[v_1]$, $[v_2]$ each appear once with a $+$ and once with a $-$. This is not a coincidence: it's a general phenomenon we pin down next.
+
+</SlideLayout>

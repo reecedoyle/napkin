@@ -1,0 +1,22 @@
+---
+title: Why the error term exists — the Klein bottle, geometrically
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Why the error term exists — the Klein bottle, geometrically">
+
+Let's work through $H^2(K;\ZZ)$ geometrically, where $K$ is built from a square with one pair of sides glued straight (call the shared edge **blue**) and the other pair glued with a flip (call it **red**). Cutting the square along its diagonal gives two triangles, so the whole square is one $2$-chain $e^2_K \in C_2(K)$ — the sum of those two triangles.
+
+A $2$-cochain $f$ might assign the value $1$ to one triangle and $2$ to the other, so $f(e^2_K) = 3$.
+
+Now consider a different-looking $2$-cochain $g$, built by taking a $1$-cochain that assigns the value $1$ to the blue edge and applying $\delta$ to it. Because the square's boundary (its four sides, glued) hits the blue edge **twice** — once from each of its two occurrences before gluing — this coboundary assigns $1$ to *each* triangle, so $\delta(g)(e^2_K) = 1 + 1 = 2$.
+
+<Callout kind="remark" title="The key observation">
+$e^2_K$ is not a cycle (the square's boundary is nonzero — it's twice the blue edge). But even though we can't demand a cocycle send $e^2_K$ to $0$, adding or subtracting the coboundary $\delta(g)$ only ever shifts the assigned value in **increments of 2**. So the value assigned to $e^2_K$ modulo $2$ is the part of the story that survives passing to cohomology — everything else can be adjusted away by a coboundary.
+</Callout>
+
+<Term k="sc74ErrorTermGeometric">This is exactly where the error term comes from</Term>: the region $e^2_K$ has boundary divisible by $2$ (it's twice the blue edge), so only its value *modulo 2* is forced to agree across different cocycles — matching $H^2(K;\ZZ) \cong \ZZ/2\ZZ = \Ext(\ZZ\oplus\Zc2,\ZZ)$ from the computation two sections ago.
+
+</SlideLayout>

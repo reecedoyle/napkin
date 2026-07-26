@@ -1,0 +1,19 @@
+---
+title: Cocycles modulo coboundaries — almost the dual of homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Cocycles modulo coboundaries — almost the dual of homology">
+
+Putting the last slide's two morals together:
+
+<Callout kind="remark" title="Moral">
+Knowing the value of a cocycle on each "cycle modulo boundary" almost determines that cocycle, modulo coboundaries.
+</Callout>
+
+In symbols: $H^n(X;G)$ is "almost isomorphic" to $\Hom(H_n(X), G)$ — a cocycle modulo coboundaries can be "evaluated" on a cycle modulo boundaries, giving a well-defined pairing $H^n(X;G) \times H_n(X) \to G$.
+
+This is precisely the map $h$ from the universal coefficient theorem. And the theorem says something *more* than "almost": the exact size of the gap between $H^n(X;G)$ and $\Hom(H_n(X),G)$ is $\Ext(H_{n-1}(X),G)$ — the kernel of $h$. So "almost isomorphic" really means "isomorphic modulo an $\Ext$ term coming from one degree down." The rest of this section works out geometrically *why* that error term exists, using the Klein bottle as our example (with $G=\ZZ$).
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: The boundary of a boundary is zero
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="The boundary of a boundary is zero">
+
+<Callout kind="theorem" title="∂² = 0">
+For any chain $c$, $\partial(\partial(c)) = 0$.
+</Callout>
+
+The proof is essentially the same $\sum$-sign bookkeeping we just did for $\sigma^2$, just carried out for a general $n$-simplex $[v_0, \dots, v_n]$: every $(n-2)$-face shows up twice in $\partial(\partial \sigma)$, once from deleting its two missing vertices in each order, and the signs are arranged so the two copies cancel.
+
+<ProofReveal
+  client:load
+  id="sh70-simp-proof-boundary-squared"
+  prompt="Verify directly that ∂(∂σ) = 0 when σ = [v₀, v₁, v₂] is a 2-simplex, by expanding both applications of ∂."
+  solution="Write ∂σ = [v₁,v₂] − [v₀,v₂] + [v₀,v₁]. Applying ∂ again to each term (∂ on a 1-simplex [a,b] is [b] − [a]): ∂[v₁,v₂] = [v₂] − [v₁], ∂[v₀,v₂] = [v₂] − [v₀], ∂[v₀,v₁] = [v₁] − [v₀]. So ∂(∂σ) = ([v₂]−[v₁]) − ([v₂]−[v₀]) + ([v₁]−[v₀]) = [v₂] − [v₁] − [v₂] + [v₀] + [v₁] − [v₀] = 0 — each of [v₀], [v₁], [v₂] appears once with a + and once with a −, so everything cancels."
+/>
+
+<Callout kind="remark" title="A familiar pattern">
+The eerie similarity between the chains used to integrate differential forms and the chains in homology is not a coincidence — de Rham cohomology, discussed much later, makes the relationship explicit.
+</Callout>
+
+</SlideLayout>

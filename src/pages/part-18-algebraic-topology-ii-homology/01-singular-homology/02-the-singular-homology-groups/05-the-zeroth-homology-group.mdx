@@ -1,0 +1,37 @@
+---
+title: The zeroth homology group
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import NumericInput from '@/components/NumericInput';
+
+<SlideLayout title="The zeroth homology group">
+
+Let's compute the easiest case: $H_0(X)$. Recall $C_0(X)$ is just formal linear sums of points of $X$.
+
+<Callout kind="example" title="Computing H₀(X)">
+Since $\partial \colon C_0(X) \to 0$, its kernel is all of $C_0(X)$: every point is a "cycle" — vacuously. So $Z_0(X) = C_0(X)$.
+
+For the boundary group: $[b] - [a] = 0$ in $H_0(X)$ exactly when some $1$-chain connects $a$ to $b$, i.e. there's a path from $a$ to $b$. So
+
+$$X \text{ path connected} \implies H_0(X) \cong \ZZ.$$
+</Callout>
+
+More generally:
+
+<Callout kind="proposition" title="Homology splits into path-connected components">
+If $X = \bigcup_\alpha X_\alpha$ decomposes into path-connected components, then $H_n(X) \cong \bigoplus_\alpha H_n(X_\alpha)$. In particular, if $X$ has $r$ path-connected components, then $H_0(X) \cong$ <Term k="sh70DirectSum">$\ZZ^{\oplus r}$</Term>.
+</Callout>
+
+(The <Term k="sh70DirectSum">$\oplus$</Term> notation is standard for abelian groups — an abelian group is the same thing as a $\ZZ$-module, so $G \oplus H$ is written in place of $G \times H$ when $G, H$ are abelian.)
+
+<NumericInput
+  client:load
+  id="sh70-hom-num-h0-rank"
+  prompt="If a space X has 5 path-connected components, then H₀(X) ≅ ℤ^⊕r for what value of r?"
+  expected="5"
+  explanation="H₀(X) ≅ ℤ^⊕r where r is exactly the number of path-connected components — one ℤ summand per component, since paths only ever connect points within a single component."
+/>
+
+</SlideLayout>

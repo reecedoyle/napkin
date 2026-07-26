@@ -1,0 +1,26 @@
+---
+title: Where does the formula come from?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Where does the formula come from?">
+
+Here's the intuition behind the universal coefficient theorem, built up degree by degree.
+
+Because $H^\bullet(A_\bullet;G)$ only depends on $H_\bullet(A_\bullet)$ (point 2, two slides back), if we're handed some homology groups $H_\bullet$ to realize, we can just construct **any** free chain complex $A_\bullet$ with that homology and dualize it — the answer won't depend on which one we picked.
+
+<Callout kind="proposition" title="The Ext-only extreme case">
+Suppose $H_k = 0$ for every $k$ except $H_{n-1} \neq 0$. Then <Term k="sc74TautologicalExt">$H^n \cong \Ext(H_{n-1}; G)$</Term> tautologically — because a free resolution of $H_{n-1}$ literally *is* a free chain complex with exactly this homology profile.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="sc74-explain-proof-tautological-ext"
+  prompt="Verify the Ext-only extreme case. Hint: start from the exact sequence Zₙ₋₁ → Hₙ₋₁ → 0 (cycles surjecting onto homology) and extend it leftward into a free resolution of Hₙ₋₁."
+  solution="Take any free resolution of Hₙ₋₁: ⋯ → F₁ → F₀ → Hₙ₋₁ → 0. Build a chain complex A_bullet by setting Aₙ₋₁ = F₀, Aₙ₋₂ = F₁, Aₙ₋₃ = F₂, and so on, with Aₖ = 0 for k ≥ n; the boundary maps are exactly the resolution's maps. Then Hₙ₋₁(A_bullet) is F₀ modulo the image of F₁, which is exactly Hₙ₋₁ by exactness of the resolution — and every other Hₖ(A_bullet) vanishes since the resolution is exact everywhere else. So A_bullet has precisely the homology profile assumed. Dualizing A_bullet with Hom(−,G) reproduces the same cochain complex used to define Ext(Hₙ₋₁,G), and reading off Hⁿ(A_bullet;G) from that dual complex gives exactly Ext(Hₙ₋₁,G) — tautologically, since we built A_bullet to be a free resolution in the first place."
+/>
+
+</SlideLayout>

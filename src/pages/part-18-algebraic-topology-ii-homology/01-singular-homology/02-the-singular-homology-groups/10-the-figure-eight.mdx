@@ -1,0 +1,37 @@
+---
+title: The figure eight, revisited
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The figure eight, revisited">
+
+Let $X_8$ be the figure-eight space (two circles joined at a point), with its two loops $a$ and $b$. Both $\pi_1$ and $H_1$ "see" these two loops — but they organize them differently.
+
+<Callout kind="example" title="H₁ of the figure eight">
+In $\pi_1(X_8, x_0)$, the loops $a$ and $b$ do *not* commute: $ab \neq ba$ in general, because the group operation is "concatenate paths," and concatenation order matters. So $\pi_1(X_8, x_0) = \langle a, b \rangle$, a free (nonabelian) group.
+
+In $H_1(X_8)$, we add $a$ and $b$ *formally*, as a $1$-chain $a + b$ — chains are commutative by construction. So
+$$
+H_1(X_8) \cong \ZZ^{\oplus 2} \qquad \text{while} \qquad \pi_1(X_8, x_0) = \langle a, b \rangle.
+$$
+</Callout>
+
+This is the Hurewicz theorem playing out concretely: $H_1(X_8)$ is literally the abelianization of the free group $\langle a, b\rangle$, which is $\ZZ^{\oplus 2}$.
+
+<MCQ
+  client:load
+  id="sh70-hom-mcq-figure-eight"
+  prompt="Why is H₁(X₈) ≅ ℤ^⊕2 while π₁(X₈, x₀) is the (nonabelian) free group ⟨a, b⟩?"
+  options={[
+    { id: "a", label: "Homology only sees one of the two loops" },
+    { id: "b", label: "Chains add formally/commutatively, so H₁ is the abelianization of π₁" },
+    { id: "c", label: "The figure eight is actually simply connected" },
+    { id: "d", label: "H₁ and π₁ are unrelated invariants that happen to differ here" },
+  ]}
+  correct="b"
+  explanation="By the Hurewicz theorem, H₁(X) is always the abelianization of π₁(X, x₀) for path-connected X. Concatenating loops in π₁ doesn't commute, but adding 1-chains does — so passing from π₁ to H₁ is exactly the process of forcing ab = ba."
+/>
+
+</SlideLayout>

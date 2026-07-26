@@ -1,0 +1,34 @@
+---
+title: The splitting lemma
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The splitting lemma">
+
+We used one algebraic fact to finish off the torus computation — time to state and justify it properly.
+
+<Callout kind="lemma" title="Splitting lemma">
+For a short exact sequence $0 \to A \taking{f} B \taking{g} C \to 0$ of abelian groups, the following are equivalent:
+
+(a) there exists $p \colon B \to A$ with $p \circ f = \id_A$;
+
+(b) there exists $s \colon C \to B$ with $g \circ s = \id_C$;
+
+(c) there is an isomorphism $B \cong A \oplus C$ compatible with the maps to and from $A$ and $C$.
+
+In particular, (b) holds whenever $C$ is a free abelian group.
+</Callout>
+
+When any (equivalently, all) of these hold, we say the sequence <Term k="tle71SplitExact">splits</Term>.
+
+<Callout kind="remark" title="Moral">
+An exact sequence which splits lets us recover $B$ from $A$ and $C$ alone — no extra bookkeeping needed. In particular, whenever $C = \ZZ$ or any free abelian group, condition (b) is automatic. That's exactly why, once we found the short exact sequence $0 \to \ZZ \to \wt H_1(X) \to \ZZ \to 0$ for the torus, we were immediately done: $\wt H_1(X) \cong \ZZ \oplus \ZZ$.
+</Callout>
+
+<Callout kind="remark">
+Not every short exact sequence splits! A standard counterexample is $0 \to \Zc 2 \xhookrightarrow{\times 2} \Zc 4 \surjto \Zc 2 \to 0$: it doesn't split, since $\Zc 4 \not\cong \Zc 2 \oplus \Zc 2$ (the former has an element of order $4$; the latter doesn't). The splitting lemma is also true in any abelian category, where "direct sum" means the categorical coproduct of $A$ and $C$.
+</Callout>
+
+</SlideLayout>

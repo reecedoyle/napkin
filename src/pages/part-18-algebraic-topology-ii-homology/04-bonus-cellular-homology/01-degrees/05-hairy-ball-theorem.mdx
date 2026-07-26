@@ -1,0 +1,26 @@
+---
+title: The hairy ball theorem
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The hairy ball theorem">
+
+One nice application of degree: you cannot comb a hairy ball flat.
+
+<Callout kind="theorem" title="Hairy ball theorem">
+<Term k="bch73HairyBall">If $n > 0$ is even, then $S^n$ does not have a continuous field of nonzero tangent vectors.</Term>
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Suppose such a vector field exists; we may rescale so every vector has norm $1$, i.e. for every $x \in S^n$ we have a unit vector $v(x)$ orthogonal to $x$ (tangent to the sphere there). Define a homotopy $F \colon S^n \times [0,1] \to S^n$ by
+$$
+(x,t) \mapsto (\cos \pi t)\, x + (\sin \pi t)\, v(x).
+$$
+At $t=0$ this is $\id$; at $t=1$ it is $-\id$ (the <Term k="bch73AntipodalMap">antipodal map</Term>). So $F$ is a homotopy from $\id$ to $-\id$, meaning $\deg(\id) = \deg(-\id)$. But $\deg(\id) = 1$ and $\deg(-\id) = (-1)^{n+1}$, forcing $1 = (-1)^{n+1}$, so $n$ must be odd. Contradiction.
+</Callout>
+
+The bound is tight: for every odd $n$ one can actually construct such a vector field.
+
+</SlideLayout>

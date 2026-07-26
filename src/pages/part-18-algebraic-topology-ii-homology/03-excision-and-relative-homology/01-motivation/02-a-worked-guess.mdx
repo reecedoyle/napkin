@@ -1,0 +1,24 @@
+---
+title: A first check of the guess
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="A first check of the guess">
+
+Later in this chapter we'll prove that the guess $H_n(X,A) \cong \wt{H}_n(X/A)$ holds whenever $A$ is a closed, reasonably tame subspace of $X$ (the precise condition involves a <Term k="ear72DeformationRetract">deformation retract</Term>, coming up in §3). Let's sanity-check it on the simplest possible example.
+
+<Callout kind="question" title="A first check">
+Let $X = [0,1]$ and $A = \{0,1\}$. Show that $H_1(X/A)$ and $H_1(X,A)$ are both isomorphic to $\ZZ$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="ear72-motivation-proof-interval-mod-endpoints"
+  prompt="Work out both sides before revealing."
+  solution="Gluing the two endpoints of the interval [0,1] together produces exactly the circle: X/A ≅ S¹, so H₁(X/A) ≅ ℤ, matching the known homology of the circle. For the relative side, feed A = {0,1} and X = [0,1] into the exact sequence relating H of A, H of X, and H of the pair (set up formally in the next section): since X is contractible, its reduced homology vanishes in every degree, and since A is two points, its reduced H₀ is a single copy of ℤ (one generator per extra component beyond the first). The exact sequence squeezes H₁(X,A) between two zero groups on one side and forces it to absorb that ℤ from H̃₀(A), giving H₁(X,A) ≅ ℤ as well — matching H₁(X/A)."
+/>
+
+</SlideLayout>

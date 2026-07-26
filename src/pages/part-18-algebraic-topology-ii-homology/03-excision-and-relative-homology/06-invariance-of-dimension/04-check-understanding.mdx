@@ -1,0 +1,25 @@
+---
+title: Check your understanding — local homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Check your understanding — local homology">
+
+<MCQ
+  client:load
+  id="ear72-invariance-mcq-local-homology-degree"
+  prompt="For x ∈ ℝ⁵, in which degree k is the local homology group H_k(ℝ⁵, ℝ⁵ \ {x}) nonzero?"
+  options={[
+    { id: "a", label: "k = 5" },
+    { id: "b", label: "k = 4" },
+    { id: "c", label: "k = 0" },
+    { id: "d", label: "It is nonzero in every degree" },
+  ]}
+  correct="a"
+  explanation="H_k(ℝⁿ, ℝⁿ \ {x}) ≅ ℤ exactly when k = n and 0 otherwise, since ℝⁿ \ {x} deformation retracts onto S^(n-1), whose only nonzero reduced homology is in degree n−1 — one degree lower, matching H_k for k = n after the long exact sequence shift. For n = 5, the nonzero degree is k = 5."
+/>
+
+</SlideLayout>

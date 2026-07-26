@@ -1,0 +1,30 @@
+---
+title: Sphere homology by induction
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Sphere homology by induction">
+
+The pattern from $(D^2,S^1)$ generalizes: the pair $(D^m, S^{m-1})$ gives, by the identical argument,
+$$
+\wt{H}_n(S^m) \cong \wt{H}_{n-1}(S^{m-1})
+$$
+for any $n, m > 1$. Combined with two base cases we already know from earlier chapters —
+
+- $\wt{H}_0(S^n)$ is $\ZZ$ when $n = 0$ and $0$ otherwise,
+- $\wt{H}_n(S^0)$ is $\ZZ$ when $n = 0$ and $0$ otherwise,
+
+— induction on $\min\{m,n\}$ pins down every reduced homology group of every sphere:
+$$
+\wt{H}_n(S^m) \cong
+\begin{cases}
+\ZZ & m = n \\
+0 & \text{otherwise.}
+\end{cases}
+$$
+
+This matches what Mayer–Vietoris gave us in an earlier chapter — a good consistency check — but the excision route generalizes more readily to other spaces built from spheres and disks.
+
+</SlideLayout>

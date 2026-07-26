@@ -1,0 +1,26 @@
+---
+title: Degree is multiplicative
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Degree is multiplicative">
+
+Since degree is defined via the induced map $f_\ast$ on $H_n(S^n)$, and induced maps compose the way functors should, degree should behave well under composition of maps.
+
+<Callout kind="question" title="Degree of a composite">
+Show that $\deg(f \circ g) = \deg(f) \deg(g)$ for maps $f, g \colon S^n \to S^n$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="bch73-deg-proof-composition-multiplicative"
+  prompt="Why does deg(f ∘ g) = deg(f)·deg(g)?"
+  solution="Functoriality of homology gives (f ∘ g)_* = f_* ∘ g_* as maps H_n(S^n) → H_n(S^n). Writing f_* as multiplication by deg(f) and g_* as multiplication by deg(g), the composite f_* ∘ g_* is multiplication by deg(f)·deg(g). But (f ∘ g)_* is also multiplication by deg(f ∘ g) by definition. Since a homomorphism ℤ → ℤ is determined by where it sends 1, these two integers must agree: deg(f ∘ g) = deg(f)·deg(g)."
+/>
+
+This one identity is doing a lot of work — it means <Term k="bch73Degree">degree</Term> is a homomorphism from the monoid of self-maps of $S^n$ (under composition) to $(\ZZ, \times)$.
+
+</SlideLayout>

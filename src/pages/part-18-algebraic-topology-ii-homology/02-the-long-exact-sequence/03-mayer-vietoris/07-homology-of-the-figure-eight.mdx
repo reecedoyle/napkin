@@ -1,0 +1,27 @@
+---
+title: Homology of the figure eight
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homology of the figure eight">
+
+<Callout kind="proposition" title="The homology groups of the figure eight">
+Let $X = S^1 \vee S^1$ be the <Term k="tle71WedgeSum">figure eight</Term>. Then
+$$
+\wt H_n(X) \cong \begin{cases} \ZZ^{\oplus 2} & n = 1 \\ 0 & \text{otherwise.} \end{cases}
+$$
+The generators of $\wt H_1(X)$ are the two loops of the figure eight.
+</Callout>
+
+Let $U$ be the "left" loop plus a sliver of the right one, and let $V$ be the mirror image. Then $U \cap V$ is contractible (it deformation retracts to the wedge point), while each of $U, V$ is homotopy equivalent to $S^1$.
+
+Reading off the relevant segment of the Mayer–Vietoris sequence:
+$$
+\dots \to \underbrace{\wt H_n(U \cap V)}_{=0} \to \wt H_n(U) \oplus \wt H_n(V) \to \wt H_n(X) \to \underbrace{\wt H_{n-1}(U \cap V)}_{=0} \to \dots
+$$
+
+Both flanking terms vanish, so the middle map is an isomorphism: $\wt H_n(X) \cong \wt H_n(U) \oplus \wt H_n(V) \cong \wt H_n(S^1) \oplus \wt H_n(S^1)$. By the sphere computation, this is $\ZZ \oplus \ZZ$ at $n=1$ and $0$ elsewhere — and the isomorphism carries the two circle-generators over to the two loops of the figure eight, as claimed.
+
+</SlideLayout>

@@ -1,0 +1,28 @@
+---
+title: Specializing to real coefficients
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Specializing to real coefficients">
+
+We now reveal a surprising connection: singular cohomology, with real coefficients, is secretly built from **differential forms**.
+
+Let $M$ be a smooth manifold and specialize the universal coefficient theorem to $G = \RR$, the additive group of real numbers. The universal coefficient theorem writes $H^k(M;\RR)$ in terms of $\Hom(H_k(M), \RR)$ and an $\Ext$ term; the $\Ext$ term vanishes here, so we're left with a clean statement.
+
+<ProofReveal
+  client:load
+  id="aoc75-drc-proof-ext-vanishes"
+  prompt="Check that Ext(H, ℝ) = 0 for any finitely generated abelian group H."
+  solution="Write H ≅ ℤ^r ⊕ ℤ/n₁ℤ ⊕ ⋯ ⊕ ℤ/nₖℤ. Ext is additive over direct sums, so it suffices to check each summand. Ext(ℤ, ℝ) = 0 since ℤ is free (Ext vanishes against free modules — there's nothing to obstruct, every extension splits). And Ext(ℤ/nℤ, ℝ) = 0 because ℝ is divisible: the obstruction group Ext(ℤ/nℤ, G) is computed as G/nG, and multiplication by n is surjective on ℝ (every real number is n times another), so ℝ/nℝ = 0. Hence Ext(H, ℝ) = 0 for every finitely generated abelian group H."
+/>
+
+Because that $\Ext$ term is always zero, the universal coefficient theorem simplifies to a genuine isomorphism (not just an unnatural exact sequence):
+$$
+H^k(M; \RR) \cong \Hom(H_k(M), \RR) = \left( H_k(M) \right)^\vee
+$$
+where we view <Term k="homSpace">$H_k(M)$</Term> as a real vector space. So getting a handle on either $H_k(M)$ or $H^k(M;\RR)$ gets us the other for free.
+
+</SlideLayout>

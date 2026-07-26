@@ -1,0 +1,30 @@
+---
+title: Relative chain groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Relative chain groups">
+
+A second useful variant: instead of augmenting the complex, we can quotient it by a subspace.
+
+<Callout kind="definition" title="Relative chain groups">
+Suppose $X$ is a topological space and $A \subseteq X$ a subspace. Define <Term k="sh70RelativeChainGroup">relative chain groups</Term>
+$$
+C_n(X,A) \defeq C_n(X) / C_n(A)
+$$
+for every $n$ — so chains contained entirely in $A$ become trivial. The usual $\partial$ on $C_n(X)$ descends to a chain complex
+$$
+\dots \taking{\partial} C_{n+1}(X,A) \taking{\partial} C_n(X,A) \taking{\partial} C_{n-1}(X,A) \taking{\partial} \dots,
+$$
+well-defined since $\partial$ takes $C_n(A)$ into $C_{n-1}(A)$.
+</Callout>
+
+<Callout kind="definition" title="Relative homology groups">
+The homology groups of the relative chain complex are the <Term k="sh70RelativeHomology">relative homology groups</Term> $H_n(X,A)$.
+</Callout>
+
+Intuitively, $H_n(X,A)$ measures holes in $X$ that are only visible once you're allowed to "cap them off" using pieces of $A$ — a chain that isn't a cycle in $X$ can become one modulo $A$, since its boundary might now land entirely inside $A$ and thus vanish in the quotient.
+
+</SlideLayout>

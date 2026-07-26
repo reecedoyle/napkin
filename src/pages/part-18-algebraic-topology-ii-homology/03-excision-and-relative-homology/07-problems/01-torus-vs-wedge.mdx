@@ -1,0 +1,19 @@
+---
+title: 'Problem: torus vs. wedge of two circles and a sphere'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: torus vs. wedge of two circles and a sphere">
+
+<Problem
+  client:load
+  id="ear72-prob-torus-vs-wedge"
+  difficulty="standard"
+  prompt="Let X = S¹ × S¹ (the torus) and Y = S¹ ∨ S¹ ∨ S² (a wedge of two circles and a sphere). Show that H_n(X) ≅ H_n(Y) for every integer n."
+  solution="Compute both sides degree by degree and compare. For the torus X = S¹ × S¹, the standard computation (from an earlier chapter, e.g. via a CW structure or Künneth) gives H₀(X) = ℤ, H₁(X) = ℤ², H₂(X) = ℤ, and H_n(X) = 0 for n ≥ 3. For Y = S¹ ∨ S¹ ∨ S², use the wedge sum formula H̃_n(A ∨ B) = H̃_n(A) ⊕ H̃_n(B) twice: H̃_n(S¹ ∨ S¹ ∨ S²) = H̃_n(S¹) ⊕ H̃_n(S¹) ⊕ H̃_n(S²). Since H̃_n(S¹) = ℤ at n = 1 and 0 otherwise, and H̃_n(S²) = ℤ at n = 2 and 0 otherwise, this gives H̃_0(Y) = 0, H̃_1(Y) = ℤ ⊕ ℤ = ℤ², H̃_2(Y) = ℤ, and H̃_n(Y) = 0 for n ≥ 3. Converting reduced to unreduced (H₀ = H̃₀ ⊕ ℤ since Y is path-connected, Hₙ = H̃ₙ for n ≥ 1) gives H₀(Y) = ℤ, H₁(Y) = ℤ², H₂(Y) = ℤ, H_n(Y) = 0 for n ≥ 3 — identical to X in every degree."
+/>
+
+</SlideLayout>

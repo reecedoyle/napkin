@@ -1,0 +1,17 @@
+---
+title: Relative homology is not a quotient
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Relative homology is not a quotient">
+
+The name "relative homology" and the notation $H_n(X,A)$ invite a tempting guess: maybe $H_n(X,A) \cong H_n(X)/H_n(A)$?
+
+<Callout kind="remark" title="The naive guess fails">
+This is not true, and in general doesn't even typecheck as a claim (a quotient of possibly-nonabelian... well here everything's abelian, but the *groups* just don't line up). Take $X = \RR^2$ and $A = S^1$ a circle inside it. Then $H_1(X) = H_1(\RR^2) = 0$ (contractible), while $H_1(A) = H_1(S^1) = \ZZ$ — so "$H_1(X)/H_1(A)$" would require quotienting the trivial group by $\ZZ$, which is nonsense.
+</Callout>
+
+A better guess, which turns out to be correct for most reasonable $X$ and $A$: $H_n(X,A)$ is just $\wt H_n(X/A)$, the reduced homology of the space you get by collapsing $A$ to a single point. We'll return to this once we reach the **excision theorem** later on — it's the tool that makes this guess precise.
+
+</SlideLayout>

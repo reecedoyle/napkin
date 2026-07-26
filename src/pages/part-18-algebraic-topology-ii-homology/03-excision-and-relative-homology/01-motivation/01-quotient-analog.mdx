@@ -1,0 +1,24 @@
+---
+title: Relative homology is the algebra of quotients
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Relative homology is the algebra of quotients">
+
+We've already used the Mayer–Vietoris sequence to compute $H_n(X)$ algebraically from an open cover $X = U + V$. Now we turn to a different long exact sequence — one built not from a cover, but from a subspace $A \subseteq X$, using the short exact sequence of chain complexes
+
+$$
+0 \to C_n(A) \injto C_n(X) \surjto C_n(X,A) \to 0.
+$$
+
+The group $C_n(X,A)$ is just $C_n(X)$ with every chain supported entirely inside $A$ declared to be zero. Its homology, <Term k="ear72RelativeHomology">$H_n(X,A)$</Term>, is called **relative homology**. Instead of a single functor $H_n \colon \catname{hTop} \to \catname{Grp}$, we'll build one on *pairs* $H_n \colon \catname{hPairTop} \to \catname{Grp}$, sending $(X,A) \mapsto H_n(X,A)$.
+
+<Callout kind="remark" title="Moral">
+Relative homology is the algebraic analog of a <Term k="ear72QuotientSpace">quotient space</Term>. When you see a map of pairs $f \colon (X,A) \to (Y,B)$, think of it as standing in for the induced map $X/A \to Y/B$.
+</Callout>
+
+That moral suggests a "reasonable guess": for $A \subseteq X$, perhaps $H_n(X,A) \cong \wt{H}_n(X/A)$ — relative homology of the pair should compute ordinary (reduced) homology of the quotient. As we'll see later in this chapter, this guess is true for most spaces you'll ever encounter, but false in general — and understanding exactly when it holds is one of the main payoffs of excision.
+
+</SlideLayout>

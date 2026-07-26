@@ -1,0 +1,24 @@
+---
+title: 'Exercise: enlarging A to a deformation retract V'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Exercise: enlarging A to a deformation retract V">
+
+Here's a useful consequence of combining deformation retracts with the long exact sequence of a triple.
+
+<Callout kind="exercise" title="Replacing A with a deformation-retract neighborhood">
+Show that if $A \subseteq V \subseteq X$ and $A$ is a deformation retract of $V$, then $H_n(X,A) \cong H_n(X,V)$ for all $n$.
+</Callout>
+
+<ProofReveal
+  client:load
+  id="ear72-pairs-proof-replace-a-with-v"
+  prompt="Try it using the long exact sequence of the triple A ⊆ V ⊆ X before revealing."
+  solution="Apply the long exact sequence of the triple with the roles (A, V, X): …→ H_n(V,A) → H_n(X,A) → H_n(X,V) → H_{n-1}(V,A) →…. Since A is a deformation retract of V, we already showed H_k(V,A) = 0 for every k. Plugging in zero on both sides of H_n(X,A) → H_n(X,V) forces this map to be both injective and surjective by exactness — so it's an isomorphism, giving H_n(X,A) ≅ H_n(X,V)."
+/>
+
+</SlideLayout>

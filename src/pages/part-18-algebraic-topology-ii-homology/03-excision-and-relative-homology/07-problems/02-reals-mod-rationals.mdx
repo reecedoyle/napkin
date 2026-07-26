@@ -1,0 +1,20 @@
+---
+title: 'Problem: H̃₁(ℝ, ℚ)'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: H̃₁(ℝ, ℚ)">
+
+<Problem
+  client:load
+  id="ear72-prob-reals-mod-rationals"
+  difficulty="standard"
+  prompt="Consider ℚ ⊂ ℝ. Compute H̃₁(ℝ, ℚ). (Hatcher §2.1, exercise 18.)"
+  hint="Use the long exact sequence of the pair (ℝ, ℚ)."
+  solution="The reduced long exact sequence of the pair gives H̃₁(ℝ) → H̃₁(ℝ,ℚ) → H̃₀(ℚ) → H̃₀(ℝ), i.e. 0 → H̃₁(ℝ,ℚ) → H̃₀(ℚ) → 0 since ℝ is contractible (H̃_n(ℝ) = 0 for all n). So H̃₁(ℝ,ℚ) ≅ H̃₀(ℚ). Now, ℚ is totally path-disconnected — no two distinct points of ℚ are joined by a path staying inside ℚ — so its path components are single points, one for each rational number. Since ℚ is countably infinite, H̃₀(ℚ) is a direct sum of countably infinitely many copies of ℤ (one free generator per path component beyond the first). Hence H̃₁(ℝ,ℚ) is also countably infinitely many copies of ℤ."
+/>
+
+</SlideLayout>

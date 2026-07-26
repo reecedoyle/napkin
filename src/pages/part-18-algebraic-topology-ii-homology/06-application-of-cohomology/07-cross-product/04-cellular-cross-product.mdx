@@ -1,0 +1,24 @@
+---
+title: A cleaner cross product via cellular homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A cleaner cross product via cellular homology">
+
+The singular-homology definition is clumsy — subdividing $\Delta^m \times \Delta^n$ into a huge pile of simplices, as we saw. If $X$ and $Y$ are CW complexes, cellular homology does better (and gives the identical answer on homology groups, so this part is safe to skip on a first read).
+
+The point: $X \times Y$ has a natural CW structure where each cell $e^m$ of $X$ paired with each cell $e^n$ of $Y$ gives a cell $e^m \times e^n$ of dimension $m+n$ in $X \times Y$.
+
+<Callout kind="example" title="Product of two line segments">
+If $X$ and $Y$ are both line segments (built from two $0$-cells and one $1$-cell), their product $X\times Y$ has a natural CW structure with $4$ zero-cells, $4$ one-cells, and $1$ two-cell.
+</Callout>
+
+So the cross product on cellular chain groups is defined on basis elements the obvious way, $e^m \times e^n \in \Cells_{m+n}(X\times Y)$ for $e^m \in \Cells_m(X)$, $e^n \in \Cells_n(Y)$ — the notation is trivial because a cell of $X\times Y$ *literally is* a product of a cell of $X$ and a cell of $Y$. This still induces the same map on homology,
+$$
+\times \colon H_m(X) \otimes_\ZZ H_n(Y) \to H_{m+n}(X\times Y),
+$$
+as the singular-homology version.
+
+</SlideLayout>

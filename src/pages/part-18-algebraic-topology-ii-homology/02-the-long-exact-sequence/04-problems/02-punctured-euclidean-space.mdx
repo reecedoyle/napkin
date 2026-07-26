@@ -1,0 +1,18 @@
+---
+title: "Problem: Euclidean space with points removed"
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: Euclidean space with points removed">
+
+<Problem
+  client:load
+  id="tle71-prob-punctured-rn"
+  difficulty="standard"
+  prompt="Compute the reduced homology groups of ℝ^n with p ≥ 1 points removed."
+  hint="One strategy: induct on p, with base case p = 1 (where the punctured space deformation retracts onto a sphere). Alternatively, let U be the desired space and let V be the union of p small non-intersecting balls around the removed points."
+  solution="The answer is H̃_{n-1}(X) ≅ ℤ^⊕p, with every other reduced homology group vanishing. For p = 1: ℝ^n minus a point deformation retracts onto a sphere S^{n-1} around it, so this is exactly the sphere computation with m = n-1, giving H̃_{n-1} ≅ ℤ and everything else 0. For general p, use Mayer-Vietoris directly: let U be ℝ^n with all p points removed, and let V be the union of p small disjoint open balls, one centered at each removed point. Then U ∪ V = ℝ^n, which is contractible, so all reduced homology groups of U ∪ V vanish. The intersection U ∩ V is p disjoint punctured balls, each homotopy equivalent to S^{n-1}, so H̃_k(U ∩ V) ≅ ℤ^⊕p when k = n-1 and 0 otherwise. Reading off the Mayer-Vietoris sequence with H̃_k(V) = 0 (each ball is contractible) and H̃_k(U ∪ V) = 0 on both sides of H̃_k(U ∩ V), the connecting map gives H̃_k(U) ≅ H̃_{k-1}(U ∩ V) shifted appropriately, landing on H̃_{n-1}(U) ≅ ℤ^⊕p and 0 in every other degree."
+/>
+
+</SlideLayout>

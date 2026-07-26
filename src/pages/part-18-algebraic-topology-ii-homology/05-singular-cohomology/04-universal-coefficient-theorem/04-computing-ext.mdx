@@ -1,0 +1,33 @@
+---
+title: Computing Ext
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+
+<SlideLayout title="Computing Ext">
+
+Fortunately $\Ext$, despite its abstract definition, is easy to compute in practice — you just pick *any* free resolution.
+
+<Callout kind="lemma" title="Computing the Ext functor">
+For any abelian groups $G$, $H$, $H'$: <Term k="sc74ExtLemma">$\Ext$</Term> satisfies
+- (a) $\Ext(H \oplus H', G) = \Ext(H, G) \oplus \Ext(H', G)$,
+- (b) $\Ext(H,G) = 0$ for $H$ free, and
+- (c) $\Ext(\Zc n, G) = G / nG$.
+</Callout>
+
+For (a): if $\dots \to F_1 \to F_0 \to H \to 0$ and $\dots \to F_1' \to F_0' \to H' \to 0$ are free resolutions, then $\dots \to F_1 \oplus F_1' \to F_0 \oplus F_0' \to H \oplus H' \to 0$ is too — apply $\Hom(-,G)$ degreewise and the direct sums pass through.
+
+For (b): if $H$ is free, then $0 \to H \to H \to 0$ (identity map) is itself a free resolution — there's no room left for a nonzero $\Ext$ term to hide in.
+
+For (c), take the free resolution $0 \to \ZZ \taking{\times n} \ZZ \to \Zc n \to 0$ and apply $\Hom(-,G)$.
+
+<ProofReveal
+  client:load
+  id="sc74-uct-proof-ext-cn-g"
+  prompt="Finish part (c): apply Hom(−,G) to 0 → ℤ →[×n] ℤ → ℤ/nℤ → 0 and identify the resulting Ext(ℤ/nℤ,G) with G/nG."
+  solution="Applying Hom(−,G) to the free resolution 0 → ℤ →[×n] ℤ → ℤ/nℤ → 0 gives the cochain complex 0 ← Hom(ℤ,G) ←[(×n)∨] Hom(ℤ,G) ← 0. Using Hom(ℤ,G) ≅ G (a homomorphism out of ℤ is determined by where 1 goes), the map (×n)∨: G → G is again multiplication by n. By definition Ext(ℤ/nℤ,G) is the cokernel of this last nontrivial map in the dualized complex, i.e. G modulo the image of multiplication-by-n, which is nG. So Ext(ℤ/nℤ,G) = G/nG, exactly as claimed."
+/>
+
+</SlideLayout>

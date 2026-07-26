@@ -1,0 +1,20 @@
+---
+title: 'd_1: the ordinary boundary map'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="d_1: the ordinary boundary map">
+
+So far we know the maps $d_k$ exist and satisfy $d_k \circ d_{k+1} = 0$, but we haven't said what they actually *are*. Since $\Cells_k(X)$ has a basis given by the $k$-cells, this is really asking: can we compute $d_k(e^k)$ explicitly for each cell $e^k$?
+
+The base case is easy:
+
+<Callout kind="theorem" title="Cellular boundary formula for k = 1">
+For $k=1$, $d_1 \colon \Cells_1(X) \to \Cells_0(X)$ is just the ordinary boundary map: $d_1(e^1)$ is the difference of the two endpoints of the edge $e^1$ (as $0$-cells).
+</Callout>
+
+Nothing subtle here — a $1$-cell is an edge, and its boundary is literally its two endpoints, with a sign depending on orientation. The interesting formula is for $k > 1$.
+
+</SlideLayout>

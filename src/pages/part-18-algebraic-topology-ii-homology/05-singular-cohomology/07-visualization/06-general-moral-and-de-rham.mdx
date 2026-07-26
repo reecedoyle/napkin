@@ -1,0 +1,36 @@
+---
+title: The general moral, and de Rham revisited
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="The general moral, and de Rham revisited">
+
+The Klein bottle computation generalizes completely:
+
+<Callout kind="remark" title="Moral">
+If a region $e^k \in C_k(X)$ has boundary $\partial e^k \in C_{k-1}(X)$ divisible by $n$, then we only care about the value assigned to $e^k$, modulo $n$.
+</Callout>
+
+That "modulo $n$" ambiguity, tallied up across all the regions of $X$, is exactly what $\Ext(H_{n-1}(X),G)$ measures.
+
+<Callout kind="remark" title="Back to de Rham">
+Compare with de Rham cohomology, from the very start of the chapter: there, $G = \RR$, which is a field. Dividing by any integer $n$ is always possible in a field, so "modulo $n$" ambiguities never survive — $\Ext(H_{n-1}(X), \RR)$ is always $0$. That's the geometric reason $\Ext$ terms only ever show up with non-field coefficients like $\ZZ$ or $\Zc p$.
+</Callout>
+
+<MCQ
+  client:load
+  id="sc74-visual-mcq-field-coefficients"
+  prompt="Why does the Ext(Hₙ₋₁(X), G) correction term always vanish when G is a field?"
+  options={[
+    { id: "a", label: "Because fields have no torsion elements at all" },
+    { id: "b", label: "Because G/nG = 0 for any nonzero n, since every nonzero element of a field is invertible" },
+    { id: "c", label: "Because cohomology is undefined for field coefficients" },
+    { id: "d", label: "Because Hₙ₋₁(X) is always 0 when working over a field" },
+  ]}
+  correct="b"
+  explanation="Ext(ℤ/nℤ,G) = G/nG (and Ext of a general finitely generated group reduces to sums of this case plus the free case, which already vanishes). In a field, multiplication by any nonzero n is invertible, so nG = G and G/nG = 0. That's the algebraic mirror of the geometric fact that 'modulo n' ambiguities disappear when division by n is always possible."
+/>
+
+</SlideLayout>

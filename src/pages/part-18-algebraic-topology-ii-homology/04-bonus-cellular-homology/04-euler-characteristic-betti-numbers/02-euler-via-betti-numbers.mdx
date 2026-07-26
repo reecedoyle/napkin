@@ -1,0 +1,23 @@
+---
+title: Euler characteristic via Betti numbers
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Euler characteristic via Betti numbers">
+
+Here's the fix: express $\chi(X)$ in terms of homology, which we already know only depends on $X$ itself.
+
+<Callout kind="theorem" title="Euler characteristic via Betti numbers">
+For any finite CW complex $X$,
+$$
+\chi(X) = \sum_n (-1)^n \operatorname{rank} H_n(X).
+$$
+</Callout>
+
+The numbers <Term k="bch73BettiNumber">$b_n = \operatorname{rank} H_n(X)$</Term> are called the **Betti numbers** of $X$. Since the right-hand side manifestly doesn't reference any CW structure, this theorem tells us $\chi(X)$ doesn't depend on the choice of CW decomposition after all — every valid decomposition gives the same alternating cell count.
+
+In fact, this lets us *define* $\chi(X)$ for any reasonable space at all (CW or not), and when $X$ happens to be a CW complex, the definition agrees with the naive cell-counting one.
+
+</SlideLayout>

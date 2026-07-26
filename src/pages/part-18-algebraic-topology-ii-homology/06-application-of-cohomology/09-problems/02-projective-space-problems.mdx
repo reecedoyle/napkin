@@ -1,0 +1,29 @@
+---
+title: Problems — projective spaces
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — projective spaces">
+
+Two problems putting Betti-number symmetry and the cup product to work on projective space.
+
+<Problem
+  client:load
+  id="aoc75-prob-rpn-not-orientable-even-n"
+  prompt="Show that ℝPⁿ is not orientable for even n."
+  hint="Use the previous result on Betti numbers."
+  solution="Suppose for contradiction that ℝPⁿ (n even) were smooth, oriented, and compact — it's certainly compact, so suppose it were orientable. Then Poincaré duality's symmetry of Betti numbers gives b_0 = b_n. But b_0 = 1 always (ℝPⁿ is connected), while H_n(ℝPⁿ;ℤ) = 0 when n is even (the top homology group of a closed n-manifold is ℤ if orientable and 0 if not — this is essentially the defining computation of orientability), so b_n = 0. Since 1 ≠ 0, the symmetry b_0 = b_n fails, contradicting Poincaré duality. So ℝPⁿ cannot be orientable when n is even."
+  difficulty="standard"
+/>
+
+<Problem
+  client:load
+  id="aoc75-prob-rp3-vs-rp2-wedge-s3"
+  prompt="Show that ℝP³ is not homotopy equivalent to ℝP² ∨ S³."
+  hint="Use the ℤ/2 cohomologies, and find the cup product."
+  solution="H^•(ℝP³; ℤ/2) ≅ (ℤ/2)[α]/(α⁴) with |α|=1: rank 1 in each of degrees 0,1,2,3. For ℝP²∨S³, the reduced cohomology pseudo-ring splits as H̃^•(ℝP²;ℤ/2) × H̃^•(S³;ℤ/2); the first factor is (ℤ/2)[β]/(β³) minus its degree-0 piece (rank 1 in degrees 1,2), the second is a single rank-1 piece in degree 3. So the absolute ring H^•(ℝP²∨S³;ℤ/2) also has rank 1 in each of degrees 0,1,2,3 — the groups match exactly. But look at the cube of the degree-1 generator. In ℝP³, α⌣α is the nonzero degree-2 generator and α⌣α⌣α is the nonzero degree-3 generator (it's the top class, since α⁴=0 but α³≠0). In ℝP²∨S³, the degree-1 generator β lives entirely inside the ℝP² summand, and β⌣β⌣β would have to live in H̃³(ℝP²;ℤ/2), which is 0 (ℝP² has cohomology only up through degree 2) — so β⌣β⌣β = 0 automatically. One ring has a nonzero cube of its degree-1 generator, the other has zero; the rings are not isomorphic, so ℝP³ is not homotopy equivalent to ℝP²∨S³."
+  difficulty="standard"
+/>
+
+</SlideLayout>

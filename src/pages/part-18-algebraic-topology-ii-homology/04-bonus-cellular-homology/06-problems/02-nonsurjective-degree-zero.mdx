@@ -1,0 +1,18 @@
+---
+title: Problem — non-surjective maps have degree zero
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem — non-surjective maps have degree zero">
+
+<Problem
+  client:load
+  id="bch73-problems-standard-nonsurjective-degree-zero"
+  difficulty="standard"
+  prompt="Show that a non-surjective map f: Sⁿ → Sⁿ has degree zero."
+  hint="The space Sⁿ minus a point is contractible."
+  solution="Suppose f misses some point x₀ ∈ Sⁿ. Then f factors as Sⁿ → (Sⁿ − {x₀}) → Sⁿ, where the first map is f with restricted codomain and the second is the inclusion. But Sⁿ − {x₀} is contractible (it deformation retracts to a point), so its homology vanishes in positive degrees, in particular H_n(Sⁿ − {x₀}) = 0 (since n > 0). The induced map f_* on H_n factors through this zero group: H_n(Sⁿ) → H_n(Sⁿ − {x₀}) → H_n(Sⁿ), and since the middle group is 0, the composite is the zero map. So f_* = 0, i.e. deg(f) = 0."
+/>
+
+</SlideLayout>

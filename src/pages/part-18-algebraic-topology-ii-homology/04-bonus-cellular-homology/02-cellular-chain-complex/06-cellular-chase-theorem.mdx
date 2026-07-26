@@ -1,0 +1,20 @@
+---
+title: Cellular homology equals singular homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Cellular homology equals singular homology">
+
+Here is the payoff for building all this machinery:
+
+<Callout kind="theorem" title="Cellular chain complex gives H_n(X)">
+The $k$-th homology group of the <Term k="bch73CellularChainComplex">cellular chain complex</Term> is isomorphic to $H_k(X)$.
+</Callout>
+
+This is why we bothered: instead of computing $H_k(X)$ from the enormous singular chain complex, we can compute the homology of $\Cells_\bullet(X)$ — a complex with one generator per cell — and get the same answer.
+
+The proof is a genuine diagram chase through the interlocking exact sequences from the previous slides; we leave it as a problem at the end of this chapter, where you'll show it concretely for $H_2(X^2, X^1)$.
+
+</SlideLayout>

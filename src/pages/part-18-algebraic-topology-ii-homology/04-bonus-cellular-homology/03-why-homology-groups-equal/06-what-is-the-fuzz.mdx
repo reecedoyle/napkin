@@ -1,0 +1,28 @@
+---
+title: What exactly is the fuzz?
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="What exactly is the fuzz?">
+
+By "fuzz," we just mean: an aligned cycle can be nudged around a bit — reparametrized, or shifted by adding an element of $B_1(X^1, X^0)$ — while remaining a cycle in $Z_1(X)$. The same goes for aligned boundaries. Since the cellular chain complex quotients out exactly this wiggle-room on both the numerator and the denominator of "cycle over boundary," the common fuzz factor cancels and what's left over is the same as ordinary singular homology.
+
+<MCQ
+  client:load
+  id="bch73-digression-mcq-fuzz-meaning"
+  prompt="In the slogan 'aligned cycle × fuzz / aligned boundary × fuzz', what does the 'fuzz' represent?"
+  options={[
+    { id: "a", label: "The reparametrization freedom / relative-boundary wiggle-room that doesn't change which cycle you have" },
+    { id: "b", label: "The number of 2-cells in the CW complex" },
+    { id: "c", label: "An error term that vanishes only for simply connected spaces" },
+    { id: "d", label: "The rank of the free abelian group Cells_k(X)" },
+  ]}
+  correct="a"
+  explanation="Fuzz is the harmless slack in how a cycle is represented as a singular chain — different parametrizations or shifts by a relative boundary that don't change the underlying homology class. It shows up identically in both the cycle group and the boundary group, so it cancels when we pass to the quotient H_k(Cells_•(X)) = H_k(X)."
+/>
+
+For a fully rigorous treatment (simplicial approximation, $\Delta$-complex structures), see Hatcher's *Algebraic Topology*.
+
+</SlideLayout>

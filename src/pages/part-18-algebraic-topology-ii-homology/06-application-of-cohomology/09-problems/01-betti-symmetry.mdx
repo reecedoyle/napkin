@@ -1,0 +1,20 @@
+---
+title: Problems — Poincaré duality
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problems — Poincaré duality">
+
+Four problems to close out the chapter. The first fills in the gap we left open at the start: proving the symmetry of Betti numbers directly from Poincaré duality.
+
+<Problem
+  client:load
+  id="aoc75-prob-betti-symmetry-proof"
+  prompt="Let M be a smooth oriented compact n-manifold, and let b_k denote its Betti number. Prove that b_k = b_{n-k}."
+  hint="Write H^k(M; ℤ) in terms of H_k(M) using the universal coefficient theorem, and analyze the ranks."
+  solution="By Poincaré duality, H^k(M;ℤ) ≅ H_{n-k}(M), so rank H^k(M;ℤ) = rank H_{n-k}(M) = b_{n-k}. On the other hand, the universal coefficient theorem gives a short exact sequence 0 → Ext(H_{k-1}(M), ℤ) → H^k(M;ℤ) → Hom(H_k(M), ℤ) → 0. The Ext term is a finite (torsion) group, since H_{k-1}(M) is finitely generated, so it contributes 0 to the rank. And Hom(H_k(M), ℤ) has the same rank as H_k(M) itself (Hom(ℤ,ℤ)=ℤ contributes rank 1 per ℤ-summand, and Hom(ℤ/mℤ, ℤ) = 0 kills torsion). So rank H^k(M;ℤ) = rank H_k(M) = b_k. Combining the two computations of rank H^k(M;ℤ): b_k = b_{n-k}."
+  difficulty="daggered"
+/>
+
+</SlideLayout>

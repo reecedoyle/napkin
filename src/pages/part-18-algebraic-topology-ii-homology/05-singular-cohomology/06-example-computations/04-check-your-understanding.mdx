@@ -1,0 +1,30 @@
+---
+title: Check your understanding — Klein bottle cohomology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Check your understanding — Klein bottle cohomology">
+
+Let's confirm the computation on the previous slide sunk in.
+
+<MCQ
+  client:load
+  id="sc74-examples-mcq-h2-klein-z"
+  prompt="What is H²(K; ℤ) for K the Klein bottle?"
+  options={[
+    { id: "a", label: "ℤ" },
+    { id: "b", label: "ℤ ⊕ ℤ/2ℤ" },
+    { id: "c", label: "ℤ/2ℤ" },
+    { id: "d", label: "0" },
+  ]}
+  correct="c"
+  explanation="H²(K;G) ≅ G/2G. With G = ℤ, that's ℤ/2ℤ. This nonzero group appears even though H₂(K) = 0 — it's entirely the Ext(H₁(K),G) = Ext(ℤ⊕ℤ/2ℤ,ℤ) correction term."
+/>
+
+<Callout kind="remark">
+Notice that if $G$ had been a field (say $G=\QQ$ or $G=\RR$) instead, $G/2G$ would be $0$ — dividing by $2$ is invertible in a field. That's why $\Ext$ corrections are invisible when working with field coefficients, and it foreshadows the comparison with de Rham cohomology at the end of the next section.
+</Callout>
+
+</SlideLayout>

@@ -1,0 +1,27 @@
+---
+title: Torus — computing H_2
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Torus — computing H_2">
+
+The relevant segment of the sequence is
+$$
+\dots \to \underbrace{\wt H_2(U) \oplus \wt H_2(V)}_{=0} \to \wt H_2(X) \taking{\partial} \underbrace{\wt H_1(U \cap V)}_{\cong \ZZ \oplus \ZZ} \taking{\phi} \underbrace{\wt H_1(U) \oplus \wt H_1(V)}_{\cong \ZZ \oplus \ZZ} \to \dots
+$$
+
+The zero on the left makes $\partial$ injective, so $\wt H_2(X) \cong \img(\partial) = \ker \phi$. This time we can't just read off the answer — we have to understand $\phi$.
+
+Recall the map $C_\bullet(U \cap V) \to C_\bullet(U) \oplus C_\bullet(V)$ underlying Mayer–Vietoris sends $c \mapsto (c, -c)$, so on homology, a class $z$ maps to $(z, -z)$. Let $z_1, z_2$ generate the two circles of $U \cap V$ (one per "seam"), and let $\alpha_U, \alpha_V$ generate $\wt H_1(U), \wt H_1(V)$. Tracing each seam through both cylinders gives
+$$
+z_1 \mapsto (\alpha_U, -\alpha_V), \qquad z_2 \mapsto (\alpha_U, -\alpha_V),
+$$
+i.e. $\phi = \begin{bmatrix} 1 & 1 \\ -1 & -1 \end{bmatrix}$ in the bases $(z_1,z_2)$ and $(\alpha_U,\alpha_V)$. Both generators land on the *same* point, so $\phi(z_1 - z_2) = 0$: the kernel is nontrivial, $\ker\phi = \langle z_1 - z_2 \rangle \cong \ZZ$.
+
+$$
+\wt H_2(X) \cong \img\,\partial \cong \ker \phi \cong \ZZ.
+$$
+
+</SlideLayout>

@@ -1,0 +1,45 @@
+---
+title: Graded rings, and anticommutativity
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Graded rings, and anticommutativity">
+
+Two more names, layered on top of a graded pseudo-ring:
+
+<Callout kind="definition" title="Graded ring">
+A <Term k="aoc75GradedRing">graded ring</Term> is a graded pseudo-ring with a multiplicative identity $1$. If it is also commutative, we call it a **commutative graded ring**.
+</Callout>
+
+<Callout kind="definition" title="Anticommutative">
+A graded (pseudo-)ring $R$ is <Term k="aoc75Anticommutative">anticommutative</Term> if for any homogeneous $r$ and $s$,
+$$
+rs = (-1)^{|r||s|} sr.
+$$
+</Callout>
+
+The wedge product is the motivating example: it's exactly this sign rule. Note anticommutative and commutative are *not* opposites — a ring can be both, or neither, depending on what degrees its nonzero elements live in.
+
+| Flavor | Need not have $1$ | Must have a $1$ |
+| --- | --- | --- |
+| No assumption | graded pseudo-ring | graded ring |
+| Anticommutative | anticommutative pseudo-ring | anticommutative ring |
+| Commutative | — | commutative graded ring |
+
+<MCQ
+  client:load
+  id="aoc75-gr-mcq-zx-anticommutative"
+  prompt="Let R = ℤ[x] be graded by degree (so x has degree 1), an ordinary commutative graded ring. Is R anticommutative?"
+  options={[
+    { id: "a", label: "Yes — every commutative graded ring is automatically anticommutative" },
+    { id: "b", label: "No — anticommutativity would force x² = −x², i.e. 2x² = 0, which fails in ℤ[x]" },
+    { id: "c", label: "No — ℤ[x] isn't even a graded pseudo-ring" },
+  ]}
+  correct="b"
+  explanation="For homogeneous r = s = x (degree 1), anticommutativity demands x·x = (−1)^{1·1} x·x = −x². That forces 2x² = 0. But x² ≠ 0 in ℤ[x] and ℤ has no zero divisors with 2, so 2x² ≠ 0. Hence ℤ[x] is commutative but not anticommutative."
+/>
+
+</SlideLayout>

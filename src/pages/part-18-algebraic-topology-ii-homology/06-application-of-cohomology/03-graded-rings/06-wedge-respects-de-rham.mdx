@@ -1,0 +1,29 @@
+---
+title: The wedge product descends to cohomology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="The wedge product descends to cohomology">
+
+Back to $\Omega^\bullet(M)$: we'd like the wedge product to induce a product on <Term k="deRhamCohomology">de Rham cohomology</Term> classes, not just on forms.
+
+<Callout kind="lemma" title="Wedge product respects de Rham cohomology">
+The wedge product induces a well-defined map
+$$
+\wedge \colon \HdR^k(M) \times \HdR^\ell(M) \to \HdR^{k+\ell}(M).
+$$
+</Callout>
+
+<Callout kind="remark" title="Proof">
+Recall $d(\alpha \wedge \beta) = (d\alpha)\wedge\beta + \alpha\wedge(d\beta)$. If $\alpha, \beta$ are both closed, this shows $\alpha\wedge\beta$ is closed too. If $\alpha$ is closed and $\beta = d\omega$ is exact, then $d(\alpha \wedge \omega) = d\alpha \wedge \omega + \alpha \wedge d\omega = \alpha \wedge \beta$ (using $d\alpha = 0$), so $\alpha \wedge \beta$ is exact. The symmetric case ($\alpha$ exact, $\beta$ closed) is identical. So the wedge product of two closed forms is closed, and it's exact as soon as either factor is exact — exactly what's needed to descend to the quotient "closed mod exact".
+</Callout>
+
+So we finally get an honest **anticommutative ring**
+$$
+\HdR^\bullet(M) = \bigoplus_{k \ge 0} \HdR^k(M)
+$$
+with $\wedge$ as the product and $1 \in \bigwedge^0(\RR) = \RR$ as the identity. This is the graded ring we were after — and by de Rham's theorem, it's really the same ring as the singular cohomology of $M$ with $\RR$ coefficients. Next we'll build the analogous product directly on singular cohomology, with *any* coefficient ring — the cup product.
+
+</SlideLayout>

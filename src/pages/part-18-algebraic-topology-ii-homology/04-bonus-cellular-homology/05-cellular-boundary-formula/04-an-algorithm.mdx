@@ -1,0 +1,19 @@
+---
+title: An algorithm for computing cellular homology
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="An algorithm for computing cellular homology">
+
+Putting the last few slides together gives a genuine recipe for computing the homology of any CW complex:
+
+1. Construct the cellular chain complex, where $\Cells_k(X) \cong \ZZ^{\oplus \#(k\text{-cells})}$.
+2. Compute $d_1 \colon \Cells_1(X) \to \Cells_0(X)$ as the ordinary boundary map (the difference of two endpoints).
+3. For each $k > 1$ and each $k$-cell $e^k$: for every $(k-1)$-cell $e_\beta^{k-1}$, compute the degree $d_\beta$ of the boundary of $e^k$ welded onto the boundary of $e_\beta^{k-1}$, then set $d_k(e^k) = \sum_\beta d_\beta\, e_\beta^{k-1}$.
+4. Now that every $d_k$ is known explicitly, compute $H_k = \ker d_k / \img d_{k+1}$ directly — pure linear algebra over $\ZZ$.
+
+We'll run this whole algorithm by hand on the torus and the Klein bottle over the next few slides.
+
+</SlideLayout>

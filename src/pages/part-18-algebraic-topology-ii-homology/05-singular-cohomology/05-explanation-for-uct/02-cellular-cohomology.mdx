@@ -1,0 +1,31 @@
+---
+title: Swapping in the cellular chain complex
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Swapping in the cellular chain complex">
+
+Point 2 from the last slide has an immediate payoff: if you want, you can forget the universal coefficient formula entirely, and just use the cellular chain complex $\Cells_\bullet(X)$ to compute cohomology directly:
+
+<Callout kind="remark" title="Cellular cohomology">
+This <Term k="sc74CellularReformulation">cellular reformulation</Term> says:
+$$
+H^n(X; G) = \frac{\ker(\Hom(\Cells_n(X), G) \to \Hom(\Cells_{n+1}(X), G))}
+{\img(\Hom(\Cells_{n-1}(X), G) \to \Hom(\Cells_{n}(X), G))}.
+$$
+After all, the cellular and singular chain complexes are both free and share the same homology groups, so by the universal coefficient theorem they must share the same cohomology groups too.
+</Callout>
+
+<Callout kind="example" title="Klein bottle cellular chain complex">
+The <Term k="sc74KleinBottle">Klein bottle</Term>'s cellular chain complex looks like
+$$
+\cdots \to \ZZ \taking{1 \mapsto (0,2)} \ZZ^2 \taking{(a,b)\mapsto 0} \ZZ,
+$$
+with homology $H_2 = 0$, $H_1 = \ZZ \oplus \Zc2$, $H_0 = \ZZ$. It's simpler than the singular chain complex, but only marginally (3 generators instead of infinitely many, and no maps to track) — cellular homology is already this efficient on its own.
+</Callout>
+
+Even so, the universal coefficient *formula* is often preferable: usually the chain complex $A_\bullet$ is far more complicated to describe than $H_\bullet(A_\bullet)$ is, so having a formula purely in terms of the homology groups saves real work.
+
+</SlideLayout>

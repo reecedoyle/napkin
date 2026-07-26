@@ -1,0 +1,23 @@
+---
+title: Maps of spaces induce chain maps
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="Maps of spaces induce chain maps">
+
+Let's fill in the geometric side, starting with step (1) from the previous slide.
+
+<Callout kind="lemma" title="A map of spaces gives a map of singular chain complexes">
+Each map $f \colon X \to Y$ induces a map $C_n(X) \to C_n(Y)$.
+</Callout>
+
+The construction is immediate: given a singular $n$-simplex $\sigma \colon \Delta^n \to X$, post-compose to get
+$$
+\Delta^n \taking{\sigma} X \taking{f} Y,
+$$
+a singular $n$-simplex in $Y$. Extend linearly to chains. Concretely: a path in $X$ becomes a path in $Y$ (just push it through $f$), a $2$-simplex in $X$ becomes a $2$-simplex in $Y$, and so on. It's routine to check the squares involving $\partial$ commute — $f$ acting on the boundary of $\sigma$ is the same as taking the boundary of $f \circ \sigma$, since both are computed by deleting vertices and then applying $f$.
+
+So $f$ gives an honest chain map $C_\bullet(X) \to C_\bullet(Y)$, hence (by the algebra we just did) an induced map $f_\ast \colon H_n(X) \to H_n(Y)$. That handles step (1). Step (2) — showing $f_\ast$ only depends on the homotopy class of $f$ — needs the *chain homotopy* machinery, and that's where the real geometry comes in.
+
+</SlideLayout>

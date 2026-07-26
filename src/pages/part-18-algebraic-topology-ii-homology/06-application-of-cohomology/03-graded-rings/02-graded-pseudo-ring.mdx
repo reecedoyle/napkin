@@ -1,0 +1,22 @@
+---
+title: Graded pseudo-rings
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Graded pseudo-rings">
+
+<Callout kind="definition" title="Graded pseudo-ring">
+A <Term k="aoc75GradedPseudoRing">graded pseudo-ring</Term> $R$ is an abelian group
+$$
+R = \bigoplus_{d \ge 0} R^d
+$$
+where $R^0, R^1, \dots$ are abelian groups, equipped with an associative binary operation. We require that if $r \in R^d$ and $s \in R^e$, then $rs \in R^{d+e}$.
+</Callout>
+
+Elements of a single $R^d$ are called <Term k="aoc75HomogeneousDegree">homogeneous elements</Term>; if $r \in R^d$ and $r \neq 0$, we write $|r| = d$ for its degree.
+
+Notice the word "pseudo": we do *not* assume commutativity, and we don't even assume there's a multiplicative identity $1$. This is deliberately a weak, bare-bones structure — we'll add back the properties we want, one at a time.
+
+</SlideLayout>

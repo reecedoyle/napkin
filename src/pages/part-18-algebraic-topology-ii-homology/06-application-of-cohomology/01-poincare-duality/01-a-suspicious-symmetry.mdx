@@ -1,0 +1,22 @@
+---
+title: A suspicious symmetry
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="A suspicious symmetry">
+
+This is the last chapter on topology proper. We'll state a handful of powerful results (mostly without proof), and build up to the star of the show: a way to *multiply* cohomology classes, called the **cup product**.
+
+First, a warm-up observation. Compute the homology groups of the torus $T = S^1 \times S^1$: you get $H_0(T) \cong \ZZ$, $H_1(T) \cong \ZZ^2$, $H_2(T) \cong \ZZ$. Do the same for the sphere $S^2$: $H_0(S^2) \cong \ZZ$, $H_1(S^2) = 0$, $H_2(S^2) \cong \ZZ$.
+
+In both cases, something is symmetric: the rank of $H_k$ matches the rank of $H_{n-k}$, where $n$ is the dimension of the space. For the torus ($n=2$): ranks $1, 2, 1$ — palindromic. For $S^2$ ($n=2$): ranks $1, 0, 1$ — also palindromic.
+
+<Callout kind="question" title="Coincidence?">
+Is this symmetry a fluke of two convenient examples, or is something structural forcing it?
+</Callout>
+
+It's structural — it's a theorem called <Term k="aoc75PoincareDuality">Poincaré duality</Term>, and it holds for every space with enough niceness (a smooth, oriented, compact manifold). We'll state it next.
+
+</SlideLayout>

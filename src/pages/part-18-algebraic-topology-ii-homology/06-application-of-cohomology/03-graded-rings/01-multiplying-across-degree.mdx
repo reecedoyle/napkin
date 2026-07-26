@@ -1,0 +1,19 @@
+---
+title: Multiplying across degree
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Multiplying across degree">
+
+The de Rham cochain complex has another piece of structure we haven't used yet: differential forms can be **multiplied**. Given a $k$-form $\alpha$ and an $\ell$-form $\beta$, the <Term k="wedgeProduct">wedge product</Term> $\alpha \wedge \beta$ is a $(k+\ell)$-form, satisfying
+$$
+\beta \wedge \alpha = (-1)^{k\ell} \alpha \wedge \beta.
+$$
+
+So $\Omega^\bullet(M) = \bigoplus_{d \ge 0} \Omega^d(M)$ isn't just a graded abelian group — it's a graded abelian group with a product that respects the grading (multiplying a $k$-form by an $\ell$-form always lands you in degree $k+\ell$, never anywhere else).
+
+This is worth abstracting: what exactly is a "ring where multiplication respects a grading, and elements pick up a sign when you swap them"? That's our target for this section.
+
+</SlideLayout>

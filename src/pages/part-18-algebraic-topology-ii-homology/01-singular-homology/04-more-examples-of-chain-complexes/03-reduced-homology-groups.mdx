@@ -1,0 +1,41 @@
+---
+title: Reduced homology groups
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+import ProofReveal from '@/components/ProofReveal';
+import MCQ from '@/components/MCQ';
+
+<SlideLayout title="Reduced homology groups">
+
+<ProofReveal
+  client:load
+  id="sh70-more-proof-augmented-homology-at-z"
+  prompt="What's the homology of the augmented chain complex at ℤ (the last spot, …→ C₀(X) →ε→ ℤ → 0)? (Hint: you need X nonempty.)"
+  solution="Homology at that spot is ker(ℤ→0)/img(ε) = ℤ/img(ε). Since X is nonempty, pick any point p; then ε([p]) = 1, which already generates all of ℤ, so ε is surjective and img(ε) = ℤ. Hence the homology there is ℤ/ℤ = 0. (If X were empty, C₀(X) = 0, so img(ε) = 0 and the homology would be ℤ/0 = ℤ instead — the hint's point exactly.)"
+/>
+
+<Callout kind="definition" title="Reduced homology groups">
+The homology groups of the augmented chain complex are the <Term k="sh70ReducedHomology">reduced homology groups</Term> $\wt H_n(X)$ of $X$.
+
+Since the augmented complex only changes things at the very end, $\wt H_n(X) \cong H_n(X)$ for $n > 0$. At $n = 0$: the map $H_0(X) \to \ZZ$ induced by $\eps$ has kernel $\wt H_0(X)$, so $H_0(X) \cong \wt H_0(X) \oplus \ZZ$.
+</Callout>
+
+This is mostly a convenience: for instance, since a contractible space has $H_0 \cong \ZZ$ and every other $H_n$ trivial, its reduced homology groups $\wt H_n$ *all* vanish — no special-casing $n=0$ ever again.
+
+<MCQ
+  client:load
+  id="sh70-more-mcq-reduced-sphere"
+  prompt="Given Hₙ(Sᵐ) ≅ ℤ for n = m or n = 0 (and 0 otherwise, for m ≥ 1), what is the reduced homology H̃ₙ(Sᵐ)?"
+  options={[
+    { id: "a", label: "ℤ at n = 0 and n = m, else 0 (same as unreduced)" },
+    { id: "b", label: "ℤ at n = m only, else 0" },
+    { id: "c", label: "ℤ at n = 0 only, else 0" },
+    { id: "d", label: "Always 0" },
+  ]}
+  correct="b"
+  explanation="Reduced homology agrees with ordinary homology except at n=0, where it strips out exactly one ℤ (the one every path-connected space contributes). For m ≥ 1, Sᵐ is path-connected, so H̃₀(Sᵐ) = 0, leaving a single ℤ at n = m."
+/>
+
+</SlideLayout>

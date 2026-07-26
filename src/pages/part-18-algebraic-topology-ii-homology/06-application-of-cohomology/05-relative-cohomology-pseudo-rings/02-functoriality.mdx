@@ -1,0 +1,17 @@
+---
+title: The ring structure is functorial
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+
+<SlideLayout title="The ring structure is functorial">
+
+Everything above is compatible with continuous maps, in exactly the sense you'd hope: a continuous map induces a map on cohomology groups that also respects the cup product.
+
+<Callout kind="theorem" title="Cohomology (pseudo-)rings are functorial">
+Fix a commutative ring $R$ with $1$. Then $H^\bullet(-;R)$ sends (homotopy classes of) spaces and maps to graded rings and ring homomorphisms, and $H^\bullet(-,-;R)$ does the same for pairs of spaces, landing in graded pseudo-rings and pseudo-ring homomorphisms. Maps get reversed along the way — a map $X \to Y$ induces a map $H^\bullet(Y;R) \to H^\bullet(X;R)$ the other direction — exactly the contravariance you already know from ordinary cohomology.
+</Callout>
+
+Unfortunately, unlike with (co)homology *groups*, actually computing the cup product for even nice spaces like CW complexes is a genuinely nontrivial task — passing through differential forms and back (as we did above) is about the only generic trick available, and it only applies with real coefficients. So we won't compute much more directly; instead we build a couple of structural tools that let us determine cup products indirectly.
+
+</SlideLayout>

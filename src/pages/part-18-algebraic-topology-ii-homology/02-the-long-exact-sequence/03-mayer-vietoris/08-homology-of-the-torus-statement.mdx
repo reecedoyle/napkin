@@ -1,0 +1,21 @@
+---
+title: Homology of the torus — statement
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Callout from '@/components/Callout.astro';
+import Term from '@/components/Term.astro';
+
+<SlideLayout title="Homology of the torus — statement">
+
+Up to now, we've been lucky: some piece of every space we split has always been contractible, which makes the Mayer–Vietoris sequence collapse to isomorphisms immediately. The torus is where our luck runs out — and it's a much more instructive computation for it.
+
+<Callout kind="proposition" title="Homology groups of the torus">
+Let $X = S^1 \times S^1$ be the torus. Then
+$$
+\wt H_n(X) \cong \begin{cases} \ZZ^{\oplus 2} & n = 1 \\ \ZZ & n = 2 \\ 0 & \text{otherwise.} \end{cases}
+$$
+</Callout>
+
+This time we'll have to actually pin down what the maps in the long exact sequence look like, rather than getting away with a zero on either side for free.
+
+</SlideLayout>
