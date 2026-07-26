@@ -96,6 +96,7 @@ export const partTitles: Record<string, string> = {
   'part-14-algebraic-nt-i-rings-of-integers': 'Part XIV — Algebraic NT I: Rings of Integers',
   'part-15-algebraic-nt-ii-galois-and-ramification-theory': 'Part XV — Algebraic NT II: Galois and Ramification Theory',
   'part-16-algebraic-topology-i-homotopy': 'Part XVI — Algebraic Topology I: Homotopy',
+  'part-17-category-theory': 'Part XVII — Category Theory',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -165,6 +166,10 @@ export const chapterTitles: Record<string, string> = {
   'part-16-algebraic-topology-i-homotopy/01-some-topological-constructions': 'Chapter 63 — Some topological constructions',
   'part-16-algebraic-topology-i-homotopy/02-fundamental-groups': 'Chapter 64 — Fundamental groups',
   'part-16-algebraic-topology-i-homotopy/03-covering-projections': 'Chapter 65 — Covering projections',
+  'part-17-category-theory/01-objects-and-morphisms': 'Chapter 66 — Objects and morphisms',
+  'part-17-category-theory/02-functors-and-natural-transformations': 'Chapter 67 — Functors and natural transformations',
+  'part-17-category-theory/03-limits-in-categories-to-do': 'Chapter 68 — Limits in categories (TO DO)',
+  'part-17-category-theory/04-abelian-categories': 'Chapter 69 — Abelian categories',
 };
 
 export const sectionTitles: Record<string, string> = {
