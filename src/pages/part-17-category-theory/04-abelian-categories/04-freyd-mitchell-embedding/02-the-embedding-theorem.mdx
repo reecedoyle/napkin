@@ -10,7 +10,7 @@ import Term from '@/components/Term.astro';
 Here's the theorem that makes abstract abelian categories tractable: they're never really as exotic as the axioms make them sound.
 
 <Callout kind="theorem" title="Freyd–Mitchell embedding theorem">
-Let $\AA$ be a small abelian category. Then there exists a ring $R$ (with $1$, but possibly non-commutative) and a full, faithful, <Term k="ac69ExactFunctor">exact</Term> functor from $\AA$ onto the category of left $\catname{Mod}_R$-modules.
+Let $\AA$ be a small abelian category. Then there exists a ring $R$ (with $1$, but possibly non-commutative) and a full, faithful, <Term k="ac69ExactFunctor">exact</Term> functor from $\AA$ into the category $\catname{Mod}_R$ of left $R$-modules.
 </Callout>
 
 Here a functor is <Term k="ac69FreydMitchell">exact</Term> if it sends exact sequences to exact sequences. The "small" hypothesis is a technical obstruction requiring $\obj(\AA)$ to actually be a set; we'll gloss over it, since it can almost always be worked around with enough set-theoretic care.

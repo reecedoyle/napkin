@@ -9,7 +9,7 @@ import Problem from '@/components/Problem';
 <Problem
   client:load
   id="oam-prob-problem-zero-object-epic"
-  difficulty="standard"
+  difficulty="starred"
   prompt="Consider a category A with a zero object — an object 0 which is both initial and terminal. Given objects X and Y in A, prove that the projection X × Y → X is epic."
   hint="Use the zero object to build a section s: X → X × Y of the projection π_X, i.e. an arrow with π_X∘s = id_X. A right inverse of π_X makes π_X automatically right-cancellable."
   solution="Since 0 is terminal, there is a (unique) arrow z1: X → 0; since 0 is initial, there is a (unique) arrow z2: 0 → Y. Let z = z2∘z1: X → Y. By the universal property of the product, the pair (id_X: X→X, z: X→Y) determines a unique arrow s: X → X×Y with π_X∘s = id_X and π_Y∘s = z. In particular s is a section of π_X: π_X∘s = id_X. Now suppose g, h: X → A satisfy g∘π_X = h∘π_X. Composing both sides on the right with s: g∘π_X∘s = h∘π_X∘s, i.e. g∘id_X = h∘id_X, i.e. g = h. So π_X is right-cancellable, i.e. epic."
