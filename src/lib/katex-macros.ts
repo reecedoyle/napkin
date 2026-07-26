@@ -128,7 +128,7 @@ export const napkinKatexMacros: Record<string, string> = {
   '\\Ram': '\\operatorname{Ram}',
   '\\RP': '\\mathbb{RP}',
   '\\CP': '\\mathbb{CP}',
-  '\\catname': '\\mathsf{#1}',
+  '\\catname': '\\mathrm{#1}',
   '\\obj': '\\operatorname{obj}',
   '\\Set': '\\mathrm{Set}',
   '\\Grp': '\\mathrm{Grp}',
