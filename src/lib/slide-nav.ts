@@ -97,6 +97,7 @@ export const partTitles: Record<string, string> = {
   'part-15-algebraic-nt-ii-galois-and-ramification-theory': 'Part XV — Algebraic NT II: Galois and Ramification Theory',
   'part-16-algebraic-topology-i-homotopy': 'Part XVI — Algebraic Topology I: Homotopy',
   'part-17-category-theory': 'Part XVII — Category Theory',
+  'part-18-algebraic-topology-ii-homology': 'Part XVIII — Algebraic Topology II: Homology',
 };
 
 export const chapterTitles: Record<string, string> = {
@@ -170,6 +171,12 @@ export const chapterTitles: Record<string, string> = {
   'part-17-category-theory/02-functors-and-natural-transformations': 'Chapter 67 — Functors and natural transformations',
   'part-17-category-theory/03-limits-in-categories-to-do': 'Chapter 68 — Limits in categories (TO DO)',
   'part-17-category-theory/04-abelian-categories': 'Chapter 69 — Abelian categories',
+  'part-18-algebraic-topology-ii-homology/01-singular-homology': 'Chapter 70 — Singular homology',
+  'part-18-algebraic-topology-ii-homology/02-the-long-exact-sequence': 'Chapter 71 — The long exact sequence',
+  'part-18-algebraic-topology-ii-homology/03-excision-and-relative-homology': 'Chapter 72 — Excision and relative homology',
+  'part-18-algebraic-topology-ii-homology/04-bonus-cellular-homology': 'Chapter 73 — Bonus: Cellular homology',
+  'part-18-algebraic-topology-ii-homology/05-singular-cohomology': 'Chapter 74 — Singular cohomology',
+  'part-18-algebraic-topology-ii-homology/06-application-of-cohomology': 'Chapter 75 — Application of cohomology',
 };
 
 export const sectionTitles: Record<string, string> = {
