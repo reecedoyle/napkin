@@ -1,0 +1,18 @@
+---
+title: 'Problem: ℤ/2ℤ-cohomology of ℝℙⁿ'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: ℤ/2ℤ-cohomology of ℝℙⁿ">
+
+<Problem
+  client:load
+  id="sc74-prob-rpn-mod-2-cohomology"
+  difficulty="hard"
+  prompt="Compute the mod-2 cohomology of real projective space: prove that Hᵐ(ℝℙⁿ; ℤ/2ℤ) ≅ ℤ/2ℤ for every 0 ≤ m ≤ n, and is 0 otherwise."
+  hint="Use the CW structure on ℝℙⁿ with exactly one cell in each dimension 0, 1, …, n, and run cellular cohomology with ℤ/2ℤ coefficients. What do the cellular boundary maps become mod 2?"
+  solution="Give ℝℙⁿ its standard CW structure with exactly one cell eᵏ in each dimension k = 0, 1, …, n. The integral cellular chain complex has each Cₖ ≅ ℤ, and the boundary maps alternate between multiplication by 0 and by 2: ∂ₖ is multiplication by 1 + (−1)ᵏ, i.e. it is ×2 when k is even and ×0 when k is odd. Now apply the cellular cochain functor Hom(−; ℤ/2ℤ). Each cochain group is Hom(ℤ, ℤ/2ℤ) ≅ ℤ/2ℤ, and every coboundary map is the dual of ×2 or ×0. But multiplication by 2 is the zero map on ℤ/2ℤ, and ×0 is of course zero. Hence every coboundary map in the mod-2 cellular cochain complex is zero. Therefore the cohomology equals the cochain groups themselves: Hᵐ(ℝℙⁿ; ℤ/2ℤ) ≅ ℤ/2ℤ for each 0 ≤ m ≤ n, and 0 in all other degrees. (Equivalently, H*(ℝℙⁿ; ℤ/2ℤ) is the truncated polynomial ring (ℤ/2ℤ)[α]/(αⁿ⁺¹) with α in degree 1 — one ℤ/2ℤ in each degree from 0 to n.)"
+/>
+
+</SlideLayout>

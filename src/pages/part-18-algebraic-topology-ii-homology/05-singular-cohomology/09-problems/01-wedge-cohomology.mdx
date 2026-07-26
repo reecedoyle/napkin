@@ -1,0 +1,18 @@
+---
+title: 'Problem: cohomology of a wedge'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: cohomology of a wedge">
+
+<Problem
+  client:load
+  id="sc74-prob-wedge-cohomology"
+  difficulty="standard"
+  prompt="Let X and Y be well-pointed spaces (their basepoints have contractible neighborhoods, e.g. CW complexes). Prove that for any coefficient group G and any n, H̃ⁿ(X ∨ Y; G) ≅ H̃ⁿ(X; G) ⊕ H̃ⁿ(Y; G)."
+  hint="Cohomology is contravariant. Use the inclusions iₓ: X → X ∨ Y and i_Y: Y → X ∨ Y together with the collapse maps rₓ: X ∨ Y → X (collapse Y to the basepoint) and r_Y: X ∨ Y → Y."
+  solution="Because X and Y are well-pointed, (X ∨ Y, {∗}) is a good pair, so reduced cohomology is defined and behaves well. Consider the two inclusions iₓ: X → X ∨ Y and i_Y: Y → X ∨ Y, and the two collapse (retraction) maps rₓ: X ∨ Y → X sending Y to the basepoint, and r_Y: X ∨ Y → Y sending X to the basepoint. Note rₓ ∘ iₓ = id_X and r_Y ∘ i_Y = id_Y. Applying the contravariant functor H̃ⁿ(−; G), define φ = (iₓ*, i_Y*): H̃ⁿ(X ∨ Y; G) → H̃ⁿ(X; G) ⊕ H̃ⁿ(Y; G) and ψ = rₓ* + r_Y*: H̃ⁿ(X; G) ⊕ H̃ⁿ(Y; G) → H̃ⁿ(X ∨ Y; G). Then φ ∘ ψ sends (a, b) to (iₓ*rₓ*a + iₓ*r_Y*b, i_Y*rₓ*a + i_Y*r_Y*b) = ((rₓiₓ)*a + (r_Yiₓ)*b, (rₓi_Y)*a + (r_Yi_Y)*b). Since rₓ ∘ iₓ = id and r_Y ∘ iₓ is the constant map to the basepoint (so induces 0 on reduced cohomology), and symmetrically, this equals (a, b). Hence φ ∘ ψ = id, so φ is surjective. For injectivity, the collapse maps also satisfy iₓ*rₓ* + i_Y*r_Y* = id on H̃ⁿ(X ∨ Y; G) because rₓ and r_Y jointly recover a class — concretely, the good pair (X ∨ Y, {∗}) splits as the wedge, and ψ ∘ φ = id. Thus φ is an isomorphism, giving H̃ⁿ(X ∨ Y; G) ≅ H̃ⁿ(X; G) ⊕ H̃ⁿ(Y; G)."
+/>
+
+</SlideLayout>

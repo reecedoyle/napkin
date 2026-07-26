@@ -90,3 +90,23 @@ test.describe('Singular cohomology — ProofReveal flow (Ext(ℤ/nℤ, G) = G/nG
     await expect(article.getByText(/determined by where 1 goes/i)).toBeVisible();
   });
 });
+
+// ── Problem flow ──────────────────────────────────────────────────────────────
+test.describe('Singular cohomology — Problem flow (ℤ/2ℤ-cohomology of ℝℙⁿ)', () => {
+  const SLIDE = `${BASE}/09-problems/03-rpn-mod-2-cohomology`;
+  const PROB_KEY = `napkin:exercise:${SLIDE}#sc74-prob-rpn-mod-2-cohomology`;
+
+  test('showing solution writes to localStorage', async ({ page }) => {
+    await page.goto(SLIDE);
+
+    const article = page.getByRole('article');
+    // "truncated polynomial ring" only appears inside the solution text.
+    await expect(article.getByText(/truncated polynomial ring/i)).toBeHidden();
+
+    await page.getByRole('button', { name: /show solution/i }).first().click();
+    await expect(article.getByText(/truncated polynomial ring/i)).toBeVisible();
+
+    const stored = await page.evaluate((k) => window.localStorage.getItem(k), PROB_KEY);
+    expect(stored).not.toBeNull();
+  });
+});

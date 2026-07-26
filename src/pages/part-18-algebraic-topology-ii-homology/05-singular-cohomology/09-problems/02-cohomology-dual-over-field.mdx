@@ -1,0 +1,18 @@
+---
+title: 'Problem: cohomology is dual to homology over a field'
+---
+import SlideLayout from '@/layouts/SlideLayout.astro';
+import Problem from '@/components/Problem';
+
+<SlideLayout title="Problem: cohomology is dual to homology over a field">
+
+<Problem
+  client:load
+  id="sc74-prob-cohomology-dual-over-field"
+  difficulty="hard"
+  prompt="Let F be a field of characteristic zero and let X be a space whose integral homology groups are all finitely generated. Prove that Hᵏ(X; F) ≅ (Hₖ(X; F))∨, the F-linear dual. Thus over a characteristic-zero field, cohomology is exactly the dual of homology."
+  hint="Apply the universal coefficient theorem for cohomology. A characteristic-zero field is a ℚ-vector space, hence divisible, hence injective as a ℤ-module — so the Ext term vanishes."
+  solution="The universal coefficient theorem gives a (split) short exact sequence 0 → Ext(Hₖ₋₁(X; ℤ), F) → Hᵏ(X; F) → Hom(Hₖ(X; ℤ), F) → 0. Since F has characteristic zero it is a ℚ-vector space, so it is divisible, and a divisible abelian group is an injective ℤ-module; therefore Ext(A, F) = 0 for every A. The sequence collapses to an isomorphism Hᵏ(X; F) ≅ Hom(Hₖ(X; ℤ), F). Now write the finitely generated group Hₖ(X; ℤ) ≅ ℤ^{bₖ} ⊕ T with T finite torsion and bₖ the k-th Betti number. Then Hom(ℤ^{bₖ} ⊕ T, F) = Hom(ℤ^{bₖ}, F) ⊕ Hom(T, F) = F^{bₖ} ⊕ 0, because any homomorphism from a torsion group into the torsion-free group F must be zero. Hence Hᵏ(X; F) ≅ F^{bₖ}. On the homology side, Hₖ(X; F) = Hₖ(X; ℤ) ⊗ F ≅ F^{bₖ}, since tensoring with the field F kills the torsion T and turns each ℤ into F. So both Hᵏ(X; F) and Hₖ(X; F) are F-vector spaces of the same finite dimension bₖ, and the pairing ⟨φ, c⟩ = φ(c) coming from Hom(Hₖ(X; ℤ), F) identifies Hᵏ(X; F) with the F-linear dual (Hₖ(X; F))∨. This is the sense in which cohomology is the dual of homology over F."
+/>
+
+</SlideLayout>
