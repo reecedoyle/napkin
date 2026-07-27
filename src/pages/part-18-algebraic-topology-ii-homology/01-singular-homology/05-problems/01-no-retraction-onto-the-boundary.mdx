@@ -11,8 +11,8 @@ import Problem from '@/components/Problem';
   id="sh70-prob-no-retraction"
   difficulty="standard"
   prompt="For n ≥ 1, show that the composition S^(n−1) ↪ D^n →F→ S^(n−1) cannot be the identity map on S^(n−1), for any continuous F. (Here D^n is the closed n-disk, S^(n−1) is its boundary sphere, and the first map is the inclusion.)"
-  hint="Take the (n−1)st homology groups of the composition."
-  solution="Apply the functor H_(n−1) to the whole composition S^(n−1) ↪ D^n →F→ S^(n−1). Since D^n is contractible, H_(n−1)(D^n) = 0 for n ≥ 1 (using n−1 ≥ 0). So on homology the composition becomes ℤ → 0 → ℤ (using H_(n−1)(S^(n−1)) ≅ ℤ at both ends), induced by H_(n−1) applied to the two maps. If the original composition were the identity on S^(n−1), then by functoriality the induced composition ℤ → 0 → ℤ would have to be the identity on ℤ — but any map that factors through the trivial group 0 is the zero map, and the zero map on ℤ is not the identity. Contradiction, so no such continuous F exists."
+  hint="Take the (n−1)st reduced homology groups H̃ of the composition."
+  solution="Apply the reduced homology functor H̃_(n−1) to the whole composition S^(n−1) ↪ D^n →F→ S^(n−1). Since D^n is contractible, H̃_(n−1)(D^n) = 0 for every n ≥ 1. So on reduced homology the composition becomes ℤ → 0 → ℤ, using H̃_(n−1)(S^(n−1)) ≅ ℤ for all n ≥ 1 — this includes the n = 1 case, where H̃_0(S^0) ≅ ℤ (reduced homology counts one fewer than the two components of S^0). (Working with reduced homology is what makes the argument uniform: ordinary H_0 would give H_0(D^1) = ℤ ≠ 0 and H_0(S^0) = ℤ², breaking the clean ℤ → 0 → ℤ shape for n = 1.) If the original composition were the identity on S^(n−1), then by functoriality the induced composition ℤ → 0 → ℤ would have to be the identity on ℤ — but any map that factors through the trivial group 0 is the zero map, and the zero map on ℤ is not the identity. Contradiction, so no such continuous F exists."
 />
 
 </SlideLayout>
