@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { loadExercise, saveExercise, currentSlidePath } from '../lib/progress';
+import MathText from './MathText';
 
 export interface MCQOption {
   id: string;
@@ -38,7 +39,7 @@ export default function MCQ({ id, prompt, options, correct, explanation }: Props
   return (
     <div className="not-prose my-6 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
       <div className="text-sm uppercase tracking-wider text-stone-500 mb-2">Exercise</div>
-      <div className="mb-4">{prompt}</div>
+      <MathText block className="mb-4" content={prompt} />
       <ul className="space-y-2">
         {options.map((opt) => {
           const isSelected = selected === opt.id;
@@ -59,7 +60,7 @@ export default function MCQ({ id, prompt, options, correct, explanation }: Props
                   isWrong ? 'bg-rose-100 border-rose-500 dark:bg-rose-950/50' : '',
                 ].join(' ')}
               >
-                {opt.label}
+                <MathText content={opt.label} />
               </button>
             </li>
           );
@@ -67,7 +68,7 @@ export default function MCQ({ id, prompt, options, correct, explanation }: Props
       </ul>
       {revealed && explanation && (
         <div className="mt-4 text-sm text-stone-700 dark:text-stone-300">
-          <strong>Why:</strong> {explanation}
+          <strong>Why:</strong> <MathText content={explanation} />
         </div>
       )}
     </div>

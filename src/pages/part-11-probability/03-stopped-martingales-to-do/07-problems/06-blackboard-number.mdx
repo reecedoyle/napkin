@@ -13,18 +13,18 @@ import Problem from '@/components/Problem';
   prompt="The number $1$ is written on a blackboard. Every minute, if $a$ is on the board, it is erased and replaced by a real number chosen uniformly at random from $[0, 2.01a]$.
 
 What is the probability that the resulting sequence of numbers approaches $0$?"
-  hint="It occurs with probability $1$. Let $X_n$ be the number on the board at step $n$, and let $\\mu = \\frac{1}{2.01} \\int_0^{2.01} \\log t \\, dt$. Show that $\\log(X_n) - n\\mu$ is a martingale."
+  hint="It occurs with probability $1$. Let $X_n$ be the number on the board at step $n$, and let $\mu = \frac{1}{2.01} \int_0^{2.01} \log t \, dt$. Show that $\log(X_n) - n\mu$ is a martingale."
   solution="The answer is probability $1$ — the sequence almost surely approaches $0$.
 
-**Martingale approach.** Fix $\\mu = \\mathbb{E}[\\log U]$ where $U$ is uniform on $[0, 2.01]$:
+**Martingale approach.** Fix $\mu = \mathbb{E}[\log U]$ where $U$ is uniform on $[0, 2.01]$:
 
-$\\mu = \\frac{1}{2.01} \\int_0^{2.01} \\log t \\, dt = \\frac{1}{2.01}[t\\log t - t]_0^{2.01} = \\log(2.01) - 1 < 0$
+$\mu = \frac{1}{2.01} \int_0^{2.01} \log t \, dt = \frac{1}{2.01}[t\log t - t]_0^{2.01} = \log(2.01) - 1 < 0$
 
-since $2.01 < e$. (We have $\\log(2.01) \\approx 0.699 < 1$, so $\\mu < 0$.)
+since $2.01 < e$. (We have $\log(2.01) \approx 0.699 < 1$, so $\mu < 0$.)
 
-The process $M_n = \\log(X_n) - n\\mu$ is a martingale: given $X_{n-1}$, we have $X_n = X_{n-1} \\cdot U_n / (2.01)$... actually $X_n$ is uniform on $[0, 2.01 X_{n-1}]$, so $\\log(X_n) = \\log(2.01 X_{n-1} \\cdot U)$ where $U$ is uniform on $[0,1]$. Then $\\mathbb{E}[\\log X_n \\mid X_{n-1}] = \\log(X_{n-1}) + \\mu$, so $M_n$ is a martingale.
+The process $M_n = \log(X_n) - n\mu$ is a martingale: given $X_{n-1}$, we have $X_n = X_{n-1} \cdot U_n / (2.01)$... actually $X_n$ is uniform on $[0, 2.01 X_{n-1}]$, so $\log(X_n) = \log(2.01 X_{n-1} \cdot U)$ where $U$ is uniform on $[0,1]$. Then $\mathbb{E}[\log X_n \mid X_{n-1}] = \log(X_{n-1}) + \mu$, so $M_n$ is a martingale.
 
-By the law of large numbers (or by the convergence of $M_n$), $\\log(X_n)/n \\to \\mu < 0$ almost surely. Since $\\mu < 0$, we have $X_n = e^{\\log X_n} \\to 0$ almost surely."
+By the law of large numbers (or by the convergence of $M_n$), $\log(X_n)/n \to \mu < 0$ almost surely. Since $\mu < 0$, we have $X_n = e^{\log X_n} \to 0$ almost surely."
 />
 
 </SlideLayout>

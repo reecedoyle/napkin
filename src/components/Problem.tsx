@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { loadExercise, saveExercise, currentSlidePath } from '../lib/progress';
+import MathText from './MathText';
 
 type Difficulty = 'standard' | 'starred' | 'daggered';
 
@@ -52,7 +53,7 @@ export default function Problem({ id, prompt, hint, solution, difficulty = 'stan
         )}
       </div>
 
-      <div className="mb-4">{prompt}</div>
+      <MathText block className="mb-4" content={prompt} />
 
       {hint && stage === 'idle' && (
         <button
@@ -76,7 +77,7 @@ export default function Problem({ id, prompt, hint, solution, difficulty = 'stan
       {stage !== 'idle' && hint && (
         <div className="mt-2 border-l-2 border-stone-300 dark:border-stone-700 pl-3 text-sm text-stone-700 dark:text-stone-300">
           <div className="text-xs uppercase tracking-wider text-stone-500 mb-1">Hint</div>
-          {hint}
+          <MathText content={hint} />
         </div>
       )}
 
@@ -95,7 +96,7 @@ export default function Problem({ id, prompt, hint, solution, difficulty = 'stan
       {stage === 'solved' && (
         <div className="mt-4 border-t border-stone-200 dark:border-stone-800 pt-4">
           <div className="text-xs uppercase tracking-wider text-stone-500 mb-2">Solution</div>
-          <div>{solution}</div>
+          <MathText block content={solution} />
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { loadExercise, saveExercise, currentSlidePath } from '../lib/progress';
+import MathText from './MathText';
 
 interface Props {
   id: string;
@@ -24,7 +25,7 @@ export default function ProofReveal({ id, prompt, solution }: Props) {
   return (
     <div className="not-prose my-6 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
       <div className="text-sm uppercase tracking-wider text-stone-500 mb-2">Exercise (proof)</div>
-      <div className="mb-4">{prompt}</div>
+      <MathText block className="mb-4" content={prompt} />
       {!revealed ? (
         <div>
           <p className="text-sm text-stone-600 dark:text-stone-400 mb-3">
@@ -41,7 +42,7 @@ export default function ProofReveal({ id, prompt, solution }: Props) {
       ) : (
         <div className="border-t border-stone-200 dark:border-stone-800 pt-4">
           <div className="text-sm uppercase tracking-wider text-stone-500 mb-2">Solution</div>
-          <div>{solution}</div>
+          <MathText block content={solution} />
         </div>
       )}
     </div>

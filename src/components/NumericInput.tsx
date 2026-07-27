@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { loadExercise, saveExercise, currentSlidePath } from '../lib/progress';
 import { answersEqual } from '../lib/answer-normalise';
+import MathText from './MathText';
 
 interface Props {
   id: string;
@@ -40,7 +41,7 @@ export default function NumericInput({ id, prompt, expected, placeholder, explan
       className="not-prose my-6 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 p-5"
     >
       <div className="text-sm uppercase tracking-wider text-stone-500 mb-2">Exercise</div>
-      <div className="mb-4">{prompt}</div>
+      <MathText block className="mb-4" content={prompt} />
       <div className="flex gap-2">
         <input
           type="text"
@@ -66,7 +67,7 @@ export default function NumericInput({ id, prompt, expected, placeholder, explan
       )}
       {outcome === 'correct' && explanation && (
         <div className="mt-3 text-sm text-stone-700 dark:text-stone-300">
-          <strong>Why:</strong> {explanation}
+          <strong>Why:</strong> <MathText content={explanation} />
         </div>
       )}
     </form>

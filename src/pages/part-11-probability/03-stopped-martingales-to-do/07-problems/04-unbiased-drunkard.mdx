@@ -15,19 +15,19 @@ import Problem from '@/components/Problem';
 **(a)** Find the probability it reaches $+8$ before $-17$.
 
 **(b)** Find the expected number of steps to reach either endpoint."
-  solution="Let $X_n$ be the position at time $n$ and $\\tau$ the stopping time (first time the walk hits $-17$ or $+8$).
+  solution="Let $X_n$ be the position at time $n$ and $\tau$ the stopping time (first time the walk hits $-17$ or $+8$).
 
-**(a)** The symmetric random walk is a martingale. By the optional stopping theorem (the walk is bounded, so the finite-money condition holds): $\\mathbb{E}[X_\\tau] = \\mathbb{E}[X_0] = 0$.
+**(a)** The symmetric random walk is a martingale. By the optional stopping theorem (the walk is bounded, so the finite-money condition holds): $\mathbb{E}[X_\tau] = \mathbb{E}[X_0] = 0$.
 
-Let $p = \\Pr[X_\\tau = 8]$. Then $\\mathbb{E}[X_\\tau] = 8p + (-17)(1-p) = 25p - 17$. Setting this to $0$ gives $p = 17/25$.
+Let $p = \Pr[X_\tau = 8]$. Then $\mathbb{E}[X_\tau] = 8p + (-17)(1-p) = 25p - 17$. Setting this to $0$ gives $p = 17/25$.
 
-**(b)** We need a second martingale. From Problem (a) in the examples section, $Y_n = X_n^2 - n$ is a martingale. By the optional stopping theorem: $\\mathbb{E}[Y_\\tau] = \\mathbb{E}[Y_0] = 0$.
+**(b)** We need a second martingale. From Problem (a) in the examples section, $Y_n = X_n^2 - n$ is a martingale. By the optional stopping theorem: $\mathbb{E}[Y_\tau] = \mathbb{E}[Y_0] = 0$.
 
-So $\\mathbb{E}[X_\\tau^2] = \\mathbb{E}[\\tau]$.
+So $\mathbb{E}[X_\tau^2] = \mathbb{E}[\tau]$.
 
-$\\mathbb{E}[X_\\tau^2] = 8^2 \\cdot (17/25) + (-17)^2 \\cdot (8/25) = 64 \\cdot 17/25 + 289 \\cdot 8/25 = (1088 + 2312)/25 = 3400/25 = 136$.
+$\mathbb{E}[X_\tau^2] = 8^2 \cdot (17/25) + (-17)^2 \cdot (8/25) = 64 \cdot 17/25 + 289 \cdot 8/25 = (1088 + 2312)/25 = 3400/25 = 136$.
 
-Therefore $\\mathbb{E}[\\tau] = 136$."
+Therefore $\mathbb{E}[\tau] = 136$."
 />
 
 </SlideLayout>
