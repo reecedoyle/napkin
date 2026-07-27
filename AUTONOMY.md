@@ -127,3 +127,11 @@ user asks.
 
 Everything else — planning, briefs, authoring, glossary, metadata, merge,
 and the common failure modes — is scripted or gated.
+
+## Keeping already-covered parts in sync with upstream
+
+When the vendored Napkin source (`vendor/napkin` submodule) is bumped, use
+`scripts/plan-reconcile.mjs --since <old-pin>` to find which *already-covered*
+chapters had real math/notation changes (vs the cosmetic proofreading that
+dominates upstream updates) and fold them in via a diff-scoped reviewer pass.
+Full runbook: **`RECONCILE.md`**.
