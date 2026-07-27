@@ -251,6 +251,17 @@ export function getAllSlides(): readonly SlideEntry[] {
   return slides;
 }
 
+/**
+ * A chapter whose upstream Napkin source is marked `(TO DO)` / "to be
+ * written". Its slides are drafts extracted from an unfinished source, so
+ * the UI flags them (a banner on the slide, dimmed entries in the menu).
+ * The signal is the `-to-do` dir-slug suffix, applied by the part planner
+ * for every source chapter carrying a TO-DO marker.
+ */
+export function isTodoChapter(chapter: string | undefined): boolean {
+  return chapter ? /-to-do$/.test(chapter) : false;
+}
+
 export function getSlidesForChapter(part: string, chapter: string): SlideEntry[] {
   return slides.filter((s) => s.part === part && s.chapter === chapter);
 }

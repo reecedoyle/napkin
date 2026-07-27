@@ -4,6 +4,7 @@ import {
   getSlideNeighbors,
   getSlideUrlParts,
   getSectionTitle,
+  isTodoChapter,
   partTitles,
   chapterTitles,
 } from '../lib/slide-nav';
@@ -33,6 +34,10 @@ const sectionLabel = urlParts.part && urlParts.chapter && urlParts.section
 const headerCrumbs = [partLabel, chapterLabel, sectionLabel].filter(
   (s): s is string => Boolean(s),
 );
+
+// This chapter mirrors a Napkin source section its author marked "(TO DO)".
+// Warn the reader that the slides are drafts of unfinished upstream material.
+const isTodo = isSlide && isTodoChapter(urlParts.chapter);
 
 // Render the slot to HTML so we can both inject it as the page body AND
 // scan for `data-term-key` attributes emitted by <Term>. The sidebar then
@@ -139,6 +144,19 @@ const bodyHtml = termKeys.length > 0
 
     <main class="mx-auto max-w-[760px] px-6 py-12">
       <h1 class="text-3xl font-semibold mb-8 font-serif">{title}</h1>
+      {isTodo && (
+        <div
+          role="note"
+          class="not-prose mb-8 flex gap-3 rounded-md border border-amber-300 dark:border-amber-800/70 bg-amber-50 dark:bg-amber-950/40 px-4 py-3 text-sm text-amber-900 dark:text-amber-200"
+        >
+          <span aria-hidden="true" class="text-base leading-none">🚧</span>
+          <span>
+            <strong class="font-semibold">Work in progress.</strong> This chapter mirrors a section
+            of Napkin that its author has marked <em>“TO&nbsp;DO”</em> / not yet fully written, so it
+            may be incomplete or rough compared with the rest of the portal.
+          </span>
+        </div>
+      )}
       <article class="prose prose-stone dark:prose-invert prose-headings:font-serif max-w-none" set:html={bodyHtml} />
 
       {showNav && (

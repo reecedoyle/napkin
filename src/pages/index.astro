@@ -3,6 +3,7 @@ import SlideLayout from '../layouts/SlideLayout.astro';
 import {
   getAllSlides,
   getSectionTitle,
+  isTodoChapter,
   partTitles,
   chapterTitles,
 } from '../lib/slide-nav';
@@ -55,10 +56,16 @@ const parts: PartGroup[] = [...partMap.entries()].map(([partDir, chapMap]) => {
       <h2>{partTitles[p.dir] ?? p.dir}</h2>
       <ul>
         {p.chapters.map((c) => (
-          <li>
+          <li class={isTodoChapter(c.dir) ? 'opacity-50' : undefined}>
             <a href={c.firstSlideUrl}>
               {chapterTitles[`${p.dir}/${c.dir}`] ?? c.dir}
             </a>
+            {isTodoChapter(c.dir) && (
+              <span
+                class="not-prose ml-2 align-middle rounded border border-amber-300 dark:border-amber-800/70 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 text-[0.7rem] font-medium uppercase tracking-wide text-amber-800 dark:text-amber-300"
+                title="Upstream Napkin source is marked TO DO / not yet written"
+              >🚧 Work in progress</span>
+            )}
             <ul>
               {c.sections.map((s) => (
                 <li>
